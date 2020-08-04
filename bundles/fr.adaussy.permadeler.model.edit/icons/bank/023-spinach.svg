@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'
+          'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg contentScriptType="text/ecmascript" zoomAndPan="magnify" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" id="Capa_1" style="enable-background:new 0 0 512 512;" version="1.1" width="100pt" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" height="100.0pt" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+>
+<g
+  >
+	<rect width="30" x="301" height="151" y="361" style="fill:#193D2F;"
+    />
+	<rect width="30" x="181" height="151" y="361" style="fill:#274E2D;"
+    />
+	<path style="fill:#193D2F;" d="M181,135v166c0,41.355,33.645,75,75,75h30c8.271,0,15,6.729,15,15h30c0-8.271,6.729-15,15-15h30   c41.355,0,75-33.645,75-75V135H181z"
+    />
+	<path style="fill:#274E2D;" d="M451,135C451,60.561,390.439,0,316,0l-60,135l60,135C390.439,270,451,209.439,451,135z"
+    />
+	<path style="fill:#365F2C;" d="M181,135v45c0,74.439,60.561,135,135,135V0C241.561,0,181,60.561,181,135z"
+    />
+	<path style="fill:#44702A;" d="M331,135C331,60.561,270.439,0,196,0l-60,135l60,135C270.439,270,331,209.439,331,135z"
+    />
+	<path style="fill:#274E2D;" d="M61,180v121c0,41.355,33.645,75,75,75h30c8.271,0,15,6.729,15,15h30c0-8.271,6.729-15,15-15h30   c41.355,0,75-33.645,75-75V180H61z"
+    />
+	<path style="fill:#365F2C;" d="M61,135v45c0,74.439,60.561,135,135,135V0C121.561,0,61,60.561,61,135z"
+    />
+	<polygon style="fill:#365F2C;" points="271,315 236,315 256,512 271,512  "
+    />
+	<rect width="15" x="241" height="197" y="315" style="fill:#44702A;"
+    />
+	<path style="fill:#365F2C;" d="M206,270l50,121h15c0-8.271,6.729-15,15-15h30c41.355,0,75-33.645,75-75V135L206,270z"
+    />
+	<path style="fill:#44702A;" d="M391,135C391,60.561,330.439,0,256,0l-50,135l50,135C330.439,270,391,209.439,391,135z"
+    />
+	<path style="fill:#44702A;" d="M121,180v121c0,41.355,33.645,75,75,75h30c8.271,0,15,6.729,15,15h15v-76L121,180z"
+    />
+	<path style="fill:#63842C;" d="M121,135v45c0,74.439,60.561,135,135,135V0C181.561,0,121,60.561,121,135z"
+    />
+</g
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</svg
+  >

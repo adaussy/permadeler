@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+  Copyright (c) 2020 Arthur Daussy.
+ 
+  This program and the accompanying materials are made 
+  available under the terms of the Eclipse Public License 2.0 
+  which is available at https://www.eclipse.org/legal/epl-2.0/ 
+  Contributors:
+  Arthur Daussy - initial API and implementation.
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Permadeler -->
+      <package
+            uri="http://www.example.org/fr.adaussy.permadeler.model"
+            class="fr.adaussy.permadeler.model.Permadeler.PermadelerPackage"
+            genModel="model/Permadeler.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated Permadeler -->
+      <parser
+            contentTypeIdentifier="permadeler"
+            class="fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated Permadeler -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="permadeler"
+            id="permadeler"
+            name="%_UI_Permadeler_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://www.example.org/fr.adaussy.permadeler.model"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+   
+     <extension
+         point="org.eclipse.emf.ecore.factory_override">
+      <factory
+            class="fr.adaussy.permadeler.model.Permadeler.impl.CustomPermadelerFactoryImpl"
+            uri="http://www.example.org/fr.adaussy.permadeler.model">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.content_parser">
+      <parser
+            class="fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceFactoryCustomImpl"
+            contentTypeIdentifier="fr.adaussy.permadeler.model.permadeler">
+      </parser>
+   </extension>
+
+</plugin>

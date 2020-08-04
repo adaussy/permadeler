@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:basic_1="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_EI7oACerEeWxCPrV0pAZQQ" featurename="descriptors" parentElementId="xpath:/">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_KMklcCerEeWxCPrV0pAZQQ" elementId="fr.adaussy.permadeler.rcp.timeview" label="Time view" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/Sample.png" tooltip="" allowMultiple="true" category="Permadeller" closeable="true" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.timeview.TimeViewPart">
+      <tags>View</tags>
+      <tags>categoryTag:Permadeller</tags>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_R9wwwIuHEeq17LNsNIJ33Q" featurename="mainMenu" parentElementId="IDEWindow">
+    <elements xsi:type="menu:Menu" xmi:id="_eY8fEIuHEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.menu.main" label="Main menu">
+      <children xsi:type="menu:Menu" xmi:id="_UpCFkIvGEeqeaba_67ym5g" elementId="fr.adaussy.permadeler.rcp.menu.file" label="File">
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_gXiSsIuHEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.directmenuitem.load" label="Load" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.LoadProjectMenu"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_WbQ5cJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.menu.edit" label="Edit">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_2XrywJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handledmenuitem.undo" label="Undo" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/undo_edit.gif" command="_ba7RYJTgEeqWsP_O9XzfKw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_7jYmIJThEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handledmenuitem.redo" label="Redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" command="_dBOg0JTgEeqWsP_O9XzfKw"/>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ayzpYIuIEeq17LNsNIJ33Q" featurename="children" parentElementId="org.eclipse.ui.ide.perspectivestack"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_uQOrYIuIEeq17LNsNIJ33Q" featurename="children" parentElementId="IDEWindow">
+    <elements xsi:type="advanced:PerspectiveStack" xmi:id="_yWgLIIuyEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.perspectivestack.perspectiveStact" selectedElement="_0vATkIuyEeq17LNsNIJ33Q">
+      <children xsi:type="advanced:Perspective" xmi:id="_0vATkIuyEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.perspective.edit" selectedElement="_xi5WAIuIEeq17LNsNIJ33Q" label="Edit">
+        <children xsi:type="basic_1:PartSashContainer" xmi:id="_xi5WAIuIEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partsashcontainer.mainStack" containerData="20" selectedElement="_vF8rQIuwEeq17LNsNIJ33Q" horizontal="true">
+          <children xsi:type="basic_1:PartSashContainer" xmi:id="_vF8rQIuwEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partsashcontainer.left" containerData="30" selectedElement="_sMv7cIuuEeq17LNsNIJ33Q">
+            <children xsi:type="basic_1:PartStack" xmi:id="_sMv7cIuuEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partstack.leftstack" selectedElement="_5r0k8IuIEeq17LNsNIJ33Q">
+              <children xsi:type="basic_1:Part" xmi:id="_5r0k8IuIEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.part.knowledgebase" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart" label="Knowledge Base" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/bookmarks_view.png">
+                <menus xmi:id="_YWrWMKvqEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.menu.knowledge.viewmenu" label="Calendar">
+                  <tags>ViewMenu</tags>
+                  <children xsi:type="menu:DirectMenuItem" xmi:id="_bjiwQKvpEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.directmenuitem.knowloedge.calendar.sow" label="Sow period" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/bank/preview/calendar-sow.png" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SowCalendarKnowledgeBaseDirectMenu"/>
+                </menus>
+                <toolbar xmi:id="_IYw6QKvlEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.toolbar.0">
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_VVw8MKvlEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.addplant" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/add.gif" tooltip="Add " contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.AddPlantHandler"/>
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_F1wjQKvrEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.knowledge.types.sort" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/alphab_sort_co.gif" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SortSpeciesDirectMenu"/>
+                </toolbar>
+              </children>
+              <children xsi:type="basic_1:Part" xmi:id="_jlNykI6bEeq6s96d8jhrHQ" elementId="fr.adaussy.permadeler.rcp.part.nursary" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.NursaryViewerPart" label="Nursary" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/nursery.png"/>
+              <children xsi:type="basic_1:Part" xmi:id="_0r3KcI6bEeq6s96d8jhrHQ" elementId="fr.adaussy.permadeler.rcp.part.seedbank" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.SeedBankViewerPart" label="Seed bank" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/bank/icons/083-seed-1.png">
+                <menus xmi:id="_1HnrgK1qEeqXyJd86ICNPQ" elementId="fr.adaussy.permadeler.rcp.menu.seedbank.viewmenu" label="Calendar">
+                  <tags>ViewMenu</tags>
+                  <children xsi:type="menu:DirectMenuItem" xmi:id="_1Hnrga1qEeqXyJd86ICNPQ" elementId="fr.adaussy.permadeler.rcp.directmenuitem.knowloedge.calendar.sow" label="Sow period" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/bank/preview/calendar-sow.png" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SowCalendarSeedBankDirectMenu"/>
+                </menus>
+                <toolbar xmi:id="_T6BnkJnJEeqRF701mHErGQ" elementId="fr.adaussy.permadeler.rcp.toolbar.seedbanktoolbar">
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_YM81UJnJEeqRF701mHErGQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.addfromwebsite" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/add.gif" tooltip="Add a seed and its species from a download website page" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.AddFromWebSiteToolbarItem"/>
+                  <children xsi:type="menu:DirectToolItem" xmi:id="_tKK3UK1rEeqXyJd86ICNPQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.seedbank.types.sort" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/alphab_sort_co.gif" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SortSeedBankDirectMenu"/>
+                </toolbar>
+              </children>
+              <children xsi:type="basic_1:Part" xmi:id="_RHYI0I6cEeq6s96d8jhrHQ" elementId="fr.adaussy.permadeler.rcp.part.zones" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.PlantationsViewerPart" label="Plantations" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.png"/>
+              <children xsi:type="basic_1:Part" xmi:id="__4jncNJqEeq9VdPDR1UuSA" elementId="fr.adaussy.permadeler.rcp.part.planfication" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.PlannificationViewerPart" label="Planification" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/date_obj.png"/>
+            </children>
+          </children>
+          <children xsi:type="basic_1:PartSashContainer" xmi:id="_wFtfIIuwEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partsashcontainer.right" containerData="80" selectedElement="_ymRsUIuNEeq17LNsNIJ33Q">
+            <children xsi:type="advanced:Placeholder" xmi:id="_ymRsUIuNEeq17LNsNIJ33Q" elementId="org.eclipse.ui.editorss" ref="_1jRMcIuOEeq17LNsNIJ33Q"/>
+            <children xsi:type="basic_1:PartStack" xmi:id="_0aKOwJTjEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.partstack.0">
+              <children xsi:type="advanced:Placeholder" xmi:id="_1IHg8JTjEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.placeholder.lowPartSack" ref="_aSiloJTjEeqWsP_O9XzfKw"/>
+            </children>
+          </children>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_0G4G8IuOEeq17LNsNIJ33Q" featurename="sharedElements" parentElementId="IDEWindow">
+    <elements xsi:type="advanced:Area" xmi:id="_1jRMcIuOEeq17LNsNIJ33Q" elementId="org.eclipse.ui.editor.area" label="Editor Area">
+      <children xsi:type="basic_1:PartStack" xmi:id="_7BS7YIuOEeq17LNsNIJ33Q" elementId="org.eclipse.e4.primaryDataStack">
+        <tags>newtablook</tags>
+        <tags>org.eclipse.e4.primaryDataStack</tags>
+        <tags>EditorStack</tags>
+        <tags>NoAutoCollapse</tags>
+      </children>
+    </elements>
+    <elements xsi:type="basic_1:Part" xmi:id="_aSiloJTjEeqWsP_O9XzfKw" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif">
+      <tags>View</tags>
+      <tags>categoryTag:General</tags>
+      <menus xmi:id="_nCu6oJTjEeqWsP_O9XzfKw" elementId="org.eclipse.ui.views.PropertySheet">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_sj9ukJTjEeqWsP_O9XzfKw" elementId="org.eclipse.ui.views.PropertySheet"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_FoUC8IvHEeqeaba_67ym5g" featurename="addons" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="application:Addon" xmi:id="_HSXJ8IvHEeqeaba_67ym5g" elementId="fr.adaussy.permadeler.rcp.addon.lifeCycleManager" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.E4LifeCycleMng"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Z4NhcJTgEeqWsP_O9XzfKw" featurename="commands" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:Command" xmi:id="_ba7RYJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.command.undo" commandName="Undo"/>
+    <elements xsi:type="commands:Command" xmi:id="_dBOg0JTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.command.redo" commandName="Redo"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_f4__MJTgEeqWsP_O9XzfKw" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:Handler" xmi:id="_hQ8pkJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handler.undo" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.UndoHandler" command="_ba7RYJTgEeqWsP_O9XzfKw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_1A-CAJThEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handler.redo" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.RedoHandler" command="_dBOg0JTgEeqWsP_O9XzfKw"/>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Permadeler -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.adaussy.permadeler.model.Permadeler.presentation.PermadelerModelWizardID"
+            name="%_UI_PermadelerModelWizard_label"
+            class="fr.adaussy.permadeler.model.Permadeler.presentation.PermadelerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PermadelerModelFile.gif">
+         <description>%_UI_PermadelerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Permadeler -->
+      <editor
+            id="fr.adaussy.permadeler.model.Permadeler.presentation.PermadelerEditorID"
+            name="%_UI_PermadelerEditor_label"
+            icon="icons/full/obj16/PermadelerModelFile.gif"
+            class="fr.adaussy.permadeler.model.Permadeler.presentation.PermadelerEditor"
+            contributorClass="fr.adaussy.permadeler.model.Permadeler.presentation.PermadelerActionBarContributor">
+         <contentTypeBinding contentTypeId="fr.adaussy.permadeler.model.permadeler"/>
+      </editor>
+   </extension>
+
+</plugin>

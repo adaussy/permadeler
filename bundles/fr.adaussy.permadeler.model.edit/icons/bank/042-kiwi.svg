@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'
+          'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg contentScriptType="text/ecmascript" zoomAndPan="magnify" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" id="Capa_1" style="enable-background:new 0 0 512 512;" version="1.1" width="100pt" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" height="100.0pt" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+>
+<g
+  >
+	<path style="fill:#934D2B;" d="M452,196C452,87.925,364.075,0,256,0l-60,316h256V196z"
+    />
+	<path style="fill:#A56840;" d="M60,196v120h196V0C147.925,0,60,87.925,60,196z"
+    />
+	<path style="fill:#A0AD2F;" d="M256,120l-98,196l98,196c108.248,0,196-87.752,196-196S364.248,120,256,120z"
+    />
+	<path style="fill:#BEC130;" d="M60,316c0,108.248,87.752,196,196,196V120C147.752,120,60,207.752,60,316z"
+    />
+	
+		<rect width="30" x="155.44" height="30" y="215.44" style="fill:#3A160A;" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -113.025 188.0137)"
+    />
+	<rect width="30" x="120" height="30" y="301" style="fill:#3A160A;"
+    />
+	<polygon style="fill:#220D06;" points="271,180 256,180 246,195 256,210 271,210  "
+    />
+	<rect width="15" x="241" height="30" y="180" style="fill:#3A160A;"
+    />
+	
+		<rect width="30" x="155.44" height="30" y="386.56" style="fill:#3A160A;" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 7.0137 806.025)"
+    />
+	<polygon style="fill:#220D06;" points="271,422 256,422 246,437 256,452 271,452  "
+    />
+	<rect width="15" x="241" height="30" y="422" style="fill:#3A160A;"
+    />
+	
+		<rect width="30" x="326.56" height="30" y="386.56" style="fill:#220D06;" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 867.025 443.9863)"
+    />
+	<rect width="30" x="362" height="30" y="301" style="fill:#220D06;"
+    />
+	
+		<rect width="30" x="326.56" height="30" y="215.44" style="fill:#220D06;" transform="matrix(0.7071 0.7071 -0.7071 0.7071 262.9863 -174.025)"
+    />
+	<path style="fill:#FFE376;" d="M256,240l-38,76l38,76c41.974,0,76-34.026,76-76S297.974,240,256,240z"
+    />
+	<path style="fill:#FFF3AD;" d="M180,316c0,41.974,34.026,76,76,76V240C214.026,240,180,274.026,180,316z"
+    />
+</g
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</svg
+  >

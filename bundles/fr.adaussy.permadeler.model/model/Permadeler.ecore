@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Permadeler" nsURI="http://www.example.org/fr.adaussy.permadeler.model"
+    nsPrefix="fr.adaussy.permadeler.model">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="Fruit conservation in week&#xD;&#xA;"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Root" eSuperTypes="#//NamedElement">
+    <eOperations name="addSowPlanification">
+      <eParameters name="seedItem" eType="#//SeedItem"/>
+      <eParameters name="weeks" eType="#//MonthWeeks"/>
+      <eParameters name="type" eType="#//SowType"/>
+    </eOperations>
+    <eOperations name="addCompatibility" eType="#//CompatibilityLink">
+      <eParameters name="source" eType="#//Genus"/>
+      <eParameters name="target" eType="#//Genus"/>
+      <eParameters name="cmp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seedLib" lowerBound="1"
+        eType="#//KnowledgeBase" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seedbank" lowerBound="1"
+        eType="#//SeedBank" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zones" upperBound="-1"
+        eType="#//Zone" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nursary" lowerBound="1"
+        eType="#//Nursary" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="planifier" eType="#//Planifier"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plantTypes" upperBound="-1"
+        eType="#//Genus" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compatibilityMatrix" eType="#//CompatibilityMatrix"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SeedBank">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//SeedItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Genus" eSuperTypes="#//PlantNamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
+        eType="#//Species" containment="true" eOpposite="#//Species/type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subGenus" upperBound="-1"
+        eType="#//Genus" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compatibilityLinks" upperBound="-1"
+        eType="#//CompatibilityLink" eOpposite="#//CompatibilityLink/species"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Species" abstract="true" eSuperTypes="#//PlantNamedElement">
+    <eOperations name="getAllNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Genus"
+        eOpposite="#//Genus/species"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usdaHardinessMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lightingCondition" upperBound="-1"
+        eType="#//Shade"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soilType" upperBound="-1"
+        eType="#//SoilType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moisture" upperBound="-1"
+        eType="#//Moisture"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//Reference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="productiveMonths" upperBound="12"
+        eType="#//MonthWeek"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bloomMonths" upperBound="12"
+        eType="#//MonthWeek"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fruitConservation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fruitsAvailability" upperBound="-1"
+        eType="#//MonthWeek" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="images" upperBound="-1"
+        eType="#//Image" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="growRate" eType="#//GrowRate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wind" upperBound="-1" eType="#//Wind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eatingType" eType="#//EatingType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="edibleParts" upperBound="-1"
+        eType="#//EdiblePart"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="usdaHardinessMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specialUses" upperBound="-1"
+        eType="#//SpecialUses"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowerColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pruningMonths" upperBound="-1"
+        eType="#//MonthWeek"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pruneNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SeedItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Species"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" eType="#//Quantity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="byDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Quantity">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Empty" value="1"/>
+    <eLiterals name="Low" value="2"/>
+    <eLiterals name="Medium" value="3"/>
+    <eLiterals name="Hight" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//NamedElement #//PlantationOwner">
+    <eOperations name="getActualSoilType" eType="#//SoilType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subAreas" upperBound="-1"
+        eType="#//Area" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soilType" eType="#//SoilType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Planting" eSuperTypes="#//NamedElement #//PlantationOwner">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="areas" upperBound="-1"
+        eType="#//Area" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plantation">
+    <eOperations name="isRemoved" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Species"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sowEvent" eType="#//Event"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plantationEvent" lowerBound="1"
+        eType="#//Event" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
+        eType="#//Event" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removalEvent" eType="#//Event"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlantNamedElement" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latinName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Lifecycle">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Annual" value="1"/>
+    <eLiterals name="Biennial" value="2"/>
+    <eLiterals name="Perennial" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Shade">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="FullShade" value="1"/>
+    <eLiterals name="Semi" value="2"/>
+    <eLiterals name="FullSun" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SoilType">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Light_Sandy" value="1"/>
+    <eLiterals name="Medium_Loam" value="2"/>
+    <eLiterals name="Heavy" value="3"/>
+    <eLiterals name="HeavyClay" value="4"/>
+    <eLiterals name="PoorSoil" value="4"/>
+    <eLiterals name="Water" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PH">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="VeryAcid" value="1"/>
+    <eLiterals name="Acid" value="2"/>
+    <eLiterals name="Neutral" value="3"/>
+    <eLiterals name="Alkaline" value="4"/>
+    <eLiterals name="VeryAlkaline" value="5"/>
+    <eLiterals name="Saline" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Moisture">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="DrySoil" value="1"/>
+    <eLiterals name="MoistSoil" value="2"/>
+    <eLiterals name="Wet" value="3"/>
+    <eLiterals name="WaterPlant" value="4"/>
+    <eLiterals name="WellDrained" value="5"/>
+    <eLiterals name="TolerateGrought" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plant" eSuperTypes="#//Species">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sowIndoorMonths" upperBound="12"
+        eType="#//MonthWeek"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sowOutdoorMonths" upperBound="12"
+        eType="#//MonthWeek"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lifeCycle" eType="#//Lifecycle"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//Species">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootstock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Family">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Acanthaceae" value="1"/>
+    <eLiterals name="Achariaceae" value="2"/>
+    <eLiterals name="Achatocarpaceae" value="3"/>
+    <eLiterals name="Acoraceae" value="4"/>
+    <eLiterals name="Acrobolbaceae" value="5"/>
+    <eLiterals name="Actinidiaceae" value="6"/>
+    <eLiterals name="Adelanthaceae" value="7"/>
+    <eLiterals name="Adiantaceae" value="8"/>
+    <eLiterals name="Adoxaceae" value="9"/>
+    <eLiterals name="Aextoxicaceae" value="10"/>
+    <eLiterals name="Aizoaceae" value="11"/>
+    <eLiterals name="Akaniaceae" value="12"/>
+    <eLiterals name="Alismataceae" value="13"/>
+    <eLiterals name="Allisoniaceae" value="14"/>
+    <eLiterals name="Alseuosmiaceae" value="15"/>
+    <eLiterals name="Alstroemeriaceae" value="16"/>
+    <eLiterals name="Altingiaceae" value="17"/>
+    <eLiterals name="Alzateaceae" value="18"/>
+    <eLiterals name="Amaranthaceae" value="19"/>
+    <eLiterals name="Amaryllidaceae" value="20"/>
+    <eLiterals name="Amblystegiaceae" value="21"/>
+    <eLiterals name="Amborellaceae" value="22"/>
+    <eLiterals name="Anacardiaceae" value="23"/>
+    <eLiterals name="Anarthriaceae" value="24"/>
+    <eLiterals name="Anastrophyllaceae" value="25"/>
+    <eLiterals name="Ancistrocladaceae" value="26"/>
+    <eLiterals name="Andreaeaceae" value="27"/>
+    <eLiterals name="Aneuraceae" value="28"/>
+    <eLiterals name="Anisophylleaceae" value="29"/>
+    <eLiterals name="Annonaceae" value="30"/>
+    <eLiterals name="Antheliaceae" value="31"/>
+    <eLiterals name="Anthocerotaceae" value="32"/>
+    <eLiterals name="Aphanopetalaceae" value="33"/>
+    <eLiterals name="Aphloiaceae" value="34"/>
+    <eLiterals name="Apiaceae" value="35"/>
+    <eLiterals name="Apocynaceae" value="36"/>
+    <eLiterals name="Apodanthaceae" value="37"/>
+    <eLiterals name="Aponogetonaceae" value="38"/>
+    <eLiterals name="Aquifoliaceae" value="39"/>
+    <eLiterals name="Araceae" value="40"/>
+    <eLiterals name="Araliaceae" value="41"/>
+    <eLiterals name="Araucariaceae" value="42"/>
+    <eLiterals name="Archidiaceae" value="43"/>
+    <eLiterals name="Arecaceae" value="44"/>
+    <eLiterals name="Argophyllaceae" value="45"/>
+    <eLiterals name="Aristolochiaceae" value="46"/>
+    <eLiterals name="Arnelliaceae" value="47"/>
+    <eLiterals name="Asparagaceae" value="48"/>
+    <eLiterals name="Aspleniaceae" value="49"/>
+    <eLiterals name="Asteliaceae" value="50"/>
+    <eLiterals name="Asteropeiaceae" value="51"/>
+    <eLiterals name="Atherospermataceae" value="52"/>
+    <eLiterals name="Aulacomniaceae" value="53"/>
+    <eLiterals name="Austrobaileyaceae" value="54"/>
+    <eLiterals name="Aytoniaceae" value="55"/>
+    <eLiterals name="Balanopaceae" value="56"/>
+    <eLiterals name="Balanophoraceae" value="57"/>
+    <eLiterals name="Balantiopsaceae" value="58"/>
+    <eLiterals name="Balsaminaceae" value="59"/>
+    <eLiterals name="Barbeuiaceae" value="60"/>
+    <eLiterals name="Barbeyaceae" value="61"/>
+    <eLiterals name="Bartramiaceae" value="62"/>
+    <eLiterals name="Basellaceae" value="63"/>
+    <eLiterals name="Bataceae" value="64"/>
+    <eLiterals name="Begoniaceae" value="65"/>
+    <eLiterals name="Berberidaceae" value="66"/>
+    <eLiterals name="Berberidopsidaceae" value="67"/>
+    <eLiterals name="Betulaceae" value="68"/>
+    <eLiterals name="Biebersteiniaceae" value="69"/>
+    <eLiterals name="Bignoniaceae" value="70"/>
+    <eLiterals name="Bixaceae" value="71"/>
+    <eLiterals name="Blandfordiaceae" value="72"/>
+    <eLiterals name="Blechnaceae" value="73"/>
+    <eLiterals name="Bonnetiaceae" value="74"/>
+    <eLiterals name="Boraginaceae" value="75"/>
+    <eLiterals name="Boryaceae" value="76"/>
+    <eLiterals name="Boweniaceae" value="77"/>
+    <eLiterals name="Brachytheciaceae" value="78"/>
+    <eLiterals name="Brassicaceae" value="79"/>
+    <eLiterals name="Brevianthaceae" value="80"/>
+    <eLiterals name="Bromeliaceae" value="81"/>
+    <eLiterals name="Bruchiaceae" value="82"/>
+    <eLiterals name="Brunelliaceae" value="83"/>
+    <eLiterals name="Bruniaceae" value="84"/>
+    <eLiterals name="Bryaceae" value="85"/>
+    <eLiterals name="Bryobartramiaceae" value="86"/>
+    <eLiterals name="Bryoxiphiaceae" value="87"/>
+    <eLiterals name="Burmanniaceae" value="88"/>
+    <eLiterals name="Burseraceae" value="89"/>
+    <eLiterals name="Butomaceae" value="90"/>
+    <eLiterals name="Buxaceae" value="91"/>
+    <eLiterals name="Buxbaumiaceae" value="92"/>
+    <eLiterals name="Byblidaceae" value="93"/>
+    <eLiterals name="Cabombaceae" value="94"/>
+    <eLiterals name="Cactaceae" value="95"/>
+    <eLiterals name="Calceolariaceae" value="96"/>
+    <eLiterals name="Calomniaceae" value="97"/>
+    <eLiterals name="Calophyllaceae" value="98"/>
+    <eLiterals name="Calycanthaceae" value="99"/>
+    <eLiterals name="Calyceraceae" value="100"/>
+    <eLiterals name="Calymperaceae" value="101"/>
+    <eLiterals name="Calypogeiaceae" value="102"/>
+    <eLiterals name="Campanulaceae" value="103"/>
+    <eLiterals name="Campyneumataceae" value="104"/>
+    <eLiterals name="Canellaceae" value="105"/>
+    <eLiterals name="Cannabaceae" value="106"/>
+    <eLiterals name="Cannaceae" value="107"/>
+    <eLiterals name="Capparaceae" value="108"/>
+    <eLiterals name="Caprifoliaceae" value="109"/>
+    <eLiterals name="Cardiopteridaceae" value="110"/>
+    <eLiterals name="Caricaceae" value="111"/>
+    <eLiterals name="Carlemanniaceae" value="112"/>
+    <eLiterals name="Caryocaraceae" value="113"/>
+    <eLiterals name="Caryophyllaceae" value="114"/>
+    <eLiterals name="Casuarinaceae" value="115"/>
+    <eLiterals name="Catagoniaceae" value="116"/>
+    <eLiterals name="Catoscopiaceae" value="117"/>
+    <eLiterals name="Celastraceae" value="118"/>
+    <eLiterals name="Centrolepidaceae" value="119"/>
+    <eLiterals name="Centroplacaceae" value="120"/>
+    <eLiterals name="Cephalotaceae" value="121"/>
+    <eLiterals name="Cephalotaxaceae" value="122"/>
+    <eLiterals name="Cephaloziaceae" value="123"/>
+    <eLiterals name="Cephaloziellaceae" value="124"/>
+    <eLiterals name="Ceratophyllaceae" value="125"/>
+    <eLiterals name="Cercidiphyllaceae" value="126"/>
+    <eLiterals name="Chaetophyllopsaceae" value="127"/>
+    <eLiterals name="Chloranthaceae" value="128"/>
+    <eLiterals name="Chonecoleaceae" value="129"/>
+    <eLiterals name="Chrysobalanaceae" value="130"/>
+    <eLiterals name="Cinclidotaceae" value="131"/>
+    <eLiterals name="Circaeasteraceae" value="132"/>
+    <eLiterals name="Cistaceae" value="133"/>
+    <eLiterals name="Cleomaceae" value="134"/>
+    <eLiterals name="Clethraceae" value="135"/>
+    <eLiterals name="Cleveaceae" value="136"/>
+    <eLiterals name="Climaciaceae" value="137"/>
+    <eLiterals name="Clusiaceae" value="138"/>
+    <eLiterals name="Colchicaceae" value="139"/>
+    <eLiterals name="Columelliaceae" value="140"/>
+    <eLiterals name="Combretaceae" value="141"/>
+    <eLiterals name="Commelinaceae" value="142"/>
+    <eLiterals name="Compositae" value="143"/>
+    <eLiterals name="Connaraceae" value="144"/>
+    <eLiterals name="Conocephalaceae" value="145"/>
+    <eLiterals name="Convolvulaceae" value="146"/>
+    <eLiterals name="Coriariaceae" value="147"/>
+    <eLiterals name="Cornaceae" value="148"/>
+    <eLiterals name="Corsiaceae" value="149"/>
+    <eLiterals name="Corsiniaceae" value="150"/>
+    <eLiterals name="Corynocarpaceae" value="151"/>
+    <eLiterals name="Costaceae" value="152"/>
+    <eLiterals name="Crassulaceae" value="153"/>
+    <eLiterals name="Crossosomataceae" value="154"/>
+    <eLiterals name="Cryphaeaceae" value="155"/>
+    <eLiterals name="Crypteroniaceae" value="156"/>
+    <eLiterals name="Ctenolophonaceae" value="157"/>
+    <eLiterals name="Cucurbitaceae" value="158"/>
+    <eLiterals name="Cunoniaceae" value="159"/>
+    <eLiterals name="Cupressaceae" value="160"/>
+    <eLiterals name="Curtisiaceae" value="161"/>
+    <eLiterals name="Cyatheaceae" value="162"/>
+    <eLiterals name="Cycadaceae" value="163"/>
+    <eLiterals name="Cyclanthaceae" value="164"/>
+    <eLiterals name="Cymodoceaceae" value="165"/>
+    <eLiterals name="Cynomoriaceae" value="166"/>
+    <eLiterals name="Cyperaceae" value="167"/>
+    <eLiterals name="Cyrillaceae" value="168"/>
+    <eLiterals name="Cyrtopodaceae" value="169"/>
+    <eLiterals name="Cytinaceae" value="170"/>
+    <eLiterals name="Daltoniaceae" value="171"/>
+    <eLiterals name="Daphniphyllaceae" value="172"/>
+    <eLiterals name="Dasypogonaceae" value="173"/>
+    <eLiterals name="Datiscaceae" value="174"/>
+    <eLiterals name="Davalliaceae" value="175"/>
+    <eLiterals name="Degeneriaceae" value="176"/>
+    <eLiterals name="Dendrocerotaceae" value="177"/>
+    <eLiterals name="Dennstaedtiaceae" value="178"/>
+    <eLiterals name="Diapensiaceae" value="179"/>
+    <eLiterals name="Dichapetalaceae" value="180"/>
+    <eLiterals name="Dicksoniaceae" value="181"/>
+    <eLiterals name="Dicnemonaceae" value="182"/>
+    <eLiterals name="Dicranaceae" value="183"/>
+    <eLiterals name="Didiereaceae" value="184"/>
+    <eLiterals name="Dilleniaceae" value="185"/>
+    <eLiterals name="Dioncophyllaceae" value="186"/>
+    <eLiterals name="Dioscoreaceae" value="187"/>
+    <eLiterals name="Dipentodontaceae" value="188"/>
+    <eLiterals name="Dipteridaceae" value="189"/>
+    <eLiterals name="Dipterocarpaceae" value="190"/>
+    <eLiterals name="Dirachmaceae" value="191"/>
+    <eLiterals name="Disceliaceae" value="192"/>
+    <eLiterals name="Ditrichaceae" value="193"/>
+    <eLiterals name="Doryanthaceae" value="194"/>
+    <eLiterals name="Droseraceae" value="195"/>
+    <eLiterals name="Drosophyllaceae" value="196"/>
+    <eLiterals name="Dryopteridaceae" value="197"/>
+    <eLiterals name="Ebenaceae" value="198"/>
+    <eLiterals name="Ecdeiocoleaceae" value="199"/>
+    <eLiterals name="Echinodiaceae" value="200"/>
+    <eLiterals name="Elaeagnaceae" value="201"/>
+    <eLiterals name="Elaeocarpaceae" value="202"/>
+    <eLiterals name="Elatinaceae" value="203"/>
+    <eLiterals name="Emblingiaceae" value="204"/>
+    <eLiterals name="Encalyptaceae" value="205"/>
+    <eLiterals name="Entodontaceae" value="206"/>
+    <eLiterals name="Ephedraceae" value="207"/>
+    <eLiterals name="Ephemeraceae" value="208"/>
+    <eLiterals name="Equisetaceae" value="209"/>
+    <eLiterals name="Ericaceae" value="210"/>
+    <eLiterals name="Eriocaulaceae" value="211"/>
+    <eLiterals name="Erpodiaceae" value="212"/>
+    <eLiterals name="Erythroxylaceae" value="213"/>
+    <eLiterals name="Escalloniaceae" value="214"/>
+    <eLiterals name="Eucommiaceae" value="215"/>
+    <eLiterals name="Euphorbiaceae" value="216"/>
+    <eLiterals name="Euphroniaceae" value="217"/>
+    <eLiterals name="Eupomatiaceae" value="218"/>
+    <eLiterals name="Eupteleaceae" value="219"/>
+    <eLiterals name="Eustichiaceae" value="220"/>
+    <eLiterals name="Exormothecaceae" value="221"/>
+    <eLiterals name="Fabroniaceae" value="222"/>
+    <eLiterals name="Fagaceae" value="223"/>
+    <eLiterals name="Fissidentaceae" value="224"/>
+    <eLiterals name="Flagellariaceae" value="225"/>
+    <eLiterals name="Fontinalaceae" value="226"/>
+    <eLiterals name="Fontinaliaceae" value="227"/>
+    <eLiterals name="Fossombroniaceae" value="228"/>
+    <eLiterals name="Fouquieriaceae" value="229"/>
+    <eLiterals name="Frankeniaceae" value="230"/>
+    <eLiterals name="Funariaceae" value="231"/>
+    <eLiterals name="Garryaceae" value="232"/>
+    <eLiterals name="Geissolomataceae" value="233"/>
+    <eLiterals name="Gelsemiaceae" value="234"/>
+    <eLiterals name="Gentianaceae" value="235"/>
+    <eLiterals name="Geocalycaceae" value="236"/>
+    <eLiterals name="Geraniaceae" value="237"/>
+    <eLiterals name="Gesneriaceae" value="238"/>
+    <eLiterals name="Gigaspermaceae" value="239"/>
+    <eLiterals name="Ginkgoaceae" value="240"/>
+    <eLiterals name="Gisekiaceae" value="241"/>
+    <eLiterals name="Gleicheniaceae" value="242"/>
+    <eLiterals name="Gnetaceae" value="243"/>
+    <eLiterals name="Goebeliellaceae" value="244"/>
+    <eLiterals name="Gomortegaceae" value="245"/>
+    <eLiterals name="Goodeniaceae" value="246"/>
+    <eLiterals name="Goupiaceae" value="247"/>
+    <eLiterals name="Grammitidaceae" value="248"/>
+    <eLiterals name="Grimmiaceae" value="249"/>
+    <eLiterals name="Griseliniaceae" value="250"/>
+    <eLiterals name="Grossulariaceae" value="251"/>
+    <eLiterals name="Grubbiaceae" value="252"/>
+    <eLiterals name="Gunneraceae" value="253"/>
+    <eLiterals name="Gymnomitriaceae" value="254"/>
+    <eLiterals name="Gyrostemonaceae" value="255"/>
+    <eLiterals name="Haemodoraceae" value="256"/>
+    <eLiterals name="Halophytaceae" value="257"/>
+    <eLiterals name="Haloragaceae" value="258"/>
+    <eLiterals name="Hamamelidaceae" value="259"/>
+    <eLiterals name="Hanguanaceae" value="260"/>
+    <eLiterals name="Haplomitriaceae" value="261"/>
+    <eLiterals name="Haptanthaceae" value="262"/>
+    <eLiterals name="Hedwigiaceae" value="263"/>
+    <eLiterals name="Heliconiaceae" value="264"/>
+    <eLiterals name="Helicophyllaceae" value="265"/>
+    <eLiterals name="Helwingiaceae" value="266"/>
+    <eLiterals name="Herbertaceae" value="267"/>
+    <eLiterals name="Hernandiaceae" value="268"/>
+    <eLiterals name="Himantandraceae" value="269"/>
+    <eLiterals name="Hookeriaceae" value="270"/>
+    <eLiterals name="Huaceae" value="271"/>
+    <eLiterals name="Humiriaceae" value="272"/>
+    <eLiterals name="Hydatellaceae" value="273"/>
+    <eLiterals name="Hydnoraceae" value="274"/>
+    <eLiterals name="Hydrangeaceae" value="275"/>
+    <eLiterals name="Hydrocharitaceae" value="276"/>
+    <eLiterals name="Hydroleaceae" value="277"/>
+    <eLiterals name="Hydrostachyaceae" value="278"/>
+    <eLiterals name="Hylocomiaceae" value="279"/>
+    <eLiterals name="Hymenophyllaceae" value="280"/>
+    <eLiterals name="Hymenophyllopsidaceae" value="281"/>
+    <eLiterals name="Hymenophytaceae" value="282"/>
+    <eLiterals name="Hypericaceae" value="283"/>
+    <eLiterals name="Hypnaceae" value="284"/>
+    <eLiterals name="Hypnodendraceae" value="285"/>
+    <eLiterals name="Hypopterygiaceae" value="286"/>
+    <eLiterals name="Hypoxidaceae" value="287"/>
+    <eLiterals name="Icacinaceae" value="288"/>
+    <eLiterals name="Iridaceae" value="289"/>
+    <eLiterals name="Irvingiaceae" value="290"/>
+    <eLiterals name="Isoetaceae" value="291"/>
+    <eLiterals name="Iteaceae" value="292"/>
+    <eLiterals name="Ixioliriaceae" value="293"/>
+    <eLiterals name="Ixonanthaceae" value="294"/>
+    <eLiterals name="Jackiellaceae" value="295"/>
+    <eLiterals name="Joinvilleaceae" value="296"/>
+    <eLiterals name="Jubulaceae" value="297"/>
+    <eLiterals name="Jubulopsaceae" value="298"/>
+    <eLiterals name="Juglandaceae" value="299"/>
+    <eLiterals name="Juncaceae" value="300"/>
+    <eLiterals name="Juncaginaceae" value="301"/>
+    <eLiterals name="Jungermanniaceae" value="302"/>
+    <eLiterals name="Kirkiaceae" value="303"/>
+    <eLiterals name="Koeberliniaceae" value="304"/>
+    <eLiterals name="Krameriaceae" value="305"/>
+    <eLiterals name="Lacistemataceae" value="306"/>
+    <eLiterals name="Lactoridaceae" value="307"/>
+    <eLiterals name="Lamiaceae" value="308"/>
+    <eLiterals name="Lanariaceae" value="309"/>
+    <eLiterals name="Lardizabalaceae" value="310"/>
+    <eLiterals name="Lauraceae" value="311"/>
+    <eLiterals name="Lecythidaceae" value="312"/>
+    <eLiterals name="Leguminosae" value="313"/>
+    <eLiterals name="Lejeuneaceae" value="314"/>
+    <eLiterals name="Lembophyllaceae" value="315"/>
+    <eLiterals name="Lentibulariaceae" value="316"/>
+    <eLiterals name="Lepicoleaceae" value="317"/>
+    <eLiterals name="Lepidobotryaceae" value="318"/>
+    <eLiterals name="Lepidolaenaceae" value="319"/>
+    <eLiterals name="Lepidoziaceae" value="320"/>
+    <eLiterals name="Leptodontaceae" value="321"/>
+    <eLiterals name="Lepyrodontaceae" value="322"/>
+    <eLiterals name="Leskeaceae" value="323"/>
+    <eLiterals name="Leucodontaceae" value="324"/>
+    <eLiterals name="Leucomiaceae" value="325"/>
+    <eLiterals name="Liliaceae" value="326"/>
+    <eLiterals name="Limeaceae" value="327"/>
+    <eLiterals name="Limnanthaceae" value="328"/>
+    <eLiterals name="Linaceae" value="329"/>
+    <eLiterals name="Linderniaceae" value="330"/>
+    <eLiterals name="Loasaceae" value="331"/>
+    <eLiterals name="Loganiaceae" value="332"/>
+    <eLiterals name="Lomariopsidaceae" value="333"/>
+    <eLiterals name="Lophiocarpaceae" value="334"/>
+    <eLiterals name="Lophocoleaceae" value="335"/>
+    <eLiterals name="Lophoziaceae" value="336"/>
+    <eLiterals name="Loranthaceae" value="337"/>
+    <eLiterals name="Lowiaceae" value="338"/>
+    <eLiterals name="Loxsomataceae" value="339"/>
+    <eLiterals name="Lunulariaceae" value="340"/>
+    <eLiterals name="Lycopodiaceae" value="341"/>
+    <eLiterals name="Lythraceae" value="342"/>
+    <eLiterals name="Magnoliaceae" value="343"/>
+    <eLiterals name="Makinoaceae" value="344"/>
+    <eLiterals name="Malpighiaceae" value="345"/>
+    <eLiterals name="Malvaceae" value="346"/>
+    <eLiterals name="Marantaceae" value="347"/>
+    <eLiterals name="Marattiaceae" value="348"/>
+    <eLiterals name="Marcgraviaceae" value="349"/>
+    <eLiterals name="Marchantiaceae" value="350"/>
+    <eLiterals name="Marsileaceae" value="351"/>
+    <eLiterals name="Martyniaceae" value="352"/>
+    <eLiterals name="Mastigophoraceae" value="353"/>
+    <eLiterals name="Matoniaceae" value="354"/>
+    <eLiterals name="Mayacaceae" value="355"/>
+    <eLiterals name="Meesiaceae" value="356"/>
+    <eLiterals name="Melanthiaceae" value="357"/>
+    <eLiterals name="Melastomataceae" value="358"/>
+    <eLiterals name="Meliaceae" value="359"/>
+    <eLiterals name="Melianthaceae" value="360"/>
+    <eLiterals name="Menispermaceae" value="361"/>
+    <eLiterals name="Menyanthaceae" value="362"/>
+    <eLiterals name="Mesoptychiaceae" value="363"/>
+    <eLiterals name="Metaxyaceae" value="364"/>
+    <eLiterals name="Meteoriaceae" value="365"/>
+    <eLiterals name="Metteniusaceae" value="366"/>
+    <eLiterals name="Metzgeriaceae" value="367"/>
+    <eLiterals name="Misodendraceae" value="368"/>
+    <eLiterals name="Mitrastemonaceae" value="369"/>
+    <eLiterals name="Mitteniaceae" value="370"/>
+    <eLiterals name="Mniaceae" value="371"/>
+    <eLiterals name="Molluginaceae" value="372"/>
+    <eLiterals name="Monimiaceae" value="373"/>
+    <eLiterals name="Monocarpaceae" value="374"/>
+    <eLiterals name="Montiaceae" value="375"/>
+    <eLiterals name="Montiniaceae" value="376"/>
+    <eLiterals name="Moraceae" value="377"/>
+    <eLiterals name="Moringaceae" value="378"/>
+    <eLiterals name="Muntingiaceae" value="379"/>
+    <eLiterals name="Musaceae" value="380"/>
+    <eLiterals name="Myliaceae" value="381"/>
+    <eLiterals name="Myodocarpaceae" value="382"/>
+    <eLiterals name="Myricaceae" value="383"/>
+    <eLiterals name="Myriniaceae" value="384"/>
+    <eLiterals name="Myristicaceae" value="385"/>
+    <eLiterals name="Myrothamnaceae" value="386"/>
+    <eLiterals name="Myrtaceae" value="387"/>
+    <eLiterals name="Myuriaceae" value="388"/>
+    <eLiterals name="Nartheciaceae" value="389"/>
+    <eLiterals name="Neckeraceae" value="390"/>
+    <eLiterals name="Nelumbonaceae" value="391"/>
+    <eLiterals name="Neotrichocoleaceae" value="392"/>
+    <eLiterals name="Nepenthaceae" value="393"/>
+    <eLiterals name="Neuradaceae" value="394"/>
+    <eLiterals name="Nitrariaceae" value="395"/>
+    <eLiterals name="Nothofagaceae" value="396"/>
+    <eLiterals name="Notothyladaceae" value="397"/>
+    <eLiterals name="Nyctaginaceae" value="398"/>
+    <eLiterals name="Nymphaeaceae" value="399"/>
+    <eLiterals name="Ochnaceae" value="400"/>
+    <eLiterals name="Octoblepharaceae" value="401"/>
+    <eLiterals name="Oedipodiaceae" value="402"/>
+    <eLiterals name="Olacaceae" value="403"/>
+    <eLiterals name="Oleaceae" value="404"/>
+    <eLiterals name="Oleandraceae" value="405"/>
+    <eLiterals name="Onagraceae" value="406"/>
+    <eLiterals name="Oncothecaceae" value="407"/>
+    <eLiterals name="Ophioglossaceae" value="408"/>
+    <eLiterals name="Opiliaceae" value="409"/>
+    <eLiterals name="Orchidaceae" value="410"/>
+    <eLiterals name="Orobanchaceae" value="411"/>
+    <eLiterals name="Orthorrhynchiaceae" value="412"/>
+    <eLiterals name="Orthotrichaceae" value="413"/>
+    <eLiterals name="Osmundaceae" value="414"/>
+    <eLiterals name="Oxalidaceae" value="415"/>
+    <eLiterals name="Oxymitraceae" value="416"/>
+    <eLiterals name="Paeoniaceae" value="417"/>
+    <eLiterals name="Pallaviciniaceae" value="418"/>
+    <eLiterals name="Pandaceae" value="419"/>
+    <eLiterals name="Pandanaceae" value="420"/>
+    <eLiterals name="Papaveraceae" value="421"/>
+    <eLiterals name="Paracryphiaceae" value="422"/>
+    <eLiterals name="Passifloraceae" value="423"/>
+    <eLiterals name="Paulowniaceae" value="424"/>
+    <eLiterals name="Pedaliaceae" value="425"/>
+    <eLiterals name="Pelliaceae" value="426"/>
+    <eLiterals name="Penaeaceae" value="427"/>
+    <eLiterals name="Pentadiplandraceae" value="428"/>
+    <eLiterals name="Pentaphragmataceae" value="429"/>
+    <eLiterals name="Pentaphylacaceae" value="430"/>
+    <eLiterals name="Penthoraceae" value="431"/>
+    <eLiterals name="Peraceae" value="432"/>
+    <eLiterals name="Peridiscaceae" value="433"/>
+    <eLiterals name="Petermanniaceae" value="434"/>
+    <eLiterals name="Petrosaviaceae" value="435"/>
+    <eLiterals name="Philesiaceae" value="436"/>
+    <eLiterals name="Philydraceae" value="437"/>
+    <eLiterals name="Phrymaceae" value="438"/>
+    <eLiterals name="Phyllanthaceae" value="439"/>
+    <eLiterals name="Phyllodrepaniaceae" value="440"/>
+    <eLiterals name="Phyllogoniaceae" value="441"/>
+    <eLiterals name="Phyllonomaceae" value="442"/>
+    <eLiterals name="Physenaceae" value="443"/>
+    <eLiterals name="Phytolaccaceae" value="444"/>
+    <eLiterals name="Picramniaceae" value="445"/>
+    <eLiterals name="Picrodendraceae" value="446"/>
+    <eLiterals name="Pilotrichaceae" value="447"/>
+    <eLiterals name="Pinaceae" value="448"/>
+    <eLiterals name="Piperaceae" value="449"/>
+    <eLiterals name="Pittosporaceae" value="450"/>
+    <eLiterals name="Plagiochilaceae" value="451"/>
+    <eLiterals name="Plagiogyriaceae" value="452"/>
+    <eLiterals name="Plagiotheciaceae" value="453"/>
+    <eLiterals name="Plantaginaceae" value="454"/>
+    <eLiterals name="Platanaceae" value="455"/>
+    <eLiterals name="Pleuroziaceae" value="456"/>
+    <eLiterals name="Pleuroziopsaceae" value="457"/>
+    <eLiterals name="Plocospermataceae" value="458"/>
+    <eLiterals name="Plumbaginaceae" value="459"/>
+    <eLiterals name="Poaceae" value="460"/>
+    <eLiterals name="Podocarpaceae" value="461"/>
+    <eLiterals name="Podostemaceae" value="462"/>
+    <eLiterals name="Polemoniaceae" value="463"/>
+    <eLiterals name="Polygalaceae" value="464"/>
+    <eLiterals name="Polygonaceae" value="465"/>
+    <eLiterals name="Polypodiaceae" value="466"/>
+    <eLiterals name="Polytrichaceae" value="467"/>
+    <eLiterals name="Pontederiaceae" value="468"/>
+    <eLiterals name="Porellaceae" value="469"/>
+    <eLiterals name="Portulacaceae" value="470"/>
+    <eLiterals name="Posidoniaceae" value="471"/>
+    <eLiterals name="Potamogetonaceae" value="472"/>
+    <eLiterals name="Pottiaceae" value="473"/>
+    <eLiterals name="Primulaceae" value="474"/>
+    <eLiterals name="Prionodontaceae" value="475"/>
+    <eLiterals name="Proteaceae" value="476"/>
+    <eLiterals name="Pseudolepicoleaceae" value="477"/>
+    <eLiterals name="Psilotaceae" value="478"/>
+    <eLiterals name="Pteridaceae" value="479"/>
+    <eLiterals name="Pterigynandraceae" value="480"/>
+    <eLiterals name="Pterobryaceae" value="481"/>
+    <eLiterals name="Ptilidiaceae" value="482"/>
+    <eLiterals name="Ptychomitriaceae" value="483"/>
+    <eLiterals name="Ptychomniaceae" value="484"/>
+    <eLiterals name="Putranjivaceae" value="485"/>
+    <eLiterals name="Quillajaceae" value="486"/>
+    <eLiterals name="Racopilaceae" value="487"/>
+    <eLiterals name="Radulaceae" value="488"/>
+    <eLiterals name="Rafflesiaceae" value="489"/>
+    <eLiterals name="Ranunculaceae" value="490"/>
+    <eLiterals name="Rapateaceae" value="491"/>
+    <eLiterals name="Regmatodontaceae" value="492"/>
+    <eLiterals name="Resedaceae" value="493"/>
+    <eLiterals name="Restionaceae" value="494"/>
+    <eLiterals name="Rhabdodendraceae" value="495"/>
+    <eLiterals name="Rhabdoweisiaceae" value="496"/>
+    <eLiterals name="Rhachitheciaceae" value="497"/>
+    <eLiterals name="Rhacocarpaceae" value="498"/>
+    <eLiterals name="Rhamnaceae" value="499"/>
+    <eLiterals name="Rhipogonaceae" value="500"/>
+    <eLiterals name="Rhizogoniaceae" value="501"/>
+    <eLiterals name="Rhizophoraceae" value="502"/>
+    <eLiterals name="Ricciaceae" value="503"/>
+    <eLiterals name="Riellaceae" value="504"/>
+    <eLiterals name="Rigodiaceae" value="505"/>
+    <eLiterals name="Roridulaceae" value="506"/>
+    <eLiterals name="Rosaceae" value="507"/>
+    <eLiterals name="Rousseaceae" value="508"/>
+    <eLiterals name="Rubiaceae" value="509"/>
+    <eLiterals name="Ruppiaceae" value="510"/>
+    <eLiterals name="Rutaceae" value="511"/>
+    <eLiterals name="Rutenbergiaceae" value="512"/>
+    <eLiterals name="Sabiaceae" value="513"/>
+    <eLiterals name="Salicaceae" value="514"/>
+    <eLiterals name="Salvadoraceae" value="515"/>
+    <eLiterals name="Salviniaceae" value="516"/>
+    <eLiterals name="Santalaceae" value="517"/>
+    <eLiterals name="Sapindaceae" value="518"/>
+    <eLiterals name="Sapotaceae" value="519"/>
+    <eLiterals name="Sarcobataceae" value="520"/>
+    <eLiterals name="Sarcolaenaceae" value="521"/>
+    <eLiterals name="Sarraceniaceae" value="522"/>
+    <eLiterals name="Saururaceae" value="523"/>
+    <eLiterals name="Saxifragaceae" value="524"/>
+    <eLiterals name="Scapaniaceae" value="525"/>
+    <eLiterals name="Scheuchzeriaceae" value="526"/>
+    <eLiterals name="Schisandraceae" value="527"/>
+    <eLiterals name="Schistochilaceae" value="528"/>
+    <eLiterals name="Schistostegaceae" value="529"/>
+    <eLiterals name="Schizaeaceae" value="530"/>
+    <eLiterals name="Schlegeliaceae" value="531"/>
+    <eLiterals name="Schoepfiaceae" value="532"/>
+    <eLiterals name="Scorpidiaceae" value="533"/>
+    <eLiterals name="Scrophulariaceae" value="534"/>
+    <eLiterals name="Selaginellaceae" value="535"/>
+    <eLiterals name="Seligeriaceae" value="536"/>
+    <eLiterals name="Sematophyllaceae" value="537"/>
+    <eLiterals name="Serpotortellaceae" value="538"/>
+    <eLiterals name="Setchellanthaceae" value="539"/>
+    <eLiterals name="Simaroubaceae" value="540"/>
+    <eLiterals name="Simmondsiaceae" value="541"/>
+    <eLiterals name="Siparunaceae" value="542"/>
+    <eLiterals name="Sladeniaceae" value="543"/>
+    <eLiterals name="Smilacaceae" value="544"/>
+    <eLiterals name="Solanaceae" value="545"/>
+    <eLiterals name="Sphaerosepalaceae" value="546"/>
+    <eLiterals name="Sphagnaceae" value="547"/>
+    <eLiterals name="Sphenocleaceae" value="548"/>
+    <eLiterals name="Spiridentaceae" value="549"/>
+    <eLiterals name="Splachnaceae" value="550"/>
+    <eLiterals name="Splachnobryaceae" value="551"/>
+    <eLiterals name="Stachyuraceae" value="552"/>
+    <eLiterals name="Staphyleaceae" value="553"/>
+    <eLiterals name="Stegnospermataceae" value="554"/>
+    <eLiterals name="Stemonaceae" value="555"/>
+    <eLiterals name="Stemonuraceae" value="556"/>
+    <eLiterals name="Stereophyllaceae" value="557"/>
+    <eLiterals name="Stilbaceae" value="558"/>
+    <eLiterals name="Strasburgeriaceae" value="559"/>
+    <eLiterals name="Strelitziaceae" value="560"/>
+    <eLiterals name="Stylidiaceae" value="561"/>
+    <eLiterals name="Styracaceae" value="562"/>
+    <eLiterals name="Surianaceae" value="563"/>
+    <eLiterals name="Symplocaceae" value="564"/>
+    <eLiterals name="Takakiaceae" value="565"/>
+    <eLiterals name="Talinaceae" value="566"/>
+    <eLiterals name="Tamaricaceae" value="567"/>
+    <eLiterals name="Tapisciaceae" value="568"/>
+    <eLiterals name="Targioniaceae" value="569"/>
+    <eLiterals name="Taxaceae" value="570"/>
+    <eLiterals name="Taxodiaceae" value="571"/>
+    <eLiterals name="Tecophilaeaceae" value="572"/>
+    <eLiterals name="Tetrachondraceae" value="573"/>
+    <eLiterals name="Tetramelaceae" value="574"/>
+    <eLiterals name="Tetrameristaceae" value="575"/>
+    <eLiterals name="Tetraphidaceae" value="576"/>
+    <eLiterals name="Thamnobryaceae" value="577"/>
+    <eLiterals name="Theaceae" value="578"/>
+    <eLiterals name="Theliaceae" value="579"/>
+    <eLiterals name="Thelypteridaceae" value="580"/>
+    <eLiterals name="Thomandersiaceae" value="581"/>
+    <eLiterals name="Thuidiaceae" value="582"/>
+    <eLiterals name="Thurniaceae" value="583"/>
+    <eLiterals name="Thymelaeaceae" value="584"/>
+    <eLiterals name="Ticodendraceae" value="585"/>
+    <eLiterals name="Timmiaceae" value="586"/>
+    <eLiterals name="Tofieldiaceae" value="587"/>
+    <eLiterals name="Torricelliaceae" value="588"/>
+    <eLiterals name="Tovariaceae" value="589"/>
+    <eLiterals name="Trachypodaceae" value="590"/>
+    <eLiterals name="Treubiaceae" value="591"/>
+    <eLiterals name="Trichocoleaceae" value="592"/>
+    <eLiterals name="Trigoniaceae" value="593"/>
+    <eLiterals name="Triuridaceae" value="594"/>
+    <eLiterals name="Trochodendraceae" value="595"/>
+    <eLiterals name="Tropaeolaceae" value="596"/>
+    <eLiterals name="Typhaceae" value="597"/>
+    <eLiterals name="Ulmaceae" value="598"/>
+    <eLiterals name="Urticaceae" value="599"/>
+    <eLiterals name="Vahliaceae" value="600"/>
+    <eLiterals name="Velloziaceae" value="601"/>
+    <eLiterals name="Verbenaceae" value="602"/>
+    <eLiterals name="Vetaformaceae" value="603"/>
+    <eLiterals name="Violaceae" value="604"/>
+    <eLiterals name="Vitaceae" value="605"/>
+    <eLiterals name="Vittariaceae" value="606"/>
+    <eLiterals name="Vivianiaceae" value="607"/>
+    <eLiterals name="Vochysiaceae" value="608"/>
+    <eLiterals name="Wardiaceae" value="609"/>
+    <eLiterals name="Welwitschiaceae" value="610"/>
+    <eLiterals name="Wiesnerellaceae" value="611"/>
+    <eLiterals name="Winteraceae" value="612"/>
+    <eLiterals name="Woodsiaceae" value="613"/>
+    <eLiterals name="Xanthorrhoeaceae" value="614"/>
+    <eLiterals name="Xeronemataceae" value="615"/>
+    <eLiterals name="Xyridaceae" value="616"/>
+    <eLiterals name="Zamiaceae" value="617"/>
+    <eLiterals name="Zingiberaceae" value="618"/>
+    <eLiterals name="Zosteraceae" value="619"/>
+    <eLiterals name="Zygophyllaceae" value="620"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="MonthWeek" instanceClassName="int"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="URL" instanceClassName="java.net.URL"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URL"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Image">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="images" upperBound="-1"
+        eType="#//Image" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EventType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GrowRate">
+    <eLiterals name="Unkown"/>
+    <eLiterals name="Slow" value="1"/>
+    <eLiterals name="Medium" value="2"/>
+    <eLiterals name="Fast" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Wind">
+    <eLiterals name="TolerateMartimeWind"/>
+    <eLiterals name="TolerateStrongWind" value="1"/>
+    <eLiterals name="NotWindTolerant" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EatingType">
+    <eLiterals name="Unkown"/>
+    <eLiterals name="Fruit" value="1"/>
+    <eLiterals name="Vegetable" value="2"/>
+    <eLiterals name="AromaticPlant" value="3"/>
+    <eLiterals name="None" value="4"/>
+    <eLiterals name="Flower" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EdiblePart">
+    <eLiterals name="Unkown"/>
+    <eLiterals name="ApicalBud" value="1"/>
+    <eLiterals name="Leaves" value="2"/>
+    <eLiterals name="Pollen" value="3"/>
+    <eLiterals name="Flowers" value="4"/>
+    <eLiterals name="Manna" value="5"/>
+    <eLiterals name="Root" value="6"/>
+    <eLiterals name="Shoots" value="7"/>
+    <eLiterals name="Fruit" value="8"/>
+    <eLiterals name="Nectar" value="9"/>
+    <eLiterals name="Sap" value="10"/>
+    <eLiterals name="Stem" value="11"/>
+    <eLiterals name="InnerBark" value="12"/>
+    <eLiterals name="Oil" value="13"/>
+    <eLiterals name="Seed" value="14"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Zone" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plantings" upperBound="-1"
+        eType="#//Planting" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.time.Instant"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="SpecialUses">
+    <eLiterals name="NitrogenFixer"/>
+    <eLiterals name="ScentedPlants" value="1"/>
+    <eLiterals name="FoodForest" value="2"/>
+    <eLiterals name="CardonFarming" value="3"/>
+    <eLiterals name="AttractsWildlife" value="4"/>
+    <eLiterals name="Hedge" value="5"/>
+    <eLiterals name="DynamicAccumulator" value="6"/>
+    <eLiterals name="GroundCover" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EventType">
+    <eLiterals name="General"/>
+    <eLiterals name="Harvest" value="1"/>
+    <eLiterals name="Prune" value="2"/>
+    <eLiterals name="Disease" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nursary" eSuperTypes="#//TrayOwner">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A nursary gathers all information on sow"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zones" upperBound="-1"
+        eType="#//TrayZone" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tray" eSuperTypes="#//NamedElement">
+    <eOperations name="getEmptyCells" upperBound="-1" eType="#//Cell"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//Row"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Row">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
+        eType="#//Cell" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cell">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" eType="#//Species"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="#//Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlantationOwner" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plantations" upperBound="-1"
+        eType="#//Plantation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="beds" upperBound="-1" eType="#//Bed"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TrayZone" eSuperTypes="#//TrayOwner #//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TrayOwner" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trays" upperBound="-1"
+        eType="#//Tray" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bed" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GridBed" eSuperTypes="#//Bed">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//GridBedRow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RowBed" eSuperTypes="#//Bed">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//RowBedRow"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RowBedType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridBedRow">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
+        eType="#//GridBedCell" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GridBedCell">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plantation" eType="#//Plantation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RowBedRow" eSuperTypes="#//PlantationOwner"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RowBedType">
+    <eLiterals name="VERTICAL"/>
+    <eLiterals name="HORIZONTAL" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompatibilityLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="2"
+        eType="#//Genus" eOpposite="#//Genus/compatibilityLinks"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="affinity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompatibilityMatrix">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compatibilties" upperBound="-1"
+        eType="#//CompatibilityLink" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Planfication" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weeks" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Planifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="planfications" upperBound="-1"
+        eType="#//Planfication" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="MonthWeeks" instanceClassName="java.util.List&lt;java.lang.Integer>"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SowPlanfication" eSuperTypes="#//Planfication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seed" lowerBound="1" eType="#//SeedItem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SowType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SowType">
+    <eLiterals name="INDOOR"/>
+    <eLiterals name="OUTDOOR" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>

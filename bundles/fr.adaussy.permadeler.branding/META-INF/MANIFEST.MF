@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Permadeler Branding
+Bundle-SymbolicName: fr.adaussy.permadeler.branding;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: fr.adaussy.permadeler.branding
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.eclipse.equinox.app,
+ org.eclipse.ui.workbench,
+ org.eclipse.swt,
+ org.eclipse.jface

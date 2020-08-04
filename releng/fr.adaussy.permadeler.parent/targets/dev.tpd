@@ -1,0 +1,29 @@
+target "Dev Target platform"
+
+include "./tp.tpd"
+
+with source requirements 
+
+location "http://download.eclipse.org/releases/2020-06" {
+	org.eclipse.sdk.ide lazy
+	org.eclipse.jdt.feature.group lazy
+	org.eclipse.egit.feature.group lazy
+	
+}
+
+location "https://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest/" {
+	org.eclipse.e4.tools.spies.feature.feature.group lazy
+}
+
+
+location "https://download.eclipse.org/eclipse/updates/4.14" {
+	org.eclipse.swt.tools.feature.feature.group lazy
+}
+
+location "http://helospark.com/eclipse_plugin/SparkBuilderGeneratorPlugin" {
+	com.helospark.SparkBuilderGeneratorFeature.feature.group
+}
+
+location "http://regex-util.sourceforge.net/update/" {
+	com.ess.regexutil.feature.group
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="Dev Target platform" sequenceNumber="1595943547">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.gmf.runtime.notation.sdk.feature.group" version="0.0.0"/>
+      <repository id="GMF-Notation-1.13.0" location="http://download.eclipse.org/modeling/gmp/gmf-notation/updates/milestones/S202003100829"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.gmf.runtime.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.gmf.runtime.thirdparty.feature.group" version="0.0.0"/>
+      <repository id="GMF-Runtime-1.13.0" location="http://download.eclipse.org/modeling/gmp/gmf-runtime/updates/milestones/S202003121028"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.elk.sdk.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.sdk.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.algorithms.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.algorithms.feature.source.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.graphviz.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.elk.graphviz.feature.source.feature.group" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/elk/updates/releases/0.6.1/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/sirius/updates/nightly/latest/2020-06"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.jsoup" version="0.0.0"/>
+      <unit id="org.apache.batik.swing" version="1.9.1.v20190730-1743"/>
+      <unit id="org.junit" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/tools/orbit/downloads/drops/R20191126223242/repository"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.nebula.widgets.gallery.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/nebula/snapshot"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.sdk.ide" version="0.0.0"/>
+      <unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
+      <unit id="org.eclipse.emf" version="0.0.0"/>
+      <unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.collections.feature.feature.group" version="0.0.0"/>
+      <repository location="http://download.eclipse.org/releases/2020-06"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.e4.tools.spies.feature.feature.group" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.swt.tools.feature.feature.group" version="0.0.0"/>
+      <repository location="https://download.eclipse.org/eclipse/updates/4.14"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="com.helospark.SparkBuilderGeneratorFeature.feature.group" version="0.0.21.201812171317"/>
+      <repository location="http://helospark.com/eclipse_plugin/SparkBuilderGeneratorPlugin"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="com.ess.regexutil.feature.group" version="1.2.4"/>
+      <repository location="http://regex-util.sourceforge.net/update/"/>
+    </location>
+  </locations>
+</target>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="fr.adaussy.permadeler.extlib"
+      label="Permadeler Extlib"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.eclipse.sirius.diagram.elk.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.properties.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.runtime"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.elk.algorithms.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.elk.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.elk.graphviz.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.sirius.diagram.elk.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.gallery.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.nebula.widgets.ganttchart.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.collections.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gmf.runtime.notation"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.e4.rcp"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.jsoup"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.batik.swing"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.ui.browser"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

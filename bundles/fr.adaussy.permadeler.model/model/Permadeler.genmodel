@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    copyrightText=" Copyright (c) 2020 Arthur Daussy.&#xA;&#xA; This program and the accompanying materials are made &#xA; available under the terms of the Eclipse Public License 2.0 &#xA; which is available at https://www.eclipse.org/legal/epl-2.0/ &#xA; Contributors:&#xA; Arthur Daussy - initial API and implementation.&#xA;"
+    modelDirectory="/fr.adaussy.permadeler.model/src-gen" creationIcons="false" editDirectory="/fr.adaussy.permadeler.model.edit/src-gen"
+    editorDirectory="/fr.adaussy.permadeler.model.editor/src-gen" modelPluginID="fr.adaussy.permadeler.model"
+    modelName="Permadeler" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>Permadeler.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Permadeler" basePackage="fr.adaussy.permadeler.model" resource="XMI"
+      disposableProviderFactory="true" contentTypeIdentifier="permadeler" ecorePackage="Permadeler.ecore#/"
+      documentation="">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Quantity">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Quantity/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Quantity/Empty"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Quantity/Low"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Quantity/Medium"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Quantity/Hight"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Lifecycle">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Lifecycle/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Lifecycle/Annual"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Lifecycle/Biennial"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Lifecycle/Perennial"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Shade">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Shade/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Shade/FullShade"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Shade/Semi"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Shade/FullSun"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//SoilType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/Light_Sandy"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/Medium_Loam"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/Heavy"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/HeavyClay"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/PoorSoil"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SoilType/Water"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//PH">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/VeryAcid"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/Acid"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/Neutral"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/Alkaline"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/VeryAlkaline"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//PH/Saline"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Moisture">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/DrySoil"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/MoistSoil"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/Wet"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/WaterPlant"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/WellDrained"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Moisture/TolerateGrought"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Family">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Unknown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Acanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Achariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Achatocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Acoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Acrobolbaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Actinidiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Adelanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Adiantaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Adoxaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aextoxicaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aizoaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Akaniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Alismataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Allisoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Alseuosmiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Alstroemeriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Altingiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Alzateaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Amaranthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Amaryllidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Amblystegiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Amborellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Anacardiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Anarthriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Anastrophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ancistrocladaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Andreaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aneuraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Anisophylleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Annonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Antheliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Anthocerotaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aphanopetalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aphloiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Apiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Apocynaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Apodanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aponogetonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aquifoliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Araceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Araliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Araucariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Archidiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Arecaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Argophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aristolochiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Arnelliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Asparagaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aspleniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Asteliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Asteropeiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Atherospermataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aulacomniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Austrobaileyaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Aytoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Balanopaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Balanophoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Balantiopsaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Balsaminaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Barbeuiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Barbeyaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bartramiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Basellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Begoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Berberidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Berberidopsidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Betulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Biebersteiniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bignoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bixaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Blandfordiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Blechnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bonnetiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Boraginaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Boryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Boweniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Brachytheciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Brassicaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Brevianthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bromeliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bruchiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Brunelliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bruniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bryobartramiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Bryoxiphiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Burmanniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Burseraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Butomaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Buxaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Buxbaumiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Byblidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cabombaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cactaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calceolariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calomniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calycanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calyceraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calymperaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Calypogeiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Campanulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Campyneumataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Canellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cannabaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cannaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Capparaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Caprifoliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cardiopteridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Caricaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Carlemanniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Caryocaraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Caryophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Casuarinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Catagoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Catoscopiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Celastraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Centrolepidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Centroplacaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cephalotaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cephalotaxaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cephaloziaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cephaloziellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ceratophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cercidiphyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Chaetophyllopsaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Chloranthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Chonecoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Chrysobalanaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cinclidotaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Circaeasteraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cistaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cleomaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Clethraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cleveaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Climaciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Clusiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Colchicaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Columelliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Combretaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Commelinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Compositae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Connaraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Conocephalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Convolvulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Coriariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cornaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Corsiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Corsiniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Corynocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Costaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Crassulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Crossosomataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cryphaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Crypteroniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ctenolophonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cucurbitaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cunoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cupressaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Curtisiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cyatheaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cycadaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cyclanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cymodoceaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cynomoriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cyperaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cyrillaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cyrtopodaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Cytinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Daltoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Daphniphyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dasypogonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Datiscaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Davalliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Degeneriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dendrocerotaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dennstaedtiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Diapensiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dichapetalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dicksoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dicnemonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dicranaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Didiereaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dilleniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dioncophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dioscoreaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dipentodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dipteridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dipterocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dirachmaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Disceliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ditrichaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Doryanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Droseraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Drosophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Dryopteridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ebenaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ecdeiocoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Echinodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Elaeagnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Elaeocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Elatinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Emblingiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Encalyptaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Entodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ephedraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ephemeraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Equisetaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ericaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Eriocaulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Erpodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Erythroxylaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Escalloniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Eucommiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Euphorbiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Euphroniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Eupomatiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Eupteleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Eustichiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Exormothecaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fabroniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fagaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fissidentaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Flagellariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fontinalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fontinaliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fossombroniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Fouquieriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Frankeniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Funariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Garryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Geissolomataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gelsemiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gentianaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Geocalycaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Geraniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gesneriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gigaspermaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ginkgoaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gisekiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gleicheniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gnetaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Goebeliellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gomortegaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Goodeniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Goupiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Grammitidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Grimmiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Griseliniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Grossulariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Grubbiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gunneraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gymnomitriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Gyrostemonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Haemodoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Halophytaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Haloragaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hamamelidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hanguanaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Haplomitriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Haptanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hedwigiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Heliconiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Helicophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Helwingiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Herbertaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hernandiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Himantandraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hookeriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Huaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Humiriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hydatellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hydnoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hydrangeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hydrocharitaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hydroleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hydrostachyaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hylocomiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hymenophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hymenophyllopsidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hymenophytaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hypericaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hypnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hypnodendraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hypopterygiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Hypoxidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Icacinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Iridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Irvingiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Isoetaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Iteaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ixioliriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ixonanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Jackiellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Joinvilleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Jubulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Jubulopsaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Juglandaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Juncaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Juncaginaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Jungermanniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Kirkiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Koeberliniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Krameriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lacistemataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lactoridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lamiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lanariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lardizabalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lauraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lecythidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Leguminosae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lejeuneaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lembophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lentibulariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lepicoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lepidobotryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lepidolaenaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lepidoziaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Leptodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lepyrodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Leskeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Leucodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Leucomiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Liliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Limeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Limnanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Linaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Linderniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Loasaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Loganiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lomariopsidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lophiocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lophocoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lophoziaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Loranthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lowiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Loxsomataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lunulariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lycopodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Lythraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Magnoliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Makinoaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Malpighiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Malvaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Marantaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Marattiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Marcgraviaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Marchantiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Marsileaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Martyniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Mastigophoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Matoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Mayacaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Meesiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Melanthiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Melastomataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Meliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Melianthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Menispermaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Menyanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Mesoptychiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Metaxyaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Meteoriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Metteniusaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Metzgeriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Misodendraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Mitrastemonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Mitteniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Mniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Molluginaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Monimiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Monocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Montiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Montiniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Moraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Moringaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Muntingiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Musaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myodocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myricaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myriniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myristicaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myrothamnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myrtaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Myuriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nartheciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Neckeraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nelumbonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Neotrichocoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nepenthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Neuradaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nitrariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nothofagaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Notothyladaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nyctaginaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Nymphaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ochnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Octoblepharaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Oedipodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Olacaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Oleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Oleandraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Onagraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Oncothecaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ophioglossaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Opiliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Orchidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Orobanchaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Orthorrhynchiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Orthotrichaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Osmundaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Oxalidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Oxymitraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Paeoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pallaviciniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pandaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pandanaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Papaveraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Paracryphiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Passifloraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Paulowniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pedaliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pelliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Penaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pentadiplandraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pentaphragmataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pentaphylacaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Penthoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Peraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Peridiscaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Petermanniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Petrosaviaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Philesiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Philydraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Phrymaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Phyllanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Phyllodrepaniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Phyllogoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Phyllonomaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Physenaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Phytolaccaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Picramniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Picrodendraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pilotrichaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Piperaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pittosporaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Plagiochilaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Plagiogyriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Plagiotheciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Plantaginaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Platanaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pleuroziaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pleuroziopsaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Plocospermataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Plumbaginaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Poaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Podocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Podostemaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Polemoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Polygalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Polygonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Polypodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Polytrichaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pontederiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Porellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Portulacaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Posidoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Potamogetonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pottiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Primulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Prionodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Proteaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pseudolepicoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Psilotaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pteridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pterigynandraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Pterobryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ptilidiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ptychomitriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ptychomniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Putranjivaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Quillajaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Racopilaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Radulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rafflesiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ranunculaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rapateaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Regmatodontaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Resedaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Restionaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhabdodendraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhabdoweisiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhachitheciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhacocarpaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhamnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhipogonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhizogoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rhizophoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ricciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Riellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rigodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Roridulaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rosaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rousseaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rubiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ruppiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rutaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Rutenbergiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sabiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Salicaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Salvadoraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Salviniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Santalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sapindaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sapotaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sarcobataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sarcolaenaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sarraceniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Saururaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Saxifragaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Scapaniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Scheuchzeriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Schisandraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Schistochilaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Schistostegaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Schizaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Schlegeliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Schoepfiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Scorpidiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Scrophulariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Selaginellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Seligeriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sematophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Serpotortellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Setchellanthaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Simaroubaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Simmondsiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Siparunaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sladeniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Smilacaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Solanaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sphaerosepalaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sphagnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Sphenocleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Spiridentaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Splachnaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Splachnobryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stachyuraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Staphyleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stegnospermataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stemonaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stemonuraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stereophyllaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stilbaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Strasburgeriaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Strelitziaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Stylidiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Styracaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Surianaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Symplocaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Takakiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Talinaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tamaricaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tapisciaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Targioniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Taxaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Taxodiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tecophilaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tetrachondraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tetramelaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tetrameristaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tetraphidaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Thamnobryaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Theaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Theliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Thelypteridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Thomandersiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Thuidiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Thurniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Thymelaeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ticodendraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Timmiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tofieldiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Torricelliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tovariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Trachypodaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Treubiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Trichocoleaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Trigoniaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Triuridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Trochodendraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Tropaeolaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Typhaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Ulmaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Urticaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Vahliaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Velloziaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Verbenaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Vetaformaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Violaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Vitaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Vittariaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Vivianiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Vochysiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Wardiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Welwitschiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Wiesnerellaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Winteraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Woodsiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Xanthorrhoeaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Xeronemataceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Xyridaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Zamiaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Zingiberaceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Zosteraceae"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Family/Zygophyllaceae"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//GrowRate">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//GrowRate/Unkown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//GrowRate/Slow"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//GrowRate/Medium"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//GrowRate/Fast"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Wind">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Wind/TolerateMartimeWind"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Wind/TolerateStrongWind"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Wind/NotWindTolerant"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EatingType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Unkown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Fruit"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Vegetable"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/AromaticPlant"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/None"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Flower"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EdiblePart">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Unkown"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/ApicalBud"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Leaves"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Pollen"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Flowers"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Manna"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Root"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Shoots"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Fruit"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Nectar"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Sap"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Stem"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/InnerBark"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Oil"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Seed"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//SpecialUses">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/NitrogenFixer"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/ScentedPlants"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/FoodForest"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/CardonFarming"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/AttractsWildlife"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/Hedge"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/DynamicAccumulator"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/GroundCover"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EventType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EventType/General"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EventType/Harvest"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EventType/Prune"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EventType/Disease"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//RowBedType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//RowBedType/VERTICAL"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//RowBedType/HORIZONTAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//SowType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SowType/INDOOR"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SowType/OUTDOOR"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Permadeler.ecore#//MonthWeek"/>
+    <genDataTypes ecoreDataType="Permadeler.ecore#//URL"/>
+    <genDataTypes ecoreDataType="Permadeler.ecore#//Date"/>
+    <genDataTypes ecoreDataType="Permadeler.ecore#//MonthWeeks"/>
+    <genClasses ecoreClass="Permadeler.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/seedLib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/seedbank"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/zones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/nursary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/planifier"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Root/addSowPlanification">
+        <genParameters ecoreParameter="Permadeler.ecore#//Root/addSowPlanification/seedItem"/>
+        <genParameters ecoreParameter="Permadeler.ecore#//Root/addSowPlanification/weeks"/>
+        <genParameters ecoreParameter="Permadeler.ecore#//Root/addSowPlanification/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="Permadeler.ecore#//Root/addCompatibility">
+        <genParameters ecoreParameter="Permadeler.ecore#//Root/addCompatibility/source"/>
+        <genParameters ecoreParameter="Permadeler.ecore#//Root/addCompatibility/target"/>
+        <genParameters ecoreParameter="Permadeler.ecore#//Root/addCompatibility/cmp"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//KnowledgeBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/plantTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/compatibilityMatrix"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//SeedBank">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedBank/items"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Genus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/species"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Genus/family"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/subGenus"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/compatibilityLinks"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Species">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/usdaHardinessMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/lightingCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/soilType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/moisture"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/productiveMonths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/bloomMonths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/fruitConservation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/fruitsAvailability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/images"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/growRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/wind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/eatingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/edibleParts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/usdaHardinessMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/specialUses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/flowerColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/pruningMonths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/pruneNote"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Species/getAllNames"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//SeedItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedItem/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SeedItem/quantity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SeedItem/byDate"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Area">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Area/subAreas"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Area/soilType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Area/events"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Area/getActualSoilType"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Planting">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Planting/areas"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Planting/startTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Planting/endTime"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//NamedElement/name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Permadeler.ecore#//NamedElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Plantation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/sowEvent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/plantationEvent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/events"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/removalEvent"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/description"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Plantation/isRemoved"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//PlantNamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/commonNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/latinName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/representationKey"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Plant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/sowIndoorMonths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/sowOutdoorMonths"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/lifeCycle"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Tree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Tree/rootstock"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/link"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/source"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Image/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Image/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Image/path"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Event/date"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Event/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Event/images"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Event/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Zone">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Zone/plantings"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Nursary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Nursary/zones"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Tray">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Tray/rows"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Tray/getEmptyCells"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Row">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Row/cells"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Cell">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Cell/species"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Cell/date"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//PlantationOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//PlantationOwner/plantations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//PlantationOwner/beds"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//TrayZone"/>
+    <genClasses image="false" ecoreClass="Permadeler.ecore#//TrayOwner">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//TrayOwner/trays"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Bed"/>
+    <genClasses ecoreClass="Permadeler.ecore#//GridBed">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//GridBed/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//RowBed">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//RowBed/rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//RowBed/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//GridBedRow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//GridBedRow/cells"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//GridBedCell">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//GridBedCell/plantation"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//RowBedRow"/>
+    <genClasses ecoreClass="Permadeler.ecore#//CompatibilityLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//CompatibilityLink/species"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//CompatibilityLink/affinity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//CompatibilityLink/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//CompatibilityMatrix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//CompatibilityMatrix/compatibilties"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Planfication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Planfication/weeks"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Planifier">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Planifier/planfications"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//SowPlanfication">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SowPlanfication/seed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SowPlanfication/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'
+          'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg contentScriptType="text/ecmascript" zoomAndPan="magnify" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" id="Capa_1" style="enable-background:new 0 0 512 512;" version="1.1" width="100pt" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" height="100.0pt" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+>
+<g
+  >
+	<polygon style="fill:#365F2C;" points="286,0 271,0 261,45 286,45  "
+    />
+	<rect x="256" width="15" height="45" style="fill:#44702A;"
+    />
+	<path style="fill:#FC870B;" d="M271,30L150.5,271L271,512c133.101,0,241-107.899,241-241S404.101,30,271,30z"
+    />
+	<path style="fill:#FFF3AD;" d="M271,60L165.5,271L271,482c116.532,0,211-94.468,211-211S387.532,60,271,60z"
+    />
+	<path style="fill:#FC870B;" d="M271,105l-83,166h200.38V153.62C358.34,123.58,316.84,105,271,105z"
+    />
+	<path style="fill:#F94C10;" d="M388.38,271H188l83,166c45.84,0,87.34-18.58,117.38-48.62V271z"
+    />
+	<path style="fill:#FC870B;" d="M437,271l-83-30l-83,30l117.38,117.38C418.42,358.34,437,316.84,437,271z"
+    />
+	<path style="fill:#FA690E;" d="M437,271c0-45.84-18.58-87.34-48.62-117.38L271,271H437z"
+    />
+	<path style="fill:#FA690E;" d="M30,271c0,133.101,107.899,241,241,241V30C137.899,30,30,137.899,30,271z"
+    />
+	<rect width="30" x="136" height="30" y="362" style="fill:#F94C10;"
+    />
+	<rect width="30" x="196" height="30" y="392" style="fill:#F94C10;"
+    />
+	<path style="fill:#365F2C;" d="M0,301c149.669,0,271-121.331,271-271L105.5,141L0,301z"
+    />
+	<path style="fill:#44702A;" d="M0,301L271,30C121.331,30,0,151.331,0,301z"
+    />
+</g
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</svg
+  >

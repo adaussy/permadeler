@@ -1,0 +1,59 @@
+target "Build target plateform"
+
+with  requirements source
+
+
+
+location GMF-Notation-1.13.0 "http://download.eclipse.org/modeling/gmp/gmf-notation/updates/milestones/S202003100829" {
+    org.eclipse.gmf.runtime.notation.sdk.feature.group lazy
+}
+
+location GMF-Runtime-1.13.0 "http://download.eclipse.org/modeling/gmp/gmf-runtime/updates/milestones/S202003121028" {
+    org.eclipse.gmf.runtime.sdk.feature.group lazy
+    org.eclipse.gmf.runtime.thirdparty.feature.group lazy
+}
+location  "http://download.eclipse.org/releases/2020-06" {
+
+	org.eclipse.platform.sdk lazy
+//	org.eclipse.xtend.feature.group lazy
+//	org.eclipse.xtend.ide lazy
+	org.eclipse.emf lazy
+//	org.eclipse.xtext.xbase.feature.group lazy
+	org.eclipse.pde.feature.group lazy
+	org.eclipse.collections.feature.feature.group lazy
+//	org.eclipse.egit.feature.group lazy
+	
+}
+
+location "https://download.eclipse.org/elk/updates/releases/0.6.1/" {
+	org.eclipse.elk.sdk.feature.feature.group lazy
+ 	org.eclipse.elk.sdk.feature.source.feature.group lazy
+ 	org.eclipse.elk.feature.feature.group lazy
+ 	org.eclipse.elk.feature.source.feature.group lazy
+ 	org.eclipse.elk.algorithms.feature.feature.group lazy
+ 	org.eclipse.elk.algorithms.feature.source.feature.group lazy
+	org.eclipse.elk.graphviz.feature.feature.group lazy
+ 	org.eclipse.elk.graphviz.feature.source.feature.group lazy
+}
+
+location "http://download.eclipse.org/sirius/updates/nightly/latest/2020-06" {
+	
+	org.eclipse.sirius.specifier.feature.group lazy
+	org.eclipse.sirius.properties.feature.feature.group lazy
+	org.eclipse.sirius.runtime.ide.ui.feature.group lazy
+	org.eclipse.sirius.runtime.feature.group lazy
+	org.eclipse.sirius.diagram.elk.feature.feature.group lazy
+}
+
+
+location "https://download.eclipse.org/tools/orbit/downloads/drops/R20191126223242/repository" {
+	org.jsoup lazy
+	org.apache.batik.swing [1.9.1,1.9.2)
+	org.junit lazy
+}
+
+location "http://download.eclipse.org/nebula/snapshot" {
+	org.eclipse.nebula.widgets.gallery.feature.feature.group lazy
+	org.eclipse.nebula.widgets.ganttchart.feature.feature.group lazy
+}
+
