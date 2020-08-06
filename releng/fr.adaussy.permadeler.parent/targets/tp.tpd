@@ -1,8 +1,6 @@
 target "Build target plateform"
-
+environment JavaSE-14
 with  requirements source
-
-
 
 location GMF-Notation-1.13.0 "http://download.eclipse.org/modeling/gmp/gmf-notation/updates/milestones/S202003100829" {
     org.eclipse.gmf.runtime.notation.sdk.feature.group lazy
@@ -15,14 +13,13 @@ location GMF-Runtime-1.13.0 "http://download.eclipse.org/modeling/gmp/gmf-runtim
 location  "http://download.eclipse.org/releases/2020-06" {
 
 	org.eclipse.platform.sdk lazy
-//	org.eclipse.xtend.feature.group lazy
-//	org.eclipse.xtend.ide lazy
 	org.eclipse.emf lazy
-//	org.eclipse.xtext.xbase.feature.group lazy
 	org.eclipse.pde.feature.group lazy
+	org.eclipse.rcp.feature.group lazy
+	org.eclipse.osgi.services lazy
 	org.eclipse.collections.feature.feature.group lazy
-//	org.eclipse.egit.feature.group lazy
-	
+	org.eclipse.equinox.executable.feature.group lazy
+	org.eclipse.equinox.core.feature.feature.group lazy
 }
 
 location "https://download.eclipse.org/elk/updates/releases/0.6.1/" {
@@ -35,6 +32,12 @@ location "https://download.eclipse.org/elk/updates/releases/0.6.1/" {
 	org.eclipse.elk.graphviz.feature.feature.group lazy
  	org.eclipse.elk.graphviz.feature.source.feature.group lazy
 }
+
+//location "https://download.eclipse.org/justj/sandbox/jres/11/updates/release/11.0.2" {
+//	org.eclipse.justj.openjdk.hotspot.jre.full.feature.group lazy
+//	org.eclipse.justj.openjdk.hotspot.jre.full lazy
+//	
+//}
 
 location "http://download.eclipse.org/sirius/updates/nightly/latest/2020-06" {
 	

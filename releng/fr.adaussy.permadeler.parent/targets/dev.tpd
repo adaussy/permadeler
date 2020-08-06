@@ -8,7 +8,6 @@ location "http://download.eclipse.org/releases/2020-06" {
 	org.eclipse.sdk.ide lazy
 	org.eclipse.jdt.feature.group lazy
 	org.eclipse.egit.feature.group lazy
-	
 }
 
 location "https://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest/" {
@@ -16,7 +15,7 @@ location "https://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest/
 }
 
 
-location "https://download.eclipse.org/eclipse/updates/4.14" {
+location "https://download.eclipse.org/eclipse/updates/4.15" {
 	org.eclipse.swt.tools.feature.feature.group lazy
 }
 

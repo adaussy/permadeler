@@ -3,12 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.adaussy.permadeler.model.edit;singleton:=true
 Automatic-Module-Name: fr.adaussy.permadeler.model.edit
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-14
 Export-Package: fr.adaussy.permadeler.model.Permadeler.provider,
  fr.adaussy.permadeler.model.edit
 Require-Bundle: org.eclipse.core.runtime,

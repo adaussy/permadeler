@@ -4,7 +4,7 @@ Bundle-Name: Permadeler Common
 Bundle-SymbolicName: fr.adaussy.permadeler.common
 Bundle-Version: 0.1.0.qualifier
 Automatic-Module-Name: fr.adaussy.permadeler.common
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-14
 Export-Package: fr.adaussy.permadeler.common,
  fr.adaussy.permadeler.common.date
 Require-Bundle: org.eclipse.jface

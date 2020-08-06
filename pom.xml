@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2020 Arthur Daussy.
+  
+    This program and the accompanying materials are made 
+    available under the terms of the Eclipse Public License 2.0 
+    which is available at https://www.eclipse.org/legal/epl-2.0/ 
+    Contributors:
+    Arthur Daussy - initial API and implementation.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<!-- Reminder:
+	
+	+ to quickly create a product : mvn package -Dmaven.test.skip=true -Dgit.dirty=ignore
+	
+	+ to quickly test : mvn package -DnoReleng=true  -Dgit.dirty=ignore
+	-->
+	
+	<licenses>
+		<license>
+			<name>Eclispe Public License V2</name>
+			<comments>https://www.eclipse.org/legal/epl-2.0/</comments>
+		</license>
+	</licenses>
+
+	<groupId>fr.adaussy.permadeler</groupId>
+	<artifactId>container</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>Permadeler container</name>
+<pluginRepositories>
+  <pluginRepository>
+    <id>tycho-staged</id>
+    <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1063/</url>
+  </pluginRepository>
+</pluginRepositories>
+	<properties>
+		<tycho.version>2.0.0</tycho.version>
+	</properties>
+
+
+
+	<modules>
+		<module>releng/fr.adaussy.permadeler.parent</module>
+
+		<!-- Plugins -->
+		<module>bundles/fr.adaussy.permadeler.branding</module>
+		<module>bundles/fr.adaussy.permadeler.common</module>
+		<module>bundles/fr.adaussy.permadeler.model</module>
+		<module>bundles/fr.adaussy.permadeler.model.design</module>
+		<module>bundles/fr.adaussy.permadeler.model.edit</module>
+		<module>bundles/fr.adaussy.permadeler.model.editor</module>
+		<module>bundles/fr.adaussy.permadeler.rcp</module>
+
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-versions-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<artifacts>container,parent</artifacts>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>Releng</id>
+			<activation>
+				<property>
+					<name>!noReleng</name>
+				</property>
+			</activation>
+
+			<modules>
+				<!-- releng -->
+				<module>releng/fr.adaussy.permadeler.extlib</module>
+				<module>releng/fr.adaussy.permadeler.feature</module>
+				<module>releng/fr.adaussy.permadeler.product</module>
+
+			</modules>
+		</profile>
+		<profile>
+			<id>test-plugins</id>
+			<activation>
+				<property>
+					<name>!maven.test.skip</name>
+				</property>
+			</activation>
+
+			<modules>
+				<!-- releng -->
+				<!--TODO-->
+			</modules>
+		</profile>
+		
+	</profiles>
+</project>
+

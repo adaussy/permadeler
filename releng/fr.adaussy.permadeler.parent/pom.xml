@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2020 Arthur Daussy. This program and the accompanying 
+	materials are made available under the terms of the Eclipse Public License 
+	2.0 which is available at https://www.eclipse.org/legal/epl-2.0/ Contributors: 
+	Arthur Daussy - initial API and implementation. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>fr.adaussy.permadeler</groupId>
+	<artifactId>parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>tycho-staged</id>
+			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1063/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<packaging>pom</packaging>
+
+	<name>Permadeler Parent</name>
+
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License V2</name>
+			<comments>
+      		 https://www.eclipse.org/legal/epl-2.0/
+            </comments>
+		</license>
+	</licenses>
+
+
+	<properties>
+		<!-- ${tpd.version} must be aligned with this project. Due to interpretation 
+			in children, the information must be duplicated. -->
+		<tpd.version>${project.version}</tpd.version><!-- Must the same as parent 
+			pom -->
+		<tpd.classifier>tp</tpd.classifier>
+		<tpd.path>targets/${tpd.classifier}</tpd.path>
+
+		<tycho.version>2.0.0</tycho.version>
+
+
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- For pattern test, we use .class extension for XTend -->
+		<junit.tests.pattern>**/Test*.class,**/*Test.class,**/*TestCase.class</junit.tests.pattern>
+
+		<!-- supported: warning|error|ignore -->
+		<git.dirty>error</git.dirty>
+		<pushRemote>false</pushRemote>
+
+	</properties>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-toolchains-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>toolchain</goal>
+						</goals>
+						<configuration>
+							<toolchains>
+								<jdk>
+									<version>14</version>
+								</jdk>
+							</toolchains>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+
+			<!-- All inheriting projects are eclipse projects. -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<extensions>true</extensions>
+			</plugin>
+			<!-- Only for this pom : Publish target and tpd -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<id>attach-artifacts</id>
+						<phase>package</phase>
+						<goals>
+							<goal>attach-artifact</goal>
+						</goals>
+						<configuration>
+							<artifacts>
+								<artifact>
+									<file>${tpd.path}.tpd</file>
+									<type>tpd</type>
+									<classifier>${tpd.classifier}</classifier>
+								</artifact>
+								<artifact>
+									<file>${tpd.path}.target</file>
+									<type>target</type>
+									<classifier>${tpd.path}</classifier>
+								</artifact>
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.8</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>3.0.0-M2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.asciidoctor</groupId>
+					<artifactId>asciidoctor-maven-plugin</artifactId>
+					<version>1.5.6</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.6.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>3.0.0</version>
+				</plugin>
+				<!-- Eclipse tycho -->
+				<plugin> <!-- Lifecycle -->
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin> <!-- Target platform -->
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<resolver>p2</resolver>
+						<environments>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<!-- <environment> -->
+							<!-- <os>macosx</os> -->
+							<!-- <ws>cocoa</ws> -->
+							<!-- <arch>x86_64</arch> -->
+							<!-- </environment> -->
+							<!-- <environment> -->
+							<!-- <os>linux</os> -->
+							<!-- <ws>gtk</ws> -->
+							<!-- <arch>x86_64</arch> -->
+							<!-- </environment> -->
+						</environments>
+						<target>
+							<artifact>
+								<groupId>fr.adaussy.permadeler</groupId>
+								<artifactId>parent</artifactId>
+								<version>${tpd.version}</version>
+								<classifier>${tpd.path}</classifier>
+							</artifact>
+						</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<!-- Force the timespan of each build to use the UTC of the last commit -->
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-packaging-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.tycho.extras</groupId>
+							<artifactId>tycho-buildtimestamp-jgit</artifactId>
+							<version>${tycho.version}</version>
+						</dependency>
+					</dependencies>
+					<configuration>
+						<strictBinIncludes>false</strictBinIncludes>
+						<format>'v'yyyyMMdd-HHmm</format>
+						<timestampProvider>jgit</timestampProvider>
+						<!-- No expression supported for jgit.dirtyWorkingTree; Use property. -->
+						<jgit.dirtyWorkingTree>${git.dirty}</jgit.dirtyWorkingTree>
+						<jgit.ignore>
+						</jgit.ignore>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<argLine>-Xmx4096m</argLine>
+						<product>fr.adaussy.permadeler.product</product>
+						<useUIHarness>false</useUIHarness> <!-- use headless -->
+						<useUIThread>false</useUIThread>
+						<includes><!-- Easier to redefine -->
+							<include>${junit.tests.pattern}</include>
+						</includes>
+						<systemProperties>
+							<file.encoding>${project.build.sourceEncoding}</file.encoding>
+						</systemProperties>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho.version}</version>
+
+					<configuration>
+						<compilerVersion>14</compilerVersion>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-repository-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-director-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+			</plugins>
+
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>tycho-source</id>
+			<activation>
+				<file><!-- Active for bundle and tests, neither feature, site nor product -->
+					<exists>META-INF/MANIFEST.MF</exists>
+				</file>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-source-plugin</artifactId>
+
+						<!-- Bug ? Default binding in doc seems missing in 0.26.0 http://www.eclipse.org/tycho/sitedocs/tycho-source-plugin/plugin-source-mojo.html -->
+						<executions>
+							<execution>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>plugin-source</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+
+
+
+</project>

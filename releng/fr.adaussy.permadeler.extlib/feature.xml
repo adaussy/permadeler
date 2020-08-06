@@ -2,7 +2,7 @@
 <feature
       id="fr.adaussy.permadeler.extlib"
       label="Permadeler Extlib"
-      version="1.0.0.qualifier">
+      version="0.1.0.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -66,6 +66,14 @@
 
    <includes
          id="org.eclipse.e4.rcp"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.equinox.core.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.platform"
          version="0.0.0"/>
 
    <plugin
