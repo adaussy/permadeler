@@ -1,0 +1,13 @@
+language: java
+dist: trusty
+jdk: openjdk14
+script: mvn clean verify
+deploy:
+  provider: bintray
+  edge: true
+  file: deploy-config.json
+  skip_cleanup: true
+  cleanup: false
+  user: adaussy
+  key:
+    secure: Hkt9IK9Fi44v/LWuYDv5Xvaia7+CUCxBs45uWg3T2ipC5kuDeHd/De61jSP7CFHA/DWYkA1JR2mzYpc6Yc+U/xmBaUPSbn2EnkkojaY3d25Y3WtV0nwDSSZ56ha9RtbRIr2RS7msPGmoj7b62T+5f7dcELtnlAjJWD8ejHb9Q4lwZgZpVJ+nWZ1zjXcJRVXL5nu7jC7YGC/+O9Q89xePI6Fu5oR9ATyHDyi2Yr5BY+8DH0PCcNF6K13a62ZJaKf53nbQD+lajGUpYNDq3ZrIwX60BW/Cj6yfJNEAd1Ppzc7HOKl3yhsC5nUOll/O6yEfcmdDPPI5kmixuX2ZQ4Rx8peHweTqnYhkmq9aZbnaxTI932qPAyD1rVUv0tmV1Rga+g8QL0XF/WKTjddsQo4YAFSfn8TJNn17UbUWSJJ+9SXCToRaNByzQvhz+cSSwmDYgLloYvU/7uLACFKRqhKI7I2tVnjnZvK9NihMSwXJohuWZDPXHLyxm+AV7EjmpWZUF3qJAJ+ey4/DZSjkpNvDmdH8pz7Za0QvNkOwEivLaubY2HqYk/pAk0yzVnHvzDmz4+FFGRAxVne5Q0lsVJfvyBn3WQLkOJuYrCCltFOR0+IPrQx9jP9oM47U3opFdTiHOtOMU/NeP3TVnOQ4FntPbXe1JFnsB2zIkP/mvLxEJLk=
