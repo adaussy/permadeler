@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" name="model" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="model" version="12.0.0.2017041100">
   <ownedViewpoints name="SeedStore" modelFileExtension="*.Permadeler">
     <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="Species" initialisation="true" domainClass="Permadeler::KnowledgeBase">
       <metamodel href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
@@ -648,6 +648,11 @@
       </ownedColumnMappings>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='Plantations']/@defaultLayer/@toolSections.2/@ownedTools[name='DndPlantation'] //@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='Plantations']/@defaultLayer/@toolSections.2/@ownedTools[name='Create%20Plantation%20from%20Sow']" name="Plantations" domainClass="Permadeler::Planting" enablePopupBars="true">
+      <validationSet>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="CompatibiltyCheckPlantation" level="WARNING" message="You have incompatible plantation" targetClass="Permadeler::Area">
+          <audits auditExpression="aql:self.validatePlantationCompatibility()"/>
+        </ownedRules>
+      </validationSet>
       <defaultLayer name="Default">
         <nodeMappings name="TreeNode_Plantations" label="Plantation" semanticCandidatesExpression="aql:self.plantations->select(e | not e.isRemoved())" domainClass="Permadeler::Plantation">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="35" showIcon="false" labelExpression="aql:''" tooltipExpression="aql:self.getPlantationLabel()" hideLabelByDefault="true" sizeComputationExpression="aql:self.getSVGSize()" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/tree.svg">
@@ -1143,6 +1148,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DiagramService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DateService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.LayoutService"/>
+    <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.ValidationService"/>
   </ownedViewpoints>
   <userColorsPalettes name="DiagramColors">
     <entries xsi:type="description:UserFixedColor" red="249" green="235" blue="210" name="AreaBackground"/>
