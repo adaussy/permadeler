@@ -41,6 +41,7 @@
       <feature id="org.eclipse.emf.common"/>
       <feature id="fr.adaussy.permadeler.feature" installMode="root"/>
       <feature id="fr.adaussy.permadeler.extlib" installMode="root"/>
+      <feature id="name.abuchen.zulu.jre.feature" installMode="root"/>
    </features>
 
    <configurations>
