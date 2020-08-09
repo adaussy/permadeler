@@ -13,7 +13,6 @@ package fr.adaussy.permadeler.model.Permadeler.provider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 
-import fr.adaussy.permadeler.model.Permadeler.NamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
@@ -39,8 +38,8 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 	public String getText(Object object) {
 		Species type = ((Plantation)object).getType();
 		if (type != null) {
-			TextHelper.getLabel(type);
+			return TextHelper.getLabel(type);
 		}
-		return TextHelper.getLabel((NamedElement)type);
+		return "Plantation with no species";
 	}
 }
