@@ -22,8 +22,8 @@ location  "http://download.eclipse.org/releases/2020-06" {
 	org.eclipse.equinox.core.feature.feature.group lazy
 }
 
-location "https://dl.bintray.com/adaussy/Zulu_Bundled_JRE/" {
-	name.abuchen.zulu.jre.feature.feature.group lazy
+location "https://dl.bintray.com/adaussy/Zulu_Bundled_JRE/jre/14.0.2.qualifier/" {
+	name.abuchen.zulu.jre.feature.feature.group [14.0.2.202008101825,14.0.2.202008101825]
 }
 
 
@@ -38,11 +38,6 @@ location "https://download.eclipse.org/elk/updates/releases/0.6.1/" {
  	org.eclipse.elk.graphviz.feature.source.feature.group lazy
 }
 
-//location "https://download.eclipse.org/justj/sandbox/jres/11/updates/release/11.0.2" {
-//	org.eclipse.justj.openjdk.hotspot.jre.full.feature.group lazy
-//	org.eclipse.justj.openjdk.hotspot.jre.full lazy
-//	
-//}
 
 location "http://download.eclipse.org/sirius/updates/nightly/latest/2020-06" {
 	
