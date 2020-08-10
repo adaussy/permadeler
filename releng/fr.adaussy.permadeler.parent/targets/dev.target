@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Dev Target platform" sequenceNumber="1596639411">
+<target name="Dev Target platform" sequenceNumber="1597085913">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.gmf.runtime.notation.sdk.feature.group" version="0.0.0"/>
@@ -13,6 +13,10 @@
       <repository id="GMF-Runtime-1.13.0" location="http://download.eclipse.org/modeling/gmp/gmf-runtime/updates/milestones/S202003121028"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="name.abuchen.zulu.jre.feature.feature.group" version="14.0.2.202008101825"/>
+      <repository location="https://dl.bintray.com/adaussy/Zulu_Bundled_JRE/jre/14.0.2.qualifier/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.elk.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.elk.sdk.feature.source.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.elk.feature.feature.group" version="0.0.0"/>
@@ -22,10 +26,6 @@
       <unit id="org.eclipse.elk.graphviz.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.elk.graphviz.feature.source.feature.group" version="0.0.0"/>
       <repository location="https://download.eclipse.org/elk/updates/releases/0.6.1/"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.justj.openjdk.hotspot.jre.full.feature.group" version="0.0.0"/>
-      <repository location="https://download.eclipse.org/justj/sandbox/jres/11/updates/release/11.0.2"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>
@@ -53,8 +53,11 @@
       <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
       <unit id="org.eclipse.emf" version="0.0.0"/>
       <unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.osgi.services" version="0.0.0"/>
       <unit id="org.eclipse.collections.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.core.feature.feature.group" version="0.0.0"/>
       <repository location="http://download.eclipse.org/releases/2020-06"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
