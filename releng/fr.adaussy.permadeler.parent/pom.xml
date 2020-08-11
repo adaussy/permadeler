@@ -49,7 +49,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- For pattern test, we use .class extension for XTend -->
-		<junit.tests.pattern>**/Test*.class,**/*Test.class,**/*TestCase.class</junit.tests.pattern>
+		<junit.tests.pattern>**/Tests.class,**/Test*.class,**/*Test.class,**/*TestCase.class</junit.tests.pattern>
 
 		<!-- supported: warning|error|ignore -->
 		<git.dirty>error</git.dirty>

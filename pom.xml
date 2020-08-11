@@ -56,9 +56,11 @@
 		<module>bundles/fr.adaussy.permadeler.common</module>
 		<module>bundles/fr.adaussy.permadeler.model</module>
 		<module>bundles/fr.adaussy.permadeler.model.design</module>
+		<module>bundles/fr.adaussy.permadeler.model.design.tests</module>
 		<module>bundles/fr.adaussy.permadeler.model.edit</module>
 		<module>bundles/fr.adaussy.permadeler.model.editor</module>
 		<module>bundles/fr.adaussy.permadeler.rcp</module>
+		<module>bundles/fr.adaussy.permadeler.test.common</module>
 
 	</modules>
 
