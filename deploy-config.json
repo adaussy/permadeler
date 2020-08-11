@@ -22,7 +22,7 @@
 
     "files":
         [
-        {"includePattern":  "/home/travis/build/adaussy/permadeler/releng/fr.adaussy.permadeler.product/target/products/(Permadeler.*\\.zip)","uploadPattern": "$1",
+        {"includePattern":  "/home/travis/build/adaussy/permadeler/releng/fr.adaussy.permadeler.product/target/products/(Permadeler.*\\.zip)","uploadPattern": "0.1.0/products/$1",
 		 "matrixParams": {
         "override": 1
 		}}
