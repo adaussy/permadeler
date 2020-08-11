@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests Common
+Bundle-SymbolicName: fr.adaussy.permadeler.test.common
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: fr.adaussy.permadeler.test.common
+Bundle-RequiredExecutionEnvironment: JavaSE-14

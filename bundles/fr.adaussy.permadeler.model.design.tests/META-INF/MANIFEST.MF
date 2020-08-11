@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Design Tests
+Bundle-SymbolicName: fr.adaussy.permadeler.model.design.tests
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: fr.adaussy.permadeler.model.design
+Automatic-Module-Name: fr.adaussy.permadeler.model.design.tests
+Bundle-RequiredExecutionEnvironment: JavaSE-14
+Require-Bundle: org.junit;bundle-version="4.13.0"
