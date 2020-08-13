@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
@@ -54,6 +55,13 @@ public class ModelContentProvider implements ITreeContentProvider {
 			return ((Collection<?>)inputElement).toArray();
 		}
 		return new Object[] {inputElement };
+	}
+
+	@Override
+	public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
+		if (semanticContentProvider != null) {
+			semanticContentProvider.inputChanged(viewer, oldInput, newInput);
+		}
 	}
 
 	@Override
