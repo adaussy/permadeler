@@ -39,7 +39,17 @@ import fr.adaussy.permadeler.rcp.internal.SemanticFactory;
  * 
  * @author Arthur Daussy
  */
-public class CreateNewSessionMenu {
+public class CreateNewProjectMenu {
+	/**
+	 * Name of the default viewpoint
+	 */
+	public static final String DEFAULT_VIEWPOINT = "SeedStore";
+
+	/**
+	 * File extension that hold all representations
+	 */
+	public static final String REPRESENTATION_FILE_EXT = ".permarep";
+
 	@Execute
 	public void execute(Shell shell) {
 
@@ -53,30 +63,64 @@ public class CreateNewSessionMenu {
 				MessageDialog.openError(shell, "Problem during creation", "The given path can't be used.");
 				return;
 			}
-
-			if (rootFolderFile.mkdirs()) {
-				URI siriusURI = URI.createFileURI(
-						rootFolderPath.resolve(rootFolderPath).resolve(fileName + ".aird").toUri().getPath());
-				try {
-					URI semanticURI = createAndFillSemanticResource(fileName, rootFolderPath);
-
-					Session session = SessionFactory.INSTANCE.createDefaultSession(siriusURI);
-					addSemanticResource(semanticURI, session);
-
-					activatePermadelerViewpoint(session);
-
-					SessionManager.INSTANCE.getSession(siriusURI, new NullProgressMonitor())
-							.open(new NullProgressMonitor());
-
-				} catch (CoreException | InvocationTargetException | InterruptedException | IOException e) {
-					MessageDialog.openError(shell, "Problem during creation",
-							"Unable to create sessiokn at " + siriusURI);
-					return;
-				}
-			} else {
-				RcpPlugin.getDefault().logError("Unable to create a folder at " + rootFolderFile);
+			try {
+				createNewProject(rootFolderFile, fileName, true);
+			} catch (InvocationTargetException | IOException | CoreException e) {
+				MessageDialog.openError(shell, "Problem during creation",
+						"Unable to create sessiokn at " + path);
+				RcpPlugin.logError("Unable to create sessiokn at " + path, e);
 			}
 		}
+
+	}
+
+	/**
+	 * Do creates the project
+	 * 
+	 * @param rootFolderFile
+	 *            the folder holding the new project
+	 * @param fileName
+	 *            the name of the file
+	 * @param activateViewpoint
+	 *            holds to to active the default viewpoint (workaround due to incorrect achitecture. The
+	 *            plugin design and RCP should be merged for the moment)
+	 * @return the URI of session or <code>null</code> if something went wrong
+	 * @throws IOException
+	 *             error during save
+	 * @throws CoreException
+	 *             error during viewpoint selection
+	 * @throws InvocationTargetException
+	 *             error during semantic resource addition
+	 */
+	URI createNewProject(File rootFolderFile, String fileName, boolean activateViewpoint)
+			throws IOException, CoreException, InvocationTargetException {
+
+		if (!rootFolderFile.exists()) {
+			if (!rootFolderFile.mkdirs()) {
+				RcpPlugin.logError("Unable to create a folder at " + rootFolderFile);
+				return null;
+			}
+		}
+
+		Path rootFolderPath = rootFolderFile.toPath();
+		URI siriusURI = URI.createFileURI(rootFolderPath.resolve(rootFolderPath)
+				.resolve(fileName + REPRESENTATION_FILE_EXT).toUri().getPath());
+		URI semanticURI = createAndFillSemanticResource(fileName, rootFolderPath);
+
+		Session session = SessionFactory.INSTANCE.createDefaultSession(siriusURI);
+		addSemanticResource(semanticURI, session);
+
+		if (activateViewpoint) {
+			activatePermadelerViewpoint(session);
+		}
+
+		// Needed to detect the addition of a new semantic resource
+		session.getSessionResource().setModified(true);
+		session.save(new NullProgressMonitor());
+		session = SessionManager.INSTANCE.getSession(siriusURI, new NullProgressMonitor());
+		session.open(new NullProgressMonitor());
+
+		return siriusURI;
 
 	}
 
@@ -90,10 +134,9 @@ public class CreateNewSessionMenu {
 	 * @throws InterruptedException
 	 *             if the activation is interrupted (should never happen)
 	 */
-	private void activatePermadelerViewpoint(Session session)
-			throws InvocationTargetException, InterruptedException {
+	private void activatePermadelerViewpoint(Session session) throws InvocationTargetException {
 		Viewpoint permaViewPoint = ViewpointRegistry.getInstance().getViewpoints().stream()
-				.filter(v -> "SeedStore".equals(v.getName())).findFirst().get();
+				.filter(v -> DEFAULT_VIEWPOINT.equals(v.getName())).findFirst().get();
 
 		IRunnableWithProgress runnable = new IRunnableWithProgress() {
 			@Override
@@ -104,13 +147,15 @@ public class CreateNewSessionMenu {
 						Collections.emptySet(), true, monitor);
 
 				session.getTransactionalEditingDomain().getCommandStack().execute(command);
-				session.getSessionResource().setModified(true);
-				session.save(new NullProgressMonitor());
 			}
 
 		};
-		new ProgressMonitorDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).run(true,
-				false, runnable);
+		try {
+			new ProgressMonitorDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell())
+					.run(true, false, runnable);
+		} catch (InterruptedException e) {
+			// Should never happen cancel == false
+		}
 	}
 
 	/**

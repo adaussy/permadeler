@@ -185,7 +185,7 @@ public class MonthService {
 	public void setMonthLabel(final EObject eObject, final String featureName, final int monthNb,
 			final String value) {
 		if ((monthNb <= 0) || (monthNb > DateUtils.NB_OF_MONTHS)) {
-			RcpPlugin.getDefault().logError("Expecting month range 1 -> 12");
+			RcpPlugin.logError("Expecting month range 1 -> 12");
 			return;
 		}
 		final List<Integer> monthsWeeks = this.getMonthsWeek(eObject, featureName);
@@ -268,7 +268,7 @@ public class MonthService {
 	 */
 	public boolean hasMonth(final EObject eObject, final String featureName, final int monthNb) {
 		if ((monthNb <= 0) || (monthNb > DateUtils.NB_OF_MONTHS)) {
-			RcpPlugin.getDefault().logError("Expecting month range 1 -> 12");
+			RcpPlugin.logError("Expecting month range 1 -> 12");
 			return false;
 		}
 		final List<Integer> monthsWeeks = this.getMonthsWeek(eObject, featureName);
@@ -294,7 +294,7 @@ public class MonthService {
 	protected List<Integer> getMonthsWeek(final EObject eObject, final String featureName) {
 		final EStructuralFeature feature = eObject.eClass().getEStructuralFeature(featureName);
 		if (feature == null) {
-			RcpPlugin.getDefault().logError("Unknwon feature " + feature);
+			RcpPlugin.logError("Unknwon feature " + feature);
 		}
 		if (!PermadelerPackage.eINSTANCE.getMonthWeek().equals(feature.getEType())) {
 			RcpPlugin.getDefault().logError("Expecting feature of type Month");

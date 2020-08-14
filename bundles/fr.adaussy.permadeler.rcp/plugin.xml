@@ -20,6 +20,13 @@
          </dynamic>
       </menuContribution>
    </extension>
+     <extension point="org.eclipse.emf.ecore.extension_parser">
+      <?gmfgen generated="false"?>
+      <parser
+         type="permarep"
+         class="org.eclipse.sirius.business.internal.resource.AirDResourceFactory">
+      </parser>
+   </extension>
    <extension
          point="org.eclipse.ui.views">
    </extension>
