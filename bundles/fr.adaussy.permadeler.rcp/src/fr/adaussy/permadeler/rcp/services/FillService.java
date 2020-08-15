@@ -164,7 +164,7 @@ public final class FillService {
 	public static void eAdd(final EObject objectToModify, final String featureName, final Object value) {
 		EStructuralFeature eStructuralFeature = objectToModify.eClass().getEStructuralFeature(featureName);
 		if (eStructuralFeature == null || !eStructuralFeature.isMany()) {
-			RcpPlugin.getDefault().logError(
+			RcpPlugin.logError(
 					MessageFormat.format(INVALID_FEATURE_MANY, featureName, objectToModify.eClass()));
 			return;
 		}
@@ -185,7 +185,7 @@ public final class FillService {
 	public static void eRemove(final EObject objectToModify, final String featureName, final Object value) {
 		EStructuralFeature eStructuralFeature = objectToModify.eClass().getEStructuralFeature(featureName);
 		if (eStructuralFeature == null || !eStructuralFeature.isMany()) {
-			RcpPlugin.getDefault().logError(
+			RcpPlugin.logError(
 					MessageFormat.format(INVALID_FEATURE_MANY, featureName, objectToModify.eClass()));
 			return;
 		}
@@ -207,7 +207,7 @@ public final class FillService {
 			final Object toRemove) {
 		EStructuralFeature eStructuralFeature = objectToModify.eClass().getEStructuralFeature(featureName);
 		if (eStructuralFeature == null || !eStructuralFeature.isMany()) {
-			RcpPlugin.getDefault().logError(
+			RcpPlugin.logError(
 					MessageFormat.format(INVALID_FEATURE_MANY, featureName, objectToModify.eClass()));
 			return;
 		}
@@ -380,7 +380,7 @@ public final class FillService {
 			final String message, final String separator) {
 		EStructuralFeature eStructuralFeature = objectToModify.eClass().getEStructuralFeature(featureName);
 		if (eStructuralFeature == null || !eStructuralFeature.isMany()) {
-			RcpPlugin.getDefault().logError(
+			RcpPlugin.logError(
 					MessageFormat.format(INVALID_FEATURE_MANY, featureName, objectToModify.eClass()));
 			return;
 		}
@@ -438,7 +438,7 @@ public final class FillService {
 						}
 						urlFileExtension = iter.next().getFormatName().toLowerCase();
 					} catch (IOException e1) {
-						RcpPlugin.getDefault().logError("Error during image download " + e1.getMessage(), e1);
+						RcpPlugin.logError("Error during image download " + e1.getMessage(), e1);
 					}
 					try (InputStream in = new BufferedInputStream(url.openStream())) {
 
@@ -447,10 +447,10 @@ public final class FillService {
 						Files.copy(in, imagePath, StandardCopyOption.REPLACE_EXISTING);
 						imgObject.setPath(parent.relativize(imagePath).toString());
 					} catch (IOException e) {
-						RcpPlugin.getDefault().logError("Error while copying image " + e.getMessage(), e); //$NON-NLS-1$
+						RcpPlugin.logError("Error while copying image " + e.getMessage(), e); //$NON-NLS-1$
 					}
 				} catch (MalformedURLException e) {
-					RcpPlugin.getDefault().logError("Error while copying image " + e.getMessage(), e); //$NON-NLS-1$
+					RcpPlugin.logError("Error while copying image " + e.getMessage(), e); //$NON-NLS-1$
 				}
 			}
 		}
@@ -533,7 +533,7 @@ public final class FillService {
 				return genus;
 			}
 		} else {
-			RcpPlugin.getDefault().logError("Unable to find genus"); //$NON-NLS-1$
+			RcpPlugin.logError("Unable to find genus"); //$NON-NLS-1$
 		}
 		return null;
 	}
@@ -568,7 +568,7 @@ public final class FillService {
 				return genus;
 			}
 		} else {
-			RcpPlugin.getDefault().logError("Unable to find genus"); //$NON-NLS-1$
+			RcpPlugin.logError("Unable to find genus"); //$NON-NLS-1$
 		}
 		return null;
 	}

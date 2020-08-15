@@ -9,7 +9,8 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_R9wwwIuHEeq17LNsNIJ33Q" featurename="mainMenu" parentElementId="IDEWindow">
     <elements xsi:type="menu:Menu" xmi:id="_eY8fEIuHEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.menu.main" label="Main menu">
       <children xsi:type="menu:Menu" xmi:id="_UpCFkIvGEeqeaba_67ym5g" elementId="fr.adaussy.permadeler.rcp.menu.file" label="File">
-        <children xsi:type="menu:DirectMenuItem" xmi:id="_gXiSsIuHEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.directmenuitem.load" label="Load" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.LoadProjectMenu"/>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_FDTaMNvQEeqSGvZLYPjN5g" elementId="fr.adaussy.permadeler.rcp.directmenuitem.createnewproject" label="New project" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.CreateNewProjectMenu"/>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_gXiSsIuHEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.directmenuitem.load" label="Load project" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.LoadProjectMenu"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_WbQ5cJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.menu.edit" label="Edit">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_2XrywJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handledmenuitem.undo" label="Undo" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/undo_edit.gif" command="_ba7RYJTgEeqWsP_O9XzfKw"/>

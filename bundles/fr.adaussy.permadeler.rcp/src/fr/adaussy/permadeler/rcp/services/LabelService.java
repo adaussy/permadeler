@@ -77,7 +77,7 @@ public class LabelService {
 	public static String getDateLabel(EObject target, String featureName) {
 		final EStructuralFeature feature = target.eClass().getEStructuralFeature(featureName);
 		if ((feature == null) || feature.getEType() != PermadelerPackage.eINSTANCE.getDate()) {
-			RcpPlugin.getDefault().logError("Invalid feature " + feature);
+			RcpPlugin.logError("Invalid feature " + feature);
 		}
 
 		Instant t = (Instant)target.eGet(feature);

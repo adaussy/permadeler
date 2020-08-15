@@ -37,20 +37,23 @@ public class LoadProjectMenu {
 	@Execute
 	public void execute(Shell shell, IEclipseContext context) {
 		FileDialog fileDialog = new FileDialog(shell);
+		fileDialog.setFilterExtensions(new String[] {"*" + CreateNewProjectMenu.REPRESENTATION_FILE_EXT });
 		String path = fileDialog.open();
-		URI createFileURI = URI.createFileURI(path);
-		IRunnableWithProgress op = progress -> {
-			progress.beginTask("Loading session", IProgressMonitor.UNKNOWN);
-			Session session = SessionManager.INSTANCE.openSession(createFileURI, new NullProgressMonitor(),
-					new NoUICallback());
-			context.declareModifiable(Session.class);
-			context.modify(Session.class, session);
-			progress.done();
-		};
-		try {
-			new ProgressMonitorDialog(shell).run(false, false, op);
-		} catch (InvocationTargetException | InterruptedException e) {
-			RcpPlugin.getDefault().logError("Problem during session loading " + e.getMessage(), e);
+		if (path != null) {
+			URI createFileURI = URI.createFileURI(path);
+			IRunnableWithProgress op = progress -> {
+				progress.beginTask("Loading session", IProgressMonitor.UNKNOWN);
+				Session session = SessionManager.INSTANCE.openSession(createFileURI,
+						new NullProgressMonitor(), new NoUICallback());
+				context.declareModifiable(Session.class);
+				context.modify(Session.class, session);
+				progress.done();
+			};
+			try {
+				new ProgressMonitorDialog(shell).run(false, false, op);
+			} catch (InvocationTargetException | InterruptedException e) {
+				RcpPlugin.logError("Problem during session loading " + e.getMessage(), e);
+			}
 		}
 	}
 

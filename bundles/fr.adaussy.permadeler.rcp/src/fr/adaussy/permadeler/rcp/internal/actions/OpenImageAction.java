@@ -64,7 +64,7 @@ public class OpenImageAction extends Action {
 							new FileEditorInput(iFile), "org.eclipse.ui.browser.editor");
 
 				} else {
-					RcpPlugin.getDefault().logError("The image does not exist " + iPath);
+					RcpPlugin.logError("The image does not exist " + iPath);
 				}
 			} else if (uri.isFile()) {
 				String path = uri.toFileString();
@@ -73,7 +73,7 @@ public class OpenImageAction extends Action {
 						"org.eclipse.ui.browser.editor", true);
 			}
 		} catch (PartInitException e) {
-			RcpPlugin.getDefault().logError("Unable to display image ", e);
+			RcpPlugin.logError("Unable to display image ", e);
 		}
 
 	}
