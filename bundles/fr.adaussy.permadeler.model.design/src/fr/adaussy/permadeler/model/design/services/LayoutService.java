@@ -61,7 +61,7 @@ public class LayoutService {
 						.collect(toList());
 
 				// Node containerRepdddd = getNodeInDiagram(nodeContainer).get();
-
+dzdqd
 				int defaultSize = 0;
 				boolean vertical = rowBed.getType() == RowBedType.VERTICAL;
 				for (DNodeContainer row : rows) {
