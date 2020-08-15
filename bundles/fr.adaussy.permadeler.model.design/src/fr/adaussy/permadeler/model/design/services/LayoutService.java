@@ -60,7 +60,7 @@ public class LayoutService {
 						.filter(d -> ROW_BED_ROW_CONTAINER.equals(d.getActualMapping().getName()))//
 						.collect(toList());
 
-				// Node containerRep = getNodeInDiagram(nodeContainer).get();
+				// Node containerRepdddd = getNodeInDiagram(nodeContainer).get();
 
 				int defaultSize = 0;
 				boolean vertical = rowBed.getType() == RowBedType.VERTICAL;
