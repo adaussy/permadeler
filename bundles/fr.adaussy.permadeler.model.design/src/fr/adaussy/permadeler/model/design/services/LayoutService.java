@@ -45,7 +45,7 @@ public class LayoutService {
 	 * @param rowBed
 	 *            the semantic row bed to layout
 	 * @param selectedViews
-	 *            the view of the row bed
+	 *            the view of the row bedsss
 	 * @param fillPercentage
 	 *            the percentage space taken by the plantation represetation
 	 */

@@ -34,7 +34,7 @@ public class ValidationService {
 				.filter(e -> e.getType() != null && e.getType().getType() != null)//
 				.map(e -> e.getType().getType())//
 				.collect(Collectors.toSet());
-
+dzqdzqdzqd
 		if (root.getSeedLib() != null && root.getSeedLib().getCompatibilityMatrix() != null
 				&& root.getSeedLib().getCompatibilityMatrix().getCompatibilties() != null) {
 
