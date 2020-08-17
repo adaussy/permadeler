@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2020 Arthur Daussy.
+ *
+ * This program and the accompanying materials are made 
+ * available under the terms of the Eclipse Public License 2.0 
+ * which is available at https://www.eclipse.org/legal/epl-2.0/ 
+ * Contributors:
+ * Arthur Daussy - initial API and implementation.
+ ******************************************************************************/
+
 package fr.adaussy.permadeler.model.design.services;
 
 import static org.junit.Assert.assertTrue;
@@ -21,84 +31,14 @@ import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 
+/**
+ * Tests for the service {@link ValidationService#validatePlantationCompatibility(Area)}
+ */
 public class ValidationServiceTest {
 
-	private static final PermadelerFactory sFactory = PermadelerFactory.eINSTANCE;
-
-	private static final int nbPlantations = 3;
-
-	private Root root = sFactory.createRoot();
-
-	private Zone zone = sFactory.createZone();
-
-	private Planting planting = sFactory.createPlanting();
-
-	private Area area = sFactory.createArea();
-
-	private Genus[] genuses = new Genus[nbPlantations];
-
-	private Species[] species = new Species[nbPlantations];
-
-	private Plantation[] plantations = new Plantation[nbPlantations];
-
-	private CompatibilityMatrix compatibilityMatrix = sFactory.createCompatibilityMatrix();
-
-	private CompatibilityLink compatibilityLinkOne = sFactory.createCompatibilityLink();
-
-	private CompatibilityLink compatibilityLinkTwo = sFactory.createCompatibilityLink();
-
-	private KnowledgeBase knowledgeBase = sFactory.createKnowledgeBase();
-
-	/**
-	 * Initialize an area with no plantations and initialize genus, species and plantations variables for all
-	 * the tests
-	 */
 	@Before
-	public void initTest() {
-		Arrays.setAll(genuses, e -> sFactory.createGenus());
-		Arrays.setAll(species, e -> sFactory.createPlant());
-		Arrays.setAll(plantations, e -> sFactory.createPlantation());
-
-		// create 3 genuses with the first 3 families available
-		IntStream.range(0, genuses.length).forEach(i -> genuses[i].setFamily(Family.values()[i]));
-
-		planting.getAreas().add(area);
-		zone.getPlantings().add(planting);
-		root.getZones().add(zone);
-	}
-
-	/**
-	 * Assign a genus to each species and a species to each plantation
-	 */
-	private void createPlantations() {
-		IntStream.range(0, species.length).forEach(i -> species[i].setType(genuses[i]));
-		IntStream.range(0, plantations.length).forEach(i -> plantations[i].setType(species[i]));
-	}
-
-	/**
-	 * Plant wanted plantations in the test area
-	 */
-	private void plantPlantations(Plantation[] plantations) {
-		Arrays.stream(plantations).forEach(p -> area.getPlantations().add(p));
-	}
-
-	/**
-	 * create a test knowledge base with 2 compatibilities: one with positive affinity, one with negative
-	 */
-	private void createKnowledgeBase() {
-		compatibilityLinkOne.getSpecies().add(genuses[0]);
-		compatibilityLinkOne.getSpecies().add(genuses[1]);
-		compatibilityLinkOne.setAffinity(-1);
-
-		compatibilityLinkTwo.getSpecies().add(genuses[0]);
-		compatibilityLinkTwo.getSpecies().add(genuses[2]);
-		compatibilityLinkTwo.setAffinity(1);
-
-		compatibilityMatrix.getCompatibilties().add(compatibilityLinkOne);
-		compatibilityMatrix.getCompatibilties().add(compatibilityLinkTwo);
-		knowledgeBase.setCompatibilityMatrix(compatibilityMatrix);
-
-		root.setSeedLib(knowledgeBase);
+	public void ValidationServiceTestInitialization() {
+		TestServices.initTest();
 	}
 
 	/**
@@ -107,11 +47,11 @@ public class ValidationServiceTest {
 	 */
 	@Test
 	public void validatePlantationCompatibilityIncompatible() {
-		createKnowledgeBase();
-		createPlantations();
-		plantPlantations(plantations);
+		TestServices.createKnowledgeBase();
+		TestServices.createPlantations();
+		TestServices.plantPlantations(TestServices.plantations);
 
-		boolean validation = ValidationService.validatePlantationCompatibility(area);
+		boolean validation = ValidationService.validatePlantationCompatibility(TestServices.area);
 		assertTrue(validation == false);
 	}
 
@@ -121,11 +61,12 @@ public class ValidationServiceTest {
 	 */
 	@Test
 	public void validatePlantationCompatibilityCompatible() {
-		createKnowledgeBase();
-		createPlantations();
-		plantPlantations(new Plantation[] {plantations[0], plantations[2] });
+		TestServices.createKnowledgeBase();
+		TestServices.createPlantations();
+		TestServices.plantPlantations(
+				new Plantation[] {TestServices.plantations[0], TestServices.plantations[2] });
 
-		boolean validation = ValidationService.validatePlantationCompatibility(area);
+		boolean validation = ValidationService.validatePlantationCompatibility(TestServices.area);
 		assertTrue(validation == true);
 	}
 
@@ -135,11 +76,12 @@ public class ValidationServiceTest {
 	 */
 	@Test
 	public void validatePlantationCompatibilityNoLink() {
-		createKnowledgeBase();
-		createPlantations();
-		plantPlantations(new Plantation[] {plantations[1], plantations[2] });
+		TestServices.createKnowledgeBase();
+		TestServices.createPlantations();
+		TestServices.plantPlantations(
+				new Plantation[] {TestServices.plantations[1], TestServices.plantations[2] });
 
-		boolean validation = ValidationService.validatePlantationCompatibility(area);
+		boolean validation = ValidationService.validatePlantationCompatibility(TestServices.area);
 		assertTrue(validation == true);
 	}
 
@@ -149,10 +91,10 @@ public class ValidationServiceTest {
 	 */
 	@Test
 	public void validatePlantationCompatibilityNoGenus() {
-		createKnowledgeBase();
-		plantPlantations(plantations);
+		TestServices.createKnowledgeBase();
+		TestServices.plantPlantations(TestServices.plantations);
 
-		boolean validation = ValidationService.validatePlantationCompatibility(area);
+		boolean validation = ValidationService.validatePlantationCompatibility(TestServices.area);
 		assertTrue(validation == true);
 	}
 
@@ -162,10 +104,10 @@ public class ValidationServiceTest {
 	 */
 	@Test
 	public void validatePlantationCompatibilityNoPlantation() {
-		createKnowledgeBase();
-		createPlantations();
+		TestServices.createKnowledgeBase();
+		TestServices.createPlantations();
 
-		boolean validation = ValidationService.validatePlantationCompatibility(area);
+		boolean validation = ValidationService.validatePlantationCompatibility(TestServices.area);
 		assertTrue(validation == true);
 	}
 
@@ -175,11 +117,95 @@ public class ValidationServiceTest {
 	 */
 	@Test
 	public void validatePlantationCompatibilityNoCompatibilityMatrix() {
-		createPlantations();
-		plantPlantations(plantations);
+		TestServices.createPlantations();
+		TestServices.plantPlantations(TestServices.plantations);
 
-		boolean validation = ValidationService.validatePlantationCompatibility(area);
+		boolean validation = ValidationService.validatePlantationCompatibility(TestServices.area);
 		assertTrue(validation == true);
 	}
 
+	/**
+	 * Variables and methods used in ValidationServiceTest
+	 */
+	private static class TestServices {
+		private final static PermadelerFactory sFactory = PermadelerFactory.eINSTANCE;
+
+		private static final int nbPlantations = 3;
+
+		private static Root root = sFactory.createRoot();
+
+		private static Zone zone = sFactory.createZone();
+
+		private static Planting planting = sFactory.createPlanting();
+
+		private static Area area = sFactory.createArea();
+
+		private static Genus[] genuses = new Genus[nbPlantations];
+
+		private static Species[] species = new Species[nbPlantations];
+
+		private static Plantation[] plantations = new Plantation[nbPlantations];
+
+		private static CompatibilityMatrix compatibilityMatrix = sFactory.createCompatibilityMatrix();
+
+		private static CompatibilityLink compatibilityLinkOne = sFactory.createCompatibilityLink();
+
+		private static CompatibilityLink compatibilityLinkTwo = sFactory.createCompatibilityLink();
+
+		private static KnowledgeBase knowledgeBase = sFactory.createKnowledgeBase();
+
+		/**
+		 * Initialize an area with no plantations and initialize genus, species and plantations variables for
+		 * all the tests
+		 */
+		public static void initTest() {
+			Arrays.setAll(genuses, e -> sFactory.createGenus());
+			Arrays.setAll(species, e -> sFactory.createPlant());
+			Arrays.setAll(plantations, e -> sFactory.createPlantation());
+
+			// create 3 genuses with the first 3 families available
+			IntStream.range(0, genuses.length).forEach(i -> genuses[i].setFamily(Family.values()[i]));
+
+			planting.getAreas().add(area);
+			zone.getPlantings().add(planting);
+			root.getZones().add(zone);
+			knowledgeBase.setCompatibilityMatrix(compatibilityMatrix);
+			root.setSeedLib(knowledgeBase);
+
+			knowledgeBase.getCompatibilityMatrix().getCompatibilties().clear();
+			area.getPlantations().clear();
+		}
+
+		/**
+		 * Assign a genus to each species and a species to each plantation
+		 */
+		private static void createPlantations() {
+			IntStream.range(0, species.length).forEach(i -> species[i].setType(genuses[i]));
+			IntStream.range(0, plantations.length).forEach(i -> plantations[i].setType(species[i]));
+		}
+
+		/**
+		 * Plant wanted plantations in the test area
+		 */
+		private static void plantPlantations(Plantation[] plantations) {
+			Arrays.stream(plantations).forEach(p -> area.getPlantations().add(p));
+		}
+
+		/**
+		 * create a test knowledge base with 2 compatibilities: one with positive affinity, one with negative
+		 */
+		private static void createKnowledgeBase() {
+			compatibilityLinkOne.getSpecies().add(genuses[0]);
+			compatibilityLinkOne.getSpecies().add(genuses[1]);
+			compatibilityLinkOne.setAffinity(-1);
+
+			compatibilityLinkTwo.getSpecies().add(genuses[0]);
+			compatibilityLinkTwo.getSpecies().add(genuses[2]);
+			compatibilityLinkTwo.setAffinity(1);
+
+			compatibilityMatrix.getCompatibilties().add(compatibilityLinkOne);
+			compatibilityMatrix.getCompatibilties().add(compatibilityLinkTwo);
+		}
+
+	}
 }
