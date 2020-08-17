@@ -32,6 +32,8 @@
         eType="#//Genus" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compatibilityMatrix" eType="#//CompatibilityMatrix"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="speciesRegistry" eType="#//SpeciesRegistry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SeedBank">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
@@ -961,5 +963,22 @@
   <eClassifiers xsi:type="ecore:EEnum" name="SowType">
     <eLiterals name="INDOOR"/>
     <eLiterals name="OUTDOOR" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpeciesRegistry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="famillies" upperBound="-1"
+        eType="#//Familly" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Genus">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
+        eType="#//Species.1" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Species">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="varieties" upperBound="-1"
+        eType="#//Variety" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variety"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Familly">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="genuses" upperBound="-1"
+        eType="#//Genus.1" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

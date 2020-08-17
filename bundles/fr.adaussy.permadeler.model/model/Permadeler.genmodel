@@ -765,6 +765,7 @@
     <genClasses ecoreClass="Permadeler.ecore#//KnowledgeBase">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/plantTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/compatibilityMatrix"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/speciesRegistry"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//SeedBank">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedBank/items"/>
@@ -915,6 +916,19 @@
     <genClasses ecoreClass="Permadeler.ecore#//SowPlanfication">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SowPlanfication/seed"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SowPlanfication/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//SpeciesRegistry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SpeciesRegistry/famillies"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Genus.1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus.1/species"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Species.1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species.1/varieties"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//Variety"/>
+    <genClasses ecoreClass="Permadeler.ecore#//Familly">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Familly/genuses"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
