@@ -22,9 +22,11 @@ location  "http://download.eclipse.org/releases/2020-06" {
 	org.eclipse.equinox.core.feature.feature.group lazy
 }
 
+
 location "https://dl.bintray.com/adaussy/Zulu_Bundled_JRE/jre/14.0.2.qualifier/" {
-	name.abuchen.zulu.jre.feature.feature.group [14.0.2.202008101825,14.0.2.202008101825]
+	name.abuchen.zulu.jre.feature.feature.group [14.0.2.202008171144,14.0.2.202008171144]
 }
+
 
 
 location "https://download.eclipse.org/elk/updates/releases/0.6.1/" {
