@@ -28,20 +28,7 @@ location "https://dl.bintray.com/adaussy/Zulu_Bundled_JRE/jre/14.0.2.qualifier/"
 }
 
 
-
-location "https://download.eclipse.org/elk/updates/releases/0.6.1/" {
-	org.eclipse.elk.sdk.feature.feature.group lazy
- 	org.eclipse.elk.sdk.feature.source.feature.group lazy
- 	org.eclipse.elk.feature.feature.group lazy
- 	org.eclipse.elk.feature.source.feature.group lazy
- 	org.eclipse.elk.algorithms.feature.feature.group lazy
- 	org.eclipse.elk.algorithms.feature.source.feature.group lazy
-	org.eclipse.elk.graphviz.feature.feature.group lazy
- 	org.eclipse.elk.graphviz.feature.source.feature.group lazy
-}
-
-
-location "http://download.eclipse.org/sirius/updates/nightly/latest/2020-06" {
+location "http://download.eclipse.org/sirius/updates/releases/6.4.1/2020-06" {
 	
 	org.eclipse.sirius.specifier.feature.group lazy
 	org.eclipse.sirius.properties.feature.feature.group lazy
@@ -55,6 +42,7 @@ location "https://download.eclipse.org/tools/orbit/downloads/drops/R201911262232
 	org.jsoup lazy
 	org.apache.batik.swing [1.9.1,1.9.2)
 	org.junit lazy
+	org.apache.commons.lang lazy
 }
 
 location "http://download.eclipse.org/nebula/snapshot" {
