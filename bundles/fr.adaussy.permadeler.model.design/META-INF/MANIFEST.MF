@@ -33,6 +33,6 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-14
 Bundle-Vendor: %providerName
 Automatic-Module-Name: fr.adaussy.permadeler.model.design
-Import-Package: org.apache.commons.lang;version="2.6.0"
+Import-Package: org.apache.commons.lang
 Export-Package: fr.adaussy.permadeler.model.design,
  fr.adaussy.permadeler.model.design.services
