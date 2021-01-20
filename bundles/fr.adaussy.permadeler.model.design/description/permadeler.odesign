@@ -655,7 +655,7 @@
       </validationSet>
       <defaultLayer name="Default">
         <nodeMappings name="TreeNode_Plantations" label="Plantation" semanticCandidatesExpression="aql:self.plantations->select(e | not e.isRemoved())" domainClass="Permadeler::Plantation">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="35" showIcon="false" labelExpression="aql:''" tooltipExpression="aql:self.getPlantationLabel()" hideLabelByDefault="true" sizeComputationExpression="aql:self.getSVGSize()" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/tree.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="35" showIcon="false" labelExpression="aql:self.type.name" tooltipExpression="aql:self.getPlantationLabel()" sizeComputationExpression="aql:self.getSVGSize()" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/tree.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
