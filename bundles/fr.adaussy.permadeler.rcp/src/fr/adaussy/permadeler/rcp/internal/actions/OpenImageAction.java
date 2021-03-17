@@ -9,6 +9,7 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.actions;
 
+import java.io.File;
 import java.nio.file.Paths;
 
 import org.eclipse.core.resources.IFile;
@@ -68,9 +69,9 @@ public class OpenImageAction extends Action {
 				}
 			} else if (uri.isFile()) {
 				String path = uri.toFileString();
+				File image = Paths.get(path).getParent().resolve(img.getPath()).toFile();
 				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
-						Paths.get(path).getParent().resolve(img.getPath()).toFile().toURI(),
-						"org.eclipse.ui.browser.editor", true);
+						image.toURI(), "org.eclipse.ui.browser.editor", true);
 			}
 		} catch (PartInitException e) {
 			RcpPlugin.logError("Unable to display image ", e);

@@ -93,7 +93,7 @@ public final class FillService {
 	static {
 		MONTH_MAPPER = new LinkedHashMap<String, Month>();
 		MONTH_MAPPER.put("janvier", Month.JANUARY); //$NON-NLS-1$
-		MONTH_MAPPER.put("février", Month.FEBRUARY); //$NON-NLS-1$
+		MONTH_MAPPER.put("fï¿½vrier", Month.FEBRUARY); //$NON-NLS-1$
 		MONTH_MAPPER.put("mars", Month.MARCH); //$NON-NLS-1$
 		MONTH_MAPPER.put("avril", Month.APRIL); //$NON-NLS-1$
 		MONTH_MAPPER.put("mai", Month.MAY); //$NON-NLS-1$
@@ -479,12 +479,17 @@ public final class FillService {
 	 * @return a path or null
 	 */
 	public static Path toPath(final URI uri) {
-		if (uri != null && uri.isPlatformResource()) {
-			org.eclipse.core.runtime.Path path = new org.eclipse.core.runtime.Path(
-					uri.toPlatformString(true));
-			final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			if (file.exists()) {
-				return file.getLocation().toFile().toPath();
+		if (uri != null) {
+			if (uri.isPlatformResource()) {
+
+				org.eclipse.core.runtime.Path path = new org.eclipse.core.runtime.Path(
+						uri.toPlatformString(true));
+				final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+				if (file.exists()) {
+					return file.getLocation().toFile().toPath();
+				}
+			} else if (uri.isFile()) {
+				return Path.of(uri.toFileString());
 			}
 		}
 		return null;
