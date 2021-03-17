@@ -1241,6 +1241,7 @@
       <pages name="pruningPage" label="Prunning" labelExpression="Prunning" domainClass="Permadeler::Species" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.10"/>
       <pages name="SeedItem_Sow" labelExpression="Sow time" domainClass="Permadeler::Species" semanticCandidateExpression="aql:self.type" groups="//@extensions.0/@categories.0/@groups.6"/>
       <pages name="SeedItem_Main" labelExpression="aql:'Seed item'" domainClass="Permadeler::SeedItem" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.11"/>
+      <pages name="ReferencePage" labelExpression="Reference" domainClass="Permadeler::Reference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2"/>
       <groups name="Genius Group" labelExpression="Group" domainClass="Permadeler::Genus" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:SelectDescription" name="Familly" labelExpression="Familly" valueExpression="aql:self.eClass().getEStructuralFeature('family').eType.getEEnumLiteralByLiteral(self.family.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('family').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
           <initialOperation>
