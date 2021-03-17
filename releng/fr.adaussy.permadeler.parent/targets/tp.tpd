@@ -23,9 +23,6 @@ location  "http://download.eclipse.org/releases/2020-06" {
 }
 
 
-location "https://dl.bintray.com/adaussy/Zulu_Bundled_JRE/jre/14.0.2.qualifier/" {
-	name.abuchen.zulu.jre.feature.feature.group [14.0.2.202008171144,14.0.2.202008171144]
-}
 
 
 location "http://download.eclipse.org/sirius/updates/releases/6.4.1/2020-06" {
