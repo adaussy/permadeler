@@ -64,6 +64,7 @@ public class GenusItemProvider extends PlantNamedElementItemProviderCustomImpl {
 
 			addFamilyPropertyDescriptor(object);
 			addCompatibilityLinksPropertyDescriptor(object);
+			addColorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,6 +99,23 @@ public class GenusItemProvider extends PlantNamedElementItemProviderCustomImpl {
 				getString("_UI_PropertyDescriptor_description", "_UI_Genus_compatibilityLinks_feature",
 						"_UI_Genus_type"),
 				PermadelerPackage.Literals.GENUS__COMPATIBILITY_LINKS, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Color feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Genus_color_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Genus_color_feature",
+								"_UI_Genus_type"),
+						PermadelerPackage.Literals.GENUS__COLOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -178,6 +196,7 @@ public class GenusItemProvider extends PlantNamedElementItemProviderCustomImpl {
 
 		switch (notification.getFeatureID(Genus.class)) {
 			case PermadelerPackage.GENUS__FAMILY:
+			case PermadelerPackage.GENUS__COLOR:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

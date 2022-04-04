@@ -289,6 +289,15 @@ public interface PermadelerFactory extends EFactory {
 	SowPlanfication createSowPlanfication();
 
 	/**
+	 * Returns a new object of class '<em>Background Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Background Image</em>'.
+	 * @generated
+	 */
+	BackgroundImage createBackgroundImage();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

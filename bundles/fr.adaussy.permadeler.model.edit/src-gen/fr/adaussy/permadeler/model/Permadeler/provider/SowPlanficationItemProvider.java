@@ -11,9 +11,9 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
+
 import java.util.Collection;
 import java.util.List;
 

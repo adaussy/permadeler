@@ -10,6 +10,8 @@
  */
 package fr.adaussy.permadeler.model.Permadeler;
 
+import fr.adaussy.permadeler.model.utils.Color;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -25,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Genus#getFamily <em>Family</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Genus#getSubGenus <em>Sub Genus</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Genus#getCompatibilityLinks <em>Compatibility Links</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Genus#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getGenus()
@@ -103,5 +106,35 @@ public interface Genus extends PlantNamedElement {
 	 * @generated
 	 */
 	EList<CompatibilityLink> getCompatibilityLinks();
+
+	/**
+	 * Returns the value of the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Color</em>' attribute.
+	 * @see #setColor(Color)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getGenus_Color()
+	 * @model dataType="fr.adaussy.permadeler.model.Permadeler.Color"
+	 * @generated
+	 */
+	Color getColor();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Genus#getColor <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Color</em>' attribute.
+	 * @see #getColor()
+	 * @generated
+	 */
+	void setColor(Color value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="fr.adaussy.permadeler.model.Permadeler.Color"
+	 * @generated
+	 */
+	Color getEffectiveColor();
 
 } // Genus

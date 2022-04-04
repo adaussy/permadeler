@@ -1,16 +1,9 @@
 target "Build target plateform"
-environment JavaSE-14
+environment JavaSE-17
 with  requirements source
 
-location GMF-Notation-1.13.0 "http://download.eclipse.org/modeling/gmp/gmf-notation/updates/milestones/S202003100829" {
-    org.eclipse.gmf.runtime.notation.sdk.feature.group lazy
-}
 
-location GMF-Runtime-1.13.0 "http://download.eclipse.org/modeling/gmp/gmf-runtime/updates/milestones/S202003121028" {
-    org.eclipse.gmf.runtime.sdk.feature.group lazy
-    org.eclipse.gmf.runtime.thirdparty.feature.group lazy
-}
-location  "http://download.eclipse.org/releases/2020-06" {
+location "http://download.eclipse.org/releases/2022-03" {
 
 	org.eclipse.platform.sdk lazy
 	org.eclipse.emf lazy
@@ -23,9 +16,13 @@ location  "http://download.eclipse.org/releases/2020-06" {
 }
 
 
+location "https://download.eclipse.org/justj/jres/17/updates/release/17.0.2" {
+	org.eclipse.justj.openjdk.hotspot.jre.full.feature.group lazy
+	org.eclipse.justj.openjdk.hotspot.jre.full lazy
+}
 
 
-location "http://download.eclipse.org/sirius/updates/releases/6.4.1/2020-06" {
+location "https://download.eclipse.org/sirius/updates/releases/7.0.5/2021-06/" {
 	
 	org.eclipse.sirius.specifier.feature.group lazy
 	org.eclipse.sirius.properties.feature.feature.group lazy
@@ -35,11 +32,23 @@ location "http://download.eclipse.org/sirius/updates/releases/6.4.1/2020-06" {
 }
 
 
-location "https://download.eclipse.org/tools/orbit/downloads/drops/R20191126223242/repository" {
-	org.jsoup lazy
-	org.apache.batik.swing [1.9.1,1.9.2)
-	org.junit lazy
-	org.apache.commons.lang lazy
+location Orbit-202203 "https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/" {
+    org.apache.log4j lazy
+    org.jsoup lazy
+    org.apache.commons.lang lazy
+    org.easymock lazy
+    org.hamcrest.library lazy
+    org.junit [4.11.0,5.0.0)
+    org.slf4j.api [1.7.2,1.7.3)
+    ch.qos.logback.slf4j [1.0.7,1.0.8)
+    ch.qos.logback.classic [1.0.7,1.0.8)
+    ch.qos.logback.core [1.0.7,1.0.8)
+    org.apache.xalan 2.7.1
+    org.antlr.runtime [4.7.1,4.7.2)
+    org.apache.batik.ext [1.14.0,1.14.1)
+    org.apache.batik.codec [1.14.0,1.14.1)
+    org.apache.batik.bridge [1.14.0,1.14.1)
+    org.apache.batik.script [1.14.0,1.14.1)
 }
 
 location "http://download.eclipse.org/nebula/snapshot" {

@@ -10,6 +10,7 @@
 package fr.adaussy.permadeler.rcp.internal.utils;
 
 import java.util.function.Consumer;
+import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;
 
 import org.eclipse.jface.widgets.WidgetFactory;
@@ -20,6 +21,7 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
@@ -54,6 +56,35 @@ public final class Dialogs {
 			return (String)data;
 		}
 		return "";
+	}
+
+	public static Button createCheckEntry(Composite parent, String label, boolean initValue,
+			Consumer<Boolean> updater) {
+
+		Button checkWidget = new Button(parent, SWT.CHECK);
+		checkWidget.setText(label);
+		GridData layoutData = new GridData(GridData.FILL_HORIZONTAL);
+		layoutData.horizontalSpan = 2;
+		checkWidget.setLayoutData(layoutData);
+		checkWidget.setSelection(initValue);
+
+		checkWidget.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				updater.accept(checkWidget.getSelection());
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				updater.accept(checkWidget.getSelection());
+
+			}
+		});
+		updater.accept(initValue);
+
+		return checkWidget;
+
 	}
 
 	/**
@@ -157,13 +188,45 @@ public final class Dialogs {
 				.text(String.valueOf(initValue))//
 				.create(parent);
 
-		valueWidget.addVerifyListener(new InputValidator(InputValidator.buildIntegerRegex(false)));
+		valueWidget.addVerifyListener(new InputValidator(InputValidator.buildRegex(true, false)));
 
 		valueWidget.addModifyListener(new ModifyListener() {
 
 			@Override
 			public void modifyText(ModifyEvent e) {
 				updater.accept(Integer.valueOf(valueWidget.getText()));
+			}
+		});
+		updater.accept(initValue);
+
+		return valueWidget;
+
+	}
+
+	public static Text createDoubleEntry(Composite parent, String label, double initValue,
+			DoubleConsumer updater) {
+
+		createLabel(parent, label);
+
+		Text valueWidget = new Text(parent, SWT.None);
+		valueWidget.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		if (!Double.isNaN(initValue)) {
+			valueWidget.setText(String.valueOf(initValue));
+		}
+
+		valueWidget.addVerifyListener(new InputValidator(InputValidator.buildRegex(false, true)));
+
+		valueWidget.addModifyListener(new ModifyListener() {
+
+			@Override
+			public void modifyText(ModifyEvent e) {
+				String text = valueWidget.getText();
+				if (text != null && !text.isEmpty()) {
+
+					updater.accept(Double.valueOf(text));
+				} else {
+					updater.accept(Double.NaN);
+				}
 			}
 		});
 		updater.accept(initValue);

@@ -15,6 +15,11 @@ import fr.adaussy.permadeler.model.Permadeler.Family;
 import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Species;
+
+import fr.adaussy.permadeler.model.utils.Color;
+
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -44,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.GenusImpl#getFamily <em>Family</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.GenusImpl#getSubGenus <em>Sub Genus</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.GenusImpl#getCompatibilityLinks <em>Compatibility Links</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.GenusImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +111,26 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 	 * @ordered
 	 */
 	protected EList<CompatibilityLink> compatibilityLinks;
+
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Color COLOR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Color color = COLOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +218,39 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColor(Color newColor) {
+		Color oldColor = color;
+		color = newColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.GENUS__COLOR, oldColor,
+					color));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color getEffectiveColor() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -240,6 +299,8 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 				return getSubGenus();
 			case PermadelerPackage.GENUS__COMPATIBILITY_LINKS:
 				return getCompatibilityLinks();
+			case PermadelerPackage.GENUS__COLOR:
+				return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,6 +329,9 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 				getCompatibilityLinks().clear();
 				getCompatibilityLinks().addAll((Collection<? extends CompatibilityLink>)newValue);
 				return;
+			case PermadelerPackage.GENUS__COLOR:
+				setColor((Color)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -292,6 +356,9 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 			case PermadelerPackage.GENUS__COMPATIBILITY_LINKS:
 				getCompatibilityLinks().clear();
 				return;
+			case PermadelerPackage.GENUS__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -312,8 +379,24 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 				return subGenus != null && !subGenus.isEmpty();
 			case PermadelerPackage.GENUS__COMPATIBILITY_LINKS:
 				return compatibilityLinks != null && !compatibilityLinks.isEmpty();
+			case PermadelerPackage.GENUS__COLOR:
+				return COLOR_EDEFAULT == null ? color != null : !COLOR_EDEFAULT.equals(color);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PermadelerPackage.GENUS___GET_EFFECTIVE_COLOR:
+				return getEffectiveColor();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -329,6 +412,8 @@ public class GenusImpl extends PlantNamedElementImpl implements Genus {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (family: ");
 		result.append(family);
+		result.append(", color: ");
+		result.append(color);
 		result.append(')');
 		return result.toString();
 	}

@@ -11,11 +11,15 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.*;
+
+import fr.adaussy.permadeler.model.utils.Color;
+
 import java.net.URL;
 
 import java.time.Instant;
 
 import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -132,6 +136,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createPlanifier();
 			case PermadelerPackage.SOW_PLANFICATION:
 				return createSowPlanfication();
+			case PermadelerPackage.BACKGROUND_IMAGE:
+				return createBackgroundImage();
 			default:
 				throw new IllegalArgumentException(
 						"The class '" + eClass.getName() + "' is not a valid classifier");
@@ -184,6 +190,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createDateFromString(eDataType, initialValue);
 			case PermadelerPackage.MONTH_WEEKS:
 				return createMonthWeeksFromString(eDataType, initialValue);
+			case PermadelerPackage.COLOR:
+				return createColorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException(
 						"The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -236,6 +244,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return convertDateToString(eDataType, instanceValue);
 			case PermadelerPackage.MONTH_WEEKS:
 				return convertMonthWeeksToString(eDataType, instanceValue);
+			case PermadelerPackage.COLOR:
+				return convertColorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException(
 						"The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -278,7 +288,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public Genus createGenus() {
-		GenusImpl genus = new GenusImpl();
+		GenusCustomImpl genus = new GenusCustomImpl();
 		return genus;
 	}
 
@@ -520,6 +530,16 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public SowPlanfication createSowPlanfication() {
 		SowPlanficationImpl sowPlanfication = new SowPlanficationImpl();
 		return sowPlanfication;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BackgroundImage createBackgroundImage() {
+		BackgroundImageImpl backgroundImage = new BackgroundImageImpl();
+		return backgroundImage;
 	}
 
 	/**
@@ -923,6 +943,42 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 */
 	public String convertMonthWeeksToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color createColor(final String it) {
+		return fr.adaussy.permadeler.model.utils.Color.decode(it);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color createColorFromString(EDataType eDataType, String initialValue) {
+		return createColor(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertColor(final Color it) {
+		return fr.adaussy.permadeler.model.utils.Color.encode(it);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertColorToString(EDataType eDataType, Object instanceValue) {
+		return convertColor((Color)instanceValue);
 	}
 
 	/**

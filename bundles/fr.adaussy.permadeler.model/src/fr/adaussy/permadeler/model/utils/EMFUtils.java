@@ -71,6 +71,67 @@ public final class EMFUtils {
 	}
 
 	/**
+	 * Gets a stream composed from the object itself and all its content.
+	 *
+	 * @param r
+	 *            a resource
+	 * @return a stream
+	 */
+	public static Stream<Notifier> eAllContentSteamWithSelf(Resource r) {
+		if (r == null) {
+			return Stream.empty();
+		}
+		return Stream.concat(Stream.of(r), StreamSupport
+				.stream(Spliterators.spliteratorUnknownSize(r.getAllContents(), Spliterator.NONNULL), false));
+	}
+
+	/**
+	 * Gets a stream composed from the object itself and all its content.
+	 *
+	 * @param rs
+	 *            a resource set
+	 * @return a stream
+	 */
+	public static Stream<Notifier> eAllContentSteamWithSelf(ResourceSet rs) {
+		if (rs == null) {
+			return Stream.empty();
+		}
+		return Stream.concat(Stream.of(rs), StreamSupport.stream(
+				Spliterators.spliteratorUnknownSize(rs.getAllContents(), Spliterator.NONNULL), false));
+	}
+
+	/**
+	 * Gets all objects contained in the given notifier with the given type.
+	 * <p>
+	 * <i>If self if of the expected type then it belong to the returned stream </i>
+	 * </p>
+	 *
+	 * @param self
+	 *            a {@link Notifier} (EObject, Resource or ResourceSet)
+	 * @param type
+	 *            the type of the element in the returned stream
+	 * @return a stream
+	 * @param <T>
+	 *            type of element in the returned stream
+	 */
+	public static <T extends EObject> Stream<T> allContainedObjectOfType(Notifier self, Class<T> type) {
+		final Stream<T> result;
+		if (self instanceof EObject) {
+			result = eAllContentStreamWithSelf((EObject)self).filter(e -> type.isInstance(e))
+					.map(e -> type.cast(e));
+		} else if (self instanceof Resource) {
+			result = eAllContentSteamWithSelf((Resource)self).filter(e -> type.isInstance(e))
+					.map(e -> type.cast(e));
+		} else if (self instanceof ResourceSet) {
+			result = eAllContentSteamWithSelf((ResourceSet)self).filter(e -> type.isInstance(e))
+					.map(e -> type.cast(e));
+		} else {
+			result = Stream.empty();
+		}
+		return result;
+	}
+
+	/**
 	 * Gets the ancestor of given type starting from a specific element
 	 * 
 	 * @param object

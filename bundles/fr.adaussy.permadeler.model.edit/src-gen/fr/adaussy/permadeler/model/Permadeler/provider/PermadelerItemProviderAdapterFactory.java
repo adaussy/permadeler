@@ -731,6 +731,29 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.BackgroundImage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BackgroundImageItemProvider backgroundImageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.BackgroundImage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBackgroundImageAdapter() {
+		if (backgroundImageItemProvider == null) {
+			backgroundImageItemProvider = new BackgroundImageItemProvider(this);
+		}
+
+		return backgroundImageItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -885,6 +908,8 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			planifierItemProvider.dispose();
 		if (sowPlanficationItemProvider != null)
 			sowPlanficationItemProvider.dispose();
+		if (backgroundImageItemProvider != null)
+			backgroundImageItemProvider.dispose();
 	}
 
 }

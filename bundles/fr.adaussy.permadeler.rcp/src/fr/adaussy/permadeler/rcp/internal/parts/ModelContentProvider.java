@@ -71,10 +71,14 @@ public class ModelContentProvider implements ITreeContentProvider {
 					(EObject)parentElement);
 			List<Object> result = new ArrayList<Object>();
 			result.addAll(representations);
-			Collections.addAll(result, semanticContentProvider.getChildren(parentElement));
+			Collections.addAll(result, getSemanticChildren(parentElement));
 			return result.toArray();
 		}
 		return EMPTY;
+	}
+
+	protected Object[] getSemanticChildren(Object parentElement) {
+		return semanticContentProvider.getChildren(parentElement);
 	}
 
 	@Override

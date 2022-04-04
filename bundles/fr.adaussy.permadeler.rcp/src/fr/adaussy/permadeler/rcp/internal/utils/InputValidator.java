@@ -36,18 +36,24 @@ public final class InputValidator implements VerifyListener {
 	}
 
 	/**
-	 * Builds a pattern that only accept integer
+	 * Simple constructor
 	 * 
 	 * @param isPositiveOnly
-	 *            <code>false</code> to accept - sign
-	 * @return a Pattern
+	 *            to allow the - sign
+	 * @param isFloat
+	 *            if the number can have .
+	 * @return a pattern
 	 */
-	public static Pattern buildIntegerRegex(boolean isPositiveOnly) {
+	public static Pattern buildRegex(boolean isPositiveOnly, boolean isFloat) {
 		StringBuilder builder = new StringBuilder();
 		if (!isPositiveOnly) {
 			builder.append("-?"); //$NON-NLS-1$
 		}
-		builder.append("\\d*"); //$NON-NLS-1$
+		if (isFloat) {
+			builder.append("\\d*\\.?\\d*"); //$NON-NLS-1$
+		} else {
+			builder.append("\\d*"); //$NON-NLS-1$
+		}
 		return Pattern.compile(builder.toString());
 	}
 

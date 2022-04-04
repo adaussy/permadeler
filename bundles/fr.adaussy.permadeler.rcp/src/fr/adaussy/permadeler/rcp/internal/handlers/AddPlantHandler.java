@@ -11,7 +11,7 @@ import org.eclipse.ui.PlatformUI;
 
 import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
-import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.dialogs.NewSpeciesTypeDialog;
@@ -29,7 +29,7 @@ public class AddPlantHandler {
 	public void execute(Shell shell, PermadelerSession session) {
 		NewSpeciesTypeDialog dialog = new NewSpeciesTypeDialog(shell);
 		if (dialog.open() == Dialog.OK) {
-			Plant[] newPlant = new Plant[1];
+			Species[] newPlant = new Species[1];
 			session.modifyKnowledgeBase("Add plant", base -> {
 				String genusName = dialog.getGenus();
 				String subGenusName = dialog.getSubGenus();
@@ -40,7 +40,8 @@ public class AddPlantHandler {
 							genusName.trim() + SPACE + subGenusName.trim());
 				}
 
-				Plant p = PermadelerFactory.eINSTANCE.createPlant();
+				Species p = dialog.isTree() ? PermadelerFactory.eINSTANCE.createTree()
+						: PermadelerFactory.eINSTANCE.createPlant();
 				p.setName(dialog.getPlantName());
 				p.setLatinName(dialog.getGenus() + SPACE
 						+ (dialog.getSubGenus() != null ? (dialog.getSubGenus() + SPACE) : "")

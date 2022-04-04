@@ -1,6 +1,6 @@
 language: java
 dist: trusty
-jdk: openjdk14
+jdk: openjdk17
 script: mvn clean verify
 deploy:
   provider: bintray

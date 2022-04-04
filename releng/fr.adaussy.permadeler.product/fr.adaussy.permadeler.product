@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Permadeler product" uid="fr.adaussy.permadeler.product" id="fr.adaussy.permadeler.branding.product" application="fr.adaussy.permadeler.branding.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Permadeler product" uid="fr.adaussy.permadeler.product" id="fr.adaussy.permadeler.branding.product" application="fr.adaussy.permadeler.branding.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
 
    <configIni use="default">
    </configIni>
@@ -41,7 +41,9 @@
       <feature id="org.eclipse.emf.common"/>
       <feature id="fr.adaussy.permadeler.feature" installMode="root"/>
       <feature id="fr.adaussy.permadeler.extlib" installMode="root"/>
-      <feature id="name.abuchen.zulu.jre.feature" installMode="root"/>
+      <feature id="org.eclipse.justj.openjdk.hotspot.jre.full" installMode="root"/>
+      <feature id="org.eclipse.sirius.runtime.ide.ui" installMode="root"/>
+      <feature id="org.eclipse.platform" installMode="root"/>
    </features>
 
    <configurations>

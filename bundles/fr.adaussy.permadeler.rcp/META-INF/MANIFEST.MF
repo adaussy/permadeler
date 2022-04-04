@@ -6,6 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: fr.adaussy.permadeler.rcp.RcpPlugin
 Export-Package: fr.adaussy.permadeler.rcp.internal.dialogs,
  fr.adaussy.permadeler.rcp.internal.extractors,
+ fr.adaussy.permadeler.rcp.internal.utils,
  fr.adaussy.permadeler.rcp.services
 Require-Bundle: javax.inject,
  org.eclipse.osgi,
@@ -41,8 +42,9 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.contexts;bundle-version="1.8.300",
  org.eclipse.e4.core.di.extensions,
  org.eclipse.osgi.services,
- org.eclipse.ui.views.properties.tabbed
-Bundle-RequiredExecutionEnvironment: JavaSE-14
+ org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.sirius.common
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: fr.adaussy.permadeler.rcp
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0",

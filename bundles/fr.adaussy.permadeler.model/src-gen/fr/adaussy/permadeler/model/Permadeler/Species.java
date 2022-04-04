@@ -10,6 +10,8 @@
  */
 package fr.adaussy.permadeler.model.Permadeler;
 
+import fr.adaussy.permadeler.model.utils.Color;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -43,6 +45,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getFlowerColor <em>Flower Color</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getPruningMonths <em>Pruning Months</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getPruneNote <em>Prune Note</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getSpecies()
@@ -443,11 +446,41 @@ public interface Species extends PlantNamedElement {
 	void setPruneNote(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Color</em>' attribute.
+	 * @see #setColor(Color)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getSpecies_Color()
+	 * @model dataType="fr.adaussy.permadeler.model.Permadeler.Color"
+	 * @generated
+	 */
+	Color getColor();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Species#getColor <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Color</em>' attribute.
+	 * @see #getColor()
+	 * @generated
+	 */
+	void setColor(Color value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	EList<String> getAllNames();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="fr.adaussy.permadeler.model.Permadeler.Color"
+	 * @generated
+	 */
+	Color getEffectiveColor();
 
 } // Species

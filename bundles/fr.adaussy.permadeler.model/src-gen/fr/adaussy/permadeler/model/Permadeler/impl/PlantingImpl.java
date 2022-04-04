@@ -11,6 +11,7 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.Area;
+import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
 import fr.adaussy.permadeler.model.Permadeler.Bed;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
@@ -46,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantingImpl#getAreas <em>Areas</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantingImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantingImpl#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantingImpl#getBackgroundImage <em>Background Image</em>}</li>
  * </ul>
  *
  * @generated
@@ -127,6 +129,16 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 	 * @ordered
 	 */
 	protected Date endTime = END_TIME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBackgroundImage() <em>Background Image</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBackgroundImage()
+	 * @generated
+	 * @ordered
+	 */
+	protected BackgroundImage backgroundImage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,6 +245,57 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BackgroundImage getBackgroundImage() {
+		return backgroundImage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBackgroundImage(BackgroundImage newBackgroundImage,
+			NotificationChain msgs) {
+		BackgroundImage oldBackgroundImage = backgroundImage;
+		backgroundImage = newBackgroundImage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANTING__BACKGROUND_IMAGE, oldBackgroundImage, newBackgroundImage);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBackgroundImage(BackgroundImage newBackgroundImage) {
+		if (newBackgroundImage != backgroundImage) {
+			NotificationChain msgs = null;
+			if (backgroundImage != null)
+				msgs = ((InternalEObject)backgroundImage).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTING__BACKGROUND_IMAGE, null, msgs);
+			if (newBackgroundImage != null)
+				msgs = ((InternalEObject)newBackgroundImage).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTING__BACKGROUND_IMAGE, null, msgs);
+			msgs = basicSetBackgroundImage(newBackgroundImage, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANTING__BACKGROUND_IMAGE, newBackgroundImage, newBackgroundImage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,6 +305,8 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 				return ((InternalEList<?>)getBeds()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.PLANTING__AREAS:
 				return ((InternalEList<?>)getAreas()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.PLANTING__BACKGROUND_IMAGE:
+				return basicSetBackgroundImage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -264,6 +329,8 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 				return getStartTime();
 			case PermadelerPackage.PLANTING__END_TIME:
 				return getEndTime();
+			case PermadelerPackage.PLANTING__BACKGROUND_IMAGE:
+				return getBackgroundImage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,6 +362,9 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 			case PermadelerPackage.PLANTING__END_TIME:
 				setEndTime((Date)newValue);
 				return;
+			case PermadelerPackage.PLANTING__BACKGROUND_IMAGE:
+				setBackgroundImage((BackgroundImage)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -322,6 +392,9 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 			case PermadelerPackage.PLANTING__END_TIME:
 				setEndTime(END_TIME_EDEFAULT);
 				return;
+			case PermadelerPackage.PLANTING__BACKGROUND_IMAGE:
+				setBackgroundImage((BackgroundImage)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -345,6 +418,8 @@ public class PlantingImpl extends NamedElementImpl implements Planting {
 						: !START_TIME_EDEFAULT.equals(startTime);
 			case PermadelerPackage.PLANTING__END_TIME:
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
+			case PermadelerPackage.PLANTING__BACKGROUND_IMAGE:
+				return backgroundImage != null;
 		}
 		return super.eIsSet(featureID);
 	}

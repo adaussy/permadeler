@@ -11,6 +11,7 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.Area;
+import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
 import fr.adaussy.permadeler.model.Permadeler.Bed;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.CompatibilityLink;
@@ -61,9 +62,13 @@ import fr.adaussy.permadeler.model.Permadeler.TrayZone;
 import fr.adaussy.permadeler.model.Permadeler.Tree;
 import fr.adaussy.permadeler.model.Permadeler.Wind;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
+
+import fr.adaussy.permadeler.model.utils.Color;
+
 import java.time.Instant;
 
 import java.util.List;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -338,6 +343,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass backgroundImageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum quantityEEnum = null;
 
 	/**
@@ -465,6 +477,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EDataType monthWeeksEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType colorEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -697,6 +716,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGenus_Color() {
+		return (EAttribute)genusEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGenus__GetEffectiveColor() {
+		return genusEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSpecies() {
 		return speciesEClass;
 	}
@@ -904,8 +941,26 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSpecies_Color() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getSpecies__GetAllNames() {
 		return speciesEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSpecies__GetEffectiveColor() {
+		return speciesEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1030,6 +1085,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlanting_BackgroundImage() {
+		return (EReference)plantingEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -1075,6 +1139,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlantation_SowEvent() {
+		return (EReference)plantationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPlantation_PlantationEvent() {
 		return (EReference)plantationEClass.getEStructuralFeatures().get(2);
 	}
@@ -1104,15 +1177,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getPlantation_Description() {
 		return (EAttribute)plantationEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlantation_SowEvent() {
-		return (EReference)plantationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1714,6 +1778,42 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBackgroundImage() {
+		return backgroundImageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBackgroundImage_RelativePath() {
+		return (EAttribute)backgroundImageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBackgroundImage_Scaling() {
+		return (EAttribute)backgroundImageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBackgroundImage_Transparency() {
+		return (EAttribute)backgroundImageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getQuantity() {
 		return quantityEEnum;
 	}
@@ -1885,6 +1985,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getColor() {
+		return colorEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PermadelerFactory getPermadelerFactory() {
 		return (PermadelerFactory)getEFactoryInstance();
 	}
@@ -1930,6 +2039,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(genusEClass, GENUS__FAMILY);
 		createEReference(genusEClass, GENUS__SUB_GENUS);
 		createEReference(genusEClass, GENUS__COMPATIBILITY_LINKS);
+		createEAttribute(genusEClass, GENUS__COLOR);
+		createEOperation(genusEClass, GENUS___GET_EFFECTIVE_COLOR);
 
 		speciesEClass = createEClass(SPECIES);
 		createEReference(speciesEClass, SPECIES__TYPE);
@@ -1954,7 +2065,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(speciesEClass, SPECIES__FLOWER_COLOR);
 		createEAttribute(speciesEClass, SPECIES__PRUNING_MONTHS);
 		createEAttribute(speciesEClass, SPECIES__PRUNE_NOTE);
+		createEAttribute(speciesEClass, SPECIES__COLOR);
 		createEOperation(speciesEClass, SPECIES___GET_ALL_NAMES);
+		createEOperation(speciesEClass, SPECIES___GET_EFFECTIVE_COLOR);
 
 		seedItemEClass = createEClass(SEED_ITEM);
 		createEReference(seedItemEClass, SEED_ITEM__TYPE);
@@ -1971,6 +2084,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEReference(plantingEClass, PLANTING__AREAS);
 		createEAttribute(plantingEClass, PLANTING__START_TIME);
 		createEAttribute(plantingEClass, PLANTING__END_TIME);
+		createEReference(plantingEClass, PLANTING__BACKGROUND_IMAGE);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -2075,6 +2189,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEReference(sowPlanficationEClass, SOW_PLANFICATION__SEED);
 		createEAttribute(sowPlanficationEClass, SOW_PLANFICATION__TYPE);
 
+		backgroundImageEClass = createEClass(BACKGROUND_IMAGE);
+		createEAttribute(backgroundImageEClass, BACKGROUND_IMAGE__RELATIVE_PATH);
+		createEAttribute(backgroundImageEClass, BACKGROUND_IMAGE__SCALING);
+		createEAttribute(backgroundImageEClass, BACKGROUND_IMAGE__TRANSPARENCY);
+
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
 		lifecycleEEnum = createEEnum(LIFECYCLE);
@@ -2097,6 +2216,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		urlEDataType = createEDataType(URL);
 		dateEDataType = createEDataType(DATE);
 		monthWeeksEDataType = createEDataType(MONTH_WEEKS);
+		colorEDataType = createEDataType(COLOR);
 	}
 
 	/**
@@ -2209,6 +2329,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				this.getCompatibilityLink_Species(), "compatibilityLinks", null, 0, -1, Genus.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGenus_Color(), this.getColor(), "color", null, 0, 1, Genus.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getGenus__GetEffectiveColor(), this.getColor(), "getEffectiveColor", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(speciesEClass, Species.class, "Species", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2277,8 +2402,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getSpecies_PruneNote(), ecorePackage.getEString(), "pruneNote", null, 0, 1,
 				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_Color(), this.getColor(), "color", null, 0, 1, Species.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSpecies__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getSpecies__GetEffectiveColor(), this.getColor(), "getEffectiveColor", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
 
 		initEClass(seedItemEClass, SeedItem.class, "SeedItem", !IS_ABSTRACT, !IS_INTERFACE,
@@ -2318,6 +2448,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlanting_EndTime(), ecorePackage.getEDate(), "endTime", null, 0, 1, Planting.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getPlanting_BackgroundImage(), this.getBackgroundImage(), null, "backgroundImage",
+				null, 0, 1, Planting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2536,6 +2669,18 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSowPlanfication_Type(), this.getSowType(), "type", null, 0, 1,
 				SowPlanfication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(backgroundImageEClass, BackgroundImage.class, "BackgroundImage", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBackgroundImage_RelativePath(), ecorePackage.getEString(), "relativePath", null, 1,
+				1, BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBackgroundImage_Scaling(), ecorePackage.getEFloat(), "scaling", null, 0, 1,
+				BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBackgroundImage_Transparency(), ecorePackage.getEInt(), "transparency", "100", 0, 1,
+				BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
@@ -3275,6 +3420,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEDataType(dateEDataType, Instant.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(monthWeeksEDataType, List.class, "MonthWeeks", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS, "java.util.List<java.lang.Integer>");
+		initEDataType(colorEDataType, Color.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

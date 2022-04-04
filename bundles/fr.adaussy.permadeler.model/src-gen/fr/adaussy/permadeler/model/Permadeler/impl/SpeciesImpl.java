@@ -24,6 +24,8 @@ import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Wind;
 
+import fr.adaussy.permadeler.model.utils.Color;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -73,6 +75,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getFlowerColor <em>Flower Color</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getPruningMonths <em>Pruning Months</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getPruneNote <em>Prune Note</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @generated
@@ -384,6 +387,26 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 	 * @ordered
 	 */
 	protected String pruneNote = PRUNE_NOTE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Color COLOR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Color color = COLOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -806,7 +829,40 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColor(Color newColor) {
+		Color oldColor = color;
+		color = newColor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.SPECIES__COLOR, oldColor,
+					color));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<String> getAllNames() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Color getEffectiveColor() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -913,6 +969,8 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 				return getPruningMonths();
 			case PermadelerPackage.SPECIES__PRUNE_NOTE:
 				return getPruneNote();
+			case PermadelerPackage.SPECIES__COLOR:
+				return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1004,6 +1062,9 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 			case PermadelerPackage.SPECIES__PRUNE_NOTE:
 				setPruneNote((String)newValue);
 				return;
+			case PermadelerPackage.SPECIES__COLOR:
+				setColor((Color)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1082,6 +1143,9 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 			case PermadelerPackage.SPECIES__PRUNE_NOTE:
 				setPruneNote(PRUNE_NOTE_EDEFAULT);
 				return;
+			case PermadelerPackage.SPECIES__COLOR:
+				setColor(COLOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1140,6 +1204,8 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 			case PermadelerPackage.SPECIES__PRUNE_NOTE:
 				return PRUNE_NOTE_EDEFAULT == null ? pruneNote != null
 						: !PRUNE_NOTE_EDEFAULT.equals(pruneNote);
+			case PermadelerPackage.SPECIES__COLOR:
+				return COLOR_EDEFAULT == null ? color != null : !COLOR_EDEFAULT.equals(color);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1154,6 +1220,8 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 		switch (operationID) {
 			case PermadelerPackage.SPECIES___GET_ALL_NAMES:
 				return getAllNames();
+			case PermadelerPackage.SPECIES___GET_EFFECTIVE_COLOR:
+				return getEffectiveColor();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1207,6 +1275,8 @@ public abstract class SpeciesImpl extends PlantNamedElementImpl implements Speci
 		result.append(pruningMonths);
 		result.append(", pruneNote: ");
 		result.append(pruneNote);
+		result.append(", color: ");
+		result.append(color);
 		result.append(')');
 		return result.toString();
 	}

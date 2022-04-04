@@ -115,6 +115,7 @@ public class PlantingItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION_OWNER__PLANTATIONS);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION_OWNER__BEDS);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANTING__AREAS);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANTING__BACKGROUND_IMAGE);
 		}
 		return childrenFeatures;
 	}
@@ -186,6 +187,7 @@ public class PlantingItemProvider extends NamedElementItemProvider {
 			case PermadelerPackage.PLANTING__PLANTATIONS:
 			case PermadelerPackage.PLANTING__BEDS:
 			case PermadelerPackage.PLANTING__AREAS:
+			case PermadelerPackage.PLANTING__BACKGROUND_IMAGE:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -215,6 +217,9 @@ public class PlantingItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTING__AREAS,
 				PermadelerFactory.eINSTANCE.createArea()));
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTING__BACKGROUND_IMAGE,
+				PermadelerFactory.eINSTANCE.createBackgroundImage()));
 	}
 
 }

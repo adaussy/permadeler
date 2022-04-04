@@ -13,8 +13,8 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
-
 import fr.adaussy.permadeler.model.Permadeler.SowType;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;

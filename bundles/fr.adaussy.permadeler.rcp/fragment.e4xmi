@@ -69,7 +69,7 @@
         <tags>NoAutoCollapse</tags>
       </children>
     </elements>
-    <elements xsi:type="basic_1:Part" xmi:id="_aSiloJTjEeqWsP_O9XzfKw" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif">
+    <elements xsi:type="basic_1:Part" xmi:id="_aSiloJTjEeqWsP_O9XzfKw" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/icons/full/eview16/prop_ps.png">
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_nCu6oJTjEeqWsP_O9XzfKw" elementId="org.eclipse.ui.views.PropertySheet">

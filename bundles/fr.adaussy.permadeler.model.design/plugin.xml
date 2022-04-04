@@ -7,4 +7,13 @@
 	       name="permadeler">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+     <editpartProvider
+           class="fr.adaussy.permadeler.model.design.editparts.PlantingEditpartProvider">
+        <Priority
+              name="Highest">
+        </Priority>
+     </editpartProvider>
+  </extension>
 </plugin>

@@ -144,18 +144,6 @@ public class AreaImpl extends NamedElementImpl implements Area {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Area> getSubAreas() {
-		if (subAreas == null) {
-			subAreas = new EObjectContainmentEList<Area>(Area.class, this, PermadelerPackage.AREA__SUB_AREAS);
-		}
-		return subAreas;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Plantation> getPlantations() {
 		if (plantations == null) {
 			plantations = new EObjectContainmentEList<Plantation>(Plantation.class, this,
@@ -174,6 +162,18 @@ public class AreaImpl extends NamedElementImpl implements Area {
 			beds = new EObjectContainmentEList<Bed>(Bed.class, this, PermadelerPackage.AREA__BEDS);
 		}
 		return beds;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Area> getSubAreas() {
+		if (subAreas == null) {
+			subAreas = new EObjectContainmentEList<Area>(Area.class, this, PermadelerPackage.AREA__SUB_AREAS);
+		}
+		return subAreas;
 	}
 
 	/**

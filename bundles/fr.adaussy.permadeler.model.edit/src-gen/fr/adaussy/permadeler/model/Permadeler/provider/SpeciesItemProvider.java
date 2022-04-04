@@ -82,6 +82,7 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 			addFlowerColorPropertyDescriptor(object);
 			addPruningMonthsPropertyDescriptor(object);
 			addPruneNotePropertyDescriptor(object);
+			addColorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -406,6 +407,22 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 	}
 
 	/**
+	 * This adds a property descriptor for the Color feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addColorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Species_color_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Species_color_feature",
+						"_UI_Species_type"),
+				PermadelerPackage.Literals.SPECIES__COLOR, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -501,6 +518,7 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 			case PermadelerPackage.SPECIES__FLOWER_COLOR:
 			case PermadelerPackage.SPECIES__PRUNING_MONTHS:
 			case PermadelerPackage.SPECIES__PRUNE_NOTE:
+			case PermadelerPackage.SPECIES__COLOR:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

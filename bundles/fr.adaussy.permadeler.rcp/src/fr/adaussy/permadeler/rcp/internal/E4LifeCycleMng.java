@@ -9,8 +9,11 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal;
 
+import java.io.File;
+
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -22,6 +25,8 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
+import org.eclipse.sirius.common.tools.api.resource.FileProvider;
+import org.eclipse.sirius.common.tools.api.resource.IFileGetter;
 import org.osgi.service.event.Event;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -65,7 +70,7 @@ public class E4LifeCycleMng {
 	 */
 	private void loadFileFromArg() {
 		for (String arg : Platform.getApplicationArgs()) {
-			if (arg.endsWith(".aird")) {
+			if (arg.endsWith(".permarep")) {
 				SessionManager.INSTANCE.openSession(URI.createFileURI(arg), new NullProgressMonitor(), null,
 						false);
 			}
@@ -103,6 +108,25 @@ public class E4LifeCycleMng {
 
 		@Override
 		public void notifyAddSession(Session newSession) {
+
+			FileProvider.getDefault().registerFileGetter(new IFileGetter() {
+
+				@Override
+				public File getFile(IPath path) {
+					File file = path.toFile();
+
+					if (file.exists()) {
+						return file;
+					}
+					return null;
+				}
+
+				@Override
+				public java.util.Optional<Boolean> exists(IPath fullPath) {
+					boolean exist = fullPath.toFile().exists();
+					return exist ? java.util.Optional.of(exist) : java.util.Optional.empty();
+				}
+			});
 			if (newSession.getSelectedViewpoints(false).stream()
 					.anyMatch(v -> "SeedStore".equals(v.getName()))) {
 				if (session != null) {

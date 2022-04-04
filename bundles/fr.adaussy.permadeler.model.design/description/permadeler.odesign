@@ -647,7 +647,7 @@
         </backgroundConditionalStyle>
       </ownedColumnMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='Plantations']/@defaultLayer/@toolSections.2/@ownedTools[name='DndPlantation'] //@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='Plantations']/@defaultLayer/@toolSections.2/@ownedTools[name='Create%20Plantation%20from%20Sow']" name="Plantations" domainClass="Permadeler::Planting" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='Plantations']/@defaultLayer/@toolSections.2/@ownedTools[name='DndPlantation'] //@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='Plantations']/@defaultLayer/@toolSections.2/@ownedTools[name='Create%20Plantation%20from%20Sow']" name="Plantations" domainClass="Permadeler::Planting" enablePopupBars="true" imagePath="/fr.adaussy.permadeler.model.design/img/plan.png">
       <validationSet>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="CompatibiltyCheckPlantation" level="WARNING" message="You have incompatible plantation" targetClass="Permadeler::Area">
           <audits auditExpression="aql:self.validatePlantationCompatibility()"/>
@@ -655,7 +655,7 @@
       </validationSet>
       <defaultLayer name="Default">
         <nodeMappings name="TreeNode_Plantations" label="Plantation" semanticCandidatesExpression="aql:self.plantations->select(e | not e.isRemoved())" domainClass="Permadeler::Plantation">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="35" showIcon="false" labelExpression="aql:self.type.name" tooltipExpression="aql:self.getPlantationLabel()" sizeComputationExpression="aql:self.getSVGSize()" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/tree.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="15" showIcon="false" labelExpression="aql:self.type.name" tooltipExpression="aql:self.getPlantationLabel()" sizeComputationExpression="aql:self.getSVGSize()" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/tree.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -669,11 +669,9 @@
               <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="30" arcHeight="30" borderSizeComputationExpression="5" showIcon="false" labelAlignment="LEFT" roundedCorner="true" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='DiagramColors']/@entries[name='AreaBackground']">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_chocolate']"/>
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
           </style>
         </containerMappings>
         <containerMappings name="VerticalRowBedContainer" semanticCandidatesExpression="aql:self.beds->select(myBed | myBed.type == Permadeler::RowBedType::VERTICAL)" domainClass="Permadeler::RowBed" childrenPresentation="HorizontalStack">
@@ -797,6 +795,20 @@
               </itemDescriptions>
             </menuItemDescription>
           </ownedTools>
+          <ownedTools xsi:type="tool:PopupMenu" name="Background Image">
+            <menuItemDescription xsi:type="tool:OperationAction" name="DefineBackGroundImage" label="Define Background Image">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.defineBackGroundImage(diagram)"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="CalibrateBackGroundImage" label="Calibrate Background image">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.calibrateBackgroundImage(diagram)"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
@@ -806,14 +818,7 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:DiagramDescription" name="SpeciesDiag" domainClass="Permadeler::KnowledgeBase" enablePopupBars="true">
-      <layout xsi:type="description_2:CustomLayoutConfiguration" id="org.eclipse.elk.radial" label="ELK Radial" description="A radial layout provider which is based on the algorithm of Peter Eades published in &quot;Drawing free trees.&quot;, published by International Institute for Advanced Study of Social Information Science, Fujitsu Limited in 1991. The radial layouter takes a tree and places the nodes in radial order around the root. The nodes of the same tree level are placed on the same radius.">
-        <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.spacing.nodeNode" value="50.0">
-          <targets>PARENT</targets>
-        </layoutOptions>
-        <layoutOptions xsi:type="description_2:DoubleLayoutOption" id="org.eclipse.elk.radial.radius" value="50.0">
-          <targets>PARENT</targets>
-        </layoutOptions>
-      </layout>
+      <layout xsi:type="description_2:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level."/>
       <defaultLayer name="Default">
         <edgeMappings name="SubGenus" sourceMapping="//@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='SpeciesDiag']/@defaultLayer/@containerMappings[name='GeniusGroupContainer']" targetMapping="//@ownedViewpoints[name='SeedStore']/@ownedRepresentations[name='SpeciesDiag']/@defaultLayer/@containerMappings[name='GeniusGroupContainer']" targetFinderExpression="aql:self.subGenus">
           <style sizeComputationExpression="2">
@@ -1140,6 +1145,208 @@
         </directEdit>
       </intersection>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:EditionTableDescription" name="PlantedProductionDateTable" label="Plantation Production" domainClass="Permadeler::Root">
+      <metamodel href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
+      <ownedLineMappings name="Species_ProductionDateTable" domainClass="Permadeler::Species" semanticCandidatesExpression="aql:self.getProductiveSpecies()" headerLabelExpression="aql:self.name">
+        <delete precondition="false">
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+        </delete>
+      </ownedLineMappings>
+      <ownedColumnMappings name="TreeProd_Genus" label="Genus" headerLabelExpression="Genus" featureName="name" labelExpression="aql:self.getGenus().name"/>
+      <ownedColumnMappings name="TreeProdJanuary" headerLabelExpression="Jan" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',1)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',1,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',1)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdFebruary" headerLabelExpression="Feb" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',2)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',2,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',2)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdMarch" headerLabelExpression="March" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',3)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',3,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',3)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdApril" headerLabelExpression="April" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',4)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',4,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',4)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdMay" headerLabelExpression="May" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',5)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',5,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',5)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdJune" headerLabelExpression="June" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',6)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',6,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',6)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdJuly" headerLabelExpression="July" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',7)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',7,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',7)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdAugust" headerLabelExpression="August" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',8)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',8,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',8)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdSeptember" headerLabelExpression="September" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',9)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',9,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',9)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdOctober" headerLabelExpression="October" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',10)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',10,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',10)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdNovember" headerLabelExpression="November" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',11)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',11,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',11)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="TreeProdDecember" headerLabelExpression="December" initialWidth="80" canEdit="aql:true" featureName="productiveMonths" labelExpression="aql:self.getMonthLabel('productiveMonths',12)">
+        <directEdit>
+          <variables name="element" documentation="The semantic currently edited element."/>
+          <variables name="table" documentation="The current DTable."/>
+          <variables name="line" documentation="The DLine of the current DCell."/>
+          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
+          <variables name="root" documentation="The semantic root element of the table."/>
+          <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="aql:self.setMonthLabel('productiveMonths',12,arg0)"/>
+          <mask mask="{0}"/>
+        </directEdit>
+        <backgroundConditionalStyle predicateExpression="aql:self.hasMonth('productiveMonths',12)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
+    </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.rcp.services.FillService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.rcp.services.MonthService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.rcp.services.LabelService"/>
@@ -1152,6 +1359,7 @@
   </ownedViewpoints>
   <userColorsPalettes name="DiagramColors">
     <entries xsi:type="description:UserFixedColor" red="249" green="235" blue="210" name="AreaBackground"/>
+    <entries xsi:type="description:ComputedColor" name="EffectiveColor" red="aql:self.getEffectiveColor().getRed()" green="aql:self.getEffectiveColor().getGreen()" blue="aql:self.getEffectiveColor().getBlue()"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.example.org/fr.adaussy.permadeler.model#/"/>

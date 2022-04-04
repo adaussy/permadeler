@@ -5,5 +5,5 @@ Bundle-SymbolicName: fr.adaussy.permadeler.rcp.tests
 Bundle-Version: 0.1.0.qualifier
 Fragment-Host: fr.adaussy.permadeler.rcp;bundle-version="0.1.0.qualifier"
 Automatic-Module-Name: fr.adaussy.permadeler.model.design.tests
-Bundle-RequiredExecutionEnvironment: JavaSE-14
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.junit;bundle-version="4.13.0"

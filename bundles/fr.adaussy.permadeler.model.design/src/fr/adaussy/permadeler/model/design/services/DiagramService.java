@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 Arthur Daussy.
+ * Copyright (c) 2022 Arthur Daussy.
  *
  * This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License 2.0 
@@ -13,6 +13,9 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,19 +29,31 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.EditPartViewer;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
-import org.eclipse.sirius.diagram.business.internal.query.DDiagramInternalQuery;
+import org.eclipse.sirius.diagram.model.business.internal.query.DDiagramInternalQuery;
+import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 
 import com.google.common.collect.Iterators;
 
 import fr.adaussy.permadeler.model.Permadeler.Area;
+import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.CompatibilityLink;
 import fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix;
+import fr.adaussy.permadeler.model.Permadeler.EatingType;
 import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -46,6 +61,7 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationOwner;
+import fr.adaussy.permadeler.model.Permadeler.Planting;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.RowBed;
@@ -55,6 +71,7 @@ import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
+import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.utils.Comparators;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
@@ -62,6 +79,7 @@ import fr.adaussy.permadeler.rcp.internal.dialogs.GenusSelectionDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.PlantationDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.RowBedDimensionCreationDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.TrayDimensionCreationDialog;
+import fr.adaussy.permadeler.rcp.services.FillService;
 import fr.adaussy.permadeler.rcp.services.ModelQueryService;
 
 /**
@@ -82,6 +100,104 @@ public class DiagramService {
 	}
 
 	/**
+	 * Service used to calibrate the background image of a Planting representation
+	 * 
+	 * @param planting
+	 *            a planting
+	 * @param diagram
+	 *            a Diagram
+	 */
+	public static void calibrateBackgroundImage(final Planting planting, DDiagram diagram) {
+		IGraphicalEditPart editPart = getEditPath(diagram);
+		BackgroundImage backgroundImage = planting.getBackgroundImage();
+		if (editPart != null && backgroundImage != null) {
+			BackConfigurationDialog dialog = new BackConfigurationDialog(getShell(), backgroundImage,
+					editPart);
+			dialog.open();
+		}
+	}
+
+	/**
+	 * Service used to define the background image of a planting representation
+	 * 
+	 * @param planting
+	 *            a planting
+	 * @param diagram
+	 *            a Diagram
+	 * @throws IOException
+	 */
+	public static void defineBackGroundImage(final Planting planting, DDiagram diagram) throws IOException {
+
+		FileDialog fileDialog = new FileDialog(getShell());
+		fileDialog.setFilterExtensions(new String[] {"*.svg" });
+		String targetFileString = fileDialog.open();
+
+		if (targetFileString != null) {
+			Path targetFilePath = Path.of(targetFileString);
+			if (targetFilePath.toFile().exists()) {
+				// Copy
+				Path imageFolder = FillService.getSessionImageFolder(Session.of(planting).get());
+				Path bgImgFolder = imageFolder.resolve("background-image");
+				if (!bgImgFolder.toFile().exists()) {
+					bgImgFolder.toFile().mkdirs();
+				}
+				String name = planting.getName() + "_" + System.currentTimeMillis() + ".svg";
+				Path targetLocation = bgImgFolder.resolve(name);
+				Files.copy(targetFilePath, targetLocation);
+
+				Path rootFolder = FillService.toPath(planting.eResource().getURI()).getParent();
+				Path relPath = rootFolder.relativize(targetLocation);
+
+				BackgroundImage bgImage = PermadelerFactory.eINSTANCE.createBackgroundImage();
+				bgImage.setRelativePath(relPath.toString());
+				bgImage.setScaling(1);
+				planting.setBackgroundImage(bgImage);
+				IGraphicalEditPart editPath = getEditPath(diagram);
+				if (editPath != null) {
+					editPath.refresh();
+				}
+			}
+		}
+	}
+
+	public static IGraphicalEditPart getEditPath(DDiagram diagram) {
+		IWorkbenchPage page = org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil.getActivePage();
+		IEditorPart activeEditor = page.getActiveEditor();
+		if (activeEditor instanceof DiagramEditor) {
+			DiagramEditor dialectEditor = (DiagramEditor)activeEditor;
+			Diagram gmfDiagram = SiriusGMFHelper.getGmfDiagram(diagram);
+			final EditPartViewer graphicalViewer = dialectEditor.getDiagramGraphicalViewer();
+			Map editPartRegistry = graphicalViewer.getEditPartRegistry();
+			if (editPartRegistry != null) {
+
+				Object editPart = editPartRegistry.get(gmfDiagram);
+				if (editPart instanceof IGraphicalEditPart) {
+					return (IGraphicalEditPart)editPart;
+				}
+			}
+		}
+
+		return null;
+	}
+
+	public static String getBackgroundSVGPath(final BackgroundImage image) {
+		if (image != null) {
+			String path = image.getRelativePath();
+			Path semanticFilePath = FillService.toPath(image.eResource().getURI()).getParent();
+			Path imgPath = semanticFilePath.resolve(path);
+			if (imgPath.toFile().exists()) {
+				return imgPath.toString();
+			}
+		}
+
+		return null;
+	}
+
+	public Genus getGenus(Species s) {
+		return EMFUtils.getAncestor(Genus.class, s);
+	}
+
+	/**
 	 * Gets SVG size of a plantation. The size depends of the nature of the plantation
 	 * 
 	 * @param plantation
@@ -99,6 +215,12 @@ public class DiagramService {
 		} else {
 			return SVG_DEFAULT_SIZE;
 		}
+	}
+
+	public List<Species> getProductiveSpecies(EObject root) {
+		return EMFUtils.allContainedObjectOfType(root, Plantation.class).filter(p -> !p.isRemoved())
+				.map(p -> p.getType()).filter(p -> p.getEatingType() != EatingType.NONE).distinct()
+				.collect(toList());
 	}
 
 	/**

@@ -382,6 +382,13 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case PermadelerPackage.BACKGROUND_IMAGE: {
+				BackgroundImage backgroundImage = (BackgroundImage)theEObject;
+				T result = caseBackgroundImage(backgroundImage);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			default:
 				return defaultCase(theEObject);
 		}
@@ -909,6 +916,21 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSowPlanfication(SowPlanfication object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Background Image</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Background Image</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBackgroundImage(BackgroundImage object) {
 		return null;
 	}
 

@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.window.Window;
+import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
@@ -93,7 +94,7 @@ public final class FillService {
 	static {
 		MONTH_MAPPER = new LinkedHashMap<String, Month>();
 		MONTH_MAPPER.put("janvier", Month.JANUARY); //$NON-NLS-1$
-		MONTH_MAPPER.put("fï¿½vrier", Month.FEBRUARY); //$NON-NLS-1$
+		MONTH_MAPPER.put("février", Month.FEBRUARY); //$NON-NLS-1$
 		MONTH_MAPPER.put("mars", Month.MARCH); //$NON-NLS-1$
 		MONTH_MAPPER.put("avril", Month.APRIL); //$NON-NLS-1$
 		MONTH_MAPPER.put("mai", Month.MAY); //$NON-NLS-1$
@@ -456,6 +457,14 @@ public final class FillService {
 		}
 	}
 
+	public static Path getSessionImageFolder(Session session) {
+		final Path airdPath = toPath(session.getSessionResource().getURI()).getParent();
+		if (airdPath != null) {
+			return getImageFolder(airdPath);
+		}
+		return null;
+	}
+
 	/**
 	 * Gets the default image folder from in a given path
 	 * 
@@ -489,7 +498,7 @@ public final class FillService {
 					return file.getLocation().toFile().toPath();
 				}
 			} else if (uri.isFile()) {
-				return Path.of(uri.toFileString());
+				return Path.of(java.net.URI.create(uri.toString()));
 			}
 		}
 		return null;

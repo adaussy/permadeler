@@ -11,6 +11,7 @@
 package fr.adaussy.permadeler.model.Permadeler;
 
 import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

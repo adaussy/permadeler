@@ -11,11 +11,13 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import fr.adaussy.permadeler.model.Permadeler.Bed;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**

@@ -66,6 +66,28 @@ public interface Plantation extends EObject {
 	void setType(Species value);
 
 	/**
+	 * Returns the value of the '<em><b>Sow Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sow Event</em>' containment reference.
+	 * @see #setSowEvent(Event)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_SowEvent()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Event getSowEvent();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent <em>Sow Event</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sow Event</em>' containment reference.
+	 * @see #getSowEvent()
+	 * @generated
+	 */
+	void setSowEvent(Event value);
+
+	/**
 	 * Returns the value of the '<em><b>Plantation Event</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,28 +164,6 @@ public interface Plantation extends EObject {
 	 * @generated
 	 */
 	void setDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Sow Event</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sow Event</em>' containment reference.
-	 * @see #setSowEvent(Event)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_SowEvent()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Event getSowEvent();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent <em>Sow Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sow Event</em>' containment reference.
-	 * @see #getSowEvent()
-	 * @generated
-	 */
-	void setSowEvent(Event value);
 
 	/**
 	 * <!-- begin-user-doc -->

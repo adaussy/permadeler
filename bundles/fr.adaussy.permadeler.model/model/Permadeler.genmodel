@@ -745,6 +745,8 @@
     <genDataTypes ecoreDataType="Permadeler.ecore#//URL"/>
     <genDataTypes ecoreDataType="Permadeler.ecore#//Date"/>
     <genDataTypes ecoreDataType="Permadeler.ecore#//MonthWeeks"/>
+    <genDataTypes ecoreDataType="Permadeler.ecore#//Color" create="return fr.adaussy.permadeler.model.utils.Color.decode(it);"
+        convert="return fr.adaussy.permadeler.model.utils.Color.encode(it);"/>
     <genClasses ecoreClass="Permadeler.ecore#//Root">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/seedLib"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/seedbank"/>
@@ -775,6 +777,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Genus/family"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/subGenus"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/compatibilityLinks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Genus/color"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Genus/getEffectiveColor"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Species">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/type"/>
@@ -799,7 +803,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/flowerColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/pruningMonths"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/pruneNote"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/color"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Species/getAllNames"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Species/getEffectiveColor"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//SeedItem">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedItem/type"/>

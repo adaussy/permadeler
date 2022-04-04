@@ -193,6 +193,56 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Event getSowEvent() {
+		return sowEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSowEvent(Event newSowEvent, NotificationChain msgs) {
+		Event oldSowEvent = sowEvent;
+		sowEvent = newSowEvent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANTATION__SOW_EVENT, oldSowEvent, newSowEvent);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSowEvent(Event newSowEvent) {
+		if (newSowEvent != sowEvent) {
+			NotificationChain msgs = null;
+			if (sowEvent != null)
+				msgs = ((InternalEObject)sowEvent).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__SOW_EVENT, null, msgs);
+			if (newSowEvent != null)
+				msgs = ((InternalEObject)newSowEvent).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__SOW_EVENT, null, msgs);
+			msgs = basicSetSowEvent(newSowEvent, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__SOW_EVENT,
+					newSowEvent, newSowEvent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Event getPlantationEvent() {
 		return plantationEvent;
 	}
@@ -321,56 +371,6 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__DESCRIPTION,
 					oldDescription, description));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event getSowEvent() {
-		return sowEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSowEvent(Event newSowEvent, NotificationChain msgs) {
-		Event oldSowEvent = sowEvent;
-		sowEvent = newSowEvent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANTATION__SOW_EVENT, oldSowEvent, newSowEvent);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSowEvent(Event newSowEvent) {
-		if (newSowEvent != sowEvent) {
-			NotificationChain msgs = null;
-			if (sowEvent != null)
-				msgs = ((InternalEObject)sowEvent).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__SOW_EVENT, null, msgs);
-			if (newSowEvent != null)
-				msgs = ((InternalEObject)newSowEvent).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__SOW_EVENT, null, msgs);
-			msgs = basicSetSowEvent(newSowEvent, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__SOW_EVENT,
-					newSowEvent, newSowEvent));
 	}
 
 	/**

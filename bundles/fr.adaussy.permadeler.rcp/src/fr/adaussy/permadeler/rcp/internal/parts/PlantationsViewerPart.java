@@ -43,11 +43,11 @@ public class PlantationsViewerPart extends AbstractModelViewerPart {
 				new AdapterFactoryContentProvider(createAdapterFactory())) {
 
 			@Override
-			public Object[] getChildren(Object parentElement) {
+			protected Object[] getSemanticChildren(Object parentElement) {
 				if (parentElement instanceof Root) {
 					return ((Root)parentElement).getZones().toArray();
 				}
-				return super.getChildren(parentElement);
+				return super.getSemanticChildren(parentElement);
 			}
 		};
 		return contentProvider;

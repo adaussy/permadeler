@@ -13,6 +13,7 @@ package fr.adaussy.permadeler.model.Permadeler.provider;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.RowBed;
+
 import java.util.Collection;
 import java.util.List;
 

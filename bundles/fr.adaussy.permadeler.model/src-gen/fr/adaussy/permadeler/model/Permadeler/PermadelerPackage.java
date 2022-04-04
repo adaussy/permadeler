@@ -488,13 +488,31 @@ public interface PermadelerPackage extends EPackage {
 	int GENUS__COMPATIBILITY_LINKS = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENUS__COLOR = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Genus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENUS_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int GENUS_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Effective Color</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENUS___GET_EFFECTIVE_COLOR = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Genus</em>' class.
@@ -503,7 +521,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENUS_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int GENUS_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl <em>Species</em>}' class.
@@ -759,13 +777,22 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES__PRUNE_NOTE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 21;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__COLOR = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 22;
+
+	/**
 	 * The number of structural features of the '<em>Species</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIES_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 22;
+	int SPECIES_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Get All Names</em>' operation.
@@ -777,13 +804,22 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES___GET_ALL_NAMES = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Effective Color</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_EFFECTIVE_COLOR = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Species</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIES_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int SPECIES_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SeedItemImpl <em>Seed Item</em>}' class.
@@ -1014,13 +1050,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANTING__END_TIME = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Background Image</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTING__BACKGROUND_IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Planting</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANTING_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PLANTING_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Planting</em>' class.
@@ -1376,6 +1421,15 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT__PRUNE_NOTE = SPECIES__PRUNE_NOTE;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__COLOR = SPECIES__COLOR;
+
+	/**
 	 * The feature id for the '<em><b>Sow Indoor Months</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1419,6 +1473,15 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANT___GET_ALL_NAMES = SPECIES___GET_ALL_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Effective Color</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_EFFECTIVE_COLOR = SPECIES___GET_EFFECTIVE_COLOR;
 
 	/**
 	 * The number of operations of the '<em>Plant</em>' class.
@@ -1683,6 +1746,15 @@ public interface PermadelerPackage extends EPackage {
 	int TREE__PRUNE_NOTE = SPECIES__PRUNE_NOTE;
 
 	/**
+	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__COLOR = SPECIES__COLOR;
+
+	/**
 	 * The feature id for the '<em><b>Rootstock</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1708,6 +1780,15 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int TREE___GET_ALL_NAMES = SPECIES___GET_ALL_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Effective Color</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE___GET_EFFECTIVE_COLOR = SPECIES___GET_EFFECTIVE_COLOR;
 
 	/**
 	 * The number of operations of the '<em>Tree</em>' class.
@@ -2785,6 +2866,61 @@ public interface PermadelerPackage extends EPackage {
 	int SOW_PLANFICATION_OPERATION_COUNT = PLANFICATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl <em>Background Image</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getBackgroundImage()
+	 * @generated
+	 */
+	int BACKGROUND_IMAGE = 35;
+
+	/**
+	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_IMAGE__RELATIVE_PATH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Scaling</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_IMAGE__SCALING = 1;
+
+	/**
+	 * The feature id for the '<em><b>Transparency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_IMAGE__TRANSPARENCY = 2;
+
+	/**
+	 * The number of structural features of the '<em>Background Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_IMAGE_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Background Image</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BACKGROUND_IMAGE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2792,7 +2928,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getQuantity()
 	 * @generated
 	 */
-	int QUANTITY = 35;
+	int QUANTITY = 36;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Lifecycle <em>Lifecycle</em>}' enum.
@@ -2802,7 +2938,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getLifecycle()
 	 * @generated
 	 */
-	int LIFECYCLE = 36;
+	int LIFECYCLE = 37;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Shade <em>Shade</em>}' enum.
@@ -2812,7 +2948,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getShade()
 	 * @generated
 	 */
-	int SHADE = 37;
+	int SHADE = 38;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.SoilType <em>Soil Type</em>}' enum.
@@ -2822,7 +2958,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSoilType()
 	 * @generated
 	 */
-	int SOIL_TYPE = 38;
+	int SOIL_TYPE = 39;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.PH <em>PH</em>}' enum.
@@ -2832,7 +2968,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPH()
 	 * @generated
 	 */
-	int PH = 39;
+	int PH = 40;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Moisture <em>Moisture</em>}' enum.
@@ -2842,7 +2978,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMoisture()
 	 * @generated
 	 */
-	int MOISTURE = 40;
+	int MOISTURE = 41;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Family <em>Family</em>}' enum.
@@ -2852,7 +2988,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFamily()
 	 * @generated
 	 */
-	int FAMILY = 41;
+	int FAMILY = 42;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.GrowRate <em>Grow Rate</em>}' enum.
@@ -2862,7 +2998,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getGrowRate()
 	 * @generated
 	 */
-	int GROW_RATE = 42;
+	int GROW_RATE = 43;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Wind <em>Wind</em>}' enum.
@@ -2872,7 +3008,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getWind()
 	 * @generated
 	 */
-	int WIND = 43;
+	int WIND = 44;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.EatingType <em>Eating Type</em>}' enum.
@@ -2882,7 +3018,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getEatingType()
 	 * @generated
 	 */
-	int EATING_TYPE = 44;
+	int EATING_TYPE = 45;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.EdiblePart <em>Edible Part</em>}' enum.
@@ -2892,7 +3028,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getEdiblePart()
 	 * @generated
 	 */
-	int EDIBLE_PART = 45;
+	int EDIBLE_PART = 46;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.SpecialUses <em>Special Uses</em>}' enum.
@@ -2902,7 +3038,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSpecialUses()
 	 * @generated
 	 */
-	int SPECIAL_USES = 46;
+	int SPECIAL_USES = 47;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.EventType <em>Event Type</em>}' enum.
@@ -2912,7 +3048,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getEventType()
 	 * @generated
 	 */
-	int EVENT_TYPE = 47;
+	int EVENT_TYPE = 48;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.RowBedType <em>Row Bed Type</em>}' enum.
@@ -2922,7 +3058,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRowBedType()
 	 * @generated
 	 */
-	int ROW_BED_TYPE = 48;
+	int ROW_BED_TYPE = 49;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.SowType <em>Sow Type</em>}' enum.
@@ -2932,7 +3068,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSowType()
 	 * @generated
 	 */
-	int SOW_TYPE = 49;
+	int SOW_TYPE = 50;
 
 	/**
 	 * The meta object id for the '<em>Month Week</em>' data type.
@@ -2941,7 +3077,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeek()
 	 * @generated
 	 */
-	int MONTH_WEEK = 50;
+	int MONTH_WEEK = 51;
 
 	/**
 	 * The meta object id for the '<em>URL</em>' data type.
@@ -2951,7 +3087,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getURL()
 	 * @generated
 	 */
-	int URL = 51;
+	int URL = 52;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -2961,7 +3097,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 52;
+	int DATE = 53;
 
 	/**
 	 * The meta object id for the '<em>Month Weeks</em>' data type.
@@ -2971,7 +3107,17 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeeks()
 	 * @generated
 	 */
-	int MONTH_WEEKS = 53;
+	int MONTH_WEEKS = 54;
+
+	/**
+	 * The meta object id for the '<em>Color</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.utils.Color
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getColor()
+	 * @generated
+	 */
+	int COLOR = 55;
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Root <em>Root</em>}'.
@@ -3164,6 +3310,27 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGenus_CompatibilityLinks();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Genus#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Genus#getColor()
+	 * @see #getGenus()
+	 * @generated
+	 */
+	EAttribute getGenus_Color();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Genus#getEffectiveColor() <em>Get Effective Color</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Effective Color</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Genus#getEffectiveColor()
+	 * @generated
+	 */
+	EOperation getGenus__GetEffectiveColor();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Species <em>Species</em>}'.
@@ -3418,6 +3585,17 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getSpecies_PruneNote();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Color</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getColor()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Color();
+
+	/**
 	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Species#getAllNames() <em>Get All Names</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3426,6 +3604,16 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSpecies__GetAllNames();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Species#getEffectiveColor() <em>Get Effective Color</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Effective Color</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getEffectiveColor()
+	 * @generated
+	 */
+	EOperation getSpecies__GetEffectiveColor();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.SeedItem <em>Seed Item</em>}'.
@@ -3567,6 +3755,17 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getPlanting_EndTime();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link fr.adaussy.permadeler.model.Permadeler.Planting#getBackgroundImage <em>Background Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Background Image</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Planting#getBackgroundImage()
+	 * @see #getPlanting()
+	 * @generated
+	 */
+	EReference getPlanting_BackgroundImage();
+
+	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3620,6 +3819,17 @@ public interface PermadelerPackage extends EPackage {
 	EReference getPlantation_Type();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent <em>Sow Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sow Event</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent()
+	 * @see #getPlantation()
+	 * @generated
+	 */
+	EReference getPlantation_SowEvent();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getPlantationEvent <em>Plantation Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3662,17 +3872,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantation_Description();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent <em>Sow Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sow Event</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent()
-	 * @see #getPlantation()
-	 * @generated
-	 */
-	EReference getPlantation_SowEvent();
 
 	/**
 	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#isRemoved() <em>Is Removed</em>}' operation.
@@ -4374,6 +4573,49 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getSowPlanfication_Type();
 
 	/**
+	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.BackgroundImage <em>Background Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Background Image</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.BackgroundImage
+	 * @generated
+	 */
+	EClass getBackgroundImage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.BackgroundImage#getRelativePath <em>Relative Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relative Path</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.BackgroundImage#getRelativePath()
+	 * @see #getBackgroundImage()
+	 * @generated
+	 */
+	EAttribute getBackgroundImage_RelativePath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.BackgroundImage#getScaling <em>Scaling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scaling</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.BackgroundImage#getScaling()
+	 * @see #getBackgroundImage()
+	 * @generated
+	 */
+	EAttribute getBackgroundImage_Scaling();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.BackgroundImage#getTransparency <em>Transparency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Transparency</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.BackgroundImage#getTransparency()
+	 * @see #getBackgroundImage()
+	 * @generated
+	 */
+	EAttribute getBackgroundImage_Transparency();
+
+	/**
 	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4567,6 +4809,17 @@ public interface PermadelerPackage extends EPackage {
 	EDataType getMonthWeeks();
 
 	/**
+	 * Returns the meta object for data type '{@link fr.adaussy.permadeler.model.utils.Color <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Color</em>'.
+	 * @see fr.adaussy.permadeler.model.utils.Color
+	 * @model instanceClass="fr.adaussy.permadeler.model.utils.Color"
+	 * @generated
+	 */
+	EDataType getColor();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4742,6 +4995,22 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENUS__COMPATIBILITY_LINKS = eINSTANCE.getGenus_CompatibilityLinks();
+
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENUS__COLOR = eINSTANCE.getGenus_Color();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Effective Color</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENUS___GET_EFFECTIVE_COLOR = eINSTANCE.getGenus__GetEffectiveColor();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl <em>Species</em>}' class.
@@ -4930,12 +5199,28 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute SPECIES__PRUNE_NOTE = eINSTANCE.getSpecies_PruneNote();
 
 		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__COLOR = eINSTANCE.getSpecies_Color();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Names</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation SPECIES___GET_ALL_NAMES = eINSTANCE.getSpecies__GetAllNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Effective Color</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPECIES___GET_EFFECTIVE_COLOR = eINSTANCE.getSpecies__GetEffectiveColor();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SeedItemImpl <em>Seed Item</em>}' class.
@@ -5048,6 +5333,14 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute PLANTING__END_TIME = eINSTANCE.getPlanting_EndTime();
 
 		/**
+		 * The meta object literal for the '<em><b>Background Image</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLANTING__BACKGROUND_IMAGE = eINSTANCE.getPlanting_BackgroundImage();
+
+		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5092,6 +5385,14 @@ public interface PermadelerPackage extends EPackage {
 		EReference PLANTATION__TYPE = eINSTANCE.getPlantation_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Sow Event</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLANTATION__SOW_EVENT = eINSTANCE.getPlantation_SowEvent();
+
+		/**
 		 * The meta object literal for the '<em><b>Plantation Event</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5122,14 +5423,6 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLANTATION__DESCRIPTION = eINSTANCE.getPlantation_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Sow Event</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLANTATION__SOW_EVENT = eINSTANCE.getPlantation_SowEvent();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Removed</b></em>' operation.
@@ -5711,6 +6004,40 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute SOW_PLANFICATION__TYPE = eINSTANCE.getSowPlanfication_Type();
 
 		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl <em>Background Image</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getBackgroundImage()
+		 * @generated
+		 */
+		EClass BACKGROUND_IMAGE = eINSTANCE.getBackgroundImage();
+
+		/**
+		 * The meta object literal for the '<em><b>Relative Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BACKGROUND_IMAGE__RELATIVE_PATH = eINSTANCE.getBackgroundImage_RelativePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Scaling</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BACKGROUND_IMAGE__SCALING = eINSTANCE.getBackgroundImage_Scaling();
+
+		/**
+		 * The meta object literal for the '<em><b>Transparency</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BACKGROUND_IMAGE__TRANSPARENCY = eINSTANCE.getBackgroundImage_Transparency();
+
+		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5898,6 +6225,16 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType MONTH_WEEKS = eINSTANCE.getMonthWeeks();
+
+		/**
+		 * The meta object literal for the '<em>Color</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.utils.Color
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getColor()
+		 * @generated
+		 */
+		EDataType COLOR = eINSTANCE.getColor();
 
 	}
 

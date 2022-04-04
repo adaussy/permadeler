@@ -32,14 +32,13 @@
         eType="#//Genus" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compatibilityMatrix" eType="#//CompatibilityMatrix"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="speciesRegistry" eType="#//SpeciesRegistry"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SeedBank">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//SeedItem" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Genus" eSuperTypes="#//PlantNamedElement">
+    <eOperations name="getEffectiveColor" eType="#//Color"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
         eType="#//Species" containment="true" eOpposite="#//Species/type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
@@ -47,9 +46,11 @@
         eType="#//Genus" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="compatibilityLinks" upperBound="-1"
         eType="#//CompatibilityLink" eOpposite="#//CompatibilityLink/species"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Species" abstract="true" eSuperTypes="#//PlantNamedElement">
     <eOperations name="getAllNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getEffectiveColor" eType="#//Color"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Genus"
         eOpposite="#//Genus/species"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="usdaHardinessMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -85,6 +86,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pruningMonths" upperBound="-1"
         eType="#//MonthWeek"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pruneNote" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SeedItem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Species"/>
@@ -111,6 +113,8 @@
         eType="#//Area" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundImage" eType="#//BackgroundImage"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -964,21 +968,12 @@
     <eLiterals name="INDOOR"/>
     <eLiterals name="OUTDOOR" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SpeciesRegistry">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="famillies" upperBound="-1"
-        eType="#//Familly" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Genus">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
-        eType="#//Species.1" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Species">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="varieties" upperBound="-1"
-        eType="#//Variety" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Variety"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Familly">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="genuses" upperBound="-1"
-        eType="#//Genus.1" containment="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="fr.adaussy.permadeler.model.utils.Color"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BackgroundImage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePath" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scaling" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transparency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="100"/>
   </eClassifiers>
 </ecore:EPackage>

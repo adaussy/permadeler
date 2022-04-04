@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Planting#getAreas <em>Areas</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Planting#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Planting#getEndTime <em>End Time</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Planting#getBackgroundImage <em>Background Image</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlanting()
@@ -95,5 +96,27 @@ public interface Planting extends NamedElement, PlantationOwner {
 	 * @generated
 	 */
 	void setEndTime(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Background Image</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Background Image</em>' containment reference.
+	 * @see #setBackgroundImage(BackgroundImage)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlanting_BackgroundImage()
+	 * @model containment="true"
+	 * @generated
+	 */
+	BackgroundImage getBackgroundImage();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Planting#getBackgroundImage <em>Background Image</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Background Image</em>' containment reference.
+	 * @see #getBackgroundImage()
+	 * @generated
+	 */
+	void setBackgroundImage(BackgroundImage value);
 
 } // Planting

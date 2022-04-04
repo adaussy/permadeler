@@ -21,13 +21,19 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.transaction.NotificationFilter;
+import org.eclipse.emf.transaction.ResourceSetChangeEvent;
+import org.eclipse.emf.transaction.ResourceSetListener;
+import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -46,6 +52,8 @@ import org.eclipse.sirius.ui.business.api.featureExtensions.FeatureExtensionsUIM
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerView;
 import org.eclipse.sirius.ui.tools.internal.views.common.ContextMenuFiller;
 import org.eclipse.sirius.ui.tools.internal.views.common.navigator.SiriusCommonLabelProvider;
+import org.eclipse.sirius.viewpoint.DAnalysis;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
@@ -57,6 +65,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
@@ -81,6 +90,8 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 	private Session displayedSession;
 
 	private List<ISelectionChangedListener> listeners = new ArrayList<ISelectionChangedListener>();
+
+	private RefreshViewerOnChangeResourceSetListener represenationUpdater = new RefreshViewerOnChangeResourceSetListener();
 
 	@Inject
 	private ESelectionService selectionService;
@@ -168,6 +179,13 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 	@Inject
 	@Optional
 	public void newSession(Session session) {
+
+		if (displayedSession != null) {
+			displayedSession.getTransactionalEditingDomain().removeResourceSetListener(represenationUpdater);
+		}
+
+		session.getTransactionalEditingDomain().addResourceSetListener(represenationUpdater);
+
 		updateContent(session);
 	}
 
@@ -283,4 +301,77 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 			viewer.setSelection(selection);
 		}
 	}
+
+	/**
+	 * This listener refreshes the viewer of this component when a representation is created or removed or
+	 * when a model is added/removed from the session.
+	 * 
+	 * @author <a href=mailto:pierre.guilet@obeo.fr>Pierre Guilet</a>
+	 */
+	public class RefreshViewerOnChangeResourceSetListener implements ResourceSetListener {
+
+		@Override
+		public NotificationFilter getFilter() {
+			return null;
+		}
+
+		@Override
+		public Command transactionAboutToCommit(ResourceSetChangeEvent event) throws RollbackException {
+			return null;
+		}
+
+		@Override
+		public void resourceSetChanged(ResourceSetChangeEvent event) {
+			List<Notification> notifications = event.getNotifications();
+			for (Notification notification : notifications) {
+				switch (notification.getEventType()) {
+					case Notification.ADD:
+					case Notification.REMOVE:
+					case Notification.ADD_MANY:
+					case Notification.REMOVE_MANY:
+						if (notification.getNewValue() instanceof DRepresentation
+								|| notification.getOldValue() instanceof DRepresentation) {
+							// we refresh the viewer if a representation has been added or removed from the
+							// session.
+							PlatformUI.getWorkbench().getDisplay().asyncExec(() -> {
+								if (viewer != null && viewer.getTree() != null
+										&& !viewer.getTree().isDisposed()) {
+									viewer.refresh();
+								}
+							});
+						} else if (notification.getNotifier() instanceof DAnalysis) {
+							// a model may have been added/removed from the model so we have to update content
+							// that is
+							// relative to loaded models.
+							PlatformUI.getWorkbench().getDisplay().asyncExec(() -> {
+								if (viewer != null && viewer.getTree() != null
+										&& !viewer.getTree().isDisposed()) {
+									viewer.refresh(true);
+								}
+							});
+						}
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
+		@Override
+		public boolean isAggregatePrecommitListener() {
+			return false;
+		}
+
+		@Override
+		public boolean isPrecommitOnly() {
+			return false;
+		}
+
+		@Override
+		public boolean isPostcommitOnly() {
+			return true;
+		}
+
+	}
+
 }

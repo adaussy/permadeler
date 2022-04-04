@@ -12,6 +12,7 @@ package fr.adaussy.permadeler.rcp.internal.dialogs;
 import java.util.regex.Matcher;
 
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
@@ -38,6 +39,10 @@ public class NewSpeciesTypeDialog extends Dialog {
 	private Text subGenusText;
 
 	private Text plantNameText;
+
+	private Button isTreeCheck;
+
+	private boolean isTree;
 
 	public NewSpeciesTypeDialog(Shell parentShell) {
 		super(parentShell);
@@ -87,6 +92,10 @@ public class NewSpeciesTypeDialog extends Dialog {
 		this.plantNameText = Dialogs.createTextEntry(parent, "Plant name", "", n -> {
 			this.plantName = n;
 		});
+
+		this.isTreeCheck = Dialogs.createCheckEntry(parent, "Is a tree?", resizeHasOccurred, n -> {
+			this.isTree = n;
+		});
 		// Need to reset so the derived fields are filled
 		qualifiedName.setText(initialValue);
 
@@ -103,5 +112,9 @@ public class NewSpeciesTypeDialog extends Dialog {
 
 	public String getSubGenus() {
 		return subGenus;
+	}
+
+	public boolean isTree() {
+		return isTree;
 	}
 }

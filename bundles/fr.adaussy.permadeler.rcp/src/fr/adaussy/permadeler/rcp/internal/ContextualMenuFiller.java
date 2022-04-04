@@ -37,6 +37,7 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.Permadeler.Planting;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.Reference;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
@@ -47,6 +48,7 @@ import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
+import fr.adaussy.permadeler.rcp.internal.actions.ListAllPlantationAction;
 import fr.adaussy.permadeler.rcp.internal.actions.MoveAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
@@ -124,6 +126,9 @@ public class ContextualMenuFiller {
 				case PermadelerPackage.PLANTATION:
 					casePlantation((List<Plantation>)selections);
 					break;
+				case PermadelerPackage.PLANTING:
+					casePlanting((List<Planting>)selections);
+					break;
 				case PermadelerPackage.PLANIFIER:
 					casePlanifier((List<Planifier>)selections);
 					break;
@@ -179,6 +184,15 @@ public class ContextualMenuFiller {
 				navigateAction.add(new FocusOnElementAction("To Species", Collections.singletonList(type),
 						KnowledgeViewerPart.ID));
 			}
+		}
+
+	}
+
+	private void casePlanting(List<Planting> selections) {
+
+		if (selections.size() == 1) {
+			Planting planting = selections.get(0);
+			others.add(new ListAllPlantationAction(session, planting));
 		}
 
 	}
