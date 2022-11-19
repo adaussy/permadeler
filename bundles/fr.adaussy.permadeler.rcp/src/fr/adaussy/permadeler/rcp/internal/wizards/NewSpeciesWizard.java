@@ -77,7 +77,8 @@ public class NewSpeciesWizard extends Wizard {
 		}
 
 		newSpecies.setName(cultivarInformation.getCommonName());
-		newSpecies.setLatinName(genusChoisePage.getSelectedGenus().getLatinName());
+		newSpecies.setLatinName(speciesChoisePage.getSelectedGenus().getLatinName() + " '"
+				+ cultivarInformation.getCultivarName() + "'");
 
 		session.modifyKnowledgeBase("Add new cultivar", base -> {
 			speciesChoisePage.getSelectedGenus().getSpecies().add(newSpecies);
