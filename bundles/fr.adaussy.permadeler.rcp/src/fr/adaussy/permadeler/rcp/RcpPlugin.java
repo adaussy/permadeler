@@ -9,8 +9,14 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -39,6 +45,19 @@ public class RcpPlugin extends AbstractUIPlugin {
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
+	}
+
+	public Image getImage(String path) {
+		Image img = getImageRegistry().get(path);
+		if (img == null) {
+
+			URL url = FileLocator.find(getBundle(), new Path(path), null);
+			if (url != null) {
+				getImageRegistry().put(path, ImageDescriptor.createFromURL(url));
+				img = getImageRegistry().get(path);
+			}
+		}
+		return img;
 	}
 
 	/**
