@@ -23,7 +23,7 @@ location "https://download.eclipse.org/justj/jres/17/updates/release/17.0.2" {
 
 
 location "https://download.eclipse.org/sirius/updates/releases/7.0.5/2021-06/" {
-	
+	org.eclipse.sirius.model.feature.feature.group
 	org.eclipse.sirius.specifier.feature.group lazy
 	org.eclipse.sirius.properties.feature.feature.group lazy
 	org.eclipse.sirius.runtime.ide.ui.feature.group lazy

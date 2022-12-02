@@ -23,7 +23,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -68,8 +68,24 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPlantTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Plant Types feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPlantTypesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_KnowledgeBase_plantTypes_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_KnowledgeBase_plantTypes_feature",
+						"_UI_KnowledgeBase_type"),
+				PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -85,7 +101,6 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES);
-			childrenFeatures.add(PermadelerPackage.Literals.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX);
 		}
 		return childrenFeatures;
 	}
@@ -148,7 +163,6 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 
 		switch (notification.getFeatureID(KnowledgeBase.class)) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-			case PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -168,11 +182,7 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES,
-				PermadelerFactory.eINSTANCE.createGenus()));
-
-		newChildDescriptors
-				.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX,
-						PermadelerFactory.eINSTANCE.createCompatibilityMatrix()));
+				PermadelerFactory.eINSTANCE.createPlant()));
 	}
 
 	/**

@@ -64,15 +64,6 @@ public interface PermadelerFactory extends EFactory {
 	SeedBank createSeedBank();
 
 	/**
-	 * Returns a new object of class '<em>Genus</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Genus</em>'.
-	 * @generated
-	 */
-	Genus createGenus();
-
-	/**
 	 * Returns a new object of class '<em>Seed Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,24 +73,6 @@ public interface PermadelerFactory extends EFactory {
 	SeedItem createSeedItem();
 
 	/**
-	 * Returns a new object of class '<em>Area</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Area</em>'.
-	 * @generated
-	 */
-	Area createArea();
-
-	/**
-	 * Returns a new object of class '<em>Planting</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Planting</em>'.
-	 * @generated
-	 */
-	Planting createPlanting();
-
-	/**
 	 * Returns a new object of class '<em>Plantation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,24 +80,6 @@ public interface PermadelerFactory extends EFactory {
 	 * @generated
 	 */
 	Plantation createPlantation();
-
-	/**
-	 * Returns a new object of class '<em>Plant</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Plant</em>'.
-	 * @generated
-	 */
-	Plant createPlant();
-
-	/**
-	 * Returns a new object of class '<em>Tree</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tree</em>'.
-	 * @generated
-	 */
-	Tree createTree();
 
 	/**
 	 * Returns a new object of class '<em>Reference</em>'.
@@ -208,24 +163,6 @@ public interface PermadelerFactory extends EFactory {
 	TrayZone createTrayZone();
 
 	/**
-	 * Returns a new object of class '<em>Grid Bed</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Grid Bed</em>'.
-	 * @generated
-	 */
-	GridBed createGridBed();
-
-	/**
-	 * Returns a new object of class '<em>Row Bed</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Row Bed</em>'.
-	 * @generated
-	 */
-	RowBed createRowBed();
-
-	/**
 	 * Returns a new object of class '<em>Grid Bed Row</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,33 +179,6 @@ public interface PermadelerFactory extends EFactory {
 	 * @generated
 	 */
 	GridBedCell createGridBedCell();
-
-	/**
-	 * Returns a new object of class '<em>Row Bed Row</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Row Bed Row</em>'.
-	 * @generated
-	 */
-	RowBedRow createRowBedRow();
-
-	/**
-	 * Returns a new object of class '<em>Compatibility Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compatibility Link</em>'.
-	 * @generated
-	 */
-	CompatibilityLink createCompatibilityLink();
-
-	/**
-	 * Returns a new object of class '<em>Compatibility Matrix</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Compatibility Matrix</em>'.
-	 * @generated
-	 */
-	CompatibilityMatrix createCompatibilityMatrix();
 
 	/**
 	 * Returns a new object of class '<em>Planifier</em>'.
@@ -296,6 +206,33 @@ public interface PermadelerFactory extends EFactory {
 	 * @generated
 	 */
 	BackgroundImage createBackgroundImage();
+
+	/**
+	 * Returns a new object of class '<em>Plant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plant</em>'.
+	 * @generated
+	 */
+	Plant createPlant();
+
+	/**
+	 * Returns a new object of class '<em>Production</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Production</em>'.
+	 * @generated
+	 */
+	Production createProduction();
+
+	/**
+	 * Returns a new object of class '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Action</em>'.
+	 * @generated
+	 */
+	Action createAction();
 
 	/**
 	 * Returns the package supported by this factory.

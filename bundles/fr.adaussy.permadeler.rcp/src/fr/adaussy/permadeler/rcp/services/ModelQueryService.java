@@ -17,7 +17,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 
 /**
  * Service that gather helper merthod to query the model
@@ -36,9 +36,9 @@ public final class ModelQueryService {
 	 *            a species
 	 * @return a list of cell
 	 */
-	public static List<Cell> getLinkedCells(Species s) {
+	public static List<Cell> getLinkedCells(Plant s) {
 		List<Cell> allCells = SessionManager.INSTANCE.getSession(s).getSemanticCrossReferencer()
-				.getInverseReferences(s, PermadelerPackage.eINSTANCE.getCell_Species(), true).stream()
+				.getInverseReferences(s, PermadelerPackage.eINSTANCE.getCell_Plant(), true).stream()
 				.map(n -> n.getEObject()).filter(e -> e instanceof Cell).map(c -> (Cell)c).collect(toList());
 		return allCells;
 	}

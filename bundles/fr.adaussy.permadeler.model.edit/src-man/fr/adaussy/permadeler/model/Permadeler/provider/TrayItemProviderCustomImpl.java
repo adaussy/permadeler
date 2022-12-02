@@ -36,7 +36,7 @@ public class TrayItemProviderCustomImpl extends TrayItemProvider {
 
 		int[] counts = new int[] {0, 0 };
 		EMFUtils.getChildren(tray, Cell.class).forEach(c -> {
-			if (c.getSpecies() != null) {
+			if (c.getPlant() != null) {
 				counts[0]++;
 			}
 			counts[1]++;

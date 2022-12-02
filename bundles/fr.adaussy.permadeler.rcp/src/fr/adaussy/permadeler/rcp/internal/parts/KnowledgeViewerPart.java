@@ -32,7 +32,7 @@ public class KnowledgeViewerPart extends AbstractModelViewerPart {
 
 	@Override
 	protected EObject getViewerRoot(Root root) {
-		return root.getSeedLib();
+		return root.getKnowledgeBase();
 	}
 
 }

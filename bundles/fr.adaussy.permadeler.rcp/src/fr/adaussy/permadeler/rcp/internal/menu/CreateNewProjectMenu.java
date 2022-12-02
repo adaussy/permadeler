@@ -43,7 +43,7 @@ public class CreateNewProjectMenu {
 	/**
 	 * Name of the default viewpoint
 	 */
-	public static final String DEFAULT_VIEWPOINT = "SeedStore";
+	public static final String DEFAULT_VIEWPOINT = "FoodForestViewPoint";
 
 	/**
 	 * File extension that hold all representations

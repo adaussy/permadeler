@@ -10,6 +10,8 @@
  */
 package fr.adaussy.permadeler.model.Permadeler;
 
+import java.time.Instant;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -24,11 +26,11 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getType <em>Type</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent <em>Sow Event</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getPlantationEvent <em>Plantation Event</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getEvents <em>Events</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRemovalEvent <em>Removal Event</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getDescription <em>Description</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getPlantationDate <em>Plantation Date</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getCurrentLayer <em>Current Layer</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRootstock <em>Rootstock</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation()
@@ -48,12 +50,12 @@ public interface Plantation extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(Species)
+	 * @see #setType(Plant)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_Type()
 	 * @model
 	 * @generated
 	 */
-	Species getType();
+	Plant getType();
 
 	/**
 	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getType <em>Type</em>}' reference.
@@ -63,51 +65,7 @@ public interface Plantation extends EObject {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Species value);
-
-	/**
-	 * Returns the value of the '<em><b>Sow Event</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sow Event</em>' containment reference.
-	 * @see #setSowEvent(Event)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_SowEvent()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Event getSowEvent();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getSowEvent <em>Sow Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sow Event</em>' containment reference.
-	 * @see #getSowEvent()
-	 * @generated
-	 */
-	void setSowEvent(Event value);
-
-	/**
-	 * Returns the value of the '<em><b>Plantation Event</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Plantation Event</em>' containment reference.
-	 * @see #setPlantationEvent(Event)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_PlantationEvent()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Event getPlantationEvent();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getPlantationEvent <em>Plantation Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Plantation Event</em>' containment reference.
-	 * @see #getPlantationEvent()
-	 * @generated
-	 */
-	void setPlantationEvent(Event value);
+	void setType(Plant value);
 
 	/**
 	 * Returns the value of the '<em><b>Events</b></em>' containment reference list.
@@ -120,28 +78,6 @@ public interface Plantation extends EObject {
 	 * @generated
 	 */
 	EList<Event> getEvents();
-
-	/**
-	 * Returns the value of the '<em><b>Removal Event</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Removal Event</em>' containment reference.
-	 * @see #setRemovalEvent(Event)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_RemovalEvent()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Event getRemovalEvent();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRemovalEvent <em>Removal Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Removal Event</em>' containment reference.
-	 * @see #getRemovalEvent()
-	 * @generated
-	 */
-	void setRemovalEvent(Event value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -166,11 +102,73 @@ public interface Plantation extends EObject {
 	void setDescription(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Plantation Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Plantation Date</em>' attribute.
+	 * @see #setPlantationDate(Instant)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_PlantationDate()
+	 * @model dataType="fr.adaussy.permadeler.model.Permadeler.Date"
 	 * @generated
 	 */
-	boolean isRemoved();
+	Instant getPlantationDate();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getPlantationDate <em>Plantation Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plantation Date</em>' attribute.
+	 * @see #getPlantationDate()
+	 * @generated
+	 */
+	void setPlantationDate(Instant value);
+
+	/**
+	 * Returns the value of the '<em><b>Current Layer</b></em>' attribute.
+	 * The default value is <code>"UNDERSTORY"</code>.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.Layer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Layer</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Layer
+	 * @see #setCurrentLayer(Layer)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_CurrentLayer()
+	 * @model default="UNDERSTORY"
+	 * @generated
+	 */
+	Layer getCurrentLayer();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getCurrentLayer <em>Current Layer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Layer</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Layer
+	 * @see #getCurrentLayer()
+	 * @generated
+	 */
+	void setCurrentLayer(Layer value);
+
+	/**
+	 * Returns the value of the '<em><b>Rootstock</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rootstock</em>' attribute.
+	 * @see #setRootstock(String)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_Rootstock()
+	 * @model
+	 * @generated
+	 */
+	String getRootstock();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRootstock <em>Rootstock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rootstock</em>' attribute.
+	 * @see #getRootstock()
+	 * @generated
+	 */
+	void setRootstock(String value);
 
 } // Plantation

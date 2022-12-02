@@ -42,7 +42,6 @@
                   <children xsi:type="menu:DirectMenuItem" xmi:id="_1Hnrga1qEeqXyJd86ICNPQ" elementId="fr.adaussy.permadeler.rcp.directmenuitem.knowloedge.calendar.sow" label="Sow period" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/bank/preview/calendar-sow.png" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SowCalendarSeedBankDirectMenu"/>
                 </menus>
                 <toolbar xmi:id="_T6BnkJnJEeqRF701mHErGQ" elementId="fr.adaussy.permadeler.rcp.toolbar.seedbanktoolbar">
-                  <children xsi:type="menu:DirectToolItem" xmi:id="_YM81UJnJEeqRF701mHErGQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.addfromwebsite" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/add.gif" tooltip="Add a seed and its species from a download website page" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.AddFromWebSiteToolbarItem"/>
                   <children xsi:type="menu:DirectToolItem" xmi:id="_tKK3UK1rEeqXyJd86ICNPQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.seedbank.types.sort" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/alphab_sort_co.gif" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SortSeedBankDirectMenu"/>
                 </toolbar>
               </children>

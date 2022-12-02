@@ -109,7 +109,7 @@ public class TimeViewPart {
 
 	public boolean match(TimeViewEditorInput otherInput) {
 		return input != null && input.getTarget() == otherInput.getTarget()
-				&& input.getQueryName().equals(otherInput.getQueryName());
+				&& input.getQuery().equals(otherInput.getQuery());
 	}
 
 	private void computeMinSize(Composite content) {
@@ -186,7 +186,7 @@ public class TimeViewPart {
 	public void setInput(TimeViewEditorInput input) {
 
 		this.input = input;
-		part.setLabel(input.getQueryName());
+		part.setLabel(input.getQuery());
 		Composite headerComposite = new Composite(main, SWT.NONE);
 		headerComposite.setData("name", "Header composite");
 		headerComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -221,7 +221,7 @@ public class TimeViewPart {
 	@PersistState
 	public void persistSate(MPart currentParent) {
 		if (input != null) {
-			saveState(input.getQueryName(), input.getTarget(), currentParent);
+			saveState(input.getQuery(), input.getTarget(), currentParent);
 		} else {
 			saveState(null, null, currentParent);
 		}

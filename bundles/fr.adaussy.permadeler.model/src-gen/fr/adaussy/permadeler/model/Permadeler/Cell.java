@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Cell#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Cell#getPlant <em>Plant</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Cell#getDate <em>Date</em>}</li>
  * </ul>
  *
@@ -40,26 +40,26 @@ public interface Cell extends EObject {
 	String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
 
 	/**
-	 * Returns the value of the '<em><b>Species</b></em>' reference.
+	 * Returns the value of the '<em><b>Plant</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Species</em>' reference.
-	 * @see #setSpecies(Species)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getCell_Species()
+	 * @return the value of the '<em>Plant</em>' reference.
+	 * @see #setPlant(Plant)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getCell_Plant()
 	 * @model
 	 * @generated
 	 */
-	Species getSpecies();
+	Plant getPlant();
 
 	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Cell#getSpecies <em>Species</em>}' reference.
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Cell#getPlant <em>Plant</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Species</em>' reference.
-	 * @see #getSpecies()
+	 * @param value the new value of the '<em>Plant</em>' reference.
+	 * @see #getPlant()
 	 * @generated
 	 */
-	void setSpecies(Species value);
+	void setPlant(Plant value);
 
 	/**
 	 * Returns the value of the '<em><b>Date</b></em>' attribute.

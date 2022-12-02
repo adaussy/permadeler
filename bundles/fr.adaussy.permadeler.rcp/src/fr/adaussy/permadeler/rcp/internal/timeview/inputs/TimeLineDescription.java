@@ -12,6 +12,8 @@ package fr.adaussy.permadeler.rcp.internal.timeview.inputs;
 import java.util.List;
 import java.util.function.Supplier;
 
+import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
+
 /**
  * Description of a time line
  * 
@@ -21,15 +23,15 @@ public class TimeLineDescription {
 
 	private final String color;
 
-	private final Supplier<List<Integer>> weeks;
-
 	private Supplier<String> entryLabel;
 
-	public TimeLineDescription(Supplier<String> entryLabel, String color, Supplier<List<Integer>> weeks) {
+	private TemporalItem temporalItem;
+
+	public TimeLineDescription(Supplier<String> entryLabel, String color, TemporalItem temporalItem) {
 		super();
 		this.entryLabel = entryLabel;
 		this.color = color;
-		this.weeks = weeks;
+		this.temporalItem = temporalItem;
 	}
 
 	public String getColor() {
@@ -37,11 +39,15 @@ public class TimeLineDescription {
 	}
 
 	public Supplier<List<Integer>> getWeeks() {
-		return weeks;
+		return () -> temporalItem.getPerdiod();
 	}
 
 	public Supplier<String> getEntryLabel() {
 		return entryLabel;
+	}
+
+	public TemporalItem getTemporalItem() {
+		return temporalItem;
 	}
 
 }

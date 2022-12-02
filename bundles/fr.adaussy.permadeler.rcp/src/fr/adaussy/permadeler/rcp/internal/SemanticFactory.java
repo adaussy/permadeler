@@ -11,7 +11,6 @@ package fr.adaussy.permadeler.rcp.internal;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
-import fr.adaussy.permadeler.model.Permadeler.Planting;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 
@@ -40,13 +39,9 @@ public class SemanticFactory {
 		root.setSeedbank(factory.createSeedBank());
 		Zone createZone = factory.createZone();
 		createZone.setName("My garden");
-		Planting planting = factory.createPlanting();
-		planting.setName("Plan principale");
-		createZone.getPlantings().add(planting);
 		root.getZones().add(createZone);
 		KnowledgeBase createKnowledgeBase = factory.createKnowledgeBase();
-		createKnowledgeBase.setCompatibilityMatrix(factory.createCompatibilityMatrix());
-		root.setSeedLib(createKnowledgeBase);
+		root.setKnowledgeBase(createKnowledgeBase);
 
 		return root;
 	}

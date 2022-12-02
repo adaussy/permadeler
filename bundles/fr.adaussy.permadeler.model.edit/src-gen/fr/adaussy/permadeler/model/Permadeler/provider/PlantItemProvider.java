@@ -10,6 +10,7 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
+import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 
@@ -18,6 +19,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -30,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlantItemProvider extends SpeciesItemProvider {
+public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,43 +62,183 @@ public class PlantItemProvider extends SpeciesItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSowIndoorMonthsPropertyDescriptor(object);
-			addSowOutdoorMonthsPropertyDescriptor(object);
+			addWidthPropertyDescriptor(object);
+			addSoilTypePropertyDescriptor(object);
+			addLightingConditionPropertyDescriptor(object);
+			addHeightPropertyDescriptor(object);
+			addMinTemperaturePropertyDescriptor(object);
+			addMoisturePropertyDescriptor(object);
+			addSpecialUsesPropertyDescriptor(object);
+			addGrowRatePropertyDescriptor(object);
+			addWindPropertyDescriptor(object);
+			addFoodForestLayerPropertyDescriptor(object);
 			addLifeCyclePropertyDescriptor(object);
+			addFamilyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Sow Indoor Months feature.
+	 * This adds a property descriptor for the Width feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSowIndoorMonthsPropertyDescriptor(Object object) {
+	protected void addWidthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Plant_width_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Plant_width_feature",
+								"_UI_Plant_type"),
+						PermadelerPackage.Literals.PLANT__WIDTH, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Soil Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSoilTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_sowIndoorMonths_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_sowIndoorMonths_feature",
+				getString("_UI_Plant_soilType_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_soilType_feature",
 						"_UI_Plant_type"),
-				PermadelerPackage.Literals.PLANT__SOW_INDOOR_MONTHS, true, false, false,
+				PermadelerPackage.Literals.PLANT__SOIL_TYPE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Lighting Condition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLightingConditionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_lightingCondition_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_lightingCondition_feature",
+						"_UI_Plant_type"),
+				PermadelerPackage.Literals.PLANT__LIGHTING_CONDITION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Height feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Plant_height_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Plant_height_feature",
+								"_UI_Plant_type"),
+						PermadelerPackage.Literals.PLANT__HEIGHT, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Temperature feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinTemperaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_minTemperature_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_minTemperature_feature",
+						"_UI_Plant_type"),
+				PermadelerPackage.Literals.PLANT__MIN_TEMPERATURE, true, false, false,
 				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Sow Outdoor Months feature.
+	 * This adds a property descriptor for the Moisture feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSowOutdoorMonthsPropertyDescriptor(Object object) {
+	protected void addMoisturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_sowOutdoorMonths_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_sowOutdoorMonths_feature",
+				getString("_UI_Plant_moisture_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_moisture_feature",
 						"_UI_Plant_type"),
-				PermadelerPackage.Literals.PLANT__SOW_OUTDOOR_MONTHS, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+				PermadelerPackage.Literals.PLANT__MOISTURE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Special Uses feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpecialUsesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_specialUses_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_specialUses_feature",
+						"_UI_Plant_type"),
+				PermadelerPackage.Literals.PLANT__SPECIAL_USES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Grow Rate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGrowRatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_growRate_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_growRate_feature",
+						"_UI_Plant_type"),
+				PermadelerPackage.Literals.PLANT__GROW_RATE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Wind feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWindPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Plant_wind_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Plant_wind_feature",
+								"_UI_Plant_type"),
+						PermadelerPackage.Literals.PLANT__WIND, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Food Forest Layer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFoodForestLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_foodForestLayer_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_foodForestLayer_feature",
+						"_UI_Plant_type"),
+				PermadelerPackage.Literals.PLANT__FOOD_FOREST_LAYER, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -112,6 +255,56 @@ public class PlantItemProvider extends SpeciesItemProvider {
 						"_UI_Plant_type"),
 				PermadelerPackage.Literals.PLANT__LIFE_CYCLE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Family feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFamilyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Plant_family_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Plant_family_feature",
+								"_UI_Plant_type"),
+						PermadelerPackage.Literals.PLANT__FAMILY, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT__IMAGES);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT__REFERENCES);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT__PRODUCTIONS);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT__ACTIONS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -160,11 +353,27 @@ public class PlantItemProvider extends SpeciesItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Plant.class)) {
-			case PermadelerPackage.PLANT__SOW_INDOOR_MONTHS:
-			case PermadelerPackage.PLANT__SOW_OUTDOOR_MONTHS:
+			case PermadelerPackage.PLANT__WIDTH:
+			case PermadelerPackage.PLANT__SOIL_TYPE:
+			case PermadelerPackage.PLANT__LIGHTING_CONDITION:
+			case PermadelerPackage.PLANT__HEIGHT:
+			case PermadelerPackage.PLANT__MIN_TEMPERATURE:
+			case PermadelerPackage.PLANT__MOISTURE:
+			case PermadelerPackage.PLANT__SPECIAL_USES:
+			case PermadelerPackage.PLANT__GROW_RATE:
+			case PermadelerPackage.PLANT__WIND:
+			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
+			case PermadelerPackage.PLANT__FAMILY:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case PermadelerPackage.PLANT__IMAGES:
+			case PermadelerPackage.PLANT__REFERENCES:
+			case PermadelerPackage.PLANT__PRODUCTIONS:
+			case PermadelerPackage.PLANT__ACTIONS:
+				fireNotifyChanged(
+						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -180,6 +389,18 @@ public class PlantItemProvider extends SpeciesItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__IMAGES,
+				PermadelerFactory.eINSTANCE.createImage()));
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__REFERENCES,
+				PermadelerFactory.eINSTANCE.createReference()));
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__PRODUCTIONS,
+				PermadelerFactory.eINSTANCE.createProduction()));
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__ACTIONS,
+				PermadelerFactory.eINSTANCE.createAction()));
 	}
 
 }

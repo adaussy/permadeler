@@ -156,29 +156,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Genus} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GenusItemProviderCustomImpl genusItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Genus}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGenusAdapter() {
-		if (genusItemProvider == null) {
-			genusItemProvider = new GenusItemProviderCustomImpl(this);
-		}
-
-		return genusItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.SeedItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,52 +179,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Area} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AreaItemProviderCustomImpl areaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Area}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAreaAdapter() {
-		if (areaItemProvider == null) {
-			areaItemProvider = new AreaItemProviderCustomImpl(this);
-		}
-
-		return areaItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Planting} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PlantingItemProvider plantingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Planting}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPlantingAdapter() {
-		if (plantingItemProvider == null) {
-			plantingItemProvider = new PlantingItemProvider(this);
-		}
-
-		return plantingItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Plantation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,52 +199,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 		}
 
 		return plantationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Plant} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PlantItemProviderCustomImpl plantItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Plant}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPlantAdapter() {
-		if (plantItemProvider == null) {
-			plantItemProvider = new PlantItemProviderCustomImpl(this);
-		}
-
-		return plantItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Tree} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TreeItemProviderCustomImpl treeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Tree}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTreeAdapter() {
-		if (treeItemProvider == null) {
-			treeItemProvider = new TreeItemProviderCustomImpl(this);
-		}
-
-		return treeItemProvider;
 	}
 
 	/**
@@ -524,52 +409,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.GridBed} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GridBedItemProvider gridBedItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.GridBed}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGridBedAdapter() {
-		if (gridBedItemProvider == null) {
-			gridBedItemProvider = new GridBedItemProvider(this);
-		}
-
-		return gridBedItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.RowBed} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RowBedItemProviderCustomImpl rowBedItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.RowBed}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRowBedAdapter() {
-		if (rowBedItemProvider == null) {
-			rowBedItemProvider = new RowBedItemProviderCustomImpl(this);
-		}
-
-		return rowBedItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.GridBedRow} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,81 +455,12 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.RowBedRow} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RowBedRowItemProviderCustomImpl rowBedRowItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.RowBedRow}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRowBedRowAdapter() {
-		if (rowBedRowItemProvider == null) {
-			rowBedRowItemProvider = new RowBedRowItemProviderCustomImpl(this);
-		}
-
-		return rowBedRowItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.CompatibilityLink} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompatibilityLinkItemProvider compatibilityLinkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.CompatibilityLink}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCompatibilityLinkAdapter() {
-		if (compatibilityLinkItemProvider == null) {
-			compatibilityLinkItemProvider = new CompatibilityLinkItemProvider(this);
-		}
-
-		return compatibilityLinkItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompatibilityMatrixItemProvider compatibilityMatrixItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCompatibilityMatrixAdapter() {
-		if (compatibilityMatrixItemProvider == null) {
-			compatibilityMatrixItemProvider = new CompatibilityMatrixItemProvider(this);
-		}
-
-		return compatibilityMatrixItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Planifier} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PlanifierItemProviderCustomImpl planifierItemProvider;
+	protected PlanifierItemProvider planifierItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Planifier}.
@@ -701,7 +471,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	@Override
 	public Adapter createPlanifierAdapter() {
 		if (planifierItemProvider == null) {
-			planifierItemProvider = new PlanifierItemProviderCustomImpl(this);
+			planifierItemProvider = new PlanifierItemProvider(this);
 		}
 
 		return planifierItemProvider;
@@ -751,6 +521,75 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 		}
 
 		return backgroundImageItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Plant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlantItemProviderCustomImpl plantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Plant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlantAdapter() {
+		if (plantItemProvider == null) {
+			plantItemProvider = new PlantItemProviderCustomImpl(this);
+		}
+
+		return plantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Production} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProductionItemProvider productionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Production}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProductionAdapter() {
+		if (productionItemProvider == null) {
+			productionItemProvider = new ProductionItemProvider(this);
+		}
+
+		return productionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Action} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActionItemProvider actionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Action}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActionAdapter() {
+		if (actionItemProvider == null) {
+			actionItemProvider = new ActionItemProvider(this);
+		}
+
+		return actionItemProvider;
 	}
 
 	/**
@@ -858,20 +697,10 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			knowledgeBaseItemProvider.dispose();
 		if (seedBankItemProvider != null)
 			seedBankItemProvider.dispose();
-		if (genusItemProvider != null)
-			genusItemProvider.dispose();
 		if (seedItemItemProvider != null)
 			seedItemItemProvider.dispose();
-		if (areaItemProvider != null)
-			areaItemProvider.dispose();
-		if (plantingItemProvider != null)
-			plantingItemProvider.dispose();
 		if (plantationItemProvider != null)
 			plantationItemProvider.dispose();
-		if (plantItemProvider != null)
-			plantItemProvider.dispose();
-		if (treeItemProvider != null)
-			treeItemProvider.dispose();
 		if (referenceItemProvider != null)
 			referenceItemProvider.dispose();
 		if (imageItemProvider != null)
@@ -890,26 +719,22 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			cellItemProvider.dispose();
 		if (trayZoneItemProvider != null)
 			trayZoneItemProvider.dispose();
-		if (gridBedItemProvider != null)
-			gridBedItemProvider.dispose();
-		if (rowBedItemProvider != null)
-			rowBedItemProvider.dispose();
 		if (gridBedRowItemProvider != null)
 			gridBedRowItemProvider.dispose();
 		if (gridBedCellItemProvider != null)
 			gridBedCellItemProvider.dispose();
-		if (rowBedRowItemProvider != null)
-			rowBedRowItemProvider.dispose();
-		if (compatibilityLinkItemProvider != null)
-			compatibilityLinkItemProvider.dispose();
-		if (compatibilityMatrixItemProvider != null)
-			compatibilityMatrixItemProvider.dispose();
 		if (planifierItemProvider != null)
 			planifierItemProvider.dispose();
 		if (sowPlanficationItemProvider != null)
 			sowPlanficationItemProvider.dispose();
 		if (backgroundImageItemProvider != null)
 			backgroundImageItemProvider.dispose();
+		if (plantItemProvider != null)
+			plantItemProvider.dispose();
+		if (productionItemProvider != null)
+			productionItemProvider.dispose();
+		if (actionItemProvider != null)
+			actionItemProvider.dispose();
 	}
 
 }

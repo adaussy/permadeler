@@ -43,7 +43,7 @@ public class CreateNewProjectMenuTest {
 
 	@Before
 	public void setUp() throws IOException {
-		tmpFolder = tmp.newFolder("a path with space/and/accént/");
+		tmpFolder = tmp.newFolder("a path with space/and/accï¿½nt/");
 	}
 
 	/**
@@ -55,8 +55,7 @@ public class CreateNewProjectMenuTest {
 	 */
 	@Test
 	public void basicCreateAndLoad() throws InvocationTargetException, IOException, CoreException {
-		URI sessionURI = new CreateNewProjectMenu().createNewProject(tmpFolder,
-				"A new with spaces and accënt", false);
+		URI sessionURI = new CreateNewProjectMenu().createNewProject(tmpFolder, "A new with spaces and accï¿½nt", false);
 
 		assertNotNull(sessionURI);
 
@@ -69,20 +68,13 @@ public class CreateNewProjectMenuTest {
 		EObject rootObject = semanticResource.getContents().get(0);
 		assertTrue(rootObject instanceof Root);
 
-		Root root = (Root)rootObject;
+		Root root = (Root) rootObject;
 
-		assertNotNull(root.getSeedLib());
-		assertNotNull(root.getSeedLib().getCompatibilityMatrix());
+		assertNotNull(root.getKnowledgeBase());
 		assertNotNull(root.getNursary());
 		assertNotNull(root.getSeedbank());
 		assertNotNull(root.getPlanifier());
 
-		// Can't be easily tested yet. We should merge .design plugin and .rcp
-		// Collection<Viewpoint> activatedViewpoint = session.getSelectedViewpoints(true);
-		//
-		// assertEquals(1, activatedViewpoint.size());
-		// assertEquals(CreateNewProjectMenu.DEFAULT_VIEWPOINT,
-		// activatedViewpoint.iterator().next().getName());
 	}
 
 }

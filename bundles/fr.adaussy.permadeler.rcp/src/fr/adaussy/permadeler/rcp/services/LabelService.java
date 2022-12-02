@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Reference;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
@@ -57,11 +57,11 @@ public class LabelService {
 	}
 
 	public static String getCellToolTip(Cell cell) {
-		String result = cell.getSpecies() != null ? cell.getSpecies().getName() : "";
+		String result = cell.getPlant() != null ? cell.getPlant().getName() : "";
 		return result + " " + getDateLabel(cell, "date");
 	}
 
-	public String getSpeciesSowLabel(Species species) {
+	public String getSpeciesSowLabel(Plant species) {
 		return species.getName() + "[" + ModelQueryService.getLinkedCells(species).size() + "]";
 	}
 

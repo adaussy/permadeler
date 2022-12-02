@@ -28,7 +28,7 @@ public class TrayCustomImpl extends TrayImpl {
 	@Override
 	public EList<Cell> getEmptyCells() {
 		return ECollections.toEList(
-				EMFUtils.getChildren(this, Cell.class).filter(c -> c.getSpecies() == null).collect(toList()));
+				EMFUtils.getChildren(this, Cell.class).filter(c -> c.getPlant() == null).collect(toList()));
 	}
 
 }

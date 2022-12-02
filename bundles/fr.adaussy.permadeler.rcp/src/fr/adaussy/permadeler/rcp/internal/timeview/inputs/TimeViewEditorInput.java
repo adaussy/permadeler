@@ -26,19 +26,19 @@ public class TimeViewEditorInput {
 
 	private List<TimeLineHeaderDescription> headers;
 
-	private String queryName;
+	private String query;
 
-	public TimeViewEditorInput(String queryName, EObject target, List<TimeLineGroupDescription> timeLines,
+	public TimeViewEditorInput(String query, EObject target, List<TimeLineGroupDescription> timeLines,
 			List<TimeLineHeaderDescription> headers) {
 		super();
-		this.queryName = queryName;
+		this.query = query;
 		this.target = target;
 		this.timeLines = timeLines;
 		this.headers = headers;
 	}
 
-	public String getQueryName() {
-		return queryName;
+	public String getQuery() {
+		return query;
 	}
 
 	public EObject getTarget() {

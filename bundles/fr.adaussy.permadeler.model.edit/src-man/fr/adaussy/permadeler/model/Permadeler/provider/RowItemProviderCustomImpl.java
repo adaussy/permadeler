@@ -30,7 +30,7 @@ public class RowItemProviderCustomImpl extends RowItemProvider {
 	@Override
 	public String getText(Object object) {
 		Row row = (Row)object;
-		long notEmpty = row.getCells().stream().filter(c -> c.getSpecies() != null).count();
+		long notEmpty = row.getCells().stream().filter(c -> c.getPlant() != null).count();
 		return "[" + notEmpty + "/" + row.getCells().size() + "]"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 

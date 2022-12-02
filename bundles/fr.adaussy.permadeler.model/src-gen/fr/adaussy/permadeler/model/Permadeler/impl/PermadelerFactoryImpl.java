@@ -86,20 +86,10 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createKnowledgeBase();
 			case PermadelerPackage.SEED_BANK:
 				return createSeedBank();
-			case PermadelerPackage.GENUS:
-				return createGenus();
 			case PermadelerPackage.SEED_ITEM:
 				return createSeedItem();
-			case PermadelerPackage.AREA:
-				return createArea();
-			case PermadelerPackage.PLANTING:
-				return createPlanting();
 			case PermadelerPackage.PLANTATION:
 				return createPlantation();
-			case PermadelerPackage.PLANT:
-				return createPlant();
-			case PermadelerPackage.TREE:
-				return createTree();
 			case PermadelerPackage.REFERENCE:
 				return createReference();
 			case PermadelerPackage.IMAGE:
@@ -118,26 +108,22 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createCell();
 			case PermadelerPackage.TRAY_ZONE:
 				return createTrayZone();
-			case PermadelerPackage.GRID_BED:
-				return createGridBed();
-			case PermadelerPackage.ROW_BED:
-				return createRowBed();
 			case PermadelerPackage.GRID_BED_ROW:
 				return createGridBedRow();
 			case PermadelerPackage.GRID_BED_CELL:
 				return createGridBedCell();
-			case PermadelerPackage.ROW_BED_ROW:
-				return createRowBedRow();
-			case PermadelerPackage.COMPATIBILITY_LINK:
-				return createCompatibilityLink();
-			case PermadelerPackage.COMPATIBILITY_MATRIX:
-				return createCompatibilityMatrix();
 			case PermadelerPackage.PLANIFIER:
 				return createPlanifier();
 			case PermadelerPackage.SOW_PLANFICATION:
 				return createSowPlanfication();
 			case PermadelerPackage.BACKGROUND_IMAGE:
 				return createBackgroundImage();
+			case PermadelerPackage.PLANT:
+				return createPlant();
+			case PermadelerPackage.PRODUCTION:
+				return createProduction();
+			case PermadelerPackage.ACTION:
+				return createAction();
 			default:
 				throw new IllegalArgumentException(
 						"The class '" + eClass.getName() + "' is not a valid classifier");
@@ -170,10 +156,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createGrowRateFromString(eDataType, initialValue);
 			case PermadelerPackage.WIND:
 				return createWindFromString(eDataType, initialValue);
-			case PermadelerPackage.EATING_TYPE:
-				return createEatingTypeFromString(eDataType, initialValue);
-			case PermadelerPackage.EDIBLE_PART:
-				return createEdiblePartFromString(eDataType, initialValue);
 			case PermadelerPackage.SPECIAL_USES:
 				return createSpecialUsesFromString(eDataType, initialValue);
 			case PermadelerPackage.EVENT_TYPE:
@@ -182,6 +164,12 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createRowBedTypeFromString(eDataType, initialValue);
 			case PermadelerPackage.SOW_TYPE:
 				return createSowTypeFromString(eDataType, initialValue);
+			case PermadelerPackage.PRODUCTION_TYPE:
+				return createProductionTypeFromString(eDataType, initialValue);
+			case PermadelerPackage.ACTION_TYPE:
+				return createActionTypeFromString(eDataType, initialValue);
+			case PermadelerPackage.LAYER:
+				return createLayerFromString(eDataType, initialValue);
 			case PermadelerPackage.MONTH_WEEK:
 				return createMonthWeekFromString(eDataType, initialValue);
 			case PermadelerPackage.URL:
@@ -224,10 +212,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return convertGrowRateToString(eDataType, instanceValue);
 			case PermadelerPackage.WIND:
 				return convertWindToString(eDataType, instanceValue);
-			case PermadelerPackage.EATING_TYPE:
-				return convertEatingTypeToString(eDataType, instanceValue);
-			case PermadelerPackage.EDIBLE_PART:
-				return convertEdiblePartToString(eDataType, instanceValue);
 			case PermadelerPackage.SPECIAL_USES:
 				return convertSpecialUsesToString(eDataType, instanceValue);
 			case PermadelerPackage.EVENT_TYPE:
@@ -236,6 +220,12 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return convertRowBedTypeToString(eDataType, instanceValue);
 			case PermadelerPackage.SOW_TYPE:
 				return convertSowTypeToString(eDataType, instanceValue);
+			case PermadelerPackage.PRODUCTION_TYPE:
+				return convertProductionTypeToString(eDataType, instanceValue);
+			case PermadelerPackage.ACTION_TYPE:
+				return convertActionTypeToString(eDataType, instanceValue);
+			case PermadelerPackage.LAYER:
+				return convertLayerToString(eDataType, instanceValue);
 			case PermadelerPackage.MONTH_WEEK:
 				return convertMonthWeekToString(eDataType, instanceValue);
 			case PermadelerPackage.URL:
@@ -287,16 +277,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Genus createGenus() {
-		GenusCustomImpl genus = new GenusCustomImpl();
-		return genus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SeedItem createSeedItem() {
 		SeedItemImpl seedItem = new SeedItemImpl();
 		return seedItem;
@@ -307,49 +287,9 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Area createArea() {
-		AreaImpl area = new AreaImpl();
-		return area;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Planting createPlanting() {
-		PlantingImpl planting = new PlantingImpl();
-		return planting;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Plantation createPlantation() {
-		PlantationCustomImpl plantation = new PlantationCustomImpl();
+		PlantationImpl plantation = new PlantationImpl();
 		return plantation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Plant createPlant() {
-		PlantImpl plant = new PlantImpl();
-		return plant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Tree createTree() {
-		TreeImpl tree = new TreeImpl();
-		return tree;
 	}
 
 	/**
@@ -447,26 +387,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GridBed createGridBed() {
-		GridBedImpl gridBed = new GridBedImpl();
-		return gridBed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RowBed createRowBed() {
-		RowBedImpl rowBed = new RowBedImpl();
-		return rowBed;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public GridBedRow createGridBedRow() {
 		GridBedRowImpl gridBedRow = new GridBedRowImpl();
 		return gridBedRow;
@@ -480,36 +400,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public GridBedCell createGridBedCell() {
 		GridBedCellImpl gridBedCell = new GridBedCellImpl();
 		return gridBedCell;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RowBedRow createRowBedRow() {
-		RowBedRowImpl rowBedRow = new RowBedRowImpl();
-		return rowBedRow;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompatibilityLink createCompatibilityLink() {
-		CompatibilityLinkImpl compatibilityLink = new CompatibilityLinkImpl();
-		return compatibilityLink;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompatibilityMatrix createCompatibilityMatrix() {
-		CompatibilityMatrixImpl compatibilityMatrix = new CompatibilityMatrixImpl();
-		return compatibilityMatrix;
 	}
 
 	/**
@@ -540,6 +430,36 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public BackgroundImage createBackgroundImage() {
 		BackgroundImageImpl backgroundImage = new BackgroundImageImpl();
 		return backgroundImage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Plant createPlant() {
+		PlantImpl plant = new PlantImpl();
+		return plant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Production createProduction() {
+		ProductionCustomImpl production = new ProductionCustomImpl();
+		return production;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Action createAction() {
+		ActionCustomImpl action = new ActionCustomImpl();
+		return action;
 	}
 
 	/**
@@ -745,50 +665,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EatingType createEatingTypeFromString(EDataType eDataType, String initialValue) {
-		EatingType result = EatingType.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEatingTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EdiblePart createEdiblePartFromString(EDataType eDataType, String initialValue) {
-		EdiblePart result = EdiblePart.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEdiblePartToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SpecialUses createSpecialUsesFromString(EDataType eDataType, String initialValue) {
 		SpecialUses result = SpecialUses.get(initialValue);
 		if (result == null)
@@ -869,6 +745,72 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public String convertSowTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProductionType createProductionTypeFromString(EDataType eDataType, String initialValue) {
+		ProductionType result = ProductionType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProductionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActionType createActionTypeFromString(EDataType eDataType, String initialValue) {
+		ActionType result = ActionType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertActionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layer createLayerFromString(EDataType eDataType, String initialValue) {
+		Layer result = Layer.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLayerToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

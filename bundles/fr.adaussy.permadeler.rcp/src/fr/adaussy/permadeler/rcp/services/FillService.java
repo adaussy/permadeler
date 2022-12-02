@@ -9,14 +9,11 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.services;
 
-import static java.util.stream.Collectors.toList;
-
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -27,18 +24,12 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Scanner;
-import java.util.function.Predicate;
-import java.util.regex.Matcher;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.emf.common.util.ECollections;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -52,24 +43,11 @@ import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 
-import fr.adaussy.permadeler.common.BotanicNameHelper;
-import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.Image;
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
-import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
-import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
-import fr.adaussy.permadeler.model.utils.Comparators;
-import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.dialogs.ImageSelectionDialog;
-import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
-import fr.adaussy.permadeler.rcp.internal.dialogs.SpeciesCreationDialog;
-import fr.adaussy.permadeler.rcp.internal.extractors.AbstractInformationExtractor;
-import fr.adaussy.permadeler.rcp.internal.extractors.ExtractorFactory;
 
 /**
  * Service use to fill elements
@@ -94,7 +72,7 @@ public final class FillService {
 	static {
 		MONTH_MAPPER = new LinkedHashMap<String, Month>();
 		MONTH_MAPPER.put("janvier", Month.JANUARY); //$NON-NLS-1$
-		MONTH_MAPPER.put("février", Month.FEBRUARY); //$NON-NLS-1$
+		MONTH_MAPPER.put("fï¿½vrier", Month.FEBRUARY); //$NON-NLS-1$
 		MONTH_MAPPER.put("mars", Month.MARCH); //$NON-NLS-1$
 		MONTH_MAPPER.put("avril", Month.APRIL); //$NON-NLS-1$
 		MONTH_MAPPER.put("mai", Month.MAY); //$NON-NLS-1$
@@ -220,148 +198,6 @@ public final class FillService {
 		} else {
 			list.remove(toRemove);
 		}
-	}
-
-	/**
-	 * Creates a plant by reading a HTML document located at the given {@link URL}
-	 * 
-	 * @param knowledge
-	 *            a {@link KnowledgeBase}
-	 * @param sourceURL
-	 *            the source {@link URL}
-	 * @return a new {@link Plant} or <code>null</code> if no creation occured
-	 * @throws IOException
-	 *             if something went wrong during parsing the file
-	 */
-	public static Plant createFromURL(final KnowledgeBase knowledge, String sourceURL) throws IOException {
-		SpeciesCreationDialog dialog = new SpeciesCreationDialog(getActiveShell(), sourceURL);
-		Plant result = null;
-		if (dialog.open() == Dialog.OK) {
-
-			URL url = dialog.getUrl();
-			if (url != null) {
-				StringBuffer sb = new StringBuffer();
-				try (Scanner sc = new Scanner(url.openStream(), Charset.forName("UTF-8"))) {
-					while (sc.hasNext()) {
-						sb.append(sc.nextLine());
-					}
-				}
-				final Document doc = Jsoup.parse(sb.toString());
-				AbstractInformationExtractor extractor = new ExtractorFactory().buildExtractor(doc, url,
-						dialog.getSowType());
-				if (extractor != null) {
-
-					result = createPlant(knowledge, extractor);
-				}
-
-			}
-
-			if (result != null) {
-				result.setEatingType(dialog.getEatingType());
-			}
-		}
-
-		return result;
-	}
-
-	/**
-	 * Creates a plant (and add it to the knowledge base) using te given extractor
-	 * 
-	 * @param knowledge
-	 *            the knowledge base
-	 * @param extractor
-	 *            the extractor
-	 * @return a plant
-	 */
-	private static Plant createPlant(final KnowledgeBase knowledge, AbstractInformationExtractor extractor) {
-
-		String latinName = extractor.getLatinName();
-		Matcher matcher = BotanicNameHelper.LATIN_NAME.matcher(latinName.trim().toLowerCase());
-		Genus owner = null;
-		if (matcher.matches()) {
-			String familly = matcher.group(1);
-			owner = getOrCreateGenus(knowledge, familly);
-
-			String subFamilly = matcher.group(2);
-			if (subFamilly != null) {
-				owner = getOrCreateSubGenus(owner, buildSubGenusName(familly, subFamilly).trim());
-			}
-		}
-
-		if (owner != null) {
-			return createPlant(knowledge, extractor, latinName, owner);
-		}
-		return null;
-	}
-
-	/**
-	 * Builds a genus qualified name
-	 * 
-	 * @param familly
-	 *            the name of the family
-	 * @param subFamilly
-	 *            the name of the sub family
-	 * @return a qualified name
-	 */
-	private static String buildSubGenusName(String familly, String subFamilly) {
-		return familly + " " + subFamilly;
-	}
-
-	/**
-	 * Creates a new plant using a {@link AbstractInformationExtractor}
-	 * 
-	 * @param knowledge
-	 *            base used to find an existing plant
-	 * @param extractor
-	 *            the extractor
-	 * @param latinName
-	 *            the complete latin name of the plant
-	 * @param owner
-	 *            the owning genus
-	 * @return a new Plant or <code>null</code>
-	 */
-	private static Plant createPlant(final KnowledgeBase knowledge, AbstractInformationExtractor extractor,
-			String latinName, Genus owner) {
-		Genus newOwner = owner;
-		final Optional<Plant> existing = getMatchingPlant(knowledge, buildPlantMatchingPredicate(latinName));
-		final Plant plant = existing.orElseGet(() -> {
-			Plant p = PermadelerFactory.eINSTANCE.createPlant();
-			p.setLatinName(extractor.getLatinName());
-			p.setName(extractor.getCommonName());
-			p.getCommonNames().add(extractor.getCommonName());
-			p.getReferences().add(extractor.buildReference());
-
-			newOwner.getSpecies().add(p);
-			ECollections.sort(newOwner.getSpecies(), Comparators.SPECIES_CMP);
-			return p;
-		});
-		setEList(plant.getSowIndoorMonths(), extractor.getSowIndoorMonths());
-		setEList(plant.getSowOutdoorMonths(), extractor.getSowOutdoorMonths());
-		setEList(plant.getProductiveMonths(), extractor.getHarvestPeriod());
-		plant.setDescription(extractor.getDescription());
-
-		if (plant.getImages().isEmpty()) {
-
-			String imageLink = extractor.getImageLink();
-			if (imageLink != null) {
-				Image img = PermadelerFactory.eINSTANCE.createImage();
-				img.setSource(imageLink);
-				img.setTitle(plant.getName());
-				downloadImage(knowledge, img);
-				plant.getImages().add(img);
-			}
-		}
-		return plant;
-	}
-
-	public static Optional<Plant> getMatchingPlant(final KnowledgeBase base,
-			final Predicate<Plant> predicate) {
-		return EMFUtils.<Plant> getChildren(base, Plant.class).filter(predicate).findFirst();
-	}
-
-	private static <T> void setEList(EList<T> toSet, Collection<T> toAdd) {
-		toSet.clear();
-		toSet.addAll(toAdd);
 	}
 
 	/**
@@ -504,111 +340,4 @@ public final class FillService {
 		return null;
 	}
 
-	/**
-	 * Builds a predicate use to match {@link Plant}s with a given latin lname
-	 * 
-	 * @param latinName
-	 *            a latin name
-	 * @return a {@link Predicate}
-	 */
-	private static Predicate<Plant> buildPlantMatchingPredicate(final String latinName) {
-		return p -> {
-			return p.getLatinName() != null && p.getLatinName().equalsIgnoreCase(latinName);
-		};
-	}
-
-	/**
-	 * Gets or creates the genus with the matching name (may open a windows to ash for selection)
-	 * 
-	 * @param base
-	 *            the knowledge base
-	 * @param latinName
-	 *            the latin name of the genus
-	 * @return an existing genus or a new one
-	 */
-	public static Genus getOrCreateGenus(final KnowledgeBase base, String latinName) {
-		if (latinName != null) {
-			List<Genus> existingGeniuses = EMFUtils.getChildren(base, Genus.class).filter(it -> {
-				return it.getLatinName() != null
-						&& it.getLatinName().trim().toLowerCase().equalsIgnoreCase(latinName);
-			}).collect(toList());
-			if (!existingGeniuses.isEmpty()) {
-				return selectExistingGenus(base, existingGeniuses);
-			} else {
-
-				final Genus genus = PermadelerFactory.eINSTANCE.createGenus();
-				genus.setName(latinName);
-				genus.setLatinName(latinName);
-
-				EList<Genus> plantTypes = base.getPlantTypes();
-				plantTypes.add(genus);
-				ECollections.sort(plantTypes, Comparators.GENUS_CMP);
-
-				return genus;
-			}
-		} else {
-			RcpPlugin.logError("Unable to find genus"); //$NON-NLS-1$
-		}
-		return null;
-	}
-
-	/**
-	 * Gets or create the genus with the given parent and the given latin name
-	 * 
-	 * @param parent
-	 *            the parent holding the genus (or future parent)
-	 * @param latinName
-	 *            the latin name of the genus ("ParentGenusName SubGenusName")
-	 * @return a new {@link Genus} or <code>null</code>
-	 */
-	public static Genus getOrCreateSubGenus(final Genus parent, String latinName) {
-		if (latinName != null) {
-			List<Genus> existingGeniuses = parent.getSubGenus().stream().filter(it -> {
-				return it.getLatinName() != null
-						&& it.getLatinName().trim().toLowerCase().equalsIgnoreCase(latinName);
-			}).collect(toList());
-			if (!existingGeniuses.isEmpty()) {
-				return selectExistingGenus(parent, existingGeniuses);
-			} else {
-
-				final Genus genus = PermadelerFactory.eINSTANCE.createGenus();
-				genus.setName(latinName);
-				genus.setLatinName(latinName);
-
-				EList<Genus> subGenus = parent.getSubGenus();
-				subGenus.add(genus);
-				ECollections.sort(subGenus, Comparators.GENUS_CMP);
-
-				return genus;
-			}
-		} else {
-			RcpPlugin.logError("Unable to find genus"); //$NON-NLS-1$
-		}
-		return null;
-	}
-
-	/**
-	 * Ask the user (if more than one) to select a genus
-	 * 
-	 * @param base
-	 *            the knowledge base
-	 * @param existingGeniuses
-	 *            the selection
-	 * @return a genus or <code>null</code>
-	 */
-	private static Genus selectExistingGenus(final EObject base, List<Genus> existingGeniuses) {
-		if (existingGeniuses.size() == 1) {
-			return existingGeniuses.get(0);
-		} else {
-			ObjectSelectionDialog<Genus> dialog = new ObjectSelectionDialog<>(getActiveShell(), Genus.class,
-					t -> {
-						return existingGeniuses.contains(t);
-					}, base);
-			if (dialog.open() == Window.OK && !dialog.getSelection().isEmpty()) {
-				return dialog.getSelection().get(0);
-			} else {
-				return null;
-			}
-		}
-	}
 }

@@ -10,24 +10,16 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
-import fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix;
-import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -40,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getPlantTypes <em>Plant Types</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getCompatibilityMatrix <em>Compatibility Matrix</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,17 +52,7 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Genus> plantTypes;
-
-	/**
-	 * The cached value of the '{@link #getCompatibilityMatrix() <em>Compatibility Matrix</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCompatibilityMatrix()
-	 * @generated
-	 * @ordered
-	 */
-	protected CompatibilityMatrix compatibilityMatrix;
+	protected EList<Plant> plantTypes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,67 +78,12 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Genus> getPlantTypes() {
+	public EList<Plant> getPlantTypes() {
 		if (plantTypes == null) {
-			plantTypes = new EObjectContainmentEList<Genus>(Genus.class, this,
+			plantTypes = new EObjectContainmentEList<Plant>(Plant.class, this,
 					PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES);
 		}
 		return plantTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompatibilityMatrix getCompatibilityMatrix() {
-		return compatibilityMatrix;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCompatibilityMatrix(CompatibilityMatrix newCompatibilityMatrix,
-			NotificationChain msgs) {
-		CompatibilityMatrix oldCompatibilityMatrix = compatibilityMatrix;
-		compatibilityMatrix = newCompatibilityMatrix;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX, oldCompatibilityMatrix,
-					newCompatibilityMatrix);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCompatibilityMatrix(CompatibilityMatrix newCompatibilityMatrix) {
-		if (newCompatibilityMatrix != compatibilityMatrix) {
-			NotificationChain msgs = null;
-			if (compatibilityMatrix != null)
-				msgs = ((InternalEObject)compatibilityMatrix).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX, null,
-						msgs);
-			if (newCompatibilityMatrix != null)
-				msgs = ((InternalEObject)newCompatibilityMatrix).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX, null,
-						msgs);
-			msgs = basicSetCompatibilityMatrix(newCompatibilityMatrix, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX, newCompatibilityMatrix,
-					newCompatibilityMatrix));
 	}
 
 	/**
@@ -170,8 +96,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				return ((InternalEList<?>)getPlantTypes()).basicRemove(otherEnd, msgs);
-			case PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX:
-				return basicSetCompatibilityMatrix(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,8 +110,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				return getPlantTypes();
-			case PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX:
-				return getCompatibilityMatrix();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,10 +125,7 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				getPlantTypes().clear();
-				getPlantTypes().addAll((Collection<? extends Genus>)newValue);
-				return;
-			case PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX:
-				setCompatibilityMatrix((CompatibilityMatrix)newValue);
+				getPlantTypes().addAll((Collection<? extends Plant>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,9 +142,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				getPlantTypes().clear();
 				return;
-			case PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX:
-				setCompatibilityMatrix((CompatibilityMatrix)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -240,8 +156,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				return plantTypes != null && !plantTypes.isEmpty();
-			case PermadelerPackage.KNOWLEDGE_BASE__COMPATIBILITY_MATRIX:
-				return compatibilityMatrix != null;
 		}
 		return super.eIsSet(featureID);
 	}

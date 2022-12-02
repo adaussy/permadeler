@@ -97,28 +97,8 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseGenus(Genus object) {
-			return createGenusAdapter();
-		}
-
-		@Override
-		public Adapter caseSpecies(Species object) {
-			return createSpeciesAdapter();
-		}
-
-		@Override
 		public Adapter caseSeedItem(SeedItem object) {
 			return createSeedItemAdapter();
-		}
-
-		@Override
-		public Adapter caseArea(Area object) {
-			return createAreaAdapter();
-		}
-
-		@Override
-		public Adapter casePlanting(Planting object) {
-			return createPlantingAdapter();
 		}
 
 		@Override
@@ -134,16 +114,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePlantNamedElement(PlantNamedElement object) {
 			return createPlantNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter casePlant(Plant object) {
-			return createPlantAdapter();
-		}
-
-		@Override
-		public Adapter caseTree(Tree object) {
-			return createTreeAdapter();
 		}
 
 		@Override
@@ -187,11 +157,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePlantationOwner(PlantationOwner object) {
-			return createPlantationOwnerAdapter();
-		}
-
-		@Override
 		public Adapter caseTrayZone(TrayZone object) {
 			return createTrayZoneAdapter();
 		}
@@ -202,21 +167,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseBed(Bed object) {
-			return createBedAdapter();
-		}
-
-		@Override
-		public Adapter caseGridBed(GridBed object) {
-			return createGridBedAdapter();
-		}
-
-		@Override
-		public Adapter caseRowBed(RowBed object) {
-			return createRowBedAdapter();
-		}
-
-		@Override
 		public Adapter caseGridBedRow(GridBedRow object) {
 			return createGridBedRowAdapter();
 		}
@@ -224,21 +174,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseGridBedCell(GridBedCell object) {
 			return createGridBedCellAdapter();
-		}
-
-		@Override
-		public Adapter caseRowBedRow(RowBedRow object) {
-			return createRowBedRowAdapter();
-		}
-
-		@Override
-		public Adapter caseCompatibilityLink(CompatibilityLink object) {
-			return createCompatibilityLinkAdapter();
-		}
-
-		@Override
-		public Adapter caseCompatibilityMatrix(CompatibilityMatrix object) {
-			return createCompatibilityMatrixAdapter();
 		}
 
 		@Override
@@ -259,6 +194,26 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseBackgroundImage(BackgroundImage object) {
 			return createBackgroundImageAdapter();
+		}
+
+		@Override
+		public Adapter casePlant(Plant object) {
+			return createPlantAdapter();
+		}
+
+		@Override
+		public Adapter caseProduction(Production object) {
+			return createProductionAdapter();
+		}
+
+		@Override
+		public Adapter caseAction(Action object) {
+			return createActionAdapter();
+		}
+
+		@Override
+		public Adapter caseTemporalItem(TemporalItem object) {
+			return createTemporalItemAdapter();
 		}
 
 		@Override
@@ -323,34 +278,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Genus <em>Genus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Genus
-	 * @generated
-	 */
-	public Adapter createGenusAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Species <em>Species</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Species
-	 * @generated
-	 */
-	public Adapter createSpeciesAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.SeedItem <em>Seed Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -361,34 +288,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSeedItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Area <em>Area</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Area
-	 * @generated
-	 */
-	public Adapter createAreaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Planting <em>Planting</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Planting
-	 * @generated
-	 */
-	public Adapter createPlantingAdapter() {
 		return null;
 	}
 
@@ -431,34 +330,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlantNamedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Plant <em>Plant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant
-	 * @generated
-	 */
-	public Adapter createPlantAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Tree <em>Tree</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Tree
-	 * @generated
-	 */
-	public Adapter createTreeAdapter() {
 		return null;
 	}
 
@@ -575,20 +446,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.PlantationOwner <em>Plantation Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantationOwner
-	 * @generated
-	 */
-	public Adapter createPlantationOwnerAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.TrayZone <em>Tray Zone</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -617,48 +474,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Bed <em>Bed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Bed
-	 * @generated
-	 */
-	public Adapter createBedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.GridBed <em>Grid Bed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.GridBed
-	 * @generated
-	 */
-	public Adapter createGridBedAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.RowBed <em>Row Bed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.RowBed
-	 * @generated
-	 */
-	public Adapter createRowBedAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.GridBedRow <em>Grid Bed Row</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -683,48 +498,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGridBedCellAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.RowBedRow <em>Row Bed Row</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.RowBedRow
-	 * @generated
-	 */
-	public Adapter createRowBedRowAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.CompatibilityLink <em>Compatibility Link</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.CompatibilityLink
-	 * @generated
-	 */
-	public Adapter createCompatibilityLinkAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix <em>Compatibility Matrix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix
-	 * @generated
-	 */
-	public Adapter createCompatibilityMatrixAdapter() {
 		return null;
 	}
 
@@ -781,6 +554,62 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBackgroundImageAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Plant <em>Plant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant
+	 * @generated
+	 */
+	public Adapter createPlantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Production <em>Production</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Production
+	 * @generated
+	 */
+	public Adapter createProductionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Action <em>Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Action
+	 * @generated
+	 */
+	public Adapter createActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem <em>Temporal Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.TemporalItem
+	 * @generated
+	 */
+	public Adapter createTemporalItemAdapter() {
 		return null;
 	}
 

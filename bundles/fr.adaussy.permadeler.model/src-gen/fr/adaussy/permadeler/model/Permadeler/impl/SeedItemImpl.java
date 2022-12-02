@@ -11,9 +11,9 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 
 import java.util.Date;
 
@@ -56,7 +56,7 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 	 * @generated
 	 * @ordered
 	 */
-	protected Species type;
+	protected Plant type;
 
 	/**
 	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
@@ -122,10 +122,10 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Species getType() {
+	public Plant getType() {
 		if (type != null && type.eIsProxy()) {
 			InternalEObject oldType = (InternalEObject)type;
-			type = (Species)eResolveProxy(oldType);
+			type = (Plant)eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -140,7 +140,7 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Species basicGetType() {
+	public Plant basicGetType() {
 		return type;
 	}
 
@@ -149,8 +149,8 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Species newType) {
-		Species oldType = type;
+	public void setType(Plant newType) {
+		Plant oldType = type;
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.SEED_ITEM__TYPE, oldType,
@@ -230,7 +230,7 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PermadelerPackage.SEED_ITEM__TYPE:
-				setType((Species)newValue);
+				setType((Plant)newValue);
 				return;
 			case PermadelerPackage.SEED_ITEM__QUANTITY:
 				setQuantity((Quantity)newValue);
@@ -251,7 +251,7 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case PermadelerPackage.SEED_ITEM__TYPE:
-				setType((Species)null);
+				setType((Plant)null);
 				return;
 			case PermadelerPackage.SEED_ITEM__QUANTITY:
 				setQuantity(QUANTITY_EDEFAULT);

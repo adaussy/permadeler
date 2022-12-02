@@ -10,8 +10,6 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
-import fr.adaussy.permadeler.model.Permadeler.CompatibilityLink;
-import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Nursary;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
@@ -48,7 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getSeedLib <em>Seed Lib</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getKnowledgeBase <em>Knowledge Base</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getSeedbank <em>Seedbank</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getZones <em>Zones</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getNursary <em>Nursary</em>}</li>
@@ -66,14 +64,14 @@ public class RootImpl extends NamedElementImpl implements Root {
 	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
 
 	/**
-	 * The cached value of the '{@link #getSeedLib() <em>Seed Lib</em>}' containment reference.
+	 * The cached value of the '{@link #getKnowledgeBase() <em>Knowledge Base</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSeedLib()
+	 * @see #getKnowledgeBase()
 	 * @generated
 	 * @ordered
 	 */
-	protected KnowledgeBase seedLib;
+	protected KnowledgeBase knowledgeBase;
 
 	/**
 	 * The cached value of the '{@link #getSeedbank() <em>Seedbank</em>}' containment reference.
@@ -139,8 +137,8 @@ public class RootImpl extends NamedElementImpl implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KnowledgeBase getSeedLib() {
-		return seedLib;
+	public KnowledgeBase getKnowledgeBase() {
+		return knowledgeBase;
 	}
 
 	/**
@@ -148,12 +146,12 @@ public class RootImpl extends NamedElementImpl implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSeedLib(KnowledgeBase newSeedLib, NotificationChain msgs) {
-		KnowledgeBase oldSeedLib = seedLib;
-		seedLib = newSeedLib;
+	public NotificationChain basicSetKnowledgeBase(KnowledgeBase newKnowledgeBase, NotificationChain msgs) {
+		KnowledgeBase oldKnowledgeBase = knowledgeBase;
+		knowledgeBase = newKnowledgeBase;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.ROOT__SEED_LIB, oldSeedLib, newSeedLib);
+					PermadelerPackage.ROOT__KNOWLEDGE_BASE, oldKnowledgeBase, newKnowledgeBase);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -167,21 +165,21 @@ public class RootImpl extends NamedElementImpl implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSeedLib(KnowledgeBase newSeedLib) {
-		if (newSeedLib != seedLib) {
+	public void setKnowledgeBase(KnowledgeBase newKnowledgeBase) {
+		if (newKnowledgeBase != knowledgeBase) {
 			NotificationChain msgs = null;
-			if (seedLib != null)
-				msgs = ((InternalEObject)seedLib).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.ROOT__SEED_LIB, null, msgs);
-			if (newSeedLib != null)
-				msgs = ((InternalEObject)newSeedLib).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.ROOT__SEED_LIB, null, msgs);
-			msgs = basicSetSeedLib(newSeedLib, msgs);
+			if (knowledgeBase != null)
+				msgs = ((InternalEObject)knowledgeBase).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PermadelerPackage.ROOT__KNOWLEDGE_BASE, null, msgs);
+			if (newKnowledgeBase != null)
+				msgs = ((InternalEObject)newKnowledgeBase).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PermadelerPackage.ROOT__KNOWLEDGE_BASE, null, msgs);
+			msgs = basicSetKnowledgeBase(newKnowledgeBase, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.ROOT__SEED_LIB,
-					newSeedLib, newSeedLib));
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.ROOT__KNOWLEDGE_BASE,
+					newKnowledgeBase, newKnowledgeBase));
 	}
 
 	/**
@@ -362,22 +360,11 @@ public class RootImpl extends NamedElementImpl implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompatibilityLink addCompatibility(Genus source, Genus target, int cmp) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PermadelerPackage.ROOT__SEED_LIB:
-				return basicSetSeedLib(null, msgs);
+			case PermadelerPackage.ROOT__KNOWLEDGE_BASE:
+				return basicSetKnowledgeBase(null, msgs);
 			case PermadelerPackage.ROOT__SEEDBANK:
 				return basicSetSeedbank(null, msgs);
 			case PermadelerPackage.ROOT__ZONES:
@@ -398,8 +385,8 @@ public class RootImpl extends NamedElementImpl implements Root {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.ROOT__SEED_LIB:
-				return getSeedLib();
+			case PermadelerPackage.ROOT__KNOWLEDGE_BASE:
+				return getKnowledgeBase();
 			case PermadelerPackage.ROOT__SEEDBANK:
 				return getSeedbank();
 			case PermadelerPackage.ROOT__ZONES:
@@ -421,8 +408,8 @@ public class RootImpl extends NamedElementImpl implements Root {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.ROOT__SEED_LIB:
-				setSeedLib((KnowledgeBase)newValue);
+			case PermadelerPackage.ROOT__KNOWLEDGE_BASE:
+				setKnowledgeBase((KnowledgeBase)newValue);
 				return;
 			case PermadelerPackage.ROOT__SEEDBANK:
 				setSeedbank((SeedBank)newValue);
@@ -449,8 +436,8 @@ public class RootImpl extends NamedElementImpl implements Root {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.ROOT__SEED_LIB:
-				setSeedLib((KnowledgeBase)null);
+			case PermadelerPackage.ROOT__KNOWLEDGE_BASE:
+				setKnowledgeBase((KnowledgeBase)null);
 				return;
 			case PermadelerPackage.ROOT__SEEDBANK:
 				setSeedbank((SeedBank)null);
@@ -476,8 +463,8 @@ public class RootImpl extends NamedElementImpl implements Root {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.ROOT__SEED_LIB:
-				return seedLib != null;
+			case PermadelerPackage.ROOT__KNOWLEDGE_BASE:
+				return knowledgeBase != null;
 			case PermadelerPackage.ROOT__SEEDBANK:
 				return seedbank != null;
 			case PermadelerPackage.ROOT__ZONES:
@@ -503,9 +490,6 @@ public class RootImpl extends NamedElementImpl implements Root {
 				addSowPlanification((SeedItem)arguments.get(0), (List<Integer>)arguments.get(1),
 						(SowType)arguments.get(2));
 				return null;
-			case PermadelerPackage.ROOT___ADD_COMPATIBILITY__GENUS_GENUS_INT:
-				return addCompatibility((Genus)arguments.get(0), (Genus)arguments.get(1),
-						(Integer)arguments.get(2));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

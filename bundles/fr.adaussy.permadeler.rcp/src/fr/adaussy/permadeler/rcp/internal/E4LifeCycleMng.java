@@ -34,6 +34,7 @@ import fr.adaussy.permadeler.model.Permadeler.Nursary;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceCustomImpl;
+import fr.adaussy.permadeler.rcp.internal.menu.CreateNewProjectMenu;
 
 /**
  * Add on to handle the application lifecycle
@@ -128,7 +129,7 @@ public class E4LifeCycleMng {
 				}
 			});
 			if (newSession.getSelectedViewpoints(false).stream()
-					.anyMatch(v -> "SeedStore".equals(v.getName()))) {
+					.anyMatch(v -> CreateNewProjectMenu.DEFAULT_VIEWPOINT.equals(v.getName()))) {
 				if (session != null) {
 					session.removeListener(this);
 				}
@@ -149,7 +150,7 @@ public class E4LifeCycleMng {
 					eclipseContext.modify(Root.class, root);
 					SeedBank seedBank = root.getSeedbank();
 					eclipseContext.modify(SeedBank.class, seedBank);
-					eclipseContext.modify(KnowledgeBase.class, root.getSeedLib());
+					eclipseContext.modify(KnowledgeBase.class, root.getKnowledgeBase());
 					eclipseContext.modify(Nursary.class, root.getNursary());
 					eclipseContext.modify(PermadelerSession.class, new PermadelerSession(session, root));
 					eclipseContext.modify(Session.class, session);

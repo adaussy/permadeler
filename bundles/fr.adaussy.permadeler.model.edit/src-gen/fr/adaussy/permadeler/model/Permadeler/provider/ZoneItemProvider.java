@@ -76,7 +76,8 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.ZONE__PLANTINGS);
+			childrenFeatures.add(PermadelerPackage.Literals.ZONE__BACKGROUND_IMAGE);
+			childrenFeatures.add(PermadelerPackage.Literals.ZONE__PLANTATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -140,7 +141,8 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Zone.class)) {
-			case PermadelerPackage.ZONE__PLANTINGS:
+			case PermadelerPackage.ZONE__BACKGROUND_IMAGE:
+			case PermadelerPackage.ZONE__PLANTATIONS:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -159,8 +161,11 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__PLANTINGS,
-				PermadelerFactory.eINSTANCE.createPlanting()));
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__BACKGROUND_IMAGE,
+				PermadelerFactory.eINSTANCE.createBackgroundImage()));
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__PLANTATIONS,
+				PermadelerFactory.eINSTANCE.createPlantation()));
 	}
 
 }

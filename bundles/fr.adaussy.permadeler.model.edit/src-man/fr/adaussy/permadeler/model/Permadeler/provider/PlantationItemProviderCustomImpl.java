@@ -10,17 +10,14 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
-import java.time.Instant;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.edit.TextHelper;
 
@@ -43,19 +40,12 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 	@Override
 	public String getText(Object object) {
 		Plantation plantation = (Plantation)object;
-		Species type = plantation.getType();
+		Plant type = plantation.getType();
 		String label;
 		if (type != null) {
 			label = TextHelper.getLabel(type);
 		} else {
 			label = "Plantation with no species";
-		}
-
-		Event rEvent = plantation.getRemovalEvent();
-		if (rEvent != null) {
-			if (rEvent.getDate().compareTo(Instant.now()) < 0) {
-				label = "[Removed] " + label;
-			}
 		}
 
 		return label;
@@ -66,8 +56,9 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 		super.notifyChanged(notification);
 
 		switch (notification.getFeatureID(Plantation.class)) {
+			case PermadelerPackage.PLANTATION__TYPE:
+			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
 			case PermadelerPackage.PLANTATION__EVENTS:
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, true));
 				return;

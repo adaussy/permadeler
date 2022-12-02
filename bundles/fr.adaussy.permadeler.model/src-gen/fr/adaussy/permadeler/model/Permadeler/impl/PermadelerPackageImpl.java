@@ -10,24 +10,19 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
-import fr.adaussy.permadeler.model.Permadeler.Area;
+import fr.adaussy.permadeler.model.Permadeler.Action;
+import fr.adaussy.permadeler.model.Permadeler.ActionType;
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
-import fr.adaussy.permadeler.model.Permadeler.Bed;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
-import fr.adaussy.permadeler.model.Permadeler.CompatibilityLink;
-import fr.adaussy.permadeler.model.Permadeler.CompatibilityMatrix;
-import fr.adaussy.permadeler.model.Permadeler.EatingType;
-import fr.adaussy.permadeler.model.Permadeler.EdiblePart;
 import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.EventType;
 import fr.adaussy.permadeler.model.Permadeler.Family;
-import fr.adaussy.permadeler.model.Permadeler.Genus;
-import fr.adaussy.permadeler.model.Permadeler.GridBed;
 import fr.adaussy.permadeler.model.Permadeler.GridBedCell;
 import fr.adaussy.permadeler.model.Permadeler.GridBedRow;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
 import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.Moisture;
 import fr.adaussy.permadeler.model.Permadeler.NamedElement;
@@ -39,14 +34,12 @@ import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.PlantationOwner;
-import fr.adaussy.permadeler.model.Permadeler.Planting;
+import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.Permadeler.ProductionType;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.Reference;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
-import fr.adaussy.permadeler.model.Permadeler.RowBed;
-import fr.adaussy.permadeler.model.Permadeler.RowBedRow;
 import fr.adaussy.permadeler.model.Permadeler.RowBedType;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
@@ -55,11 +48,10 @@ import fr.adaussy.permadeler.model.Permadeler.SoilType;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
-import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.TrayOwner;
 import fr.adaussy.permadeler.model.Permadeler.TrayZone;
-import fr.adaussy.permadeler.model.Permadeler.Tree;
 import fr.adaussy.permadeler.model.Permadeler.Wind;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 
@@ -119,35 +111,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass genusEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass speciesEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass seedItemEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass areaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass plantingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,20 +133,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass plantNamedElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass plantEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass treeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,13 +195,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass plantationOwnerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass trayZoneEClass = null;
 
 	/**
@@ -266,27 +209,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass gridBedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rowBedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass gridBedRowEClass = null;
 
 	/**
@@ -295,27 +217,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass gridBedCellEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rowBedRowEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass compatibilityLinkEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass compatibilityMatrixEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -344,6 +245,34 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass backgroundImageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plantEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass productionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass temporalItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -413,20 +342,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum eatingTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum ediblePartEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum specialUsesEEnum = null;
 
 	/**
@@ -449,6 +364,27 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EEnum sowTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum productionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum actionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum layerEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -563,7 +499,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRoot_SeedLib() {
+	public EReference getRoot_KnowledgeBase() {
 		return (EReference)rootEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -617,15 +553,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRoot__AddCompatibility__Genus_Genus_int() {
-		return rootEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getKnowledgeBase() {
 		return knowledgeBaseEClass;
 	}
@@ -644,15 +571,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getKnowledgeBase_CompatibilityMatrix() {
-		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSeedBank() {
 		return seedBankEClass;
 	}
@@ -664,303 +582,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EReference getSeedBank_Items() {
 		return (EReference)seedBankEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGenus() {
-		return genusEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenus_Species() {
-		return (EReference)genusEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenus_Family() {
-		return (EAttribute)genusEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenus_SubGenus() {
-		return (EReference)genusEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenus_CompatibilityLinks() {
-		return (EReference)genusEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenus_Color() {
-		return (EAttribute)genusEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGenus__GetEffectiveColor() {
-		return genusEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSpecies() {
-		return speciesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecies_Type() {
-		return (EReference)speciesEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_UsdaHardinessMin() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_LightingCondition() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_SoilType() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_Moisture() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecies_References() {
-		return (EReference)speciesEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_ProductiveMonths() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_BloomMonths() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_FruitConservation() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_FruitsAvailability() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecies_Images() {
-		return (EReference)speciesEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_GrowRate() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_Wind() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_Width() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_Height() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_EatingType() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_EdibleParts() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_UsdaHardinessMax() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_SpecialUses() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_FlowerColor() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_PruningMonths() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_PruneNote() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSpecies_Color() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpecies__GetAllNames() {
-		return speciesEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSpecies__GetEffectiveColor() {
-		return speciesEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -997,96 +618,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getSeedItem_ByDate() {
 		return (EAttribute)seedItemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getArea() {
-		return areaEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArea_SubAreas() {
-		return (EReference)areaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getArea_SoilType() {
-		return (EAttribute)areaEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArea_Events() {
-		return (EReference)areaEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getArea__GetActualSoilType() {
-		return areaEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPlanting() {
-		return plantingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlanting_Areas() {
-		return (EReference)plantingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlanting_StartTime() {
-		return (EAttribute)plantingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlanting_EndTime() {
-		return (EAttribute)plantingEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlanting_BackgroundImage() {
-		return (EReference)plantingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1139,7 +670,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlantation_SowEvent() {
+	public EReference getPlantation_Events() {
 		return (EReference)plantationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1148,35 +679,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlantation_PlantationEvent() {
-		return (EReference)plantationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlantation_Events() {
-		return (EReference)plantationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlantation_RemovalEvent() {
-		return (EReference)plantationEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPlantation_Description() {
-		return (EAttribute)plantationEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1184,8 +688,26 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPlantation__IsRemoved() {
-		return plantationEClass.getEOperations().get(0);
+	public EAttribute getPlantation_PlantationDate() {
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantation_CurrentLayer() {
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantation_Rootstock() {
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1222,60 +744,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getPlantNamedElement_RepresentationKey() {
 		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPlant() {
-		return plantEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_SowIndoorMonths() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_SowOutdoorMonths() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_LifeCycle() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTree() {
-		return treeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTree_Rootstock() {
-		return (EAttribute)treeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1409,8 +877,17 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getZone_Plantings() {
+	public EReference getZone_BackgroundImage() {
 		return (EReference)zoneEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getZone_Plantations() {
+		return (EReference)zoneEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1490,7 +967,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCell_Species() {
+	public EReference getCell_Plant() {
 		return (EReference)cellEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1501,33 +978,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getCell_Date() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPlantationOwner() {
-		return plantationOwnerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlantationOwner_Plantations() {
-		return (EReference)plantationOwnerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlantationOwner_Beds() {
-		return (EReference)plantationOwnerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1555,60 +1005,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EReference getTrayOwner_Trays() {
 		return (EReference)trayOwnerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBed() {
-		return bedEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGridBed() {
-		return gridBedEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGridBed_Rows() {
-		return (EReference)gridBedEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRowBed() {
-		return rowBedEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRowBed_Rows() {
-		return (EReference)rowBedEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRowBed_Type() {
-		return (EAttribute)rowBedEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1645,69 +1041,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EReference getGridBedCell_Plantation() {
 		return (EReference)gridBedCellEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRowBedRow() {
-		return rowBedRowEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCompatibilityLink() {
-		return compatibilityLinkEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompatibilityLink_Species() {
-		return (EReference)compatibilityLinkEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompatibilityLink_Affinity() {
-		return (EAttribute)compatibilityLinkEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompatibilityLink_Description() {
-		return (EAttribute)compatibilityLinkEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCompatibilityMatrix() {
-		return compatibilityMatrixEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompatibilityMatrix_Compatibilties() {
-		return (EReference)compatibilityMatrixEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1814,6 +1147,276 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlant() {
+		return plantEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_Width() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_SoilType() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlant_Images() {
+		return (EReference)plantEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_LightingCondition() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_Height() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_MinTemperature() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_Moisture() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlant_References() {
+		return (EReference)plantEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_SpecialUses() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_GrowRate() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_Wind() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlant_Productions() {
+		return (EReference)plantEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlant_Actions() {
+		return (EReference)plantEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_FoodForestLayer() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_LifeCycle() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_Family() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetAllNames() {
+		return plantEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProduction() {
+		return productionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduction_Period() {
+		return (EAttribute)productionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduction_Type() {
+		return (EAttribute)productionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduction_Description() {
+		return (EAttribute)productionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduction_Conservation() {
+		return (EAttribute)productionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAction() {
+		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Type() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Period() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Description() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemporalItem() {
+		return temporalItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTemporalItem__GetName() {
+		return temporalItemEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTemporalItem__GetPerdiod() {
+		return temporalItemEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getQuantity() {
 		return quantityEEnum;
 	}
@@ -1895,24 +1498,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getEatingType() {
-		return eatingTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getEdiblePart() {
-		return ediblePartEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getSpecialUses() {
 		return specialUsesEEnum;
 	}
@@ -1942,6 +1527,33 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EEnum getSowType() {
 		return sowTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProductionType() {
+		return productionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getActionType() {
+		return actionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLayer() {
+		return layerEEnum;
 	}
 
 	/**
@@ -2019,72 +1631,23 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		// Create classes and their features
 		rootEClass = createEClass(ROOT);
-		createEReference(rootEClass, ROOT__SEED_LIB);
+		createEReference(rootEClass, ROOT__KNOWLEDGE_BASE);
 		createEReference(rootEClass, ROOT__SEEDBANK);
 		createEReference(rootEClass, ROOT__ZONES);
 		createEReference(rootEClass, ROOT__NURSARY);
 		createEReference(rootEClass, ROOT__PLANIFIER);
 		createEOperation(rootEClass, ROOT___ADD_SOW_PLANIFICATION__SEEDITEM_LIST_SOWTYPE);
-		createEOperation(rootEClass, ROOT___ADD_COMPATIBILITY__GENUS_GENUS_INT);
 
 		knowledgeBaseEClass = createEClass(KNOWLEDGE_BASE);
 		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__PLANT_TYPES);
-		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__COMPATIBILITY_MATRIX);
 
 		seedBankEClass = createEClass(SEED_BANK);
 		createEReference(seedBankEClass, SEED_BANK__ITEMS);
-
-		genusEClass = createEClass(GENUS);
-		createEReference(genusEClass, GENUS__SPECIES);
-		createEAttribute(genusEClass, GENUS__FAMILY);
-		createEReference(genusEClass, GENUS__SUB_GENUS);
-		createEReference(genusEClass, GENUS__COMPATIBILITY_LINKS);
-		createEAttribute(genusEClass, GENUS__COLOR);
-		createEOperation(genusEClass, GENUS___GET_EFFECTIVE_COLOR);
-
-		speciesEClass = createEClass(SPECIES);
-		createEReference(speciesEClass, SPECIES__TYPE);
-		createEAttribute(speciesEClass, SPECIES__USDA_HARDINESS_MIN);
-		createEAttribute(speciesEClass, SPECIES__LIGHTING_CONDITION);
-		createEAttribute(speciesEClass, SPECIES__SOIL_TYPE);
-		createEAttribute(speciesEClass, SPECIES__MOISTURE);
-		createEReference(speciesEClass, SPECIES__REFERENCES);
-		createEAttribute(speciesEClass, SPECIES__PRODUCTIVE_MONTHS);
-		createEAttribute(speciesEClass, SPECIES__BLOOM_MONTHS);
-		createEAttribute(speciesEClass, SPECIES__FRUIT_CONSERVATION);
-		createEAttribute(speciesEClass, SPECIES__FRUITS_AVAILABILITY);
-		createEReference(speciesEClass, SPECIES__IMAGES);
-		createEAttribute(speciesEClass, SPECIES__GROW_RATE);
-		createEAttribute(speciesEClass, SPECIES__WIND);
-		createEAttribute(speciesEClass, SPECIES__WIDTH);
-		createEAttribute(speciesEClass, SPECIES__HEIGHT);
-		createEAttribute(speciesEClass, SPECIES__EATING_TYPE);
-		createEAttribute(speciesEClass, SPECIES__EDIBLE_PARTS);
-		createEAttribute(speciesEClass, SPECIES__USDA_HARDINESS_MAX);
-		createEAttribute(speciesEClass, SPECIES__SPECIAL_USES);
-		createEAttribute(speciesEClass, SPECIES__FLOWER_COLOR);
-		createEAttribute(speciesEClass, SPECIES__PRUNING_MONTHS);
-		createEAttribute(speciesEClass, SPECIES__PRUNE_NOTE);
-		createEAttribute(speciesEClass, SPECIES__COLOR);
-		createEOperation(speciesEClass, SPECIES___GET_ALL_NAMES);
-		createEOperation(speciesEClass, SPECIES___GET_EFFECTIVE_COLOR);
 
 		seedItemEClass = createEClass(SEED_ITEM);
 		createEReference(seedItemEClass, SEED_ITEM__TYPE);
 		createEAttribute(seedItemEClass, SEED_ITEM__QUANTITY);
 		createEAttribute(seedItemEClass, SEED_ITEM__BY_DATE);
-
-		areaEClass = createEClass(AREA);
-		createEReference(areaEClass, AREA__SUB_AREAS);
-		createEAttribute(areaEClass, AREA__SOIL_TYPE);
-		createEReference(areaEClass, AREA__EVENTS);
-		createEOperation(areaEClass, AREA___GET_ACTUAL_SOIL_TYPE);
-
-		plantingEClass = createEClass(PLANTING);
-		createEReference(plantingEClass, PLANTING__AREAS);
-		createEAttribute(plantingEClass, PLANTING__START_TIME);
-		createEAttribute(plantingEClass, PLANTING__END_TIME);
-		createEReference(plantingEClass, PLANTING__BACKGROUND_IMAGE);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -2092,25 +1655,16 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		plantationEClass = createEClass(PLANTATION);
 		createEReference(plantationEClass, PLANTATION__TYPE);
-		createEReference(plantationEClass, PLANTATION__SOW_EVENT);
-		createEReference(plantationEClass, PLANTATION__PLANTATION_EVENT);
 		createEReference(plantationEClass, PLANTATION__EVENTS);
-		createEReference(plantationEClass, PLANTATION__REMOVAL_EVENT);
 		createEAttribute(plantationEClass, PLANTATION__DESCRIPTION);
-		createEOperation(plantationEClass, PLANTATION___IS_REMOVED);
+		createEAttribute(plantationEClass, PLANTATION__PLANTATION_DATE);
+		createEAttribute(plantationEClass, PLANTATION__CURRENT_LAYER);
+		createEAttribute(plantationEClass, PLANTATION__ROOTSTOCK);
 
 		plantNamedElementEClass = createEClass(PLANT_NAMED_ELEMENT);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__COMMON_NAMES);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__LATIN_NAME);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__REPRESENTATION_KEY);
-
-		plantEClass = createEClass(PLANT);
-		createEAttribute(plantEClass, PLANT__SOW_INDOOR_MONTHS);
-		createEAttribute(plantEClass, PLANT__SOW_OUTDOOR_MONTHS);
-		createEAttribute(plantEClass, PLANT__LIFE_CYCLE);
-
-		treeEClass = createEClass(TREE);
-		createEAttribute(treeEClass, TREE__ROOTSTOCK);
 
 		referenceEClass = createEClass(REFERENCE);
 		createEAttribute(referenceEClass, REFERENCE__LINK);
@@ -2129,7 +1683,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(eventEClass, EVENT__TYPE);
 
 		zoneEClass = createEClass(ZONE);
-		createEReference(zoneEClass, ZONE__PLANTINGS);
+		createEReference(zoneEClass, ZONE__BACKGROUND_IMAGE);
+		createEReference(zoneEClass, ZONE__PLANTATIONS);
 
 		nursaryEClass = createEClass(NURSARY);
 		createEReference(nursaryEClass, NURSARY__ZONES);
@@ -2142,42 +1697,19 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEReference(rowEClass, ROW__CELLS);
 
 		cellEClass = createEClass(CELL);
-		createEReference(cellEClass, CELL__SPECIES);
+		createEReference(cellEClass, CELL__PLANT);
 		createEAttribute(cellEClass, CELL__DATE);
-
-		plantationOwnerEClass = createEClass(PLANTATION_OWNER);
-		createEReference(plantationOwnerEClass, PLANTATION_OWNER__PLANTATIONS);
-		createEReference(plantationOwnerEClass, PLANTATION_OWNER__BEDS);
 
 		trayZoneEClass = createEClass(TRAY_ZONE);
 
 		trayOwnerEClass = createEClass(TRAY_OWNER);
 		createEReference(trayOwnerEClass, TRAY_OWNER__TRAYS);
 
-		bedEClass = createEClass(BED);
-
-		gridBedEClass = createEClass(GRID_BED);
-		createEReference(gridBedEClass, GRID_BED__ROWS);
-
-		rowBedEClass = createEClass(ROW_BED);
-		createEReference(rowBedEClass, ROW_BED__ROWS);
-		createEAttribute(rowBedEClass, ROW_BED__TYPE);
-
 		gridBedRowEClass = createEClass(GRID_BED_ROW);
 		createEReference(gridBedRowEClass, GRID_BED_ROW__CELLS);
 
 		gridBedCellEClass = createEClass(GRID_BED_CELL);
 		createEReference(gridBedCellEClass, GRID_BED_CELL__PLANTATION);
-
-		rowBedRowEClass = createEClass(ROW_BED_ROW);
-
-		compatibilityLinkEClass = createEClass(COMPATIBILITY_LINK);
-		createEReference(compatibilityLinkEClass, COMPATIBILITY_LINK__SPECIES);
-		createEAttribute(compatibilityLinkEClass, COMPATIBILITY_LINK__AFFINITY);
-		createEAttribute(compatibilityLinkEClass, COMPATIBILITY_LINK__DESCRIPTION);
-
-		compatibilityMatrixEClass = createEClass(COMPATIBILITY_MATRIX);
-		createEReference(compatibilityMatrixEClass, COMPATIBILITY_MATRIX__COMPATIBILTIES);
 
 		planficationEClass = createEClass(PLANFICATION);
 		createEAttribute(planficationEClass, PLANFICATION__WEEKS);
@@ -2194,6 +1726,40 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(backgroundImageEClass, BACKGROUND_IMAGE__SCALING);
 		createEAttribute(backgroundImageEClass, BACKGROUND_IMAGE__TRANSPARENCY);
 
+		plantEClass = createEClass(PLANT);
+		createEAttribute(plantEClass, PLANT__WIDTH);
+		createEAttribute(plantEClass, PLANT__SOIL_TYPE);
+		createEReference(plantEClass, PLANT__IMAGES);
+		createEAttribute(plantEClass, PLANT__LIGHTING_CONDITION);
+		createEAttribute(plantEClass, PLANT__HEIGHT);
+		createEAttribute(plantEClass, PLANT__MIN_TEMPERATURE);
+		createEAttribute(plantEClass, PLANT__MOISTURE);
+		createEReference(plantEClass, PLANT__REFERENCES);
+		createEAttribute(plantEClass, PLANT__SPECIAL_USES);
+		createEAttribute(plantEClass, PLANT__GROW_RATE);
+		createEAttribute(plantEClass, PLANT__WIND);
+		createEReference(plantEClass, PLANT__PRODUCTIONS);
+		createEReference(plantEClass, PLANT__ACTIONS);
+		createEAttribute(plantEClass, PLANT__FOOD_FOREST_LAYER);
+		createEAttribute(plantEClass, PLANT__LIFE_CYCLE);
+		createEAttribute(plantEClass, PLANT__FAMILY);
+		createEOperation(plantEClass, PLANT___GET_ALL_NAMES);
+
+		productionEClass = createEClass(PRODUCTION);
+		createEAttribute(productionEClass, PRODUCTION__PERIOD);
+		createEAttribute(productionEClass, PRODUCTION__TYPE);
+		createEAttribute(productionEClass, PRODUCTION__DESCRIPTION);
+		createEAttribute(productionEClass, PRODUCTION__CONSERVATION);
+
+		actionEClass = createEClass(ACTION);
+		createEAttribute(actionEClass, ACTION__TYPE);
+		createEAttribute(actionEClass, ACTION__PERIOD);
+		createEAttribute(actionEClass, ACTION__DESCRIPTION);
+
+		temporalItemEClass = createEClass(TEMPORAL_ITEM);
+		createEOperation(temporalItemEClass, TEMPORAL_ITEM___GET_NAME);
+		createEOperation(temporalItemEClass, TEMPORAL_ITEM___GET_PERDIOD);
+
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
 		lifecycleEEnum = createEEnum(LIFECYCLE);
@@ -2204,12 +1770,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		familyEEnum = createEEnum(FAMILY);
 		growRateEEnum = createEEnum(GROW_RATE);
 		windEEnum = createEEnum(WIND);
-		eatingTypeEEnum = createEEnum(EATING_TYPE);
-		ediblePartEEnum = createEEnum(EDIBLE_PART);
 		specialUsesEEnum = createEEnum(SPECIAL_USES);
 		eventTypeEEnum = createEEnum(EVENT_TYPE);
 		rowBedTypeEEnum = createEEnum(ROW_BED_TYPE);
 		sowTypeEEnum = createEEnum(SOW_TYPE);
+		productionTypeEEnum = createEEnum(PRODUCTION_TYPE);
+		actionTypeEEnum = createEEnum(ACTION_TYPE);
+		layerEEnum = createEEnum(LAYER);
 
 		// Create data types
 		monthWeekEDataType = createEDataType(MONTH_WEEK);
@@ -2249,31 +1816,22 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		// Add supertypes to classes
 		rootEClass.getESuperTypes().add(this.getNamedElement());
-		genusEClass.getESuperTypes().add(this.getPlantNamedElement());
-		speciesEClass.getESuperTypes().add(this.getPlantNamedElement());
-		areaEClass.getESuperTypes().add(this.getNamedElement());
-		areaEClass.getESuperTypes().add(this.getPlantationOwner());
-		plantingEClass.getESuperTypes().add(this.getNamedElement());
-		plantingEClass.getESuperTypes().add(this.getPlantationOwner());
 		plantNamedElementEClass.getESuperTypes().add(this.getNamedElement());
-		plantEClass.getESuperTypes().add(this.getSpecies());
-		treeEClass.getESuperTypes().add(this.getSpecies());
 		zoneEClass.getESuperTypes().add(this.getNamedElement());
 		nursaryEClass.getESuperTypes().add(this.getTrayOwner());
 		trayEClass.getESuperTypes().add(this.getNamedElement());
 		trayZoneEClass.getESuperTypes().add(this.getTrayOwner());
 		trayZoneEClass.getESuperTypes().add(this.getNamedElement());
-		bedEClass.getESuperTypes().add(this.getNamedElement());
-		gridBedEClass.getESuperTypes().add(this.getBed());
-		rowBedEClass.getESuperTypes().add(this.getBed());
-		rowBedRowEClass.getESuperTypes().add(this.getPlantationOwner());
 		sowPlanficationEClass.getESuperTypes().add(this.getPlanfication());
+		plantEClass.getESuperTypes().add(this.getPlantNamedElement());
+		productionEClass.getESuperTypes().add(this.getTemporalItem());
+		actionEClass.getESuperTypes().add(this.getTemporalItem());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoot_SeedLib(), this.getKnowledgeBase(), null, "seedLib", null, 1, 1, Root.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoot_KnowledgeBase(), this.getKnowledgeBase(), null, "knowledgeBase", null, 1, 1,
+				Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_Seedbank(), this.getSeedBank(), null, "seedbank", null, 1, 1, Root.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2293,21 +1851,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEParameter(op, this.getMonthWeeks(), "weeks", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSowType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRoot__AddCompatibility__Genus_Genus_int(), this.getCompatibilityLink(),
-				"addCompatibility", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGenus(), "source", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGenus(), "target", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "cmp", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(knowledgeBaseEClass, KnowledgeBase.class, "KnowledgeBase", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getKnowledgeBase_PlantTypes(), this.getGenus(), null, "plantTypes", null, 0, -1,
+		initEReference(getKnowledgeBase_PlantTypes(), this.getPlant(), null, "plantTypes", null, 0, -1,
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getKnowledgeBase_CompatibilityMatrix(), this.getCompatibilityMatrix(), null,
-				"compatibilityMatrix", null, 0, 1, KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(seedBankEClass, SeedBank.class, "SeedBank", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2315,105 +1863,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(genusEClass, Genus.class, "Genus", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGenus_Species(), this.getSpecies(), this.getSpecies_Type(), "species", null, 0, -1,
-				Genus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenus_Family(), this.getFamily(), "family", null, 0, 1, Genus.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenus_SubGenus(), this.getGenus(), null, "subGenus", null, 0, -1, Genus.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenus_CompatibilityLinks(), this.getCompatibilityLink(),
-				this.getCompatibilityLink_Species(), "compatibilityLinks", null, 0, -1, Genus.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenus_Color(), this.getColor(), "color", null, 0, 1, Genus.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getGenus__GetEffectiveColor(), this.getColor(), "getEffectiveColor", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-
-		initEClass(speciesEClass, Species.class, "Species", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecies_Type(), this.getGenus(), this.getGenus_Species(), "type", null, 1, 1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_UsdaHardinessMin(), ecorePackage.getEInt(), "usdaHardinessMin", null, 0, 1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_LightingCondition(), this.getShade(), "lightingCondition", null, 0, -1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_SoilType(), this.getSoilType(), "soilType", null, 0, -1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getSpecies_Moisture(), this.getMoisture(), "moisture", null, 0, -1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getSpecies_References(), this.getReference(), null, "references", null, 0, -1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_ProductiveMonths(), this.getMonthWeek(), "productiveMonths", null, 0, 12,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_BloomMonths(), this.getMonthWeek(), "bloomMonths", null, 0, 12,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_FruitConservation(), ecorePackage.getEInt(), "fruitConservation", "0", 0, 1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_FruitsAvailability(), this.getMonthWeek(), "fruitsAvailability", null, 0,
-				-1, Species.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getSpecies_Images(), this.getImage(), null, "images", null, 0, -1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getSpecies_Wind(), this.getWind(), "wind", null, 0, -1, Species.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_Width(), ecorePackage.getEFloat(), "width", null, 0, 1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getSpecies_Height(), ecorePackage.getEFloat(), "height", null, 0, 1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getSpecies_EatingType(), this.getEatingType(), "eatingType", null, 0, 1, Species.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getSpecies_EdibleParts(), this.getEdiblePart(), "edibleParts", null, 0, -1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_UsdaHardinessMax(), ecorePackage.getEInt(), "usdaHardinessMax", null, 0, 1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_SpecialUses(), this.getSpecialUses(), "specialUses", null, 0, -1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_FlowerColor(), ecorePackage.getEString(), "flowerColor", null, 0, 1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_PruningMonths(), this.getMonthWeek(), "pruningMonths", null, 0, -1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_PruneNote(), ecorePackage.getEString(), "pruneNote", null, 0, 1,
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpecies_Color(), this.getColor(), "color", null, 0, 1, Species.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getSpecies__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE,
-				IS_ORDERED);
-
-		initEOperation(getSpecies__GetEffectiveColor(), this.getColor(), "getEffectiveColor", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-
 		initEClass(seedItemEClass, SeedItem.class, "SeedItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSeedItem_Type(), this.getSpecies(), null, "type", null, 1, 1, SeedItem.class,
+		initEReference(getSeedItem_Type(), this.getPlant(), null, "type", null, 1, 1, SeedItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSeedItem_Quantity(), this.getQuantity(), "quantity", null, 0, 1, SeedItem.class,
@@ -2422,35 +1874,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getSeedItem_ByDate(), ecorePackage.getEDate(), "byDate", null, 0, 1, SeedItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-
-		initEClass(areaEClass, Area.class, "Area", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArea_SubAreas(), this.getArea(), null, "subAreas", null, 0, -1, Area.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArea_SoilType(), this.getSoilType(), "soilType", null, 0, 1, Area.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getArea_Events(), this.getEvent(), null, "events", null, 0, -1, Area.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getArea__GetActualSoilType(), this.getSoilType(), "getActualSoilType", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
-
-		initEClass(plantingEClass, Planting.class, "Planting", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlanting_Areas(), this.getArea(), null, "areas", null, 0, -1, Planting.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlanting_StartTime(), ecorePackage.getEDate(), "startTime", null, 0, 1,
-				Planting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlanting_EndTime(), ecorePackage.getEDate(), "endTime", null, 0, 1, Planting.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getPlanting_BackgroundImage(), this.getBackgroundImage(), null, "backgroundImage",
-				null, 0, 1, Planting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2463,27 +1886,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(plantationEClass, Plantation.class, "Plantation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlantation_Type(), this.getSpecies(), null, "type", null, 0, 1, Plantation.class,
+		initEReference(getPlantation_Type(), this.getPlant(), null, "type", null, 0, 1, Plantation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlantation_SowEvent(), this.getEvent(), null, "sowEvent", null, 0, 1,
-				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlantation_PlantationEvent(), this.getEvent(), null, "plantationEvent", null, 1, 1,
-				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlantation_Events(), this.getEvent(), null, "events", null, 0, -1, Plantation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlantation_RemovalEvent(), this.getEvent(), null, "removalEvent", null, 0, 1,
-				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantation_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getPlantation__IsRemoved(), ecorePackage.getEBoolean(), "isRemoved", 0, 1, IS_UNIQUE,
-				IS_ORDERED);
+		initEAttribute(getPlantation_PlantationDate(), this.getDate(), "plantationDate", null, 0, 1,
+				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantation_CurrentLayer(), this.getLayer(), "currentLayer", "UNDERSTORY", 0, 1,
+				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantation_Rootstock(), ecorePackage.getEString(), "rootstock", null, 0, 1,
+				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2496,23 +1916,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantNamedElement_RepresentationKey(), ecorePackage.getEString(),
 				"representationKey", null, 0, 1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(plantEClass, Plant.class, "Plant", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlant_SowIndoorMonths(), this.getMonthWeek(), "sowIndoorMonths", null, 0, 12,
-				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_SowOutdoorMonths(), this.getMonthWeek(), "sowOutdoorMonths", null, 0, 12,
-				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Plant.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-
-		initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTree_Rootstock(), ecorePackage.getEString(), "rootstock", null, 0, 1, Tree.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2551,9 +1954,12 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(zoneEClass, Zone.class, "Zone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getZone_Plantings(), this.getPlanting(), null, "plantings", null, 0, -1, Zone.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZone_BackgroundImage(), this.getBackgroundImage(), null, "backgroundImage", null, 0,
+				1, Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZone_Plantations(), this.getPlantation(), null, "plantations", null, 0, -1,
+				Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nursaryEClass, Nursary.class, "Nursary", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2575,20 +1981,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCell_Species(), this.getSpecies(), null, "species", null, 0, 1, Cell.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCell_Plant(), this.getPlant(), null, "plant", null, 0, 1, Cell.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_Date(), this.getDate(), "date", null, 0, 1, Cell.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(plantationOwnerEClass, PlantationOwner.class, "PlantationOwner", IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlantationOwner_Plantations(), this.getPlantation(), null, "plantations", null, 0,
-				-1, PlantationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlantationOwner_Beds(), this.getBed(), null, "beds", null, 0, -1,
-				PlantationOwner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trayZoneEClass, TrayZone.class, "TrayZone", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2598,23 +1995,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEReference(getTrayOwner_Trays(), this.getTray(), null, "trays", null, 0, -1, TrayOwner.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(bedEClass, Bed.class, "Bed", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(gridBedEClass, GridBed.class, "GridBed", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGridBed_Rows(), this.getGridBedRow(), null, "rows", null, 0, -1, GridBed.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(rowBedEClass, RowBed.class, "RowBed", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRowBed_Rows(), this.getRowBedRow(), null, "rows", null, 0, -1, RowBed.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRowBed_Type(), this.getRowBedType(), "type", null, 0, 1, RowBed.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(gridBedRowEClass, GridBedRow.class, "GridBedRow", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2627,28 +2007,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEReference(getGridBedCell_Plantation(), this.getPlantation(), null, "plantation", null, 0, 1,
 				GridBedCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(rowBedRowEClass, RowBedRow.class, "RowBedRow", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(compatibilityLinkEClass, CompatibilityLink.class, "CompatibilityLink", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompatibilityLink_Species(), this.getGenus(), this.getGenus_CompatibilityLinks(),
-				"species", null, 0, 2, CompatibilityLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompatibilityLink_Affinity(), ecorePackage.getEInt(), "affinity", null, 0, 1,
-				CompatibilityLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompatibilityLink_Description(), ecorePackage.getEString(), "description", null, 0,
-				1, CompatibilityLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(compatibilityMatrixEClass, CompatibilityMatrix.class, "CompatibilityMatrix", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompatibilityMatrix_Compatibilties(), this.getCompatibilityLink(), null,
-				"compatibilties", null, 0, -1, CompatibilityMatrix.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 
 		initEClass(planficationEClass, Planfication.class, "Planfication", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2682,6 +2040,94 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getBackgroundImage_Transparency(), ecorePackage.getEInt(), "transparency", "100", 0, 1,
 				BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(plantEClass, Plant.class, "Plant", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPlant_Width(), ecorePackage.getEFloat(), "width", null, 0, 1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getPlant_SoilType(), this.getSoilType(), "soilType", null, 0, -1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getPlant_Images(), this.getImage(), null, "images", null, 0, -1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_LightingCondition(), this.getShade(), "lightingCondition", null, 0, -1,
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_Height(), ecorePackage.getEFloat(), "height", null, 0, 1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getPlant_MinTemperature(), ecorePackage.getEInt(), "minTemperature", null, 0, 1,
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_Moisture(), this.getMoisture(), "moisture", null, 0, -1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getPlant_References(), this.getReference(), null, "references", null, 0, -1,
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_SpecialUses(), this.getSpecialUses(), "specialUses", null, 0, -1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getPlant_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getPlant_Wind(), this.getWind(), "wind", null, 0, -1, Plant.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlant_Productions(), this.getProduction(), null, "productions", null, 0, -1,
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlant_Actions(), this.getAction(), null, "actions", null, 0, -1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_FoodForestLayer(), this.getLayer(), "foodForestLayer", "UNDERSTORY", 0, 1,
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Plant.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getPlant_Family(), this.getFamily(), "family", null, 0, 1, Plant.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPlant__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProduction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Production.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getProduction_Type(), this.getProductionType(), "type", null, 0, 1, Production.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getProduction_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProduction_Conservation(), ecorePackage.getEInt(), "conservation", null, 0, 1,
+				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAction_Type(), this.getActionType(), "type", "SowIndoor", 0, 1, Action.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getAction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Action.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getAction_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(temporalItemEClass, TemporalItem.class, "TemporalItem", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getTemporalItem__GetName(), ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEOperation(getTemporalItem__GetPerdiod(), this.getMonthWeeks(), "getPerdiod", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(quantityEEnum, Quantity.class, "Quantity");
@@ -3364,31 +2810,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(windEEnum, Wind.TOLERATE_STRONG_WIND);
 		addEEnumLiteral(windEEnum, Wind.NOT_WIND_TOLERANT);
 
-		initEEnum(eatingTypeEEnum, EatingType.class, "EatingType");
-		addEEnumLiteral(eatingTypeEEnum, EatingType.UNKOWN);
-		addEEnumLiteral(eatingTypeEEnum, EatingType.FRUIT);
-		addEEnumLiteral(eatingTypeEEnum, EatingType.VEGETABLE);
-		addEEnumLiteral(eatingTypeEEnum, EatingType.AROMATIC_PLANT);
-		addEEnumLiteral(eatingTypeEEnum, EatingType.NONE);
-		addEEnumLiteral(eatingTypeEEnum, EatingType.FLOWER);
-
-		initEEnum(ediblePartEEnum, EdiblePart.class, "EdiblePart");
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.UNKOWN);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.APICAL_BUD);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.LEAVES);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.POLLEN);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.FLOWERS);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.MANNA);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.ROOT);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.SHOOTS);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.FRUIT);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.NECTAR);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.SAP);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.STEM);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.INNER_BARK);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.OIL);
-		addEEnumLiteral(ediblePartEEnum, EdiblePart.SEED);
-
 		initEEnum(specialUsesEEnum, SpecialUses.class, "SpecialUses");
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.NITROGEN_FIXER);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.SCENTED_PLANTS);
@@ -3412,6 +2833,39 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEEnum(sowTypeEEnum, SowType.class, "SowType");
 		addEEnumLiteral(sowTypeEEnum, SowType.INDOOR);
 		addEEnumLiteral(sowTypeEEnum, SowType.OUTDOOR);
+
+		initEEnum(productionTypeEEnum, ProductionType.class, "ProductionType");
+		addEEnumLiteral(productionTypeEEnum, ProductionType.FRUIT);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.LEAVES);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.FLOWER);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.OTHER);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.SHOOTS);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.MANNA);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.SAP);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.APICAL_BUD);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.SEED);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.POLLEN);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.NECTAR);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.STEM);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.INNER_BARK);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.OIL);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.ROOT);
+
+		initEEnum(actionTypeEEnum, ActionType.class, "ActionType");
+		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_INDOOR);
+		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_OUTDOOR);
+		addEEnumLiteral(actionTypeEEnum, ActionType.PRUNING);
+		addEEnumLiteral(actionTypeEEnum, ActionType.OTHER);
+
+		initEEnum(layerEEnum, Layer.class, "Layer");
+		addEEnumLiteral(layerEEnum, Layer.CANOPY);
+		addEEnumLiteral(layerEEnum, Layer.UNDERSTORY);
+		addEEnumLiteral(layerEEnum, Layer.SHRUB);
+		addEEnumLiteral(layerEEnum, Layer.HERB);
+		addEEnumLiteral(layerEEnum, Layer.ROOT);
+		addEEnumLiteral(layerEEnum, Layer.GROUND_COVER);
+		addEEnumLiteral(layerEEnum, Layer.VINE);
+		addEEnumLiteral(layerEEnum, Layer.OTHER);
 
 		// Initialize data types
 		initEDataType(monthWeekEDataType, int.class, "MonthWeek", IS_SERIALIZABLE,

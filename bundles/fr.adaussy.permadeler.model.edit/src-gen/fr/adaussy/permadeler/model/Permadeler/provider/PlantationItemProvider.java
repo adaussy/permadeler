@@ -72,6 +72,9 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 
 			addTypePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addPlantationDatePropertyDescriptor(object);
+			addCurrentLayerPropertyDescriptor(object);
+			addRootstockPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +111,54 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
+	 * This adds a property descriptor for the Plantation Date feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPlantationDatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plantation_plantationDate_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plantation_plantationDate_feature",
+						"_UI_Plantation_type"),
+				PermadelerPackage.Literals.PLANTATION__PLANTATION_DATE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Current Layer feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentLayerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plantation_currentLayer_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plantation_currentLayer_feature",
+						"_UI_Plantation_type"),
+				PermadelerPackage.Literals.PLANTATION__CURRENT_LAYER, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rootstock feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRootstockPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plantation_rootstock_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plantation_rootstock_feature",
+						"_UI_Plantation_type"),
+				PermadelerPackage.Literals.PLANTATION__ROOTSTOCK, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -119,10 +170,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION__SOW_EVENT);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION__PLANTATION_EVENT);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION__EVENTS);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION__REMOVAL_EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -187,13 +235,13 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 
 		switch (notification.getFeatureID(Plantation.class)) {
 			case PermadelerPackage.PLANTATION__DESCRIPTION:
+			case PermadelerPackage.PLANTATION__PLANTATION_DATE:
+			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
+			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PermadelerPackage.PLANTATION__SOW_EVENT:
-			case PermadelerPackage.PLANTATION__PLANTATION_EVENT:
 			case PermadelerPackage.PLANTATION__EVENTS:
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -212,40 +260,8 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTATION__SOW_EVENT,
-				PermadelerFactory.eINSTANCE.createEvent()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTATION__PLANTATION_EVENT,
-				PermadelerFactory.eINSTANCE.createEvent()));
-
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTATION__EVENTS,
 				PermadelerFactory.eINSTANCE.createEvent()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTATION__REMOVAL_EVENT,
-				PermadelerFactory.eINSTANCE.createEvent()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == PermadelerPackage.Literals.PLANTATION__SOW_EVENT
-				|| childFeature == PermadelerPackage.Literals.PLANTATION__PLANTATION_EVENT
-				|| childFeature == PermadelerPackage.Literals.PLANTATION__EVENTS
-				|| childFeature == PermadelerPackage.Literals.PLANTATION__REMOVAL_EVENT;
-
-		if (qualify) {
-			return getString("_UI_CreateChild_text2", new Object[] {getTypeText(childObject),
-					getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

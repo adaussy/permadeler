@@ -12,19 +12,35 @@ package fr.adaussy.permadeler.rcp.internal.dialogs;
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
-import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Layer;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
 
 /**
  * Dialog used to select a plantation
  * 
  * @author Arthur Daussy
  */
-public class PlantationDialog extends ObjectSelectionDialogWithDate<Species> {
+public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
+
+	private Layer layer;
 
 	public PlantationDialog(Shell shell, Date initialDate, EObject root) {
-		super(shell, Species.class, null, root, initialDate);
+		super(shell, Plant.class, null, root, initialDate);
 	}
 
+	@Override
+	protected void fillCustomContent(Composite parent) {
+		super.fillCustomContent(parent);
+		Dialogs.createEnumEntry(parent, "Current Layer :", Layer.values(), Layer.UNDERSTORY, v -> {
+			this.layer = (Layer)v;
+		});
+	}
+
+	public Layer getLayer() {
+		return layer;
+	}
 }

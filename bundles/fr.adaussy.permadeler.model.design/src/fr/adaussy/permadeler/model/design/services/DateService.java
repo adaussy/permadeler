@@ -13,7 +13,6 @@ import java.time.Instant;
 
 import fr.adaussy.permadeler.common.date.DateUtils;
 import fr.adaussy.permadeler.model.Permadeler.Event;
-import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 
 /**
@@ -40,18 +39,11 @@ public class DateService {
 		return ""; //$NON-NLS-1$
 	}
 
-	/**
-	 * Set the date feature of an event from a String. The string should respect
-	 * {@link DateUtils#DATE_FORMAT_PATTERN}
-	 * 
-	 * @param owner
-	 *            the event owner
-	 * @param dateString
-	 *            the string representation of the date
-	 */
-	public void setDateFeature(final Event owner, final String dateString) {
-		if (owner != null) {
-			owner.setDate(DateUtils.dateStringToInstant(dateString));
+	public String toLocalDate(Instant instant) {
+		if (instant == null) {
+			return "";
+		} else {
+			return DateUtils.instantToDateString(instant);
 		}
 	}
 
@@ -66,30 +58,8 @@ public class DateService {
 	 */
 	public void setPlantationDate(final Plantation owner, final String dateString) {
 		if (owner != null) {
-			Event event = owner.getPlantationEvent();
-			if (event == null) {
-				event = PermadelerFactory.eINSTANCE.createEvent();
-				owner.setPlantationEvent(event);
-			}
-			this.setDateFeature(event, dateString);
+			owner.setPlantationDate(DateUtils.dateStringToInstant(dateString));
 		}
 	}
 
-	/**
-	 * Set the removal date of a {@link Plantation}
-	 * 
-	 * @param owner
-	 *            the plantation
-	 * @param dateString
-	 *            the date
-	 * @see DateUtils#DATE_FORMAT_PATTERN
-	 */
-	public void setRemovalDate(final Plantation owner, final String dateString) {
-		Event event = owner.getRemovalEvent();
-		if (event == null) {
-			event = PermadelerFactory.eINSTANCE.createEvent();
-			owner.setRemovalEvent(event);
-		}
-		this.setDateFeature(event, dateString);
-	}
 }

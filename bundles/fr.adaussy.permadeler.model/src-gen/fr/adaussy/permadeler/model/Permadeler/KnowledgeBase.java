@@ -11,7 +11,6 @@
 package fr.adaussy.permadeler.model.Permadeler;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getPlantTypes <em>Plant Types</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getCompatibilityMatrix <em>Compatibility Matrix</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase()
@@ -41,7 +39,7 @@ public interface KnowledgeBase extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Plant Types</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Genus}.
+	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Plant}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Plant Types</em>' containment reference list.
@@ -49,28 +47,6 @@ public interface KnowledgeBase extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Genus> getPlantTypes();
-
-	/**
-	 * Returns the value of the '<em><b>Compatibility Matrix</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Compatibility Matrix</em>' containment reference.
-	 * @see #setCompatibilityMatrix(CompatibilityMatrix)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase_CompatibilityMatrix()
-	 * @model containment="true"
-	 * @generated
-	 */
-	CompatibilityMatrix getCompatibilityMatrix();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getCompatibilityMatrix <em>Compatibility Matrix</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Compatibility Matrix</em>' containment reference.
-	 * @see #getCompatibilityMatrix()
-	 * @generated
-	 */
-	void setCompatibilityMatrix(CompatibilityMatrix value);
+	EList<Plant> getPlantTypes();
 
 } // KnowledgeBase

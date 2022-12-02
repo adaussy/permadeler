@@ -10,21 +10,39 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
+import fr.adaussy.permadeler.model.Permadeler.Action;
+import fr.adaussy.permadeler.model.Permadeler.Family;
+import fr.adaussy.permadeler.model.Permadeler.GrowRate;
+import fr.adaussy.permadeler.model.Permadeler.Image;
+import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
+import fr.adaussy.permadeler.model.Permadeler.Moisture;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.Permadeler.Reference;
+import fr.adaussy.permadeler.model.Permadeler.Shade;
+import fr.adaussy.permadeler.model.Permadeler.SoilType;
+import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
+import fr.adaussy.permadeler.model.Permadeler.Wind;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,14 +52,27 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getSowIndoorMonths <em>Sow Indoor Months</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getSowOutdoorMonths <em>Sow Outdoor Months</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getWidth <em>Width</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getSoilType <em>Soil Type</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getImages <em>Images</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getLightingCondition <em>Lighting Condition</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getHeight <em>Height</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getMinTemperature <em>Min Temperature</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getMoisture <em>Moisture</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getSpecialUses <em>Special Uses</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getGrowRate <em>Grow Rate</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getWind <em>Wind</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getProductions <em>Productions</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFoodForestLayer <em>Food Forest Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getLifeCycle <em>Life Cycle</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFamily <em>Family</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PlantImpl extends SpeciesCustomImpl implements Plant {
+public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,24 +81,194 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
 
 	/**
-	 * The cached value of the '{@link #getSowIndoorMonths() <em>Sow Indoor Months</em>}' attribute list.
+	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSowIndoorMonths()
+	 * @see #getWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> sowIndoorMonths;
+	protected static final float WIDTH_EDEFAULT = 0.0F;
 
 	/**
-	 * The cached value of the '{@link #getSowOutdoorMonths() <em>Sow Outdoor Months</em>}' attribute list.
+	 * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSowOutdoorMonths()
+	 * @see #getWidth()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> sowOutdoorMonths;
+	protected float width = WIDTH_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSoilType() <em>Soil Type</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSoilType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SoilType> soilType;
+
+	/**
+	 * The cached value of the '{@link #getImages() <em>Images</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImages()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Image> images;
+
+	/**
+	 * The cached value of the '{@link #getLightingCondition() <em>Lighting Condition</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLightingCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Shade> lightingCondition;
+
+	/**
+	 * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float HEIGHT_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeight()
+	 * @generated
+	 * @ordered
+	 */
+	protected float height = HEIGHT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinTemperature() <em>Min Temperature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinTemperature()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIN_TEMPERATURE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMinTemperature() <em>Min Temperature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinTemperature()
+	 * @generated
+	 * @ordered
+	 */
+	protected int minTemperature = MIN_TEMPERATURE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMoisture() <em>Moisture</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMoisture()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Moisture> moisture;
+
+	/**
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> references;
+
+	/**
+	 * The cached value of the '{@link #getSpecialUses() <em>Special Uses</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecialUses()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SpecialUses> specialUses;
+
+	/**
+	 * The default value of the '{@link #getGrowRate() <em>Grow Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGrowRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final GrowRate GROW_RATE_EDEFAULT = GrowRate.UNKOWN;
+
+	/**
+	 * The cached value of the '{@link #getGrowRate() <em>Grow Rate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGrowRate()
+	 * @generated
+	 * @ordered
+	 */
+	protected GrowRate growRate = GROW_RATE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getWind() <em>Wind</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWind()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Wind> wind;
+
+	/**
+	 * The cached value of the '{@link #getProductions() <em>Productions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Production> productions;
+
+	/**
+	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Action> actions;
+
+	/**
+	 * The default value of the '{@link #getFoodForestLayer() <em>Food Forest Layer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFoodForestLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Layer FOOD_FOREST_LAYER_EDEFAULT = Layer.UNDERSTORY;
+
+	/**
+	 * The cached value of the '{@link #getFoodForestLayer() <em>Food Forest Layer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFoodForestLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Layer foodForestLayer = FOOD_FOREST_LAYER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLifeCycle() <em>Life Cycle</em>}' attribute.
@@ -88,6 +289,26 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	 * @ordered
 	 */
 	protected Lifecycle lifeCycle = LIFE_CYCLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFamily() <em>Family</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFamily()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Family FAMILY_EDEFAULT = Family.UNKNOWN;
+
+	/**
+	 * The cached value of the '{@link #getFamily() <em>Family</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFamily()
+	 * @generated
+	 * @ordered
+	 */
+	protected Family family = FAMILY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,12 +334,8 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getSowIndoorMonths() {
-		if (sowIndoorMonths == null) {
-			sowIndoorMonths = new EDataTypeUniqueEList<Integer>(Integer.class, this,
-					PermadelerPackage.PLANT__SOW_INDOOR_MONTHS);
-		}
-		return sowIndoorMonths;
+	public float getWidth() {
+		return width;
 	}
 
 	/**
@@ -126,12 +343,215 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getSowOutdoorMonths() {
-		if (sowOutdoorMonths == null) {
-			sowOutdoorMonths = new EDataTypeUniqueEList<Integer>(Integer.class, this,
-					PermadelerPackage.PLANT__SOW_OUTDOOR_MONTHS);
+	public void setWidth(float newWidth) {
+		float oldWidth = width;
+		width = newWidth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__WIDTH, oldWidth,
+					width));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SoilType> getSoilType() {
+		if (soilType == null) {
+			soilType = new EDataTypeUniqueEList<SoilType>(SoilType.class, this,
+					PermadelerPackage.PLANT__SOIL_TYPE);
 		}
-		return sowOutdoorMonths;
+		return soilType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Image> getImages() {
+		if (images == null) {
+			images = new EObjectContainmentEList<Image>(Image.class, this, PermadelerPackage.PLANT__IMAGES);
+		}
+		return images;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Shade> getLightingCondition() {
+		if (lightingCondition == null) {
+			lightingCondition = new EDataTypeUniqueEList<Shade>(Shade.class, this,
+					PermadelerPackage.PLANT__LIGHTING_CONDITION);
+		}
+		return lightingCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getHeight() {
+		return height;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHeight(float newHeight) {
+		float oldHeight = height;
+		height = newHeight;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__HEIGHT, oldHeight,
+					height));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMinTemperature() {
+		return minTemperature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinTemperature(int newMinTemperature) {
+		int oldMinTemperature = minTemperature;
+		minTemperature = newMinTemperature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__MIN_TEMPERATURE,
+					oldMinTemperature, minTemperature));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Moisture> getMoisture() {
+		if (moisture == null) {
+			moisture = new EDataTypeUniqueEList<Moisture>(Moisture.class, this,
+					PermadelerPackage.PLANT__MOISTURE);
+		}
+		return moisture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Reference> getReferences() {
+		if (references == null) {
+			references = new EObjectContainmentEList<Reference>(Reference.class, this,
+					PermadelerPackage.PLANT__REFERENCES);
+		}
+		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SpecialUses> getSpecialUses() {
+		if (specialUses == null) {
+			specialUses = new EDataTypeUniqueEList<SpecialUses>(SpecialUses.class, this,
+					PermadelerPackage.PLANT__SPECIAL_USES);
+		}
+		return specialUses;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GrowRate getGrowRate() {
+		return growRate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGrowRate(GrowRate newGrowRate) {
+		GrowRate oldGrowRate = growRate;
+		growRate = newGrowRate == null ? GROW_RATE_EDEFAULT : newGrowRate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__GROW_RATE,
+					oldGrowRate, growRate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Wind> getWind() {
+		if (wind == null) {
+			wind = new EDataTypeUniqueEList<Wind>(Wind.class, this, PermadelerPackage.PLANT__WIND);
+		}
+		return wind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Production> getProductions() {
+		if (productions == null) {
+			productions = new EObjectContainmentEList<Production>(Production.class, this,
+					PermadelerPackage.PLANT__PRODUCTIONS);
+		}
+		return productions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Action> getActions() {
+		if (actions == null) {
+			actions = new EObjectContainmentEList<Action>(Action.class, this,
+					PermadelerPackage.PLANT__ACTIONS);
+		}
+		return actions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layer getFoodForestLayer() {
+		return foodForestLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFoodForestLayer(Layer newFoodForestLayer) {
+		Layer oldFoodForestLayer = foodForestLayer;
+		foodForestLayer = newFoodForestLayer == null ? FOOD_FOREST_LAYER_EDEFAULT : newFoodForestLayer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__FOOD_FOREST_LAYER,
+					oldFoodForestLayer, foodForestLayer));
 	}
 
 	/**
@@ -161,15 +581,94 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Family getFamily() {
+		return family;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFamily(Family newFamily) {
+		Family oldFamily = family;
+		family = newFamily == null ? FAMILY_EDEFAULT : newFamily;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__FAMILY, oldFamily,
+					family));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getAllNames() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PermadelerPackage.PLANT__IMAGES:
+				return ((InternalEList<?>)getImages()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.PLANT__REFERENCES:
+				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.PLANT__PRODUCTIONS:
+				return ((InternalEList<?>)getProductions()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.PLANT__ACTIONS:
+				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.PLANT__SOW_INDOOR_MONTHS:
-				return getSowIndoorMonths();
-			case PermadelerPackage.PLANT__SOW_OUTDOOR_MONTHS:
-				return getSowOutdoorMonths();
+			case PermadelerPackage.PLANT__WIDTH:
+				return getWidth();
+			case PermadelerPackage.PLANT__SOIL_TYPE:
+				return getSoilType();
+			case PermadelerPackage.PLANT__IMAGES:
+				return getImages();
+			case PermadelerPackage.PLANT__LIGHTING_CONDITION:
+				return getLightingCondition();
+			case PermadelerPackage.PLANT__HEIGHT:
+				return getHeight();
+			case PermadelerPackage.PLANT__MIN_TEMPERATURE:
+				return getMinTemperature();
+			case PermadelerPackage.PLANT__MOISTURE:
+				return getMoisture();
+			case PermadelerPackage.PLANT__REFERENCES:
+				return getReferences();
+			case PermadelerPackage.PLANT__SPECIAL_USES:
+				return getSpecialUses();
+			case PermadelerPackage.PLANT__GROW_RATE:
+				return getGrowRate();
+			case PermadelerPackage.PLANT__WIND:
+				return getWind();
+			case PermadelerPackage.PLANT__PRODUCTIONS:
+				return getProductions();
+			case PermadelerPackage.PLANT__ACTIONS:
+				return getActions();
+			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
+				return getFoodForestLayer();
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				return getLifeCycle();
+			case PermadelerPackage.PLANT__FAMILY:
+				return getFamily();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -183,16 +682,62 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.PLANT__SOW_INDOOR_MONTHS:
-				getSowIndoorMonths().clear();
-				getSowIndoorMonths().addAll((Collection<? extends Integer>)newValue);
+			case PermadelerPackage.PLANT__WIDTH:
+				setWidth((Float)newValue);
 				return;
-			case PermadelerPackage.PLANT__SOW_OUTDOOR_MONTHS:
-				getSowOutdoorMonths().clear();
-				getSowOutdoorMonths().addAll((Collection<? extends Integer>)newValue);
+			case PermadelerPackage.PLANT__SOIL_TYPE:
+				getSoilType().clear();
+				getSoilType().addAll((Collection<? extends SoilType>)newValue);
+				return;
+			case PermadelerPackage.PLANT__IMAGES:
+				getImages().clear();
+				getImages().addAll((Collection<? extends Image>)newValue);
+				return;
+			case PermadelerPackage.PLANT__LIGHTING_CONDITION:
+				getLightingCondition().clear();
+				getLightingCondition().addAll((Collection<? extends Shade>)newValue);
+				return;
+			case PermadelerPackage.PLANT__HEIGHT:
+				setHeight((Float)newValue);
+				return;
+			case PermadelerPackage.PLANT__MIN_TEMPERATURE:
+				setMinTemperature((Integer)newValue);
+				return;
+			case PermadelerPackage.PLANT__MOISTURE:
+				getMoisture().clear();
+				getMoisture().addAll((Collection<? extends Moisture>)newValue);
+				return;
+			case PermadelerPackage.PLANT__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends Reference>)newValue);
+				return;
+			case PermadelerPackage.PLANT__SPECIAL_USES:
+				getSpecialUses().clear();
+				getSpecialUses().addAll((Collection<? extends SpecialUses>)newValue);
+				return;
+			case PermadelerPackage.PLANT__GROW_RATE:
+				setGrowRate((GrowRate)newValue);
+				return;
+			case PermadelerPackage.PLANT__WIND:
+				getWind().clear();
+				getWind().addAll((Collection<? extends Wind>)newValue);
+				return;
+			case PermadelerPackage.PLANT__PRODUCTIONS:
+				getProductions().clear();
+				getProductions().addAll((Collection<? extends Production>)newValue);
+				return;
+			case PermadelerPackage.PLANT__ACTIONS:
+				getActions().clear();
+				getActions().addAll((Collection<? extends Action>)newValue);
+				return;
+			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
+				setFoodForestLayer((Layer)newValue);
 				return;
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				setLifeCycle((Lifecycle)newValue);
+				return;
+			case PermadelerPackage.PLANT__FAMILY:
+				setFamily((Family)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,14 +751,53 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.PLANT__SOW_INDOOR_MONTHS:
-				getSowIndoorMonths().clear();
+			case PermadelerPackage.PLANT__WIDTH:
+				setWidth(WIDTH_EDEFAULT);
 				return;
-			case PermadelerPackage.PLANT__SOW_OUTDOOR_MONTHS:
-				getSowOutdoorMonths().clear();
+			case PermadelerPackage.PLANT__SOIL_TYPE:
+				getSoilType().clear();
+				return;
+			case PermadelerPackage.PLANT__IMAGES:
+				getImages().clear();
+				return;
+			case PermadelerPackage.PLANT__LIGHTING_CONDITION:
+				getLightingCondition().clear();
+				return;
+			case PermadelerPackage.PLANT__HEIGHT:
+				setHeight(HEIGHT_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__MIN_TEMPERATURE:
+				setMinTemperature(MIN_TEMPERATURE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__MOISTURE:
+				getMoisture().clear();
+				return;
+			case PermadelerPackage.PLANT__REFERENCES:
+				getReferences().clear();
+				return;
+			case PermadelerPackage.PLANT__SPECIAL_USES:
+				getSpecialUses().clear();
+				return;
+			case PermadelerPackage.PLANT__GROW_RATE:
+				setGrowRate(GROW_RATE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__WIND:
+				getWind().clear();
+				return;
+			case PermadelerPackage.PLANT__PRODUCTIONS:
+				getProductions().clear();
+				return;
+			case PermadelerPackage.PLANT__ACTIONS:
+				getActions().clear();
+				return;
+			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
+				setFoodForestLayer(FOOD_FOREST_LAYER_EDEFAULT);
 				return;
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				setLifeCycle(LIFE_CYCLE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__FAMILY:
+				setFamily(FAMILY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -227,14 +811,54 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.PLANT__SOW_INDOOR_MONTHS:
-				return sowIndoorMonths != null && !sowIndoorMonths.isEmpty();
-			case PermadelerPackage.PLANT__SOW_OUTDOOR_MONTHS:
-				return sowOutdoorMonths != null && !sowOutdoorMonths.isEmpty();
+			case PermadelerPackage.PLANT__WIDTH:
+				return width != WIDTH_EDEFAULT;
+			case PermadelerPackage.PLANT__SOIL_TYPE:
+				return soilType != null && !soilType.isEmpty();
+			case PermadelerPackage.PLANT__IMAGES:
+				return images != null && !images.isEmpty();
+			case PermadelerPackage.PLANT__LIGHTING_CONDITION:
+				return lightingCondition != null && !lightingCondition.isEmpty();
+			case PermadelerPackage.PLANT__HEIGHT:
+				return height != HEIGHT_EDEFAULT;
+			case PermadelerPackage.PLANT__MIN_TEMPERATURE:
+				return minTemperature != MIN_TEMPERATURE_EDEFAULT;
+			case PermadelerPackage.PLANT__MOISTURE:
+				return moisture != null && !moisture.isEmpty();
+			case PermadelerPackage.PLANT__REFERENCES:
+				return references != null && !references.isEmpty();
+			case PermadelerPackage.PLANT__SPECIAL_USES:
+				return specialUses != null && !specialUses.isEmpty();
+			case PermadelerPackage.PLANT__GROW_RATE:
+				return growRate != GROW_RATE_EDEFAULT;
+			case PermadelerPackage.PLANT__WIND:
+				return wind != null && !wind.isEmpty();
+			case PermadelerPackage.PLANT__PRODUCTIONS:
+				return productions != null && !productions.isEmpty();
+			case PermadelerPackage.PLANT__ACTIONS:
+				return actions != null && !actions.isEmpty();
+			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
+				return foodForestLayer != FOOD_FOREST_LAYER_EDEFAULT;
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				return lifeCycle != LIFE_CYCLE_EDEFAULT;
+			case PermadelerPackage.PLANT__FAMILY:
+				return family != FAMILY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PermadelerPackage.PLANT___GET_ALL_NAMES:
+				return getAllNames();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -248,12 +872,30 @@ public class PlantImpl extends SpeciesCustomImpl implements Plant {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (sowIndoorMonths: ");
-		result.append(sowIndoorMonths);
-		result.append(", sowOutdoorMonths: ");
-		result.append(sowOutdoorMonths);
+		result.append(" (width: ");
+		result.append(width);
+		result.append(", soilType: ");
+		result.append(soilType);
+		result.append(", lightingCondition: ");
+		result.append(lightingCondition);
+		result.append(", height: ");
+		result.append(height);
+		result.append(", minTemperature: ");
+		result.append(minTemperature);
+		result.append(", moisture: ");
+		result.append(moisture);
+		result.append(", specialUses: ");
+		result.append(specialUses);
+		result.append(", growRate: ");
+		result.append(growRate);
+		result.append(", wind: ");
+		result.append(wind);
+		result.append(", foodForestLayer: ");
+		result.append(foodForestLayer);
 		result.append(", lifeCycle: ");
 		result.append(lifeCycle);
+		result.append(", family: ");
+		result.append(family);
 		result.append(')');
 		return result.toString();
 	}

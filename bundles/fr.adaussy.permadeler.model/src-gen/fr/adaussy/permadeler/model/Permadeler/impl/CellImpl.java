@@ -12,7 +12,7 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 
 import java.time.Instant;
 
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.CellImpl#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.CellImpl#getPlant <em>Plant</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.CellImpl#getDate <em>Date</em>}</li>
  * </ul>
  *
@@ -47,14 +47,14 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
 
 	/**
-	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' reference.
+	 * The cached value of the '{@link #getPlant() <em>Plant</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecies()
+	 * @see #getPlant()
 	 * @generated
 	 * @ordered
 	 */
-	protected Species species;
+	protected Plant plant;
 
 	/**
 	 * The default value of the '{@link #getDate() <em>Date</em>}' attribute.
@@ -100,17 +100,17 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Species getSpecies() {
-		if (species != null && species.eIsProxy()) {
-			InternalEObject oldSpecies = (InternalEObject)species;
-			species = (Species)eResolveProxy(oldSpecies);
-			if (species != oldSpecies) {
+	public Plant getPlant() {
+		if (plant != null && plant.eIsProxy()) {
+			InternalEObject oldPlant = (InternalEObject)plant;
+			plant = (Plant)eResolveProxy(oldPlant);
+			if (plant != oldPlant) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PermadelerPackage.CELL__SPECIES,
-							oldSpecies, species));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PermadelerPackage.CELL__PLANT,
+							oldPlant, plant));
 			}
 		}
-		return species;
+		return plant;
 	}
 
 	/**
@@ -118,8 +118,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Species basicGetSpecies() {
-		return species;
+	public Plant basicGetPlant() {
+		return plant;
 	}
 
 	/**
@@ -127,12 +127,12 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSpecies(Species newSpecies) {
-		Species oldSpecies = species;
-		species = newSpecies;
+	public void setPlant(Plant newPlant) {
+		Plant oldPlant = plant;
+		plant = newPlant;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.CELL__SPECIES, oldSpecies,
-					species));
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.CELL__PLANT, oldPlant,
+					plant));
 	}
 
 	/**
@@ -165,10 +165,10 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.CELL__SPECIES:
+			case PermadelerPackage.CELL__PLANT:
 				if (resolve)
-					return getSpecies();
-				return basicGetSpecies();
+					return getPlant();
+				return basicGetPlant();
 			case PermadelerPackage.CELL__DATE:
 				return getDate();
 		}
@@ -183,8 +183,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.CELL__SPECIES:
-				setSpecies((Species)newValue);
+			case PermadelerPackage.CELL__PLANT:
+				setPlant((Plant)newValue);
 				return;
 			case PermadelerPackage.CELL__DATE:
 				setDate((Instant)newValue);
@@ -201,8 +201,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.CELL__SPECIES:
-				setSpecies((Species)null);
+			case PermadelerPackage.CELL__PLANT:
+				setPlant((Plant)null);
 				return;
 			case PermadelerPackage.CELL__DATE:
 				setDate(DATE_EDEFAULT);
@@ -219,8 +219,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.CELL__SPECIES:
-				return species != null;
+			case PermadelerPackage.CELL__PLANT:
+				return plant != null;
 			case PermadelerPackage.CELL__DATE:
 				return DATE_EDEFAULT == null ? date != null : !DATE_EDEFAULT.equals(date);
 		}

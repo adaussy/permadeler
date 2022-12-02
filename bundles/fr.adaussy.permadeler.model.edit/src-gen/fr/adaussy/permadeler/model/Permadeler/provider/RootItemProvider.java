@@ -76,7 +76,7 @@ public class RootItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.ROOT__SEED_LIB);
+			childrenFeatures.add(PermadelerPackage.Literals.ROOT__KNOWLEDGE_BASE);
 			childrenFeatures.add(PermadelerPackage.Literals.ROOT__SEEDBANK);
 			childrenFeatures.add(PermadelerPackage.Literals.ROOT__ZONES);
 			childrenFeatures.add(PermadelerPackage.Literals.ROOT__NURSARY);
@@ -144,7 +144,7 @@ public class RootItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Root.class)) {
-			case PermadelerPackage.ROOT__SEED_LIB:
+			case PermadelerPackage.ROOT__KNOWLEDGE_BASE:
 			case PermadelerPackage.ROOT__SEEDBANK:
 			case PermadelerPackage.ROOT__ZONES:
 			case PermadelerPackage.ROOT__NURSARY:
@@ -167,7 +167,7 @@ public class RootItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__SEED_LIB,
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__KNOWLEDGE_BASE,
 				PermadelerFactory.eINSTANCE.createKnowledgeBase()));
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__SEEDBANK,

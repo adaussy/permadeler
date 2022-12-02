@@ -9,33 +9,24 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.timeview;
 
-import static java.util.stream.Collectors.toList;
-
 import java.time.Month;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 
-import fr.adaussy.permadeler.model.Permadeler.Genus;
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
-import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Planifier;
+import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.SeedBank;
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
-import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
-import fr.adaussy.permadeler.model.Permadeler.SowType;
-import fr.adaussy.permadeler.model.Permadeler.Species;
-import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
 import fr.adaussy.permadeler.rcp.internal.timeview.inputs.TimeColoumnHeaderDescription;
 import fr.adaussy.permadeler.rcp.internal.timeview.inputs.TimeLineDescription;
 import fr.adaussy.permadeler.rcp.internal.timeview.inputs.TimeLineGroupDescription;
@@ -60,18 +51,6 @@ public final class InputFactory {
 	 */
 	public static final String SOW_PERIOD = "SOW_PERIOD";
 
-	/**
-	 * Map that map feature to colors
-	 */
-	private static final Map<EStructuralFeature, String> FEATURE_TO_COLORS = new HashMap<EStructuralFeature, String>();
-
-	static {
-		FEATURE_TO_COLORS.put(PermadelerPackage.eINSTANCE.getSpecies_BloomMonths(), "#fcffe3");
-		FEATURE_TO_COLORS.put(PermadelerPackage.eINSTANCE.getSpecies_PruningMonths(), "#fc00e3");
-		FEATURE_TO_COLORS.put(PermadelerPackage.eINSTANCE.getPlant_SowIndoorMonths(), "#ffd154");
-		FEATURE_TO_COLORS.put(PermadelerPackage.eINSTANCE.getPlant_SowOutdoorMonths(), "#6ee858");
-	}
-
 	private InputFactory() {
 	}
 
@@ -87,94 +66,21 @@ public final class InputFactory {
 	public TimeViewEditorInput build(String query, EObject from) {
 		TimeViewEditorInput result = new TimeViewEditorInput(query, from, Collections.emptyList(),
 				buildMonthWeekHeader());
-		if (from instanceof KnowledgeBase) {
-			if (SOW_PERIOD.equals(query)) {
-				result = buildSowPeriods(query, (KnowledgeBase)from);
-			}
-			return buildAllContent(query, from);
-		} else if (from instanceof Genus) {
-			result = buildAllContent(query, from);
-		} else if (from instanceof SeedBank) {
-			if (SOW_PERIOD.equals(query)) {
-				result = buildSowPeriods(query, (SeedBank)from);
-			}
-		} else if (from instanceof Planifier) {
-			if (SOW_PERIOD.equals(query)) {
-				result = buildSowPeriods(query, (Planifier)from);
+
+		Predicate<TemporalItem> predicate = buildFromQuery(query);
+		TreeIterator<EObject> contentIte = from.eAllContents();
+		while (contentIte.hasNext()) {
+			EObject next = contentIte.next();
+			if (next instanceof Plant) {
+				Plant variety = (Plant)next;
+				create(variety, predicate);
+			} else if (next instanceof SeedItem) {
+				create(((SeedItem)next).getType(), predicate);
+			} else if (next instanceof Plantation) {
+				create(((Plantation)next).getType(), predicate);
 			}
 		}
 		return result;
-	}
-
-	/**
-	 * Builds a sow perdiod from a {@link Planifier} object
-	 * 
-	 * @param query
-	 *            the name of the query
-	 * @param from
-	 *            the source object
-	 * @return a new {@link TimeViewEditorInput}
-	 */
-	private TimeViewEditorInput buildSowPeriods(String query, Planifier from) {
-		List<TimeLineGroupDescription> inputs = new ArrayList<TimeLineGroupDescription>();
-
-		from.getPlanfications().stream()//
-				.filter(p -> p instanceof SowPlanfication && ((SowPlanfication)p).getType() != null)
-				.map(p -> (SowPlanfication)p)//
-				.sorted(Comparator.comparing(e -> e.getType().getName())).collect(toList())
-				.forEach(sowPlan -> {
-					List<TimeLineDescription> entries = new ArrayList<TimeLineDescription>(1);
-					final TimeLineDescription entry;
-					if (sowPlan.getType() == SowType.INDOOR) {
-						entry = new TimeLineDescription(() -> "Indoor",
-								FEATURE_TO_COLORS.get(PermadelerPackage.eINSTANCE.getPlant_SowIndoorMonths()),
-								() -> sowPlan.getWeeks());
-					} else {
-						entry = new TimeLineDescription(() -> "Outdoor",
-								FEATURE_TO_COLORS
-										.get(PermadelerPackage.eINSTANCE.getPlant_SowOutdoorMonths()),
-								() -> sowPlan.getWeeks());
-					}
-					entries.add(entry);
-					inputs.add(new TimeLineGroupDescription(sowPlan.getSeed(), entries));
-				});
-
-		return new TimeViewEditorInput(query, from, inputs, buildMonthWeekHeader());
-	}
-
-	private TimeViewEditorInput buildSowPeriods(String query, KnowledgeBase from) {
-		return new TimeViewEditorInput(query, from,
-				EMFUtils.getChildren(from, Plant.class).map(this::createSowInput).collect(toList()),
-				buildMonthWeekHeader());
-	}
-
-	/**
-	 * Builds a sow perdiod from a {@link SeedBank} object
-	 * 
-	 * @param query
-	 *            the name of the query
-	 * @param from
-	 *            the source object
-	 * @return a new {@link TimeViewEditorInput}
-	 */
-	private TimeViewEditorInput buildSowPeriods(String query, SeedBank from) {
-		List<TimeLineGroupDescription> inputs = new ArrayList<TimeLineGroupDescription>();
-		for (SeedItem item : from.getItems()) {
-			Species species = item.getType();
-			if (species instanceof Plant) {
-				inputs.add(createSowInput(species));
-			}
-		}
-		return new TimeViewEditorInput(query, from, inputs, buildMonthWeekHeader());
-	}
-
-	protected TimeLineGroupDescription createSowPlanificationInput(Species species) {
-		return create(species, List.of(PermadelerPackage.eINSTANCE.getPlanfication_Weeks()));
-	}
-
-	protected TimeLineGroupDescription createSowInput(Species species) {
-		return create(species, List.of(PermadelerPackage.eINSTANCE.getPlant_SowIndoorMonths(),
-				PermadelerPackage.eINSTANCE.getPlant_SowOutdoorMonths()));
 	}
 
 	/**
@@ -199,54 +105,53 @@ public final class InputFactory {
 		return result;
 	}
 
-	/**
-	 * Builds a {@link TimeViewEditorInput} for all Species contained in a given object
-	 * 
-	 * @param query
-	 *            the name of the query
-	 * @param from
-	 *            a source object
-	 * @return a new {@link TimeViewEditorInput}
-	 */
-	private TimeViewEditorInput buildAllContent(String query, EObject from) {
-		TreeIterator<EObject> contentIte = from.eAllContents();
-		List<TimeLineGroupDescription> inputs = new ArrayList<TimeLineGroupDescription>();
-		while (contentIte.hasNext()) {
-			EObject eObject = contentIte.next();
-			if (eObject instanceof Species) {
-				Species species = (Species)eObject;
-				inputs.add(create(species, List.of(PermadelerPackage.eINSTANCE.getSpecies_BloomMonths(),
-						PermadelerPackage.eINSTANCE.getSpecies_PruningMonths())));
-			}
+	private Predicate<TemporalItem> buildFromQuery(String query) {
+		if (SOW_PERIOD.equals(query)) {
+			return p -> p instanceof Action && ((Action)p).getType().toString().toLowerCase().contains("sow");
+		} else {
+			return p -> true;
 		}
-
-		return new TimeViewEditorInput(query, from, inputs, buildMonthWeekHeader());
 	}
 
-	/**
-	 * Creates a TimeLineGroupDescription for the given {@link Species} and a list of features
-	 * 
-	 * @param s
-	 *            a species
-	 * @param features
-	 *            a list of feature that return a list of integer
-	 * @return a new TimeLineGroupDescription
-	 */
-	private TimeLineGroupDescription create(Species s, List<EStructuralFeature> features) {
+	private TimeLineGroupDescription create(Plant s, Predicate<TemporalItem> predicate) {
 
-		if (features.isEmpty()) {
-			return new TimeLineGroupDescription(s, Collections.emptyList());
-		}
-		List<TimeLineDescription> entries = new ArrayList<TimeLineDescription>(features.size());
-		for (EStructuralFeature f : features) {
-			@SuppressWarnings("unchecked")
-			TimeLineDescription entry = new TimeLineDescription(() -> f.getName(), FEATURE_TO_COLORS.get(f),
-					() -> (List<Integer>)s.eGet(f));
+		List<TimeLineDescription> entries = new ArrayList<TimeLineDescription>();
+		Stream.concat(s.getActions().stream(), s.getProductions().stream()).filter(predicate).forEach(f -> {
+			TimeLineDescription entry = new TimeLineDescription(() -> f.getName(), getColor(f), f);
 			entries.add(entry);
-		}
+
+		});
 
 		return new TimeLineGroupDescription(s, entries);
 
+	}
+
+	private String getColor(TemporalItem tmpItem) {
+		if (tmpItem instanceof Action) {
+			Action action = (Action)tmpItem;
+			return switch (action.getType()) {
+				case SOW_INDOOR -> "#eba834";
+				case SOW_OUTDOOR -> "#346beb";
+				case PRUNING -> "#44c740";
+				default -> "#545454";
+			};
+		} else if (tmpItem instanceof Production) {
+			Production prod = (Production)tmpItem;
+			return switch (prod.getType()) {
+				case FRUIT -> "#cc731f";
+				case LEAVES -> "#1fcc4d";
+				case FLOWER -> "#f2ec3d";
+				case OTHER -> "#969696";
+				case SHOOTS -> "#80ff59";
+				case MANNA -> "#ffffff";
+				case SAP -> "#e0ffcf";
+				case APICAL_BUD -> "#94c47a";
+				case SEED -> "#a17f45";
+				default -> "#545454";
+			};
+		} else {
+			return "#000000";
+		}
 	}
 
 }

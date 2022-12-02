@@ -51,7 +51,7 @@ public class SowCellAction extends AbstractModelAction {
 			if (!type.isEmpty()) {
 				modifyModel(() -> {
 					for (Cell c : cells) {
-						c.setSpecies(type.get(0).getType());
+						c.setPlant(type.get(0).getType());
 						c.setDate(dialog.getDate().toInstant());
 					}
 				});

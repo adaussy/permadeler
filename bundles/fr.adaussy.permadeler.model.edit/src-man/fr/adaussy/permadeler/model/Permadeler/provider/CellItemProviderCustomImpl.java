@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
@@ -35,7 +35,7 @@ public class CellItemProviderCustomImpl extends CellItemProvider {
 	@Override
 	public String getText(Object object) {
 		Cell cell = (Cell)object;
-		Species species = cell.getSpecies();
+		Plant species = cell.getPlant();
 		if (species != null) {
 			IItemLabelProvider adapt = (IItemLabelProvider)getRootAdapterFactory().adapt(species,
 					IItemLabelProvider.class);
@@ -54,7 +54,7 @@ public class CellItemProviderCustomImpl extends CellItemProvider {
 	public void notifyChanged(Notification notification) {
 
 		switch (notification.getFeatureID(Cell.class)) {
-			case PermadelerPackage.CELL__SPECIES:
+			case PermadelerPackage.CELL__PLANT:
 				Object notifier = notification.getNotifier();
 				if (notifier instanceof EObject) {
 					EObject eObject = (EObject)notifier;

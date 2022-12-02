@@ -104,53 +104,9 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case PermadelerPackage.GENUS: {
-				Genus genus = (Genus)theEObject;
-				T result = caseGenus(genus);
-				if (result == null)
-					result = casePlantNamedElement(genus);
-				if (result == null)
-					result = caseNamedElement(genus);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.SPECIES: {
-				Species species = (Species)theEObject;
-				T result = caseSpecies(species);
-				if (result == null)
-					result = casePlantNamedElement(species);
-				if (result == null)
-					result = caseNamedElement(species);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case PermadelerPackage.SEED_ITEM: {
 				SeedItem seedItem = (SeedItem)theEObject;
 				T result = caseSeedItem(seedItem);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.AREA: {
-				Area area = (Area)theEObject;
-				T result = caseArea(area);
-				if (result == null)
-					result = caseNamedElement(area);
-				if (result == null)
-					result = casePlantationOwner(area);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.PLANTING: {
-				Planting planting = (Planting)theEObject;
-				T result = casePlanting(planting);
-				if (result == null)
-					result = caseNamedElement(planting);
-				if (result == null)
-					result = casePlantationOwner(planting);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -174,32 +130,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				T result = casePlantNamedElement(plantNamedElement);
 				if (result == null)
 					result = caseNamedElement(plantNamedElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.PLANT: {
-				Plant plant = (Plant)theEObject;
-				T result = casePlant(plant);
-				if (result == null)
-					result = caseSpecies(plant);
-				if (result == null)
-					result = casePlantNamedElement(plant);
-				if (result == null)
-					result = caseNamedElement(plant);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.TREE: {
-				Tree tree = (Tree)theEObject;
-				T result = caseTree(tree);
-				if (result == null)
-					result = caseSpecies(tree);
-				if (result == null)
-					result = casePlantNamedElement(tree);
-				if (result == null)
-					result = caseNamedElement(tree);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -266,13 +196,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case PermadelerPackage.PLANTATION_OWNER: {
-				PlantationOwner plantationOwner = (PlantationOwner)theEObject;
-				T result = casePlantationOwner(plantationOwner);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case PermadelerPackage.TRAY_ZONE: {
 				TrayZone trayZone = (TrayZone)theEObject;
 				T result = caseTrayZone(trayZone);
@@ -291,37 +214,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case PermadelerPackage.BED: {
-				Bed bed = (Bed)theEObject;
-				T result = caseBed(bed);
-				if (result == null)
-					result = caseNamedElement(bed);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.GRID_BED: {
-				GridBed gridBed = (GridBed)theEObject;
-				T result = caseGridBed(gridBed);
-				if (result == null)
-					result = caseBed(gridBed);
-				if (result == null)
-					result = caseNamedElement(gridBed);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.ROW_BED: {
-				RowBed rowBed = (RowBed)theEObject;
-				T result = caseRowBed(rowBed);
-				if (result == null)
-					result = caseBed(rowBed);
-				if (result == null)
-					result = caseNamedElement(rowBed);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case PermadelerPackage.GRID_BED_ROW: {
 				GridBedRow gridBedRow = (GridBedRow)theEObject;
 				T result = caseGridBedRow(gridBedRow);
@@ -332,29 +224,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 			case PermadelerPackage.GRID_BED_CELL: {
 				GridBedCell gridBedCell = (GridBedCell)theEObject;
 				T result = caseGridBedCell(gridBedCell);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.ROW_BED_ROW: {
-				RowBedRow rowBedRow = (RowBedRow)theEObject;
-				T result = caseRowBedRow(rowBedRow);
-				if (result == null)
-					result = casePlantationOwner(rowBedRow);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.COMPATIBILITY_LINK: {
-				CompatibilityLink compatibilityLink = (CompatibilityLink)theEObject;
-				T result = caseCompatibilityLink(compatibilityLink);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.COMPATIBILITY_MATRIX: {
-				CompatibilityMatrix compatibilityMatrix = (CompatibilityMatrix)theEObject;
-				T result = caseCompatibilityMatrix(compatibilityMatrix);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -385,6 +254,42 @@ public class PermadelerSwitch<T> extends Switch<T> {
 			case PermadelerPackage.BACKGROUND_IMAGE: {
 				BackgroundImage backgroundImage = (BackgroundImage)theEObject;
 				T result = caseBackgroundImage(backgroundImage);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.PLANT: {
+				Plant plant = (Plant)theEObject;
+				T result = casePlant(plant);
+				if (result == null)
+					result = casePlantNamedElement(plant);
+				if (result == null)
+					result = caseNamedElement(plant);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.PRODUCTION: {
+				Production production = (Production)theEObject;
+				T result = caseProduction(production);
+				if (result == null)
+					result = caseTemporalItem(production);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
+				if (result == null)
+					result = caseTemporalItem(action);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.TEMPORAL_ITEM: {
+				TemporalItem temporalItem = (TemporalItem)theEObject;
+				T result = caseTemporalItem(temporalItem);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -440,36 +345,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Genus</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Genus</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGenus(Genus object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Species</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Species</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSpecies(Species object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Seed Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -481,36 +356,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSeedItem(SeedItem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Area</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Area</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseArea(Area object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Planting</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Planting</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePlanting(Planting object) {
 		return null;
 	}
 
@@ -556,36 +401,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlantNamedElement(PlantNamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Plant</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Plant</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePlant(Plant object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tree</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tree</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTree(Tree object) {
 		return null;
 	}
 
@@ -710,21 +525,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Plantation Owner</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Plantation Owner</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePlantationOwner(PlantationOwner object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Tray Zone</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -755,51 +555,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Bed</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bed</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBed(Bed object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Grid Bed</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Grid Bed</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGridBed(GridBed object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Row Bed</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Row Bed</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRowBed(RowBed object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Grid Bed Row</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -826,51 +581,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGridBedCell(GridBedCell object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Row Bed Row</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Row Bed Row</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRowBedRow(RowBedRow object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Compatibility Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Compatibility Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCompatibilityLink(CompatibilityLink object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Compatibility Matrix</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Compatibility Matrix</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCompatibilityMatrix(CompatibilityMatrix object) {
 		return null;
 	}
 
@@ -931,6 +641,66 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBackgroundImage(BackgroundImage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePlant(Plant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Production</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Production</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProduction(Production object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAction(Action object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Temporal Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Temporal Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemporalItem(TemporalItem object) {
 		return null;
 	}
 

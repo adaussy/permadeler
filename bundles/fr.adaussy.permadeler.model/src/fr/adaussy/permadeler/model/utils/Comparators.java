@@ -12,9 +12,9 @@ package fr.adaussy.permadeler.model.utils;
 
 import java.util.Comparator;
 
-import fr.adaussy.permadeler.model.Permadeler.Genus;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 
 /**
  * Class taht gathers compartors
@@ -28,7 +28,7 @@ public class Comparators {
 	 */
 	public static final Comparator<SeedItem> SEED_ITEM_CMP = Comparator
 			.nullsLast(Comparator.<SeedItem, String> comparing(seddItem -> {
-				Species type = seddItem.getType();
+				Plant type = seddItem.getType();
 				if (type == null || type.getName() == null) {
 					return "";
 				} else {
@@ -36,27 +36,14 @@ public class Comparators {
 				}
 			}));
 
-	/**
-	 * Comparator used to order {@link Species}
-	 */
-	public static final Comparator<Species> SPECIES_CMP = Comparator
-			.nullsLast(Comparator.<Species, String> comparing(s -> {
-				if (s == null || s.getName() == null) {
-					return "";
-				} else {
-					return s.getName();
-				}
-			}));
+	public static <T extends PlantNamedElement> Comparator<T> buildComparator() {
+		return Comparator.nullsLast(Comparator.<PlantNamedElement, String> comparing(s -> {
+			if (s == null || s.getName() == null) {
+				return "";
+			} else {
+				return s.getName();
+			}
+		}));
+	}
 
-	/**
-	 * Comparator used to order {@link Genus}
-	 */
-	public static final Comparator<Genus> GENUS_CMP = Comparator
-			.nullsLast(Comparator.<Genus, String> comparing(s -> {
-				if (s == null || s.getName() == null) {
-					return "";
-				} else {
-					return s.getName();
-				}
-			}));
 }

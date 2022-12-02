@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getSeedLib <em>Seed Lib</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getKnowledgeBase <em>Knowledge Base</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getSeedbank <em>Seedbank</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getZones <em>Zones</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getNursary <em>Nursary</em>}</li>
@@ -43,26 +43,26 @@ public interface Root extends NamedElement {
 	String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
 
 	/**
-	 * Returns the value of the '<em><b>Seed Lib</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Knowledge Base</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Seed Lib</em>' containment reference.
-	 * @see #setSeedLib(KnowledgeBase)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getRoot_SeedLib()
+	 * @return the value of the '<em>Knowledge Base</em>' containment reference.
+	 * @see #setKnowledgeBase(KnowledgeBase)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getRoot_KnowledgeBase()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	KnowledgeBase getSeedLib();
+	KnowledgeBase getKnowledgeBase();
 
 	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Root#getSeedLib <em>Seed Lib</em>}' containment reference.
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Root#getKnowledgeBase <em>Knowledge Base</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Seed Lib</em>' containment reference.
-	 * @see #getSeedLib()
+	 * @param value the new value of the '<em>Knowledge Base</em>' containment reference.
+	 * @see #getKnowledgeBase()
 	 * @generated
 	 */
-	void setSeedLib(KnowledgeBase value);
+	void setKnowledgeBase(KnowledgeBase value);
 
 	/**
 	 * Returns the value of the '<em><b>Seedbank</b></em>' containment reference.
@@ -149,13 +149,5 @@ public interface Root extends NamedElement {
 	 * @generated
 	 */
 	void addSowPlanification(SeedItem seedItem, List<Integer> weeks, SowType type);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	CompatibilityLink addCompatibility(Genus source, Genus target, int cmp);
 
 } // Root

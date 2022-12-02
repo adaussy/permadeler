@@ -692,31 +692,6 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Wind/TolerateStrongWind"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Wind/NotWindTolerant"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EatingType">
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Unkown"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Fruit"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Vegetable"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/AromaticPlant"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/None"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EatingType/Flower"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EdiblePart">
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Unkown"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/ApicalBud"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Leaves"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Pollen"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Flowers"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Manna"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Root"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Shoots"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Fruit"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Nectar"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Sap"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Stem"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/InnerBark"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Oil"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EdiblePart/Seed"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//SpecialUses">
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/NitrogenFixer"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/ScentedPlants"/>
@@ -741,6 +716,39 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SowType/INDOOR"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SowType/OUTDOOR"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//ProductionType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Fruit"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Leaves"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Flower"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Other"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Shoots"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Manna"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Sap"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/ApicalBud"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Seed"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Pollen"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Nectar"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Stem"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/InnerBark"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Oil"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Root"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//ActionType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/SowIndoor"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/SowOutdoor"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Pruning"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Other"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Layer">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/CANOPY"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/UNDERSTORY"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/SHRUB"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/HERB"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/ROOT"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/GROUND_COVER"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/VINE"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/OTHER"/>
+    </genEnums>
     <genDataTypes ecoreDataType="Permadeler.ecore#//MonthWeek"/>
     <genDataTypes ecoreDataType="Permadeler.ecore#//URL"/>
     <genDataTypes ecoreDataType="Permadeler.ecore#//Date"/>
@@ -748,7 +756,7 @@
     <genDataTypes ecoreDataType="Permadeler.ecore#//Color" create="return fr.adaussy.permadeler.model.utils.Color.decode(it);"
         convert="return fr.adaussy.permadeler.model.utils.Color.encode(it);"/>
     <genClasses ecoreClass="Permadeler.ecore#//Root">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/seedLib"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/knowledgeBase"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/seedbank"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/zones"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Root/nursary"/>
@@ -758,70 +766,17 @@
         <genParameters ecoreParameter="Permadeler.ecore#//Root/addSowPlanification/weeks"/>
         <genParameters ecoreParameter="Permadeler.ecore#//Root/addSowPlanification/type"/>
       </genOperations>
-      <genOperations ecoreOperation="Permadeler.ecore#//Root/addCompatibility">
-        <genParameters ecoreParameter="Permadeler.ecore#//Root/addCompatibility/source"/>
-        <genParameters ecoreParameter="Permadeler.ecore#//Root/addCompatibility/target"/>
-        <genParameters ecoreParameter="Permadeler.ecore#//Root/addCompatibility/cmp"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//KnowledgeBase">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/plantTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/compatibilityMatrix"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/speciesRegistry"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/plantTypes"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//SeedBank">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedBank/items"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Genus">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/species"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Genus/family"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/subGenus"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus/compatibilityLinks"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Genus/color"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//Genus/getEffectiveColor"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Species">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/usdaHardinessMin"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/lightingCondition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/soilType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/moisture"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/references"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/productiveMonths"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/bloomMonths"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/fruitConservation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/fruitsAvailability"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species/images"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/growRate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/wind"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/width"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/height"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/eatingType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/edibleParts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/usdaHardinessMax"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/specialUses"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/flowerColor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/pruningMonths"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/pruneNote"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Species/color"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//Species/getAllNames"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//Species/getEffectiveColor"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//SeedItem">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedItem/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SeedItem/quantity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SeedItem/byDate"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Area">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Area/subAreas"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Area/soilType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Area/events"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//Area/getActualSoilType"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Planting">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Planting/areas"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Planting/startTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Planting/endTime"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//NamedElement/name"/>
@@ -829,25 +784,16 @@
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Plantation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/sowEvent"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/plantationEvent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/events"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plantation/removalEvent"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/description"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//Plantation/isRemoved"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/plantationDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/currentLayer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/rootstock"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//PlantNamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/commonNames"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/latinName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/representationKey"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Plant">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/sowIndoorMonths"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/sowOutdoorMonths"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/lifeCycle"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Tree">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Tree/rootstock"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Reference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/link"/>
@@ -866,7 +812,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Event/type"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Zone">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Zone/plantings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Zone/backgroundImage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Zone/plantations"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Nursary">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Nursary/zones"/>
@@ -879,39 +826,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Row/cells"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Cell">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Cell/species"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Cell/plant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Cell/date"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//PlantationOwner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//PlantationOwner/plantations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//PlantationOwner/beds"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//TrayZone"/>
     <genClasses image="false" ecoreClass="Permadeler.ecore#//TrayOwner">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//TrayOwner/trays"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Bed"/>
-    <genClasses ecoreClass="Permadeler.ecore#//GridBed">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//GridBed/rows"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//RowBed">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//RowBed/rows"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//RowBed/type"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//GridBedRow">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//GridBedRow/cells"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//GridBedCell">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//GridBedCell/plantation"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//RowBedRow"/>
-    <genClasses ecoreClass="Permadeler.ecore#//CompatibilityLink">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//CompatibilityLink/species"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//CompatibilityLink/affinity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//CompatibilityLink/description"/>
-    </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//CompatibilityMatrix">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//CompatibilityMatrix/compatibilties"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Planfication">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Planfication/weeks"/>
@@ -923,18 +849,44 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SowPlanfication/seed"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//SowPlanfication/type"/>
     </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//SpeciesRegistry">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SpeciesRegistry/famillies"/>
+    <genClasses ecoreClass="Permadeler.ecore#//BackgroundImage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//BackgroundImage/relativePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//BackgroundImage/scaling"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//BackgroundImage/transparency"/>
     </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Genus.1">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Genus.1/species"/>
+    <genClasses ecoreClass="Permadeler.ecore#//Plant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/soilType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plant/images"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/lightingCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/moisture"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plant/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/specialUses"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/growRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/wind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plant/productions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Plant/actions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/foodForestLayer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/lifeCycle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plant/family"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Plant/getAllNames"/>
     </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Species.1">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Species.1/varieties"/>
+    <genClasses ecoreClass="Permadeler.ecore#//Production">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/conservation"/>
     </genClasses>
-    <genClasses ecoreClass="Permadeler.ecore#//Variety"/>
-    <genClasses ecoreClass="Permadeler.ecore#//Familly">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Familly/genuses"/>
+    <genClasses ecoreClass="Permadeler.ecore#//Action">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Action/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Action/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Action/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Permadeler.ecore#//TemporalItem">
+      <genOperations ecoreOperation="Permadeler.ecore#//TemporalItem/getName"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//TemporalItem/getPerdiod"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

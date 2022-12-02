@@ -69,24 +69,24 @@ public class CellItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSpeciesPropertyDescriptor(object);
+			addPlantPropertyDescriptor(object);
 			addDatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Species feature.
+	 * This adds a property descriptor for the Plant feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSpeciesPropertyDescriptor(Object object) {
+	protected void addPlantPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Cell_species_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Cell_species_feature", "_UI_Cell_type"),
-				PermadelerPackage.Literals.CELL__SPECIES, true, false, true, null, null, null));
+				getString("_UI_Cell_plant_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Cell_plant_feature", "_UI_Cell_type"),
+				PermadelerPackage.Literals.CELL__PLANT, true, false, true, null, null, null));
 	}
 
 	/**

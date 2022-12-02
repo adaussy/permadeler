@@ -10,10 +10,7 @@
  */
 package fr.adaussy.permadeler.model.edit;
 
-import static fr.adaussy.permadeler.model.edit.PermadelerIcons.LEAF_ICON;
 import static fr.adaussy.permadeler.model.edit.PermadelerIcons.LEAF_SVG;
-import static fr.adaussy.permadeler.model.edit.PermadelerIcons.PLANT_SVG;
-import static fr.adaussy.permadeler.model.edit.PermadelerIcons.TREE_SVG;
 import static java.util.stream.Collectors.joining;
 
 import java.net.URL;
@@ -33,28 +30,21 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.osgi.framework.Bundle;
 
-import fr.adaussy.permadeler.model.Permadeler.Area;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.Event;
-import fr.adaussy.permadeler.model.Permadeler.Genus;
-import fr.adaussy.permadeler.model.Permadeler.GridBed;
 import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
-import fr.adaussy.permadeler.model.Permadeler.RowBed;
-import fr.adaussy.permadeler.model.Permadeler.RowBedRow;
-import fr.adaussy.permadeler.model.Permadeler.RowBedType;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
-import fr.adaussy.permadeler.model.Permadeler.Tree;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSwitch;
@@ -239,14 +229,12 @@ public final class ImageProvider {
 	 */
 	public String getSVG(EObject o) {
 		final String result;
-		if (o instanceof Genus) {
-			result = getSpeciesSVG((Genus)o, PermadelerIcons.PLANT_SVG);
-		} else if (o instanceof Plantation) {
-			result = getSpeciesSVGWithDefault(((Plantation)o).getType(), PermadelerIcons.SHOVEL_SVG);
+		if (o instanceof Plantation) {
+			result = getPlantSVGWithDefault(((Plantation)o).getType(), PermadelerIcons.SHOVEL_SVG);
 		} else if (o instanceof Cell) {
-			result = getSpeciesSVGWithDefault(((Cell)o).getSpecies(), PermadelerIcons.AREA_SVG);
-		} else if (o instanceof Species) {
-			result = getSpeciesSVGWithDefault((Species)o, PermadelerIcons.PLANT_SVG);
+			result = getPlantSVGWithDefault(((Cell)o).getPlant(), PermadelerIcons.AREA_SVG);
+		} else if (o instanceof Plant) {
+			result = getPlantSVGWithDefault((Plant)o, PermadelerIcons.PLANT_SVG);
 		} else {
 			result = "";
 		}
@@ -254,7 +242,7 @@ public final class ImageProvider {
 	}
 
 	/**
-	 * Gets the path to an SVG to be used for a representation for the given {@link Species}
+	 * Gets the path to an SVG to be used for a representation for the given {@link Variety}
 	 * 
 	 * @param species
 	 *            a {@link Species}
@@ -262,32 +250,11 @@ public final class ImageProvider {
 	 *            relative path of the default SVG
 	 * @return a path or the full path of the given default path
 	 */
-	private String getSpeciesSVGWithDefault(Species species, String defaultPath) {
-		if (species == null) {
+	private String getPlantSVGWithDefault(Plant variety, String defaultPath) {
+		if (variety == null) {
 			return PermadelerIcons.buildFullPath(defaultPath);
 		}
-		String localPath = getSpeciesSVGPath(species);
-		if (localPath != null) {
-			return PermadelerIcons.iconsRelativeToFullPath(localPath);
-		} else {
-			return PermadelerIcons.buildFullPath(defaultPath);
-		}
-	}
-
-	/**
-	 * Gets the path to an SVG to be used for a representation for the given {@link Genus}
-	 * 
-	 * @param genus
-	 *            a {@link Genus}
-	 * @param defaultPath
-	 *            relative path of the default SVG
-	 * @return a path or the full path of the given default path
-	 */
-	private String getSpeciesSVG(Genus genus, String defaultPath) {
-		if (genus == null) {
-			return PermadelerIcons.buildFullPath(defaultPath);
-		}
-		String localPath = geGenustSVGPath(genus);
+		String localPath = getVarietySVGPath(variety);
 		if (localPath != null) {
 			return PermadelerIcons.iconsRelativeToFullPath(localPath);
 		} else {
@@ -299,36 +266,14 @@ public final class ImageProvider {
 	 * Gets the representation key the given species (defined either by {@link Species#getRepresentationKey()}
 	 * or by one of its ancestor genus)
 	 * 
-	 * @param species
+	 * @param plantNamedElement
 	 *            a {@link Species}
 	 * @return a key (or <code>null</code>)
 	 */
-	private String getRepKey(Species species) {
-		String iconKey = species.getRepresentationKey();
-		if (iconKey == null && species.getType() != null) {
-			Genus type = species.getType();
-			iconKey = getRepKey(type);
-		}
-		return iconKey;
-	}
-
-	/**
-	 * Gets the representation key of a genus (or its parent if null)
-	 * 
-	 * @param type
-	 *            a {@link Genus}
-	 * @return a representation key
-	 */
-	private String getRepKey(Genus type) {
-		String iconKey;
-		iconKey = type.getRepresentationKey();
-		if (iconKey == null) {
-			// Look for super genus
-			EObject container = type.eContainer();
-			if (container instanceof Genus) {
-				Genus superGenus = (Genus)container;
-				iconKey = superGenus.getRepresentationKey();
-			}
+	private String getRepKey(PlantNamedElement plantNamedElement) {
+		String iconKey = plantNamedElement.getRepresentationKey();
+		if (iconKey == null && plantNamedElement.eContainer() instanceof PlantNamedElement) {
+			iconKey = getRepKey((PlantNamedElement)plantNamedElement.eContainer());
 		}
 		return iconKey;
 	}
@@ -342,36 +287,7 @@ public final class ImageProvider {
 		return previews;
 	}
 
-	/**
-	 * Gets the path of SVG representing the given species
-	 * 
-	 * @param type
-	 *            a {@link Species}
-	 * @return a path or <code>null</code>
-	 */
-	private String getSpeciesSVGPath(Species type) {
-		if (type != null) {
-			String repKey = getRepKey(type);
-
-			if (svgs.contains(repKey)) {
-				return repKey;
-			} else if (type instanceof Tree) {
-				return PermadelerIcons.buildIconsFolderReltivePath(TREE_SVG);
-			} else {
-				return PermadelerIcons.buildIconsFolderReltivePath(PLANT_SVG);
-			}
-		}
-		return PermadelerIcons.buildIconsFolderReltivePath(LEAF_SVG);
-	}
-
-	/**
-	 * Gets the path of SVG representing the given {@link Genus}
-	 * 
-	 * @param type
-	 *            a {@link Genus}
-	 * @return a path or <code>null</code>
-	 */
-	private String geGenustSVGPath(Genus type) {
+	private String getVarietySVGPath(Plant type) {
 		if (type != null) {
 			String repKey = getRepKey(type);
 
@@ -415,20 +331,6 @@ public final class ImageProvider {
 		}
 
 		@Override
-		public String caseRowBed(RowBed object) {
-			if (object.getType() == RowBedType.HORIZONTAL) {
-				return "icons/bank/icons/HorizontalBed.png"; //$NON-NLS-1$
-			} else {
-				return "icons/bank/icons/VerticalBed.png"; //$NON-NLS-1$
-			}
-		}
-
-		@Override
-		public String caseGridBed(GridBed object) {
-			return "icons/bank/icons/GridBed.png"; //$NON-NLS-1$
-		}
-
-		@Override
 		public String caseSeedBank(SeedBank object) {
 			return "icons/bank/icons/083-seed-1.png"; //$NON-NLS-1$
 		}
@@ -464,18 +366,13 @@ public final class ImageProvider {
 		}
 
 		@Override
-		public String caseArea(Area object) {
-			return "icons/custo/commons/area.png"; //$NON-NLS-1$
-		}
-
-		@Override
 		public String caseZone(Zone object) {
 			return "icons/custo/commons/zone.png"; //$NON-NLS-1$
 		}
 
 		@Override
 		public String casePlantation(Plantation object) {
-			Species type = object.getType();
+			Plant type = object.getType();
 			if (type != null) {
 				return doSwitch(type);
 			}
@@ -484,8 +381,8 @@ public final class ImageProvider {
 
 		@Override
 		public String caseCell(Cell cell) {
-			if (cell.getSpecies() != null) {
-				return caseSpecies(cell.getSpecies());
+			if (cell.getPlant() != null) {
+				return casePlant(cell.getPlant());
 			} else {
 				return "icons/bank/icons/area.png"; //$NON-NLS-1$
 			}
@@ -502,67 +399,29 @@ public final class ImageProvider {
 		}
 
 		@Override
-		public String caseRowBedRow(RowBedRow object) {
-			return "icons/bank/icons/row.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseSpecies(Species object) {
-			String path = getRepKey(object);
-			if (path != null) {
-				return icons.get(path);
-			}
-			return null;
-		}
-
-		@Override
 		public String casePlant(Plant object) {
-
-			String path = caseSpecies(object);
+			String path = getRepKey(object);
+			String iconPath = null;
 			if (path != null) {
-				return path;
-			} else {
-				return "icons/custo/commons/plant.png"; //$NON-NLS-1$
+				iconPath = icons.get(path);
 			}
-		}
+			if (iconPath == null) {
+				iconPath = switch (object.getFoodForestLayer()) {
+					case CANOPY -> "icons/custo/commons/canopy.png";
+					case UNDERSTORY -> "icons/custo/commons/understory.png";
+					case SHRUB -> "icons/custo/commons/shrub.png";
+					case HERB -> "icons/custo/commons/herb.png";
+					case ROOT -> "icons/custo/commons/root.png";
+					case GROUND_COVER -> "icons/custo/commons/ground-covert.png";
+					case VINE -> "icons/custo/commons/vine.png";
+					case OTHER -> "icons/custo/commons/plant.png";
+					default -> null;
+				};
 
-		@Override
-		public String caseTree(Tree object) {
-
-			String path = caseSpecies(object);
-			if (path != null) {
-				return path;
-			} else {
-
-				return "icons/custo/commons/tree.png"; //$NON-NLS-1$
 			}
-		}
+			return iconPath;
 
-		@Override
-		public String caseGenus(Genus object) {
-
-			String key = object.getRepresentationKey();
-
-			if (key == null) {
-				// Look for super genus
-				EObject container = object.eContainer();
-				if (container instanceof Genus) {
-					Genus superGenus = (Genus)container;
-					key = superGenus.getRepresentationKey();
-				}
-			}
-
-			String path = null;
-			if (key != null) {
-				path = icons.get(key);
-			}
-
-			if (path != null) {
-				return path;
-			} else {
-				return LEAF_ICON;
-			}
-		}
+		};
 
 	}
 

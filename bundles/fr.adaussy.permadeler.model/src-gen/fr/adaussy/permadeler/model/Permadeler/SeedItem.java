@@ -45,12 +45,12 @@ public interface SeedItem extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(Species)
+	 * @see #setType(Plant)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getSeedItem_Type()
 	 * @model required="true"
 	 * @generated
 	 */
-	Species getType();
+	Plant getType();
 
 	/**
 	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.SeedItem#getType <em>Type</em>}' reference.
@@ -60,7 +60,7 @@ public interface SeedItem extends EObject {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Species value);
+	void setType(Plant value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' attribute.

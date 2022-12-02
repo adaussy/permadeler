@@ -10,7 +10,7 @@
   <extension
         point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
      <editpartProvider
-           class="fr.adaussy.permadeler.model.design.editparts.PlantingEditpartProvider">
+           class="fr.adaussy.permadeler.model.design.editparts.ZoneEditpartProvider">
         <Priority
               name="Highest">
         </Priority>

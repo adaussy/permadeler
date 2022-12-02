@@ -9,6 +9,7 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.parts;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,6 +20,7 @@ import javax.inject.Inject;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.emf.common.command.Command;
@@ -37,6 +39,7 @@ import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -47,6 +50,8 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionListener;
+import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.featureExtensions.FeatureExtensionsUIManager;
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerView;
@@ -65,6 +70,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.FilteredTree;
 import org.eclipse.ui.dialogs.PatternFilter;
@@ -93,15 +99,43 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 
 	private RefreshViewerOnChangeResourceSetListener represenationUpdater = new RefreshViewerOnChangeResourceSetListener();
 
+	private SessionListener dirtyListener = new SessionListener() {
+
+		@Override
+		public void notify(int changeKind) {
+			if (mPart != null) {
+
+				if (SessionListener.DIRTY == changeKind) {
+					mPart.setDirty(true);
+				} else if (SessionListener.SYNC == changeKind) {
+					mPart.setDirty(false);
+				}
+			}
+
+		}
+	};
+
 	@Inject
 	private ESelectionService selectionService;
+
+	private MPart mPart;
 
 	@Inject
 	public AbstractModelViewerPart() {
 	}
 
+	@Persist
+	public void persist(Shell shell) throws InvocationTargetException, InterruptedException {
+		if (displayedSession != null && displayedSession.getStatus() == SessionStatus.DIRTY) {
+			new ProgressMonitorDialog(shell).run(false, false, progress -> {
+				displayedSession.save(progress);
+			});
+		}
+	}
+
 	@PostConstruct
 	public void postConstruct(Composite parent, @Optional Session session, MPart mPart) {
+		this.mPart = mPart;
 		this.display = parent.getShell().getDisplay();
 		Composite cc = new Composite(parent, SWT.None);
 		cc.setLayout(new GridLayout(1, false));
@@ -182,11 +216,14 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 
 		if (displayedSession != null) {
 			displayedSession.getTransactionalEditingDomain().removeResourceSetListener(represenationUpdater);
+			displayedSession.removeListener(dirtyListener);
 		}
 
-		session.getTransactionalEditingDomain().addResourceSetListener(represenationUpdater);
-
-		updateContent(session);
+		if (session != null) {
+			session.addListener(dirtyListener);
+			session.getTransactionalEditingDomain().addResourceSetListener(represenationUpdater);
+			updateContent(session);
+		}
 	}
 
 	protected abstract EObject getViewerRoot(Root root);

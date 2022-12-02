@@ -20,7 +20,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.widgets.Event;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
-import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.internal.dialogs.SowSpeciesDialog;
@@ -32,11 +32,11 @@ import fr.adaussy.permadeler.rcp.internal.dialogs.SowSpeciesDialog;
  */
 public class SowSpeciesAction extends AbstractModelAction {
 
-	private final Species species;
+	private final Plant plant;
 
-	public SowSpeciesAction(Session session, Species species) {
+	public SowSpeciesAction(Session session, Plant variety) {
 		super("Sow", session);
-		this.species = species;
+		this.plant = variety;
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class SowSpeciesAction extends AbstractModelAction {
 	@Override
 	public void runWithEvent(Event event) {
 		SowSpeciesDialog dialog = new SowSpeciesDialog(event.display.getActiveShell(), new Date(),
-				species.eResource().getContents().get(0));
+				plant.eResource().getContents().get(0));
 		if (dialog.open() == Dialog.OK) {
 			List<Tray> selection = dialog.getSelection();
 			List<Cell> emptyCelss = selection.stream().flatMap(s -> s.getEmptyCells().stream())
@@ -59,7 +59,7 @@ public class SowSpeciesAction extends AbstractModelAction {
 				for (int i = 0; i < nbOfSow; i++) {
 					if (emptyCelss.size() > i) {
 						Cell cell = emptyCelss.get(i);
-						cell.setSpecies(species);
+						cell.setPlant(plant);
 						cell.setDate(dialog.getDate().toInstant());
 					}
 				}

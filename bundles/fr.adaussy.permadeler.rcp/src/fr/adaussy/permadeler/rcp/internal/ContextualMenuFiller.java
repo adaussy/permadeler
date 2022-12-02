@@ -29,27 +29,21 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.ui.PlatformUI;
 
+import fr.adaussy.permadeler.model.Permadeler.ActionType;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
-import fr.adaussy.permadeler.model.Permadeler.Genus;
 import fr.adaussy.permadeler.model.Permadeler.Image;
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.Planting;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.Reference;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
-import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ListAllPlantationAction;
-import fr.adaussy.permadeler.rcp.internal.actions.MoveAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
@@ -105,9 +99,6 @@ public class ContextualMenuFiller {
 				case PermadelerPackage.PLANT:
 					casePlant((List<Plant>)selections);
 					break;
-				case PermadelerPackage.SPECIES:
-					caseSpecies((List<Species>)selections);
-					break;
 				case PermadelerPackage.SEED_ITEM:
 					caseSeedItem((List<SeedItem>)selections);
 					break;
@@ -126,48 +117,12 @@ public class ContextualMenuFiller {
 				case PermadelerPackage.PLANTATION:
 					casePlantation((List<Plantation>)selections);
 					break;
-				case PermadelerPackage.PLANTING:
-					casePlanting((List<Planting>)selections);
-					break;
-				case PermadelerPackage.PLANIFIER:
-					casePlanifier((List<Planifier>)selections);
-					break;
 				default:
 					break;
 			}
 		}
 	}
 	// CHECKSTYLE:ON Switch pattern
-
-	private void casePlanifier(List<Planifier> selections) {
-		if (selections.size() == 1) {
-			Planifier planifier = selections.get(0);
-			timeViewActions.add(buidSowTimeViewAction(planifier));
-		}
-	}
-
-	/**
-	 * Provides the actions for {@link Plant}s
-	 * 
-	 * @param selections
-	 *            some {@link Plant}s
-	 */
-	private void casePlant(List<Plant> selections) {
-		if (selections.size() == 1) {
-			Plant plant = selections.get(0);
-			List<SeedItem> seeds = session.getSemanticCrossReferencer()
-					.getInverseReferences(plant, PermadelerPackage.eINSTANCE.getSeedItem_Type(), true)
-					.stream()//
-					.map(s -> (SeedItem)s.getEObject())//
-					.filter(s -> s.getType() instanceof Plant)//
-					.filter(s -> s.getQuantity() != Quantity.EMPTY)//
-					.collect(toList());
-			for (SeedItem s : seeds) {
-				addPlanificationActions(Collections.singletonList(s));
-			}
-		}
-
-	}
 
 	/**
 	 * Provides the actions for {@link Plantation}s
@@ -179,20 +134,11 @@ public class ContextualMenuFiller {
 
 		if (selections.size() == 1) {
 			Plantation plantation = selections.get(0);
-			Species type = plantation.getType();
+			Plant type = plantation.getType();
 			if (type != null) {
-				navigateAction.add(new FocusOnElementAction("To Species", Collections.singletonList(type),
+				navigateAction.add(new FocusOnElementAction("To variety", Collections.singletonList(type),
 						KnowledgeViewerPart.ID));
 			}
-		}
-
-	}
-
-	private void casePlanting(List<Planting> selections) {
-
-		if (selections.size() == 1) {
-			Planting planting = selections.get(0);
-			others.add(new ListAllPlantationAction(session, planting));
 		}
 
 	}
@@ -215,16 +161,19 @@ public class ContextualMenuFiller {
 		others.add(new SowCellAction(selections, session));
 		if (selections.size() == 1) {
 			Cell cell = selections.get(0);
-			if (cell.getSpecies() != null) {
-				navigateAction.add(new FocusOnElementAction("To Species",
-						Collections.singletonList(cell.getSpecies()), KnowledgeViewerPart.ID));
+			if (cell.getPlant() != null) {
+				navigateAction.add(new FocusOnElementAction("To variety",
+						Collections.singletonList(cell.getPlant()), KnowledgeViewerPart.ID));
 			}
 		}
 
 	}
 
 	private void caseZone(List<Zone> zones) {
-
+		if (zones.size() == 1) {
+			Zone zone = zones.get(0);
+			others.add(new ListAllPlantationAction(session, zone));
+		}
 	}
 
 	/**
@@ -266,35 +215,23 @@ public class ContextualMenuFiller {
 				.build();
 	}
 
-	/**
-	 * Provides the actions for {@link Species}s
-	 * 
-	 * @param selections
-	 *            some {@link Species}s
-	 */
-	private void caseSpecies(List<Species> selections) {
-		if (selections.size() == 1) {
-			Species species = selections.get(0);
-			others.add(MoveAction.builder(Genus.class)//
-					.withRef(PermadelerPackage.eINSTANCE.getGenus_Species())//
-					.withRoot(EMFUtils.getAncestor(KnowledgeBase.class, species))//
-					.withSession(session)// )
-					.withText("Move to other genus")//
-					.withToMove(species)//
-					.build());
-			for (Image img : species.getImages()) {
+	private void casePlant(List<Plant> varieties) {
+
+		if (varieties.size() == 1) {
+			Plant variety = varieties.get(0);
+			for (Image img : variety.getImages()) {
 				others.add(new OpenImageAction(img));
 			}
-			for (Reference ref : species.getReferences()) {
+			for (Reference ref : variety.getReferences()) {
 				others.add(new OpenReference(ref));
 			}
 
-			List<SeedItem> seedItems = getNonEmptySeedItem(species);
+			List<SeedItem> seedItems = getNonEmptySeedItem(variety);
 			if (!seedItems.isEmpty()) {
-				others.add(new SowSpeciesAction(session, species));
+				others.add(new SowSpeciesAction(session, variety));
 			}
-
 		}
+
 	}
 
 	/**
@@ -304,8 +241,8 @@ public class ContextualMenuFiller {
 	 *            some {@link SeedItem}s
 	 */
 	public void caseSeedItem(List<SeedItem> selections) {
-		List<Species> types = selections.stream().map(o -> o.getType()).collect(toList());
-		navigateAction.add(new FocusOnElementAction("To species", types, KnowledgeViewerPart.ID));
+		List<Plant> types = selections.stream().map(o -> o.getType()).collect(toList());
+		navigateAction.add(new FocusOnElementAction("To variety", types, KnowledgeViewerPart.ID));
 
 		if (selections.size() == 1) {
 			addPlanificationActions(selections);
@@ -321,23 +258,23 @@ public class ContextualMenuFiller {
 	private void addPlanificationActions(List<SeedItem> objects) {
 		SeedItem seedItem = objects.get(0);
 
-		Species species = seedItem.getType();
-		if (species instanceof Plant) {
-			Plant p = (Plant)species;
-			if (!p.getSowIndoorMonths().isEmpty()) {
-				newElementActions.add(PlanificationAction.builder().withText("Planifier Semi interier")//
-						.withDefaultChoise(p.getSowIndoorMonths())//
-						.withSession(session)//
-						.withSeedItem(seedItem).withType(SowType.INDOOR)//
-						.build());
-			}
-			if (!p.getSowOutdoorMonths().isEmpty()) {
-				newElementActions.add(PlanificationAction.builder().withText("Planifier Semi exterieur")//
-						.withDefaultChoise(p.getSowOutdoorMonths())//
-						.withSession(session)//
-						.withSeedItem(seedItem).withType(SowType.OUTDOOR)//
-						.build());
-			}
+		Plant variety = seedItem.getType();
+
+		for (var sowIndoor : variety.getActions().stream().filter(a -> a.getType() == ActionType.SOW_INDOOR)
+				.collect(toList())) {
+			newElementActions.add(PlanificationAction.builder().withText("Plan indoor sow")//
+					.withDefaultChoise(sowIndoor.getPeriod())//
+					.withSession(session)//
+					.withSeedItem(seedItem).withType(SowType.INDOOR)//
+					.build());
+		}
+		for (var sowIndoor : variety.getActions().stream().filter(a -> a.getType() == ActionType.SOW_OUTDOOR)
+				.collect(toList())) {
+			newElementActions.add(PlanificationAction.builder().withText("Plan outdoor sow")//
+					.withDefaultChoise(sowIndoor.getPeriod())//
+					.withSession(session)//
+					.withSeedItem(seedItem).withType(SowType.OUTDOOR)//
+					.build());
 		}
 	}
 
@@ -356,9 +293,9 @@ public class ContextualMenuFiller {
 	 *            a species
 	 * @return a list of {@link SeedItem}
 	 */
-	private List<SeedItem> getNonEmptySeedItem(Species species) {
+	private List<SeedItem> getNonEmptySeedItem(Plant plant) {
 		return session.getSemanticCrossReferencer()
-				.getInverseReferences(species, PermadelerPackage.eINSTANCE.getSeedItem_Type(), false).stream()//
+				.getInverseReferences(plant, PermadelerPackage.eINSTANCE.getSeedItem_Type(), false).stream()//
 				.filter(s -> {
 					EObject notifier = s.getEObject();
 					if (notifier instanceof SeedItem) {

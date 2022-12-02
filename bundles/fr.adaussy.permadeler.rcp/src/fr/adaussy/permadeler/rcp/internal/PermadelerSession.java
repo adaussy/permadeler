@@ -65,7 +65,7 @@ public class PermadelerSession {
 	}
 
 	public KnowledgeBase getKnowledgeBase() {
-		return root.getSeedLib();
+		return root.getKnowledgeBase();
 	}
 
 	public Session getSession() {

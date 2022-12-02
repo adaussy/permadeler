@@ -11,11 +11,12 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.Event;
+import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 
-import java.lang.reflect.InvocationTargetException;
+import java.time.Instant;
 
 import java.util.Collection;
 
@@ -42,11 +43,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getType <em>Type</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getSowEvent <em>Sow Event</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getPlantationEvent <em>Plantation Event</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getEvents <em>Events</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getRemovalEvent <em>Removal Event</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getPlantationDate <em>Plantation Date</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getCurrentLayer <em>Current Layer</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getRootstock <em>Rootstock</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,27 +68,7 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * @generated
 	 * @ordered
 	 */
-	protected Species type;
-
-	/**
-	 * The cached value of the '{@link #getSowEvent() <em>Sow Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSowEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Event sowEvent;
-
-	/**
-	 * The cached value of the '{@link #getPlantationEvent() <em>Plantation Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPlantationEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Event plantationEvent;
+	protected Plant type;
 
 	/**
 	 * The cached value of the '{@link #getEvents() <em>Events</em>}' containment reference list.
@@ -98,16 +79,6 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * @ordered
 	 */
 	protected EList<Event> events;
-
-	/**
-	 * The cached value of the '{@link #getRemovalEvent() <em>Removal Event</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRemovalEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected Event removalEvent;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -128,6 +99,66 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPlantationDate() <em>Plantation Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlantationDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Instant PLANTATION_DATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPlantationDate() <em>Plantation Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlantationDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Instant plantationDate = PLANTATION_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCurrentLayer() <em>Current Layer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Layer CURRENT_LAYER_EDEFAULT = Layer.UNDERSTORY;
+
+	/**
+	 * The cached value of the '{@link #getCurrentLayer() <em>Current Layer</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentLayer()
+	 * @generated
+	 * @ordered
+	 */
+	protected Layer currentLayer = CURRENT_LAYER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRootstock() <em>Rootstock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootstock()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ROOTSTOCK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRootstock() <em>Rootstock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootstock()
+	 * @generated
+	 * @ordered
+	 */
+	protected String rootstock = ROOTSTOCK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,10 +184,10 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Species getType() {
+	public Plant getType() {
 		if (type != null && type.eIsProxy()) {
 			InternalEObject oldType = (InternalEObject)type;
-			type = (Species)eResolveProxy(oldType);
+			type = (Plant)eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -171,7 +202,7 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Species basicGetType() {
+	public Plant basicGetType() {
 		return type;
 	}
 
@@ -180,112 +211,12 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(Species newType) {
-		Species oldType = type;
+	public void setType(Plant newType) {
+		Plant oldType = type;
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__TYPE, oldType,
 					type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event getSowEvent() {
-		return sowEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSowEvent(Event newSowEvent, NotificationChain msgs) {
-		Event oldSowEvent = sowEvent;
-		sowEvent = newSowEvent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANTATION__SOW_EVENT, oldSowEvent, newSowEvent);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSowEvent(Event newSowEvent) {
-		if (newSowEvent != sowEvent) {
-			NotificationChain msgs = null;
-			if (sowEvent != null)
-				msgs = ((InternalEObject)sowEvent).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__SOW_EVENT, null, msgs);
-			if (newSowEvent != null)
-				msgs = ((InternalEObject)newSowEvent).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__SOW_EVENT, null, msgs);
-			msgs = basicSetSowEvent(newSowEvent, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__SOW_EVENT,
-					newSowEvent, newSowEvent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event getPlantationEvent() {
-		return plantationEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPlantationEvent(Event newPlantationEvent, NotificationChain msgs) {
-		Event oldPlantationEvent = plantationEvent;
-		plantationEvent = newPlantationEvent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANTATION__PLANTATION_EVENT, oldPlantationEvent, newPlantationEvent);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPlantationEvent(Event newPlantationEvent) {
-		if (newPlantationEvent != plantationEvent) {
-			NotificationChain msgs = null;
-			if (plantationEvent != null)
-				msgs = ((InternalEObject)plantationEvent).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__PLANTATION_EVENT, null, msgs);
-			if (newPlantationEvent != null)
-				msgs = ((InternalEObject)newPlantationEvent).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__PLANTATION_EVENT, null, msgs);
-			msgs = basicSetPlantationEvent(newPlantationEvent, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANTATION__PLANTATION_EVENT, newPlantationEvent, newPlantationEvent));
 	}
 
 	/**
@@ -299,56 +230,6 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 					PermadelerPackage.PLANTATION__EVENTS);
 		}
 		return events;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event getRemovalEvent() {
-		return removalEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRemovalEvent(Event newRemovalEvent, NotificationChain msgs) {
-		Event oldRemovalEvent = removalEvent;
-		removalEvent = newRemovalEvent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANTATION__REMOVAL_EVENT, oldRemovalEvent, newRemovalEvent);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRemovalEvent(Event newRemovalEvent) {
-		if (newRemovalEvent != removalEvent) {
-			NotificationChain msgs = null;
-			if (removalEvent != null)
-				msgs = ((InternalEObject)removalEvent).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__REMOVAL_EVENT, null, msgs);
-			if (newRemovalEvent != null)
-				msgs = ((InternalEObject)newRemovalEvent).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PermadelerPackage.PLANTATION__REMOVAL_EVENT, null, msgs);
-			msgs = basicSetRemovalEvent(newRemovalEvent, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__REMOVAL_EVENT,
-					newRemovalEvent, newRemovalEvent));
 	}
 
 	/**
@@ -378,10 +259,65 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isRemoved() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public Instant getPlantationDate() {
+		return plantationDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlantationDate(Instant newPlantationDate) {
+		Instant oldPlantationDate = plantationDate;
+		plantationDate = newPlantationDate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANTATION__PLANTATION_DATE, oldPlantationDate, plantationDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Layer getCurrentLayer() {
+		return currentLayer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentLayer(Layer newCurrentLayer) {
+		Layer oldCurrentLayer = currentLayer;
+		currentLayer = newCurrentLayer == null ? CURRENT_LAYER_EDEFAULT : newCurrentLayer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__CURRENT_LAYER,
+					oldCurrentLayer, currentLayer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRootstock() {
+		return rootstock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRootstock(String newRootstock) {
+		String oldRootstock = rootstock;
+		rootstock = newRootstock;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__ROOTSTOCK,
+					oldRootstock, rootstock));
 	}
 
 	/**
@@ -392,14 +328,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PermadelerPackage.PLANTATION__SOW_EVENT:
-				return basicSetSowEvent(null, msgs);
-			case PermadelerPackage.PLANTATION__PLANTATION_EVENT:
-				return basicSetPlantationEvent(null, msgs);
 			case PermadelerPackage.PLANTATION__EVENTS:
 				return ((InternalEList<?>)getEvents()).basicRemove(otherEnd, msgs);
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
-				return basicSetRemovalEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -416,16 +346,16 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				if (resolve)
 					return getType();
 				return basicGetType();
-			case PermadelerPackage.PLANTATION__SOW_EVENT:
-				return getSowEvent();
-			case PermadelerPackage.PLANTATION__PLANTATION_EVENT:
-				return getPlantationEvent();
 			case PermadelerPackage.PLANTATION__EVENTS:
 				return getEvents();
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
-				return getRemovalEvent();
 			case PermadelerPackage.PLANTATION__DESCRIPTION:
 				return getDescription();
+			case PermadelerPackage.PLANTATION__PLANTATION_DATE:
+				return getPlantationDate();
+			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
+				return getCurrentLayer();
+			case PermadelerPackage.PLANTATION__ROOTSTOCK:
+				return getRootstock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -440,23 +370,23 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PermadelerPackage.PLANTATION__TYPE:
-				setType((Species)newValue);
-				return;
-			case PermadelerPackage.PLANTATION__SOW_EVENT:
-				setSowEvent((Event)newValue);
-				return;
-			case PermadelerPackage.PLANTATION__PLANTATION_EVENT:
-				setPlantationEvent((Event)newValue);
+				setType((Plant)newValue);
 				return;
 			case PermadelerPackage.PLANTATION__EVENTS:
 				getEvents().clear();
 				getEvents().addAll((Collection<? extends Event>)newValue);
 				return;
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
-				setRemovalEvent((Event)newValue);
-				return;
 			case PermadelerPackage.PLANTATION__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case PermadelerPackage.PLANTATION__PLANTATION_DATE:
+				setPlantationDate((Instant)newValue);
+				return;
+			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
+				setCurrentLayer((Layer)newValue);
+				return;
+			case PermadelerPackage.PLANTATION__ROOTSTOCK:
+				setRootstock((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -471,22 +401,22 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case PermadelerPackage.PLANTATION__TYPE:
-				setType((Species)null);
-				return;
-			case PermadelerPackage.PLANTATION__SOW_EVENT:
-				setSowEvent((Event)null);
-				return;
-			case PermadelerPackage.PLANTATION__PLANTATION_EVENT:
-				setPlantationEvent((Event)null);
+				setType((Plant)null);
 				return;
 			case PermadelerPackage.PLANTATION__EVENTS:
 				getEvents().clear();
 				return;
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
-				setRemovalEvent((Event)null);
-				return;
 			case PermadelerPackage.PLANTATION__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANTATION__PLANTATION_DATE:
+				setPlantationDate(PLANTATION_DATE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
+				setCurrentLayer(CURRENT_LAYER_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANTATION__ROOTSTOCK:
+				setRootstock(ROOTSTOCK_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -502,33 +432,20 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 		switch (featureID) {
 			case PermadelerPackage.PLANTATION__TYPE:
 				return type != null;
-			case PermadelerPackage.PLANTATION__SOW_EVENT:
-				return sowEvent != null;
-			case PermadelerPackage.PLANTATION__PLANTATION_EVENT:
-				return plantationEvent != null;
 			case PermadelerPackage.PLANTATION__EVENTS:
 				return events != null && !events.isEmpty();
-			case PermadelerPackage.PLANTATION__REMOVAL_EVENT:
-				return removalEvent != null;
 			case PermadelerPackage.PLANTATION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null
 						: !DESCRIPTION_EDEFAULT.equals(description);
+			case PermadelerPackage.PLANTATION__PLANTATION_DATE:
+				return PLANTATION_DATE_EDEFAULT == null ? plantationDate != null
+						: !PLANTATION_DATE_EDEFAULT.equals(plantationDate);
+			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
+				return currentLayer != CURRENT_LAYER_EDEFAULT;
+			case PermadelerPackage.PLANTATION__ROOTSTOCK:
+				return ROOTSTOCK_EDEFAULT == null ? rootstock != null : !ROOTSTOCK_EDEFAULT.equals(rootstock);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case PermadelerPackage.PLANTATION___IS_REMOVED:
-				return isRemoved();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -544,6 +461,12 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (description: ");
 		result.append(description);
+		result.append(", plantationDate: ");
+		result.append(plantationDate);
+		result.append(", currentLayer: ");
+		result.append(currentLayer);
+		result.append(", rootstock: ");
+		result.append(rootstock);
 		result.append(')');
 		return result.toString();
 	}
