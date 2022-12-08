@@ -124,6 +124,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createProduction();
 			case PermadelerPackage.ACTION:
 				return createAction();
+			case PermadelerPackage.PLANTATION_PHASE:
+				return createPlantationPhase();
 			default:
 				throw new IllegalArgumentException(
 						"The class '" + eClass.getName() + "' is not a valid classifier");
@@ -460,6 +462,16 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Action createAction() {
 		ActionCustomImpl action = new ActionCustomImpl();
 		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlantationPhase createPlantationPhase() {
+		PlantationPhaseImpl plantationPhase = new PlantationPhaseImpl();
+		return plantationPhase;
 	}
 
 	/**

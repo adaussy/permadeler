@@ -55,6 +55,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentLayer" eType="#//Layer"
         defaultValueLiteral="UNDERSTORY"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootstock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlantNamedElement" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
@@ -756,10 +757,8 @@
     <eLiterals name="NotWindTolerant" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zone" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundImage" eType="#//BackgroundImage"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="plantations" upperBound="-1"
-        eType="#//Plantation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phases" upperBound="-1"
+        eType="#//PlantationPhase" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.time.Instant"/>
   <eClassifiers xsi:type="ecore:EEnum" name="SpecialUses">
@@ -919,5 +918,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="TemporalItem" abstract="true" interface="true">
     <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getPerdiod" eType="#//MonthWeeks"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlantationPhase" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plantations" upperBound="-1"
+        eType="#//Plantation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundImage" eType="#//BackgroundImage"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

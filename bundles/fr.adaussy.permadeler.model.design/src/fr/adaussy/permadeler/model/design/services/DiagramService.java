@@ -11,7 +11,6 @@ package fr.adaussy.permadeler.model.design.services;
 
 import static java.util.stream.Collectors.toList;
 
-import java.awt.geom.Area;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPartViewer;
@@ -35,8 +35,11 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
+import org.eclipse.sirius.diagram.LabelPosition;
 import org.eclipse.sirius.diagram.model.business.internal.query.DDiagramInternalQuery;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
+import org.eclipse.sirius.viewpoint.description.ColorDescription;
+import org.eclipse.sirius.viewpoint.description.SystemColor;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -52,10 +55,11 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
+import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
-import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
 import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
@@ -72,18 +76,87 @@ import fr.adaussy.permadeler.rcp.services.ModelQueryService;
  */
 public class DiagramService {
 
+	private static SystemColor WHITE = org.eclipse.sirius.viewpoint.description.DescriptionFactory.eINSTANCE
+			.createSystemColor();
+
+	private static SystemColor BLACK = org.eclipse.sirius.viewpoint.description.DescriptionFactory.eINSTANCE
+			.createSystemColor();
+
+	static {
+		WHITE.setName("white");
+		WHITE.setRed(255);
+		WHITE.setGreen(255);
+		WHITE.setBlue(255);
+		BLACK.setName("black");
+		BLACK.setRed(0);
+		BLACK.setGreen(0);
+		BLACK.setBlue(0);
+	}
+
 	public String getSVGPath(final EObject p) {
-		if (p instanceof Plantation) {
-			return switch (((Plantation)p).getCurrentLayer()) {
-				case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg";
-				case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg";
-				case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg";
-				case HERB -> "/fr.adaussy.permadeler.model.design/img/herb.svg";
-				case GROUND_COVER -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
-				default -> ImageProvider.INSTANCE.getSVG(p);
-			};
-		}
+		// if (p instanceof Plantation) {
+		// return switch (((Plantation)p).getCurrentLayer()) {
+		// case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg";
+		// case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg";
+		// case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg";
+		// // case HERB -> "/fr.adaussy.permadeler.model.design/img/herb.svg";
+		// // case GROUND_COVER -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
+		// // case VINE -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
+		// // case ROOT -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
+		// default -> ImageProvider.INSTANCE.getSVG(p);
+		// };
+		// }
 		return ImageProvider.INSTANCE.getSVG(p);
+	}
+
+	public ColorDescription getLabelColor(Plantation p) {
+		switch (p.getCurrentLayer()) {
+			case CANOPY:
+			case UNDERSTORY:
+				return WHITE;
+			default:
+				return BLACK;
+		}
+	}
+
+	public int getLabelSize(Plantation p) {
+		return switch (p.getCurrentLayer()) {
+			case CANOPY -> 12;
+			case UNDERSTORY -> 10;
+			case SHRUB -> 6;
+			case VINE -> 6;
+			case HERB -> 6;
+			case GROUND_COVER -> 6;
+			case ROOT -> 6;
+			default -> 6;
+		};
+
+	}
+
+	public LabelPosition getLabelPosition(Plantation p) {
+		switch (p.getCurrentLayer()) {
+			case CANOPY:
+			case UNDERSTORY:
+				return LabelPosition.NODE_LITERAL;
+			default:
+				return LabelPosition.BORDER_LITERAL;
+		}
+	}
+
+	public boolean showIcon(Plantation p) {
+		return p.getType() != null //
+				&& isLayerRequieringIcon(p.getCurrentLayer()) //
+				&& p.getType().getRepresentationKey() != null //
+				&& !p.getType().getRepresentationKey().isBlank();
+	}
+
+	private boolean isLayerRequieringIcon(Layer layer) {
+		return switch (layer) {
+			case CANOPY -> true;
+			case UNDERSTORY -> true;
+			case SHRUB -> true;
+			default -> false;
+		};
 	}
 
 	/**
@@ -94,7 +167,7 @@ public class DiagramService {
 	 * @param diagram
 	 *            a Diagram
 	 */
-	public static void calibrateBackgroundImage(final Zone planting, DDiagram diagram) {
+	public static void calibrateBackgroundImage(final PlantationPhase planting, DDiagram diagram) {
 		IGraphicalEditPart editPart = getEditPath(diagram);
 		BackgroundImage backgroundImage = planting.getBackgroundImage();
 		if (editPart != null && backgroundImage != null) {
@@ -104,16 +177,16 @@ public class DiagramService {
 		}
 	}
 
-	public List<Plantation> getTopLayerPlantation(Zone zone) {
-		return zone.getPlantations().stream().filter(this::belongTopLayer).collect(toList());
+	public List<Plantation> getTopLayerPlantation(PlantationPhase plantationPhase) {
+		return plantationPhase.getPlantations().stream().filter(this::belongTopLayer).collect(toList());
 	}
 
-	public List<Plantation> getBottomLayerPlantation(Zone zone) {
-		return zone.getPlantations().stream().filter(this::belongBottomLayer).collect(toList());
+	public List<Plantation> getBottomLayerPlantation(PlantationPhase plantationPhase) {
+		return plantationPhase.getPlantations().stream().filter(this::belongBottomLayer).collect(toList());
 	}
 
-	public List<Plantation> getMiddleLayerPlantation(Zone zone) {
-		return zone.getPlantations().stream().filter(this::belongMiddleLayer).collect(toList());
+	public List<Plantation> getMiddleLayerPlantation(PlantationPhase plantationPhase) {
+		return plantationPhase.getPlantations().stream().filter(this::belongMiddleLayer).collect(toList());
 	}
 
 	private boolean belongTopLayer(Plantation p) {
@@ -141,7 +214,8 @@ public class DiagramService {
 	 *            a Diagram
 	 * @throws IOException
 	 */
-	public static void defineBackGroundImage(final Zone planting, DDiagram diagram) throws IOException {
+	public static void defineBackGroundImage(final PlantationPhase planting, DDiagram diagram)
+			throws IOException {
 
 		FileDialog fileDialog = new FileDialog(getShell());
 		fileDialog.setFilterExtensions(new String[] {"*.svg" });
@@ -220,13 +294,13 @@ public class DiagramService {
 		return switch (type.getFoodForestLayer()) {
 			case CANOPY -> 10;
 			case UNDERSTORY -> 8;
-			case SHRUB -> 6;
-			case HERB -> 5;
-			case VINE -> 5;
-			case GROUND_COVER -> 4;
-			case ROOT -> 4;
-			case OTHER -> 5;
-			default -> 5;
+			case SHRUB -> 3;
+			case HERB -> 2;
+			case VINE -> 2;
+			case GROUND_COVER -> 2;
+			case ROOT -> 2;
+			case OTHER -> 2;
+			default -> 2;
 		};
 	}
 
@@ -309,7 +383,7 @@ public class DiagramService {
 	 *            the container area
 	 * @return a new plantation or <code>null</code> if the user has canceled
 	 */
-	public static Plantation createPlantation(final Zone container) {
+	public static Plantation createPlantation(final PlantationPhase container) {
 		Shell shell = getShell();
 		PlantationDialog dialog = new PlantationDialog(shell, new Date(),
 				container.eResource().getContents().get(0));
@@ -322,11 +396,47 @@ public class DiagramService {
 				container.getPlantations().add(plantation);
 				Plant value = selection.get(0);
 				plantation.setType(value);
-
+				plantation.setId(generateId(plantation));
 				return plantation;
 			}
 		}
 		return null;
+	}
+
+	private static String generateId(Plantation plantation) {
+		Plant type = plantation.getType();
+		if (type != null) {
+			String name = type.getName();
+			String trigram = computeTrigram(name);
+
+			Set<String> candiates = EMFUtils.getAncestor(Root.class, plantation).getZones().stream()//
+					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
+					.filter(p -> p.getId() != null && p.getId().startsWith(trigram))//
+					.map(p -> p.getId()).collect(Collectors.toSet());
+			int i = 1;
+			String id = trigram + "_" + i;
+			while (candiates.contains(id)) {
+				i++;
+				id = trigram + "_" + i;
+			}
+
+			return id;
+		}
+		return null;
+	}
+
+	private static String computeTrigram(String name) {
+		String trigram = "";
+		for (int i = 0; i < name.length(); i++) {
+			if (trigram.length() == 3) {
+				break;
+			}
+			char l = name.charAt(i);
+			if (Character.isUpperCase(l)) {
+				trigram += l;
+			}
+		}
+		return trigram;
 	}
 
 	/**
@@ -338,7 +448,7 @@ public class DiagramService {
 	 *            the input cell
 	 * @return a new plantation
 	 */
-	public static Plantation createPlantationFromSow(final Zone container, final Cell cell) {
+	public static Plantation createPlantationFromSow(final PlantationPhase container, final Cell cell) {
 		if (cell.getPlant() == null) {
 			PermadelerModelBundle.getDefault().logInfo("Can't create a new plantation from empty cell");
 			return null;
@@ -366,7 +476,7 @@ public class DiagramService {
 	 *            the planification
 	 * @return a new Plantation
 	 */
-	public static Plantation createPlantationFromPlanification(final Zone container,
+	public static Plantation createPlantationFromPlanification(final PlantationPhase container,
 			final SowPlanfication planification) {
 		Event event = PermadelerFactory.eINSTANCE.createEvent();
 		event.setDate(new Date().toInstant());
@@ -381,11 +491,12 @@ public class DiagramService {
 	}
 
 	public static String getPlantationLabel(Plantation p) {
-		if (p.eContainer() instanceof Area) {
-			return "";
+		String id = p.getId();
+		if (id != null && !id.isBlank()) {
+			return id;
 		}
 		Plant type = p.getType();
-		return type != null ? type.getName() : "";
+		return type != null ? type.getName() + "  " /* Sirius Bug when using non default font */ : "";
 	}
 
 	/**

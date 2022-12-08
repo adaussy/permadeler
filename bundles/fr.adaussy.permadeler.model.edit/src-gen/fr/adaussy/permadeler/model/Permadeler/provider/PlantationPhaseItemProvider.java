@@ -12,7 +12,7 @@ package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Zone;
+import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Zone} object.
+ * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.PlantationPhase} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ZoneItemProvider extends NamedElementItemProvider {
+public class PlantationPhaseItemProvider extends NamedElementItemProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +45,7 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ZoneItemProvider(AdapterFactory adapterFactory) {
+	public PlantationPhaseItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -76,7 +76,8 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.ZONE__PHASES);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION_PHASE__PLANTATIONS);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANTATION_PHASE__BACKGROUND_IMAGE);
 		}
 		return childrenFeatures;
 	}
@@ -95,14 +96,14 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This returns Zone.gif.
+	 * This returns PlantationPhase.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Zone"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PlantationPhase"));
 	}
 
 	/**
@@ -123,9 +124,9 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Zone)object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Zone_type")
-				: getString("_UI_Zone_type") + " " + label;
+		String label = ((PlantationPhase)object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_PlantationPhase_type")
+				: getString("_UI_PlantationPhase_type") + " " + label;
 	}
 
 	/**
@@ -139,8 +140,9 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Zone.class)) {
-			case PermadelerPackage.ZONE__PHASES:
+		switch (notification.getFeatureID(PlantationPhase.class)) {
+			case PermadelerPackage.PLANTATION_PHASE__PLANTATIONS:
+			case PermadelerPackage.PLANTATION_PHASE__BACKGROUND_IMAGE:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -159,8 +161,12 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__PHASES,
-				PermadelerFactory.eINSTANCE.createPlantationPhase()));
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANTATION_PHASE__PLANTATIONS,
+				PermadelerFactory.eINSTANCE.createPlantation()));
+
+		newChildDescriptors
+				.add(createChildParameter(PermadelerPackage.Literals.PLANTATION_PHASE__BACKGROUND_IMAGE,
+						PermadelerFactory.eINSTANCE.createBackgroundImage()));
 	}
 
 }

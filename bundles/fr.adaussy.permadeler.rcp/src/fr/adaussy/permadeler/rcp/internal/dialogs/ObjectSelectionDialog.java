@@ -87,6 +87,10 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 		this.root = root;
 	}
 
+	public TableViewer getViewer() {
+		return viewer;
+	}
+
 	/**
 	 * Sets the multi.
 	 * 

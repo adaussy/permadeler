@@ -34,6 +34,7 @@ import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ProductionType;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
@@ -273,6 +274,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass temporalItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plantationPhaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -715,6 +723,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPlantation_Id() {
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPlantNamedElement() {
 		return plantNamedElementEClass;
 	}
@@ -877,17 +894,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getZone_BackgroundImage() {
+	public EReference getZone_Phases() {
 		return (EReference)zoneEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getZone_Plantations() {
-		return (EReference)zoneEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1417,6 +1425,33 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlantationPhase() {
+		return plantationPhaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlantationPhase_Plantations() {
+		return (EReference)plantationPhaseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlantationPhase_BackgroundImage() {
+		return (EReference)plantationPhaseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getQuantity() {
 		return quantityEEnum;
 	}
@@ -1660,6 +1695,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(plantationEClass, PLANTATION__PLANTATION_DATE);
 		createEAttribute(plantationEClass, PLANTATION__CURRENT_LAYER);
 		createEAttribute(plantationEClass, PLANTATION__ROOTSTOCK);
+		createEAttribute(plantationEClass, PLANTATION__ID);
 
 		plantNamedElementEClass = createEClass(PLANT_NAMED_ELEMENT);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__COMMON_NAMES);
@@ -1683,8 +1719,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(eventEClass, EVENT__TYPE);
 
 		zoneEClass = createEClass(ZONE);
-		createEReference(zoneEClass, ZONE__BACKGROUND_IMAGE);
-		createEReference(zoneEClass, ZONE__PLANTATIONS);
+		createEReference(zoneEClass, ZONE__PHASES);
 
 		nursaryEClass = createEClass(NURSARY);
 		createEReference(nursaryEClass, NURSARY__ZONES);
@@ -1760,6 +1795,10 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(temporalItemEClass, TEMPORAL_ITEM___GET_NAME);
 		createEOperation(temporalItemEClass, TEMPORAL_ITEM___GET_PERDIOD);
 
+		plantationPhaseEClass = createEClass(PLANTATION_PHASE);
+		createEReference(plantationPhaseEClass, PLANTATION_PHASE__PLANTATIONS);
+		createEReference(plantationPhaseEClass, PLANTATION_PHASE__BACKGROUND_IMAGE);
+
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
 		lifecycleEEnum = createEEnum(LIFECYCLE);
@@ -1826,6 +1865,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		plantEClass.getESuperTypes().add(this.getPlantNamedElement());
 		productionEClass.getESuperTypes().add(this.getTemporalItem());
 		actionEClass.getESuperTypes().add(this.getTemporalItem());
+		plantationPhaseEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1904,6 +1944,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantation_Rootstock(), ecorePackage.getEString(), "rootstock", null, 0, 1,
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantation_Id(), ecorePackage.getEString(), "id", null, 0, 1, Plantation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1954,12 +1997,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(zoneEClass, Zone.class, "Zone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getZone_BackgroundImage(), this.getBackgroundImage(), null, "backgroundImage", null, 0,
-				1, Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getZone_Plantations(), this.getPlantation(), null, "plantations", null, 0, -1,
-				Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZone_Phases(), this.getPlantationPhase(), null, "phases", null, 0, -1, Zone.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nursaryEClass, Nursary.class, "Nursary", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2127,6 +2167,16 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				IS_ORDERED);
 
 		initEOperation(getTemporalItem__GetPerdiod(), this.getMonthWeeks(), "getPerdiod", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		initEClass(plantationPhaseEClass, PlantationPhase.class, "PlantationPhase", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPlantationPhase_Plantations(), this.getPlantation(), null, "plantations", null, 0,
+				-1, PlantationPhase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlantationPhase_BackgroundImage(), this.getBackgroundImage(), null,
+				"backgroundImage", null, 0, 1, PlantationPhase.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		// Initialize enums and add enum literals

@@ -75,6 +75,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 			addPlantationDatePropertyDescriptor(object);
 			addCurrentLayerPropertyDescriptor(object);
 			addRootstockPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -159,6 +160,22 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plantation_id_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_Plantation_id_feature",
+						"_UI_Plantation_type"),
+				PermadelerPackage.Literals.PLANTATION__ID, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -217,7 +234,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = crop(((Plantation)object).getDescription());
+		String label = ((Plantation)object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_Plantation_type")
 				: getString("_UI_Plantation_type") + " " + label;
 	}
@@ -238,6 +255,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 			case PermadelerPackage.PLANTATION__PLANTATION_DATE:
 			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
+			case PermadelerPackage.PLANTATION__ID:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

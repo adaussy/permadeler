@@ -294,6 +294,15 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
+			case PermadelerPackage.PLANTATION_PHASE: {
+				PlantationPhase plantationPhase = (PlantationPhase)theEObject;
+				T result = casePlantationPhase(plantationPhase);
+				if (result == null)
+					result = caseNamedElement(plantationPhase);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
 			default:
 				return defaultCase(theEObject);
 		}
@@ -701,6 +710,21 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTemporalItem(TemporalItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plantation Phase</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plantation Phase</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePlantationPhase(PlantationPhase object) {
 		return null;
 	}
 

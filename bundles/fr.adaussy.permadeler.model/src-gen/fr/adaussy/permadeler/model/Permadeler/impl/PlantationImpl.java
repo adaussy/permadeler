@@ -48,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getPlantationDate <em>Plantation Date</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getCurrentLayer <em>Current Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getRootstock <em>Rootstock</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -159,6 +160,26 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * @ordered
 	 */
 	protected String rootstock = ROOTSTOCK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,6 +346,28 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__ID, oldId,
+					id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -356,6 +399,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				return getCurrentLayer();
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 				return getRootstock();
+			case PermadelerPackage.PLANTATION__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,6 +433,9 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 				setRootstock((String)newValue);
 				return;
+			case PermadelerPackage.PLANTATION__ID:
+				setId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -418,6 +466,9 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 				setRootstock(ROOTSTOCK_EDEFAULT);
 				return;
+			case PermadelerPackage.PLANTATION__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -444,6 +495,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				return currentLayer != CURRENT_LAYER_EDEFAULT;
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 				return ROOTSTOCK_EDEFAULT == null ? rootstock != null : !ROOTSTOCK_EDEFAULT.equals(rootstock);
+			case PermadelerPackage.PLANTATION__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -467,6 +520,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 		result.append(currentLayer);
 		result.append(", rootstock: ");
 		result.append(rootstock);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

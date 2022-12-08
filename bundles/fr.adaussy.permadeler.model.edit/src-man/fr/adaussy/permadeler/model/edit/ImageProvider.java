@@ -230,7 +230,7 @@ public final class ImageProvider {
 	public String getSVG(EObject o) {
 		final String result;
 		if (o instanceof Plantation) {
-			result = getPlantSVGWithDefault(((Plantation)o).getType(), PermadelerIcons.SHOVEL_SVG);
+			result = getPlantSVGWithDefault(((Plantation)o), PermadelerIcons.SHOVEL_SVG);
 		} else if (o instanceof Cell) {
 			result = getPlantSVGWithDefault(((Cell)o).getPlant(), PermadelerIcons.AREA_SVG);
 		} else if (o instanceof Plant) {
@@ -239,6 +239,29 @@ public final class ImageProvider {
 			result = "";
 		}
 		return result;
+	}
+
+	private String getPlantSVGWithDefault(Plantation plantation, String shovelSvg) {
+		return switch (plantation.getCurrentLayer()) {
+			case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg";
+			case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg";
+			case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg";
+			default -> {
+				String localPath = getPlantSVGPath(plantation.getType());
+				if (localPath != null) {
+					yield PermadelerIcons.iconsRelativeToFullPath(localPath);
+				} else {
+					yield switch (plantation.getCurrentLayer()) {
+
+						case HERB -> "/fr.adaussy.permadeler.model.design/img/herb.svg";
+						case GROUND_COVER -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
+						case VINE -> "/fr.adaussy.permadeler.model.design/img/vine.svg";
+						case ROOT -> "/fr.adaussy.permadeler.model.design/img/root.svg";
+						default -> LEAF_SVG;
+					};
+				}
+			}
+		};
 	}
 
 	/**
@@ -254,7 +277,7 @@ public final class ImageProvider {
 		if (variety == null) {
 			return PermadelerIcons.buildFullPath(defaultPath);
 		}
-		String localPath = getVarietySVGPath(variety);
+		String localPath = getPlantSVGPath(variety);
 		if (localPath != null) {
 			return PermadelerIcons.iconsRelativeToFullPath(localPath);
 		} else {
@@ -287,7 +310,7 @@ public final class ImageProvider {
 		return previews;
 	}
 
-	private String getVarietySVGPath(Plant type) {
+	private String getPlantSVGPath(Plant type) {
 		if (type != null) {
 			String repKey = getRepKey(type);
 
@@ -295,7 +318,8 @@ public final class ImageProvider {
 				return repKey;
 			}
 		}
-		return PermadelerIcons.buildIconsFolderReltivePath(LEAF_SVG);
+
+		return null;
 	}
 
 	/**

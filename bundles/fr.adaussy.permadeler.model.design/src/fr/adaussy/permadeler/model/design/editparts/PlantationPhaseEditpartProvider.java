@@ -15,7 +15,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProv
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.DDiagram;
 
-public class ZoneEditpartProvider extends AbstractEditPartProvider {
+public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 
 	@Override
 	protected Class getDiagramEditPartClass(View view) {
@@ -23,7 +23,7 @@ public class ZoneEditpartProvider extends AbstractEditPartProvider {
 		if (element instanceof DDiagram) {
 			// Custom edit part for plantation diagrams
 			if ("PlantationsMapDiagram".equals(((DDiagram)element).getDescription().getName())) {
-				return ZoneDiagramEditPart.class;
+				return PlantationPhaseDiagramEditPart.class;
 			}
 		}
 		return super.getDiagramEditPartClass(view);

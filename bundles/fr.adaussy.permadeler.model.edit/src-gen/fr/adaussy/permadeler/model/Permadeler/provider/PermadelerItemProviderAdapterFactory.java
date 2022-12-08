@@ -593,6 +593,29 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.PlantationPhase} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlantationPhaseItemProvider plantationPhaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.PlantationPhase}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlantationPhaseAdapter() {
+		if (plantationPhaseItemProvider == null) {
+			plantationPhaseItemProvider = new PlantationPhaseItemProvider(this);
+		}
+
+		return plantationPhaseItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -735,6 +758,8 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			productionItemProvider.dispose();
 		if (actionItemProvider != null)
 			actionItemProvider.dispose();
+		if (plantationPhaseItemProvider != null)
+			plantationPhaseItemProvider.dispose();
 	}
 
 }

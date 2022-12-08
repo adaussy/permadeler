@@ -9,6 +9,8 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.DoubleConsumer;
 import java.util.function.IntConsumer;
@@ -100,15 +102,17 @@ public final class Dialogs {
 	 *            the default valuer
 	 * @param updater
 	 *            value updater
+	 * @return
 	 */
 	// CHECKSTYLE:OFF UI needs refactoring
-	public static void createEnumEntry(Composite parent, String label, Enum<?>[] values, Enum<?> defaultvalue,
-			Consumer<Enum<?>> updater) {
+	public static List<Button> createEnumEntry(Composite parent, String label, Enum<?>[] values,
+			Enum<?> defaultvalue, Consumer<Enum<?>> updater) {
 		createLabel(parent, label);
 
 		Group enumGroup = new Group(parent, SWT.NONE);
 		enumGroup.setLayout(new RowLayout(SWT.HORIZONTAL));
 
+		List<Button> buttons = new ArrayList<Button>();
 		for (Enum<?> e : values) {
 			Button enumWidget = WidgetFactory.button(SWT.RADIO)//
 					.text(e.name())//
@@ -116,6 +120,7 @@ public final class Dialogs {
 			if (e == defaultvalue) {
 				enumWidget.setSelection(true);
 			}
+			buttons.add(enumWidget);
 			enumWidget.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent event) {
@@ -127,6 +132,8 @@ public final class Dialogs {
 
 			updater.accept(defaultvalue);
 		}
+
+		return buttons;
 	}
 	// CHECKSTYLE:ON UI needs refactoring
 

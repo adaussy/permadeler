@@ -22,15 +22,15 @@ import org.eclipse.sirius.diagram.model.business.internal.spec.DSemanticDiagramS
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DDiagramEditPart;
 
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
-import fr.adaussy.permadeler.model.Permadeler.Zone;
+import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.design.services.DiagramService;
 
 @SuppressWarnings("restriction")
-public class ZoneDiagramEditPart extends DDiagramEditPart {
+public class PlantationPhaseDiagramEditPart extends DDiagramEditPart {
 
 	private BackgroundLayerWithImage layerBackground;
 
-	public ZoneDiagramEditPart(View view) {
+	public PlantationPhaseDiagramEditPart(View view) {
 		super(view);
 	}
 
@@ -62,8 +62,8 @@ public class ZoneDiagramEditPart extends DDiagramEditPart {
 			DSemanticDiagramSpec diagram = (DSemanticDiagramSpec)resolveSemanticElement;
 
 			EObject seamnticElement = diagram.getTarget();
-			if (seamnticElement instanceof Zone) {
-				return ((Zone)seamnticElement).getBackgroundImage();
+			if (seamnticElement instanceof PlantationPhase) {
+				return ((PlantationPhase)seamnticElement).getBackgroundImage();
 			}
 		}
 		return null;

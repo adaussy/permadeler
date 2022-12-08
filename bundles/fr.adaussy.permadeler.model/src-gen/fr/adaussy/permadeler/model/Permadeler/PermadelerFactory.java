@@ -235,6 +235,15 @@ public interface PermadelerFactory extends EFactory {
 	Action createAction();
 
 	/**
+	 * Returns a new object of class '<em>Plantation Phase</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plantation Phase</em>'.
+	 * @generated
+	 */
+	PlantationPhase createPlantationPhase();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
