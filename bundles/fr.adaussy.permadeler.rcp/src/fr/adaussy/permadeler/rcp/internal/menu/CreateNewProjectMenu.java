@@ -43,12 +43,12 @@ public class CreateNewProjectMenu {
 	/**
 	 * Name of the default viewpoint
 	 */
-	public static final String DEFAULT_VIEWPOINT = "FoodForestViewPoint";
+	public static final String DEFAULT_VIEWPOINT = "FoodForestViewPoint"; //$NON-NLS-1$
 
 	/**
 	 * File extension that hold all representations
 	 */
-	public static final String REPRESENTATION_FILE_EXT = ".permarep";
+	public static final String REPRESENTATION_FILE_EXT = ".permarep"; //$NON-NLS-1$
 
 	@Execute
 	public void execute(Shell shell) {
@@ -60,15 +60,15 @@ public class CreateNewProjectMenu {
 			Path rootFolderPath = Paths.get(path);
 			File rootFolderFile = rootFolderPath.toFile();
 			if (rootFolderFile.exists()) {
-				MessageDialog.openError(shell, "Problem during creation", "The given path can't be used.");
+				MessageDialog.openError(shell, "Problem during creation", "The given path can't be used."); //$NON-NLS-1$ //$NON-NLS-2$
 				return;
 			}
 			try {
 				createNewProject(rootFolderFile, fileName, true);
 			} catch (InvocationTargetException | IOException | CoreException e) {
-				MessageDialog.openError(shell, "Problem during creation",
-						"Unable to create sessiokn at " + path);
-				RcpPlugin.logError("Unable to create sessiokn at " + path, e);
+				MessageDialog.openError(shell, "Problem during creation", //$NON-NLS-1$
+						"Unable to create session at " + path); //$NON-NLS-1$
+				RcpPlugin.logError("Unable to create sessiokn at " + path, e); //$NON-NLS-1$
 			}
 		}
 
@@ -97,7 +97,7 @@ public class CreateNewProjectMenu {
 
 		if (!rootFolderFile.exists()) {
 			if (!rootFolderFile.mkdirs()) {
-				RcpPlugin.logError("Unable to create a folder at " + rootFolderFile);
+				RcpPlugin.logError("Unable to create a folder at " + rootFolderFile); //$NON-NLS-1$
 				return null;
 			}
 		}
@@ -190,7 +190,7 @@ public class CreateNewProjectMenu {
 	 *             if something wrong appends during save
 	 */
 	private URI createAndFillSemanticResource(String fileName, Path rootFolderPath) throws IOException {
-		String siriusSemanticFileName = fileName + ".permadeler";
+		String siriusSemanticFileName = fileName + ".permadeler"; //$NON-NLS-1$
 		URI semanticURI = URI.createFileURI(
 				rootFolderPath.resolve(rootFolderPath).resolve(siriusSemanticFileName).toUri().getPath());
 		PermadelerResourceCustomImpl resource = new PermadelerResourceCustomImpl(semanticURI);

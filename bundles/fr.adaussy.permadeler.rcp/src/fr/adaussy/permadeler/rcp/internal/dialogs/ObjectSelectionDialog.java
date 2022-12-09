@@ -87,6 +87,10 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 		this.root = root;
 	}
 
+	public void setInitialSelection(List<T> initialSelection) {
+		selection = initialSelection;
+	}
+
 	public TableViewer getViewer() {
 		return viewer;
 	}
@@ -158,6 +162,10 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 			fillCustomContent(customContentComposite);
 		}
 		resetInputs();
+
+		if (!selection.isEmpty()) {
+			viewer.setSelection(new StructuredSelection(selection), true);
+		}
 		return cc;
 	}
 

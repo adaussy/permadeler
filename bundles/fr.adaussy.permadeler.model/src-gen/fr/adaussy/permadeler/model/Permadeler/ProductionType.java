@@ -34,7 +34,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FRUIT(0, "Fruit", "Fruit"),
+	FRUIT(0, "Fruit", "Fruit"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Leaves</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEAVES(1, "Leaves", "Leaves"),
+	LEAVES(1, "Leaves", "Leaves"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Flower</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FLOWER(2, "Flower", "Flower"),
+	FLOWER(2, "Flower", "Flower"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Other</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(3, "Other", "Other"),
+	OTHER(3, "Other", "Other"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Shoots</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SHOOTS(7, "Shoots", "Shoots"),
+	SHOOTS(7, "Shoots", "Shoots"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Manna</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MANNA(5, "Manna", "Manna"),
+	MANNA(5, "Manna", "Manna"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sap</b></em>' literal object.
@@ -94,7 +94,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SAP(10, "Sap", "Sap"),
+	SAP(10, "Sap", "Sap"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Apical Bud</b></em>' literal object.
@@ -104,7 +104,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APICAL_BUD(1, "ApicalBud", "ApicalBud"),
+	APICAL_BUD(1, "ApicalBud", "ApicalBud"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Seed</b></em>' literal object.
@@ -114,7 +114,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEED(14, "Seed", "Seed"),
+	SEED(14, "Seed", "Seed"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pollen</b></em>' literal object.
@@ -124,7 +124,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLLEN(3, "Pollen", "Pollen"),
+	POLLEN(3, "Pollen", "Pollen"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nectar</b></em>' literal object.
@@ -134,7 +134,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NECTAR(9, "Nectar", "Nectar"),
+	NECTAR(9, "Nectar", "Nectar"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stem</b></em>' literal object.
@@ -144,7 +144,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STEM(11, "Stem", "Stem"),
+	STEM(11, "Stem", "Stem"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Inner Bark</b></em>' literal object.
@@ -154,7 +154,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INNER_BARK(12, "InnerBark", "InnerBark"),
+	INNER_BARK(12, "InnerBark", "InnerBark"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oil</b></em>' literal object.
@@ -164,7 +164,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OIL(13, "Oil", "Oil"),
+	OIL(13, "Oil", "Oil"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Root</b></em>' literal object.
@@ -174,14 +174,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROOT(6, "Root", "Root");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	ROOT(6, "Root", "Root"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fruit</b></em>' literal value.

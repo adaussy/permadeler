@@ -17,12 +17,14 @@ import org.eclipse.sirius.diagram.DDiagram;
 
 public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 
+	private static final String PLANTATIONS_MAP_DIAGRAM_ID = "PlantationsMapDiagram"; //$NON-NLS-1$
+
 	@Override
 	protected Class getDiagramEditPartClass(View view) {
 		EObject element = view.getElement();
 		if (element instanceof DDiagram) {
 			// Custom edit part for plantation diagrams
-			if ("PlantationsMapDiagram".equals(((DDiagram)element).getDescription().getName())) {
+			if (PLANTATIONS_MAP_DIAGRAM_ID.equals(((DDiagram)element).getDescription().getName())) {
 				return PlantationPhaseDiagramEditPart.class;
 			}
 		}

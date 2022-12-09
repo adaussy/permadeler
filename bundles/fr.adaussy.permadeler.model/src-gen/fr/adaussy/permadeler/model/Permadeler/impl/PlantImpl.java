@@ -74,13 +74,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -872,29 +865,29 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (width: ");
+		result.append(" (width: "); //$NON-NLS-1$
 		result.append(width);
-		result.append(", soilType: ");
+		result.append(", soilType: "); //$NON-NLS-1$
 		result.append(soilType);
-		result.append(", lightingCondition: ");
+		result.append(", lightingCondition: "); //$NON-NLS-1$
 		result.append(lightingCondition);
-		result.append(", height: ");
+		result.append(", height: "); //$NON-NLS-1$
 		result.append(height);
-		result.append(", minTemperature: ");
+		result.append(", minTemperature: "); //$NON-NLS-1$
 		result.append(minTemperature);
-		result.append(", moisture: ");
+		result.append(", moisture: "); //$NON-NLS-1$
 		result.append(moisture);
-		result.append(", specialUses: ");
+		result.append(", specialUses: "); //$NON-NLS-1$
 		result.append(specialUses);
-		result.append(", growRate: ");
+		result.append(", growRate: "); //$NON-NLS-1$
 		result.append(growRate);
-		result.append(", wind: ");
+		result.append(", wind: "); //$NON-NLS-1$
 		result.append(wind);
-		result.append(", foodForestLayer: ");
+		result.append(", foodForestLayer: "); //$NON-NLS-1$
 		result.append(foodForestLayer);
-		result.append(", lifeCycle: ");
+		result.append(", lifeCycle: "); //$NON-NLS-1$
 		result.append(lifeCycle);
-		result.append(", family: ");
+		result.append(", family: "); //$NON-NLS-1$
 		result.append(family);
 		result.append(')');
 		return result.toString();

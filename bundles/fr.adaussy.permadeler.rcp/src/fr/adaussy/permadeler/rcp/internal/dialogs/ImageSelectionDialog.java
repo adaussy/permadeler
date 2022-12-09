@@ -9,6 +9,7 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.dialogs;
 
+import java.text.MessageFormat;
 import java.util.Comparator;
 import java.util.Map.Entry;
 import java.util.function.Predicate;
@@ -31,6 +32,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import fr.adaussy.permadeler.model.edit.ImageProvider;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 
 /**
  * Dialog used to select on image
@@ -87,13 +89,9 @@ public class ImageSelectionDialog extends Dialog {
 				for (int i = matchingGroup.getItemCount(); i > 0; i--) {
 					matchingGroup.remove(i - 1);
 				}
-				matchingGroup.setText("Matching" + text);
-				ImageProvider.INSTANCE.getPreviews()
-						.entrySet()
-						.stream()
-						.filter(l -> filter.test(l.getKey()))
-						.sorted(Comparator.comparing(Entry::getKey))
-						.forEach(path -> {
+				matchingGroup.setText(MessageFormat.format(RcpMessages.ImageSelectionDialog_0, text));
+				ImageProvider.INSTANCE.getPreviews().entrySet().stream().filter(l -> filter.test(l.getKey()))
+						.sorted(Comparator.comparing(Entry::getKey)).forEach(path -> {
 							addItem(matchingGroup, path);
 						});
 				matchingGroup.getParent().redraw();
@@ -114,17 +112,14 @@ public class ImageSelectionDialog extends Dialog {
 		gallery.setItemRenderer(ir);
 
 		matchingGroup = new GalleryItem(gallery, SWT.NONE);
-		matchingGroup.setText("Matching");
+		matchingGroup.setText(RcpMessages.ImageSelectionDialog_1);
 		matchingGroup.setExpanded(true);
 
 		allGroup = new GalleryItem(gallery, SWT.NONE);
-		allGroup.setText("All");
+		allGroup.setText(RcpMessages.ImageSelectionDialog_2);
 		allGroup.setExpanded(true);
 
-		ImageProvider.INSTANCE.getPreviews()
-				.entrySet()
-				.stream()
-				.sorted(Comparator.comparing(Entry::getKey))
+		ImageProvider.INSTANCE.getPreviews().entrySet().stream().sorted(Comparator.comparing(Entry::getKey))
 				.forEach(path -> {
 					addItem(allGroup, path);
 				});

@@ -23,7 +23,7 @@ public class PlannificationViewerPart extends AbstractModelViewerPart {
 	/**
 	 * View ID
 	 */
-	public static final String ID = "fr.adaussy.permadeler.rcp.part.planfication";
+	public static final String ID = "fr.adaussy.permadeler.rcp.part.planfication"; //$NON-NLS-1$
 
 	@Override
 	protected String getViewId() {

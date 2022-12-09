@@ -34,7 +34,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "Unknown"),
+	UNKNOWN(0, "Unknown", "Unknown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dry Soil</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DRY_SOIL(1, "DrySoil", "DrySoil"),
+	DRY_SOIL(1, "DrySoil", "DrySoil"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Moist Soil</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MOIST_SOIL(2, "MoistSoil", "MoistSoil"),
+	MOIST_SOIL(2, "MoistSoil", "MoistSoil"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Wet</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WET(3, "Wet", "Wet"),
+	WET(3, "Wet", "Wet"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Water Plant</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WATER_PLANT(4, "WaterPlant", "WaterPlant"),
+	WATER_PLANT(4, "WaterPlant", "WaterPlant"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Well Drained</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WELL_DRAINED(5, "WellDrained", "WellDrained"),
+	WELL_DRAINED(5, "WellDrained", "WellDrained"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tolerate Grought</b></em>' literal object.
@@ -94,14 +94,7 @@ public enum Moisture implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOLERATE_GROUGHT(6, "TolerateGrought", "TolerateGrought");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	TOLERATE_GROUGHT(6, "TolerateGrought", "TolerateGrought"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.

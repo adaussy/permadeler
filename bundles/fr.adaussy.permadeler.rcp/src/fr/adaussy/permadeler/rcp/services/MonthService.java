@@ -11,6 +11,7 @@ package fr.adaussy.permadeler.rcp.services;
 
 import static java.util.stream.Collectors.toSet;
 
+import java.text.MessageFormat;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,6 +30,7 @@ import com.google.common.collect.Sets;
 
 import fr.adaussy.permadeler.common.date.DateUtils;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.dialogs.MonthWeekDialog;
 
@@ -39,7 +41,7 @@ import fr.adaussy.permadeler.rcp.internal.dialogs.MonthWeekDialog;
 @SuppressWarnings("all")
 public class MonthService {
 
-	private static final String FULL_MONTH_LABEL = "X";
+	private static final String FULL_MONTH_LABEL = "X"; //$NON-NLS-1$
 
 	/**
 	 * Opens a dialog that propose to the user to select weeks
@@ -80,7 +82,7 @@ public class MonthService {
 			if ((currentLabel != null) && (!currentLabel.isEmpty())) {
 				String label = m.toString();
 				if (!FULL_MONTH_LABEL.equals(currentLabel)) {
-					label = label + ((" (" + currentLabel) + " quarter)");
+					label = label + (MessageFormat.format(RcpMessages.MonthService_0, (" (" + currentLabel))); //$NON-NLS-1$
 				}
 				result.add(label);
 			}
@@ -115,14 +117,14 @@ public class MonthService {
 			}
 		}
 		if (weeks.isEmpty()) {
-			return "";
+			return ""; //$NON-NLS-1$
 		} else {
 			if (weeks.size() == 4) {
 				return FULL_MONTH_LABEL;
 			} else {
 				return weeks.stream().<String> map(it -> {
 					return this.toQuarterNumber((it.intValue() % 4) + 1);
-				}).collect(Collectors.joining(","));
+				}).collect(Collectors.joining(",")); //$NON-NLS-1$
 			}
 		}
 	}
@@ -138,15 +140,15 @@ public class MonthService {
 	private String toQuarterNumber(final int i) {
 		switch (i) {
 			case 1:
-				return "1st";
+				return RcpMessages.MonthService_2;
 			case 2:
-				return "2nd";
+				return RcpMessages.MonthService_3;
 			case 3:
-				return "3rd";
+				return RcpMessages.MonthService_4;
 			case 4:
-				return "4th";
+				return RcpMessages.MonthService_5;
 			default:
-				return "??";
+				return RcpMessages.MonthService_6;
 		}
 	}
 	// CHECKSTYLE:ON basic switch pattern
@@ -185,7 +187,7 @@ public class MonthService {
 	public void setMonthLabel(final EObject eObject, final String featureName, final int monthNb,
 			final String value) {
 		if ((monthNb <= 0) || (monthNb > DateUtils.NB_OF_MONTHS)) {
-			RcpPlugin.logError("Expecting month range 1 -> 12");
+			RcpPlugin.logError("Expecting month range 1 -> 12"); //$NON-NLS-1$
 			return;
 		}
 		final List<Integer> monthsWeeks = this.getMonthsWeek(eObject, featureName);
@@ -196,7 +198,7 @@ public class MonthService {
 			if (value.equalsIgnoreCase(FULL_MONTH_LABEL)) {
 				valueWeek = Sets.newHashSet(getMonthWeeks(monthNb).boxed().collect(toSet()));
 			} else {
-				valueWeek = Stream.of(value.trim().split(","))//
+				valueWeek = Stream.of(value.trim().split(","))// //$NON-NLS-1$
 						.mapToInt(it -> (Integer.valueOf(it)).intValue())//
 						.filter(it -> (it > 0) && (it <= DateUtils.NB_OF_QUARTER))//
 						.map(it -> MonthService.toYearMonthlyQuarter(it, monthNb)).boxed()
@@ -268,7 +270,7 @@ public class MonthService {
 	 */
 	public boolean hasMonth(final EObject eObject, final String featureName, final int monthNb) {
 		if ((monthNb <= 0) || (monthNb > DateUtils.NB_OF_MONTHS)) {
-			RcpPlugin.logError("Expecting month range 1 -> 12");
+			RcpPlugin.logError("Expecting month range 1 -> 12"); //$NON-NLS-1$
 			return false;
 		}
 		final List<Integer> monthsWeeks = this.getMonthsWeek(eObject, featureName);
@@ -294,10 +296,10 @@ public class MonthService {
 	protected List<Integer> getMonthsWeek(final EObject eObject, final String featureName) {
 		final EStructuralFeature feature = eObject.eClass().getEStructuralFeature(featureName);
 		if (feature == null) {
-			RcpPlugin.logError("Unknwon feature " + feature);
+			RcpPlugin.logError("Unknwon feature " + feature); //$NON-NLS-1$
 		}
 		if (!PermadelerPackage.eINSTANCE.getMonthWeek().equals(feature.getEType())) {
-			RcpPlugin.getDefault().logError("Expecting feature of type Month");
+			RcpPlugin.getDefault().logError("Expecting feature of type Month"); //$NON-NLS-1$
 			return Collections.emptyList();
 		}
 		return (List<Integer>)eObject.eGet(feature);

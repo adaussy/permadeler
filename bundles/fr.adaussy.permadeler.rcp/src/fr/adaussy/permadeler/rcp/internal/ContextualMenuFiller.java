@@ -41,6 +41,7 @@ import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ListAllPlantationAction;
@@ -136,8 +137,8 @@ public class ContextualMenuFiller {
 			Plantation plantation = selections.get(0);
 			Plant type = plantation.getType();
 			if (type != null) {
-				navigateAction.add(new FocusOnElementAction("To variety", Collections.singletonList(type),
-						KnowledgeViewerPart.ID));
+				navigateAction.add(new FocusOnElementAction(RcpMessages.ContextualMenuFiller_0,
+						Collections.singletonList(type), KnowledgeViewerPart.ID));
 			}
 		}
 
@@ -162,7 +163,7 @@ public class ContextualMenuFiller {
 		if (selections.size() == 1) {
 			Cell cell = selections.get(0);
 			if (cell.getPlant() != null) {
-				navigateAction.add(new FocusOnElementAction("To variety",
+				navigateAction.add(new FocusOnElementAction(RcpMessages.ContextualMenuFiller_1,
 						Collections.singletonList(cell.getPlant()), KnowledgeViewerPart.ID));
 			}
 		}
@@ -211,7 +212,7 @@ public class ContextualMenuFiller {
 				.withPartService(getPartService())//
 				.withQuery(InputFactory.SOW_PERIOD)//
 				.withTarget(object)//
-				.withLabel("Sow times")//
+				.withLabel(RcpMessages.ContextualMenuFiller_2)//
 				.build();
 	}
 
@@ -223,7 +224,9 @@ public class ContextualMenuFiller {
 				others.add(new OpenImageAction(img));
 			}
 			for (Reference ref : variety.getReferences()) {
-				others.add(new OpenReference(ref));
+				if (ref.getLink() != null) {
+					others.add(new OpenReference(ref));
+				}
 			}
 
 			List<SeedItem> seedItems = getNonEmptySeedItem(variety);
@@ -242,7 +245,8 @@ public class ContextualMenuFiller {
 	 */
 	public void caseSeedItem(List<SeedItem> selections) {
 		List<Plant> types = selections.stream().map(o -> o.getType()).collect(toList());
-		navigateAction.add(new FocusOnElementAction("To variety", types, KnowledgeViewerPart.ID));
+		navigateAction
+				.add(new FocusOnElementAction(RcpMessages.ContextualMenuFiller_3, types, KnowledgeViewerPart.ID));
 
 		if (selections.size() == 1) {
 			addPlanificationActions(selections);
@@ -262,7 +266,7 @@ public class ContextualMenuFiller {
 
 		for (var sowIndoor : variety.getActions().stream().filter(a -> a.getType() == ActionType.SOW_INDOOR)
 				.collect(toList())) {
-			newElementActions.add(PlanificationAction.builder().withText("Plan indoor sow")//
+			newElementActions.add(PlanificationAction.builder().withText(RcpMessages.ContextualMenuFiller_4)//
 					.withDefaultChoise(sowIndoor.getPeriod())//
 					.withSession(session)//
 					.withSeedItem(seedItem).withType(SowType.INDOOR)//
@@ -270,7 +274,7 @@ public class ContextualMenuFiller {
 		}
 		for (var sowIndoor : variety.getActions().stream().filter(a -> a.getType() == ActionType.SOW_OUTDOOR)
 				.collect(toList())) {
-			newElementActions.add(PlanificationAction.builder().withText("Plan outdoor sow")//
+			newElementActions.add(PlanificationAction.builder().withText(RcpMessages.ContextualMenuFiller_5)//
 					.withDefaultChoise(sowIndoor.getPeriod())//
 					.withSession(session)//
 					.withSeedItem(seedItem).withType(SowType.OUTDOOR)//

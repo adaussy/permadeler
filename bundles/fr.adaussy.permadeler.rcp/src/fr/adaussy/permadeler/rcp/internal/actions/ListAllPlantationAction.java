@@ -19,15 +19,18 @@ import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.utils.Comparators;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 
 public class ListAllPlantationAction extends AbstractModelAction {
 
-	private static final String SEP = ";";
+	private static final String REPORTS_FOLDER = "reports"; //$NON-NLS-1$
+
+	private static final String SEP = ";"; //$NON-NLS-1$
 
 	private Zone zone;
 
 	public ListAllPlantationAction(Session session, Zone zone) {
-		super("List all plantation", session);
+		super(RcpMessages.ListAllPlantationAction_0, session);
 		this.zone = zone;
 	}
 
@@ -38,9 +41,9 @@ public class ListAllPlantationAction extends AbstractModelAction {
 				.collect(Collectors.groupingBy(p -> p.getType()));
 
 		StringBuilder builder = new StringBuilder();
-		builder.append("Species name").append(SEP);
-		builder.append("Plantation description").append(SEP);
-		builder.append("Plantation date").append(SEP);
+		builder.append(RcpMessages.ListAllPlantationAction_1).append(SEP);
+		builder.append(RcpMessages.ListAllPlantationAction_2).append(SEP);
+		builder.append(RcpMessages.ListAllPlantationAction_3).append(SEP);
 		builder.append(System.lineSeparator());
 
 		plantations.keySet().stream().sorted(Comparators.buildComparator()).forEach(type -> {
@@ -50,7 +53,7 @@ public class ListAllPlantationAction extends AbstractModelAction {
 		});
 
 		java.nio.file.Path reportFolder = Paths.get(getSession().getSessionResource().getURI().toFileString())
-				.getParent().resolve("reports");
+				.getParent().resolve(REPORTS_FOLDER);
 
 		if (!reportFolder.toFile().exists()) {
 			reportFolder.toFile().mkdirs();
@@ -58,8 +61,8 @@ public class ListAllPlantationAction extends AbstractModelAction {
 
 		try {
 			java.nio.file.Path targetFile = reportFolder
-					.resolve(zone.getName() + "_" + System.currentTimeMillis() + ".csv");
-			Files.write(builder.toString().getBytes("UTF-8"), targetFile.toFile());
+					.resolve(String.format("%s_%d.csv", zone.getName(), System.currentTimeMillis())); //$NON-NLS-1$
+			Files.write(builder.toString().getBytes("UTF-8"), targetFile.toFile()); //$NON-NLS-1$
 
 			Desktop.getDesktop().open(targetFile.toFile());
 		} catch (IOException e1) {
@@ -73,7 +76,7 @@ public class ListAllPlantationAction extends AbstractModelAction {
 	private String getRow(Plantation p) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(p.getType().getName()).append(SEP);
-		builder.append(p.getDescription() != null ? p.getDescription() : "").append(SEP);
+		builder.append(p.getDescription() != null ? p.getDescription() : "").append(SEP); //$NON-NLS-1$
 		builder.append(LocalDate.ofInstant(p.getPlantationDate(), ZoneId.systemDefault())).append(SEP);
 		return builder.toString();
 	}

@@ -71,7 +71,7 @@ public class E4LifeCycleMng {
 	 */
 	private void loadFileFromArg() {
 		for (String arg : Platform.getApplicationArgs()) {
-			if (arg.endsWith(".permarep")) {
+			if (arg.endsWith(CreateNewProjectMenu.REPRESENTATION_FILE_EXT)) {
 				SessionManager.INSTANCE.openSession(URI.createFileURI(arg), new NullProgressMonitor(), null,
 						false);
 			}

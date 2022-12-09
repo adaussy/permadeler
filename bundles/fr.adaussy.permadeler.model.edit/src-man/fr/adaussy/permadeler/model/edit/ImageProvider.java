@@ -14,6 +14,7 @@ import static fr.adaussy.permadeler.model.edit.PermadelerIcons.LEAF_SVG;
 import static java.util.stream.Collectors.joining;
 
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -215,7 +216,8 @@ public final class ImageProvider {
 
 			return PermadelerEditPlugin.INSTANCE.getImage(PermadelerIcons.removeIconPart(path));
 		} else {
-			PermadelerEditPlugin.INSTANCE.log("Missing icon for " + o.eClass().getName());
+			PermadelerEditPlugin.INSTANCE
+					.log(MessageFormat.format("Missing icon for {0}", o.eClass().getName())); //$NON-NLS-1$
 			return null;
 		}
 	}
@@ -236,16 +238,16 @@ public final class ImageProvider {
 		} else if (o instanceof Plant) {
 			result = getPlantSVGWithDefault((Plant)o, PermadelerIcons.PLANT_SVG);
 		} else {
-			result = "";
+			result = ""; //$NON-NLS-1$
 		}
 		return result;
 	}
 
 	private String getPlantSVGWithDefault(Plantation plantation, String shovelSvg) {
 		return switch (plantation.getCurrentLayer()) {
-			case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg";
-			case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg";
-			case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg";
+			case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg"; //$NON-NLS-1$
+			case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg"; //$NON-NLS-1$
+			case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg"; //$NON-NLS-1$
 			default -> {
 				String localPath = getPlantSVGPath(plantation.getType());
 				if (localPath != null) {
@@ -253,10 +255,10 @@ public final class ImageProvider {
 				} else {
 					yield switch (plantation.getCurrentLayer()) {
 
-						case HERB -> "/fr.adaussy.permadeler.model.design/img/herb.svg";
-						case GROUND_COVER -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
-						case VINE -> "/fr.adaussy.permadeler.model.design/img/vine.svg";
-						case ROOT -> "/fr.adaussy.permadeler.model.design/img/root.svg";
+						case HERB -> "/fr.adaussy.permadeler.model.design/img/herb.svg"; //$NON-NLS-1$
+						case GROUND_COVER -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg"; //$NON-NLS-1$
+						case VINE -> "/fr.adaussy.permadeler.model.design/img/vine.svg"; //$NON-NLS-1$
+						case ROOT -> "/fr.adaussy.permadeler.model.design/img/root.svg"; //$NON-NLS-1$
 						default -> LEAF_SVG;
 					};
 				}
@@ -328,7 +330,7 @@ public final class ImageProvider {
 	 * @author Arthur Daussy
 	 */
 	private class ImageProviderSwitch extends PermadelerSwitch<String> {
-		private static final String SOW_EVENT = "sow";
+		private static final String SOW_EVENT = "sow"; //$NON-NLS-1$
 
 		private static final String REMOVAL_FEATURE = "removal"; //$NON-NLS-1$
 
@@ -352,6 +354,11 @@ public final class ImageProvider {
 		@Override
 		public String caseSeedItem(SeedItem object) {
 			return "icons/bank/icons/072-seed.png"; //$NON-NLS-1$
+		}
+
+		@Override
+		public String casePlantationPhase(fr.adaussy.permadeler.model.Permadeler.PlantationPhase object) {
+			return "icons/custo/commons/growth.png"; //$NON-NLS-1$
 		}
 
 		@Override
@@ -431,14 +438,14 @@ public final class ImageProvider {
 			}
 			if (iconPath == null) {
 				iconPath = switch (object.getFoodForestLayer()) {
-					case CANOPY -> "icons/custo/commons/canopy.png";
-					case UNDERSTORY -> "icons/custo/commons/understory.png";
-					case SHRUB -> "icons/custo/commons/shrub.png";
-					case HERB -> "icons/custo/commons/herb.png";
-					case ROOT -> "icons/custo/commons/root.png";
-					case GROUND_COVER -> "icons/custo/commons/ground-covert.png";
-					case VINE -> "icons/custo/commons/vine.png";
-					case OTHER -> "icons/custo/commons/plant.png";
+					case CANOPY -> "icons/custo/commons/canopy.png"; //$NON-NLS-1$
+					case UNDERSTORY -> "icons/custo/commons/understory.png"; //$NON-NLS-1$
+					case SHRUB -> "icons/custo/commons/shrub.png"; //$NON-NLS-1$
+					case HERB -> "icons/custo/commons/herb.png"; //$NON-NLS-1$
+					case ROOT -> "icons/custo/commons/root.png"; //$NON-NLS-1$
+					case GROUND_COVER -> "icons/custo/commons/ground-covert.png"; //$NON-NLS-1$
+					case VINE -> "icons/custo/commons/vine.png"; //$NON-NLS-1$
+					case OTHER -> "icons/custo/commons/plant.png"; //$NON-NLS-1$
 					default -> null;
 				};
 

@@ -23,7 +23,7 @@ public class NursaryViewerPart extends AbstractModelViewerPart {
 	/**
 	 * View ID
 	 */
-	public static final String ID = "fr.adaussy.permadeler.rcp.part.nursary";
+	public static final String ID = "fr.adaussy.permadeler.rcp.part.nursary"; //$NON-NLS-1$
 
 	@Override
 	protected String getViewId() {

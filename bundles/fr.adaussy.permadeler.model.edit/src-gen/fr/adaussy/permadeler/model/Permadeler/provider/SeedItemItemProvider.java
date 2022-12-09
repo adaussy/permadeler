@@ -41,13 +41,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class SeedItemItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,9 +77,9 @@ public class SeedItemItemProvider extends ItemProviderAdapter implements IEditin
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SeedItem_type_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SeedItem_type_feature",
-						"_UI_SeedItem_type"),
+				getString("_UI_SeedItem_type_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SeedItem_type_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SeedItem_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.SEED_ITEM__TYPE, true, false, true, null, null, null));
 	}
 
@@ -99,9 +92,9 @@ public class SeedItemItemProvider extends ItemProviderAdapter implements IEditin
 	protected void addQuantityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SeedItem_quantity_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SeedItem_quantity_feature",
-						"_UI_SeedItem_type"),
+				getString("_UI_SeedItem_quantity_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SeedItem_quantity_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SeedItem_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.SEED_ITEM__QUANTITY, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -115,9 +108,9 @@ public class SeedItemItemProvider extends ItemProviderAdapter implements IEditin
 	protected void addByDatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SeedItem_byDate_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SeedItem_byDate_feature",
-						"_UI_SeedItem_type"),
+				getString("_UI_SeedItem_byDate_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SeedItem_byDate_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SeedItem_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.SEED_ITEM__BY_DATE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -130,7 +123,7 @@ public class SeedItemItemProvider extends ItemProviderAdapter implements IEditin
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SeedItem"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SeedItem")); //$NON-NLS-1$
 	}
 
 	/**
@@ -153,8 +146,8 @@ public class SeedItemItemProvider extends ItemProviderAdapter implements IEditin
 	public String getText(Object object) {
 		Quantity labelValue = ((SeedItem)object).getQuantity();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_SeedItem_type")
-				: getString("_UI_SeedItem_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_SeedItem_type") : //$NON-NLS-1$
+				getString("_UI_SeedItem_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

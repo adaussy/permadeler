@@ -41,7 +41,7 @@ public class DateService {
 
 	public String toLocalDate(Instant instant) {
 		if (instant == null) {
-			return "";
+			return ""; //$NON-NLS-1$
 		} else {
 			return DateUtils.instantToDateString(instant);
 		}

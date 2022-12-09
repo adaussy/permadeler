@@ -84,13 +84,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass rootEClass = null;
 
 	/**
@@ -779,24 +772,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getReference_Link() {
 		return (EAttribute)referenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReference_Id() {
-		return (EAttribute)referenceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReference_Source() {
-		return (EAttribute)referenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1704,8 +1679,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		referenceEClass = createEClass(REFERENCE);
 		createEAttribute(referenceEClass, REFERENCE__LINK);
-		createEAttribute(referenceEClass, REFERENCE__ID);
-		createEAttribute(referenceEClass, REFERENCE__SOURCE);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__TITLE);
@@ -1856,6 +1829,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		// Add supertypes to classes
 		rootEClass.getESuperTypes().add(this.getNamedElement());
 		plantNamedElementEClass.getESuperTypes().add(this.getNamedElement());
+		referenceEClass.getESuperTypes().add(this.getNamedElement());
 		zoneEClass.getESuperTypes().add(this.getNamedElement());
 		nursaryEClass.getESuperTypes().add(this.getTrayOwner());
 		trayEClass.getESuperTypes().add(this.getNamedElement());
@@ -1868,338 +1842,332 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		plantationPhaseEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRoot_KnowledgeBase(), this.getKnowledgeBase(), null, "knowledgeBase", null, 1, 1,
+		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRoot_KnowledgeBase(), this.getKnowledgeBase(), null, "knowledgeBase", null, 1, 1, //$NON-NLS-1$
 				Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Seedbank(), this.getSeedBank(), null, "seedbank", null, 1, 1, Root.class,
+		initEReference(getRoot_Seedbank(), this.getSeedBank(), null, "seedbank", null, 1, 1, Root.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Zones(), this.getZone(), null, "zones", null, 0, -1, Root.class, !IS_TRANSIENT,
+		initEReference(getRoot_Zones(), this.getZone(), null, "zones", null, 0, -1, Root.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Nursary(), this.getNursary(), null, "nursary", null, 1, 1, Root.class,
+		initEReference(getRoot_Nursary(), this.getNursary(), null, "nursary", null, 1, 1, Root.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoot_Planifier(), this.getPlanifier(), null, "planifier", null, 0, 1, Root.class,
+		initEReference(getRoot_Planifier(), this.getPlanifier(), null, "planifier", null, 0, 1, Root.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getRoot__AddSowPlanification__SeedItem_List_SowType(), null,
-				"addSowPlanification", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSeedItem(), "seedItem", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getMonthWeeks(), "weeks", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSowType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+				"addSowPlanification", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, this.getSeedItem(), "seedItem", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, this.getMonthWeeks(), "weeks", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, this.getSowType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(knowledgeBaseEClass, KnowledgeBase.class, "KnowledgeBase", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(knowledgeBaseEClass, KnowledgeBase.class, "KnowledgeBase", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getKnowledgeBase_PlantTypes(), this.getPlant(), null, "plantTypes", null, 0, -1,
+		initEReference(getKnowledgeBase_PlantTypes(), this.getPlant(), null, "plantTypes", null, 0, -1, //$NON-NLS-1$
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(seedBankEClass, SeedBank.class, "SeedBank", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(seedBankEClass, SeedBank.class, "SeedBank", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSeedBank_Items(), this.getSeedItem(), null, "items", null, 0, -1, SeedBank.class,
+		initEReference(getSeedBank_Items(), this.getSeedItem(), null, "items", null, 0, -1, SeedBank.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(seedItemEClass, SeedItem.class, "SeedItem", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(seedItemEClass, SeedItem.class, "SeedItem", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSeedItem_Type(), this.getPlant(), null, "type", null, 1, 1, SeedItem.class,
+		initEReference(getSeedItem_Type(), this.getPlant(), null, "type", null, 1, 1, SeedItem.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSeedItem_Quantity(), this.getQuantity(), "quantity", null, 0, 1, SeedItem.class,
+		initEAttribute(getSeedItem_Quantity(), this.getQuantity(), "quantity", null, 0, 1, SeedItem.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getSeedItem_ByDate(), ecorePackage.getEDate(), "byDate", null, 0, 1, SeedItem.class,
+		initEAttribute(getSeedItem_ByDate(), ecorePackage.getEDate(), "byDate", null, 0, 1, SeedItem.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, //$NON-NLS-1$
 				NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNamedElement_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getNamedElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
 				NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(plantationEClass, Plantation.class, "Plantation", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(plantationEClass, Plantation.class, "Plantation", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlantation_Type(), this.getPlant(), null, "type", null, 0, 1, Plantation.class,
+		initEReference(getPlantation_Type(), this.getPlant(), null, "type", null, 0, 1, Plantation.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlantation_Events(), this.getEvent(), null, "events", null, 0, -1, Plantation.class,
+		initEReference(getPlantation_Events(), this.getEvent(), null, "events", null, 0, -1, Plantation.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantation_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getPlantation_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantation_PlantationDate(), this.getDate(), "plantationDate", null, 0, 1,
+		initEAttribute(getPlantation_PlantationDate(), this.getDate(), "plantationDate", null, 0, 1, //$NON-NLS-1$
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantation_CurrentLayer(), this.getLayer(), "currentLayer", "UNDERSTORY", 0, 1,
+		initEAttribute(getPlantation_CurrentLayer(), this.getLayer(), "currentLayer", "UNDERSTORY", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantation_Rootstock(), ecorePackage.getEString(), "rootstock", null, 0, 1,
+		initEAttribute(getPlantation_Rootstock(), ecorePackage.getEString(), "rootstock", null, 0, 1, //$NON-NLS-1$
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantation_Id(), ecorePackage.getEString(), "id", null, 0, 1, Plantation.class,
+		initEAttribute(getPlantation_Id(), ecorePackage.getEString(), "id", null, 0, 1, Plantation.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
-		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT,
+		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlantNamedElement_CommonNames(), ecorePackage.getEString(), "commonNames", null, 1,
+		initEAttribute(getPlantNamedElement_CommonNames(), ecorePackage.getEString(), "commonNames", null, 1, //$NON-NLS-1$
 				-1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_LatinName(), ecorePackage.getEString(), "latinName", null, 1, 1,
+		initEAttribute(getPlantNamedElement_LatinName(), ecorePackage.getEString(), "latinName", null, 1, 1, //$NON-NLS-1$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_RepresentationKey(), ecorePackage.getEString(),
-				"representationKey", null, 0, 1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE,
+				"representationKey", null, 0, 1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReference_Link(), this.getURL(), "link", null, 0, 1, Reference.class, !IS_TRANSIENT,
+		initEAttribute(getReference_Link(), this.getURL(), "link", null, 0, 1, Reference.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReference_Id(), ecorePackage.getEString(), "id", null, 0, 1, Reference.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getReference_Source(), ecorePackage.getEString(), "source", null, 0, 1,
-				Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImage_Title(), ecorePackage.getEString(), "title", null, 0, 1, Image.class,
+		initEAttribute(getImage_Title(), ecorePackage.getEString(), "title", null, 0, 1, Image.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getImage_Source(), ecorePackage.getEString(), "source", null, 0, 1, Image.class,
+		initEAttribute(getImage_Source(), ecorePackage.getEString(), "source", null, 0, 1, Image.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getImage_Path(), ecorePackage.getEString(), "path", null, 0, 1, Image.class,
+		initEAttribute(getImage_Path(), ecorePackage.getEString(), "path", null, 0, 1, Image.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
-		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEvent_Date(), this.getDate(), "date", null, 1, 1, Event.class, !IS_TRANSIENT,
+		initEAttribute(getEvent_Date(), this.getDate(), "date", null, 1, 1, Event.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getEvent_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
 				Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_Images(), this.getImage(), null, "images", null, 0, -1, Event.class,
+		initEReference(getEvent_Images(), this.getImage(), null, "images", null, 0, -1, Event.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_Type(), this.getEventType(), "type", null, 0, 1, Event.class, !IS_TRANSIENT,
+		initEAttribute(getEvent_Type(), this.getEventType(), "type", null, 0, 1, Event.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(zoneEClass, Zone.class, "Zone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getZone_Phases(), this.getPlantationPhase(), null, "phases", null, 0, -1, Zone.class,
+		initEClass(zoneEClass, Zone.class, "Zone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getZone_Phases(), this.getPlantationPhase(), null, "phases", null, 0, -1, Zone.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(nursaryEClass, Nursary.class, "Nursary", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(nursaryEClass, Nursary.class, "Nursary", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNursary_Zones(), this.getTrayZone(), null, "zones", null, 0, -1, Nursary.class,
+		initEReference(getNursary_Zones(), this.getTrayZone(), null, "zones", null, 0, -1, Nursary.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(trayEClass, Tray.class, "Tray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTray_Rows(), this.getRow(), null, "rows", null, 0, -1, Tray.class, !IS_TRANSIENT,
+		initEClass(trayEClass, Tray.class, "Tray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getTray_Rows(), this.getRow(), null, "rows", null, 0, -1, Tray.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTray__GetEmptyCells(), this.getCell(), "getEmptyCells", 0, -1, IS_UNIQUE,
+		initEOperation(getTray__GetEmptyCells(), this.getCell(), "getEmptyCells", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
 
-		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRow_Cells(), this.getCell(), null, "cells", null, 0, -1, Row.class, !IS_TRANSIENT,
+		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRow_Cells(), this.getCell(), null, "cells", null, 0, -1, Row.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCell_Plant(), this.getPlant(), null, "plant", null, 0, 1, Cell.class, !IS_TRANSIENT,
+		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCell_Plant(), this.getPlant(), null, "plant", null, 0, 1, Cell.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCell_Date(), this.getDate(), "date", null, 0, 1, Cell.class, !IS_TRANSIENT,
+		initEAttribute(getCell_Date(), this.getDate(), "date", null, 0, 1, Cell.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(trayZoneEClass, TrayZone.class, "TrayZone", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(trayZoneEClass, TrayZone.class, "TrayZone", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(trayOwnerEClass, TrayOwner.class, "TrayOwner", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(trayOwnerEClass, TrayOwner.class, "TrayOwner", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrayOwner_Trays(), this.getTray(), null, "trays", null, 0, -1, TrayOwner.class,
+		initEReference(getTrayOwner_Trays(), this.getTray(), null, "trays", null, 0, -1, TrayOwner.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(gridBedRowEClass, GridBedRow.class, "GridBedRow", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(gridBedRowEClass, GridBedRow.class, "GridBedRow", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGridBedRow_Cells(), this.getGridBedCell(), null, "cells", null, 0, -1,
+		initEReference(getGridBedRow_Cells(), this.getGridBedCell(), null, "cells", null, 0, -1, //$NON-NLS-1$
 				GridBedRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(gridBedCellEClass, GridBedCell.class, "GridBedCell", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(gridBedCellEClass, GridBedCell.class, "GridBedCell", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGridBedCell_Plantation(), this.getPlantation(), null, "plantation", null, 0, 1,
+		initEReference(getGridBedCell_Plantation(), this.getPlantation(), null, "plantation", null, 0, 1, //$NON-NLS-1$
 				GridBedCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(planficationEClass, Planfication.class, "Planfication", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(planficationEClass, Planfication.class, "Planfication", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlanfication_Weeks(), ecorePackage.getEInt(), "weeks", null, 0, -1,
+		initEAttribute(getPlanfication_Weeks(), ecorePackage.getEInt(), "weeks", null, 0, -1, //$NON-NLS-1$
 				Planfication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(planifierEClass, Planifier.class, "Planifier", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(planifierEClass, Planifier.class, "Planifier", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlanifier_Planfications(), this.getPlanfication(), null, "planfications", null, 0,
+		initEReference(getPlanifier_Planfications(), this.getPlanfication(), null, "planfications", null, 0, //$NON-NLS-1$
 				-1, Planifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sowPlanficationEClass, SowPlanfication.class, "SowPlanfication", !IS_ABSTRACT,
+		initEClass(sowPlanficationEClass, SowPlanfication.class, "SowPlanfication", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSowPlanfication_Seed(), this.getSeedItem(), null, "seed", null, 1, 1,
+		initEReference(getSowPlanfication_Seed(), this.getSeedItem(), null, "seed", null, 1, 1, //$NON-NLS-1$
 				SowPlanfication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSowPlanfication_Type(), this.getSowType(), "type", null, 0, 1,
+		initEAttribute(getSowPlanfication_Type(), this.getSowType(), "type", null, 0, 1, //$NON-NLS-1$
 				SowPlanfication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(backgroundImageEClass, BackgroundImage.class, "BackgroundImage", !IS_ABSTRACT,
+		initEClass(backgroundImageEClass, BackgroundImage.class, "BackgroundImage", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBackgroundImage_RelativePath(), ecorePackage.getEString(), "relativePath", null, 1,
+		initEAttribute(getBackgroundImage_RelativePath(), ecorePackage.getEString(), "relativePath", null, 1, //$NON-NLS-1$
 				1, BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBackgroundImage_Scaling(), ecorePackage.getEFloat(), "scaling", null, 0, 1,
+		initEAttribute(getBackgroundImage_Scaling(), ecorePackage.getEFloat(), "scaling", null, 0, 1, //$NON-NLS-1$
 				BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBackgroundImage_Transparency(), ecorePackage.getEInt(), "transparency", "100", 0, 1,
+		initEAttribute(getBackgroundImage_Transparency(), ecorePackage.getEInt(), "transparency", "100", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
 				BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(plantEClass, Plant.class, "Plant", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(plantEClass, Plant.class, "Plant", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlant_Width(), ecorePackage.getEFloat(), "width", null, 0, 1, Plant.class,
+		initEAttribute(getPlant_Width(), ecorePackage.getEFloat(), "width", null, 0, 1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getPlant_SoilType(), this.getSoilType(), "soilType", null, 0, -1, Plant.class,
+		initEAttribute(getPlant_SoilType(), this.getSoilType(), "soilType", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getPlant_Images(), this.getImage(), null, "images", null, 0, -1, Plant.class,
+		initEReference(getPlant_Images(), this.getImage(), null, "images", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_LightingCondition(), this.getShade(), "lightingCondition", null, 0, -1,
+		initEAttribute(getPlant_LightingCondition(), this.getShade(), "lightingCondition", null, 0, -1, //$NON-NLS-1$
 				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_Height(), ecorePackage.getEFloat(), "height", null, 0, 1, Plant.class,
+		initEAttribute(getPlant_Height(), ecorePackage.getEFloat(), "height", null, 0, 1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getPlant_MinTemperature(), ecorePackage.getEInt(), "minTemperature", null, 0, 1,
+		initEAttribute(getPlant_MinTemperature(), ecorePackage.getEInt(), "minTemperature", null, 0, 1, //$NON-NLS-1$
 				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_Moisture(), this.getMoisture(), "moisture", null, 0, -1, Plant.class,
+		initEAttribute(getPlant_Moisture(), this.getMoisture(), "moisture", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getPlant_References(), this.getReference(), null, "references", null, 0, -1,
+		initEReference(getPlant_References(), this.getReference(), null, "references", null, 0, -1, //$NON-NLS-1$
 				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_SpecialUses(), this.getSpecialUses(), "specialUses", null, 0, -1, Plant.class,
+		initEAttribute(getPlant_SpecialUses(), this.getSpecialUses(), "specialUses", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getPlant_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Plant.class,
+		initEAttribute(getPlant_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getPlant_Wind(), this.getWind(), "wind", null, 0, -1, Plant.class, !IS_TRANSIENT,
+		initEAttribute(getPlant_Wind(), this.getWind(), "wind", null, 0, -1, Plant.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlant_Productions(), this.getProduction(), null, "productions", null, 0, -1,
+		initEReference(getPlant_Productions(), this.getProduction(), null, "productions", null, 0, -1, //$NON-NLS-1$
 				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlant_Actions(), this.getAction(), null, "actions", null, 0, -1, Plant.class,
+		initEReference(getPlant_Actions(), this.getAction(), null, "actions", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_FoodForestLayer(), this.getLayer(), "foodForestLayer", "UNDERSTORY", 0, 1,
+		initEAttribute(getPlant_FoodForestLayer(), this.getLayer(), "foodForestLayer", "UNDERSTORY", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
 				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Plant.class,
+		initEAttribute(getPlant_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getPlant_Family(), this.getFamily(), "family", null, 0, 1, Plant.class, !IS_TRANSIENT,
+		initEAttribute(getPlant_Family(), this.getFamily(), "family", null, 0, 1, Plant.class, !IS_TRANSIENT, //$NON-NLS-1$
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPlant__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE,
+		initEOperation(getPlant__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
 
-		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProduction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Production.class,
+		initEAttribute(getProduction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Production.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getProduction_Type(), this.getProductionType(), "type", null, 0, 1, Production.class,
+		initEAttribute(getProduction_Type(), this.getProductionType(), "type", null, 0, 1, Production.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getProduction_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getProduction_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
 				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProduction_Conservation(), ecorePackage.getEInt(), "conservation", null, 0, 1,
+		initEAttribute(getProduction_Conservation(), ecorePackage.getEInt(), "conservation", null, 0, 1, //$NON-NLS-1$
 				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Type(), this.getActionType(), "type", "SowIndoor", 0, 1, Action.class,
+		initEAttribute(getAction_Type(), this.getActionType(), "type", "SowIndoor", 0, 1, Action.class, //$NON-NLS-1$//$NON-NLS-2$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getAction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Action.class,
+		initEAttribute(getAction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Action.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getAction_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+		initEAttribute(getAction_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
 				Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(temporalItemEClass, TemporalItem.class, "TemporalItem", IS_ABSTRACT, IS_INTERFACE,
+		initEClass(temporalItemEClass, TemporalItem.class, "TemporalItem", IS_ABSTRACT, IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getTemporalItem__GetName(), ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE,
+		initEOperation(getTemporalItem__GetName(), ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
 
-		initEOperation(getTemporalItem__GetPerdiod(), this.getMonthWeeks(), "getPerdiod", 0, 1, IS_UNIQUE,
+		initEOperation(getTemporalItem__GetPerdiod(), this.getMonthWeeks(), "getPerdiod", 0, 1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
 
-		initEClass(plantationPhaseEClass, PlantationPhase.class, "PlantationPhase", !IS_ABSTRACT,
+		initEClass(plantationPhaseEClass, PlantationPhase.class, "PlantationPhase", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlantationPhase_Plantations(), this.getPlantation(), null, "plantations", null, 0,
+		initEReference(getPlantationPhase_Plantations(), this.getPlantation(), null, "plantations", null, 0, //$NON-NLS-1$
 				-1, PlantationPhase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlantationPhase_BackgroundImage(), this.getBackgroundImage(), null,
-				"backgroundImage", null, 0, 1, PlantationPhase.class, !IS_TRANSIENT, !IS_VOLATILE,
+				"backgroundImage", null, 0, 1, PlantationPhase.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(quantityEEnum, Quantity.class, "Quantity");
+		initEEnum(quantityEEnum, Quantity.class, "Quantity"); //$NON-NLS-1$
 		addEEnumLiteral(quantityEEnum, Quantity.UNKNOWN);
 		addEEnumLiteral(quantityEEnum, Quantity.EMPTY);
 		addEEnumLiteral(quantityEEnum, Quantity.LOW);
 		addEEnumLiteral(quantityEEnum, Quantity.MEDIUM);
 		addEEnumLiteral(quantityEEnum, Quantity.HIGHT);
 
-		initEEnum(lifecycleEEnum, Lifecycle.class, "Lifecycle");
+		initEEnum(lifecycleEEnum, Lifecycle.class, "Lifecycle"); //$NON-NLS-1$
 		addEEnumLiteral(lifecycleEEnum, Lifecycle.UNKNOWN);
 		addEEnumLiteral(lifecycleEEnum, Lifecycle.ANNUAL);
 		addEEnumLiteral(lifecycleEEnum, Lifecycle.BIENNIAL);
 		addEEnumLiteral(lifecycleEEnum, Lifecycle.PERENNIAL);
 
-		initEEnum(shadeEEnum, Shade.class, "Shade");
+		initEEnum(shadeEEnum, Shade.class, "Shade"); //$NON-NLS-1$
 		addEEnumLiteral(shadeEEnum, Shade.UNKNOWN);
 		addEEnumLiteral(shadeEEnum, Shade.FULL_SHADE);
 		addEEnumLiteral(shadeEEnum, Shade.SEMI);
 		addEEnumLiteral(shadeEEnum, Shade.FULL_SUN);
 
-		initEEnum(soilTypeEEnum, SoilType.class, "SoilType");
+		initEEnum(soilTypeEEnum, SoilType.class, "SoilType"); //$NON-NLS-1$
 		addEEnumLiteral(soilTypeEEnum, SoilType.UNKNOWN);
 		addEEnumLiteral(soilTypeEEnum, SoilType.LIGHT_SANDY);
 		addEEnumLiteral(soilTypeEEnum, SoilType.MEDIUM_LOAM);
@@ -2208,7 +2176,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(soilTypeEEnum, SoilType.POOR_SOIL);
 		addEEnumLiteral(soilTypeEEnum, SoilType.WATER);
 
-		initEEnum(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.class, "PH");
+		initEEnum(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.class, "PH"); //$NON-NLS-1$
 		addEEnumLiteral(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.UNKNOWN);
 		addEEnumLiteral(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.VERY_ACID);
 		addEEnumLiteral(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.ACID);
@@ -2217,7 +2185,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.VERY_ALKALINE);
 		addEEnumLiteral(phEEnum, fr.adaussy.permadeler.model.Permadeler.PH.SALINE);
 
-		initEEnum(moistureEEnum, Moisture.class, "Moisture");
+		initEEnum(moistureEEnum, Moisture.class, "Moisture"); //$NON-NLS-1$
 		addEEnumLiteral(moistureEEnum, Moisture.UNKNOWN);
 		addEEnumLiteral(moistureEEnum, Moisture.DRY_SOIL);
 		addEEnumLiteral(moistureEEnum, Moisture.MOIST_SOIL);
@@ -2226,7 +2194,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(moistureEEnum, Moisture.WELL_DRAINED);
 		addEEnumLiteral(moistureEEnum, Moisture.TOLERATE_GROUGHT);
 
-		initEEnum(familyEEnum, Family.class, "Family");
+		initEEnum(familyEEnum, Family.class, "Family"); //$NON-NLS-1$
 		addEEnumLiteral(familyEEnum, Family.UNKNOWN);
 		addEEnumLiteral(familyEEnum, Family.ACANTHACEAE);
 		addEEnumLiteral(familyEEnum, Family.ACHARIACEAE);
@@ -2849,18 +2817,18 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(familyEEnum, Family.ZOSTERACEAE);
 		addEEnumLiteral(familyEEnum, Family.ZYGOPHYLLACEAE);
 
-		initEEnum(growRateEEnum, GrowRate.class, "GrowRate");
+		initEEnum(growRateEEnum, GrowRate.class, "GrowRate"); //$NON-NLS-1$
 		addEEnumLiteral(growRateEEnum, GrowRate.UNKOWN);
 		addEEnumLiteral(growRateEEnum, GrowRate.SLOW);
 		addEEnumLiteral(growRateEEnum, GrowRate.MEDIUM);
 		addEEnumLiteral(growRateEEnum, GrowRate.FAST);
 
-		initEEnum(windEEnum, Wind.class, "Wind");
+		initEEnum(windEEnum, Wind.class, "Wind"); //$NON-NLS-1$
 		addEEnumLiteral(windEEnum, Wind.TOLERATE_MARTIME_WIND);
 		addEEnumLiteral(windEEnum, Wind.TOLERATE_STRONG_WIND);
 		addEEnumLiteral(windEEnum, Wind.NOT_WIND_TOLERANT);
 
-		initEEnum(specialUsesEEnum, SpecialUses.class, "SpecialUses");
+		initEEnum(specialUsesEEnum, SpecialUses.class, "SpecialUses"); //$NON-NLS-1$
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.NITROGEN_FIXER);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.SCENTED_PLANTS);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.FOOD_FOREST);
@@ -2870,21 +2838,21 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.DYNAMIC_ACCUMULATOR);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.GROUND_COVER);
 
-		initEEnum(eventTypeEEnum, EventType.class, "EventType");
+		initEEnum(eventTypeEEnum, EventType.class, "EventType"); //$NON-NLS-1$
 		addEEnumLiteral(eventTypeEEnum, EventType.GENERAL);
 		addEEnumLiteral(eventTypeEEnum, EventType.HARVEST);
 		addEEnumLiteral(eventTypeEEnum, EventType.PRUNE);
 		addEEnumLiteral(eventTypeEEnum, EventType.DISEASE);
 
-		initEEnum(rowBedTypeEEnum, RowBedType.class, "RowBedType");
+		initEEnum(rowBedTypeEEnum, RowBedType.class, "RowBedType"); //$NON-NLS-1$
 		addEEnumLiteral(rowBedTypeEEnum, RowBedType.VERTICAL);
 		addEEnumLiteral(rowBedTypeEEnum, RowBedType.HORIZONTAL);
 
-		initEEnum(sowTypeEEnum, SowType.class, "SowType");
+		initEEnum(sowTypeEEnum, SowType.class, "SowType"); //$NON-NLS-1$
 		addEEnumLiteral(sowTypeEEnum, SowType.INDOOR);
 		addEEnumLiteral(sowTypeEEnum, SowType.OUTDOOR);
 
-		initEEnum(productionTypeEEnum, ProductionType.class, "ProductionType");
+		initEEnum(productionTypeEEnum, ProductionType.class, "ProductionType"); //$NON-NLS-1$
 		addEEnumLiteral(productionTypeEEnum, ProductionType.FRUIT);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.LEAVES);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.FLOWER);
@@ -2901,13 +2869,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(productionTypeEEnum, ProductionType.OIL);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.ROOT);
 
-		initEEnum(actionTypeEEnum, ActionType.class, "ActionType");
+		initEEnum(actionTypeEEnum, ActionType.class, "ActionType"); //$NON-NLS-1$
 		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_INDOOR);
 		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_OUTDOOR);
 		addEEnumLiteral(actionTypeEEnum, ActionType.PRUNING);
 		addEEnumLiteral(actionTypeEEnum, ActionType.OTHER);
 
-		initEEnum(layerEEnum, Layer.class, "Layer");
+		initEEnum(layerEEnum, Layer.class, "Layer"); //$NON-NLS-1$
 		addEEnumLiteral(layerEEnum, Layer.CANOPY);
 		addEEnumLiteral(layerEEnum, Layer.UNDERSTORY);
 		addEEnumLiteral(layerEEnum, Layer.SHRUB);
@@ -2918,13 +2886,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(layerEEnum, Layer.OTHER);
 
 		// Initialize data types
-		initEDataType(monthWeekEDataType, int.class, "MonthWeek", IS_SERIALIZABLE,
+		initEDataType(monthWeekEDataType, int.class, "MonthWeek", IS_SERIALIZABLE, //$NON-NLS-1$
 				!IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(urlEDataType, java.net.URL.class, "URL", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(dateEDataType, Instant.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(monthWeeksEDataType, List.class, "MonthWeeks", IS_SERIALIZABLE,
-				!IS_GENERATED_INSTANCE_CLASS, "java.util.List<java.lang.Integer>");
-		initEDataType(colorEDataType, Color.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(urlEDataType, java.net.URL.class, "URL", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(dateEDataType, Instant.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEDataType(monthWeeksEDataType, List.class, "MonthWeeks", IS_SERIALIZABLE, //$NON-NLS-1$
+				!IS_GENERATED_INSTANCE_CLASS, "java.util.List<java.lang.Integer>"); //$NON-NLS-1$
+		initEDataType(colorEDataType, Color.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

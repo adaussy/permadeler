@@ -16,6 +16,7 @@ import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.emf.ecore.EObject;
 
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.actions.TimeViewAction;
 import fr.adaussy.permadeler.rcp.internal.timeview.InputFactory;
@@ -36,7 +37,7 @@ public abstract class AbstractSowCalendarDirectMenu<T extends EObject> {
 				.withPartService(partService)//
 				.withQuery(InputFactory.SOW_PERIOD)//
 				.withTarget(getRootItem(session))//
-				.withLabel("Sow times")//
+				.withLabel(RcpMessages.AbstractSowCalendarDirectMenu_0)//
 				.build().openTimeView();
 	}
 

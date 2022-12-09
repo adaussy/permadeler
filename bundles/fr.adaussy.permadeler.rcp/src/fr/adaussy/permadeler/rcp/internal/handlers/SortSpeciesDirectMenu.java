@@ -15,12 +15,13 @@ import org.eclipse.emf.common.util.ECollections;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.utils.Comparators;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 
 public class SortSpeciesDirectMenu {
 	@Execute
 	public void execute(PermadelerSession session) {
-		session.modifyKnowledgeBase("Sort plants", base -> {
+		session.modifyKnowledgeBase(RcpMessages.SortSpeciesDirectMenu_0, base -> {
 			ECollections.sort(base.getPlantTypes(), Comparators.<Plant> buildComparator());
 		});
 	}

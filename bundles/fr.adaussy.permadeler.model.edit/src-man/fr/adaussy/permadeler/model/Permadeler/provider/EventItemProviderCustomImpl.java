@@ -34,7 +34,7 @@ public class EventItemProviderCustomImpl extends EventItemProvider {
 	public String getText(Object object) {
 		Instant date = ((Event)object).getDate();
 		if (date == null) {
-			return "";
+			return ""; //$NON-NLS-1$
 		}
 		return DateUtils.instantToDateString(date);
 	}

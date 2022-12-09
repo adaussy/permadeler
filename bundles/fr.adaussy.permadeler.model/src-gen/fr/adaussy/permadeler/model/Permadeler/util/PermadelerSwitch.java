@@ -32,13 +32,6 @@ import org.eclipse.emf.ecore.util.Switch;
  */
 public class PermadelerSwitch<T> extends Switch<T> {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,6 +130,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 			case PermadelerPackage.REFERENCE: {
 				Reference reference = (Reference)theEObject;
 				T result = caseReference(reference);
+				if (result == null)
+					result = caseNamedElement(reference);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;

@@ -18,6 +18,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.MessageFormat;
 
 import org.apache.batik.dom.svg.SAXSVGDocumentFactory;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -153,7 +154,7 @@ public class ImageInstallerApp {
 	public static void transformSVG(Path source, Path target, int maxSize, boolean override)
 			throws IOException, TranscoderException {
 		if (!override && target.toFile().exists()) {
-			System.out.println("Target " + target + "already exist. Do not override");
+			System.out.println(MessageFormat.format("Target {0} already exist. Do not override", target)); //$NON-NLS-1$
 			return;
 		}
 		System.out.println("Converting " + source); //$NON-NLS-1$
@@ -234,7 +235,7 @@ public class ImageInstallerApp {
 	public static void transform(Path source, Path target, AbstractTranscoder transocder, boolean override)
 			throws IOException, TranscoderException {
 		if (!override && target.toFile().exists()) {
-			System.out.println("Target " + target + "already exist. Do not override");
+			System.out.println(MessageFormat.format("Target {0} already exist. Do not override", target)); //$NON-NLS-1$
 			return;
 		}
 		System.out.println("Converting " + source); //$NON-NLS-1$

@@ -37,13 +37,6 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  */
 public class GridBedCellItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,9 +71,9 @@ public class GridBedCellItemProvider extends ItemProviderAdapter implements IEdi
 	protected void addPlantationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_GridBedCell_plantation_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_GridBedCell_plantation_feature",
-						"_UI_GridBedCell_type"),
+				getString("_UI_GridBedCell_plantation_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_GridBedCell_plantation_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_GridBedCell_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.GRID_BED_CELL__PLANTATION, true, false, true, null, null, null));
 	}
 
@@ -92,7 +85,7 @@ public class GridBedCellItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GridBedCell"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GridBedCell")); //$NON-NLS-1$
 	}
 
 	/**
@@ -113,7 +106,7 @@ public class GridBedCellItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GridBedCell_type");
+		return getString("_UI_GridBedCell_type"); //$NON-NLS-1$
 	}
 
 	/**

@@ -23,7 +23,7 @@ public class KnowledgeViewerPart extends AbstractModelViewerPart {
 	/**
 	 * View ID
 	 */
-	public static final String ID = "fr.adaussy.permadeler.rcp.part.knowledgebase";
+	public static final String ID = "fr.adaussy.permadeler.rcp.part.knowledgebase"; //$NON-NLS-1$
 
 	@Override
 	protected String getViewId() {

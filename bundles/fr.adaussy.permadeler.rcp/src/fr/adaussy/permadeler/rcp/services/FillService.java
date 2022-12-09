@@ -264,18 +264,18 @@ public final class FillService {
 					URL url = new URL(source);
 
 					Iterator<ImageReader> iter;
-					String urlFileExtension = "png";
+					String urlFileExtension = "png"; //$NON-NLS-1$
 					try (InputStream openStream = url.openStream()) {
 						iter = ImageIO.getImageReaders(ImageIO.createImageInputStream(openStream));
 
 						if (!iter.hasNext()) {
 
-							throw new RuntimeException("No readers found!");
+							throw new RuntimeException("No readers found!"); //$NON-NLS-1$
 
 						}
 						urlFileExtension = iter.next().getFormatName().toLowerCase();
 					} catch (IOException e1) {
-						RcpPlugin.logError("Error during image download " + e1.getMessage(), e1);
+						RcpPlugin.logError("Error during image download " + e1.getMessage(), e1); //$NON-NLS-1$
 					}
 					try (InputStream in = new BufferedInputStream(url.openStream())) {
 

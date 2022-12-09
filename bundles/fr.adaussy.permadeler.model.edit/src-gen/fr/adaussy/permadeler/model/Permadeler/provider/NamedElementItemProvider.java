@@ -40,13 +40,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class NamedElementItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,9 +75,9 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_NamedElement_name_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature",
-						"_UI_NamedElement_type"),
+				getString("_UI_NamedElement_name_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_NamedElement_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -98,9 +91,9 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_NamedElement_description_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_description_feature",
-						"_UI_NamedElement_type"),
+				getString("_UI_NamedElement_description_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_description_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_NamedElement_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.NAMED_ELEMENT__DESCRIPTION, true, true, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -113,7 +106,7 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NamedElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NamedElement")); //$NON-NLS-1$
 	}
 
 	/**
@@ -135,8 +128,8 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
 	@Override
 	public String getText(Object object) {
 		String label = ((NamedElement)object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_NamedElement_type")
-				: getString("_UI_NamedElement_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_NamedElement_type") : //$NON-NLS-1$
+				getString("_UI_NamedElement_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

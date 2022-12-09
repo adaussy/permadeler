@@ -38,13 +38,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class SowPlanficationImpl extends PlanficationImpl implements SowPlanfication {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The cached value of the '{@link #getSeed() <em>Seed</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,7 +229,7 @@ public class SowPlanficationImpl extends PlanficationImpl implements SowPlanfica
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (type: ");
+		result.append(" (type: "); //$NON-NLS-1$
 		result.append(type);
 		result.append(')');
 		return result.toString();

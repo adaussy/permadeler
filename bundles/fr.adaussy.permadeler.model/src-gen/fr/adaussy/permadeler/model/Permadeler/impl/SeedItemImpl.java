@@ -42,13 +42,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedItem {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,9 +285,9 @@ public class SeedItemImpl extends MinimalEObjectImpl.Container implements SeedIt
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (quantity: ");
+		result.append(" (quantity: "); //$NON-NLS-1$
 		result.append(quantity);
-		result.append(", byDate: ");
+		result.append(", byDate: "); //$NON-NLS-1$
 		result.append(byDate);
 		result.append(')');
 		return result.toString();

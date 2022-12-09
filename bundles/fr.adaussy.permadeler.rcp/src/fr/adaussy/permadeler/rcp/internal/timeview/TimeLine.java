@@ -195,7 +195,7 @@ public class TimeLine {
 				FocusOnElementAction.selectInBestView(Collections.singletonList(target.getTarget()));
 			}
 		};
-		String id = TimeViewPart.ID + "#contextMenu";
+		String id = TimeViewPart.ID + "#contextMenu"; //$NON-NLS-1$
 		MenuManager contextMenu = new MenuManager(id); // $NON-NLS-1$
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(new MenuFiller(() -> new StructuredSelection(target)));

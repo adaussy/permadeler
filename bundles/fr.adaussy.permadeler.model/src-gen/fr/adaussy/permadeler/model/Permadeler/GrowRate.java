@@ -34,7 +34,7 @@ public enum GrowRate implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKOWN(0, "Unkown", "Unkown"),
+	UNKOWN(0, "Unkown", "Unkown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Slow</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum GrowRate implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SLOW(1, "Slow", "Slow"),
+	SLOW(1, "Slow", "Slow"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Medium</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum GrowRate implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDIUM(2, "Medium", "Medium"),
+	MEDIUM(2, "Medium", "Medium"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fast</b></em>' literal object.
@@ -64,14 +64,7 @@ public enum GrowRate implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAST(3, "Fast", "Fast");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	FAST(3, "Fast", "Fast"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unkown</b></em>' literal value.

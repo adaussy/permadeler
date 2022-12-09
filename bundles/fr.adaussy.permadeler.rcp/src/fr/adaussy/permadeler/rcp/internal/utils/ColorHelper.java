@@ -44,7 +44,7 @@ public final class ColorHelper {
 	public static Color getColor(String rgb) {
 		Color color = COLOR_REGISTRY.get(rgb);
 		if (color == null) {
-			String rgbValues = rgb.replace("#", "");
+			String rgbValues = rgb.replace("#", ""); //$NON-NLS-1$ //$NON-NLS-2$
 			COLOR_REGISTRY.put(rgb,
 					new RGB(Integer.valueOf(rgbValues.substring(0, 2), RTO_BYTES),
 							Integer.valueOf(rgbValues.substring(2, 4), RTO_BYTES),

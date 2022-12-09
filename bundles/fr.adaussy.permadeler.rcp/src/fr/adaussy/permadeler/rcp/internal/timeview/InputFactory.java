@@ -49,7 +49,7 @@ public final class InputFactory {
 	/**
 	 * Sow period query name
 	 */
-	public static final String SOW_PERIOD = "SOW_PERIOD";
+	public static final String SOW_PERIOD = "SOW_PERIOD"; //$NON-NLS-1$
 
 	private InputFactory() {
 	}
@@ -107,7 +107,7 @@ public final class InputFactory {
 
 	private Predicate<TemporalItem> buildFromQuery(String query) {
 		if (SOW_PERIOD.equals(query)) {
-			return p -> p instanceof Action && ((Action)p).getType().toString().toLowerCase().contains("sow");
+			return p -> p instanceof Action && ((Action)p).getType().toString().toLowerCase().contains("sow"); //$NON-NLS-1$
 		} else {
 			return p -> true;
 		}
@@ -130,27 +130,27 @@ public final class InputFactory {
 		if (tmpItem instanceof Action) {
 			Action action = (Action)tmpItem;
 			return switch (action.getType()) {
-				case SOW_INDOOR -> "#eba834";
-				case SOW_OUTDOOR -> "#346beb";
-				case PRUNING -> "#44c740";
-				default -> "#545454";
+				case SOW_INDOOR -> "#eba834"; //$NON-NLS-1$
+				case SOW_OUTDOOR -> "#346beb";//$NON-NLS-1$
+				case PRUNING -> "#44c740";//$NON-NLS-1$
+				default -> "#545454";//$NON-NLS-1$
 			};
 		} else if (tmpItem instanceof Production) {
 			Production prod = (Production)tmpItem;
 			return switch (prod.getType()) {
-				case FRUIT -> "#cc731f";
-				case LEAVES -> "#1fcc4d";
-				case FLOWER -> "#f2ec3d";
-				case OTHER -> "#969696";
-				case SHOOTS -> "#80ff59";
-				case MANNA -> "#ffffff";
-				case SAP -> "#e0ffcf";
-				case APICAL_BUD -> "#94c47a";
-				case SEED -> "#a17f45";
-				default -> "#545454";
+				case FRUIT -> "#cc731f";//$NON-NLS-1$
+				case LEAVES -> "#1fcc4d";//$NON-NLS-1$
+				case FLOWER -> "#f2ec3d";//$NON-NLS-1$
+				case OTHER -> "#969696";//$NON-NLS-1$
+				case SHOOTS -> "#80ff59";//$NON-NLS-1$
+				case MANNA -> "#ffffff";//$NON-NLS-1$
+				case SAP -> "#e0ffcf";//$NON-NLS-1$
+				case APICAL_BUD -> "#94c47a";//$NON-NLS-1$
+				case SEED -> "#a17f45";//$NON-NLS-1$
+				default -> "#545454";//$NON-NLS-1$
 			};
 		} else {
-			return "#000000";
+			return "#000000";//$NON-NLS-1$
 		}
 	}
 

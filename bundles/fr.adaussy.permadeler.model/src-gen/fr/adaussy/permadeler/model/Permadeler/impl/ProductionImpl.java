@@ -45,13 +45,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ProductionImpl extends MinimalEObjectImpl.Container implements Production {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,13 +370,13 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (period: ");
+		result.append(" (period: "); //$NON-NLS-1$
 		result.append(period);
-		result.append(", type: ");
+		result.append(", type: "); //$NON-NLS-1$
 		result.append(type);
-		result.append(", description: ");
+		result.append(", description: "); //$NON-NLS-1$
 		result.append(description);
-		result.append(", conservation: ");
+		result.append(", conservation: "); //$NON-NLS-1$
 		result.append(conservation);
 		result.append(')');
 		return result.toString();

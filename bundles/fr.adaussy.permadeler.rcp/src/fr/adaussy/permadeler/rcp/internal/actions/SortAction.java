@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.business.api.session.Session;
 
+import fr.adaussy.permadeler.rcp.RcpMessages;
+
 /**
  * Action that sorts a list of elements
  * 
@@ -29,7 +31,7 @@ public class SortAction<T extends EObject> extends AbstractModelAction {
 	private Comparator<T> cmp;
 
 	public SortAction(Session session, EList<T> list, Comparator<T> cmp) {
-		super("Sort", session);
+		super(RcpMessages.SortAction_0, session);
 		this.list = list;
 		this.cmp = cmp;
 	}

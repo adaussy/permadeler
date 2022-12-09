@@ -25,7 +25,7 @@ import org.eclipse.ui.PlatformUI;
  */
 public class PermadellerMenu extends ContributionItem {
 
-	private static final String PERMADELLER_MENU_ID = "PermadellerID";
+	private static final String PERMADELLER_MENU_ID = "PermadellerID"; //$NON-NLS-1$
 
 	@Override
 	public void fill(Menu menu, int index) {
@@ -33,7 +33,7 @@ public class PermadellerMenu extends ContributionItem {
 			MenuManager menuManager = (MenuManager)getParent();
 			if (!PERMADELLER_MENU_ID.equals(menuManager.getId())
 					&& menuManager.find(PERMADELLER_MENU_ID) == null) {
-				MenuManager menu2 = new MenuManager("Permadeller", PERMADELLER_MENU_ID);
+				MenuManager menu2 = new MenuManager("Permadeller", PERMADELLER_MENU_ID); //$NON-NLS-1$
 				menu2.setRemoveAllWhenShown(true);
 				Supplier<ISelection> selectionProvicer = () -> {
 					ISelectionService selectionService = PlatformUI.getWorkbench().getActiveWorkbenchWindow()

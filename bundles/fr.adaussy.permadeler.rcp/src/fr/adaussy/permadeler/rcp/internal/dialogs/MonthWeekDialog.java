@@ -11,6 +11,7 @@ package fr.adaussy.permadeler.rcp.internal.dialogs;
 
 import static java.util.stream.Collectors.toList;
 
+import java.text.MessageFormat;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,6 +34,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.services.MonthService;
 
 /**
@@ -48,8 +50,9 @@ public class MonthWeekDialog extends MessageDialog {
 	private Composite cc;
 
 	public MonthWeekDialog(final Shell parentShell, final String message, final List<Integer> monthWeeks) {
-		super(parentShell, "Weeks by month", null, "Update week month", MessageDialog.INFORMATION,
-				new String[] {"Ok", "Cancel" }, 0);
+		super(parentShell, RcpMessages.MonthWeekDialog_0, null, RcpMessages.MonthWeekDialog_1,
+				MessageDialog.INFORMATION,
+				new String[] {RcpMessages.MonthWeekDialog_2, RcpMessages.MonthWeekDialog_3 }, 0);
 		this.monthWeeks = new ArrayList<Integer>(monthWeeks);
 	}
 
@@ -61,7 +64,7 @@ public class MonthWeekDialog extends MessageDialog {
 		this.cc = new Composite(parent, SWT.NONE);
 		this.cc.setLayout(new GridLayout(13, true));
 		final Label monthWeekHeaderLabel = new Label(this.cc, SWT.NONE);
-		monthWeekHeaderLabel.setText("Week\\Months");
+		monthWeekHeaderLabel.setText(RcpMessages.MonthWeekDialog_4);
 		monthWeekHeaderLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 		Month[] values = Month.values();
 		for (final Month m : values) {
@@ -87,7 +90,7 @@ public class MonthWeekDialog extends MessageDialog {
 		}
 		for (int i = 1; (i <= 4); i++) {
 			final Label weekHeader = new Label(this.cc, SWT.NONE);
-			weekHeader.setText(("Week " + Integer.valueOf(i)));
+			weekHeader.setText((MessageFormat.format(RcpMessages.MonthWeekDialog_5, Integer.valueOf(i))));
 			weekHeader.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 			for (final Month month : Month.values()) {
 				{

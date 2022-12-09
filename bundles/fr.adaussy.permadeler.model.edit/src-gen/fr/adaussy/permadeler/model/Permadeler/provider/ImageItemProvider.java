@@ -40,13 +40,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ImageItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,14 +74,12 @@ public class ImageItemProvider extends ItemProviderAdapter implements IEditingDo
 	 * @generated
 	 */
 	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Image_title_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Image_title_feature",
-								"_UI_Image_type"),
-						PermadelerPackage.Literals.IMAGE__TITLE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Image_title_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Image_title_feature", "_UI_Image_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.IMAGE__TITLE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -98,14 +89,12 @@ public class ImageItemProvider extends ItemProviderAdapter implements IEditingDo
 	 * @generated
 	 */
 	protected void addSourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Image_source_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Image_source_feature",
-								"_UI_Image_type"),
-						PermadelerPackage.Literals.IMAGE__SOURCE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Image_source_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Image_source_feature", "_UI_Image_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.IMAGE__SOURCE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -115,14 +104,12 @@ public class ImageItemProvider extends ItemProviderAdapter implements IEditingDo
 	 * @generated
 	 */
 	protected void addPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Image_path_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Image_path_feature",
-								"_UI_Image_type"),
-						PermadelerPackage.Literals.IMAGE__PATH, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Image_path_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Image_path_feature", "_UI_Image_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.IMAGE__PATH, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -133,7 +120,7 @@ public class ImageItemProvider extends ItemProviderAdapter implements IEditingDo
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Image"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Image")); //$NON-NLS-1$
 	}
 
 	/**
@@ -155,8 +142,8 @@ public class ImageItemProvider extends ItemProviderAdapter implements IEditingDo
 	@Override
 	public String getText(Object object) {
 		String label = ((Image)object).getTitle();
-		return label == null || label.length() == 0 ? getString("_UI_Image_type")
-				: getString("_UI_Image_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Image_type") : //$NON-NLS-1$
+				getString("_UI_Image_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

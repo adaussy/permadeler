@@ -45,13 +45,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class EventItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,14 +79,12 @@ public class EventItemProvider extends ItemProviderAdapter implements IEditingDo
 	 * @generated
 	 */
 	protected void addDatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Event_date_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Event_date_feature",
-								"_UI_Event_type"),
-						PermadelerPackage.Literals.EVENT__DATE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Event_date_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Event_date_feature", "_UI_Event_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.EVENT__DATE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -105,9 +96,9 @@ public class EventItemProvider extends ItemProviderAdapter implements IEditingDo
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Event_description_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Event_description_feature",
-						"_UI_Event_type"),
+				getString("_UI_Event_description_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Event_description_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Event_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.EVENT__DESCRIPTION, true, true, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -119,14 +110,12 @@ public class EventItemProvider extends ItemProviderAdapter implements IEditingDo
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Event_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Event_type_feature",
-								"_UI_Event_type"),
-						PermadelerPackage.Literals.EVENT__TYPE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Event_type_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Event_type_feature", "_UI_Event_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.EVENT__TYPE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -167,7 +156,7 @@ public class EventItemProvider extends ItemProviderAdapter implements IEditingDo
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Event"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Event")); //$NON-NLS-1$
 	}
 
 	/**
@@ -190,8 +179,8 @@ public class EventItemProvider extends ItemProviderAdapter implements IEditingDo
 	public String getText(Object object) {
 		Instant labelValue = ((Event)object).getDate();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_Event_type")
-				: getString("_UI_Event_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Event_type") : //$NON-NLS-1$
+				getString("_UI_Event_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

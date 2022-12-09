@@ -37,13 +37,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFactory {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,7 +121,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createPlantationPhase();
 			default:
 				throw new IllegalArgumentException(
-						"The class '" + eClass.getName() + "' is not a valid classifier");
+						"The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -184,7 +177,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createColorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException(
-						"The datatype '" + eDataType.getName() + "' is not a valid classifier");
+						"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -240,7 +233,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return convertColorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException(
-						"The datatype '" + eDataType.getName() + "' is not a valid classifier");
+						"The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -482,8 +475,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Quantity createQuantityFromString(EDataType eDataType, String initialValue) {
 		Quantity result = Quantity.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -504,8 +497,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Lifecycle createLifecycleFromString(EDataType eDataType, String initialValue) {
 		Lifecycle result = Lifecycle.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -526,8 +519,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Shade createShadeFromString(EDataType eDataType, String initialValue) {
 		Shade result = Shade.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -548,8 +541,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public SoilType createSoilTypeFromString(EDataType eDataType, String initialValue) {
 		SoilType result = SoilType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -570,8 +563,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public PH createPHFromString(EDataType eDataType, String initialValue) {
 		PH result = PH.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -592,8 +585,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Moisture createMoistureFromString(EDataType eDataType, String initialValue) {
 		Moisture result = Moisture.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -614,8 +607,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Family createFamilyFromString(EDataType eDataType, String initialValue) {
 		Family result = Family.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -636,8 +629,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public GrowRate createGrowRateFromString(EDataType eDataType, String initialValue) {
 		GrowRate result = GrowRate.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -658,8 +651,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Wind createWindFromString(EDataType eDataType, String initialValue) {
 		Wind result = Wind.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -680,8 +673,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public SpecialUses createSpecialUsesFromString(EDataType eDataType, String initialValue) {
 		SpecialUses result = SpecialUses.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -702,8 +695,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public EventType createEventTypeFromString(EDataType eDataType, String initialValue) {
 		EventType result = EventType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -724,8 +717,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public RowBedType createRowBedTypeFromString(EDataType eDataType, String initialValue) {
 		RowBedType result = RowBedType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -746,8 +739,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public SowType createSowTypeFromString(EDataType eDataType, String initialValue) {
 		SowType result = SowType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -768,8 +761,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public ProductionType createProductionTypeFromString(EDataType eDataType, String initialValue) {
 		ProductionType result = ProductionType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -790,8 +783,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public ActionType createActionTypeFromString(EDataType eDataType, String initialValue) {
 		ActionType result = ActionType.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 
@@ -812,8 +805,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Layer createLayerFromString(EDataType eDataType, String initialValue) {
 		Layer result = Layer.get(initialValue);
 		if (result == null)
-			throw new IllegalArgumentException("The value '" + initialValue
-					+ "' is not a valid enumerator of '" + eDataType.getName() + "'");
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		return result;
 	}
 

@@ -30,7 +30,7 @@ public class Comparators {
 			.nullsLast(Comparator.<SeedItem, String> comparing(seddItem -> {
 				Plant type = seddItem.getType();
 				if (type == null || type.getName() == null) {
-					return "";
+					return ""; //$NON-NLS-1$
 				} else {
 					return type.getName();
 				}
@@ -39,7 +39,7 @@ public class Comparators {
 	public static <T extends PlantNamedElement> Comparator<T> buildComparator() {
 		return Comparator.nullsLast(Comparator.<PlantNamedElement, String> comparing(s -> {
 			if (s == null || s.getName() == null) {
-				return "";
+				return ""; //$NON-NLS-1$
 			} else {
 				return s.getName();
 			}

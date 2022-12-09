@@ -74,6 +74,7 @@ public class BackgroundLayerWithImage extends FreeformLayer {
 			Image img = getImage();
 			if (img.isDisposed()) {
 				setImage(WorkspaceImageFigure.getImageInstanceFromPath(path));
+				img = getImage();
 			}
 			org.eclipse.swt.graphics.Rectangle imgBounds = img.getBounds();
 			graphics.drawImage(img, 0, 0, imgBounds.width, imgBounds.height, 0, 0,

@@ -728,10 +728,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="MonthWeek" instanceClassName="int"/>
   <eClassifiers xsi:type="ecore:EDataType" name="URL" instanceClassName="java.net.URL"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Reference">
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="link" eType="#//URL"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Image">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

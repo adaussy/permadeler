@@ -42,13 +42,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  */
 public abstract class PlantNamedElementImpl extends NamedElementImpl implements PlantNamedElement {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The cached value of the '{@link #getCommonNames() <em>Common Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,11 +261,11 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (commonNames: ");
+		result.append(" (commonNames: "); //$NON-NLS-1$
 		result.append(commonNames);
-		result.append(", latinName: ");
+		result.append(", latinName: "); //$NON-NLS-1$
 		result.append(latinName);
-		result.append(", representationKey: ");
+		result.append(", representationKey: "); //$NON-NLS-1$
 		result.append(representationKey);
 		result.append(')');
 		return result.toString();

@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
 
 /**
@@ -56,10 +57,9 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 				}
 			}
 		});
-		layerWidgets = Dialogs.createEnumEntry(parent, "Current Layer :", Layer.values(), Layer.UNDERSTORY,
-				v -> {
-					this.layer = (Layer)v;
-				});
+		layerWidgets = Dialogs.createEnumEntry(parent, RcpMessages.PlantationDialog_0, Layer.values(), Layer.UNDERSTORY, v -> {
+			this.layer = (Layer)v;
+		});
 	}
 
 	public Layer getLayer() {

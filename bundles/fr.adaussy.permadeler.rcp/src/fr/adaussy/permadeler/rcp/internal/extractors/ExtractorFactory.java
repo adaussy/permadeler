@@ -55,9 +55,9 @@ public class ExtractorFactory {
 	public AbstractInformationExtractor buildExtractor(Document doc, URL url, SowType sowType) {
 		URL metaUrl = AbstractInformationExtractor.getMetaUrl(doc);
 		if (metaUrl != null) {
-			if (metaUrl.toString().contains("fermedesaintemarthe")) {
+			if (metaUrl.toString().contains("fermedesaintemarthe")) { //$NON-NLS-1$
 				return new SaintMartheExtractor(doc, url, sowType);
-			} else if (metaUrl.toString().contains("kokopelli-semences")) {
+			} else if (metaUrl.toString().contains("kokopelli-semences")) { //$NON-NLS-1$
 				return new KokopelliExtractor(url, doc);
 			}
 		}

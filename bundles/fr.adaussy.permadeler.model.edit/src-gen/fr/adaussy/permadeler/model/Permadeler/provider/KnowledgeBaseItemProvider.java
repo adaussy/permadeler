@@ -42,13 +42,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,9 +76,9 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	protected void addPlantTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_KnowledgeBase_plantTypes_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_KnowledgeBase_plantTypes_feature",
-						"_UI_KnowledgeBase_type"),
+				getString("_UI_KnowledgeBase_plantTypes_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_KnowledgeBase_plantTypes_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_KnowledgeBase_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES, true, false, true, null, null, null));
 	}
 
@@ -127,7 +120,7 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/KnowledgeBase"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/KnowledgeBase")); //$NON-NLS-1$
 	}
 
 	/**
@@ -148,7 +141,7 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_KnowledgeBase_type");
+		return getString("_UI_KnowledgeBase_type"); //$NON-NLS-1$
 	}
 
 	/**

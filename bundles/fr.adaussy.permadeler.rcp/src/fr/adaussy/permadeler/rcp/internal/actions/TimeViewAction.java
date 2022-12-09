@@ -71,11 +71,12 @@ public final class TimeViewAction extends Action {
 	public void openTimeView() {
 		TimeViewEditorInput input = InputFactory.INSTANCE.build(query, target);
 		MPart mPart = partService.getParts().stream().filter(p -> TimeViewPart.ID.equals(p.getElementId()))//
-				.filter(p -> ((TimeViewPart)p.getObject()) != null && ((TimeViewPart)p.getObject()).match(input))
+				.filter(p -> ((TimeViewPart)p.getObject()) != null
+						&& ((TimeViewPart)p.getObject()).match(input))
 				.findFirst().orElseGet(() -> {
 					MPart newPart = partService.createPart(TimeViewPart.ID);
 					List<MPartStack> container = modelService.findElements(application,
-							"org.eclipse.e4.primaryDataStack", MPartStack.class);
+							"org.eclipse.e4.primaryDataStack", MPartStack.class); //$NON-NLS-1$
 					container.get(0).getChildren().add(newPart);
 					partService.activate(newPart, true);
 					partService.showPart(newPart, PartState.ACTIVATE);

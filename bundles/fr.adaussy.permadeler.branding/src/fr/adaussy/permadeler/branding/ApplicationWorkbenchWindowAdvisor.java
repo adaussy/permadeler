@@ -44,7 +44,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setInitialSize(new Point(INIT_X, INIT_Y));
 		configurer.setShowCoolBar(true);
 		configurer.setShowStatusLine(false);
-		configurer.setTitle("Permadeler"); //$NON-NLS-1$
+		configurer.setTitle(Messages.getString("ApplicationWorkbenchWindowAdvisor.0")); //$NON-NLS-1$
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
 			// Hack to remove the Run menu - it seems you cannot do this using
 			// the "org.eclipse.ui.activities" extension
-			if ("org.eclipse.ui.run".equals(menuItem.getId())) {
+			if ("org.eclipse.ui.run".equals(menuItem.getId())) { //$NON-NLS-1$
 				menuManager.remove(menuItem);
 			}
 		}

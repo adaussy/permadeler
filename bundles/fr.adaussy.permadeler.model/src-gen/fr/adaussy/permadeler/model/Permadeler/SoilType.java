@@ -34,7 +34,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "Unknown"),
+	UNKNOWN(0, "Unknown", "Unknown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Light Sandy</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIGHT_SANDY(1, "Light_Sandy", "Light_Sandy"),
+	LIGHT_SANDY(1, "Light_Sandy", "Light_Sandy"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Medium Loam</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDIUM_LOAM(2, "Medium_Loam", "Medium_Loam"),
+	MEDIUM_LOAM(2, "Medium_Loam", "Medium_Loam"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Heavy</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEAVY(3, "Heavy", "Heavy"),
+	HEAVY(3, "Heavy", "Heavy"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Heavy Clay</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEAVY_CLAY(4, "HeavyClay", "HeavyClay"),
+	HEAVY_CLAY(4, "HeavyClay", "HeavyClay"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Poor Soil</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POOR_SOIL(4, "PoorSoil", "PoorSoil"),
+	POOR_SOIL(4, "PoorSoil", "PoorSoil"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Water</b></em>' literal object.
@@ -94,14 +94,7 @@ public enum SoilType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WATER(6, "Water", "Water");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	WATER(6, "Water", "Water"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.

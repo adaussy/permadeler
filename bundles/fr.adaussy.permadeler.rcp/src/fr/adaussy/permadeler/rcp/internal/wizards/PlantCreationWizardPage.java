@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.dialogs.ImageSelectionDialog;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
 
@@ -26,7 +27,7 @@ public class PlantCreationWizardPage extends WizardPage {
 	private Plant plant;
 
 	protected PlantCreationWizardPage(Plant plant) {
-		super("Plant information");
+		super(RcpMessages.PlantCreationWizardPage_0);
 		this.plant = plant;
 	}
 
@@ -36,27 +37,27 @@ public class PlantCreationWizardPage extends WizardPage {
 		setControl(cc);
 		cc.setLayout(new GridLayout(2, false));
 
-		Dialogs.createTextEntry(cc, "Name : ", "", v -> {
+		Dialogs.createTextEntry(cc, RcpMessages.PlantCreationWizardPage_1, RcpMessages.PlantCreationWizardPage_2, v -> {
 			plant.setName(v.trim());
 			getContainer().updateButtons();
 		});
-		Dialogs.createTextEntry(cc, "Latin Name (Genus species 'Variety') : ", "", v -> {
+		Dialogs.createTextEntry(cc, RcpMessages.PlantCreationWizardPage_3, RcpMessages.PlantCreationWizardPage_4, v -> {
 			plant.setLatinName(v.trim());
 			getContainer().updateButtons();
 		});
 
-		Dialogs.createEnumEntry(cc, "Layer : ", Layer.values(), Layer.UNDERSTORY, v -> {
+		Dialogs.createEnumEntry(cc, RcpMessages.PlantCreationWizardPage_5, Layer.values(), Layer.UNDERSTORY, v -> {
 			plant.setFoodForestLayer((Layer)v);
 			getContainer().updateButtons();
 		});
 
 		Button iconButton = new Button(cc, SWT.PUSH);
-		iconButton.setText("Select an icon");
+		iconButton.setText(RcpMessages.PlantCreationWizardPage_6);
 		iconButton.addSelectionListener(new SelectionListener() {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				ImageSelectionDialog imageSelectionDialog = new ImageSelectionDialog(getShell(), "");
+				ImageSelectionDialog imageSelectionDialog = new ImageSelectionDialog(getShell(), RcpMessages.PlantCreationWizardPage_7);
 				if (imageSelectionDialog.open() == IDialogConstants.OK_ID) {
 					plant.setRepresentationKey(imageSelectionDialog.getSelection());
 					iconButton.setText(plant.getRepresentationKey());

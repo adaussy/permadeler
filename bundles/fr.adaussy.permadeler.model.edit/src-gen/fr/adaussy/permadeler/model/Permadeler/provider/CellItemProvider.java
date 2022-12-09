@@ -42,13 +42,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class CellItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,8 +77,8 @@ public class CellItemProvider extends ItemProviderAdapter implements IEditingDom
 	protected void addPlantPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Cell_plant_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Cell_plant_feature", "_UI_Cell_type"),
+				getString("_UI_Cell_plant_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Cell_plant_feature", "_UI_Cell_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				PermadelerPackage.Literals.CELL__PLANT, true, false, true, null, null, null));
 	}
 
@@ -96,14 +89,12 @@ public class CellItemProvider extends ItemProviderAdapter implements IEditingDom
 	 * @generated
 	 */
 	protected void addDatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Cell_date_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Cell_date_feature",
-								"_UI_Cell_type"),
-						PermadelerPackage.Literals.CELL__DATE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Cell_date_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Cell_date_feature", "_UI_Cell_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.CELL__DATE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -114,7 +105,7 @@ public class CellItemProvider extends ItemProviderAdapter implements IEditingDom
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Cell"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Cell")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +128,8 @@ public class CellItemProvider extends ItemProviderAdapter implements IEditingDom
 	public String getText(Object object) {
 		Instant labelValue = ((Cell)object).getDate();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_Cell_type")
-				: getString("_UI_Cell_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Cell_type") : //$NON-NLS-1$
+				getString("_UI_Cell_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

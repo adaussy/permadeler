@@ -34,7 +34,7 @@ public enum Shade implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "Unknown"),
+	UNKNOWN(0, "Unknown", "Unknown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Full Shade</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum Shade implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FULL_SHADE(1, "FullShade", "FullShade"),
+	FULL_SHADE(1, "FullShade", "FullShade"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Semi</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum Shade implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEMI(2, "Semi", "Semi"),
+	SEMI(2, "Semi", "Semi"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Full Sun</b></em>' literal object.
@@ -64,14 +64,7 @@ public enum Shade implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FULL_SUN(3, "FullSun", "FullSun");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	FULL_SUN(3, "FullSun", "FullSun"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.

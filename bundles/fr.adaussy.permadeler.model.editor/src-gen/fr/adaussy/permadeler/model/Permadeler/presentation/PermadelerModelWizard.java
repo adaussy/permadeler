@@ -99,13 +99,6 @@ import org.eclipse.ui.PartInitException;
  */
 public class PermadelerModelWizard extends Wizard implements INewWizard {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,7 +106,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 	 */
 	public static final List<String> FILE_EXTENSIONS = Collections
 			.unmodifiableList(Arrays.asList(PermadelerEditorPlugin.INSTANCE
-					.getString("_UI_PermadelerEditorFilenameExtensions").split("\\s*,\\s*")));
+					.getString("_UI_PermadelerEditorFilenameExtensions").split("\\s*,\\s*"))); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -122,7 +115,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS = PermadelerEditorPlugin.INSTANCE
-			.getString("_UI_PermadelerEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+			.getString("_UI_PermadelerEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", "); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 	/**
 	 * This caches an instance of the model package.
@@ -189,9 +182,9 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(PermadelerEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setWindowTitle(PermadelerEditorPlugin.INSTANCE.getString("_UI_Wizard_label")); //$NON-NLS-1$
 		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
-				.getImageDescriptor(PermadelerEditorPlugin.INSTANCE.getImage("full/wizban/NewPermadeler")));
+				.getImageDescriptor(PermadelerEditorPlugin.INSTANCE.getImage("full/wizban/NewPermadeler"))); //$NON-NLS-1$
 	}
 
 	/**
@@ -306,7 +299,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 						.getId());
 			} catch (PartInitException exception) {
 				MessageDialog.openError(workbenchWindow.getShell(),
-						PermadelerEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
+						PermadelerEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), //$NON-NLS-1$
 						exception.getMessage());
 				return false;
 			}
@@ -346,8 +339,8 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 			if (super.validatePage()) {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
-							: "_WARN_FilenameExtension";
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" //$NON-NLS-1$
+							: "_WARN_FilenameExtension"; //$NON-NLS-1$
 					setErrorMessage(PermadelerEditorPlugin.INSTANCE.getString(key,
 							new Object[] {FORMATTED_FILE_EXTENSIONS }));
 					return false;
@@ -428,7 +421,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(PermadelerEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(PermadelerEditorPlugin.INSTANCE.getString("_UI_ModelObject")); //$NON-NLS-1$
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -454,7 +447,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(PermadelerEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(PermadelerEditorPlugin.INSTANCE.getString("_UI_XMLEncoding")); //$NON-NLS-1$
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -551,7 +544,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return PermadelerEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return PermadelerEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type"); //$NON-NLS-1$ //$NON-NLS-2$
 			} catch (MissingResourceException mre) {
 				PermadelerEditorPlugin.INSTANCE.log(mre);
 			}
@@ -567,7 +560,7 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
 				for (StringTokenizer stringTokenizer = new StringTokenizer(
-						PermadelerEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
+						PermadelerEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer //$NON-NLS-1$
 								.hasMoreTokens();) {
 					encodings.add(stringTokenizer.nextToken());
 				}
@@ -586,13 +579,13 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new PermadelerModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage = new PermadelerModelWizardNewFileCreationPage("Whatever", selection); //$NON-NLS-1$
 		newFileCreationPage
-				.setTitle(PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerModelWizard_label"));
+				.setTitle(PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerModelWizard_label")); //$NON-NLS-1$
 		newFileCreationPage.setDescription(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerModelWizard_description"));
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerModelWizard_description")); //$NON-NLS-1$
 		newFileCreationPage.setFileName(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerEditorFilenameDefaultBase") + "."
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerEditorFilenameDefaultBase") + "." //$NON-NLS-1$//$NON-NLS-2$
 						+ FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
@@ -620,21 +613,21 @@ public class PermadelerModelWizard extends Wizard implements INewWizard {
 					// Make up a unique new name here.
 					//
 					String defaultModelBaseFilename = PermadelerEditorPlugin.INSTANCE
-							.getString("_UI_PermadelerEditorFilenameDefaultBase");
+							.getString("_UI_PermadelerEditorFilenameDefaultBase"); //$NON-NLS-1$
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension; //$NON-NLS-1$
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension; //$NON-NLS-1$
 					}
 					newFileCreationPage.setFileName(modelFilename);
 				}
 			}
 		}
-		initialObjectCreationPage = new PermadelerModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage = new PermadelerModelWizardInitialObjectCreationPage("Whatever2"); //$NON-NLS-1$
 		initialObjectCreationPage
-				.setTitle(PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerModelWizard_label"));
+				.setTitle(PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerModelWizard_label")); //$NON-NLS-1$
 		initialObjectCreationPage.setDescription(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description")); //$NON-NLS-1$
 		addPage(initialObjectCreationPage);
 	}
 

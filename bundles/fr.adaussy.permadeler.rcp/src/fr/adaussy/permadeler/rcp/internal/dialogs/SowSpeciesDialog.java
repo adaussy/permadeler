@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
 import fr.adaussy.permadeler.model.Permadeler.Tray;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
 
 /**
@@ -40,7 +41,7 @@ public class SowSpeciesDialog extends ObjectSelectionDialogWithDate<Tray> {
 	protected void fillCustomContent(Composite parent) {
 		super.fillCustomContent(parent);
 
-		Dialogs.createIntEntry(parent, "Number of sow", 1, i -> this.nbOfSow = i);
+		Dialogs.createIntEntry(parent, RcpMessages.SowSpeciesDialog_0, 1, i -> this.nbOfSow = i);
 	}
 
 	public int getNbOfSow() {

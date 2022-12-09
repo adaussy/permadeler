@@ -34,7 +34,7 @@ public enum Quantity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "Unknown"),
+	UNKNOWN(0, "Unknown", "Unknown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Empty</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum Quantity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EMPTY(1, "Empty", "Empty"),
+	EMPTY(1, "Empty", "Empty"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Low</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum Quantity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOW(2, "Low", "Low"),
+	LOW(2, "Low", "Low"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Medium</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum Quantity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEDIUM(3, "Medium", "Medium"),
+	MEDIUM(3, "Medium", "Medium"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hight</b></em>' literal object.
@@ -74,14 +74,7 @@ public enum Quantity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HIGHT(4, "Hight", "Hight");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	HIGHT(4, "Hight", "Hight"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.

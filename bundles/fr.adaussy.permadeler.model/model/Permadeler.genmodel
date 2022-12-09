@@ -4,9 +4,9 @@
     copyrightText=" Copyright (c) 2020 Arthur Daussy.&#xA;&#xA; This program and the accompanying materials are made &#xA; available under the terms of the Eclipse Public License 2.0 &#xA; which is available at https://www.eclipse.org/legal/epl-2.0/ &#xA; Contributors:&#xA; Arthur Daussy - initial API and implementation.&#xA;"
     modelDirectory="/fr.adaussy.permadeler.model/src-gen" creationIcons="false" editDirectory="/fr.adaussy.permadeler.model.edit/src-gen"
     editorDirectory="/fr.adaussy.permadeler.model.editor/src-gen" modelPluginID="fr.adaussy.permadeler.model"
-    modelName="Permadeler" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelName="Permadeler" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    operationReflection="true" importOrganizing="true">
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>Permadeler.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Permadeler" basePackage="fr.adaussy.permadeler.model" resource="XMI"
@@ -798,8 +798,6 @@
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Reference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/link"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/source"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Image">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Image/title"/>

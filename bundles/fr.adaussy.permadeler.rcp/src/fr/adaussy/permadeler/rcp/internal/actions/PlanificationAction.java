@@ -28,6 +28,7 @@ import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.dialogs.MonthWeekDialog;
 
 /**
@@ -52,8 +53,8 @@ public final class PlanificationAction extends AbstractModelAction {
 	private PlanificationAction(Builder builder) {
 		super(builder.text,
 				builder.type == SowType.INDOOR
-						? ImageProvider.INSTANCE.getImageDescriptor("icons/bank/icons/greenhouse.png")
-						: ImageProvider.INSTANCE.getImageDescriptor("icons/bank/icons/sow.png"),
+						? ImageProvider.INSTANCE.getImageDescriptor("icons/bank/icons/greenhouse.png") //$NON-NLS-1$
+						: ImageProvider.INSTANCE.getImageDescriptor("icons/bank/icons/sow.png"), //$NON-NLS-1$
 				builder.session);
 		this.defaultChoise = builder.defaultChoise;
 		this.seedItem = builder.seedItem;
@@ -62,7 +63,7 @@ public final class PlanificationAction extends AbstractModelAction {
 
 	@Override
 	public void runWithEvent(Event event) {
-		MonthWeekDialog dialog = new MonthWeekDialog(event.display.getActiveShell(), "Choose weeks",
+		MonthWeekDialog dialog = new MonthWeekDialog(event.display.getActiveShell(), RcpMessages.PlanificationAction_0,
 				defaultChoise);
 		if (dialog.open() == Dialog.OK) {
 			modifyModel(() -> {

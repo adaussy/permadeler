@@ -43,7 +43,7 @@ public class CreateNewProjectMenuTest {
 
 	@Before
 	public void setUp() throws IOException {
-		tmpFolder = tmp.newFolder("a path with space/and/acc�nt/");
+		tmpFolder = tmp.newFolder("a path with space/and/acc�nt/"); //$NON-NLS-1$
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class CreateNewProjectMenuTest {
 	 */
 	@Test
 	public void basicCreateAndLoad() throws InvocationTargetException, IOException, CoreException {
-		URI sessionURI = new CreateNewProjectMenu().createNewProject(tmpFolder, "A new with spaces and acc�nt", false);
+		URI sessionURI = new CreateNewProjectMenu().createNewProject(tmpFolder, "A new with spaces and acc�nt", false); //$NON-NLS-1$
 
 		assertNotNull(sessionURI);
 

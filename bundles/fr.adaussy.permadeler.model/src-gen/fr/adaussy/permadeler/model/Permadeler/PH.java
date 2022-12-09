@@ -34,7 +34,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "Unknown"),
+	UNKNOWN(0, "Unknown", "Unknown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Very Acid</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VERY_ACID(1, "VeryAcid", "VeryAcid"),
+	VERY_ACID(1, "VeryAcid", "VeryAcid"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Acid</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACID(2, "Acid", "Acid"),
+	ACID(2, "Acid", "Acid"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Neutral</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEUTRAL(3, "Neutral", "Neutral"),
+	NEUTRAL(3, "Neutral", "Neutral"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Alkaline</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALKALINE(4, "Alkaline", "Alkaline"),
+	ALKALINE(4, "Alkaline", "Alkaline"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Very Alkaline</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VERY_ALKALINE(5, "VeryAlkaline", "VeryAlkaline"),
+	VERY_ALKALINE(5, "VeryAlkaline", "VeryAlkaline"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Saline</b></em>' literal object.
@@ -94,14 +94,7 @@ public enum PH implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SALINE(6, "Saline", "Saline");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	SALINE(6, "Saline", "Saline"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.

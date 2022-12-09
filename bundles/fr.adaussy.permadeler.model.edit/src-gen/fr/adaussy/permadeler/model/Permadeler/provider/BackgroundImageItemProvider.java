@@ -40,13 +40,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class BackgroundImageItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,9 +76,9 @@ public class BackgroundImageItemProvider extends ItemProviderAdapter implements 
 	protected void addRelativePathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_BackgroundImage_relativePath_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_BackgroundImage_relativePath_feature",
-						"_UI_BackgroundImage_type"),
+				getString("_UI_BackgroundImage_relativePath_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_BackgroundImage_relativePath_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_BackgroundImage_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.BACKGROUND_IMAGE__RELATIVE_PATH, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -99,9 +92,9 @@ public class BackgroundImageItemProvider extends ItemProviderAdapter implements 
 	protected void addScalingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_BackgroundImage_scaling_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_BackgroundImage_scaling_feature",
-						"_UI_BackgroundImage_type"),
+				getString("_UI_BackgroundImage_scaling_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_BackgroundImage_scaling_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_BackgroundImage_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.BACKGROUND_IMAGE__SCALING, true, false, false,
 				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
@@ -115,9 +108,9 @@ public class BackgroundImageItemProvider extends ItemProviderAdapter implements 
 	protected void addTransparencyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_BackgroundImage_transparency_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_BackgroundImage_transparency_feature",
-						"_UI_BackgroundImage_type"),
+				getString("_UI_BackgroundImage_transparency_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_BackgroundImage_transparency_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_BackgroundImage_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.BACKGROUND_IMAGE__TRANSPARENCY, true, false, false,
 				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
@@ -130,7 +123,7 @@ public class BackgroundImageItemProvider extends ItemProviderAdapter implements 
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BackgroundImage"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BackgroundImage")); //$NON-NLS-1$
 	}
 
 	/**
@@ -152,8 +145,8 @@ public class BackgroundImageItemProvider extends ItemProviderAdapter implements 
 	@Override
 	public String getText(Object object) {
 		String label = ((BackgroundImage)object).getRelativePath();
-		return label == null || label.length() == 0 ? getString("_UI_BackgroundImage_type")
-				: getString("_UI_BackgroundImage_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_BackgroundImage_type") : //$NON-NLS-1$
+				getString("_UI_BackgroundImage_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

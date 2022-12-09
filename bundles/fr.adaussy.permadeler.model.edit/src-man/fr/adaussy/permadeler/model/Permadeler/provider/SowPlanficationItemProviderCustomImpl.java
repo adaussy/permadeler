@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 
 import fr.adaussy.permadeler.common.date.DateUtils;
+import fr.adaussy.permadeler.model.Permadeler.EditMessages;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
@@ -40,15 +41,15 @@ public class SowPlanficationItemProviderCustomImpl extends SowPlanficationItemPr
 		StringBuilder builder = new StringBuilder();
 
 		if (planification.getWeeks().contains(DateUtils.getCurrentWeekNumber())) {
-			builder.append("[This week]");
+			builder.append(EditMessages.SowPlanficationItemProviderCustomImpl_0);
 		} else if (planification.getWeeks().contains(DateUtils.getCurrentWeekNumber() + 1)) {
-			builder.append("[Next week]");
+			builder.append(EditMessages.SowPlanficationItemProviderCustomImpl_1);
 		} else if (planification.getWeeks().contains(DateUtils.getCurrentWeekNumber() - 1)) {
-			builder.append("[Last week]");
+			builder.append(EditMessages.SowPlanficationItemProviderCustomImpl_2);
 		}
 		SeedItem seed = planification.getSeed();
 		if (seed != null && seed.getType() != null) {
-			builder.append(" " + seed.getType().getName());
+			builder.append(" " + seed.getType().getName()); //$NON-NLS-1$
 		}
 		return builder.toString();
 	}

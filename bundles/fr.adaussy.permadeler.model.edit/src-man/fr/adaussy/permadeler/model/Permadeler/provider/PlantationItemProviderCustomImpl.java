@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import fr.adaussy.permadeler.model.Permadeler.EditMessages;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
@@ -45,7 +46,7 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 		if (type != null) {
 			label = TextHelper.getLabel(type);
 		} else {
-			label = "Plantation with no species";
+			label = EditMessages.PlantationItemProviderCustomImpl_0;
 		}
 
 		return label;

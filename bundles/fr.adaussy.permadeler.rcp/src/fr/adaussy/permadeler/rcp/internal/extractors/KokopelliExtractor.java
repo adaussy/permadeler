@@ -45,8 +45,8 @@ public class KokopelliExtractor extends AbstractInformationExtractor {
 
 	@Override
 	public String fetchLatinName() {
-		String latinName = this.toFirstCap(getDoc().getElementById("nom_latin").html());
-		latinName += " '" + getCommonName() + "'";
+		String latinName = this.toFirstCap(getDoc().getElementById("nom_latin").html()); //$NON-NLS-1$
+		latinName += " '" + getCommonName() + "'"; //$NON-NLS-1$ //$NON-NLS-2$
 		return latinName; // $NON-NLS-1$
 	}
 
@@ -80,10 +80,7 @@ public class KokopelliExtractor extends AbstractInformationExtractor {
 	@Override
 	public String getId() {
 		return getDoc().getElementsByClass("product__reference") //$NON-NLS-1$
-				.get(0)
-				.getElementsByIndexEquals(0)
-				.get(0)
-				.html();
+				.get(0).getElementsByIndexEquals(0).get(0).html();
 	}
 
 	/**
@@ -112,8 +109,7 @@ public class KokopelliExtractor extends AbstractInformationExtractor {
 
 	@Override
 	public String getDescription() {
-		return getDoc().getElementsByClass("product__description").first().text();
+		return getDoc().getElementsByClass("product__description").first().text(); //$NON-NLS-1$
 	}
-
 
 }

@@ -42,13 +42,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,7 +591,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PlantationPhaseItemProvider plantationPhaseItemProvider;
+	protected PlantationPhaseItemProviderCustomImpl plantationPhaseItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.PlantationPhase}.
@@ -609,7 +602,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	@Override
 	public Adapter createPlantationPhaseAdapter() {
 		if (plantationPhaseItemProvider == null) {
-			plantationPhaseItemProvider = new PlantationPhaseItemProvider(this);
+			plantationPhaseItemProvider = new PlantationPhaseItemProviderCustomImpl(this);
 		}
 
 		return plantationPhaseItemProvider;

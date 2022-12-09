@@ -9,6 +9,8 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.wizards;
 
+import java.text.MessageFormat;
+
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.wizard.Wizard;
 
@@ -17,6 +19,7 @@ import com.google.common.base.Strings;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerItemProviderAdapterFactory;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 
 public class NewSpeciesWizard extends Wizard {
@@ -30,8 +33,6 @@ public class NewSpeciesWizard extends Wizard {
 
 	private final Plant plant = PermadelerFactory.eINSTANCE.createPlant();
 
-	private VarietyInformationWizardPage cultivarInformation;
-
 	public NewSpeciesWizard(PermadelerSession session) {
 		super();
 		this.session = session;
@@ -44,15 +45,6 @@ public class NewSpeciesWizard extends Wizard {
 		super.addPages();
 	}
 
-	// @Override
-	// public IWizardPage getNextPage(IWizardPage page) {
-	// IWizardPage nexPage = super.getNextPage(page);
-	// if (nexPage == speciesChoisePage) {
-	// speciesChoisePage.updateParentGenus(speciesWizardPage.getSelectedGenus());
-	// }
-	// return nexPage;
-	// }
-
 	@Override
 	public boolean canFinish() {
 		return !Strings.isNullOrEmpty(plant.getName());
@@ -61,7 +53,7 @@ public class NewSpeciesWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 
-		session.modifyKnowledgeBase("Add new plant", base -> {
+		session.modifyKnowledgeBase(MessageFormat.format(RcpMessages.NewSpeciesWizard_0, plant.getName()), base -> {
 			base.getPlantTypes().add(plant);
 		});
 

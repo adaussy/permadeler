@@ -34,7 +34,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNKNOWN(0, "Unknown", "Unknown"),
+	UNKNOWN(0, "Unknown", "Unknown"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Acanthaceae</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACANTHACEAE(1, "Acanthaceae", "Acanthaceae"),
+	ACANTHACEAE(1, "Acanthaceae", "Acanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Achariaceae</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACHARIACEAE(2, "Achariaceae", "Achariaceae"),
+	ACHARIACEAE(2, "Achariaceae", "Achariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Achatocarpaceae</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACHATOCARPACEAE(3, "Achatocarpaceae", "Achatocarpaceae"),
+	ACHATOCARPACEAE(3, "Achatocarpaceae", "Achatocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Acoraceae</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACORACEAE(4, "Acoraceae", "Acoraceae"),
+	ACORACEAE(4, "Acoraceae", "Acoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Acrobolbaceae</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACROBOLBACEAE(5, "Acrobolbaceae", "Acrobolbaceae"),
+	ACROBOLBACEAE(5, "Acrobolbaceae", "Acrobolbaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Actinidiaceae</b></em>' literal object.
@@ -94,7 +94,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ACTINIDIACEAE(6, "Actinidiaceae", "Actinidiaceae"),
+	ACTINIDIACEAE(6, "Actinidiaceae", "Actinidiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Adelanthaceae</b></em>' literal object.
@@ -104,7 +104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ADELANTHACEAE(7, "Adelanthaceae", "Adelanthaceae"),
+	ADELANTHACEAE(7, "Adelanthaceae", "Adelanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Adiantaceae</b></em>' literal object.
@@ -114,7 +114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ADIANTACEAE(8, "Adiantaceae", "Adiantaceae"),
+	ADIANTACEAE(8, "Adiantaceae", "Adiantaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Adoxaceae</b></em>' literal object.
@@ -124,7 +124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ADOXACEAE(9, "Adoxaceae", "Adoxaceae"),
+	ADOXACEAE(9, "Adoxaceae", "Adoxaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aextoxicaceae</b></em>' literal object.
@@ -134,7 +134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AEXTOXICACEAE(10, "Aextoxicaceae", "Aextoxicaceae"),
+	AEXTOXICACEAE(10, "Aextoxicaceae", "Aextoxicaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aizoaceae</b></em>' literal object.
@@ -144,7 +144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AIZOACEAE(11, "Aizoaceae", "Aizoaceae"),
+	AIZOACEAE(11, "Aizoaceae", "Aizoaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Akaniaceae</b></em>' literal object.
@@ -154,7 +154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AKANIACEAE(12, "Akaniaceae", "Akaniaceae"),
+	AKANIACEAE(12, "Akaniaceae", "Akaniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Alismataceae</b></em>' literal object.
@@ -164,7 +164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALISMATACEAE(13, "Alismataceae", "Alismataceae"),
+	ALISMATACEAE(13, "Alismataceae", "Alismataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Allisoniaceae</b></em>' literal object.
@@ -174,7 +174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALLISONIACEAE(14, "Allisoniaceae", "Allisoniaceae"),
+	ALLISONIACEAE(14, "Allisoniaceae", "Allisoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Alseuosmiaceae</b></em>' literal object.
@@ -184,7 +184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALSEUOSMIACEAE(15, "Alseuosmiaceae", "Alseuosmiaceae"),
+	ALSEUOSMIACEAE(15, "Alseuosmiaceae", "Alseuosmiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Alstroemeriaceae</b></em>' literal object.
@@ -194,7 +194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALSTROEMERIACEAE(16, "Alstroemeriaceae", "Alstroemeriaceae"),
+	ALSTROEMERIACEAE(16, "Alstroemeriaceae", "Alstroemeriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Altingiaceae</b></em>' literal object.
@@ -204,7 +204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALTINGIACEAE(17, "Altingiaceae", "Altingiaceae"),
+	ALTINGIACEAE(17, "Altingiaceae", "Altingiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Alzateaceae</b></em>' literal object.
@@ -214,7 +214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ALZATEACEAE(18, "Alzateaceae", "Alzateaceae"),
+	ALZATEACEAE(18, "Alzateaceae", "Alzateaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Amaranthaceae</b></em>' literal object.
@@ -224,7 +224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AMARANTHACEAE(19, "Amaranthaceae", "Amaranthaceae"),
+	AMARANTHACEAE(19, "Amaranthaceae", "Amaranthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Amaryllidaceae</b></em>' literal object.
@@ -234,7 +234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AMARYLLIDACEAE(20, "Amaryllidaceae", "Amaryllidaceae"),
+	AMARYLLIDACEAE(20, "Amaryllidaceae", "Amaryllidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Amblystegiaceae</b></em>' literal object.
@@ -244,7 +244,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AMBLYSTEGIACEAE(21, "Amblystegiaceae", "Amblystegiaceae"),
+	AMBLYSTEGIACEAE(21, "Amblystegiaceae", "Amblystegiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Amborellaceae</b></em>' literal object.
@@ -254,7 +254,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AMBORELLACEAE(22, "Amborellaceae", "Amborellaceae"),
+	AMBORELLACEAE(22, "Amborellaceae", "Amborellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Anacardiaceae</b></em>' literal object.
@@ -264,7 +264,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANACARDIACEAE(23, "Anacardiaceae", "Anacardiaceae"),
+	ANACARDIACEAE(23, "Anacardiaceae", "Anacardiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Anarthriaceae</b></em>' literal object.
@@ -274,7 +274,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANARTHRIACEAE(24, "Anarthriaceae", "Anarthriaceae"),
+	ANARTHRIACEAE(24, "Anarthriaceae", "Anarthriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Anastrophyllaceae</b></em>' literal object.
@@ -284,7 +284,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANASTROPHYLLACEAE(25, "Anastrophyllaceae", "Anastrophyllaceae"),
+	ANASTROPHYLLACEAE(25, "Anastrophyllaceae", "Anastrophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ancistrocladaceae</b></em>' literal object.
@@ -294,7 +294,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANCISTROCLADACEAE(26, "Ancistrocladaceae", "Ancistrocladaceae"),
+	ANCISTROCLADACEAE(26, "Ancistrocladaceae", "Ancistrocladaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Andreaeaceae</b></em>' literal object.
@@ -304,7 +304,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANDREAEACEAE(27, "Andreaeaceae", "Andreaeaceae"),
+	ANDREAEACEAE(27, "Andreaeaceae", "Andreaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aneuraceae</b></em>' literal object.
@@ -314,7 +314,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANEURACEAE(28, "Aneuraceae", "Aneuraceae"),
+	ANEURACEAE(28, "Aneuraceae", "Aneuraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Anisophylleaceae</b></em>' literal object.
@@ -324,7 +324,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANISOPHYLLEACEAE(29, "Anisophylleaceae", "Anisophylleaceae"),
+	ANISOPHYLLEACEAE(29, "Anisophylleaceae", "Anisophylleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Annonaceae</b></em>' literal object.
@@ -334,7 +334,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANNONACEAE(30, "Annonaceae", "Annonaceae"),
+	ANNONACEAE(30, "Annonaceae", "Annonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Antheliaceae</b></em>' literal object.
@@ -344,7 +344,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANTHELIACEAE(31, "Antheliaceae", "Antheliaceae"),
+	ANTHELIACEAE(31, "Antheliaceae", "Antheliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Anthocerotaceae</b></em>' literal object.
@@ -354,7 +354,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANTHOCEROTACEAE(32, "Anthocerotaceae", "Anthocerotaceae"),
+	ANTHOCEROTACEAE(32, "Anthocerotaceae", "Anthocerotaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aphanopetalaceae</b></em>' literal object.
@@ -364,7 +364,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APHANOPETALACEAE(33, "Aphanopetalaceae", "Aphanopetalaceae"),
+	APHANOPETALACEAE(33, "Aphanopetalaceae", "Aphanopetalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aphloiaceae</b></em>' literal object.
@@ -374,7 +374,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APHLOIACEAE(34, "Aphloiaceae", "Aphloiaceae"),
+	APHLOIACEAE(34, "Aphloiaceae", "Aphloiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Apiaceae</b></em>' literal object.
@@ -384,7 +384,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APIACEAE(35, "Apiaceae", "Apiaceae"),
+	APIACEAE(35, "Apiaceae", "Apiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Apocynaceae</b></em>' literal object.
@@ -394,7 +394,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APOCYNACEAE(36, "Apocynaceae", "Apocynaceae"),
+	APOCYNACEAE(36, "Apocynaceae", "Apocynaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Apodanthaceae</b></em>' literal object.
@@ -404,7 +404,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APODANTHACEAE(37, "Apodanthaceae", "Apodanthaceae"),
+	APODANTHACEAE(37, "Apodanthaceae", "Apodanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aponogetonaceae</b></em>' literal object.
@@ -414,7 +414,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APONOGETONACEAE(38, "Aponogetonaceae", "Aponogetonaceae"),
+	APONOGETONACEAE(38, "Aponogetonaceae", "Aponogetonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aquifoliaceae</b></em>' literal object.
@@ -424,7 +424,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AQUIFOLIACEAE(39, "Aquifoliaceae", "Aquifoliaceae"),
+	AQUIFOLIACEAE(39, "Aquifoliaceae", "Aquifoliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Araceae</b></em>' literal object.
@@ -434,7 +434,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARACEAE(40, "Araceae", "Araceae"),
+	ARACEAE(40, "Araceae", "Araceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Araliaceae</b></em>' literal object.
@@ -444,7 +444,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARALIACEAE(41, "Araliaceae", "Araliaceae"),
+	ARALIACEAE(41, "Araliaceae", "Araliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Araucariaceae</b></em>' literal object.
@@ -454,7 +454,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARAUCARIACEAE(42, "Araucariaceae", "Araucariaceae"),
+	ARAUCARIACEAE(42, "Araucariaceae", "Araucariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Archidiaceae</b></em>' literal object.
@@ -464,7 +464,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARCHIDIACEAE(43, "Archidiaceae", "Archidiaceae"),
+	ARCHIDIACEAE(43, "Archidiaceae", "Archidiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Arecaceae</b></em>' literal object.
@@ -474,7 +474,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARECACEAE(44, "Arecaceae", "Arecaceae"),
+	ARECACEAE(44, "Arecaceae", "Arecaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Argophyllaceae</b></em>' literal object.
@@ -484,7 +484,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARGOPHYLLACEAE(45, "Argophyllaceae", "Argophyllaceae"),
+	ARGOPHYLLACEAE(45, "Argophyllaceae", "Argophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aristolochiaceae</b></em>' literal object.
@@ -494,7 +494,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARISTOLOCHIACEAE(46, "Aristolochiaceae", "Aristolochiaceae"),
+	ARISTOLOCHIACEAE(46, "Aristolochiaceae", "Aristolochiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Arnelliaceae</b></em>' literal object.
@@ -504,7 +504,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARNELLIACEAE(47, "Arnelliaceae", "Arnelliaceae"),
+	ARNELLIACEAE(47, "Arnelliaceae", "Arnelliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Asparagaceae</b></em>' literal object.
@@ -514,7 +514,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ASPARAGACEAE(48, "Asparagaceae", "Asparagaceae"),
+	ASPARAGACEAE(48, "Asparagaceae", "Asparagaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aspleniaceae</b></em>' literal object.
@@ -524,7 +524,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ASPLENIACEAE(49, "Aspleniaceae", "Aspleniaceae"),
+	ASPLENIACEAE(49, "Aspleniaceae", "Aspleniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Asteliaceae</b></em>' literal object.
@@ -534,7 +534,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ASTELIACEAE(50, "Asteliaceae", "Asteliaceae"),
+	ASTELIACEAE(50, "Asteliaceae", "Asteliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Asteropeiaceae</b></em>' literal object.
@@ -544,7 +544,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ASTEROPEIACEAE(51, "Asteropeiaceae", "Asteropeiaceae"),
+	ASTEROPEIACEAE(51, "Asteropeiaceae", "Asteropeiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Atherospermataceae</b></em>' literal object.
@@ -554,7 +554,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ATHEROSPERMATACEAE(52, "Atherospermataceae", "Atherospermataceae"),
+	ATHEROSPERMATACEAE(52, "Atherospermataceae", "Atherospermataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aulacomniaceae</b></em>' literal object.
@@ -564,7 +564,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AULACOMNIACEAE(53, "Aulacomniaceae", "Aulacomniaceae"),
+	AULACOMNIACEAE(53, "Aulacomniaceae", "Aulacomniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Austrobaileyaceae</b></em>' literal object.
@@ -574,7 +574,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AUSTROBAILEYACEAE(54, "Austrobaileyaceae", "Austrobaileyaceae"),
+	AUSTROBAILEYACEAE(54, "Austrobaileyaceae", "Austrobaileyaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Aytoniaceae</b></em>' literal object.
@@ -584,7 +584,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AYTONIACEAE(55, "Aytoniaceae", "Aytoniaceae"),
+	AYTONIACEAE(55, "Aytoniaceae", "Aytoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Balanopaceae</b></em>' literal object.
@@ -594,7 +594,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BALANOPACEAE(56, "Balanopaceae", "Balanopaceae"),
+	BALANOPACEAE(56, "Balanopaceae", "Balanopaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Balanophoraceae</b></em>' literal object.
@@ -604,7 +604,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BALANOPHORACEAE(57, "Balanophoraceae", "Balanophoraceae"),
+	BALANOPHORACEAE(57, "Balanophoraceae", "Balanophoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Balantiopsaceae</b></em>' literal object.
@@ -614,7 +614,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BALANTIOPSACEAE(58, "Balantiopsaceae", "Balantiopsaceae"),
+	BALANTIOPSACEAE(58, "Balantiopsaceae", "Balantiopsaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Balsaminaceae</b></em>' literal object.
@@ -624,7 +624,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BALSAMINACEAE(59, "Balsaminaceae", "Balsaminaceae"),
+	BALSAMINACEAE(59, "Balsaminaceae", "Balsaminaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Barbeuiaceae</b></em>' literal object.
@@ -634,7 +634,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BARBEUIACEAE(60, "Barbeuiaceae", "Barbeuiaceae"),
+	BARBEUIACEAE(60, "Barbeuiaceae", "Barbeuiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Barbeyaceae</b></em>' literal object.
@@ -644,7 +644,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BARBEYACEAE(61, "Barbeyaceae", "Barbeyaceae"),
+	BARBEYACEAE(61, "Barbeyaceae", "Barbeyaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bartramiaceae</b></em>' literal object.
@@ -654,7 +654,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BARTRAMIACEAE(62, "Bartramiaceae", "Bartramiaceae"),
+	BARTRAMIACEAE(62, "Bartramiaceae", "Bartramiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Basellaceae</b></em>' literal object.
@@ -664,7 +664,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BASELLACEAE(63, "Basellaceae", "Basellaceae"),
+	BASELLACEAE(63, "Basellaceae", "Basellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bataceae</b></em>' literal object.
@@ -674,7 +674,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BATACEAE(64, "Bataceae", "Bataceae"),
+	BATACEAE(64, "Bataceae", "Bataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Begoniaceae</b></em>' literal object.
@@ -684,7 +684,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BEGONIACEAE(65, "Begoniaceae", "Begoniaceae"),
+	BEGONIACEAE(65, "Begoniaceae", "Begoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Berberidaceae</b></em>' literal object.
@@ -694,7 +694,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BERBERIDACEAE(66, "Berberidaceae", "Berberidaceae"),
+	BERBERIDACEAE(66, "Berberidaceae", "Berberidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Berberidopsidaceae</b></em>' literal object.
@@ -704,7 +704,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BERBERIDOPSIDACEAE(67, "Berberidopsidaceae", "Berberidopsidaceae"),
+	BERBERIDOPSIDACEAE(67, "Berberidopsidaceae", "Berberidopsidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Betulaceae</b></em>' literal object.
@@ -714,7 +714,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BETULACEAE(68, "Betulaceae", "Betulaceae"),
+	BETULACEAE(68, "Betulaceae", "Betulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Biebersteiniaceae</b></em>' literal object.
@@ -724,7 +724,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BIEBERSTEINIACEAE(69, "Biebersteiniaceae", "Biebersteiniaceae"),
+	BIEBERSTEINIACEAE(69, "Biebersteiniaceae", "Biebersteiniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bignoniaceae</b></em>' literal object.
@@ -734,7 +734,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BIGNONIACEAE(70, "Bignoniaceae", "Bignoniaceae"),
+	BIGNONIACEAE(70, "Bignoniaceae", "Bignoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bixaceae</b></em>' literal object.
@@ -744,7 +744,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BIXACEAE(71, "Bixaceae", "Bixaceae"),
+	BIXACEAE(71, "Bixaceae", "Bixaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Blandfordiaceae</b></em>' literal object.
@@ -754,7 +754,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BLANDFORDIACEAE(72, "Blandfordiaceae", "Blandfordiaceae"),
+	BLANDFORDIACEAE(72, "Blandfordiaceae", "Blandfordiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Blechnaceae</b></em>' literal object.
@@ -764,7 +764,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BLECHNACEAE(73, "Blechnaceae", "Blechnaceae"),
+	BLECHNACEAE(73, "Blechnaceae", "Blechnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bonnetiaceae</b></em>' literal object.
@@ -774,7 +774,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BONNETIACEAE(74, "Bonnetiaceae", "Bonnetiaceae"),
+	BONNETIACEAE(74, "Bonnetiaceae", "Bonnetiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Boraginaceae</b></em>' literal object.
@@ -784,7 +784,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BORAGINACEAE(75, "Boraginaceae", "Boraginaceae"),
+	BORAGINACEAE(75, "Boraginaceae", "Boraginaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Boryaceae</b></em>' literal object.
@@ -794,7 +794,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BORYACEAE(76, "Boryaceae", "Boryaceae"),
+	BORYACEAE(76, "Boryaceae", "Boryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Boweniaceae</b></em>' literal object.
@@ -804,7 +804,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOWENIACEAE(77, "Boweniaceae", "Boweniaceae"),
+	BOWENIACEAE(77, "Boweniaceae", "Boweniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Brachytheciaceae</b></em>' literal object.
@@ -814,7 +814,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRACHYTHECIACEAE(78, "Brachytheciaceae", "Brachytheciaceae"),
+	BRACHYTHECIACEAE(78, "Brachytheciaceae", "Brachytheciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Brassicaceae</b></em>' literal object.
@@ -824,7 +824,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRASSICACEAE(79, "Brassicaceae", "Brassicaceae"),
+	BRASSICACEAE(79, "Brassicaceae", "Brassicaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Brevianthaceae</b></em>' literal object.
@@ -834,7 +834,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BREVIANTHACEAE(80, "Brevianthaceae", "Brevianthaceae"),
+	BREVIANTHACEAE(80, "Brevianthaceae", "Brevianthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bromeliaceae</b></em>' literal object.
@@ -844,7 +844,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BROMELIACEAE(81, "Bromeliaceae", "Bromeliaceae"),
+	BROMELIACEAE(81, "Bromeliaceae", "Bromeliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bruchiaceae</b></em>' literal object.
@@ -854,7 +854,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRUCHIACEAE(82, "Bruchiaceae", "Bruchiaceae"),
+	BRUCHIACEAE(82, "Bruchiaceae", "Bruchiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Brunelliaceae</b></em>' literal object.
@@ -864,7 +864,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRUNELLIACEAE(83, "Brunelliaceae", "Brunelliaceae"),
+	BRUNELLIACEAE(83, "Brunelliaceae", "Brunelliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bruniaceae</b></em>' literal object.
@@ -874,7 +874,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRUNIACEAE(84, "Bruniaceae", "Bruniaceae"),
+	BRUNIACEAE(84, "Bruniaceae", "Bruniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bryaceae</b></em>' literal object.
@@ -884,7 +884,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRYACEAE(85, "Bryaceae", "Bryaceae"),
+	BRYACEAE(85, "Bryaceae", "Bryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bryobartramiaceae</b></em>' literal object.
@@ -894,7 +894,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRYOBARTRAMIACEAE(86, "Bryobartramiaceae", "Bryobartramiaceae"),
+	BRYOBARTRAMIACEAE(86, "Bryobartramiaceae", "Bryobartramiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Bryoxiphiaceae</b></em>' literal object.
@@ -904,7 +904,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BRYOXIPHIACEAE(87, "Bryoxiphiaceae", "Bryoxiphiaceae"),
+	BRYOXIPHIACEAE(87, "Bryoxiphiaceae", "Bryoxiphiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Burmanniaceae</b></em>' literal object.
@@ -914,7 +914,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BURMANNIACEAE(88, "Burmanniaceae", "Burmanniaceae"),
+	BURMANNIACEAE(88, "Burmanniaceae", "Burmanniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Burseraceae</b></em>' literal object.
@@ -924,7 +924,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BURSERACEAE(89, "Burseraceae", "Burseraceae"),
+	BURSERACEAE(89, "Burseraceae", "Burseraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Butomaceae</b></em>' literal object.
@@ -934,7 +934,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BUTOMACEAE(90, "Butomaceae", "Butomaceae"),
+	BUTOMACEAE(90, "Butomaceae", "Butomaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Buxaceae</b></em>' literal object.
@@ -944,7 +944,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BUXACEAE(91, "Buxaceae", "Buxaceae"),
+	BUXACEAE(91, "Buxaceae", "Buxaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Buxbaumiaceae</b></em>' literal object.
@@ -954,7 +954,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BUXBAUMIACEAE(92, "Buxbaumiaceae", "Buxbaumiaceae"),
+	BUXBAUMIACEAE(92, "Buxbaumiaceae", "Buxbaumiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Byblidaceae</b></em>' literal object.
@@ -964,7 +964,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BYBLIDACEAE(93, "Byblidaceae", "Byblidaceae"),
+	BYBLIDACEAE(93, "Byblidaceae", "Byblidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cabombaceae</b></em>' literal object.
@@ -974,7 +974,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CABOMBACEAE(94, "Cabombaceae", "Cabombaceae"),
+	CABOMBACEAE(94, "Cabombaceae", "Cabombaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cactaceae</b></em>' literal object.
@@ -984,7 +984,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CACTACEAE(95, "Cactaceae", "Cactaceae"),
+	CACTACEAE(95, "Cactaceae", "Cactaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calceolariaceae</b></em>' literal object.
@@ -994,7 +994,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALCEOLARIACEAE(96, "Calceolariaceae", "Calceolariaceae"),
+	CALCEOLARIACEAE(96, "Calceolariaceae", "Calceolariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calomniaceae</b></em>' literal object.
@@ -1004,7 +1004,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALOMNIACEAE(97, "Calomniaceae", "Calomniaceae"),
+	CALOMNIACEAE(97, "Calomniaceae", "Calomniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calophyllaceae</b></em>' literal object.
@@ -1014,7 +1014,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALOPHYLLACEAE(98, "Calophyllaceae", "Calophyllaceae"),
+	CALOPHYLLACEAE(98, "Calophyllaceae", "Calophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calycanthaceae</b></em>' literal object.
@@ -1024,7 +1024,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALYCANTHACEAE(99, "Calycanthaceae", "Calycanthaceae"),
+	CALYCANTHACEAE(99, "Calycanthaceae", "Calycanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calyceraceae</b></em>' literal object.
@@ -1034,7 +1034,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALYCERACEAE(100, "Calyceraceae", "Calyceraceae"),
+	CALYCERACEAE(100, "Calyceraceae", "Calyceraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calymperaceae</b></em>' literal object.
@@ -1044,7 +1044,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALYMPERACEAE(101, "Calymperaceae", "Calymperaceae"),
+	CALYMPERACEAE(101, "Calymperaceae", "Calymperaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Calypogeiaceae</b></em>' literal object.
@@ -1054,7 +1054,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CALYPOGEIACEAE(102, "Calypogeiaceae", "Calypogeiaceae"),
+	CALYPOGEIACEAE(102, "Calypogeiaceae", "Calypogeiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Campanulaceae</b></em>' literal object.
@@ -1064,7 +1064,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CAMPANULACEAE(103, "Campanulaceae", "Campanulaceae"),
+	CAMPANULACEAE(103, "Campanulaceae", "Campanulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Campyneumataceae</b></em>' literal object.
@@ -1074,7 +1074,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CAMPYNEUMATACEAE(104, "Campyneumataceae", "Campyneumataceae"),
+	CAMPYNEUMATACEAE(104, "Campyneumataceae", "Campyneumataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Canellaceae</b></em>' literal object.
@@ -1084,7 +1084,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANELLACEAE(105, "Canellaceae", "Canellaceae"),
+	CANELLACEAE(105, "Canellaceae", "Canellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cannabaceae</b></em>' literal object.
@@ -1094,7 +1094,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANNABACEAE(106, "Cannabaceae", "Cannabaceae"),
+	CANNABACEAE(106, "Cannabaceae", "Cannabaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cannaceae</b></em>' literal object.
@@ -1104,7 +1104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANNACEAE(107, "Cannaceae", "Cannaceae"),
+	CANNACEAE(107, "Cannaceae", "Cannaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Capparaceae</b></em>' literal object.
@@ -1114,7 +1114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CAPPARACEAE(108, "Capparaceae", "Capparaceae"),
+	CAPPARACEAE(108, "Capparaceae", "Capparaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Caprifoliaceae</b></em>' literal object.
@@ -1124,7 +1124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CAPRIFOLIACEAE(109, "Caprifoliaceae", "Caprifoliaceae"),
+	CAPRIFOLIACEAE(109, "Caprifoliaceae", "Caprifoliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cardiopteridaceae</b></em>' literal object.
@@ -1134,7 +1134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARDIOPTERIDACEAE(110, "Cardiopteridaceae", "Cardiopteridaceae"),
+	CARDIOPTERIDACEAE(110, "Cardiopteridaceae", "Cardiopteridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Caricaceae</b></em>' literal object.
@@ -1144,7 +1144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARICACEAE(111, "Caricaceae", "Caricaceae"),
+	CARICACEAE(111, "Caricaceae", "Caricaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Carlemanniaceae</b></em>' literal object.
@@ -1154,7 +1154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARLEMANNIACEAE(112, "Carlemanniaceae", "Carlemanniaceae"),
+	CARLEMANNIACEAE(112, "Carlemanniaceae", "Carlemanniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Caryocaraceae</b></em>' literal object.
@@ -1164,7 +1164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARYOCARACEAE(113, "Caryocaraceae", "Caryocaraceae"),
+	CARYOCARACEAE(113, "Caryocaraceae", "Caryocaraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Caryophyllaceae</b></em>' literal object.
@@ -1174,7 +1174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARYOPHYLLACEAE(114, "Caryophyllaceae", "Caryophyllaceae"),
+	CARYOPHYLLACEAE(114, "Caryophyllaceae", "Caryophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Casuarinaceae</b></em>' literal object.
@@ -1184,7 +1184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CASUARINACEAE(115, "Casuarinaceae", "Casuarinaceae"),
+	CASUARINACEAE(115, "Casuarinaceae", "Casuarinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Catagoniaceae</b></em>' literal object.
@@ -1194,7 +1194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CATAGONIACEAE(116, "Catagoniaceae", "Catagoniaceae"),
+	CATAGONIACEAE(116, "Catagoniaceae", "Catagoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Catoscopiaceae</b></em>' literal object.
@@ -1204,7 +1204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CATOSCOPIACEAE(117, "Catoscopiaceae", "Catoscopiaceae"),
+	CATOSCOPIACEAE(117, "Catoscopiaceae", "Catoscopiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Celastraceae</b></em>' literal object.
@@ -1214,7 +1214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CELASTRACEAE(118, "Celastraceae", "Celastraceae"),
+	CELASTRACEAE(118, "Celastraceae", "Celastraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Centrolepidaceae</b></em>' literal object.
@@ -1224,7 +1224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CENTROLEPIDACEAE(119, "Centrolepidaceae", "Centrolepidaceae"),
+	CENTROLEPIDACEAE(119, "Centrolepidaceae", "Centrolepidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Centroplacaceae</b></em>' literal object.
@@ -1234,7 +1234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CENTROPLACACEAE(120, "Centroplacaceae", "Centroplacaceae"),
+	CENTROPLACACEAE(120, "Centroplacaceae", "Centroplacaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cephalotaceae</b></em>' literal object.
@@ -1244,7 +1244,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CEPHALOTACEAE(121, "Cephalotaceae", "Cephalotaceae"),
+	CEPHALOTACEAE(121, "Cephalotaceae", "Cephalotaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cephalotaxaceae</b></em>' literal object.
@@ -1254,7 +1254,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CEPHALOTAXACEAE(122, "Cephalotaxaceae", "Cephalotaxaceae"),
+	CEPHALOTAXACEAE(122, "Cephalotaxaceae", "Cephalotaxaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cephaloziaceae</b></em>' literal object.
@@ -1264,7 +1264,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CEPHALOZIACEAE(123, "Cephaloziaceae", "Cephaloziaceae"),
+	CEPHALOZIACEAE(123, "Cephaloziaceae", "Cephaloziaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cephaloziellaceae</b></em>' literal object.
@@ -1274,7 +1274,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CEPHALOZIELLACEAE(124, "Cephaloziellaceae", "Cephaloziellaceae"),
+	CEPHALOZIELLACEAE(124, "Cephaloziellaceae", "Cephaloziellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ceratophyllaceae</b></em>' literal object.
@@ -1284,7 +1284,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CERATOPHYLLACEAE(125, "Ceratophyllaceae", "Ceratophyllaceae"),
+	CERATOPHYLLACEAE(125, "Ceratophyllaceae", "Ceratophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cercidiphyllaceae</b></em>' literal object.
@@ -1294,7 +1294,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CERCIDIPHYLLACEAE(126, "Cercidiphyllaceae", "Cercidiphyllaceae"),
+	CERCIDIPHYLLACEAE(126, "Cercidiphyllaceae", "Cercidiphyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Chaetophyllopsaceae</b></em>' literal object.
@@ -1304,7 +1304,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHAETOPHYLLOPSACEAE(127, "Chaetophyllopsaceae", "Chaetophyllopsaceae"),
+	CHAETOPHYLLOPSACEAE(127, "Chaetophyllopsaceae", "Chaetophyllopsaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Chloranthaceae</b></em>' literal object.
@@ -1314,7 +1314,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHLORANTHACEAE(128, "Chloranthaceae", "Chloranthaceae"),
+	CHLORANTHACEAE(128, "Chloranthaceae", "Chloranthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Chonecoleaceae</b></em>' literal object.
@@ -1324,7 +1324,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHONECOLEACEAE(129, "Chonecoleaceae", "Chonecoleaceae"),
+	CHONECOLEACEAE(129, "Chonecoleaceae", "Chonecoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Chrysobalanaceae</b></em>' literal object.
@@ -1334,7 +1334,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHRYSOBALANACEAE(130, "Chrysobalanaceae", "Chrysobalanaceae"),
+	CHRYSOBALANACEAE(130, "Chrysobalanaceae", "Chrysobalanaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cinclidotaceae</b></em>' literal object.
@@ -1344,7 +1344,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CINCLIDOTACEAE(131, "Cinclidotaceae", "Cinclidotaceae"),
+	CINCLIDOTACEAE(131, "Cinclidotaceae", "Cinclidotaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Circaeasteraceae</b></em>' literal object.
@@ -1354,7 +1354,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CIRCAEASTERACEAE(132, "Circaeasteraceae", "Circaeasteraceae"),
+	CIRCAEASTERACEAE(132, "Circaeasteraceae", "Circaeasteraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cistaceae</b></em>' literal object.
@@ -1364,7 +1364,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CISTACEAE(133, "Cistaceae", "Cistaceae"),
+	CISTACEAE(133, "Cistaceae", "Cistaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cleomaceae</b></em>' literal object.
@@ -1374,7 +1374,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLEOMACEAE(134, "Cleomaceae", "Cleomaceae"),
+	CLEOMACEAE(134, "Cleomaceae", "Cleomaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Clethraceae</b></em>' literal object.
@@ -1384,7 +1384,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLETHRACEAE(135, "Clethraceae", "Clethraceae"),
+	CLETHRACEAE(135, "Clethraceae", "Clethraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cleveaceae</b></em>' literal object.
@@ -1394,7 +1394,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLEVEACEAE(136, "Cleveaceae", "Cleveaceae"),
+	CLEVEACEAE(136, "Cleveaceae", "Cleveaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Climaciaceae</b></em>' literal object.
@@ -1404,7 +1404,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLIMACIACEAE(137, "Climaciaceae", "Climaciaceae"),
+	CLIMACIACEAE(137, "Climaciaceae", "Climaciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Clusiaceae</b></em>' literal object.
@@ -1414,7 +1414,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CLUSIACEAE(138, "Clusiaceae", "Clusiaceae"),
+	CLUSIACEAE(138, "Clusiaceae", "Clusiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Colchicaceae</b></em>' literal object.
@@ -1424,7 +1424,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COLCHICACEAE(139, "Colchicaceae", "Colchicaceae"),
+	COLCHICACEAE(139, "Colchicaceae", "Colchicaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Columelliaceae</b></em>' literal object.
@@ -1434,7 +1434,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COLUMELLIACEAE(140, "Columelliaceae", "Columelliaceae"),
+	COLUMELLIACEAE(140, "Columelliaceae", "Columelliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Combretaceae</b></em>' literal object.
@@ -1444,7 +1444,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMBRETACEAE(141, "Combretaceae", "Combretaceae"),
+	COMBRETACEAE(141, "Combretaceae", "Combretaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Commelinaceae</b></em>' literal object.
@@ -1454,7 +1454,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMMELINACEAE(142, "Commelinaceae", "Commelinaceae"),
+	COMMELINACEAE(142, "Commelinaceae", "Commelinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Compositae</b></em>' literal object.
@@ -1464,7 +1464,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPOSITAE(143, "Compositae", "Compositae"),
+	COMPOSITAE(143, "Compositae", "Compositae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Connaraceae</b></em>' literal object.
@@ -1474,7 +1474,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONNARACEAE(144, "Connaraceae", "Connaraceae"),
+	CONNARACEAE(144, "Connaraceae", "Connaraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Conocephalaceae</b></em>' literal object.
@@ -1484,7 +1484,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONOCEPHALACEAE(145, "Conocephalaceae", "Conocephalaceae"),
+	CONOCEPHALACEAE(145, "Conocephalaceae", "Conocephalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Convolvulaceae</b></em>' literal object.
@@ -1494,7 +1494,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONVOLVULACEAE(146, "Convolvulaceae", "Convolvulaceae"),
+	CONVOLVULACEAE(146, "Convolvulaceae", "Convolvulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Coriariaceae</b></em>' literal object.
@@ -1504,7 +1504,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORIARIACEAE(147, "Coriariaceae", "Coriariaceae"),
+	CORIARIACEAE(147, "Coriariaceae", "Coriariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cornaceae</b></em>' literal object.
@@ -1514,7 +1514,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORNACEAE(148, "Cornaceae", "Cornaceae"),
+	CORNACEAE(148, "Cornaceae", "Cornaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Corsiaceae</b></em>' literal object.
@@ -1524,7 +1524,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORSIACEAE(149, "Corsiaceae", "Corsiaceae"),
+	CORSIACEAE(149, "Corsiaceae", "Corsiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Corsiniaceae</b></em>' literal object.
@@ -1534,7 +1534,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORSINIACEAE(150, "Corsiniaceae", "Corsiniaceae"),
+	CORSINIACEAE(150, "Corsiniaceae", "Corsiniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Corynocarpaceae</b></em>' literal object.
@@ -1544,7 +1544,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CORYNOCARPACEAE(151, "Corynocarpaceae", "Corynocarpaceae"),
+	CORYNOCARPACEAE(151, "Corynocarpaceae", "Corynocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Costaceae</b></em>' literal object.
@@ -1554,7 +1554,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COSTACEAE(152, "Costaceae", "Costaceae"),
+	COSTACEAE(152, "Costaceae", "Costaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Crassulaceae</b></em>' literal object.
@@ -1564,7 +1564,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CRASSULACEAE(153, "Crassulaceae", "Crassulaceae"),
+	CRASSULACEAE(153, "Crassulaceae", "Crassulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Crossosomataceae</b></em>' literal object.
@@ -1574,7 +1574,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CROSSOSOMATACEAE(154, "Crossosomataceae", "Crossosomataceae"),
+	CROSSOSOMATACEAE(154, "Crossosomataceae", "Crossosomataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cryphaeaceae</b></em>' literal object.
@@ -1584,7 +1584,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CRYPHAEACEAE(155, "Cryphaeaceae", "Cryphaeaceae"),
+	CRYPHAEACEAE(155, "Cryphaeaceae", "Cryphaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Crypteroniaceae</b></em>' literal object.
@@ -1594,7 +1594,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CRYPTERONIACEAE(156, "Crypteroniaceae", "Crypteroniaceae"),
+	CRYPTERONIACEAE(156, "Crypteroniaceae", "Crypteroniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ctenolophonaceae</b></em>' literal object.
@@ -1604,7 +1604,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CTENOLOPHONACEAE(157, "Ctenolophonaceae", "Ctenolophonaceae"),
+	CTENOLOPHONACEAE(157, "Ctenolophonaceae", "Ctenolophonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cucurbitaceae</b></em>' literal object.
@@ -1614,7 +1614,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUCURBITACEAE(158, "Cucurbitaceae", "Cucurbitaceae"),
+	CUCURBITACEAE(158, "Cucurbitaceae", "Cucurbitaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cunoniaceae</b></em>' literal object.
@@ -1624,7 +1624,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUNONIACEAE(159, "Cunoniaceae", "Cunoniaceae"),
+	CUNONIACEAE(159, "Cunoniaceae", "Cunoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cupressaceae</b></em>' literal object.
@@ -1634,7 +1634,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUPRESSACEAE(160, "Cupressaceae", "Cupressaceae"),
+	CUPRESSACEAE(160, "Cupressaceae", "Cupressaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Curtisiaceae</b></em>' literal object.
@@ -1644,7 +1644,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CURTISIACEAE(161, "Curtisiaceae", "Curtisiaceae"),
+	CURTISIACEAE(161, "Curtisiaceae", "Curtisiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cyatheaceae</b></em>' literal object.
@@ -1654,7 +1654,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYATHEACEAE(162, "Cyatheaceae", "Cyatheaceae"),
+	CYATHEACEAE(162, "Cyatheaceae", "Cyatheaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cycadaceae</b></em>' literal object.
@@ -1664,7 +1664,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYCADACEAE(163, "Cycadaceae", "Cycadaceae"),
+	CYCADACEAE(163, "Cycadaceae", "Cycadaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cyclanthaceae</b></em>' literal object.
@@ -1674,7 +1674,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYCLANTHACEAE(164, "Cyclanthaceae", "Cyclanthaceae"),
+	CYCLANTHACEAE(164, "Cyclanthaceae", "Cyclanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cymodoceaceae</b></em>' literal object.
@@ -1684,7 +1684,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYMODOCEACEAE(165, "Cymodoceaceae", "Cymodoceaceae"),
+	CYMODOCEACEAE(165, "Cymodoceaceae", "Cymodoceaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cynomoriaceae</b></em>' literal object.
@@ -1694,7 +1694,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYNOMORIACEAE(166, "Cynomoriaceae", "Cynomoriaceae"),
+	CYNOMORIACEAE(166, "Cynomoriaceae", "Cynomoriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cyperaceae</b></em>' literal object.
@@ -1704,7 +1704,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYPERACEAE(167, "Cyperaceae", "Cyperaceae"),
+	CYPERACEAE(167, "Cyperaceae", "Cyperaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cyrillaceae</b></em>' literal object.
@@ -1714,7 +1714,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYRILLACEAE(168, "Cyrillaceae", "Cyrillaceae"),
+	CYRILLACEAE(168, "Cyrillaceae", "Cyrillaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cyrtopodaceae</b></em>' literal object.
@@ -1724,7 +1724,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYRTOPODACEAE(169, "Cyrtopodaceae", "Cyrtopodaceae"),
+	CYRTOPODACEAE(169, "Cyrtopodaceae", "Cyrtopodaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cytinaceae</b></em>' literal object.
@@ -1734,7 +1734,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CYTINACEAE(170, "Cytinaceae", "Cytinaceae"),
+	CYTINACEAE(170, "Cytinaceae", "Cytinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Daltoniaceae</b></em>' literal object.
@@ -1744,7 +1744,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DALTONIACEAE(171, "Daltoniaceae", "Daltoniaceae"),
+	DALTONIACEAE(171, "Daltoniaceae", "Daltoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Daphniphyllaceae</b></em>' literal object.
@@ -1754,7 +1754,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DAPHNIPHYLLACEAE(172, "Daphniphyllaceae", "Daphniphyllaceae"),
+	DAPHNIPHYLLACEAE(172, "Daphniphyllaceae", "Daphniphyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dasypogonaceae</b></em>' literal object.
@@ -1764,7 +1764,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DASYPOGONACEAE(173, "Dasypogonaceae", "Dasypogonaceae"),
+	DASYPOGONACEAE(173, "Dasypogonaceae", "Dasypogonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Datiscaceae</b></em>' literal object.
@@ -1774,7 +1774,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATISCACEAE(174, "Datiscaceae", "Datiscaceae"),
+	DATISCACEAE(174, "Datiscaceae", "Datiscaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Davalliaceae</b></em>' literal object.
@@ -1784,7 +1784,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DAVALLIACEAE(175, "Davalliaceae", "Davalliaceae"),
+	DAVALLIACEAE(175, "Davalliaceae", "Davalliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Degeneriaceae</b></em>' literal object.
@@ -1794,7 +1794,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DEGENERIACEAE(176, "Degeneriaceae", "Degeneriaceae"),
+	DEGENERIACEAE(176, "Degeneriaceae", "Degeneriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dendrocerotaceae</b></em>' literal object.
@@ -1804,7 +1804,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DENDROCEROTACEAE(177, "Dendrocerotaceae", "Dendrocerotaceae"),
+	DENDROCEROTACEAE(177, "Dendrocerotaceae", "Dendrocerotaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dennstaedtiaceae</b></em>' literal object.
@@ -1814,7 +1814,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DENNSTAEDTIACEAE(178, "Dennstaedtiaceae", "Dennstaedtiaceae"),
+	DENNSTAEDTIACEAE(178, "Dennstaedtiaceae", "Dennstaedtiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Diapensiaceae</b></em>' literal object.
@@ -1824,7 +1824,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIAPENSIACEAE(179, "Diapensiaceae", "Diapensiaceae"),
+	DIAPENSIACEAE(179, "Diapensiaceae", "Diapensiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dichapetalaceae</b></em>' literal object.
@@ -1834,7 +1834,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DICHAPETALACEAE(180, "Dichapetalaceae", "Dichapetalaceae"),
+	DICHAPETALACEAE(180, "Dichapetalaceae", "Dichapetalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dicksoniaceae</b></em>' literal object.
@@ -1844,7 +1844,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DICKSONIACEAE(181, "Dicksoniaceae", "Dicksoniaceae"),
+	DICKSONIACEAE(181, "Dicksoniaceae", "Dicksoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dicnemonaceae</b></em>' literal object.
@@ -1854,7 +1854,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DICNEMONACEAE(182, "Dicnemonaceae", "Dicnemonaceae"),
+	DICNEMONACEAE(182, "Dicnemonaceae", "Dicnemonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dicranaceae</b></em>' literal object.
@@ -1864,7 +1864,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DICRANACEAE(183, "Dicranaceae", "Dicranaceae"),
+	DICRANACEAE(183, "Dicranaceae", "Dicranaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Didiereaceae</b></em>' literal object.
@@ -1874,7 +1874,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIDIEREACEAE(184, "Didiereaceae", "Didiereaceae"),
+	DIDIEREACEAE(184, "Didiereaceae", "Didiereaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dilleniaceae</b></em>' literal object.
@@ -1884,7 +1884,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DILLENIACEAE(185, "Dilleniaceae", "Dilleniaceae"),
+	DILLENIACEAE(185, "Dilleniaceae", "Dilleniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dioncophyllaceae</b></em>' literal object.
@@ -1894,7 +1894,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIONCOPHYLLACEAE(186, "Dioncophyllaceae", "Dioncophyllaceae"),
+	DIONCOPHYLLACEAE(186, "Dioncophyllaceae", "Dioncophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dioscoreaceae</b></em>' literal object.
@@ -1904,7 +1904,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIOSCOREACEAE(187, "Dioscoreaceae", "Dioscoreaceae"),
+	DIOSCOREACEAE(187, "Dioscoreaceae", "Dioscoreaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dipentodontaceae</b></em>' literal object.
@@ -1914,7 +1914,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIPENTODONTACEAE(188, "Dipentodontaceae", "Dipentodontaceae"),
+	DIPENTODONTACEAE(188, "Dipentodontaceae", "Dipentodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dipteridaceae</b></em>' literal object.
@@ -1924,7 +1924,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIPTERIDACEAE(189, "Dipteridaceae", "Dipteridaceae"),
+	DIPTERIDACEAE(189, "Dipteridaceae", "Dipteridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dipterocarpaceae</b></em>' literal object.
@@ -1934,7 +1934,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIPTEROCARPACEAE(190, "Dipterocarpaceae", "Dipterocarpaceae"),
+	DIPTEROCARPACEAE(190, "Dipterocarpaceae", "Dipterocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dirachmaceae</b></em>' literal object.
@@ -1944,7 +1944,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DIRACHMACEAE(191, "Dirachmaceae", "Dirachmaceae"),
+	DIRACHMACEAE(191, "Dirachmaceae", "Dirachmaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Disceliaceae</b></em>' literal object.
@@ -1954,7 +1954,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DISCELIACEAE(192, "Disceliaceae", "Disceliaceae"),
+	DISCELIACEAE(192, "Disceliaceae", "Disceliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ditrichaceae</b></em>' literal object.
@@ -1964,7 +1964,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DITRICHACEAE(193, "Ditrichaceae", "Ditrichaceae"),
+	DITRICHACEAE(193, "Ditrichaceae", "Ditrichaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Doryanthaceae</b></em>' literal object.
@@ -1974,7 +1974,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DORYANTHACEAE(194, "Doryanthaceae", "Doryanthaceae"),
+	DORYANTHACEAE(194, "Doryanthaceae", "Doryanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Droseraceae</b></em>' literal object.
@@ -1984,7 +1984,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DROSERACEAE(195, "Droseraceae", "Droseraceae"),
+	DROSERACEAE(195, "Droseraceae", "Droseraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Drosophyllaceae</b></em>' literal object.
@@ -1994,7 +1994,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DROSOPHYLLACEAE(196, "Drosophyllaceae", "Drosophyllaceae"),
+	DROSOPHYLLACEAE(196, "Drosophyllaceae", "Drosophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dryopteridaceae</b></em>' literal object.
@@ -2004,7 +2004,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DRYOPTERIDACEAE(197, "Dryopteridaceae", "Dryopteridaceae"),
+	DRYOPTERIDACEAE(197, "Dryopteridaceae", "Dryopteridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ebenaceae</b></em>' literal object.
@@ -2014,7 +2014,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EBENACEAE(198, "Ebenaceae", "Ebenaceae"),
+	EBENACEAE(198, "Ebenaceae", "Ebenaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ecdeiocoleaceae</b></em>' literal object.
@@ -2024,7 +2024,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ECDEIOCOLEACEAE(199, "Ecdeiocoleaceae", "Ecdeiocoleaceae"),
+	ECDEIOCOLEACEAE(199, "Ecdeiocoleaceae", "Ecdeiocoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Echinodiaceae</b></em>' literal object.
@@ -2034,7 +2034,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ECHINODIACEAE(200, "Echinodiaceae", "Echinodiaceae"),
+	ECHINODIACEAE(200, "Echinodiaceae", "Echinodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Elaeagnaceae</b></em>' literal object.
@@ -2044,7 +2044,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ELAEAGNACEAE(201, "Elaeagnaceae", "Elaeagnaceae"),
+	ELAEAGNACEAE(201, "Elaeagnaceae", "Elaeagnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Elaeocarpaceae</b></em>' literal object.
@@ -2054,7 +2054,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ELAEOCARPACEAE(202, "Elaeocarpaceae", "Elaeocarpaceae"),
+	ELAEOCARPACEAE(202, "Elaeocarpaceae", "Elaeocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Elatinaceae</b></em>' literal object.
@@ -2064,7 +2064,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ELATINACEAE(203, "Elatinaceae", "Elatinaceae"),
+	ELATINACEAE(203, "Elatinaceae", "Elatinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Emblingiaceae</b></em>' literal object.
@@ -2074,7 +2074,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EMBLINGIACEAE(204, "Emblingiaceae", "Emblingiaceae"),
+	EMBLINGIACEAE(204, "Emblingiaceae", "Emblingiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Encalyptaceae</b></em>' literal object.
@@ -2084,7 +2084,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENCALYPTACEAE(205, "Encalyptaceae", "Encalyptaceae"),
+	ENCALYPTACEAE(205, "Encalyptaceae", "Encalyptaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Entodontaceae</b></em>' literal object.
@@ -2094,7 +2094,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENTODONTACEAE(206, "Entodontaceae", "Entodontaceae"),
+	ENTODONTACEAE(206, "Entodontaceae", "Entodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ephedraceae</b></em>' literal object.
@@ -2104,7 +2104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EPHEDRACEAE(207, "Ephedraceae", "Ephedraceae"),
+	EPHEDRACEAE(207, "Ephedraceae", "Ephedraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ephemeraceae</b></em>' literal object.
@@ -2114,7 +2114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EPHEMERACEAE(208, "Ephemeraceae", "Ephemeraceae"),
+	EPHEMERACEAE(208, "Ephemeraceae", "Ephemeraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Equisetaceae</b></em>' literal object.
@@ -2124,7 +2124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUISETACEAE(209, "Equisetaceae", "Equisetaceae"),
+	EQUISETACEAE(209, "Equisetaceae", "Equisetaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ericaceae</b></em>' literal object.
@@ -2134,7 +2134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ERICACEAE(210, "Ericaceae", "Ericaceae"),
+	ERICACEAE(210, "Ericaceae", "Ericaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Eriocaulaceae</b></em>' literal object.
@@ -2144,7 +2144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ERIOCAULACEAE(211, "Eriocaulaceae", "Eriocaulaceae"),
+	ERIOCAULACEAE(211, "Eriocaulaceae", "Eriocaulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Erpodiaceae</b></em>' literal object.
@@ -2154,7 +2154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ERPODIACEAE(212, "Erpodiaceae", "Erpodiaceae"),
+	ERPODIACEAE(212, "Erpodiaceae", "Erpodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Erythroxylaceae</b></em>' literal object.
@@ -2164,7 +2164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ERYTHROXYLACEAE(213, "Erythroxylaceae", "Erythroxylaceae"),
+	ERYTHROXYLACEAE(213, "Erythroxylaceae", "Erythroxylaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Escalloniaceae</b></em>' literal object.
@@ -2174,7 +2174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ESCALLONIACEAE(214, "Escalloniaceae", "Escalloniaceae"),
+	ESCALLONIACEAE(214, "Escalloniaceae", "Escalloniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Eucommiaceae</b></em>' literal object.
@@ -2184,7 +2184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EUCOMMIACEAE(215, "Eucommiaceae", "Eucommiaceae"),
+	EUCOMMIACEAE(215, "Eucommiaceae", "Eucommiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Euphorbiaceae</b></em>' literal object.
@@ -2194,7 +2194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EUPHORBIACEAE(216, "Euphorbiaceae", "Euphorbiaceae"),
+	EUPHORBIACEAE(216, "Euphorbiaceae", "Euphorbiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Euphroniaceae</b></em>' literal object.
@@ -2204,7 +2204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EUPHRONIACEAE(217, "Euphroniaceae", "Euphroniaceae"),
+	EUPHRONIACEAE(217, "Euphroniaceae", "Euphroniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Eupomatiaceae</b></em>' literal object.
@@ -2214,7 +2214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EUPOMATIACEAE(218, "Eupomatiaceae", "Eupomatiaceae"),
+	EUPOMATIACEAE(218, "Eupomatiaceae", "Eupomatiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Eupteleaceae</b></em>' literal object.
@@ -2224,7 +2224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EUPTELEACEAE(219, "Eupteleaceae", "Eupteleaceae"),
+	EUPTELEACEAE(219, "Eupteleaceae", "Eupteleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Eustichiaceae</b></em>' literal object.
@@ -2234,7 +2234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EUSTICHIACEAE(220, "Eustichiaceae", "Eustichiaceae"),
+	EUSTICHIACEAE(220, "Eustichiaceae", "Eustichiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Exormothecaceae</b></em>' literal object.
@@ -2244,7 +2244,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXORMOTHECACEAE(221, "Exormothecaceae", "Exormothecaceae"),
+	EXORMOTHECACEAE(221, "Exormothecaceae", "Exormothecaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fabroniaceae</b></em>' literal object.
@@ -2254,7 +2254,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FABRONIACEAE(222, "Fabroniaceae", "Fabroniaceae"),
+	FABRONIACEAE(222, "Fabroniaceae", "Fabroniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fagaceae</b></em>' literal object.
@@ -2264,7 +2264,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAGACEAE(223, "Fagaceae", "Fagaceae"),
+	FAGACEAE(223, "Fagaceae", "Fagaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fissidentaceae</b></em>' literal object.
@@ -2274,7 +2274,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FISSIDENTACEAE(224, "Fissidentaceae", "Fissidentaceae"),
+	FISSIDENTACEAE(224, "Fissidentaceae", "Fissidentaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Flagellariaceae</b></em>' literal object.
@@ -2284,7 +2284,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FLAGELLARIACEAE(225, "Flagellariaceae", "Flagellariaceae"),
+	FLAGELLARIACEAE(225, "Flagellariaceae", "Flagellariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fontinalaceae</b></em>' literal object.
@@ -2294,7 +2294,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FONTINALACEAE(226, "Fontinalaceae", "Fontinalaceae"),
+	FONTINALACEAE(226, "Fontinalaceae", "Fontinalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fontinaliaceae</b></em>' literal object.
@@ -2304,7 +2304,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FONTINALIACEAE(227, "Fontinaliaceae", "Fontinaliaceae"),
+	FONTINALIACEAE(227, "Fontinaliaceae", "Fontinaliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fossombroniaceae</b></em>' literal object.
@@ -2314,7 +2314,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOSSOMBRONIACEAE(228, "Fossombroniaceae", "Fossombroniaceae"),
+	FOSSOMBRONIACEAE(228, "Fossombroniaceae", "Fossombroniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Fouquieriaceae</b></em>' literal object.
@@ -2324,7 +2324,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOUQUIERIACEAE(229, "Fouquieriaceae", "Fouquieriaceae"),
+	FOUQUIERIACEAE(229, "Fouquieriaceae", "Fouquieriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Frankeniaceae</b></em>' literal object.
@@ -2334,7 +2334,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FRANKENIACEAE(230, "Frankeniaceae", "Frankeniaceae"),
+	FRANKENIACEAE(230, "Frankeniaceae", "Frankeniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Funariaceae</b></em>' literal object.
@@ -2344,7 +2344,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FUNARIACEAE(231, "Funariaceae", "Funariaceae"),
+	FUNARIACEAE(231, "Funariaceae", "Funariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Garryaceae</b></em>' literal object.
@@ -2354,7 +2354,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GARRYACEAE(232, "Garryaceae", "Garryaceae"),
+	GARRYACEAE(232, "Garryaceae", "Garryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Geissolomataceae</b></em>' literal object.
@@ -2364,7 +2364,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GEISSOLOMATACEAE(233, "Geissolomataceae", "Geissolomataceae"),
+	GEISSOLOMATACEAE(233, "Geissolomataceae", "Geissolomataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gelsemiaceae</b></em>' literal object.
@@ -2374,7 +2374,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GELSEMIACEAE(234, "Gelsemiaceae", "Gelsemiaceae"),
+	GELSEMIACEAE(234, "Gelsemiaceae", "Gelsemiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gentianaceae</b></em>' literal object.
@@ -2384,7 +2384,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GENTIANACEAE(235, "Gentianaceae", "Gentianaceae"),
+	GENTIANACEAE(235, "Gentianaceae", "Gentianaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Geocalycaceae</b></em>' literal object.
@@ -2394,7 +2394,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GEOCALYCACEAE(236, "Geocalycaceae", "Geocalycaceae"),
+	GEOCALYCACEAE(236, "Geocalycaceae", "Geocalycaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Geraniaceae</b></em>' literal object.
@@ -2404,7 +2404,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GERANIACEAE(237, "Geraniaceae", "Geraniaceae"),
+	GERANIACEAE(237, "Geraniaceae", "Geraniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gesneriaceae</b></em>' literal object.
@@ -2414,7 +2414,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GESNERIACEAE(238, "Gesneriaceae", "Gesneriaceae"),
+	GESNERIACEAE(238, "Gesneriaceae", "Gesneriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gigaspermaceae</b></em>' literal object.
@@ -2424,7 +2424,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GIGASPERMACEAE(239, "Gigaspermaceae", "Gigaspermaceae"),
+	GIGASPERMACEAE(239, "Gigaspermaceae", "Gigaspermaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ginkgoaceae</b></em>' literal object.
@@ -2434,7 +2434,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GINKGOACEAE(240, "Ginkgoaceae", "Ginkgoaceae"),
+	GINKGOACEAE(240, "Ginkgoaceae", "Ginkgoaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gisekiaceae</b></em>' literal object.
@@ -2444,7 +2444,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GISEKIACEAE(241, "Gisekiaceae", "Gisekiaceae"),
+	GISEKIACEAE(241, "Gisekiaceae", "Gisekiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gleicheniaceae</b></em>' literal object.
@@ -2454,7 +2454,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GLEICHENIACEAE(242, "Gleicheniaceae", "Gleicheniaceae"),
+	GLEICHENIACEAE(242, "Gleicheniaceae", "Gleicheniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gnetaceae</b></em>' literal object.
@@ -2464,7 +2464,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GNETACEAE(243, "Gnetaceae", "Gnetaceae"),
+	GNETACEAE(243, "Gnetaceae", "Gnetaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Goebeliellaceae</b></em>' literal object.
@@ -2474,7 +2474,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GOEBELIELLACEAE(244, "Goebeliellaceae", "Goebeliellaceae"),
+	GOEBELIELLACEAE(244, "Goebeliellaceae", "Goebeliellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gomortegaceae</b></em>' literal object.
@@ -2484,7 +2484,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GOMORTEGACEAE(245, "Gomortegaceae", "Gomortegaceae"),
+	GOMORTEGACEAE(245, "Gomortegaceae", "Gomortegaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Goodeniaceae</b></em>' literal object.
@@ -2494,7 +2494,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GOODENIACEAE(246, "Goodeniaceae", "Goodeniaceae"),
+	GOODENIACEAE(246, "Goodeniaceae", "Goodeniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Goupiaceae</b></em>' literal object.
@@ -2504,7 +2504,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GOUPIACEAE(247, "Goupiaceae", "Goupiaceae"),
+	GOUPIACEAE(247, "Goupiaceae", "Goupiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Grammitidaceae</b></em>' literal object.
@@ -2514,7 +2514,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GRAMMITIDACEAE(248, "Grammitidaceae", "Grammitidaceae"),
+	GRAMMITIDACEAE(248, "Grammitidaceae", "Grammitidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Grimmiaceae</b></em>' literal object.
@@ -2524,7 +2524,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GRIMMIACEAE(249, "Grimmiaceae", "Grimmiaceae"),
+	GRIMMIACEAE(249, "Grimmiaceae", "Grimmiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Griseliniaceae</b></em>' literal object.
@@ -2534,7 +2534,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GRISELINIACEAE(250, "Griseliniaceae", "Griseliniaceae"),
+	GRISELINIACEAE(250, "Griseliniaceae", "Griseliniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Grossulariaceae</b></em>' literal object.
@@ -2544,7 +2544,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GROSSULARIACEAE(251, "Grossulariaceae", "Grossulariaceae"),
+	GROSSULARIACEAE(251, "Grossulariaceae", "Grossulariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Grubbiaceae</b></em>' literal object.
@@ -2554,7 +2554,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GRUBBIACEAE(252, "Grubbiaceae", "Grubbiaceae"),
+	GRUBBIACEAE(252, "Grubbiaceae", "Grubbiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gunneraceae</b></em>' literal object.
@@ -2564,7 +2564,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GUNNERACEAE(253, "Gunneraceae", "Gunneraceae"),
+	GUNNERACEAE(253, "Gunneraceae", "Gunneraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gymnomitriaceae</b></em>' literal object.
@@ -2574,7 +2574,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GYMNOMITRIACEAE(254, "Gymnomitriaceae", "Gymnomitriaceae"),
+	GYMNOMITRIACEAE(254, "Gymnomitriaceae", "Gymnomitriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Gyrostemonaceae</b></em>' literal object.
@@ -2584,7 +2584,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GYROSTEMONACEAE(255, "Gyrostemonaceae", "Gyrostemonaceae"),
+	GYROSTEMONACEAE(255, "Gyrostemonaceae", "Gyrostemonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Haemodoraceae</b></em>' literal object.
@@ -2594,7 +2594,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HAEMODORACEAE(256, "Haemodoraceae", "Haemodoraceae"),
+	HAEMODORACEAE(256, "Haemodoraceae", "Haemodoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Halophytaceae</b></em>' literal object.
@@ -2604,7 +2604,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HALOPHYTACEAE(257, "Halophytaceae", "Halophytaceae"),
+	HALOPHYTACEAE(257, "Halophytaceae", "Halophytaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Haloragaceae</b></em>' literal object.
@@ -2614,7 +2614,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HALORAGACEAE(258, "Haloragaceae", "Haloragaceae"),
+	HALORAGACEAE(258, "Haloragaceae", "Haloragaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hamamelidaceae</b></em>' literal object.
@@ -2624,7 +2624,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HAMAMELIDACEAE(259, "Hamamelidaceae", "Hamamelidaceae"),
+	HAMAMELIDACEAE(259, "Hamamelidaceae", "Hamamelidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hanguanaceae</b></em>' literal object.
@@ -2634,7 +2634,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HANGUANACEAE(260, "Hanguanaceae", "Hanguanaceae"),
+	HANGUANACEAE(260, "Hanguanaceae", "Hanguanaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Haplomitriaceae</b></em>' literal object.
@@ -2644,7 +2644,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HAPLOMITRIACEAE(261, "Haplomitriaceae", "Haplomitriaceae"),
+	HAPLOMITRIACEAE(261, "Haplomitriaceae", "Haplomitriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Haptanthaceae</b></em>' literal object.
@@ -2654,7 +2654,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HAPTANTHACEAE(262, "Haptanthaceae", "Haptanthaceae"),
+	HAPTANTHACEAE(262, "Haptanthaceae", "Haptanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hedwigiaceae</b></em>' literal object.
@@ -2664,7 +2664,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEDWIGIACEAE(263, "Hedwigiaceae", "Hedwigiaceae"),
+	HEDWIGIACEAE(263, "Hedwigiaceae", "Hedwigiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Heliconiaceae</b></em>' literal object.
@@ -2674,7 +2674,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HELICONIACEAE(264, "Heliconiaceae", "Heliconiaceae"),
+	HELICONIACEAE(264, "Heliconiaceae", "Heliconiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Helicophyllaceae</b></em>' literal object.
@@ -2684,7 +2684,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HELICOPHYLLACEAE(265, "Helicophyllaceae", "Helicophyllaceae"),
+	HELICOPHYLLACEAE(265, "Helicophyllaceae", "Helicophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Helwingiaceae</b></em>' literal object.
@@ -2694,7 +2694,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HELWINGIACEAE(266, "Helwingiaceae", "Helwingiaceae"),
+	HELWINGIACEAE(266, "Helwingiaceae", "Helwingiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Herbertaceae</b></em>' literal object.
@@ -2704,7 +2704,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HERBERTACEAE(267, "Herbertaceae", "Herbertaceae"),
+	HERBERTACEAE(267, "Herbertaceae", "Herbertaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hernandiaceae</b></em>' literal object.
@@ -2714,7 +2714,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HERNANDIACEAE(268, "Hernandiaceae", "Hernandiaceae"),
+	HERNANDIACEAE(268, "Hernandiaceae", "Hernandiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Himantandraceae</b></em>' literal object.
@@ -2724,7 +2724,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HIMANTANDRACEAE(269, "Himantandraceae", "Himantandraceae"),
+	HIMANTANDRACEAE(269, "Himantandraceae", "Himantandraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hookeriaceae</b></em>' literal object.
@@ -2734,7 +2734,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HOOKERIACEAE(270, "Hookeriaceae", "Hookeriaceae"),
+	HOOKERIACEAE(270, "Hookeriaceae", "Hookeriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Huaceae</b></em>' literal object.
@@ -2744,7 +2744,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HUACEAE(271, "Huaceae", "Huaceae"),
+	HUACEAE(271, "Huaceae", "Huaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Humiriaceae</b></em>' literal object.
@@ -2754,7 +2754,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HUMIRIACEAE(272, "Humiriaceae", "Humiriaceae"),
+	HUMIRIACEAE(272, "Humiriaceae", "Humiriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hydatellaceae</b></em>' literal object.
@@ -2764,7 +2764,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYDATELLACEAE(273, "Hydatellaceae", "Hydatellaceae"),
+	HYDATELLACEAE(273, "Hydatellaceae", "Hydatellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hydnoraceae</b></em>' literal object.
@@ -2774,7 +2774,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYDNORACEAE(274, "Hydnoraceae", "Hydnoraceae"),
+	HYDNORACEAE(274, "Hydnoraceae", "Hydnoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hydrangeaceae</b></em>' literal object.
@@ -2784,7 +2784,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYDRANGEACEAE(275, "Hydrangeaceae", "Hydrangeaceae"),
+	HYDRANGEACEAE(275, "Hydrangeaceae", "Hydrangeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hydrocharitaceae</b></em>' literal object.
@@ -2794,7 +2794,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYDROCHARITACEAE(276, "Hydrocharitaceae", "Hydrocharitaceae"),
+	HYDROCHARITACEAE(276, "Hydrocharitaceae", "Hydrocharitaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hydroleaceae</b></em>' literal object.
@@ -2804,7 +2804,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYDROLEACEAE(277, "Hydroleaceae", "Hydroleaceae"),
+	HYDROLEACEAE(277, "Hydroleaceae", "Hydroleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hydrostachyaceae</b></em>' literal object.
@@ -2814,7 +2814,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYDROSTACHYACEAE(278, "Hydrostachyaceae", "Hydrostachyaceae"),
+	HYDROSTACHYACEAE(278, "Hydrostachyaceae", "Hydrostachyaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hylocomiaceae</b></em>' literal object.
@@ -2824,7 +2824,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYLOCOMIACEAE(279, "Hylocomiaceae", "Hylocomiaceae"),
+	HYLOCOMIACEAE(279, "Hylocomiaceae", "Hylocomiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hymenophyllaceae</b></em>' literal object.
@@ -2834,7 +2834,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYMENOPHYLLACEAE(280, "Hymenophyllaceae", "Hymenophyllaceae"),
+	HYMENOPHYLLACEAE(280, "Hymenophyllaceae", "Hymenophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hymenophyllopsidaceae</b></em>' literal object.
@@ -2844,7 +2844,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYMENOPHYLLOPSIDACEAE(281, "Hymenophyllopsidaceae", "Hymenophyllopsidaceae"),
+	HYMENOPHYLLOPSIDACEAE(281, "Hymenophyllopsidaceae", "Hymenophyllopsidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hymenophytaceae</b></em>' literal object.
@@ -2854,7 +2854,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYMENOPHYTACEAE(282, "Hymenophytaceae", "Hymenophytaceae"),
+	HYMENOPHYTACEAE(282, "Hymenophytaceae", "Hymenophytaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hypericaceae</b></em>' literal object.
@@ -2864,7 +2864,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYPERICACEAE(283, "Hypericaceae", "Hypericaceae"),
+	HYPERICACEAE(283, "Hypericaceae", "Hypericaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hypnaceae</b></em>' literal object.
@@ -2874,7 +2874,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYPNACEAE(284, "Hypnaceae", "Hypnaceae"),
+	HYPNACEAE(284, "Hypnaceae", "Hypnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hypnodendraceae</b></em>' literal object.
@@ -2884,7 +2884,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYPNODENDRACEAE(285, "Hypnodendraceae", "Hypnodendraceae"),
+	HYPNODENDRACEAE(285, "Hypnodendraceae", "Hypnodendraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hypopterygiaceae</b></em>' literal object.
@@ -2894,7 +2894,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYPOPTERYGIACEAE(286, "Hypopterygiaceae", "Hypopterygiaceae"),
+	HYPOPTERYGIACEAE(286, "Hypopterygiaceae", "Hypopterygiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hypoxidaceae</b></em>' literal object.
@@ -2904,7 +2904,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HYPOXIDACEAE(287, "Hypoxidaceae", "Hypoxidaceae"),
+	HYPOXIDACEAE(287, "Hypoxidaceae", "Hypoxidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Icacinaceae</b></em>' literal object.
@@ -2914,7 +2914,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ICACINACEAE(288, "Icacinaceae", "Icacinaceae"),
+	ICACINACEAE(288, "Icacinaceae", "Icacinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Iridaceae</b></em>' literal object.
@@ -2924,7 +2924,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IRIDACEAE(289, "Iridaceae", "Iridaceae"),
+	IRIDACEAE(289, "Iridaceae", "Iridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Irvingiaceae</b></em>' literal object.
@@ -2934,7 +2934,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IRVINGIACEAE(290, "Irvingiaceae", "Irvingiaceae"),
+	IRVINGIACEAE(290, "Irvingiaceae", "Irvingiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Isoetaceae</b></em>' literal object.
@@ -2944,7 +2944,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ISOETACEAE(291, "Isoetaceae", "Isoetaceae"),
+	ISOETACEAE(291, "Isoetaceae", "Isoetaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Iteaceae</b></em>' literal object.
@@ -2954,7 +2954,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ITEACEAE(292, "Iteaceae", "Iteaceae"),
+	ITEACEAE(292, "Iteaceae", "Iteaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ixioliriaceae</b></em>' literal object.
@@ -2964,7 +2964,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IXIOLIRIACEAE(293, "Ixioliriaceae", "Ixioliriaceae"),
+	IXIOLIRIACEAE(293, "Ixioliriaceae", "Ixioliriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ixonanthaceae</b></em>' literal object.
@@ -2974,7 +2974,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IXONANTHACEAE(294, "Ixonanthaceae", "Ixonanthaceae"),
+	IXONANTHACEAE(294, "Ixonanthaceae", "Ixonanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Jackiellaceae</b></em>' literal object.
@@ -2984,7 +2984,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JACKIELLACEAE(295, "Jackiellaceae", "Jackiellaceae"),
+	JACKIELLACEAE(295, "Jackiellaceae", "Jackiellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Joinvilleaceae</b></em>' literal object.
@@ -2994,7 +2994,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JOINVILLEACEAE(296, "Joinvilleaceae", "Joinvilleaceae"),
+	JOINVILLEACEAE(296, "Joinvilleaceae", "Joinvilleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Jubulaceae</b></em>' literal object.
@@ -3004,7 +3004,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JUBULACEAE(297, "Jubulaceae", "Jubulaceae"),
+	JUBULACEAE(297, "Jubulaceae", "Jubulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Jubulopsaceae</b></em>' literal object.
@@ -3014,7 +3014,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JUBULOPSACEAE(298, "Jubulopsaceae", "Jubulopsaceae"),
+	JUBULOPSACEAE(298, "Jubulopsaceae", "Jubulopsaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Juglandaceae</b></em>' literal object.
@@ -3024,7 +3024,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JUGLANDACEAE(299, "Juglandaceae", "Juglandaceae"),
+	JUGLANDACEAE(299, "Juglandaceae", "Juglandaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Juncaceae</b></em>' literal object.
@@ -3034,7 +3034,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JUNCACEAE(300, "Juncaceae", "Juncaceae"),
+	JUNCACEAE(300, "Juncaceae", "Juncaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Juncaginaceae</b></em>' literal object.
@@ -3044,7 +3044,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JUNCAGINACEAE(301, "Juncaginaceae", "Juncaginaceae"),
+	JUNCAGINACEAE(301, "Juncaginaceae", "Juncaginaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Jungermanniaceae</b></em>' literal object.
@@ -3054,7 +3054,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	JUNGERMANNIACEAE(302, "Jungermanniaceae", "Jungermanniaceae"),
+	JUNGERMANNIACEAE(302, "Jungermanniaceae", "Jungermanniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Kirkiaceae</b></em>' literal object.
@@ -3064,7 +3064,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	KIRKIACEAE(303, "Kirkiaceae", "Kirkiaceae"),
+	KIRKIACEAE(303, "Kirkiaceae", "Kirkiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Koeberliniaceae</b></em>' literal object.
@@ -3074,7 +3074,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	KOEBERLINIACEAE(304, "Koeberliniaceae", "Koeberliniaceae"),
+	KOEBERLINIACEAE(304, "Koeberliniaceae", "Koeberliniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Krameriaceae</b></em>' literal object.
@@ -3084,7 +3084,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	KRAMERIACEAE(305, "Krameriaceae", "Krameriaceae"),
+	KRAMERIACEAE(305, "Krameriaceae", "Krameriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lacistemataceae</b></em>' literal object.
@@ -3094,7 +3094,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LACISTEMATACEAE(306, "Lacistemataceae", "Lacistemataceae"),
+	LACISTEMATACEAE(306, "Lacistemataceae", "Lacistemataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lactoridaceae</b></em>' literal object.
@@ -3104,7 +3104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LACTORIDACEAE(307, "Lactoridaceae", "Lactoridaceae"),
+	LACTORIDACEAE(307, "Lactoridaceae", "Lactoridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lamiaceae</b></em>' literal object.
@@ -3114,7 +3114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LAMIACEAE(308, "Lamiaceae", "Lamiaceae"),
+	LAMIACEAE(308, "Lamiaceae", "Lamiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lanariaceae</b></em>' literal object.
@@ -3124,7 +3124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LANARIACEAE(309, "Lanariaceae", "Lanariaceae"),
+	LANARIACEAE(309, "Lanariaceae", "Lanariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lardizabalaceae</b></em>' literal object.
@@ -3134,7 +3134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LARDIZABALACEAE(310, "Lardizabalaceae", "Lardizabalaceae"),
+	LARDIZABALACEAE(310, "Lardizabalaceae", "Lardizabalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lauraceae</b></em>' literal object.
@@ -3144,7 +3144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LAURACEAE(311, "Lauraceae", "Lauraceae"),
+	LAURACEAE(311, "Lauraceae", "Lauraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lecythidaceae</b></em>' literal object.
@@ -3154,7 +3154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LECYTHIDACEAE(312, "Lecythidaceae", "Lecythidaceae"),
+	LECYTHIDACEAE(312, "Lecythidaceae", "Lecythidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Leguminosae</b></em>' literal object.
@@ -3164,7 +3164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEGUMINOSAE(313, "Leguminosae", "Leguminosae"),
+	LEGUMINOSAE(313, "Leguminosae", "Leguminosae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lejeuneaceae</b></em>' literal object.
@@ -3174,7 +3174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEJEUNEACEAE(314, "Lejeuneaceae", "Lejeuneaceae"),
+	LEJEUNEACEAE(314, "Lejeuneaceae", "Lejeuneaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lembophyllaceae</b></em>' literal object.
@@ -3184,7 +3184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEMBOPHYLLACEAE(315, "Lembophyllaceae", "Lembophyllaceae"),
+	LEMBOPHYLLACEAE(315, "Lembophyllaceae", "Lembophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lentibulariaceae</b></em>' literal object.
@@ -3194,7 +3194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LENTIBULARIACEAE(316, "Lentibulariaceae", "Lentibulariaceae"),
+	LENTIBULARIACEAE(316, "Lentibulariaceae", "Lentibulariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lepicoleaceae</b></em>' literal object.
@@ -3204,7 +3204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEPICOLEACEAE(317, "Lepicoleaceae", "Lepicoleaceae"),
+	LEPICOLEACEAE(317, "Lepicoleaceae", "Lepicoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lepidobotryaceae</b></em>' literal object.
@@ -3214,7 +3214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEPIDOBOTRYACEAE(318, "Lepidobotryaceae", "Lepidobotryaceae"),
+	LEPIDOBOTRYACEAE(318, "Lepidobotryaceae", "Lepidobotryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lepidolaenaceae</b></em>' literal object.
@@ -3224,7 +3224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEPIDOLAENACEAE(319, "Lepidolaenaceae", "Lepidolaenaceae"),
+	LEPIDOLAENACEAE(319, "Lepidolaenaceae", "Lepidolaenaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lepidoziaceae</b></em>' literal object.
@@ -3234,7 +3234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEPIDOZIACEAE(320, "Lepidoziaceae", "Lepidoziaceae"),
+	LEPIDOZIACEAE(320, "Lepidoziaceae", "Lepidoziaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Leptodontaceae</b></em>' literal object.
@@ -3244,7 +3244,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEPTODONTACEAE(321, "Leptodontaceae", "Leptodontaceae"),
+	LEPTODONTACEAE(321, "Leptodontaceae", "Leptodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lepyrodontaceae</b></em>' literal object.
@@ -3254,7 +3254,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEPYRODONTACEAE(322, "Lepyrodontaceae", "Lepyrodontaceae"),
+	LEPYRODONTACEAE(322, "Lepyrodontaceae", "Lepyrodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Leskeaceae</b></em>' literal object.
@@ -3264,7 +3264,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LESKEACEAE(323, "Leskeaceae", "Leskeaceae"),
+	LESKEACEAE(323, "Leskeaceae", "Leskeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Leucodontaceae</b></em>' literal object.
@@ -3274,7 +3274,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEUCODONTACEAE(324, "Leucodontaceae", "Leucodontaceae"),
+	LEUCODONTACEAE(324, "Leucodontaceae", "Leucodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Leucomiaceae</b></em>' literal object.
@@ -3284,7 +3284,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LEUCOMIACEAE(325, "Leucomiaceae", "Leucomiaceae"),
+	LEUCOMIACEAE(325, "Leucomiaceae", "Leucomiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Liliaceae</b></em>' literal object.
@@ -3294,7 +3294,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LILIACEAE(326, "Liliaceae", "Liliaceae"),
+	LILIACEAE(326, "Liliaceae", "Liliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Limeaceae</b></em>' literal object.
@@ -3304,7 +3304,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIMEACEAE(327, "Limeaceae", "Limeaceae"),
+	LIMEACEAE(327, "Limeaceae", "Limeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Limnanthaceae</b></em>' literal object.
@@ -3314,7 +3314,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LIMNANTHACEAE(328, "Limnanthaceae", "Limnanthaceae"),
+	LIMNANTHACEAE(328, "Limnanthaceae", "Limnanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Linaceae</b></em>' literal object.
@@ -3324,7 +3324,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LINACEAE(329, "Linaceae", "Linaceae"),
+	LINACEAE(329, "Linaceae", "Linaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Linderniaceae</b></em>' literal object.
@@ -3334,7 +3334,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LINDERNIACEAE(330, "Linderniaceae", "Linderniaceae"),
+	LINDERNIACEAE(330, "Linderniaceae", "Linderniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Loasaceae</b></em>' literal object.
@@ -3344,7 +3344,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOASACEAE(331, "Loasaceae", "Loasaceae"),
+	LOASACEAE(331, "Loasaceae", "Loasaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Loganiaceae</b></em>' literal object.
@@ -3354,7 +3354,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOGANIACEAE(332, "Loganiaceae", "Loganiaceae"),
+	LOGANIACEAE(332, "Loganiaceae", "Loganiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lomariopsidaceae</b></em>' literal object.
@@ -3364,7 +3364,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOMARIOPSIDACEAE(333, "Lomariopsidaceae", "Lomariopsidaceae"),
+	LOMARIOPSIDACEAE(333, "Lomariopsidaceae", "Lomariopsidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lophiocarpaceae</b></em>' literal object.
@@ -3374,7 +3374,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOPHIOCARPACEAE(334, "Lophiocarpaceae", "Lophiocarpaceae"),
+	LOPHIOCARPACEAE(334, "Lophiocarpaceae", "Lophiocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lophocoleaceae</b></em>' literal object.
@@ -3384,7 +3384,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOPHOCOLEACEAE(335, "Lophocoleaceae", "Lophocoleaceae"),
+	LOPHOCOLEACEAE(335, "Lophocoleaceae", "Lophocoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lophoziaceae</b></em>' literal object.
@@ -3394,7 +3394,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOPHOZIACEAE(336, "Lophoziaceae", "Lophoziaceae"),
+	LOPHOZIACEAE(336, "Lophoziaceae", "Lophoziaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Loranthaceae</b></em>' literal object.
@@ -3404,7 +3404,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LORANTHACEAE(337, "Loranthaceae", "Loranthaceae"),
+	LORANTHACEAE(337, "Loranthaceae", "Loranthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lowiaceae</b></em>' literal object.
@@ -3414,7 +3414,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOWIACEAE(338, "Lowiaceae", "Lowiaceae"),
+	LOWIACEAE(338, "Lowiaceae", "Lowiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Loxsomataceae</b></em>' literal object.
@@ -3424,7 +3424,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LOXSOMATACEAE(339, "Loxsomataceae", "Loxsomataceae"),
+	LOXSOMATACEAE(339, "Loxsomataceae", "Loxsomataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lunulariaceae</b></em>' literal object.
@@ -3434,7 +3434,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LUNULARIACEAE(340, "Lunulariaceae", "Lunulariaceae"),
+	LUNULARIACEAE(340, "Lunulariaceae", "Lunulariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lycopodiaceae</b></em>' literal object.
@@ -3444,7 +3444,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LYCOPODIACEAE(341, "Lycopodiaceae", "Lycopodiaceae"),
+	LYCOPODIACEAE(341, "Lycopodiaceae", "Lycopodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Lythraceae</b></em>' literal object.
@@ -3454,7 +3454,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	LYTHRACEAE(342, "Lythraceae", "Lythraceae"),
+	LYTHRACEAE(342, "Lythraceae", "Lythraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Magnoliaceae</b></em>' literal object.
@@ -3464,7 +3464,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAGNOLIACEAE(343, "Magnoliaceae", "Magnoliaceae"),
+	MAGNOLIACEAE(343, "Magnoliaceae", "Magnoliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Makinoaceae</b></em>' literal object.
@@ -3474,7 +3474,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAKINOACEAE(344, "Makinoaceae", "Makinoaceae"),
+	MAKINOACEAE(344, "Makinoaceae", "Makinoaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Malpighiaceae</b></em>' literal object.
@@ -3484,7 +3484,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MALPIGHIACEAE(345, "Malpighiaceae", "Malpighiaceae"),
+	MALPIGHIACEAE(345, "Malpighiaceae", "Malpighiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Malvaceae</b></em>' literal object.
@@ -3494,7 +3494,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MALVACEAE(346, "Malvaceae", "Malvaceae"),
+	MALVACEAE(346, "Malvaceae", "Malvaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Marantaceae</b></em>' literal object.
@@ -3504,7 +3504,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MARANTACEAE(347, "Marantaceae", "Marantaceae"),
+	MARANTACEAE(347, "Marantaceae", "Marantaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Marattiaceae</b></em>' literal object.
@@ -3514,7 +3514,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MARATTIACEAE(348, "Marattiaceae", "Marattiaceae"),
+	MARATTIACEAE(348, "Marattiaceae", "Marattiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Marcgraviaceae</b></em>' literal object.
@@ -3524,7 +3524,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MARCGRAVIACEAE(349, "Marcgraviaceae", "Marcgraviaceae"),
+	MARCGRAVIACEAE(349, "Marcgraviaceae", "Marcgraviaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Marchantiaceae</b></em>' literal object.
@@ -3534,7 +3534,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MARCHANTIACEAE(350, "Marchantiaceae", "Marchantiaceae"),
+	MARCHANTIACEAE(350, "Marchantiaceae", "Marchantiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Marsileaceae</b></em>' literal object.
@@ -3544,7 +3544,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MARSILEACEAE(351, "Marsileaceae", "Marsileaceae"),
+	MARSILEACEAE(351, "Marsileaceae", "Marsileaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Martyniaceae</b></em>' literal object.
@@ -3554,7 +3554,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MARTYNIACEAE(352, "Martyniaceae", "Martyniaceae"),
+	MARTYNIACEAE(352, "Martyniaceae", "Martyniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Mastigophoraceae</b></em>' literal object.
@@ -3564,7 +3564,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MASTIGOPHORACEAE(353, "Mastigophoraceae", "Mastigophoraceae"),
+	MASTIGOPHORACEAE(353, "Mastigophoraceae", "Mastigophoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Matoniaceae</b></em>' literal object.
@@ -3574,7 +3574,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MATONIACEAE(354, "Matoniaceae", "Matoniaceae"),
+	MATONIACEAE(354, "Matoniaceae", "Matoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Mayacaceae</b></em>' literal object.
@@ -3584,7 +3584,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAYACACEAE(355, "Mayacaceae", "Mayacaceae"),
+	MAYACACEAE(355, "Mayacaceae", "Mayacaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Meesiaceae</b></em>' literal object.
@@ -3594,7 +3594,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MEESIACEAE(356, "Meesiaceae", "Meesiaceae"),
+	MEESIACEAE(356, "Meesiaceae", "Meesiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Melanthiaceae</b></em>' literal object.
@@ -3604,7 +3604,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MELANTHIACEAE(357, "Melanthiaceae", "Melanthiaceae"),
+	MELANTHIACEAE(357, "Melanthiaceae", "Melanthiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Melastomataceae</b></em>' literal object.
@@ -3614,7 +3614,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MELASTOMATACEAE(358, "Melastomataceae", "Melastomataceae"),
+	MELASTOMATACEAE(358, "Melastomataceae", "Melastomataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Meliaceae</b></em>' literal object.
@@ -3624,7 +3624,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MELIACEAE(359, "Meliaceae", "Meliaceae"),
+	MELIACEAE(359, "Meliaceae", "Meliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Melianthaceae</b></em>' literal object.
@@ -3634,7 +3634,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MELIANTHACEAE(360, "Melianthaceae", "Melianthaceae"),
+	MELIANTHACEAE(360, "Melianthaceae", "Melianthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Menispermaceae</b></em>' literal object.
@@ -3644,7 +3644,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MENISPERMACEAE(361, "Menispermaceae", "Menispermaceae"),
+	MENISPERMACEAE(361, "Menispermaceae", "Menispermaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Menyanthaceae</b></em>' literal object.
@@ -3654,7 +3654,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MENYANTHACEAE(362, "Menyanthaceae", "Menyanthaceae"),
+	MENYANTHACEAE(362, "Menyanthaceae", "Menyanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Mesoptychiaceae</b></em>' literal object.
@@ -3664,7 +3664,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MESOPTYCHIACEAE(363, "Mesoptychiaceae", "Mesoptychiaceae"),
+	MESOPTYCHIACEAE(363, "Mesoptychiaceae", "Mesoptychiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Metaxyaceae</b></em>' literal object.
@@ -3674,7 +3674,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	METAXYACEAE(364, "Metaxyaceae", "Metaxyaceae"),
+	METAXYACEAE(364, "Metaxyaceae", "Metaxyaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Meteoriaceae</b></em>' literal object.
@@ -3684,7 +3684,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	METEORIACEAE(365, "Meteoriaceae", "Meteoriaceae"),
+	METEORIACEAE(365, "Meteoriaceae", "Meteoriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Metteniusaceae</b></em>' literal object.
@@ -3694,7 +3694,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	METTENIUSACEAE(366, "Metteniusaceae", "Metteniusaceae"),
+	METTENIUSACEAE(366, "Metteniusaceae", "Metteniusaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Metzgeriaceae</b></em>' literal object.
@@ -3704,7 +3704,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	METZGERIACEAE(367, "Metzgeriaceae", "Metzgeriaceae"),
+	METZGERIACEAE(367, "Metzgeriaceae", "Metzgeriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Misodendraceae</b></em>' literal object.
@@ -3714,7 +3714,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MISODENDRACEAE(368, "Misodendraceae", "Misodendraceae"),
+	MISODENDRACEAE(368, "Misodendraceae", "Misodendraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Mitrastemonaceae</b></em>' literal object.
@@ -3724,7 +3724,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MITRASTEMONACEAE(369, "Mitrastemonaceae", "Mitrastemonaceae"),
+	MITRASTEMONACEAE(369, "Mitrastemonaceae", "Mitrastemonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Mitteniaceae</b></em>' literal object.
@@ -3734,7 +3734,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MITTENIACEAE(370, "Mitteniaceae", "Mitteniaceae"),
+	MITTENIACEAE(370, "Mitteniaceae", "Mitteniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Mniaceae</b></em>' literal object.
@@ -3744,7 +3744,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MNIACEAE(371, "Mniaceae", "Mniaceae"),
+	MNIACEAE(371, "Mniaceae", "Mniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Molluginaceae</b></em>' literal object.
@@ -3754,7 +3754,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MOLLUGINACEAE(372, "Molluginaceae", "Molluginaceae"),
+	MOLLUGINACEAE(372, "Molluginaceae", "Molluginaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Monimiaceae</b></em>' literal object.
@@ -3764,7 +3764,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MONIMIACEAE(373, "Monimiaceae", "Monimiaceae"),
+	MONIMIACEAE(373, "Monimiaceae", "Monimiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Monocarpaceae</b></em>' literal object.
@@ -3774,7 +3774,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MONOCARPACEAE(374, "Monocarpaceae", "Monocarpaceae"),
+	MONOCARPACEAE(374, "Monocarpaceae", "Monocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Montiaceae</b></em>' literal object.
@@ -3784,7 +3784,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MONTIACEAE(375, "Montiaceae", "Montiaceae"),
+	MONTIACEAE(375, "Montiaceae", "Montiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Montiniaceae</b></em>' literal object.
@@ -3794,7 +3794,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MONTINIACEAE(376, "Montiniaceae", "Montiniaceae"),
+	MONTINIACEAE(376, "Montiniaceae", "Montiniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Moraceae</b></em>' literal object.
@@ -3804,7 +3804,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MORACEAE(377, "Moraceae", "Moraceae"),
+	MORACEAE(377, "Moraceae", "Moraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Moringaceae</b></em>' literal object.
@@ -3814,7 +3814,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MORINGACEAE(378, "Moringaceae", "Moringaceae"),
+	MORINGACEAE(378, "Moringaceae", "Moringaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Muntingiaceae</b></em>' literal object.
@@ -3824,7 +3824,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MUNTINGIACEAE(379, "Muntingiaceae", "Muntingiaceae"),
+	MUNTINGIACEAE(379, "Muntingiaceae", "Muntingiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Musaceae</b></em>' literal object.
@@ -3834,7 +3834,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MUSACEAE(380, "Musaceae", "Musaceae"),
+	MUSACEAE(380, "Musaceae", "Musaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myliaceae</b></em>' literal object.
@@ -3844,7 +3844,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYLIACEAE(381, "Myliaceae", "Myliaceae"),
+	MYLIACEAE(381, "Myliaceae", "Myliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myodocarpaceae</b></em>' literal object.
@@ -3854,7 +3854,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYODOCARPACEAE(382, "Myodocarpaceae", "Myodocarpaceae"),
+	MYODOCARPACEAE(382, "Myodocarpaceae", "Myodocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myricaceae</b></em>' literal object.
@@ -3864,7 +3864,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYRICACEAE(383, "Myricaceae", "Myricaceae"),
+	MYRICACEAE(383, "Myricaceae", "Myricaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myriniaceae</b></em>' literal object.
@@ -3874,7 +3874,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYRINIACEAE(384, "Myriniaceae", "Myriniaceae"),
+	MYRINIACEAE(384, "Myriniaceae", "Myriniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myristicaceae</b></em>' literal object.
@@ -3884,7 +3884,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYRISTICACEAE(385, "Myristicaceae", "Myristicaceae"),
+	MYRISTICACEAE(385, "Myristicaceae", "Myristicaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myrothamnaceae</b></em>' literal object.
@@ -3894,7 +3894,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYROTHAMNACEAE(386, "Myrothamnaceae", "Myrothamnaceae"),
+	MYROTHAMNACEAE(386, "Myrothamnaceae", "Myrothamnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myrtaceae</b></em>' literal object.
@@ -3904,7 +3904,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYRTACEAE(387, "Myrtaceae", "Myrtaceae"),
+	MYRTACEAE(387, "Myrtaceae", "Myrtaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Myuriaceae</b></em>' literal object.
@@ -3914,7 +3914,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MYURIACEAE(388, "Myuriaceae", "Myuriaceae"),
+	MYURIACEAE(388, "Myuriaceae", "Myuriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nartheciaceae</b></em>' literal object.
@@ -3924,7 +3924,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NARTHECIACEAE(389, "Nartheciaceae", "Nartheciaceae"),
+	NARTHECIACEAE(389, "Nartheciaceae", "Nartheciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Neckeraceae</b></em>' literal object.
@@ -3934,7 +3934,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NECKERACEAE(390, "Neckeraceae", "Neckeraceae"),
+	NECKERACEAE(390, "Neckeraceae", "Neckeraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nelumbonaceae</b></em>' literal object.
@@ -3944,7 +3944,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NELUMBONACEAE(391, "Nelumbonaceae", "Nelumbonaceae"),
+	NELUMBONACEAE(391, "Nelumbonaceae", "Nelumbonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Neotrichocoleaceae</b></em>' literal object.
@@ -3954,7 +3954,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEOTRICHOCOLEACEAE(392, "Neotrichocoleaceae", "Neotrichocoleaceae"),
+	NEOTRICHOCOLEACEAE(392, "Neotrichocoleaceae", "Neotrichocoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nepenthaceae</b></em>' literal object.
@@ -3964,7 +3964,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEPENTHACEAE(393, "Nepenthaceae", "Nepenthaceae"),
+	NEPENTHACEAE(393, "Nepenthaceae", "Nepenthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Neuradaceae</b></em>' literal object.
@@ -3974,7 +3974,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NEURADACEAE(394, "Neuradaceae", "Neuradaceae"),
+	NEURADACEAE(394, "Neuradaceae", "Neuradaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nitrariaceae</b></em>' literal object.
@@ -3984,7 +3984,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NITRARIACEAE(395, "Nitrariaceae", "Nitrariaceae"),
+	NITRARIACEAE(395, "Nitrariaceae", "Nitrariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nothofagaceae</b></em>' literal object.
@@ -3994,7 +3994,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTHOFAGACEAE(396, "Nothofagaceae", "Nothofagaceae"),
+	NOTHOFAGACEAE(396, "Nothofagaceae", "Nothofagaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Notothyladaceae</b></em>' literal object.
@@ -4004,7 +4004,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOTOTHYLADACEAE(397, "Notothyladaceae", "Notothyladaceae"),
+	NOTOTHYLADACEAE(397, "Notothyladaceae", "Notothyladaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nyctaginaceae</b></em>' literal object.
@@ -4014,7 +4014,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NYCTAGINACEAE(398, "Nyctaginaceae", "Nyctaginaceae"),
+	NYCTAGINACEAE(398, "Nyctaginaceae", "Nyctaginaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nymphaeaceae</b></em>' literal object.
@@ -4024,7 +4024,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NYMPHAEACEAE(399, "Nymphaeaceae", "Nymphaeaceae"),
+	NYMPHAEACEAE(399, "Nymphaeaceae", "Nymphaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ochnaceae</b></em>' literal object.
@@ -4034,7 +4034,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OCHNACEAE(400, "Ochnaceae", "Ochnaceae"),
+	OCHNACEAE(400, "Ochnaceae", "Ochnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Octoblepharaceae</b></em>' literal object.
@@ -4044,7 +4044,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OCTOBLEPHARACEAE(401, "Octoblepharaceae", "Octoblepharaceae"),
+	OCTOBLEPHARACEAE(401, "Octoblepharaceae", "Octoblepharaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oedipodiaceae</b></em>' literal object.
@@ -4054,7 +4054,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OEDIPODIACEAE(402, "Oedipodiaceae", "Oedipodiaceae"),
+	OEDIPODIACEAE(402, "Oedipodiaceae", "Oedipodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Olacaceae</b></em>' literal object.
@@ -4064,7 +4064,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OLACACEAE(403, "Olacaceae", "Olacaceae"),
+	OLACACEAE(403, "Olacaceae", "Olacaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oleaceae</b></em>' literal object.
@@ -4074,7 +4074,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OLEACEAE(404, "Oleaceae", "Oleaceae"),
+	OLEACEAE(404, "Oleaceae", "Oleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oleandraceae</b></em>' literal object.
@@ -4084,7 +4084,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OLEANDRACEAE(405, "Oleandraceae", "Oleandraceae"),
+	OLEANDRACEAE(405, "Oleandraceae", "Oleandraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Onagraceae</b></em>' literal object.
@@ -4094,7 +4094,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ONAGRACEAE(406, "Onagraceae", "Onagraceae"),
+	ONAGRACEAE(406, "Onagraceae", "Onagraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oncothecaceae</b></em>' literal object.
@@ -4104,7 +4104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ONCOTHECACEAE(407, "Oncothecaceae", "Oncothecaceae"),
+	ONCOTHECACEAE(407, "Oncothecaceae", "Oncothecaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ophioglossaceae</b></em>' literal object.
@@ -4114,7 +4114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPHIOGLOSSACEAE(408, "Ophioglossaceae", "Ophioglossaceae"),
+	OPHIOGLOSSACEAE(408, "Ophioglossaceae", "Ophioglossaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Opiliaceae</b></em>' literal object.
@@ -4124,7 +4124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OPILIACEAE(409, "Opiliaceae", "Opiliaceae"),
+	OPILIACEAE(409, "Opiliaceae", "Opiliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Orchidaceae</b></em>' literal object.
@@ -4134,7 +4134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORCHIDACEAE(410, "Orchidaceae", "Orchidaceae"),
+	ORCHIDACEAE(410, "Orchidaceae", "Orchidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Orobanchaceae</b></em>' literal object.
@@ -4144,7 +4144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OROBANCHACEAE(411, "Orobanchaceae", "Orobanchaceae"),
+	OROBANCHACEAE(411, "Orobanchaceae", "Orobanchaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Orthorrhynchiaceae</b></em>' literal object.
@@ -4154,7 +4154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORTHORRHYNCHIACEAE(412, "Orthorrhynchiaceae", "Orthorrhynchiaceae"),
+	ORTHORRHYNCHIACEAE(412, "Orthorrhynchiaceae", "Orthorrhynchiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Orthotrichaceae</b></em>' literal object.
@@ -4164,7 +4164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ORTHOTRICHACEAE(413, "Orthotrichaceae", "Orthotrichaceae"),
+	ORTHOTRICHACEAE(413, "Orthotrichaceae", "Orthotrichaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Osmundaceae</b></em>' literal object.
@@ -4174,7 +4174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OSMUNDACEAE(414, "Osmundaceae", "Osmundaceae"),
+	OSMUNDACEAE(414, "Osmundaceae", "Osmundaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oxalidaceae</b></em>' literal object.
@@ -4184,7 +4184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OXALIDACEAE(415, "Oxalidaceae", "Oxalidaceae"),
+	OXALIDACEAE(415, "Oxalidaceae", "Oxalidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oxymitraceae</b></em>' literal object.
@@ -4194,7 +4194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OXYMITRACEAE(416, "Oxymitraceae", "Oxymitraceae"),
+	OXYMITRACEAE(416, "Oxymitraceae", "Oxymitraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Paeoniaceae</b></em>' literal object.
@@ -4204,7 +4204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PAEONIACEAE(417, "Paeoniaceae", "Paeoniaceae"),
+	PAEONIACEAE(417, "Paeoniaceae", "Paeoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pallaviciniaceae</b></em>' literal object.
@@ -4214,7 +4214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PALLAVICINIACEAE(418, "Pallaviciniaceae", "Pallaviciniaceae"),
+	PALLAVICINIACEAE(418, "Pallaviciniaceae", "Pallaviciniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pandaceae</b></em>' literal object.
@@ -4224,7 +4224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PANDACEAE(419, "Pandaceae", "Pandaceae"),
+	PANDACEAE(419, "Pandaceae", "Pandaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pandanaceae</b></em>' literal object.
@@ -4234,7 +4234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PANDANACEAE(420, "Pandanaceae", "Pandanaceae"),
+	PANDANACEAE(420, "Pandanaceae", "Pandanaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Papaveraceae</b></em>' literal object.
@@ -4244,7 +4244,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PAPAVERACEAE(421, "Papaveraceae", "Papaveraceae"),
+	PAPAVERACEAE(421, "Papaveraceae", "Papaveraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Paracryphiaceae</b></em>' literal object.
@@ -4254,7 +4254,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PARACRYPHIACEAE(422, "Paracryphiaceae", "Paracryphiaceae"),
+	PARACRYPHIACEAE(422, "Paracryphiaceae", "Paracryphiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Passifloraceae</b></em>' literal object.
@@ -4264,7 +4264,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PASSIFLORACEAE(423, "Passifloraceae", "Passifloraceae"),
+	PASSIFLORACEAE(423, "Passifloraceae", "Passifloraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Paulowniaceae</b></em>' literal object.
@@ -4274,7 +4274,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PAULOWNIACEAE(424, "Paulowniaceae", "Paulowniaceae"),
+	PAULOWNIACEAE(424, "Paulowniaceae", "Paulowniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pedaliaceae</b></em>' literal object.
@@ -4284,7 +4284,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PEDALIACEAE(425, "Pedaliaceae", "Pedaliaceae"),
+	PEDALIACEAE(425, "Pedaliaceae", "Pedaliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pelliaceae</b></em>' literal object.
@@ -4294,7 +4294,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PELLIACEAE(426, "Pelliaceae", "Pelliaceae"),
+	PELLIACEAE(426, "Pelliaceae", "Pelliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Penaeaceae</b></em>' literal object.
@@ -4304,7 +4304,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PENAEACEAE(427, "Penaeaceae", "Penaeaceae"),
+	PENAEACEAE(427, "Penaeaceae", "Penaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pentadiplandraceae</b></em>' literal object.
@@ -4314,7 +4314,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PENTADIPLANDRACEAE(428, "Pentadiplandraceae", "Pentadiplandraceae"),
+	PENTADIPLANDRACEAE(428, "Pentadiplandraceae", "Pentadiplandraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pentaphragmataceae</b></em>' literal object.
@@ -4324,7 +4324,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PENTAPHRAGMATACEAE(429, "Pentaphragmataceae", "Pentaphragmataceae"),
+	PENTAPHRAGMATACEAE(429, "Pentaphragmataceae", "Pentaphragmataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pentaphylacaceae</b></em>' literal object.
@@ -4334,7 +4334,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PENTAPHYLACACEAE(430, "Pentaphylacaceae", "Pentaphylacaceae"),
+	PENTAPHYLACACEAE(430, "Pentaphylacaceae", "Pentaphylacaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Penthoraceae</b></em>' literal object.
@@ -4344,7 +4344,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PENTHORACEAE(431, "Penthoraceae", "Penthoraceae"),
+	PENTHORACEAE(431, "Penthoraceae", "Penthoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Peraceae</b></em>' literal object.
@@ -4354,7 +4354,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PERACEAE(432, "Peraceae", "Peraceae"),
+	PERACEAE(432, "Peraceae", "Peraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Peridiscaceae</b></em>' literal object.
@@ -4364,7 +4364,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PERIDISCACEAE(433, "Peridiscaceae", "Peridiscaceae"),
+	PERIDISCACEAE(433, "Peridiscaceae", "Peridiscaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Petermanniaceae</b></em>' literal object.
@@ -4374,7 +4374,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PETERMANNIACEAE(434, "Petermanniaceae", "Petermanniaceae"),
+	PETERMANNIACEAE(434, "Petermanniaceae", "Petermanniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Petrosaviaceae</b></em>' literal object.
@@ -4384,7 +4384,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PETROSAVIACEAE(435, "Petrosaviaceae", "Petrosaviaceae"),
+	PETROSAVIACEAE(435, "Petrosaviaceae", "Petrosaviaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Philesiaceae</b></em>' literal object.
@@ -4394,7 +4394,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHILESIACEAE(436, "Philesiaceae", "Philesiaceae"),
+	PHILESIACEAE(436, "Philesiaceae", "Philesiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Philydraceae</b></em>' literal object.
@@ -4404,7 +4404,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHILYDRACEAE(437, "Philydraceae", "Philydraceae"),
+	PHILYDRACEAE(437, "Philydraceae", "Philydraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Phrymaceae</b></em>' literal object.
@@ -4414,7 +4414,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHRYMACEAE(438, "Phrymaceae", "Phrymaceae"),
+	PHRYMACEAE(438, "Phrymaceae", "Phrymaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Phyllanthaceae</b></em>' literal object.
@@ -4424,7 +4424,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHYLLANTHACEAE(439, "Phyllanthaceae", "Phyllanthaceae"),
+	PHYLLANTHACEAE(439, "Phyllanthaceae", "Phyllanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Phyllodrepaniaceae</b></em>' literal object.
@@ -4434,7 +4434,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHYLLODREPANIACEAE(440, "Phyllodrepaniaceae", "Phyllodrepaniaceae"),
+	PHYLLODREPANIACEAE(440, "Phyllodrepaniaceae", "Phyllodrepaniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Phyllogoniaceae</b></em>' literal object.
@@ -4444,7 +4444,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHYLLOGONIACEAE(441, "Phyllogoniaceae", "Phyllogoniaceae"),
+	PHYLLOGONIACEAE(441, "Phyllogoniaceae", "Phyllogoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Phyllonomaceae</b></em>' literal object.
@@ -4454,7 +4454,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHYLLONOMACEAE(442, "Phyllonomaceae", "Phyllonomaceae"),
+	PHYLLONOMACEAE(442, "Phyllonomaceae", "Phyllonomaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Physenaceae</b></em>' literal object.
@@ -4464,7 +4464,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHYSENACEAE(443, "Physenaceae", "Physenaceae"),
+	PHYSENACEAE(443, "Physenaceae", "Physenaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Phytolaccaceae</b></em>' literal object.
@@ -4474,7 +4474,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PHYTOLACCACEAE(444, "Phytolaccaceae", "Phytolaccaceae"),
+	PHYTOLACCACEAE(444, "Phytolaccaceae", "Phytolaccaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Picramniaceae</b></em>' literal object.
@@ -4484,7 +4484,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PICRAMNIACEAE(445, "Picramniaceae", "Picramniaceae"),
+	PICRAMNIACEAE(445, "Picramniaceae", "Picramniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Picrodendraceae</b></em>' literal object.
@@ -4494,7 +4494,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PICRODENDRACEAE(446, "Picrodendraceae", "Picrodendraceae"),
+	PICRODENDRACEAE(446, "Picrodendraceae", "Picrodendraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pilotrichaceae</b></em>' literal object.
@@ -4504,7 +4504,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PILOTRICHACEAE(447, "Pilotrichaceae", "Pilotrichaceae"),
+	PILOTRICHACEAE(447, "Pilotrichaceae", "Pilotrichaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pinaceae</b></em>' literal object.
@@ -4514,7 +4514,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PINACEAE(448, "Pinaceae", "Pinaceae"),
+	PINACEAE(448, "Pinaceae", "Pinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Piperaceae</b></em>' literal object.
@@ -4524,7 +4524,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PIPERACEAE(449, "Piperaceae", "Piperaceae"),
+	PIPERACEAE(449, "Piperaceae", "Piperaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pittosporaceae</b></em>' literal object.
@@ -4534,7 +4534,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PITTOSPORACEAE(450, "Pittosporaceae", "Pittosporaceae"),
+	PITTOSPORACEAE(450, "Pittosporaceae", "Pittosporaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Plagiochilaceae</b></em>' literal object.
@@ -4544,7 +4544,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLAGIOCHILACEAE(451, "Plagiochilaceae", "Plagiochilaceae"),
+	PLAGIOCHILACEAE(451, "Plagiochilaceae", "Plagiochilaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Plagiogyriaceae</b></em>' literal object.
@@ -4554,7 +4554,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLAGIOGYRIACEAE(452, "Plagiogyriaceae", "Plagiogyriaceae"),
+	PLAGIOGYRIACEAE(452, "Plagiogyriaceae", "Plagiogyriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Plagiotheciaceae</b></em>' literal object.
@@ -4564,7 +4564,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLAGIOTHECIACEAE(453, "Plagiotheciaceae", "Plagiotheciaceae"),
+	PLAGIOTHECIACEAE(453, "Plagiotheciaceae", "Plagiotheciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Plantaginaceae</b></em>' literal object.
@@ -4574,7 +4574,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLANTAGINACEAE(454, "Plantaginaceae", "Plantaginaceae"),
+	PLANTAGINACEAE(454, "Plantaginaceae", "Plantaginaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Platanaceae</b></em>' literal object.
@@ -4584,7 +4584,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLATANACEAE(455, "Platanaceae", "Platanaceae"),
+	PLATANACEAE(455, "Platanaceae", "Platanaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pleuroziaceae</b></em>' literal object.
@@ -4594,7 +4594,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLEUROZIACEAE(456, "Pleuroziaceae", "Pleuroziaceae"),
+	PLEUROZIACEAE(456, "Pleuroziaceae", "Pleuroziaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pleuroziopsaceae</b></em>' literal object.
@@ -4604,7 +4604,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLEUROZIOPSACEAE(457, "Pleuroziopsaceae", "Pleuroziopsaceae"),
+	PLEUROZIOPSACEAE(457, "Pleuroziopsaceae", "Pleuroziopsaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Plocospermataceae</b></em>' literal object.
@@ -4614,7 +4614,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLOCOSPERMATACEAE(458, "Plocospermataceae", "Plocospermataceae"),
+	PLOCOSPERMATACEAE(458, "Plocospermataceae", "Plocospermataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Plumbaginaceae</b></em>' literal object.
@@ -4624,7 +4624,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PLUMBAGINACEAE(459, "Plumbaginaceae", "Plumbaginaceae"),
+	PLUMBAGINACEAE(459, "Plumbaginaceae", "Plumbaginaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Poaceae</b></em>' literal object.
@@ -4634,7 +4634,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POACEAE(460, "Poaceae", "Poaceae"),
+	POACEAE(460, "Poaceae", "Poaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Podocarpaceae</b></em>' literal object.
@@ -4644,7 +4644,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PODOCARPACEAE(461, "Podocarpaceae", "Podocarpaceae"),
+	PODOCARPACEAE(461, "Podocarpaceae", "Podocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Podostemaceae</b></em>' literal object.
@@ -4654,7 +4654,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PODOSTEMACEAE(462, "Podostemaceae", "Podostemaceae"),
+	PODOSTEMACEAE(462, "Podostemaceae", "Podostemaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Polemoniaceae</b></em>' literal object.
@@ -4664,7 +4664,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLEMONIACEAE(463, "Polemoniaceae", "Polemoniaceae"),
+	POLEMONIACEAE(463, "Polemoniaceae", "Polemoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Polygalaceae</b></em>' literal object.
@@ -4674,7 +4674,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLYGALACEAE(464, "Polygalaceae", "Polygalaceae"),
+	POLYGALACEAE(464, "Polygalaceae", "Polygalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Polygonaceae</b></em>' literal object.
@@ -4684,7 +4684,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLYGONACEAE(465, "Polygonaceae", "Polygonaceae"),
+	POLYGONACEAE(465, "Polygonaceae", "Polygonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Polypodiaceae</b></em>' literal object.
@@ -4694,7 +4694,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLYPODIACEAE(466, "Polypodiaceae", "Polypodiaceae"),
+	POLYPODIACEAE(466, "Polypodiaceae", "Polypodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Polytrichaceae</b></em>' literal object.
@@ -4704,7 +4704,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLYTRICHACEAE(467, "Polytrichaceae", "Polytrichaceae"),
+	POLYTRICHACEAE(467, "Polytrichaceae", "Polytrichaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pontederiaceae</b></em>' literal object.
@@ -4714,7 +4714,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PONTEDERIACEAE(468, "Pontederiaceae", "Pontederiaceae"),
+	PONTEDERIACEAE(468, "Pontederiaceae", "Pontederiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Porellaceae</b></em>' literal object.
@@ -4724,7 +4724,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PORELLACEAE(469, "Porellaceae", "Porellaceae"),
+	PORELLACEAE(469, "Porellaceae", "Porellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Portulacaceae</b></em>' literal object.
@@ -4734,7 +4734,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PORTULACACEAE(470, "Portulacaceae", "Portulacaceae"),
+	PORTULACACEAE(470, "Portulacaceae", "Portulacaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Posidoniaceae</b></em>' literal object.
@@ -4744,7 +4744,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POSIDONIACEAE(471, "Posidoniaceae", "Posidoniaceae"),
+	POSIDONIACEAE(471, "Posidoniaceae", "Posidoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Potamogetonaceae</b></em>' literal object.
@@ -4754,7 +4754,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POTAMOGETONACEAE(472, "Potamogetonaceae", "Potamogetonaceae"),
+	POTAMOGETONACEAE(472, "Potamogetonaceae", "Potamogetonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pottiaceae</b></em>' literal object.
@@ -4764,7 +4764,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POTTIACEAE(473, "Pottiaceae", "Pottiaceae"),
+	POTTIACEAE(473, "Pottiaceae", "Pottiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Primulaceae</b></em>' literal object.
@@ -4774,7 +4774,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRIMULACEAE(474, "Primulaceae", "Primulaceae"),
+	PRIMULACEAE(474, "Primulaceae", "Primulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Prionodontaceae</b></em>' literal object.
@@ -4784,7 +4784,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRIONODONTACEAE(475, "Prionodontaceae", "Prionodontaceae"),
+	PRIONODONTACEAE(475, "Prionodontaceae", "Prionodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Proteaceae</b></em>' literal object.
@@ -4794,7 +4794,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PROTEACEAE(476, "Proteaceae", "Proteaceae"),
+	PROTEACEAE(476, "Proteaceae", "Proteaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pseudolepicoleaceae</b></em>' literal object.
@@ -4804,7 +4804,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PSEUDOLEPICOLEACEAE(477, "Pseudolepicoleaceae", "Pseudolepicoleaceae"),
+	PSEUDOLEPICOLEACEAE(477, "Pseudolepicoleaceae", "Pseudolepicoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Psilotaceae</b></em>' literal object.
@@ -4814,7 +4814,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PSILOTACEAE(478, "Psilotaceae", "Psilotaceae"),
+	PSILOTACEAE(478, "Psilotaceae", "Psilotaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pteridaceae</b></em>' literal object.
@@ -4824,7 +4824,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PTERIDACEAE(479, "Pteridaceae", "Pteridaceae"),
+	PTERIDACEAE(479, "Pteridaceae", "Pteridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pterigynandraceae</b></em>' literal object.
@@ -4834,7 +4834,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PTERIGYNANDRACEAE(480, "Pterigynandraceae", "Pterigynandraceae"),
+	PTERIGYNANDRACEAE(480, "Pterigynandraceae", "Pterigynandraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pterobryaceae</b></em>' literal object.
@@ -4844,7 +4844,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PTEROBRYACEAE(481, "Pterobryaceae", "Pterobryaceae"),
+	PTEROBRYACEAE(481, "Pterobryaceae", "Pterobryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ptilidiaceae</b></em>' literal object.
@@ -4854,7 +4854,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PTILIDIACEAE(482, "Ptilidiaceae", "Ptilidiaceae"),
+	PTILIDIACEAE(482, "Ptilidiaceae", "Ptilidiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ptychomitriaceae</b></em>' literal object.
@@ -4864,7 +4864,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PTYCHOMITRIACEAE(483, "Ptychomitriaceae", "Ptychomitriaceae"),
+	PTYCHOMITRIACEAE(483, "Ptychomitriaceae", "Ptychomitriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ptychomniaceae</b></em>' literal object.
@@ -4874,7 +4874,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PTYCHOMNIACEAE(484, "Ptychomniaceae", "Ptychomniaceae"),
+	PTYCHOMNIACEAE(484, "Ptychomniaceae", "Ptychomniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Putranjivaceae</b></em>' literal object.
@@ -4884,7 +4884,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PUTRANJIVACEAE(485, "Putranjivaceae", "Putranjivaceae"),
+	PUTRANJIVACEAE(485, "Putranjivaceae", "Putranjivaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Quillajaceae</b></em>' literal object.
@@ -4894,7 +4894,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	QUILLAJACEAE(486, "Quillajaceae", "Quillajaceae"),
+	QUILLAJACEAE(486, "Quillajaceae", "Quillajaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Racopilaceae</b></em>' literal object.
@@ -4904,7 +4904,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RACOPILACEAE(487, "Racopilaceae", "Racopilaceae"),
+	RACOPILACEAE(487, "Racopilaceae", "Racopilaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Radulaceae</b></em>' literal object.
@@ -4914,7 +4914,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RADULACEAE(488, "Radulaceae", "Radulaceae"),
+	RADULACEAE(488, "Radulaceae", "Radulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rafflesiaceae</b></em>' literal object.
@@ -4924,7 +4924,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RAFFLESIACEAE(489, "Rafflesiaceae", "Rafflesiaceae"),
+	RAFFLESIACEAE(489, "Rafflesiaceae", "Rafflesiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ranunculaceae</b></em>' literal object.
@@ -4934,7 +4934,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RANUNCULACEAE(490, "Ranunculaceae", "Ranunculaceae"),
+	RANUNCULACEAE(490, "Ranunculaceae", "Ranunculaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rapateaceae</b></em>' literal object.
@@ -4944,7 +4944,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RAPATEACEAE(491, "Rapateaceae", "Rapateaceae"),
+	RAPATEACEAE(491, "Rapateaceae", "Rapateaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Regmatodontaceae</b></em>' literal object.
@@ -4954,7 +4954,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REGMATODONTACEAE(492, "Regmatodontaceae", "Regmatodontaceae"),
+	REGMATODONTACEAE(492, "Regmatodontaceae", "Regmatodontaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Resedaceae</b></em>' literal object.
@@ -4964,7 +4964,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESEDACEAE(493, "Resedaceae", "Resedaceae"),
+	RESEDACEAE(493, "Resedaceae", "Resedaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Restionaceae</b></em>' literal object.
@@ -4974,7 +4974,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESTIONACEAE(494, "Restionaceae", "Restionaceae"),
+	RESTIONACEAE(494, "Restionaceae", "Restionaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhabdodendraceae</b></em>' literal object.
@@ -4984,7 +4984,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHABDODENDRACEAE(495, "Rhabdodendraceae", "Rhabdodendraceae"),
+	RHABDODENDRACEAE(495, "Rhabdodendraceae", "Rhabdodendraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhabdoweisiaceae</b></em>' literal object.
@@ -4994,7 +4994,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHABDOWEISIACEAE(496, "Rhabdoweisiaceae", "Rhabdoweisiaceae"),
+	RHABDOWEISIACEAE(496, "Rhabdoweisiaceae", "Rhabdoweisiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhachitheciaceae</b></em>' literal object.
@@ -5004,7 +5004,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHACHITHECIACEAE(497, "Rhachitheciaceae", "Rhachitheciaceae"),
+	RHACHITHECIACEAE(497, "Rhachitheciaceae", "Rhachitheciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhacocarpaceae</b></em>' literal object.
@@ -5014,7 +5014,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHACOCARPACEAE(498, "Rhacocarpaceae", "Rhacocarpaceae"),
+	RHACOCARPACEAE(498, "Rhacocarpaceae", "Rhacocarpaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhamnaceae</b></em>' literal object.
@@ -5024,7 +5024,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHAMNACEAE(499, "Rhamnaceae", "Rhamnaceae"),
+	RHAMNACEAE(499, "Rhamnaceae", "Rhamnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhipogonaceae</b></em>' literal object.
@@ -5034,7 +5034,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHIPOGONACEAE(500, "Rhipogonaceae", "Rhipogonaceae"),
+	RHIPOGONACEAE(500, "Rhipogonaceae", "Rhipogonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhizogoniaceae</b></em>' literal object.
@@ -5044,7 +5044,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHIZOGONIACEAE(501, "Rhizogoniaceae", "Rhizogoniaceae"),
+	RHIZOGONIACEAE(501, "Rhizogoniaceae", "Rhizogoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rhizophoraceae</b></em>' literal object.
@@ -5054,7 +5054,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RHIZOPHORACEAE(502, "Rhizophoraceae", "Rhizophoraceae"),
+	RHIZOPHORACEAE(502, "Rhizophoraceae", "Rhizophoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ricciaceae</b></em>' literal object.
@@ -5064,7 +5064,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RICCIACEAE(503, "Ricciaceae", "Ricciaceae"),
+	RICCIACEAE(503, "Ricciaceae", "Ricciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Riellaceae</b></em>' literal object.
@@ -5074,7 +5074,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RIELLACEAE(504, "Riellaceae", "Riellaceae"),
+	RIELLACEAE(504, "Riellaceae", "Riellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rigodiaceae</b></em>' literal object.
@@ -5084,7 +5084,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RIGODIACEAE(505, "Rigodiaceae", "Rigodiaceae"),
+	RIGODIACEAE(505, "Rigodiaceae", "Rigodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Roridulaceae</b></em>' literal object.
@@ -5094,7 +5094,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RORIDULACEAE(506, "Roridulaceae", "Roridulaceae"),
+	RORIDULACEAE(506, "Roridulaceae", "Roridulaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rosaceae</b></em>' literal object.
@@ -5104,7 +5104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROSACEAE(507, "Rosaceae", "Rosaceae"),
+	ROSACEAE(507, "Rosaceae", "Rosaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rousseaceae</b></em>' literal object.
@@ -5114,7 +5114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROUSSEACEAE(508, "Rousseaceae", "Rousseaceae"),
+	ROUSSEACEAE(508, "Rousseaceae", "Rousseaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rubiaceae</b></em>' literal object.
@@ -5124,7 +5124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RUBIACEAE(509, "Rubiaceae", "Rubiaceae"),
+	RUBIACEAE(509, "Rubiaceae", "Rubiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ruppiaceae</b></em>' literal object.
@@ -5134,7 +5134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RUPPIACEAE(510, "Ruppiaceae", "Ruppiaceae"),
+	RUPPIACEAE(510, "Ruppiaceae", "Ruppiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rutaceae</b></em>' literal object.
@@ -5144,7 +5144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RUTACEAE(511, "Rutaceae", "Rutaceae"),
+	RUTACEAE(511, "Rutaceae", "Rutaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Rutenbergiaceae</b></em>' literal object.
@@ -5154,7 +5154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RUTENBERGIACEAE(512, "Rutenbergiaceae", "Rutenbergiaceae"),
+	RUTENBERGIACEAE(512, "Rutenbergiaceae", "Rutenbergiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sabiaceae</b></em>' literal object.
@@ -5164,7 +5164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SABIACEAE(513, "Sabiaceae", "Sabiaceae"),
+	SABIACEAE(513, "Sabiaceae", "Sabiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Salicaceae</b></em>' literal object.
@@ -5174,7 +5174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SALICACEAE(514, "Salicaceae", "Salicaceae"),
+	SALICACEAE(514, "Salicaceae", "Salicaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Salvadoraceae</b></em>' literal object.
@@ -5184,7 +5184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SALVADORACEAE(515, "Salvadoraceae", "Salvadoraceae"),
+	SALVADORACEAE(515, "Salvadoraceae", "Salvadoraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Salviniaceae</b></em>' literal object.
@@ -5194,7 +5194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SALVINIACEAE(516, "Salviniaceae", "Salviniaceae"),
+	SALVINIACEAE(516, "Salviniaceae", "Salviniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Santalaceae</b></em>' literal object.
@@ -5204,7 +5204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SANTALACEAE(517, "Santalaceae", "Santalaceae"),
+	SANTALACEAE(517, "Santalaceae", "Santalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sapindaceae</b></em>' literal object.
@@ -5214,7 +5214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SAPINDACEAE(518, "Sapindaceae", "Sapindaceae"),
+	SAPINDACEAE(518, "Sapindaceae", "Sapindaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sapotaceae</b></em>' literal object.
@@ -5224,7 +5224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SAPOTACEAE(519, "Sapotaceae", "Sapotaceae"),
+	SAPOTACEAE(519, "Sapotaceae", "Sapotaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sarcobataceae</b></em>' literal object.
@@ -5234,7 +5234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SARCOBATACEAE(520, "Sarcobataceae", "Sarcobataceae"),
+	SARCOBATACEAE(520, "Sarcobataceae", "Sarcobataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sarcolaenaceae</b></em>' literal object.
@@ -5244,7 +5244,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SARCOLAENACEAE(521, "Sarcolaenaceae", "Sarcolaenaceae"),
+	SARCOLAENACEAE(521, "Sarcolaenaceae", "Sarcolaenaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sarraceniaceae</b></em>' literal object.
@@ -5254,7 +5254,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SARRACENIACEAE(522, "Sarraceniaceae", "Sarraceniaceae"),
+	SARRACENIACEAE(522, "Sarraceniaceae", "Sarraceniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Saururaceae</b></em>' literal object.
@@ -5264,7 +5264,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SAURURACEAE(523, "Saururaceae", "Saururaceae"),
+	SAURURACEAE(523, "Saururaceae", "Saururaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Saxifragaceae</b></em>' literal object.
@@ -5274,7 +5274,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SAXIFRAGACEAE(524, "Saxifragaceae", "Saxifragaceae"),
+	SAXIFRAGACEAE(524, "Saxifragaceae", "Saxifragaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Scapaniaceae</b></em>' literal object.
@@ -5284,7 +5284,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCAPANIACEAE(525, "Scapaniaceae", "Scapaniaceae"),
+	SCAPANIACEAE(525, "Scapaniaceae", "Scapaniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Scheuchzeriaceae</b></em>' literal object.
@@ -5294,7 +5294,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHEUCHZERIACEAE(526, "Scheuchzeriaceae", "Scheuchzeriaceae"),
+	SCHEUCHZERIACEAE(526, "Scheuchzeriaceae", "Scheuchzeriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Schisandraceae</b></em>' literal object.
@@ -5304,7 +5304,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHISANDRACEAE(527, "Schisandraceae", "Schisandraceae"),
+	SCHISANDRACEAE(527, "Schisandraceae", "Schisandraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Schistochilaceae</b></em>' literal object.
@@ -5314,7 +5314,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHISTOCHILACEAE(528, "Schistochilaceae", "Schistochilaceae"),
+	SCHISTOCHILACEAE(528, "Schistochilaceae", "Schistochilaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Schistostegaceae</b></em>' literal object.
@@ -5324,7 +5324,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHISTOSTEGACEAE(529, "Schistostegaceae", "Schistostegaceae"),
+	SCHISTOSTEGACEAE(529, "Schistostegaceae", "Schistostegaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Schizaeaceae</b></em>' literal object.
@@ -5334,7 +5334,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHIZAEACEAE(530, "Schizaeaceae", "Schizaeaceae"),
+	SCHIZAEACEAE(530, "Schizaeaceae", "Schizaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Schlegeliaceae</b></em>' literal object.
@@ -5344,7 +5344,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHLEGELIACEAE(531, "Schlegeliaceae", "Schlegeliaceae"),
+	SCHLEGELIACEAE(531, "Schlegeliaceae", "Schlegeliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Schoepfiaceae</b></em>' literal object.
@@ -5354,7 +5354,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCHOEPFIACEAE(532, "Schoepfiaceae", "Schoepfiaceae"),
+	SCHOEPFIACEAE(532, "Schoepfiaceae", "Schoepfiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Scorpidiaceae</b></em>' literal object.
@@ -5364,7 +5364,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCORPIDIACEAE(533, "Scorpidiaceae", "Scorpidiaceae"),
+	SCORPIDIACEAE(533, "Scorpidiaceae", "Scorpidiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Scrophulariaceae</b></em>' literal object.
@@ -5374,7 +5374,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCROPHULARIACEAE(534, "Scrophulariaceae", "Scrophulariaceae"),
+	SCROPHULARIACEAE(534, "Scrophulariaceae", "Scrophulariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Selaginellaceae</b></em>' literal object.
@@ -5384,7 +5384,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SELAGINELLACEAE(535, "Selaginellaceae", "Selaginellaceae"),
+	SELAGINELLACEAE(535, "Selaginellaceae", "Selaginellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Seligeriaceae</b></em>' literal object.
@@ -5394,7 +5394,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SELIGERIACEAE(536, "Seligeriaceae", "Seligeriaceae"),
+	SELIGERIACEAE(536, "Seligeriaceae", "Seligeriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sematophyllaceae</b></em>' literal object.
@@ -5404,7 +5404,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEMATOPHYLLACEAE(537, "Sematophyllaceae", "Sematophyllaceae"),
+	SEMATOPHYLLACEAE(537, "Sematophyllaceae", "Sematophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Serpotortellaceae</b></em>' literal object.
@@ -5414,7 +5414,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SERPOTORTELLACEAE(538, "Serpotortellaceae", "Serpotortellaceae"),
+	SERPOTORTELLACEAE(538, "Serpotortellaceae", "Serpotortellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Setchellanthaceae</b></em>' literal object.
@@ -5424,7 +5424,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SETCHELLANTHACEAE(539, "Setchellanthaceae", "Setchellanthaceae"),
+	SETCHELLANTHACEAE(539, "Setchellanthaceae", "Setchellanthaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Simaroubaceae</b></em>' literal object.
@@ -5434,7 +5434,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIMAROUBACEAE(540, "Simaroubaceae", "Simaroubaceae"),
+	SIMAROUBACEAE(540, "Simaroubaceae", "Simaroubaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Simmondsiaceae</b></em>' literal object.
@@ -5444,7 +5444,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIMMONDSIACEAE(541, "Simmondsiaceae", "Simmondsiaceae"),
+	SIMMONDSIACEAE(541, "Simmondsiaceae", "Simmondsiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Siparunaceae</b></em>' literal object.
@@ -5454,7 +5454,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIPARUNACEAE(542, "Siparunaceae", "Siparunaceae"),
+	SIPARUNACEAE(542, "Siparunaceae", "Siparunaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sladeniaceae</b></em>' literal object.
@@ -5464,7 +5464,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SLADENIACEAE(543, "Sladeniaceae", "Sladeniaceae"),
+	SLADENIACEAE(543, "Sladeniaceae", "Sladeniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Smilacaceae</b></em>' literal object.
@@ -5474,7 +5474,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SMILACACEAE(544, "Smilacaceae", "Smilacaceae"),
+	SMILACACEAE(544, "Smilacaceae", "Smilacaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Solanaceae</b></em>' literal object.
@@ -5484,7 +5484,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOLANACEAE(545, "Solanaceae", "Solanaceae"),
+	SOLANACEAE(545, "Solanaceae", "Solanaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sphaerosepalaceae</b></em>' literal object.
@@ -5494,7 +5494,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPHAEROSEPALACEAE(546, "Sphaerosepalaceae", "Sphaerosepalaceae"),
+	SPHAEROSEPALACEAE(546, "Sphaerosepalaceae", "Sphaerosepalaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sphagnaceae</b></em>' literal object.
@@ -5504,7 +5504,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPHAGNACEAE(547, "Sphagnaceae", "Sphagnaceae"),
+	SPHAGNACEAE(547, "Sphagnaceae", "Sphagnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sphenocleaceae</b></em>' literal object.
@@ -5514,7 +5514,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPHENOCLEACEAE(548, "Sphenocleaceae", "Sphenocleaceae"),
+	SPHENOCLEACEAE(548, "Sphenocleaceae", "Sphenocleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Spiridentaceae</b></em>' literal object.
@@ -5524,7 +5524,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPIRIDENTACEAE(549, "Spiridentaceae", "Spiridentaceae"),
+	SPIRIDENTACEAE(549, "Spiridentaceae", "Spiridentaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Splachnaceae</b></em>' literal object.
@@ -5534,7 +5534,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPLACHNACEAE(550, "Splachnaceae", "Splachnaceae"),
+	SPLACHNACEAE(550, "Splachnaceae", "Splachnaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Splachnobryaceae</b></em>' literal object.
@@ -5544,7 +5544,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SPLACHNOBRYACEAE(551, "Splachnobryaceae", "Splachnobryaceae"),
+	SPLACHNOBRYACEAE(551, "Splachnobryaceae", "Splachnobryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stachyuraceae</b></em>' literal object.
@@ -5554,7 +5554,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STACHYURACEAE(552, "Stachyuraceae", "Stachyuraceae"),
+	STACHYURACEAE(552, "Stachyuraceae", "Stachyuraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Staphyleaceae</b></em>' literal object.
@@ -5564,7 +5564,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STAPHYLEACEAE(553, "Staphyleaceae", "Staphyleaceae"),
+	STAPHYLEACEAE(553, "Staphyleaceae", "Staphyleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stegnospermataceae</b></em>' literal object.
@@ -5574,7 +5574,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STEGNOSPERMATACEAE(554, "Stegnospermataceae", "Stegnospermataceae"),
+	STEGNOSPERMATACEAE(554, "Stegnospermataceae", "Stegnospermataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stemonaceae</b></em>' literal object.
@@ -5584,7 +5584,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STEMONACEAE(555, "Stemonaceae", "Stemonaceae"),
+	STEMONACEAE(555, "Stemonaceae", "Stemonaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stemonuraceae</b></em>' literal object.
@@ -5594,7 +5594,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STEMONURACEAE(556, "Stemonuraceae", "Stemonuraceae"),
+	STEMONURACEAE(556, "Stemonuraceae", "Stemonuraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stereophyllaceae</b></em>' literal object.
@@ -5604,7 +5604,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STEREOPHYLLACEAE(557, "Stereophyllaceae", "Stereophyllaceae"),
+	STEREOPHYLLACEAE(557, "Stereophyllaceae", "Stereophyllaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stilbaceae</b></em>' literal object.
@@ -5614,7 +5614,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STILBACEAE(558, "Stilbaceae", "Stilbaceae"),
+	STILBACEAE(558, "Stilbaceae", "Stilbaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Strasburgeriaceae</b></em>' literal object.
@@ -5624,7 +5624,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRASBURGERIACEAE(559, "Strasburgeriaceae", "Strasburgeriaceae"),
+	STRASBURGERIACEAE(559, "Strasburgeriaceae", "Strasburgeriaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Strelitziaceae</b></em>' literal object.
@@ -5634,7 +5634,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRELITZIACEAE(560, "Strelitziaceae", "Strelitziaceae"),
+	STRELITZIACEAE(560, "Strelitziaceae", "Strelitziaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stylidiaceae</b></em>' literal object.
@@ -5644,7 +5644,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STYLIDIACEAE(561, "Stylidiaceae", "Stylidiaceae"),
+	STYLIDIACEAE(561, "Stylidiaceae", "Stylidiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Styracaceae</b></em>' literal object.
@@ -5654,7 +5654,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STYRACACEAE(562, "Styracaceae", "Styracaceae"),
+	STYRACACEAE(562, "Styracaceae", "Styracaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Surianaceae</b></em>' literal object.
@@ -5664,7 +5664,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SURIANACEAE(563, "Surianaceae", "Surianaceae"),
+	SURIANACEAE(563, "Surianaceae", "Surianaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Symplocaceae</b></em>' literal object.
@@ -5674,7 +5674,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SYMPLOCACEAE(564, "Symplocaceae", "Symplocaceae"),
+	SYMPLOCACEAE(564, "Symplocaceae", "Symplocaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Takakiaceae</b></em>' literal object.
@@ -5684,7 +5684,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAKAKIACEAE(565, "Takakiaceae", "Takakiaceae"),
+	TAKAKIACEAE(565, "Takakiaceae", "Takakiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Talinaceae</b></em>' literal object.
@@ -5694,7 +5694,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TALINACEAE(566, "Talinaceae", "Talinaceae"),
+	TALINACEAE(566, "Talinaceae", "Talinaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tamaricaceae</b></em>' literal object.
@@ -5704,7 +5704,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAMARICACEAE(567, "Tamaricaceae", "Tamaricaceae"),
+	TAMARICACEAE(567, "Tamaricaceae", "Tamaricaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tapisciaceae</b></em>' literal object.
@@ -5714,7 +5714,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAPISCIACEAE(568, "Tapisciaceae", "Tapisciaceae"),
+	TAPISCIACEAE(568, "Tapisciaceae", "Tapisciaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Targioniaceae</b></em>' literal object.
@@ -5724,7 +5724,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TARGIONIACEAE(569, "Targioniaceae", "Targioniaceae"),
+	TARGIONIACEAE(569, "Targioniaceae", "Targioniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Taxaceae</b></em>' literal object.
@@ -5734,7 +5734,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAXACEAE(570, "Taxaceae", "Taxaceae"),
+	TAXACEAE(570, "Taxaceae", "Taxaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Taxodiaceae</b></em>' literal object.
@@ -5744,7 +5744,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAXODIACEAE(571, "Taxodiaceae", "Taxodiaceae"),
+	TAXODIACEAE(571, "Taxodiaceae", "Taxodiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tecophilaeaceae</b></em>' literal object.
@@ -5754,7 +5754,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TECOPHILAEACEAE(572, "Tecophilaeaceae", "Tecophilaeaceae"),
+	TECOPHILAEACEAE(572, "Tecophilaeaceae", "Tecophilaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tetrachondraceae</b></em>' literal object.
@@ -5764,7 +5764,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TETRACHONDRACEAE(573, "Tetrachondraceae", "Tetrachondraceae"),
+	TETRACHONDRACEAE(573, "Tetrachondraceae", "Tetrachondraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tetramelaceae</b></em>' literal object.
@@ -5774,7 +5774,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TETRAMELACEAE(574, "Tetramelaceae", "Tetramelaceae"),
+	TETRAMELACEAE(574, "Tetramelaceae", "Tetramelaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tetrameristaceae</b></em>' literal object.
@@ -5784,7 +5784,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TETRAMERISTACEAE(575, "Tetrameristaceae", "Tetrameristaceae"),
+	TETRAMERISTACEAE(575, "Tetrameristaceae", "Tetrameristaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tetraphidaceae</b></em>' literal object.
@@ -5794,7 +5794,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TETRAPHIDACEAE(576, "Tetraphidaceae", "Tetraphidaceae"),
+	TETRAPHIDACEAE(576, "Tetraphidaceae", "Tetraphidaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Thamnobryaceae</b></em>' literal object.
@@ -5804,7 +5804,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THAMNOBRYACEAE(577, "Thamnobryaceae", "Thamnobryaceae"),
+	THAMNOBRYACEAE(577, "Thamnobryaceae", "Thamnobryaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Theaceae</b></em>' literal object.
@@ -5814,7 +5814,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THEACEAE(578, "Theaceae", "Theaceae"),
+	THEACEAE(578, "Theaceae", "Theaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Theliaceae</b></em>' literal object.
@@ -5824,7 +5824,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THELIACEAE(579, "Theliaceae", "Theliaceae"),
+	THELIACEAE(579, "Theliaceae", "Theliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Thelypteridaceae</b></em>' literal object.
@@ -5834,7 +5834,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THELYPTERIDACEAE(580, "Thelypteridaceae", "Thelypteridaceae"),
+	THELYPTERIDACEAE(580, "Thelypteridaceae", "Thelypteridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Thomandersiaceae</b></em>' literal object.
@@ -5844,7 +5844,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THOMANDERSIACEAE(581, "Thomandersiaceae", "Thomandersiaceae"),
+	THOMANDERSIACEAE(581, "Thomandersiaceae", "Thomandersiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Thuidiaceae</b></em>' literal object.
@@ -5854,7 +5854,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THUIDIACEAE(582, "Thuidiaceae", "Thuidiaceae"),
+	THUIDIACEAE(582, "Thuidiaceae", "Thuidiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Thurniaceae</b></em>' literal object.
@@ -5864,7 +5864,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THURNIACEAE(583, "Thurniaceae", "Thurniaceae"),
+	THURNIACEAE(583, "Thurniaceae", "Thurniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Thymelaeaceae</b></em>' literal object.
@@ -5874,7 +5874,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THYMELAEACEAE(584, "Thymelaeaceae", "Thymelaeaceae"),
+	THYMELAEACEAE(584, "Thymelaeaceae", "Thymelaeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ticodendraceae</b></em>' literal object.
@@ -5884,7 +5884,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TICODENDRACEAE(585, "Ticodendraceae", "Ticodendraceae"),
+	TICODENDRACEAE(585, "Ticodendraceae", "Ticodendraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Timmiaceae</b></em>' literal object.
@@ -5894,7 +5894,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TIMMIACEAE(586, "Timmiaceae", "Timmiaceae"),
+	TIMMIACEAE(586, "Timmiaceae", "Timmiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tofieldiaceae</b></em>' literal object.
@@ -5904,7 +5904,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOFIELDIACEAE(587, "Tofieldiaceae", "Tofieldiaceae"),
+	TOFIELDIACEAE(587, "Tofieldiaceae", "Tofieldiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Torricelliaceae</b></em>' literal object.
@@ -5914,7 +5914,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TORRICELLIACEAE(588, "Torricelliaceae", "Torricelliaceae"),
+	TORRICELLIACEAE(588, "Torricelliaceae", "Torricelliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tovariaceae</b></em>' literal object.
@@ -5924,7 +5924,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOVARIACEAE(589, "Tovariaceae", "Tovariaceae"),
+	TOVARIACEAE(589, "Tovariaceae", "Tovariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Trachypodaceae</b></em>' literal object.
@@ -5934,7 +5934,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRACHYPODACEAE(590, "Trachypodaceae", "Trachypodaceae"),
+	TRACHYPODACEAE(590, "Trachypodaceae", "Trachypodaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Treubiaceae</b></em>' literal object.
@@ -5944,7 +5944,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TREUBIACEAE(591, "Treubiaceae", "Treubiaceae"),
+	TREUBIACEAE(591, "Treubiaceae", "Treubiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Trichocoleaceae</b></em>' literal object.
@@ -5954,7 +5954,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRICHOCOLEACEAE(592, "Trichocoleaceae", "Trichocoleaceae"),
+	TRICHOCOLEACEAE(592, "Trichocoleaceae", "Trichocoleaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Trigoniaceae</b></em>' literal object.
@@ -5964,7 +5964,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRIGONIACEAE(593, "Trigoniaceae", "Trigoniaceae"),
+	TRIGONIACEAE(593, "Trigoniaceae", "Trigoniaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Triuridaceae</b></em>' literal object.
@@ -5974,7 +5974,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRIURIDACEAE(594, "Triuridaceae", "Triuridaceae"),
+	TRIURIDACEAE(594, "Triuridaceae", "Triuridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Trochodendraceae</b></em>' literal object.
@@ -5984,7 +5984,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TROCHODENDRACEAE(595, "Trochodendraceae", "Trochodendraceae"),
+	TROCHODENDRACEAE(595, "Trochodendraceae", "Trochodendraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tropaeolaceae</b></em>' literal object.
@@ -5994,7 +5994,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TROPAEOLACEAE(596, "Tropaeolaceae", "Tropaeolaceae"),
+	TROPAEOLACEAE(596, "Tropaeolaceae", "Tropaeolaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Typhaceae</b></em>' literal object.
@@ -6004,7 +6004,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TYPHACEAE(597, "Typhaceae", "Typhaceae"),
+	TYPHACEAE(597, "Typhaceae", "Typhaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ulmaceae</b></em>' literal object.
@@ -6014,7 +6014,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ULMACEAE(598, "Ulmaceae", "Ulmaceae"),
+	ULMACEAE(598, "Ulmaceae", "Ulmaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Urticaceae</b></em>' literal object.
@@ -6024,7 +6024,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	URTICACEAE(599, "Urticaceae", "Urticaceae"),
+	URTICACEAE(599, "Urticaceae", "Urticaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Vahliaceae</b></em>' literal object.
@@ -6034,7 +6034,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VAHLIACEAE(600, "Vahliaceae", "Vahliaceae"),
+	VAHLIACEAE(600, "Vahliaceae", "Vahliaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Velloziaceae</b></em>' literal object.
@@ -6044,7 +6044,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VELLOZIACEAE(601, "Velloziaceae", "Velloziaceae"),
+	VELLOZIACEAE(601, "Velloziaceae", "Velloziaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Verbenaceae</b></em>' literal object.
@@ -6054,7 +6054,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VERBENACEAE(602, "Verbenaceae", "Verbenaceae"),
+	VERBENACEAE(602, "Verbenaceae", "Verbenaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Vetaformaceae</b></em>' literal object.
@@ -6064,7 +6064,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VETAFORMACEAE(603, "Vetaformaceae", "Vetaformaceae"),
+	VETAFORMACEAE(603, "Vetaformaceae", "Vetaformaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Violaceae</b></em>' literal object.
@@ -6074,7 +6074,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VIOLACEAE(604, "Violaceae", "Violaceae"),
+	VIOLACEAE(604, "Violaceae", "Violaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Vitaceae</b></em>' literal object.
@@ -6084,7 +6084,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VITACEAE(605, "Vitaceae", "Vitaceae"),
+	VITACEAE(605, "Vitaceae", "Vitaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Vittariaceae</b></em>' literal object.
@@ -6094,7 +6094,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VITTARIACEAE(606, "Vittariaceae", "Vittariaceae"),
+	VITTARIACEAE(606, "Vittariaceae", "Vittariaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Vivianiaceae</b></em>' literal object.
@@ -6104,7 +6104,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VIVIANIACEAE(607, "Vivianiaceae", "Vivianiaceae"),
+	VIVIANIACEAE(607, "Vivianiaceae", "Vivianiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Vochysiaceae</b></em>' literal object.
@@ -6114,7 +6114,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VOCHYSIACEAE(608, "Vochysiaceae", "Vochysiaceae"),
+	VOCHYSIACEAE(608, "Vochysiaceae", "Vochysiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Wardiaceae</b></em>' literal object.
@@ -6124,7 +6124,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WARDIACEAE(609, "Wardiaceae", "Wardiaceae"),
+	WARDIACEAE(609, "Wardiaceae", "Wardiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Welwitschiaceae</b></em>' literal object.
@@ -6134,7 +6134,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WELWITSCHIACEAE(610, "Welwitschiaceae", "Welwitschiaceae"),
+	WELWITSCHIACEAE(610, "Welwitschiaceae", "Welwitschiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Wiesnerellaceae</b></em>' literal object.
@@ -6144,7 +6144,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WIESNERELLACEAE(611, "Wiesnerellaceae", "Wiesnerellaceae"),
+	WIESNERELLACEAE(611, "Wiesnerellaceae", "Wiesnerellaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Winteraceae</b></em>' literal object.
@@ -6154,7 +6154,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WINTERACEAE(612, "Winteraceae", "Winteraceae"),
+	WINTERACEAE(612, "Winteraceae", "Winteraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Woodsiaceae</b></em>' literal object.
@@ -6164,7 +6164,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	WOODSIACEAE(613, "Woodsiaceae", "Woodsiaceae"),
+	WOODSIACEAE(613, "Woodsiaceae", "Woodsiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Xanthorrhoeaceae</b></em>' literal object.
@@ -6174,7 +6174,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	XANTHORRHOEACEAE(614, "Xanthorrhoeaceae", "Xanthorrhoeaceae"),
+	XANTHORRHOEACEAE(614, "Xanthorrhoeaceae", "Xanthorrhoeaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Xeronemataceae</b></em>' literal object.
@@ -6184,7 +6184,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	XERONEMATACEAE(615, "Xeronemataceae", "Xeronemataceae"),
+	XERONEMATACEAE(615, "Xeronemataceae", "Xeronemataceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Xyridaceae</b></em>' literal object.
@@ -6194,7 +6194,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	XYRIDACEAE(616, "Xyridaceae", "Xyridaceae"),
+	XYRIDACEAE(616, "Xyridaceae", "Xyridaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Zamiaceae</b></em>' literal object.
@@ -6204,7 +6204,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZAMIACEAE(617, "Zamiaceae", "Zamiaceae"),
+	ZAMIACEAE(617, "Zamiaceae", "Zamiaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Zingiberaceae</b></em>' literal object.
@@ -6214,7 +6214,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZINGIBERACEAE(618, "Zingiberaceae", "Zingiberaceae"),
+	ZINGIBERACEAE(618, "Zingiberaceae", "Zingiberaceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Zosteraceae</b></em>' literal object.
@@ -6224,7 +6224,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZOSTERACEAE(619, "Zosteraceae", "Zosteraceae"),
+	ZOSTERACEAE(619, "Zosteraceae", "Zosteraceae"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Zygophyllaceae</b></em>' literal object.
@@ -6234,14 +6234,7 @@ public enum Family implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ZYGOPHYLLACEAE(620, "Zygophyllaceae", "Zygophyllaceae");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	ZYGOPHYLLACEAE(620, "Zygophyllaceae", "Zygophyllaceae"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Unknown</b></em>' literal value.

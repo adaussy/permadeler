@@ -33,13 +33,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class TrayItemProvider extends NamedElementItemProvider {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,7 +95,7 @@ public class TrayItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tray"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Tray")); //$NON-NLS-1$
 	}
 
 	/**
@@ -124,8 +117,8 @@ public class TrayItemProvider extends NamedElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		String label = ((Tray)object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Tray_type")
-				: getString("_UI_Tray_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Tray_type") : //$NON-NLS-1$
+				getString("_UI_Tray_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

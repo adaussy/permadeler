@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
+import fr.adaussy.permadeler.model.design.DesignMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
 
 public class BackConfigurationDialog extends Dialog {
@@ -35,12 +36,12 @@ public class BackConfigurationDialog extends Dialog {
 	protected Control createDialogArea(Composite parent) {
 		Composite cc = (Composite)super.createDialogArea(parent);
 
-		Dialogs.createDoubleEntry(cc, "Scale", bgImg.getScaling(), v -> {
+		Dialogs.createDoubleEntry(cc, DesignMessages.BackConfigurationDialog_0, bgImg.getScaling(), v -> {
 			bgImg.setScaling((float)v);
 			graphicalEditpart.refresh();
 		});
 
-		Dialogs.createIntEntry(cc, "Transparency (0-255)", bgImg.getTransparency(), v -> {
+		Dialogs.createIntEntry(cc, DesignMessages.BackConfigurationDialog_1, bgImg.getTransparency(), v -> {
 			bgImg.setTransparency(v);
 			graphicalEditpart.refresh();
 		});

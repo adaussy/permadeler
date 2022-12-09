@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.Event;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.dialogs.SowInCellDialog;
 
 /**
@@ -32,14 +33,14 @@ public class SowCellAction extends AbstractModelAction {
 	private final List<Cell> cells;
 
 	public SowCellAction(List<Cell> cells, Session session) {
-		super("Sow", session);
+		super(RcpMessages.SowCellAction_0, session);
 		this.cells = cells;
 	}
 
 	@Override
 	public ImageDescriptor getImageDescriptor() {
 		return ImageDescriptor
-				.createFromImage(ImageProvider.INSTANCE.getImage("icons/custo/commons/planting.png"));
+				.createFromImage(ImageProvider.INSTANCE.getImage("icons/custo/commons/planting.png")); //$NON-NLS-1$
 	}
 
 	@Override

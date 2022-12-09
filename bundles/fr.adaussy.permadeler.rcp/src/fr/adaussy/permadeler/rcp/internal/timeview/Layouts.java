@@ -24,18 +24,18 @@ import fr.adaussy.permadeler.rcp.internal.utils.ColorHelper;
 public final class Layouts {
 
 	static {
-		ColorHelper.setSemantiColor(Month.JANUARY.toString(), "#c2c2c2");
-		ColorHelper.setSemantiColor(Month.FEBRUARY.toString(), "#9c9494");
-		ColorHelper.setSemantiColor(Month.MARCH.toString(), "#756d6d");
-		ColorHelper.setSemantiColor(Month.APRIL.toString(), "#e3a710");
-		ColorHelper.setSemantiColor(Month.MAY.toString(), "#3a74ba");
-		ColorHelper.setSemantiColor(Month.JUNE.toString(), "#47428c");
-		ColorHelper.setSemantiColor(Month.JULY.toString(), "#469e3e");
-		ColorHelper.setSemantiColor(Month.AUGUST.toString(), "#741f80");
-		ColorHelper.setSemantiColor(Month.SEPTEMBER.toString(), "#ab0937");
-		ColorHelper.setSemantiColor(Month.OCTOBER.toString(), "#36b6bf");
-		ColorHelper.setSemantiColor(Month.NOVEMBER.toString(), "#1f1763");
-		ColorHelper.setSemantiColor(Month.DECEMBER.toString(), "#cf874c");
+		ColorHelper.setSemantiColor(Month.JANUARY.toString(), "#c2c2c2");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.FEBRUARY.toString(), "#9c9494");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.MARCH.toString(), "#756d6d");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.APRIL.toString(), "#e3a710");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.MAY.toString(), "#3a74ba");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.JUNE.toString(), "#47428c");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.JULY.toString(), "#469e3e");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.AUGUST.toString(), "#741f80");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.SEPTEMBER.toString(), "#ab0937");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.OCTOBER.toString(), "#36b6bf");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.NOVEMBER.toString(), "#1f1763");//$NON-NLS-1$
+		ColorHelper.setSemantiColor(Month.DECEMBER.toString(), "#cf874c");//$NON-NLS-1$
 	}
 
 	/**

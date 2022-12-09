@@ -37,13 +37,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ImageImpl extends MinimalEObjectImpl.Container implements Image {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,11 +270,11 @@ public class ImageImpl extends MinimalEObjectImpl.Container implements Image {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (title: ");
+		result.append(" (title: "); //$NON-NLS-1$
 		result.append(title);
-		result.append(", source: ");
+		result.append(", source: "); //$NON-NLS-1$
 		result.append(source);
-		result.append(", path: ");
+		result.append(", path: "); //$NON-NLS-1$
 		result.append(path);
 		result.append(')');
 		return result.toString();

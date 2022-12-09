@@ -9,17 +9,19 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.services;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.Reference;
+import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
@@ -34,9 +36,7 @@ public class LabelService {
 
 	private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat(DATE_PATTERN);
 
-	public String getReferenceLabel(final Reference ref) {
-		return ref.getId() + ": " + ref.getSource();
-	}
+	private static final DecimalFormat DEFAULT_FORMAT = new DecimalFormat("##.###"); //$NON-NLS-1$
 
 	/**
 	 * Gets a truncated label is the label is bigger than the given maximum. In that case the label is
@@ -56,13 +56,31 @@ public class LabelService {
 		}
 	}
 
+	public String getTextRep(float f) {
+		return DEFAULT_FORMAT.format(f);
+	}
+
+	public static String getEditLabel(Object o) {
+
+		if (o instanceof EEnumLiteral) {
+			EEnumLiteral enumLiteral = (EEnumLiteral)o;
+
+			String key = String.format("_UI_%s_%s_literal", enumLiteral.getEEnum().getName(), //$NON-NLS-1$
+					enumLiteral.getLiteral());
+			return PermadelerEditPlugin.getPlugin().getString(key);
+
+		}
+
+		return ""; //$NON-NLS-1$
+	}
+
 	public static String getCellToolTip(Cell cell) {
-		String result = cell.getPlant() != null ? cell.getPlant().getName() : "";
-		return result + " " + getDateLabel(cell, "date");
+		String result = cell.getPlant() != null ? cell.getPlant().getName() : ""; //$NON-NLS-1$
+		return result + " " + getDateLabel(cell, "date"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	public String getSpeciesSowLabel(Plant species) {
-		return species.getName() + "[" + ModelQueryService.getLinkedCells(species).size() + "]";
+		return String.format("%s[%d]", species.getName(), ModelQueryService.getLinkedCells(species).size()); //$NON-NLS-1$
 	}
 
 	/**
@@ -77,12 +95,12 @@ public class LabelService {
 	public static String getDateLabel(EObject target, String featureName) {
 		final EStructuralFeature feature = target.eClass().getEStructuralFeature(featureName);
 		if ((feature == null) || feature.getEType() != PermadelerPackage.eINSTANCE.getDate()) {
-			RcpPlugin.logError("Invalid feature " + feature);
+			RcpPlugin.logError("Invalid feature " + feature); //$NON-NLS-1$
 		}
 
 		Instant t = (Instant)target.eGet(feature);
 		if (t == null) {
-			return "";
+			return ""; //$NON-NLS-1$
 		}
 		return SIMPLE_DATE_FORMAT.format(new Date(t.toEpochMilli()));
 	}

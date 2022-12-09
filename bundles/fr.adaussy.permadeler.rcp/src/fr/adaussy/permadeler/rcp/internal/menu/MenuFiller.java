@@ -29,6 +29,7 @@ import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.ContextualMenuFiller;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 
@@ -92,12 +93,12 @@ public class MenuFiller implements IMenuListener {
 					filler.fill(eClass, permSelection);
 				}
 
-				addSubMenu(filler.getNewElementActions(), "New", manager);
+				addSubMenu(filler.getNewElementActions(), RcpMessages.MenuFiller_0, manager);
 				List<IAction> navigateAction = filler.getNavigateAction();
-				navigateAction.add(new FocusOnElementAction("Show in view", permSelection, null));
+				navigateAction.add(new FocusOnElementAction(RcpMessages.MenuFiller_1, permSelection, null));
 
-				addSubMenu(navigateAction, "Go to", manager);
-				addSubMenu(filler.getTimeViewActions(), "Time view", manager);
+				addSubMenu(navigateAction, RcpMessages.MenuFiller_2, manager);
+				addSubMenu(filler.getTimeViewActions(), RcpMessages.MenuFiller_3, manager);
 
 				for (IAction a : filler.getOthers()) {
 					manager.add(a);

@@ -60,7 +60,7 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 		String latinName = getCarac(NOM_LATIN_CARAC);
 		String variete = getCarac(VARIETE2);
 		if (variete == null) {
-			variete = "";
+			variete = ""; //$NON-NLS-1$
 		} else {
 			variete = variete.trim();
 		}
@@ -86,7 +86,7 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 
 	@Override
 	public String fetchCommonName() {
-		for (Element e : getDoc().getElementsByClass("pageTitle")) {
+		for (Element e : getDoc().getElementsByClass("pageTitle")) { //$NON-NLS-1$
 			return WordUtils.capitalizeFully(e.text().toLowerCase());
 		}
 		return null;
@@ -96,7 +96,7 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 	public String getGenusName() {
 		String latinName = getLatinName();
 		if (latinName != null) {
-			String[] parts = latinName.split(" ");
+			String[] parts = latinName.split(" "); //$NON-NLS-1$
 			return parts[0];
 		}
 		return latinName;
@@ -104,7 +104,7 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 
 	@Override
 	public String getId() {
-		return getCarac("Reference ");
+		return getCarac("Reference "); //$NON-NLS-1$
 	}
 
 	/**
@@ -118,8 +118,8 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 		for (Element e : getDoc().getElementsByClass(className)) {
 			int mont = 1;
 			List<Integer> weeks = new ArrayList<Integer>();
-			for (Element month : e.getElementsByTag("li")) {
-				if (month.hasClass("selected")) {
+			for (Element month : e.getElementsByTag("li")) { //$NON-NLS-1$
+				if (month.hasClass("selected")) { //$NON-NLS-1$
 					for (int i = MonthService.monthFirstWeek(mont); i <= MonthService
 							.monthLastQuater(mont); i++) {
 						weeks.add(i);
@@ -137,7 +137,7 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 	@Override
 	public List<Integer> getSowIndoorMonths() {
 		if (sowType == SowType.INDOOR || sowType == SowType.BOTH) {
-			return getPeriod("saison1");
+			return getPeriod("saison1"); //$NON-NLS-1$
 		}
 		return Collections.emptyList();
 	}
@@ -145,27 +145,19 @@ public class SaintMartheExtractor extends AbstractInformationExtractor {
 	@Override
 	public List<Integer> getSowOutdoorMonths() {
 		if (sowType == SowType.OUTDOOR || sowType == SowType.BOTH) {
-			return getPeriod("saison1");
+			return getPeriod("saison1"); //$NON-NLS-1$
 		}
 		return Collections.emptyList();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see fr.adaussy.permadeler.model.design.extractors.AbstractInformationExtractor#getHarvestPeriod()
-	 */
 	@Override
 	public List<Integer> getHarvestPeriod() {
-		return getPeriod("saison2");
+		return getPeriod("saison2"); //$NON-NLS-1$
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see fr.adaussy.permadeler.model.design.extractors.AbstractInformationExtractor#getDescription()
-	 */
 	@Override
 	public String getDescription() {
-		for (Element e : getDoc().getElementsByClass("description")) {
+		for (Element e : getDoc().getElementsByClass("description")) { //$NON-NLS-1$
 			return e.html();
 		}
 		return null;

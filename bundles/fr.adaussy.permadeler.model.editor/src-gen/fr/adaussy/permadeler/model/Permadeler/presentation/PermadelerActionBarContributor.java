@@ -55,13 +55,6 @@ import org.eclipse.ui.PartInitException;
  */
 public class PermadelerActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,11 +77,12 @@ public class PermadelerActionBarContributor extends EditingDomainActionBarContri
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction = new Action(
-			PermadelerEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+			PermadelerEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) //$NON-NLS-1$
+	{
 		@Override
 		public void run() {
 			try {
-				getPage().showView("org.eclipse.ui.views.PropertySheet");
+				getPage().showView("org.eclipse.ui.views.PropertySheet"); //$NON-NLS-1$
 			} catch (PartInitException exception) {
 				PermadelerEditorPlugin.INSTANCE.log(exception);
 			}
@@ -103,7 +97,8 @@ public class PermadelerActionBarContributor extends EditingDomainActionBarContri
 	 * @generated
 	 */
 	protected IAction refreshViewerAction = new Action(
-			PermadelerEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+			PermadelerEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) //$NON-NLS-1$
+	{
 		@Override
 		public boolean isEnabled() {
 			return activeEditorPart instanceof IViewerProvider;
@@ -176,8 +171,8 @@ public class PermadelerActionBarContributor extends EditingDomainActionBarContri
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		super.contributeToToolBar(toolBarManager);
-		toolBarManager.add(new Separator("permadeler-settings"));
-		toolBarManager.add(new Separator("permadeler-additions"));
+		toolBarManager.add(new Separator("permadeler-settings")); //$NON-NLS-1$
+		toolBarManager.add(new Separator("permadeler-additions")); //$NON-NLS-1$
 	}
 
 	/**
@@ -192,25 +187,25 @@ public class PermadelerActionBarContributor extends EditingDomainActionBarContri
 		super.contributeToMenu(menuManager);
 
 		IMenuManager submenuManager = new MenuManager(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerEditor_menu"),
-				"fr.adaussy.permadeler.model.PermadelerMenuID");
-		menuManager.insertAfter("additions", submenuManager);
-		submenuManager.add(new Separator("settings"));
-		submenuManager.add(new Separator("actions"));
-		submenuManager.add(new Separator("additions"));
-		submenuManager.add(new Separator("additions-end"));
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_PermadelerEditor_menu"), //$NON-NLS-1$
+				"fr.adaussy.permadeler.model.PermadelerMenuID"); //$NON-NLS-1$
+		menuManager.insertAfter("additions", submenuManager); //$NON-NLS-1$
+		submenuManager.add(new Separator("settings")); //$NON-NLS-1$
+		submenuManager.add(new Separator("actions")); //$NON-NLS-1$
+		submenuManager.add(new Separator("additions")); //$NON-NLS-1$
+		submenuManager.add(new Separator("additions-end")); //$NON-NLS-1$
 
 		// Prepare for CreateChild item addition or removal.
 		//
 		createChildMenuManager = new MenuManager(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
-		submenuManager.insertBefore("additions", createChildMenuManager);
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item")); //$NON-NLS-1$
+		submenuManager.insertBefore("additions", createChildMenuManager); //$NON-NLS-1$
 
 		// Prepare for CreateSibling item addition or removal.
 		//
 		createSiblingMenuManager = new MenuManager(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
-		submenuManager.insertBefore("additions", createSiblingMenuManager);
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item")); //$NON-NLS-1$
+		submenuManager.insertBefore("additions", createSiblingMenuManager); //$NON-NLS-1$
 
 		// Force an update because Eclipse hides empty menus now.
 		//
@@ -402,14 +397,14 @@ public class PermadelerActionBarContributor extends EditingDomainActionBarContri
 		MenuManager submenuManager = null;
 
 		submenuManager = new MenuManager(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item")); //$NON-NLS-1$
 		populateManager(submenuManager, createChildActions, null);
-		menuManager.insertBefore("edit", submenuManager);
+		menuManager.insertBefore("edit", submenuManager); //$NON-NLS-1$
 
 		submenuManager = new MenuManager(
-				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+				PermadelerEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item")); //$NON-NLS-1$
 		populateManager(submenuManager, createSiblingActions, null);
-		menuManager.insertBefore("edit", submenuManager);
+		menuManager.insertBefore("edit", submenuManager); //$NON-NLS-1$
 	}
 
 	/**
@@ -420,11 +415,11 @@ public class PermadelerActionBarContributor extends EditingDomainActionBarContri
 	 */
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
-		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
-		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
+		menuManager.insertAfter("additions-end", new Separator("ui-actions")); //$NON-NLS-1$ //$NON-NLS-2$
+		menuManager.insertAfter("ui-actions", showPropertiesViewAction); //$NON-NLS-1$
 
 		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
-		menuManager.insertAfter("ui-actions", refreshViewerAction);
+		menuManager.insertAfter("ui-actions", refreshViewerAction); //$NON-NLS-1$
 
 		super.addGlobalActions(menuManager);
 	}

@@ -34,7 +34,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CANOPY(0, "CANOPY", "CANOPY"),
+	CANOPY(0, "CANOPY", "CANOPY"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>UNDERSTORY</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	UNDERSTORY(1, "UNDERSTORY", "UNDERSTORY"),
+	UNDERSTORY(1, "UNDERSTORY", "UNDERSTORY"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>SHRUB</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SHRUB(2, "SHRUB", "SHRUB"),
+	SHRUB(2, "SHRUB", "SHRUB"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>HERB</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HERB(3, "HERB", "HERB"),
+	HERB(3, "HERB", "HERB"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>ROOT</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROOT(4, "ROOT", "ROOT"),
+	ROOT(4, "ROOT", "ROOT"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>GROUND COVER</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GROUND_COVER(5, "GROUND_COVER", "GROUND_COVER"),
+	GROUND_COVER(5, "GROUND_COVER", "GROUND_COVER"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>VINE</b></em>' literal object.
@@ -94,7 +94,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VINE(6, "VINE", "VINE"),
+	VINE(6, "VINE", "VINE"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>OTHER</b></em>' literal object.
@@ -104,14 +104,7 @@ public enum Layer implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(7, "OTHER", "OTHER");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	OTHER(7, "OTHER", "OTHER"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>CANOPY</b></em>' literal value.

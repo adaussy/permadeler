@@ -14,6 +14,7 @@ import static java.util.stream.Collectors.toList;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.MessageFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,8 +39,6 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.LabelPosition;
 import org.eclipse.sirius.diagram.model.business.internal.query.DDiagramInternalQuery;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
-import org.eclipse.sirius.viewpoint.description.ColorDescription;
-import org.eclipse.sirius.viewpoint.description.SystemColor;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -76,47 +75,12 @@ import fr.adaussy.permadeler.rcp.services.ModelQueryService;
  */
 public class DiagramService {
 
-	private static SystemColor WHITE = org.eclipse.sirius.viewpoint.description.DescriptionFactory.eINSTANCE
-			.createSystemColor();
+	private static final String UNSERSCORE = "_"; //$NON-NLS-1$
 
-	private static SystemColor BLACK = org.eclipse.sirius.viewpoint.description.DescriptionFactory.eINSTANCE
-			.createSystemColor();
-
-	static {
-		WHITE.setName("white");
-		WHITE.setRed(255);
-		WHITE.setGreen(255);
-		WHITE.setBlue(255);
-		BLACK.setName("black");
-		BLACK.setRed(0);
-		BLACK.setGreen(0);
-		BLACK.setBlue(0);
-	}
+	private static final String BACKGROUND_IMAGE_FOLDER = "background-image"; //$NON-NLS-1$
 
 	public String getSVGPath(final EObject p) {
-		// if (p instanceof Plantation) {
-		// return switch (((Plantation)p).getCurrentLayer()) {
-		// case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg";
-		// case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg";
-		// case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg";
-		// // case HERB -> "/fr.adaussy.permadeler.model.design/img/herb.svg";
-		// // case GROUND_COVER -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
-		// // case VINE -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
-		// // case ROOT -> "/fr.adaussy.permadeler.model.design/img/ground_cover.svg";
-		// default -> ImageProvider.INSTANCE.getSVG(p);
-		// };
-		// }
 		return ImageProvider.INSTANCE.getSVG(p);
-	}
-
-	public ColorDescription getLabelColor(Plantation p) {
-		switch (p.getCurrentLayer()) {
-			case CANOPY:
-			case UNDERSTORY:
-				return WHITE;
-			default:
-				return BLACK;
-		}
 	}
 
 	public int getLabelSize(Plantation p) {
@@ -218,7 +182,7 @@ public class DiagramService {
 			throws IOException {
 
 		FileDialog fileDialog = new FileDialog(getShell());
-		fileDialog.setFilterExtensions(new String[] {"*.svg" });
+		fileDialog.setFilterExtensions(new String[] {"*.svg" }); //$NON-NLS-1$
 		String targetFileString = fileDialog.open();
 
 		if (targetFileString != null) {
@@ -226,11 +190,12 @@ public class DiagramService {
 			if (targetFilePath.toFile().exists()) {
 				// Copy
 				Path imageFolder = FillService.getSessionImageFolder(Session.of(planting).get());
-				Path bgImgFolder = imageFolder.resolve("background-image");
+				Path bgImgFolder = imageFolder.resolve(BACKGROUND_IMAGE_FOLDER);
 				if (!bgImgFolder.toFile().exists()) {
 					bgImgFolder.toFile().mkdirs();
 				}
-				String name = planting.getName() + "_" + System.currentTimeMillis() + ".svg";
+				String name = MessageFormat.format("{0}_{1}.svg", planting.getName(), //$NON-NLS-1$
+						System.currentTimeMillis());
 				Path targetLocation = bgImgFolder.resolve(name);
 				Files.copy(targetFilePath, targetLocation);
 
@@ -400,6 +365,29 @@ public class DiagramService {
 				return plantation;
 			}
 		}
+		return createPlantation(container, null);
+	}
+
+	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection) {
+		Shell shell = getShell();
+		PlantationDialog dialog = new PlantationDialog(shell, new Date(),
+				container.eResource().getContents().get(0));
+		if (initialSelection != null) {
+			dialog.setInitialSelection(List.of(initialSelection));
+		}
+		if (dialog.open() == Dialog.OK) {
+			final List<Plant> selection = dialog.getSelection();
+			if (selection.size() == 1) {
+				Plantation plantation = PermadelerFactory.eINSTANCE.createPlantation();
+				plantation.setPlantationDate(dialog.getDate().toInstant());
+				plantation.setCurrentLayer(dialog.getLayer());
+				container.getPlantations().add(plantation);
+				Plant value = selection.get(0);
+				plantation.setType(value);
+				plantation.setId(generateId(plantation));
+				return plantation;
+			}
+		}
 		return null;
 	}
 
@@ -414,10 +402,10 @@ public class DiagramService {
 					.filter(p -> p.getId() != null && p.getId().startsWith(trigram))//
 					.map(p -> p.getId()).collect(Collectors.toSet());
 			int i = 1;
-			String id = trigram + "_" + i;
+			String id = trigram + UNSERSCORE + i;
 			while (candiates.contains(id)) {
 				i++;
-				id = trigram + "_" + i;
+				id = trigram + UNSERSCORE + i;
 			}
 
 			return id;
@@ -426,7 +414,7 @@ public class DiagramService {
 	}
 
 	private static String computeTrigram(String name) {
-		String trigram = "";
+		String trigram = ""; //$NON-NLS-1$
 		for (int i = 0; i < name.length(); i++) {
 			if (trigram.length() == 3) {
 				break;
@@ -450,7 +438,7 @@ public class DiagramService {
 	 */
 	public static Plantation createPlantationFromSow(final PlantationPhase container, final Cell cell) {
 		if (cell.getPlant() == null) {
-			PermadelerModelBundle.getDefault().logInfo("Can't create a new plantation from empty cell");
+			PermadelerModelBundle.getDefault().logInfo("Can't create a new plantation from empty cell"); //$NON-NLS-1$
 			return null;
 		}
 		Event event = PermadelerFactory.eINSTANCE.createEvent();
@@ -496,7 +484,7 @@ public class DiagramService {
 			return id;
 		}
 		Plant type = p.getType();
-		return type != null ? type.getName() + "  " /* Sirius Bug when using non default font */ : "";
+		return type != null ? type.getName() + "  " /* Sirius Bug when using non default font */ : ""; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -28,7 +28,7 @@ import fr.adaussy.permadeler.model.Permadeler.Reference;
  */
 public abstract class AbstractInformationExtractor {
 
-	private static final String META_URL = "og:url";
+	private static final String META_URL = "og:url"; //$NON-NLS-1$
 
 	private final Document doc;
 
@@ -126,7 +126,6 @@ public abstract class AbstractInformationExtractor {
 	 */
 	public Reference buildReference() {
 		Reference ref = PermadelerFactory.eINSTANCE.createReference();
-		ref.setSource(extractorName);
 		ref.setLink(getUrl());
 		return ref;
 	}
@@ -136,7 +135,7 @@ public abstract class AbstractInformationExtractor {
 		if (elementById != null) {
 			return this.toFirstCap(elementById.html());
 		}
-		return "";
+		return ""; //$NON-NLS-1$
 	}
 
 	protected boolean containsMonth(final String months, final String expectedMonth) {
@@ -175,7 +174,7 @@ public abstract class AbstractInformationExtractor {
 	}
 
 	public String getImageLink() {
-		return getMetaProp(getDoc(), "og:image");
+		return getMetaProp(getDoc(), "og:image"); //$NON-NLS-1$
 	}
 
 	/**
@@ -188,10 +187,10 @@ public abstract class AbstractInformationExtractor {
 	 * @return the value of the property or <code>null</code>
 	 */
 	public static String getMetaProp(Document doc, String property) {
-		for (Element e : doc.getElementsByTag("meta")) {
-			String prop = e.attr("property");
+		for (Element e : doc.getElementsByTag("meta")) { //$NON-NLS-1$
+			String prop = e.attr("property"); //$NON-NLS-1$
 			if (property.equals(prop)) {
-				return e.attr("content");
+				return e.attr("content"); //$NON-NLS-1$
 			}
 		}
 

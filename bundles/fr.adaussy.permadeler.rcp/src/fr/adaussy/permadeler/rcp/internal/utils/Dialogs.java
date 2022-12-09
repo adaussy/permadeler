@@ -33,6 +33,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import com.google.common.base.Function;
+
 /**
  * Helper class for dialogs
  * 
@@ -57,7 +59,7 @@ public final class Dialogs {
 		if (data instanceof String) {
 			return (String)data;
 		}
-		return "";
+		return ""; //$NON-NLS-1$
 	}
 
 	public static Button createCheckEntry(Composite parent, String label, boolean initValue,
@@ -105,8 +107,9 @@ public final class Dialogs {
 	 * @return
 	 */
 	// CHECKSTYLE:OFF UI needs refactoring
+
 	public static List<Button> createEnumEntry(Composite parent, String label, Enum<?>[] values,
-			Enum<?> defaultvalue, Consumer<Enum<?>> updater) {
+			Enum<?> defaultvalue, Consumer<Enum<?>> updater, Function<Enum<?>, String> labelProvider) {
 		createLabel(parent, label);
 
 		Group enumGroup = new Group(parent, SWT.NONE);
@@ -115,7 +118,7 @@ public final class Dialogs {
 		List<Button> buttons = new ArrayList<Button>();
 		for (Enum<?> e : values) {
 			Button enumWidget = WidgetFactory.button(SWT.RADIO)//
-					.text(e.name())//
+					.text(labelProvider.apply(e))//
 					.create(enumGroup);
 			if (e == defaultvalue) {
 				enumWidget.setSelection(true);
@@ -136,6 +139,11 @@ public final class Dialogs {
 		return buttons;
 	}
 	// CHECKSTYLE:ON UI needs refactoring
+
+	public static List<Button> createEnumEntry(Composite parent, String label, Enum<?>[] values,
+			Enum<?> defaultvalue, Consumer<Enum<?>> updater) {
+		return createEnumEntry(parent, label, values, defaultvalue, updater, e -> e.name());
+	}
 
 	/**
 	 * Creates a text entry

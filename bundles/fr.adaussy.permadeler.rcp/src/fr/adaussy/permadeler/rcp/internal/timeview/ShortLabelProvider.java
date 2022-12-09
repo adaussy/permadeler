@@ -20,7 +20,7 @@ import org.eclipse.swt.graphics.Image;
  */
 public class ShortLabelProvider implements ILabelProvider {
 
-	private static final String ETC = "...";
+	private static final String ETC = "..."; //$NON-NLS-1$
 
 	private final ILabelProvider delegate;
 
@@ -71,7 +71,7 @@ public class ShortLabelProvider implements ILabelProvider {
 	 */
 	private String getShortLabel(String name) {
 		if (name == null) {
-			return "";
+			return ""; //$NON-NLS-1$
 		}
 		if ((name.length() + ETC.length()) >= max) {
 			return name.substring(0, max - ETC.length()) + ETC;

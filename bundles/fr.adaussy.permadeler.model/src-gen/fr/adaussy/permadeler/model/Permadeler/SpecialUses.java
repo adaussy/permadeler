@@ -34,7 +34,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NITROGEN_FIXER(0, "NitrogenFixer", "NitrogenFixer"),
+	NITROGEN_FIXER(0, "NitrogenFixer", "NitrogenFixer"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Scented Plants</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SCENTED_PLANTS(1, "ScentedPlants", "ScentedPlants"),
+	SCENTED_PLANTS(1, "ScentedPlants", "ScentedPlants"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Food Forest</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOOD_FOREST(2, "FoodForest", "FoodForest"),
+	FOOD_FOREST(2, "FoodForest", "FoodForest"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Cardon Farming</b></em>' literal object.
@@ -64,7 +64,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CARDON_FARMING(3, "CardonFarming", "CardonFarming"),
+	CARDON_FARMING(3, "CardonFarming", "CardonFarming"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Attracts Wildlife</b></em>' literal object.
@@ -74,7 +74,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ATTRACTS_WILDLIFE(4, "AttractsWildlife", "AttractsWildlife"),
+	ATTRACTS_WILDLIFE(4, "AttractsWildlife", "AttractsWildlife"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Hedge</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEDGE(5, "Hedge", "Hedge"),
+	HEDGE(5, "Hedge", "Hedge"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Dynamic Accumulator</b></em>' literal object.
@@ -94,7 +94,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DYNAMIC_ACCUMULATOR(6, "DynamicAccumulator", "DynamicAccumulator"),
+	DYNAMIC_ACCUMULATOR(6, "DynamicAccumulator", "DynamicAccumulator"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Ground Cover</b></em>' literal object.
@@ -104,14 +104,7 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GROUND_COVER(7, "GroundCover", "GroundCover");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	GROUND_COVER(7, "GroundCover", "GroundCover"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nitrogen Fixer</b></em>' literal value.

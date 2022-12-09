@@ -41,13 +41,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class ActionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,14 +75,12 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	 * @generated
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Action_type_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Action_type_feature",
-								"_UI_Action_type"),
-						PermadelerPackage.Literals.ACTION__TYPE, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Action_type_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Action_type_feature", "_UI_Action_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.ACTION__TYPE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -101,9 +92,9 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	protected void addPeriodPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Action_period_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Action_period_feature",
-						"_UI_Action_type"),
+				getString("_UI_Action_period_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Action_period_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Action_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.ACTION__PERIOD, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -117,9 +108,9 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	protected void addDescriptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Action_description_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Action_description_feature",
-						"_UI_Action_type"),
+				getString("_UI_Action_description_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Action_description_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Action_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.ACTION__DESCRIPTION, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -132,7 +123,7 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Action"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Action")); //$NON-NLS-1$
 	}
 
 	/**
@@ -155,8 +146,8 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	public String getText(Object object) {
 		ActionType labelValue = ((Action)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_Action_type")
-				: getString("_UI_Action_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Action_type") : //$NON-NLS-1$
+				getString("_UI_Action_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

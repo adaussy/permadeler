@@ -23,6 +23,7 @@ import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.dialogs.SowSpeciesDialog;
 
 /**
@@ -35,14 +36,14 @@ public class SowSpeciesAction extends AbstractModelAction {
 	private final Plant plant;
 
 	public SowSpeciesAction(Session session, Plant variety) {
-		super("Sow", session);
+		super(RcpMessages.SowSpeciesAction_0, session);
 		this.plant = variety;
 	}
 
 	@Override
 	public ImageDescriptor getImageDescriptor() {
 		return ImageDescriptor
-				.createFromImage(ImageProvider.INSTANCE.getImage("icons/custo/commons/planting.png"));
+				.createFromImage(ImageProvider.INSTANCE.getImage("icons/custo/commons/planting.png")); //$NON-NLS-1$
 	}
 
 	@Override

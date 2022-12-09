@@ -25,6 +25,7 @@ import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
@@ -37,12 +38,12 @@ public class LoadProjectMenu {
 	@Execute
 	public void execute(Shell shell, IEclipseContext context) {
 		FileDialog fileDialog = new FileDialog(shell);
-		fileDialog.setFilterExtensions(new String[] {"*" + CreateNewProjectMenu.REPRESENTATION_FILE_EXT });
+		fileDialog.setFilterExtensions(new String[] {"*" + CreateNewProjectMenu.REPRESENTATION_FILE_EXT }); //$NON-NLS-1$
 		String path = fileDialog.open();
 		if (path != null) {
 			URI createFileURI = URI.createFileURI(path);
 			IRunnableWithProgress op = progress -> {
-				progress.beginTask("Loading session", IProgressMonitor.UNKNOWN);
+				progress.beginTask(RcpMessages.LoadProjectMenu_0, IProgressMonitor.UNKNOWN);
 				Session session = SessionManager.INSTANCE.openSession(createFileURI,
 						new NullProgressMonitor(), new NoUICallback());
 				context.declareModifiable(Session.class);
@@ -52,7 +53,7 @@ public class LoadProjectMenu {
 			try {
 				new ProgressMonitorDialog(shell).run(false, false, op);
 			} catch (InvocationTargetException | InterruptedException e) {
-				RcpPlugin.logError("Problem during session loading " + e.getMessage(), e);
+				RcpPlugin.logError("Problem during session loading " + e.getMessage(), e); //$NON-NLS-1$
 			}
 		}
 	}

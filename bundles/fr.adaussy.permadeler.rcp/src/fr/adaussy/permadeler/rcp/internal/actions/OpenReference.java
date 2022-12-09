@@ -13,6 +13,7 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.MessageFormat;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.widgets.Event;
@@ -30,7 +31,7 @@ public class OpenReference extends Action {
 	private final Reference ref;
 
 	public OpenReference(Reference ref) {
-		super("Open reference " + ref.getSource());
+		super(MessageFormat.format("Ouvrir lien {0}", ref.getLink().getHost())); //$NON-NLS-1$
 		this.ref = ref;
 	}
 

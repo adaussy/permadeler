@@ -35,13 +35,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -85,14 +78,12 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	 * @generated
 	 */
 	protected void addWidthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Plant_width_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Plant_width_feature",
-								"_UI_Plant_type"),
-						PermadelerPackage.Literals.PLANT__WIDTH, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_width_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_width_feature", "_UI_Plant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.PLANT__WIDTH, true, false, false,
+				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -104,9 +95,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addSoilTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_soilType_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_soilType_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_soilType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_soilType_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__SOIL_TYPE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -120,9 +111,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addLightingConditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_lightingCondition_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_lightingCondition_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_lightingCondition_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_lightingCondition_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__LIGHTING_CONDITION, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -134,14 +125,12 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	 * @generated
 	 */
 	protected void addHeightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Plant_height_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Plant_height_feature",
-								"_UI_Plant_type"),
-						PermadelerPackage.Literals.PLANT__HEIGHT, true, false, false,
-						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_height_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_height_feature", "_UI_Plant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.PLANT__HEIGHT, true, false, false,
+				ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -153,9 +142,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addMinTemperaturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_minTemperature_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_minTemperature_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_minTemperature_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_minTemperature_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__MIN_TEMPERATURE, true, false, false,
 				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
@@ -169,9 +158,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addMoisturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_moisture_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_moisture_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_moisture_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_moisture_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__MOISTURE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -185,9 +174,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addSpecialUsesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_specialUses_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_specialUses_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_specialUses_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_specialUses_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__SPECIAL_USES, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -201,9 +190,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addGrowRatePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_growRate_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_growRate_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_growRate_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_growRate_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__GROW_RATE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -215,14 +204,12 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	 * @generated
 	 */
 	protected void addWindPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Plant_wind_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Plant_wind_feature",
-								"_UI_Plant_type"),
-						PermadelerPackage.Literals.PLANT__WIND, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_wind_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_wind_feature", "_UI_Plant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.PLANT__WIND, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -234,9 +221,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addFoodForestLayerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_foodForestLayer_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_foodForestLayer_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_foodForestLayer_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_foodForestLayer_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__FOOD_FOREST_LAYER, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -250,9 +237,9 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	protected void addLifeCyclePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_lifeCycle_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_lifeCycle_feature",
-						"_UI_Plant_type"),
+				getString("_UI_Plant_lifeCycle_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_lifeCycle_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PLANT__LIFE_CYCLE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -264,14 +251,12 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	 * @generated
 	 */
 	protected void addFamilyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(
-						((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Plant_family_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Plant_family_feature",
-								"_UI_Plant_type"),
-						PermadelerPackage.Literals.PLANT__FAMILY, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_family_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_family_feature", "_UI_Plant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				PermadelerPackage.Literals.PLANT__FAMILY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -315,7 +300,7 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Plant"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Plant")); //$NON-NLS-1$
 	}
 
 	/**
@@ -337,8 +322,8 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	@Override
 	public String getText(Object object) {
 		String label = ((Plant)object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Plant_type")
-				: getString("_UI_Plant_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_Plant_type") : //$NON-NLS-1$
+				getString("_UI_Plant_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

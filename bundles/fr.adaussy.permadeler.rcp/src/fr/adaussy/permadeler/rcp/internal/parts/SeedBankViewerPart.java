@@ -23,7 +23,7 @@ public class SeedBankViewerPart extends AbstractModelViewerPart {
 	/**
 	 * View ID
 	 */
-	public static final String ID = "fr.adaussy.permadeler.rcp.part.seedbank";
+	public static final String ID = "fr.adaussy.permadeler.rcp.part.seedbank"; //$NON-NLS-1$
 
 	@Override
 	protected String getViewId() {

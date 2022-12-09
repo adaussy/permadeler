@@ -34,7 +34,7 @@ public enum SowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INDOOR(0, "INDOOR", "INDOOR"),
+	INDOOR(0, "INDOOR", "INDOOR"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>OUTDOOR</b></em>' literal object.
@@ -44,14 +44,7 @@ public enum SowType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OUTDOOR(1, "OUTDOOR", "OUTDOOR");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	OUTDOOR(1, "OUTDOOR", "OUTDOOR"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>INDOOR</b></em>' literal value.

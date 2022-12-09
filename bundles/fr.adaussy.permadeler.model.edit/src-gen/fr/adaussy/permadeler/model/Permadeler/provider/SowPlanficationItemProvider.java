@@ -33,13 +33,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  */
 public class SowPlanficationItemProvider extends PlanficationItemProvider {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,9 +68,9 @@ public class SowPlanficationItemProvider extends PlanficationItemProvider {
 	protected void addSeedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SowPlanfication_seed_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SowPlanfication_seed_feature",
-						"_UI_SowPlanfication_type"),
+				getString("_UI_SowPlanfication_seed_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SowPlanfication_seed_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SowPlanfication_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.SOW_PLANFICATION__SEED, true, false, true, null, null, null));
 	}
 
@@ -90,9 +83,9 @@ public class SowPlanficationItemProvider extends PlanficationItemProvider {
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_SowPlanfication_type_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_SowPlanfication_type_feature",
-						"_UI_SowPlanfication_type"),
+				getString("_UI_SowPlanfication_type_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_SowPlanfication_type_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_SowPlanfication_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.SOW_PLANFICATION__TYPE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
@@ -105,7 +98,7 @@ public class SowPlanficationItemProvider extends PlanficationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SowPlanfication"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SowPlanfication")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +121,8 @@ public class SowPlanficationItemProvider extends PlanficationItemProvider {
 	public String getText(Object object) {
 		SowType labelValue = ((SowPlanfication)object).getType();
 		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ? getString("_UI_SowPlanfication_type")
-				: getString("_UI_SowPlanfication_type") + " " + label;
+		return label == null || label.length() == 0 ? getString("_UI_SowPlanfication_type") : //$NON-NLS-1$
+				getString("_UI_SowPlanfication_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

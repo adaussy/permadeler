@@ -11,6 +11,7 @@ package fr.adaussy.permadeler.rcp.internal.actions;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.text.MessageFormat;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -26,6 +27,7 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 
 import fr.adaussy.permadeler.model.Permadeler.Image;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
@@ -44,7 +46,7 @@ public class OpenImageAction extends Action {
 
 	@Override
 	public String getText() {
-		return "Open image " + img.getTitle();
+		return MessageFormat.format(RcpMessages.OpenImageAction_0, img.getTitle());
 	}
 
 	@Override
@@ -62,19 +64,19 @@ public class OpenImageAction extends Action {
 				if (iFile.exists()) {
 
 					IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
-							new FileEditorInput(iFile), "org.eclipse.ui.browser.editor");
+							new FileEditorInput(iFile), "org.eclipse.ui.browser.editor"); //$NON-NLS-1$
 
 				} else {
-					RcpPlugin.logError("The image does not exist " + iPath);
+					RcpPlugin.logError(MessageFormat.format("The image does not exist {0}", iPath)); //$NON-NLS-1$
 				}
 			} else if (uri.isFile()) {
 				String path = uri.toFileString();
 				File image = Paths.get(path).getParent().resolve(img.getPath()).toFile();
 				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
-						image.toURI(), "org.eclipse.ui.browser.editor", true);
+						image.toURI(), "org.eclipse.ui.browser.editor", true); //$NON-NLS-1$
 			}
 		} catch (PartInitException e) {
-			RcpPlugin.logError("Unable to display image ", e);
+			RcpPlugin.logError("Unable to display image ", e); //$NON-NLS-1$
 		}
 
 	}

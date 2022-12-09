@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import fr.adaussy.permadeler.model.Permadeler.Tray;
+import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
 
 /**
@@ -51,7 +52,7 @@ public class TrayDimensionCreationDialog extends Dialog {
 	protected Control createDialogArea(Composite parent) {
 		Composite cc = (Composite)super.createDialogArea(parent);
 
-		Dialogs.createIntEntry(cc, "Rows", nbOfRows, i -> {
+		Dialogs.createIntEntry(cc, RcpMessages.TrayDimensionCreationDialog_0, nbOfRows, i -> {
 			this.nbOfRows = i;
 			if (totalText != null) {
 				totalText.setText(String.valueOf(nbOfRows * nbOfCells));
@@ -59,15 +60,16 @@ public class TrayDimensionCreationDialog extends Dialog {
 
 		});
 
-		Dialogs.createIntEntry(cc, "Cells", nbOfCells, i -> {
+		Dialogs.createIntEntry(cc, RcpMessages.TrayDimensionCreationDialog_1, nbOfCells, i -> {
 			this.nbOfCells = i;
 			if (totalText != null) {
 				totalText.setText(String.valueOf(nbOfRows * nbOfCells));
 			}
 		});
 
-		totalText = Dialogs.createIntEntry(cc, "Total", nbOfCells * nbOfRows, i -> {
-		});
+		totalText = Dialogs.createIntEntry(cc, RcpMessages.TrayDimensionCreationDialog_2,
+				nbOfCells * nbOfRows, i -> {
+				});
 
 		return cc;
 	}

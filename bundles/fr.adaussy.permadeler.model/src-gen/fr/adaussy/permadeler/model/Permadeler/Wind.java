@@ -34,7 +34,7 @@ public enum Wind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOLERATE_MARTIME_WIND(0, "TolerateMartimeWind", "TolerateMartimeWind"),
+	TOLERATE_MARTIME_WIND(0, "TolerateMartimeWind", "TolerateMartimeWind"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tolerate Strong Wind</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum Wind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TOLERATE_STRONG_WIND(1, "TolerateStrongWind", "TolerateStrongWind"),
+	TOLERATE_STRONG_WIND(1, "TolerateStrongWind", "TolerateStrongWind"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Not Wind Tolerant</b></em>' literal object.
@@ -54,14 +54,7 @@ public enum Wind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOT_WIND_TOLERANT(2, "NotWindTolerant", "NotWindTolerant");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	NOT_WIND_TOLERANT(2, "NotWindTolerant", "NotWindTolerant"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Tolerate Martime Wind</b></em>' literal value.

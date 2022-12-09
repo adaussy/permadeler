@@ -54,11 +54,11 @@ public class TimeViewPart {
 	/**
 	 * Id of the view
 	 */
-	public static final String ID = "fr.adaussy.permadeler.rcp.timeview";
+	public static final String ID = "fr.adaussy.permadeler.rcp.timeview"; //$NON-NLS-1$
 
-	private static final String SEP = "->";
+	private static final String SEP = "->"; //$NON-NLS-1$
 
-	private static final String INPUT_PS = "input";
+	private static final String INPUT_PS = "input"; //$NON-NLS-1$
 
 	private static final int MAX_LABEL_SIZE = 20;
 
@@ -188,7 +188,7 @@ public class TimeViewPart {
 		this.input = input;
 		part.setLabel(input.getQuery());
 		Composite headerComposite = new Composite(main, SWT.NONE);
-		headerComposite.setData("name", "Header composite");
+		headerComposite.setData("name", "Header composite"); //$NON-NLS-1$ //$NON-NLS-2$
 		headerComposite.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
 		GridLayout headerLayout = Layouts.createNoSpacingLayout(input.getHeaders().size() + 1, false);

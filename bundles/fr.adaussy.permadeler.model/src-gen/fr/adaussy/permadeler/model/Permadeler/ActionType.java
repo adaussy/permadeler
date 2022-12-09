@@ -34,7 +34,7 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOW_INDOOR(0, "SowIndoor", "SowIndoor"),
+	SOW_INDOOR(0, "SowIndoor", "SowIndoor"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sow Outdoor</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOW_OUTDOOR(1, "SowOutdoor", "SowOutdoor"),
+	SOW_OUTDOOR(1, "SowOutdoor", "SowOutdoor"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pruning</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRUNING(2, "Pruning", "Pruning"),
+	PRUNING(2, "Pruning", "Pruning"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Other</b></em>' literal object.
@@ -64,14 +64,7 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(3, "Other", "Other");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	OTHER(3, "Other", "Other"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Sow Indoor</b></em>' literal value.

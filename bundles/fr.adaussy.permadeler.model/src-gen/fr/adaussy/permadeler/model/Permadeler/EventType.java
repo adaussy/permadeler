@@ -34,7 +34,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GENERAL(0, "General", "General"),
+	GENERAL(0, "General", "General"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Harvest</b></em>' literal object.
@@ -44,7 +44,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HARVEST(1, "Harvest", "Harvest"),
+	HARVEST(1, "Harvest", "Harvest"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Prune</b></em>' literal object.
@@ -54,7 +54,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRUNE(2, "Prune", "Prune"),
+	PRUNE(2, "Prune", "Prune"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Disease</b></em>' literal object.
@@ -64,14 +64,7 @@ public enum EventType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DISEASE(3, "Disease", "Disease");
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
+	DISEASE(3, "Disease", "Disease"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>General</b></em>' literal value.

@@ -32,13 +32,6 @@ import java.util.List;
  */
 public interface Action extends TemporalItem {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The default value is <code>"SowIndoor"</code>.
 	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.ActionType}.

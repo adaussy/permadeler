@@ -39,19 +39,12 @@ import org.eclipse.emf.ecore.EReference;
  */
 public interface PermadelerPackage extends EPackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	String copyright = " Copyright (c) 2020 Arthur Daussy.\n\n This program and the accompanying materials are made \n available under the terms of the Eclipse Public License 2.0 \n which is available at https://www.eclipse.org/legal/epl-2.0/ \n Contributors:\n Arthur Daussy - initial API and implementation.\n";
-
-	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "Permadeler";
+	String eNAME = "Permadeler"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace URI.
@@ -59,7 +52,7 @@ public interface PermadelerPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.example.org/fr.adaussy.permadeler.model";
+	String eNS_URI = "http://www.example.org/fr.adaussy.permadeler.model"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace name.
@@ -67,7 +60,7 @@ public interface PermadelerPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "fr.adaussy.permadeler.model";
+	String eNS_PREFIX = "fr.adaussy.permadeler.model"; //$NON-NLS-1$
 
 	/**
 	 * The package content type ID.
@@ -75,7 +68,7 @@ public interface PermadelerPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eCONTENT_TYPE = "permadeler";
+	String eCONTENT_TYPE = "permadeler"; //$NON-NLS-1$
 
 	/**
 	 * The singleton instance of the package.
@@ -535,31 +528,31 @@ public interface PermadelerPackage extends EPackage {
 	int REFERENCE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__DESCRIPTION = NAMED_ELEMENT__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Link</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__LINK = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__ID = 1;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__SOURCE = 2;
+	int REFERENCE__LINK = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
@@ -568,7 +561,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = 3;
+	int REFERENCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -577,7 +570,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATION_COUNT = 0;
+	int REFERENCE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.
@@ -2340,28 +2333,6 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getReference_Link();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Reference#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Reference#getId()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EAttribute getReference_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Reference#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Source</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Reference#getSource()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EAttribute getReference_Source();
-
-	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Image <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3639,22 +3610,6 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REFERENCE__LINK = eINSTANCE.getReference_Link();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE__ID = eINSTANCE.getReference_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REFERENCE__SOURCE = eINSTANCE.getReference_Source();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.
