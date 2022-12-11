@@ -10,9 +10,10 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
-import fr.adaussy.permadeler.model.Permadeler.Action;
-import fr.adaussy.permadeler.model.Permadeler.ActionType;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
@@ -20,44 +21,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Action</b></em>'.
+ * An implementation of the model object '<em><b>Temporal Item</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ActionImpl#getType <em>Type</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl#getPeriod <em>Period</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ActionImpl extends TemporalItemCustomImpl implements Action {
+public class TemporalItemImpl extends NamedElementImpl implements TemporalItem {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ActionType TYPE_EDEFAULT = ActionType.SOW_INDOOR;
+	protected static final List<Integer> PERIOD_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getPeriod()
 	 * @generated
 	 * @ordered
 	 */
-	protected ActionType type = TYPE_EDEFAULT;
+	protected List<Integer> period = PERIOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActionImpl() {
+	protected TemporalItemImpl() {
 		super();
 	}
 
@@ -68,7 +69,7 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PermadelerPackage.Literals.ACTION;
+		return PermadelerPackage.Literals.TEMPORAL_ITEM;
 	}
 
 	/**
@@ -76,8 +77,8 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActionType getType() {
-		return type;
+	public List<Integer> getPeriod() {
+		return period;
 	}
 
 	/**
@@ -85,12 +86,12 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ActionType newType) {
-		ActionType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setPeriod(List<Integer> newPeriod) {
+		List<Integer> oldPeriod = period;
+		period = newPeriod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.ACTION__TYPE, oldType,
-					type));
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.TEMPORAL_ITEM__PERIOD,
+					oldPeriod, period));
 	}
 
 	/**
@@ -101,8 +102,8 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.ACTION__TYPE:
-				return getType();
+			case PermadelerPackage.TEMPORAL_ITEM__PERIOD:
+				return getPeriod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,8 +117,8 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.ACTION__TYPE:
-				setType((ActionType)newValue);
+			case PermadelerPackage.TEMPORAL_ITEM__PERIOD:
+				setPeriod((List<Integer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +132,8 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.ACTION__TYPE:
-				setType(TYPE_EDEFAULT);
+			case PermadelerPackage.TEMPORAL_ITEM__PERIOD:
+				setPeriod(PERIOD_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -146,8 +147,8 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.ACTION__TYPE:
-				return type != TYPE_EDEFAULT;
+			case PermadelerPackage.TEMPORAL_ITEM__PERIOD:
+				return PERIOD_EDEFAULT == null ? period != null : !PERIOD_EDEFAULT.equals(period);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -163,10 +164,10 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (type: "); //$NON-NLS-1$
-		result.append(type);
+		result.append(" (period: "); //$NON-NLS-1$
+		result.append(period);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ActionImpl
+} //TemporalItemImpl

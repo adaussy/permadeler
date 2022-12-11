@@ -11,32 +11,33 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Production} object.
+ * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.TemporalItem} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProductionItemProvider extends TemporalItemItemProvider {
+public class TemporalItemItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProductionItemProvider(AdapterFactory adapterFactory) {
+	public TemporalItemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -51,53 +52,25 @@ public class ProductionItemProvider extends TemporalItemItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
-			addConservationPropertyDescriptor(object);
+			addPeriodPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Period feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addPeriodPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Production_type_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Production_type_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Production_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PRODUCTION__TYPE, true, false, false,
+				getString("_UI_TemporalItem_period_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_TemporalItem_period_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_TemporalItem_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.TEMPORAL_ITEM__PERIOD, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Conservation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConservationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Production_conservation_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Production_conservation_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Production_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PRODUCTION__CONSERVATION, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This returns Production.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Production")); //$NON-NLS-1$
 	}
 
 	/**
@@ -118,9 +91,9 @@ public class ProductionItemProvider extends TemporalItemItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Production)object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Production_type") : //$NON-NLS-1$
-				getString("_UI_Production_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+		String label = ((TemporalItem)object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_TemporalItem_type") : //$NON-NLS-1$
+				getString("_UI_TemporalItem_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -134,9 +107,8 @@ public class ProductionItemProvider extends TemporalItemItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Production.class)) {
-			case PermadelerPackage.PRODUCTION__TYPE:
-			case PermadelerPackage.PRODUCTION__CONSERVATION:
+		switch (notification.getFeatureID(TemporalItem.class)) {
+			case PermadelerPackage.TEMPORAL_ITEM__PERIOD:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

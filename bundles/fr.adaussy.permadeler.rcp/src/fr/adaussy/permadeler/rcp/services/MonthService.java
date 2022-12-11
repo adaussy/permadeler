@@ -13,9 +13,11 @@ import static java.util.stream.Collectors.toSet;
 
 import java.text.MessageFormat;
 import java.time.Month;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -30,6 +32,7 @@ import com.google.common.collect.Sets;
 
 import fr.adaussy.permadeler.common.date.DateUtils;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.dialogs.MonthWeekDialog;
@@ -43,44 +46,24 @@ public class MonthService {
 
 	private static final String FULL_MONTH_LABEL = "X"; //$NON-NLS-1$
 
-	/**
-	 * Opens a dialog that propose to the user to select weeks
-	 * 
-	 * @param sourceObject
-	 *            the semantic object
-	 * @param featureName
-	 *            the name of the feature that returns a list of {@link Integer}
-	 * @param message
-	 *            the message to display to the user
-	 */
-	public void editMonthQuarter(final EObject sourceObject, final String featureName, final String message) {
-		final List<Integer> montWeeks = this.getMonthsWeek(sourceObject, featureName);
+	public void editMonthQuarter(final TemporalItem sourceObject) {
+		final List<Integer> montWeeks = sourceObject.getPeriod();
 		final MonthWeekDialog dialog = new MonthWeekDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), message, montWeeks);
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				MessageFormat.format(RcpMessages.MonthService_7, sourceObject.getName()), montWeeks);
 		if (dialog.open() == Dialog.OK) {
-			montWeeks.clear();
-			montWeeks.addAll(dialog.getMonths());
+			sourceObject.setPeriod(dialog.getMonths());
 		}
 	}
 
-	/**
-	 * Gets the list of month labels that represent the value of the given feature (which return a list of
-	 * monthly-quarter). The label can either be the name of the month or ( w1,w2... quarter)
-	 * 
-	 * @param eObject
-	 *            the source {@link EObject}
-	 * @param featureName
-	 *            a feature which return a list of quarter monthly
-	 * @return a list of label
-	 */
-	public List<String> getMonths(final EObject eObject, final String featureName) {
-		final List<Integer> monthsWeeks = this.getMonthsWeek(eObject, featureName);
+	public List<String> getMonths(final TemporalItem eObject) {
+		final List<Integer> monthsWeeks = eObject.getPeriod();
 		final List<String> result = new ArrayList<String>();
 		for (final Month m : Month.values()) {
 			final int monthNumber = m.ordinal() + 1;
 			final String currentLabel = this.getMonthLabel(monthNumber, monthsWeeks);
 			if ((currentLabel != null) && (!currentLabel.isEmpty())) {
-				String label = m.toString();
+				String label = m.getDisplayName(TextStyle.SHORT, Locale.FRANCE);
 				if (!FULL_MONTH_LABEL.equals(currentLabel)) {
 					label = label + (MessageFormat.format(RcpMessages.MonthService_0, (" (" + currentLabel))); //$NON-NLS-1$
 				}
@@ -123,7 +106,7 @@ public class MonthService {
 				return FULL_MONTH_LABEL;
 			} else {
 				return weeks.stream().<String> map(it -> {
-					return this.toQuarterNumber((it.intValue() % 4) + 1);
+					return this.toQuarterNumber((it.intValue() % 4));
 				}).collect(Collectors.joining(",")); //$NON-NLS-1$
 			}
 		}

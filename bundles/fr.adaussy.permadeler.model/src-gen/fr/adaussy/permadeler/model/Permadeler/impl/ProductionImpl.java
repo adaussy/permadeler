@@ -13,19 +13,10 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ProductionType;
-
-import java.lang.reflect.InvocationTargetException;
-
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,35 +26,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#getType <em>Type</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#getConservation <em>Conservation</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProductionImpl extends MinimalEObjectImpl.Container implements Production {
-	/**
-	 * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final List<Integer> PERIOD_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPeriod()
-	 * @generated
-	 * @ordered
-	 */
-	protected List<Integer> period = PERIOD_EDEFAULT;
-
+public class ProductionImpl extends TemporalItemCustomImpl implements Production {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -83,26 +52,6 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 	 * @ordered
 	 */
 	protected ProductionType type = TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getConservation() <em>Conservation</em>}' attribute.
@@ -148,28 +97,6 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<Integer> getPeriod() {
-		return period;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPeriod(List<Integer> newPeriod) {
-		List<Integer> oldPeriod = period;
-		period = newPeriod;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PRODUCTION__PERIOD,
-					oldPeriod, period));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ProductionType getType() {
 		return type;
 	}
@@ -185,28 +112,6 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PRODUCTION__TYPE, oldType,
 					type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PRODUCTION__DESCRIPTION,
-					oldDescription, description));
 	}
 
 	/**
@@ -236,37 +141,11 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public List<Integer> getPerdiod() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.PRODUCTION__PERIOD:
-				return getPeriod();
 			case PermadelerPackage.PRODUCTION__TYPE:
 				return getType();
-			case PermadelerPackage.PRODUCTION__DESCRIPTION:
-				return getDescription();
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				return getConservation();
 		}
@@ -282,14 +161,8 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.PRODUCTION__PERIOD:
-				setPeriod((List<Integer>)newValue);
-				return;
 			case PermadelerPackage.PRODUCTION__TYPE:
 				setType((ProductionType)newValue);
-				return;
-			case PermadelerPackage.PRODUCTION__DESCRIPTION:
-				setDescription((String)newValue);
 				return;
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				setConservation((Integer)newValue);
@@ -306,14 +179,8 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.PRODUCTION__PERIOD:
-				setPeriod(PERIOD_EDEFAULT);
-				return;
 			case PermadelerPackage.PRODUCTION__TYPE:
 				setType(TYPE_EDEFAULT);
-				return;
-			case PermadelerPackage.PRODUCTION__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				setConservation(CONSERVATION_EDEFAULT);
@@ -330,33 +197,12 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.PRODUCTION__PERIOD:
-				return PERIOD_EDEFAULT == null ? period != null : !PERIOD_EDEFAULT.equals(period);
 			case PermadelerPackage.PRODUCTION__TYPE:
 				return type != TYPE_EDEFAULT;
-			case PermadelerPackage.PRODUCTION__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null
-						: !DESCRIPTION_EDEFAULT.equals(description);
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				return conservation != CONSERVATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case PermadelerPackage.PRODUCTION___GET_NAME:
-				return getName();
-			case PermadelerPackage.PRODUCTION___GET_PERDIOD:
-				return getPerdiod();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -370,12 +216,8 @@ public class ProductionImpl extends MinimalEObjectImpl.Container implements Prod
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (period: "); //$NON-NLS-1$
-		result.append(period);
-		result.append(", type: "); //$NON-NLS-1$
+		result.append(" (type: "); //$NON-NLS-1$
 		result.append(type);
-		result.append(", description: "); //$NON-NLS-1$
-		result.append(description);
 		result.append(", conservation: "); //$NON-NLS-1$
 		result.append(conservation);
 		result.append(')');

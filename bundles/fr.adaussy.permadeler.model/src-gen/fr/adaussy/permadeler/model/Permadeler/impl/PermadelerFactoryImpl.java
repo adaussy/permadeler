@@ -117,6 +117,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createProduction();
 			case PermadelerPackage.ACTION:
 				return createAction();
+			case PermadelerPackage.TEMPORAL_ITEM:
+				return createTemporalItem();
 			case PermadelerPackage.PLANTATION_PHASE:
 				return createPlantationPhase();
 			default:
@@ -443,7 +445,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public Production createProduction() {
-		ProductionCustomImpl production = new ProductionCustomImpl();
+		ProductionImpl production = new ProductionImpl();
 		return production;
 	}
 
@@ -453,8 +455,18 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public Action createAction() {
-		ActionCustomImpl action = new ActionCustomImpl();
+		ActionImpl action = new ActionImpl();
 		return action;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemporalItem createTemporalItem() {
+		TemporalItemCustomImpl temporalItem = new TemporalItemCustomImpl();
+		return temporalItem;
 	}
 
 	/**

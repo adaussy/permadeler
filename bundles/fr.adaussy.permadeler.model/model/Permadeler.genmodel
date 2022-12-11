@@ -734,10 +734,11 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Root"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//ActionType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Other"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Pruning"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/SowIndoor"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/SowOutdoor"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Pruning"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Other"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Multiplication"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Layer">
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/CANOPY"/>
@@ -872,19 +873,14 @@
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getAllNames"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Production">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/period"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/conservation"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Action">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Action/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Action/period"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Action/description"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Permadeler.ecore#//TemporalItem">
-      <genOperations ecoreOperation="Permadeler.ecore#//TemporalItem/getName"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//TemporalItem/getPerdiod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//TemporalItem/period"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//PlantationPhase">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//PlantationPhase/plantations"/>

@@ -228,6 +228,15 @@ public interface PermadelerFactory extends EFactory {
 	Action createAction();
 
 	/**
+	 * Returns a new object of class '<em>Temporal Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Temporal Item</em>'.
+	 * @generated
+	 */
+	TemporalItem createTemporalItem();
+
+	/**
 	 * Returns a new object of class '<em>Plantation Phase</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

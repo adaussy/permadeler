@@ -545,7 +545,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProductionItemProvider productionItemProvider;
+	protected ProductionItemProviderCustomImpl productionItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Production}.
@@ -556,7 +556,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	@Override
 	public Adapter createProductionAdapter() {
 		if (productionItemProvider == null) {
-			productionItemProvider = new ProductionItemProvider(this);
+			productionItemProvider = new ProductionItemProviderCustomImpl(this);
 		}
 
 		return productionItemProvider;
@@ -568,7 +568,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActionItemProvider actionItemProvider;
+	protected ActionItemProviderCustomImpl actionItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Action}.
@@ -579,10 +579,33 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	@Override
 	public Adapter createActionAdapter() {
 		if (actionItemProvider == null) {
-			actionItemProvider = new ActionItemProvider(this);
+			actionItemProvider = new ActionItemProviderCustomImpl(this);
 		}
 
 		return actionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.TemporalItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemporalItemItemProvider temporalItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.TemporalItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemporalItemAdapter() {
+		if (temporalItemItemProvider == null) {
+			temporalItemItemProvider = new TemporalItemItemProvider(this);
+		}
+
+		return temporalItemItemProvider;
 	}
 
 	/**
@@ -751,6 +774,8 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			productionItemProvider.dispose();
 		if (actionItemProvider != null)
 			actionItemProvider.dispose();
+		if (temporalItemItemProvider != null)
+			temporalItemItemProvider.dispose();
 		if (plantationPhaseItemProvider != null)
 			plantationPhaseItemProvider.dispose();
 	}

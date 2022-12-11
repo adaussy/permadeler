@@ -3,7 +3,7 @@ package fr.adaussy.permadeler.rcp;
 import org.eclipse.osgi.util.NLS;
 
 public class RcpMessages extends NLS {
-	private static final String BUNDLE_NAME = RcpMessages.class.getPackageName() + ".rcp-messages"; //$NON-NLS-1$
+	private static final String BUNDLE_NAME = RcpMessages.class.getPackageName() + ".RcpMessages"; //$NON-NLS-1$
 
 	public static String AbstractSowCalendarDirectMenu_0;
 
@@ -56,6 +56,8 @@ public class RcpMessages extends NLS {
 	public static String MonthService_5;
 
 	public static String MonthService_6;
+
+	public static String MonthService_7;
 
 	public static String MonthWeekDialog_0;
 

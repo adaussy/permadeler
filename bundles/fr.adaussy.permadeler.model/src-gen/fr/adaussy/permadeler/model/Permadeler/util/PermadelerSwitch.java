@@ -270,6 +270,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseTemporalItem(production);
 				if (result == null)
+					result = caseNamedElement(production);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -279,12 +281,16 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseTemporalItem(action);
 				if (result == null)
+					result = caseNamedElement(action);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
 			case PermadelerPackage.TEMPORAL_ITEM: {
 				TemporalItem temporalItem = (TemporalItem)theEObject;
 				T result = caseTemporalItem(temporalItem);
+				if (result == null)
+					result = caseNamedElement(temporalItem);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;

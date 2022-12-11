@@ -10,8 +10,6 @@
  */
 package fr.adaussy.permadeler.model.Permadeler;
 
-import java.util.List;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Action</b></em>'.
@@ -22,8 +20,6 @@ import java.util.List;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Action#getType <em>Type</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Action#getPeriod <em>Period</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Action#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getAction()
@@ -56,49 +52,5 @@ public interface Action extends TemporalItem {
 	 * @generated
 	 */
 	void setType(ActionType value);
-
-	/**
-	 * Returns the value of the '<em><b>Period</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Period</em>' attribute.
-	 * @see #setPeriod(List)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getAction_Period()
-	 * @model dataType="fr.adaussy.permadeler.model.Permadeler.MonthWeeks"
-	 * @generated
-	 */
-	List<Integer> getPeriod();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Action#getPeriod <em>Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' attribute.
-	 * @see #getPeriod()
-	 * @generated
-	 */
-	void setPeriod(List<Integer> value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getAction_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Action#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
 
 } // Action

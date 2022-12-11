@@ -39,7 +39,7 @@ public class TimeLineDescription {
 	}
 
 	public Supplier<List<Integer>> getWeeks() {
-		return () -> temporalItem.getPerdiod();
+		return () -> temporalItem.getPeriod();
 	}
 
 	public Supplier<String> getEntryLabel() {

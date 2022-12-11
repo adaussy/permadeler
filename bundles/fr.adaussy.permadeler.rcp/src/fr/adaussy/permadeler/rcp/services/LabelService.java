@@ -14,14 +14,13 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
+import fr.adaussy.permadeler.model.edit.TextHelper;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
@@ -61,17 +60,7 @@ public class LabelService {
 	}
 
 	public static String getEditLabel(Object o) {
-
-		if (o instanceof EEnumLiteral) {
-			EEnumLiteral enumLiteral = (EEnumLiteral)o;
-
-			String key = String.format("_UI_%s_%s_literal", enumLiteral.getEEnum().getName(), //$NON-NLS-1$
-					enumLiteral.getLiteral());
-			return PermadelerEditPlugin.getPlugin().getString(key);
-
-		}
-
-		return ""; //$NON-NLS-1$
+		return TextHelper.getEditLabel(o);
 	}
 
 	public static String getCellToolTip(Cell cell) {

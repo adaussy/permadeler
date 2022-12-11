@@ -10,8 +10,6 @@
  */
 package fr.adaussy.permadeler.model.Permadeler;
 
-import java.util.List;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Production</b></em>'.
@@ -21,9 +19,7 @@ import java.util.List;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#getPeriod <em>Period</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#getType <em>Type</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#getDescription <em>Description</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#getConservation <em>Conservation</em>}</li>
  * </ul>
  *
@@ -32,28 +28,6 @@ import java.util.List;
  * @generated
  */
 public interface Production extends TemporalItem {
-	/**
-	 * Returns the value of the '<em><b>Period</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Period</em>' attribute.
-	 * @see #setPeriod(List)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getProduction_Period()
-	 * @model dataType="fr.adaussy.permadeler.model.Permadeler.MonthWeeks"
-	 * @generated
-	 */
-	List<Integer> getPeriod();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Production#getPeriod <em>Period</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Period</em>' attribute.
-	 * @see #getPeriod()
-	 * @generated
-	 */
-	void setPeriod(List<Integer> value);
-
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.ProductionType}.
@@ -78,28 +52,6 @@ public interface Production extends TemporalItem {
 	 * @generated
 	 */
 	void setType(ProductionType value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getProduction_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Production#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Conservation</b></em>' attribute.

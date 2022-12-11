@@ -12,33 +12,43 @@ package fr.adaussy.permadeler.model.Permadeler;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Temporal Item</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem#getPeriod <em>Period</em>}</li>
+ * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getTemporalItem()
- * @model interface="true" abstract="true"
+ * @model
  * @generated
  */
-public interface TemporalItem extends EObject {
+public interface TemporalItem extends NamedElement {
 	/**
+	 * Returns the value of the '<em><b>Period</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Period</em>' attribute.
+	 * @see #setPeriod(List)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getTemporalItem_Period()
+	 * @model dataType="fr.adaussy.permadeler.model.Permadeler.MonthWeeks"
 	 * @generated
 	 */
-	String getName();
+	List<Integer> getPeriod();
 
 	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem#getPeriod <em>Period</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="fr.adaussy.permadeler.model.Permadeler.MonthWeeks"
+	 * @param value the new value of the '<em>Period</em>' attribute.
+	 * @see #getPeriod()
 	 * @generated
 	 */
-	List<Integer> getPerdiod();
+	void setPeriod(List<Integer> value);
 
 } // TemporalItem

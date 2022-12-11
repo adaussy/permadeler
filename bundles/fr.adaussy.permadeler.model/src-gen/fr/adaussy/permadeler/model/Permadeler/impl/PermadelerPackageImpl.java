@@ -1301,7 +1301,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProduction_Period() {
+	public EAttribute getProduction_Type() {
 		return (EAttribute)productionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1310,26 +1310,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProduction_Type() {
-		return (EAttribute)productionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProduction_Description() {
-		return (EAttribute)productionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getProduction_Conservation() {
-		return (EAttribute)productionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)productionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1355,24 +1337,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAction_Period() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAction_Description() {
-		return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTemporalItem() {
 		return temporalItemEClass;
 	}
@@ -1382,17 +1346,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTemporalItem__GetName() {
-		return temporalItemEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTemporalItem__GetPerdiod() {
-		return temporalItemEClass.getEOperations().get(1);
+	public EAttribute getTemporalItem_Period() {
+		return (EAttribute)temporalItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1754,19 +1709,14 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(plantEClass, PLANT___GET_ALL_NAMES);
 
 		productionEClass = createEClass(PRODUCTION);
-		createEAttribute(productionEClass, PRODUCTION__PERIOD);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
-		createEAttribute(productionEClass, PRODUCTION__DESCRIPTION);
 		createEAttribute(productionEClass, PRODUCTION__CONSERVATION);
 
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__TYPE);
-		createEAttribute(actionEClass, ACTION__PERIOD);
-		createEAttribute(actionEClass, ACTION__DESCRIPTION);
 
 		temporalItemEClass = createEClass(TEMPORAL_ITEM);
-		createEOperation(temporalItemEClass, TEMPORAL_ITEM___GET_NAME);
-		createEOperation(temporalItemEClass, TEMPORAL_ITEM___GET_PERDIOD);
+		createEAttribute(temporalItemEClass, TEMPORAL_ITEM__PERIOD);
 
 		plantationPhaseEClass = createEClass(PLANTATION_PHASE);
 		createEReference(plantationPhaseEClass, PLANTATION_PHASE__PLANTATIONS);
@@ -1839,6 +1789,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		plantEClass.getESuperTypes().add(this.getPlantNamedElement());
 		productionEClass.getESuperTypes().add(this.getTemporalItem());
 		actionEClass.getESuperTypes().add(this.getTemporalItem());
+		temporalItemEClass.getESuperTypes().add(this.getNamedElement());
 		plantationPhaseEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -2103,15 +2054,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProduction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Production.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEAttribute(getProduction_Type(), this.getProductionType(), "type", null, 0, 1, Production.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getProduction_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
-				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProduction_Conservation(), ecorePackage.getEInt(), "conservation", null, 0, 1, //$NON-NLS-1$
 				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2121,21 +2066,12 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getAction_Type(), this.getActionType(), "type", "SowIndoor", 0, 1, Action.class, //$NON-NLS-1$//$NON-NLS-2$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getAction_Period(), this.getMonthWeeks(), "period", null, 0, 1, Action.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getAction_Description(), ecorePackage.getEString(), "description", null, 0, 1, //$NON-NLS-1$
-				Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
 
-		initEClass(temporalItemEClass, TemporalItem.class, "TemporalItem", IS_ABSTRACT, IS_INTERFACE, //$NON-NLS-1$
+		initEClass(temporalItemEClass, TemporalItem.class, "TemporalItem", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getTemporalItem__GetName(), ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, //$NON-NLS-1$
-				IS_ORDERED);
-
-		initEOperation(getTemporalItem__GetPerdiod(), this.getMonthWeeks(), "getPerdiod", 0, 1, IS_UNIQUE, //$NON-NLS-1$
-				IS_ORDERED);
+		initEAttribute(getTemporalItem_Period(), this.getMonthWeeks(), "period", null, 0, 1, //$NON-NLS-1$
+				TemporalItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plantationPhaseEClass, PlantationPhase.class, "PlantationPhase", !IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2870,10 +2806,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(productionTypeEEnum, ProductionType.ROOT);
 
 		initEEnum(actionTypeEEnum, ActionType.class, "ActionType"); //$NON-NLS-1$
+		addEEnumLiteral(actionTypeEEnum, ActionType.OTHER);
+		addEEnumLiteral(actionTypeEEnum, ActionType.PRUNING);
 		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_INDOOR);
 		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_OUTDOOR);
-		addEEnumLiteral(actionTypeEEnum, ActionType.PRUNING);
-		addEEnumLiteral(actionTypeEEnum, ActionType.OTHER);
+		addEEnumLiteral(actionTypeEEnum, ActionType.MULTIPLICATION);
 
 		initEEnum(layerEEnum, Layer.class, "Layer"); //$NON-NLS-1$
 		addEEnumLiteral(layerEEnum, Layer.CANOPY);

@@ -1516,14 +1516,41 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem <em>Temporal Item</em>}' class.
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.TemporalItem
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTemporalItem()
 	 * @generated
 	 */
 	int TEMPORAL_ITEM = 26;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_ITEM__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_ITEM__DESCRIPTION = NAMED_ELEMENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_ITEM__PERIOD = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Temporal Item</em>' class.
@@ -1532,25 +1559,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL_ITEM_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Get Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPORAL_ITEM___GET_NAME = 0;
-
-	/**
-	 * The operation id for the '<em>Get Perdiod</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEMPORAL_ITEM___GET_PERDIOD = 1;
+	int TEMPORAL_ITEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Temporal Item</em>' class.
@@ -1559,7 +1568,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPORAL_ITEM_OPERATION_COUNT = 2;
+	int TEMPORAL_ITEM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.
@@ -1572,22 +1581,13 @@ public interface PermadelerPackage extends EPackage {
 	int PRODUCTION = 24;
 
 	/**
-	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCTION__PERIOD = TEMPORAL_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRODUCTION__TYPE = TEMPORAL_ITEM_FEATURE_COUNT + 1;
+	int PRODUCTION__NAME = TEMPORAL_ITEM__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1596,7 +1596,25 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCTION__DESCRIPTION = TEMPORAL_ITEM_FEATURE_COUNT + 2;
+	int PRODUCTION__DESCRIPTION = TEMPORAL_ITEM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCTION__PERIOD = TEMPORAL_ITEM__PERIOD;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCTION__TYPE = TEMPORAL_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Conservation</b></em>' attribute.
@@ -1605,7 +1623,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCTION__CONSERVATION = TEMPORAL_ITEM_FEATURE_COUNT + 3;
+	int PRODUCTION__CONSERVATION = TEMPORAL_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Production</em>' class.
@@ -1614,25 +1632,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCTION_FEATURE_COUNT = TEMPORAL_ITEM_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Get Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRODUCTION___GET_NAME = TEMPORAL_ITEM___GET_NAME;
-
-	/**
-	 * The operation id for the '<em>Get Perdiod</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRODUCTION___GET_PERDIOD = TEMPORAL_ITEM___GET_PERDIOD;
+	int PRODUCTION_FEATURE_COUNT = TEMPORAL_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Production</em>' class.
@@ -1654,6 +1654,33 @@ public interface PermadelerPackage extends EPackage {
 	int ACTION = 25;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__NAME = TEMPORAL_ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DESCRIPTION = TEMPORAL_ITEM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__PERIOD = TEMPORAL_ITEM__PERIOD;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1663,49 +1690,13 @@ public interface PermadelerPackage extends EPackage {
 	int ACTION__TYPE = TEMPORAL_ITEM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Period</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__PERIOD = TEMPORAL_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__DESCRIPTION = TEMPORAL_ITEM_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = TEMPORAL_ITEM_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___GET_NAME = TEMPORAL_ITEM___GET_NAME;
-
-	/**
-	 * The operation id for the '<em>Get Perdiod</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION___GET_PERDIOD = TEMPORAL_ITEM___GET_PERDIOD;
+	int ACTION_FEATURE_COUNT = TEMPORAL_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -2952,17 +2943,6 @@ public interface PermadelerPackage extends EPackage {
 	EClass getProduction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Production#getPeriod <em>Period</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Period</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Production#getPeriod()
-	 * @see #getProduction()
-	 * @generated
-	 */
-	EAttribute getProduction_Period();
-
-	/**
 	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Production#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2972,17 +2952,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProduction_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Production#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Production#getDescription()
-	 * @see #getProduction()
-	 * @generated
-	 */
-	EAttribute getProduction_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Production#getConservation <em>Conservation</em>}'.
@@ -3017,28 +2986,6 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getAction_Type();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Action#getPeriod <em>Period</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Period</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Action#getPeriod()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Period();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Action#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Action#getDescription()
-	 * @see #getAction()
-	 * @generated
-	 */
-	EAttribute getAction_Description();
-
-	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem <em>Temporal Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3049,24 +2996,15 @@ public interface PermadelerPackage extends EPackage {
 	EClass getTemporalItem();
 
 	/**
-	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem#getName() <em>Get Name</em>}' operation.
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem#getPeriod <em>Period</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Name</em>' operation.
-	 * @see fr.adaussy.permadeler.model.Permadeler.TemporalItem#getName()
+	 * @return the meta object for the attribute '<em>Period</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.TemporalItem#getPeriod()
+	 * @see #getTemporalItem()
 	 * @generated
 	 */
-	EOperation getTemporalItem__GetName();
-
-	/**
-	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem#getPerdiod() <em>Get Perdiod</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Perdiod</em>' operation.
-	 * @see fr.adaussy.permadeler.model.Permadeler.TemporalItem#getPerdiod()
-	 * @generated
-	 */
-	EOperation getTemporalItem__GetPerdiod();
+	EAttribute getTemporalItem_Period();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.PlantationPhase <em>Plantation Phase</em>}'.
@@ -4110,28 +4048,12 @@ public interface PermadelerPackage extends EPackage {
 		EClass PRODUCTION = eINSTANCE.getProduction();
 
 		/**
-		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PRODUCTION__PERIOD = eINSTANCE.getProduction_Period();
-
-		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PRODUCTION__TYPE = eINSTANCE.getProduction_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PRODUCTION__DESCRIPTION = eINSTANCE.getProduction_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Conservation</b></em>' attribute feature.
@@ -4160,46 +4082,22 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute ACTION__TYPE = eINSTANCE.getAction_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__PERIOD = eINSTANCE.getAction_Period();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ACTION__DESCRIPTION = eINSTANCE.getAction_Description();
-
-		/**
-		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.TemporalItem <em>Temporal Item</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see fr.adaussy.permadeler.model.Permadeler.TemporalItem
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl
 		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTemporalItem()
 		 * @generated
 		 */
 		EClass TEMPORAL_ITEM = eINSTANCE.getTemporalItem();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Name</b></em>' operation.
+		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TEMPORAL_ITEM___GET_NAME = eINSTANCE.getTemporalItem__GetName();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Perdiod</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TEMPORAL_ITEM___GET_PERDIOD = eINSTANCE.getTemporalItem__GetPerdiod();
+		EAttribute TEMPORAL_ITEM__PERIOD = eINSTANCE.getTemporalItem_Period();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl <em>Plantation Phase</em>}' class.

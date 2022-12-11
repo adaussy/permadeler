@@ -430,6 +430,23 @@ public final class ImageProvider {
 		}
 
 		@Override
+		public String caseAction(fr.adaussy.permadeler.model.Permadeler.Action object) {
+			return switch (object.getType()) {
+				case SOW_INDOOR -> "icons/custo/commons/calendar-sow.png"; //$NON-NLS-1$
+				case SOW_OUTDOOR -> "icons/custo/commons/calendar-sow.png"; //$NON-NLS-1$
+				case MULTIPLICATION -> "icons/custo/commons/multipication.png"; //$NON-NLS-1$
+				case PRUNING -> "icons/custo/commons/pruning.png"; //$NON-NLS-1$
+				default -> "icons/custo/commons/action.png"; //$NON-NLS-1$
+			};
+
+		};
+
+		@Override
+		public String caseProduction(fr.adaussy.permadeler.model.Permadeler.Production object) {
+			return "icons/custo/commons/understory.png"; //$NON-NLS-1$
+		}
+
+		@Override
 		public String casePlant(Plant object) {
 			String path = getRepKey(object);
 			String iconPath = null;

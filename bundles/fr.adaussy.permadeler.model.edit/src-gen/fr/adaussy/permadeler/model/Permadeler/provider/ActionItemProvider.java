@@ -11,7 +11,6 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
-import fr.adaussy.permadeler.model.Permadeler.ActionType;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 
 import java.util.Collection;
@@ -19,18 +18,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -39,7 +29,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ActionItemProvider extends TemporalItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -62,8 +52,6 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
-			addPeriodPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,38 +68,6 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 				getString("_UI_Action_type_feature"), //$NON-NLS-1$
 				getString("_UI_PropertyDescriptor_description", "_UI_Action_type_feature", "_UI_Action_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				PermadelerPackage.Literals.ACTION__TYPE, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Period feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPeriodPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Action_period_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Action_period_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Action_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.ACTION__PERIOD, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Action_description_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Action_description_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Action_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.ACTION__DESCRIPTION, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -144,8 +100,7 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	 */
 	@Override
 	public String getText(Object object) {
-		ActionType labelValue = ((Action)object).getType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Action)object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_Action_type") : //$NON-NLS-1$
 				getString("_UI_Action_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
@@ -163,8 +118,6 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 
 		switch (notification.getFeatureID(Action.class)) {
 			case PermadelerPackage.ACTION__TYPE:
-			case PermadelerPackage.ACTION__PERIOD:
-			case PermadelerPackage.ACTION__DESCRIPTION:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -182,17 +135,6 @@ public class ActionItemProvider extends ItemProviderAdapter implements IEditingD
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return PermadelerEditPlugin.INSTANCE;
 	}
 
 }
