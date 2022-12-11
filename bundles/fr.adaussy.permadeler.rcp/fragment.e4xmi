@@ -24,14 +24,14 @@
       <children xsi:type="advanced:Perspective" xmi:id="_0vATkIuyEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.perspective.edit" selectedElement="_xi5WAIuIEeq17LNsNIJ33Q" label="Permadeler">
         <children xsi:type="basic_1:PartSashContainer" xmi:id="_xi5WAIuIEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partsashcontainer.mainStack" containerData="20" selectedElement="_vF8rQIuwEeq17LNsNIJ33Q" horizontal="true">
           <children xsi:type="basic_1:PartSashContainer" xmi:id="_vF8rQIuwEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partsashcontainer.left" containerData="30" selectedElement="_sMv7cIuuEeq17LNsNIJ33Q">
-            <children xsi:type="basic_1:PartStack" xmi:id="_sMv7cIuuEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partstack.leftstack" selectedElement="_5r0k8IuIEeq17LNsNIJ33Q">
+            <children xsi:type="basic_1:PartStack" xmi:id="_sMv7cIuuEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.partstack.leftstack" selectedElement="_RHYI0I6cEeq6s96d8jhrHQ">
+              <children xsi:type="basic_1:Part" xmi:id="_RHYI0I6cEeq6s96d8jhrHQ" elementId="fr.adaussy.permadeler.rcp.part.zones" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.PlantationsViewerPart" label="Plantations" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.png"/>
               <children xsi:type="basic_1:Part" xmi:id="_5r0k8IuIEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.part.knowledgebase" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart" label="Connaissances" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/bookmarks_view.png">
                 <menus xmi:id="_YWrWMKvqEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.menu.knowledge.viewmenu" label="Calendar">
                   <tags>ViewMenu</tags>
                   <children xsi:type="menu:DirectMenuItem" xmi:id="_bjiwQKvpEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.directmenuitem.knowloedge.calendar.sow" label="Sow period" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/bank/preview/calendar-sow.png" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SowCalendarKnowledgeBaseDirectMenu"/>
                 </menus>
                 <toolbar xmi:id="_IYw6QKvlEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.toolbar.0">
-                  <children xsi:type="menu:DirectToolItem" xmi:id="_VVw8MKvlEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.addplant" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/add.gif" tooltip="Add " contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.AddPlantHandler"/>
                   <children xsi:type="menu:DirectToolItem" xmi:id="_F1wjQKvrEeq9mow3RhqmNQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.knowledge.types.sort" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/alphab_sort_co.gif" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SortSpeciesDirectMenu"/>
                 </toolbar>
               </children>
@@ -45,7 +45,6 @@
                   <children xsi:type="menu:DirectToolItem" xmi:id="_tKK3UK1rEeqXyJd86ICNPQ" elementId="fr.adaussy.permadeler.rcp.directtoolitem.seedbank.types.sort" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/alphab_sort_co.gif" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.SortSeedBankDirectMenu"/>
                 </toolbar>
               </children>
-              <children xsi:type="basic_1:Part" xmi:id="_RHYI0I6cEeq6s96d8jhrHQ" elementId="fr.adaussy.permadeler.rcp.part.zones" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.PlantationsViewerPart" label="Plantations" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.png"/>
               <children xsi:type="basic_1:Part" xmi:id="__4jncNJqEeq9VdPDR1UuSA" elementId="fr.adaussy.permadeler.rcp.part.planfication" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.parts.PlannificationViewerPart" label="Planification" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/date_obj.png"/>
             </children>
           </children>

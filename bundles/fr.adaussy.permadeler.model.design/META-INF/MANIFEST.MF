@@ -31,7 +31,9 @@ Require-Bundle: org.eclipse.ui,
  org.jsoup;bundle-version="1.14.3",
  org.eclipse.gmf.runtime.diagram.ui,
  org.eclipse.sirius.ext.base;bundle-version="7.0.1",
- org.eclipse.sirius.common.ui;bundle-version="7.0.1"
+ org.eclipse.sirius.common.ui;bundle-version="7.0.1",
+ org.eclipse.sirius.ui.properties;bundle-version="7.0.5",
+ org.eclipse.sirius.ecore.extender
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-Vendor: %providerName

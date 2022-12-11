@@ -255,8 +255,7 @@ public class DiagramService {
 	 * @return a size
 	 */
 	public static int getSVGSize(final Plantation plantation) {
-		Plant type = plantation.getType();
-		return switch (type.getFoodForestLayer()) {
+		return switch (plantation.getCurrentLayer()) {
 			case CANOPY -> 10;
 			case UNDERSTORY -> 8;
 			case SHRUB -> 3;
@@ -366,6 +365,12 @@ public class DiagramService {
 			}
 		}
 		return createPlantation(container, null);
+	}
+
+	public Plant createDefaultPlant(EObject self) {
+		Plant plant = PermadelerFactory.eINSTANCE.createPlant();
+		EMFUtils.getAncestor(Root.class, self).getKnowledgeBase().getPlantTypes().add(plant);
+		return plant;
 	}
 
 	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection) {

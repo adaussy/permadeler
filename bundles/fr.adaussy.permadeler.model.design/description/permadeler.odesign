@@ -5,6 +5,12 @@
       <filters xsi:type="filter:CompositeFilterDescription" name="PMD_TopLayer" label="Cacher les strates hausse (Canopée, Sous Canopée)">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::CANOPY and self.currentLayer != Permadeler::Layer::UNDERSTORY"/>
       </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="PMD_TopLayer" label="Cacher les strates moyenne (Arbuste, Liane)">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::VINE and self.currentLayer != Permadeler::Layer::SHRUB"/>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="PMD_TopLayer" label="Cacher les strates basse (Herbacées, Sous Sol, Couvre Sol)">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::GROUND_COVER and self.currentLayer != Permadeler::Layer::ROOT and self.currentLayer != Permadeler::Layer::HERB"/>
+      </filters>
       <defaultLayer name="Default">
         <nodeMappings name="PMD_Plantation" label="Plantation" semanticCandidatesExpression="aql:self.plantations" domainClass="Permadeler::Plantation">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" labelColor="//@userColorsPalettes[name='DiagramColors']/@entries[name='LabelGray']" tooltipExpression="aql:self.type.name" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
@@ -13,11 +19,27 @@
           </style>
         </nodeMappings>
         <toolSections name="CreationSection_Plantations" label="Create">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationTool" label="Planter" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/bank/icons/019-trowel.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationTool" label="Planter plante Connue" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/bank/icons/019-trowel.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.createPlantation()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationToolNewPlant" label="Planter nouvelle plante" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/bank/icons/019-trowel.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.createDefaultPlant()">
+                <subModelOperations xsi:type="properties:WizardModelOperation" windowTitleExpression="Test" titleExpression="Test" isPageCompleteExpression="aql:true">
+                  <pages name="NewPlantationWithNewType_Name" domainClass="Permadeler::Plant" groups="//@extensions.0/@categories.0/@groups.2"/>
+                  <pages name="NewPlantationWithNewType_Carac" domainClass="Permadeler::Plant" groups="//@extensions.0/@categories.0/@groups.8"/>
+                  <pages name="NewPlantationWithNewType_Reference" domainClass="Permadeler::Plant" groups="//@extensions.0/@categories.0/@groups.0"/>
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createPlantation(self)"/>
+                  </initialOperation>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -180,7 +202,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
     <categories name="Default Category">
-      <pages name="Plant" labelExpression="Plant" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.8">
+      <pages name="PlantNamedElement" labelExpression="Plant" domainClass="Permadeler::PlantNamedElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2">
         <actions imageExpression="/fr.adaussy.permadeler.model.design/img/image.gif">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -217,14 +239,15 @@
           </initialOperation>
         </actions>
       </pages>
+      <pages name="PlantCaracProperty" labelExpression="Charactéristiques" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.8" indented="true"/>
       <pages name="Plant_Reference_Page" labelExpression="References" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
       <pages name="ZonePage" labelExpression="Zone" domainClass="Permadeler::Zone" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
       <pages name="PlantationPage" labelExpression="Plantation" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
       <pages name="ElementOfTypeSpecies" labelExpression="aql:self.name" domainClass="Permadeler::Species" semanticCandidateExpression="aql:self.type" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.8"/>
       <pages name="SeedItem_Sow" labelExpression="Sow time" domainClass="Permadeler::Species" semanticCandidateExpression="aql:self.type" groups="//@extensions.0/@categories.0/@groups.4"/>
       <pages name="SeedItem_Main" labelExpression="aql:'Seed item'" domainClass="Permadeler::SeedItem" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7"/>
-      <pages name="ReferencePage" labelExpression="Reference" domainClass="Permadeler::Reference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
-      <pages name="Plantion_Species" labelExpression="aql:self.name" domainClass="Permadeler::Plant" semanticCandidateExpression="aql:self.type" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.8" indented="true"/>
+      <pages name="ReferencePage" labelExpression="Reference" domainClass="Permadeler::Reference" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1" indented="true"/>
+      <pages name="Plantation_Species" labelExpression="aql:self.name" domainClass="Permadeler::Plant" semanticCandidateExpression="aql:self.type" preconditionExpression="aql:self.oclIsKindOf(Permadeler::Plantation)" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.8" indented="true"/>
       <pages name="Production" labelExpression="Production" domainClass="Permadeler::Production" semanticCandidateExpression="var:self"/>
       <groups name="ReferenceSpeciesGroup" labelExpression="Group" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:ListDescription" name="RefencesUrl" labelExpression="References" valueExpression="aql:self.references" displayExpression="aql: value.getReferenceLabel()">
@@ -411,13 +434,13 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="PlantGroup" labelExpression="Plant" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant foodForestLayer" labelExpression="Strate" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('foodForestLayer'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.getEEnumLiteralByLiteral(self.foodForestLayer.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="8">
+      <groups name="PlantCaracGroup" labelExpression="Plant" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant foodForestLayer" labelExpression="Strate" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('foodForestLayer'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.getEEnumLiteralByLiteral(self.foodForestLayer.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="2">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="foodForestLayer" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant lifeCycle" labelExpression="Cycle de vie" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('lifeCycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.getEEnumLiteralByLiteral(self.lifeCycle.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="5">
+        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant lifeCycle" labelExpression="Cycle de vie" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('lifeCycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.getEEnumLiteralByLiteral(self.lifeCycle.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="2">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="lifeCycle" valueExpression="aql:newValue.instance"/>
           </initialOperation>
@@ -435,40 +458,6 @@
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
         </controls>
-        <controls xsi:type="properties:ContainerDescription" name="SoilTypeGroupOwner" label="Type de sol">
-          <controls xsi:type="properties:TextDescription" name="SoilTypeLabel" isEnabledExpression="aql:false" valueExpression="Type de sol">
-            <initialOperation/>
-          </controls>
-          <controls xsi:type="properties:ContainerDescription" name="SoilTypeGroup">
-            <controls xsi:type="properties:DynamicMappingForDescription" name="soilTypeFor" iterator="enum" iterableExpression="aql:self.eClass().getEStructuralFeature('soilType').eType.eLiterals">
-              <ifs name="enum" predicateExpression="aql:true">
-                <widget xsi:type="properties:CheckboxDescription" name="SoilTypeEnumCheckbox" labelExpression="aql:enum.getEditLabel()" valueExpression="aql:self.soilType->exists(e | e = enum.instance)">
-                  <initialOperation>
-                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.modifyList('soilType',enum.instance,newValue)"/>
-                  </initialOperation>
-                </widget>
-              </ifs>
-            </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="7" makeColumnsWithEqualWidth="true"/>
-          </controls>
-        </controls>
-        <controls xsi:type="properties:ContainerDescription" name="WindOwner">
-          <controls xsi:type="properties:TextDescription" name="WindLabel" isEnabledExpression="aql:false" valueExpression="Tolerance au vent">
-            <initialOperation/>
-          </controls>
-          <controls xsi:type="properties:ContainerDescription" name="WindGroup">
-            <controls xsi:type="properties:DynamicMappingForDescription" name="windFor" iterator="enum" iterableExpression="aql:self.eClass().getEStructuralFeature('wind').eType.eLiterals">
-              <ifs name="enum" predicateExpression="aql:true">
-                <widget xsi:type="properties:CheckboxDescription" name="WindCheckbox" labelExpression="aql:enum.getEditLabel()" valueExpression="aql:self.wind->exists(e | e = enum.instance)">
-                  <initialOperation>
-                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.modifyList('wind',enum.instance,newValue)"/>
-                  </initialOperation>
-                </widget>
-              </ifs>
-            </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="5" makeColumnsWithEqualWidth="true"/>
-          </controls>
-        </controls>
         <controls xsi:type="properties:ContainerDescription" name="SpecialUsesConditionGroupOwner">
           <controls xsi:type="properties:TextDescription" name="SpecialUsesConditionLabel" isEnabledExpression="aql:false" valueExpression="Roles">
             <initialOperation/>
@@ -483,30 +472,18 @@
                 </widget>
               </ifs>
             </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="5" makeColumnsWithEqualWidth="true"/>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
-        <controls xsi:type="properties:RadioDescription" name="Permadeler::Species growRate" labelExpression="Croissance" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('growRate'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('growRate').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('growRate').eType.getEEnumLiteralByLiteral(self.growRate.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('growRate').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+        <controls xsi:type="properties:RadioDescription" name="Permadeler::Species growRate" labelExpression="Croissance" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('growRate'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('growRate').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('growRate').eType.getEEnumLiteralByLiteral(self.growRate.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('growRate').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="3">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="growRate" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ContainerDescription" name="MoistureGroupOwner">
-          <controls xsi:type="properties:TextDescription" name="MoistureLabel" isEnabledExpression="aql:false" valueExpression="Tolerance humidité">
-            <initialOperation/>
-          </controls>
-          <controls xsi:type="properties:ContainerDescription" name="MoistureGroup">
-            <controls xsi:type="properties:DynamicMappingForDescription" name="moistureFor" iterator="enum" iterableExpression="aql:self.eClass().getEStructuralFeature('moisture').eType.eLiterals">
-              <ifs name="enum" predicateExpression="aql:true">
-                <widget xsi:type="properties:CheckboxDescription" name="MoistureCheckbox" labelExpression="aql:enum.getEditLabel()" valueExpression="aql:self.moisture->exists(e | e = enum.instance)">
-                  <initialOperation>
-                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.modifyList('moisture',enum.instance,newValue)"/>
-                  </initialOperation>
-                </widget>
-              </ifs>
-            </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="7" makeColumnsWithEqualWidth="true"/>
-          </controls>
+        <controls xsi:type="properties:SelectDescription" name="Familly" labelExpression="Famille" valueExpression="aql:self.eClass().getEStructuralFeature('family').eType.getEEnumLiteralByLiteral(self.family.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('family').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="family" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="LightingConditionGroupOwner">
           <controls xsi:type="properties:TextDescription" name="LightingConditionLabel" isEnabledExpression="aql:false" valueExpression="Luminosité">
@@ -525,10 +502,56 @@
             <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
-        <controls xsi:type="properties:SelectDescription" name="Familly" labelExpression="Famille" valueExpression="aql:self.eClass().getEStructuralFeature('family').eType.getEEnumLiteralByLiteral(self.family.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('family').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="family" valueExpression="aql:newValue.instance"/>
-          </initialOperation>
+        <controls xsi:type="properties:ContainerDescription" name="MoistureGroupOwner">
+          <controls xsi:type="properties:TextDescription" name="MoistureLabel" isEnabledExpression="aql:false" valueExpression="Tolerance humidité">
+            <initialOperation/>
+          </controls>
+          <controls xsi:type="properties:ContainerDescription" name="MoistureGroup">
+            <controls xsi:type="properties:DynamicMappingForDescription" name="moistureFor" iterator="enum" iterableExpression="aql:self.eClass().getEStructuralFeature('moisture').eType.eLiterals">
+              <ifs name="enum" predicateExpression="aql:true">
+                <widget xsi:type="properties:CheckboxDescription" name="MoistureCheckbox" labelExpression="aql:enum.getEditLabel()" valueExpression="aql:self.moisture->exists(e | e = enum.instance)">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.modifyList('moisture',enum.instance,newValue)"/>
+                  </initialOperation>
+                </widget>
+              </ifs>
+            </controls>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+          </controls>
+        </controls>
+        <controls xsi:type="properties:ContainerDescription" name="WindOwner">
+          <controls xsi:type="properties:TextDescription" name="WindLabel" isEnabledExpression="aql:false" valueExpression="Tolerance au vent">
+            <initialOperation/>
+          </controls>
+          <controls xsi:type="properties:ContainerDescription" name="WindGroup">
+            <controls xsi:type="properties:DynamicMappingForDescription" name="windFor" iterator="enum" iterableExpression="aql:self.eClass().getEStructuralFeature('wind').eType.eLiterals">
+              <ifs name="enum" predicateExpression="aql:true">
+                <widget xsi:type="properties:CheckboxDescription" name="WindCheckbox" labelExpression="aql:enum.getEditLabel()" valueExpression="aql:self.wind->exists(e | e = enum.instance)">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.modifyList('wind',enum.instance,newValue)"/>
+                  </initialOperation>
+                </widget>
+              </ifs>
+            </controls>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+          </controls>
+        </controls>
+        <controls xsi:type="properties:ContainerDescription" name="SoilTypeGroupOwner" label="Type de sol">
+          <controls xsi:type="properties:TextDescription" name="SoilTypeLabel" isEnabledExpression="aql:false" valueExpression="Type de sol">
+            <initialOperation/>
+          </controls>
+          <controls xsi:type="properties:ContainerDescription" name="SoilTypeGroup">
+            <controls xsi:type="properties:DynamicMappingForDescription" name="soilTypeFor" iterator="enum" iterableExpression="aql:self.eClass().getEStructuralFeature('soilType').eType.eLiterals">
+              <ifs name="enum" predicateExpression="aql:true">
+                <widget xsi:type="properties:CheckboxDescription" name="SoilTypeEnumCheckbox" labelExpression="aql:enum.getEditLabel()" valueExpression="aql:self.soilType->exists(e | e = enum.instance)">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.modifyList('soilType',enum.instance,newValue)"/>
+                  </initialOperation>
+                </widget>
+              </ifs>
+            </controls>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+          </controls>
         </controls>
       </groups>
     </categories>
