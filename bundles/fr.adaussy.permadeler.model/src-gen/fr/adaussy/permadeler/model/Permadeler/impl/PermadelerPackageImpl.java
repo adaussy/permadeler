@@ -2789,10 +2789,10 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(sowTypeEEnum, SowType.OUTDOOR);
 
 		initEEnum(productionTypeEEnum, ProductionType.class, "ProductionType"); //$NON-NLS-1$
+		addEEnumLiteral(productionTypeEEnum, ProductionType.OTHER);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.FRUIT);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.LEAVES);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.FLOWER);
-		addEEnumLiteral(productionTypeEEnum, ProductionType.OTHER);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.SHOOTS);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.MANNA);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.SAP);
@@ -2804,6 +2804,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(productionTypeEEnum, ProductionType.INNER_BARK);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.OIL);
 		addEEnumLiteral(productionTypeEEnum, ProductionType.ROOT);
+		addEEnumLiteral(productionTypeEEnum, ProductionType.WOOD);
 
 		initEEnum(actionTypeEEnum, ActionType.class, "ActionType"); //$NON-NLS-1$
 		addEEnumLiteral(actionTypeEEnum, ActionType.OTHER);

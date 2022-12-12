@@ -41,7 +41,7 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ProductionType TYPE_EDEFAULT = ProductionType.FRUIT;
+	protected static final ProductionType TYPE_EDEFAULT = ProductionType.OTHER;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

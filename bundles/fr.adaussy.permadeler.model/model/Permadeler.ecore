@@ -873,21 +873,22 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProductionType">
-    <eLiterals name="Fruit"/>
-    <eLiterals name="Leaves" value="1"/>
-    <eLiterals name="Flower" value="2"/>
-    <eLiterals name="Other" value="3"/>
-    <eLiterals name="Shoots" value="7"/>
+    <eLiterals name="Other"/>
+    <eLiterals name="Fruit" value="1"/>
+    <eLiterals name="Leaves" value="2"/>
+    <eLiterals name="Flower" value="3"/>
+    <eLiterals name="Shoots" value="4"/>
     <eLiterals name="Manna" value="5"/>
-    <eLiterals name="Sap" value="10"/>
-    <eLiterals name="ApicalBud" value="1"/>
-    <eLiterals name="Seed" value="14"/>
-    <eLiterals name="Pollen" value="3"/>
-    <eLiterals name="Nectar" value="9"/>
-    <eLiterals name="Stem" value="11"/>
-    <eLiterals name="InnerBark" value="12"/>
-    <eLiterals name="Oil" value="13"/>
-    <eLiterals name="Root" value="6"/>
+    <eLiterals name="Sap" value="7"/>
+    <eLiterals name="ApicalBud" value="8"/>
+    <eLiterals name="Seed" value="9"/>
+    <eLiterals name="Pollen" value="10"/>
+    <eLiterals name="Nectar" value="11"/>
+    <eLiterals name="Stem" value="12"/>
+    <eLiterals name="InnerBark" value="13"/>
+    <eLiterals name="Oil" value="14"/>
+    <eLiterals name="Root" value="15"/>
+    <eLiterals name="Wood" value="16"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//TemporalItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActionType"

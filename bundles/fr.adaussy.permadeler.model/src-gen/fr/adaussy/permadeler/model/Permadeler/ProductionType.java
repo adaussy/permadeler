@@ -26,35 +26,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @generated
  */
 public enum ProductionType implements Enumerator {
-	/**
-	 * The '<em><b>Fruit</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FRUIT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	FRUIT(0, "Fruit", "Fruit"), //$NON-NLS-1$ //$NON-NLS-2$
-
-	/**
-	 * The '<em><b>Leaves</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LEAVES_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	LEAVES(1, "Leaves", "Leaves"), //$NON-NLS-1$ //$NON-NLS-2$
-
-	/**
-	 * The '<em><b>Flower</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FLOWER_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	FLOWER(2, "Flower", "Flower"), //$NON-NLS-1$ //$NON-NLS-2$
+	//$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Other</b></em>' literal object.
@@ -64,7 +36,36 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OTHER(3, "Other", "Other"), //$NON-NLS-1$ //$NON-NLS-2$
+	OTHER(0, "Other", "Other"), //$NON-NLS-1$ //$NON-NLS-2$
+	/**
+	 * The '<em><b>Fruit</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #FRUIT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FRUIT(1, "Fruit", "Fruit"), //$NON-NLS-1$ //$NON-NLS-2$
+
+	/**
+	 * The '<em><b>Leaves</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LEAVES_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	LEAVES(2, "Leaves", "Leaves"), //$NON-NLS-1$ //$NON-NLS-2$
+
+	/**
+	 * The '<em><b>Flower</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FLOWER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FLOWER(3, "Flower", "Flower"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Shoots</b></em>' literal object.
@@ -74,7 +75,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SHOOTS(7, "Shoots", "Shoots"), //$NON-NLS-1$ //$NON-NLS-2$
+	SHOOTS(4, "Shoots", "Shoots"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Manna</b></em>' literal object.
@@ -94,7 +95,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SAP(10, "Sap", "Sap"), //$NON-NLS-1$ //$NON-NLS-2$
+	SAP(7, "Sap", "Sap"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Apical Bud</b></em>' literal object.
@@ -104,7 +105,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APICAL_BUD(1, "ApicalBud", "ApicalBud"), //$NON-NLS-1$ //$NON-NLS-2$
+	APICAL_BUD(8, "ApicalBud", "ApicalBud"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Seed</b></em>' literal object.
@@ -114,7 +115,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEED(14, "Seed", "Seed"), //$NON-NLS-1$ //$NON-NLS-2$
+	SEED(9, "Seed", "Seed"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Pollen</b></em>' literal object.
@@ -124,7 +125,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	POLLEN(3, "Pollen", "Pollen"), //$NON-NLS-1$ //$NON-NLS-2$
+	POLLEN(10, "Pollen", "Pollen"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nectar</b></em>' literal object.
@@ -134,7 +135,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NECTAR(9, "Nectar", "Nectar"), //$NON-NLS-1$ //$NON-NLS-2$
+	NECTAR(11, "Nectar", "Nectar"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Stem</b></em>' literal object.
@@ -144,7 +145,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STEM(11, "Stem", "Stem"), //$NON-NLS-1$ //$NON-NLS-2$
+	STEM(12, "Stem", "Stem"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Inner Bark</b></em>' literal object.
@@ -154,7 +155,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INNER_BARK(12, "InnerBark", "InnerBark"), //$NON-NLS-1$ //$NON-NLS-2$
+	INNER_BARK(13, "InnerBark", "InnerBark"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Oil</b></em>' literal object.
@@ -164,7 +165,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OIL(13, "Oil", "Oil"), //$NON-NLS-1$ //$NON-NLS-2$
+	OIL(14, "Oil", "Oil"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Root</b></em>' literal object.
@@ -174,40 +175,16 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROOT(6, "Root", "Root"); //$NON-NLS-1$ //$NON-NLS-2$
-
+	ROOT(15, "Root", "Root"), //$NON-NLS-1$ //$NON-NLS-2$
 	/**
-	 * The '<em><b>Fruit</b></em>' literal value.
+	 * The '<em><b>Wood</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FRUIT
-	 * @model name="Fruit"
+	* <!-- end-user-doc -->
+	 * @see #WOOD_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FRUIT_VALUE = 0;
-
-	/**
-	 * The '<em><b>Leaves</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #LEAVES
-	 * @model name="Leaves"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int LEAVES_VALUE = 1;
-
-	/**
-	 * The '<em><b>Flower</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FLOWER
-	 * @model name="Flower"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int FLOWER_VALUE = 2;
+	WOOD(16, "Wood", "Wood"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Other</b></em>' literal value.
@@ -218,7 +195,40 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OTHER_VALUE = 3;
+	public static final int OTHER_VALUE = 0;
+
+	/**
+	 * The '<em><b>Fruit</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FRUIT
+	 * @model name="Fruit"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FRUIT_VALUE = 1;
+
+	/**
+	 * The '<em><b>Leaves</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LEAVES
+	 * @model name="Leaves"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LEAVES_VALUE = 2;
+
+	/**
+	 * The '<em><b>Flower</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FLOWER
+	 * @model name="Flower"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FLOWER_VALUE = 3;
 
 	/**
 	 * The '<em><b>Shoots</b></em>' literal value.
@@ -229,7 +239,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SHOOTS_VALUE = 7;
+	public static final int SHOOTS_VALUE = 4;
 
 	/**
 	 * The '<em><b>Manna</b></em>' literal value.
@@ -251,7 +261,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SAP_VALUE = 10;
+	public static final int SAP_VALUE = 7;
 
 	/**
 	 * The '<em><b>Apical Bud</b></em>' literal value.
@@ -262,7 +272,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int APICAL_BUD_VALUE = 1;
+	public static final int APICAL_BUD_VALUE = 8;
 
 	/**
 	 * The '<em><b>Seed</b></em>' literal value.
@@ -273,7 +283,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEED_VALUE = 14;
+	public static final int SEED_VALUE = 9;
 
 	/**
 	 * The '<em><b>Pollen</b></em>' literal value.
@@ -284,7 +294,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int POLLEN_VALUE = 3;
+	public static final int POLLEN_VALUE = 10;
 
 	/**
 	 * The '<em><b>Nectar</b></em>' literal value.
@@ -295,7 +305,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NECTAR_VALUE = 9;
+	public static final int NECTAR_VALUE = 11;
 
 	/**
 	 * The '<em><b>Stem</b></em>' literal value.
@@ -306,7 +316,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STEM_VALUE = 11;
+	public static final int STEM_VALUE = 12;
 
 	/**
 	 * The '<em><b>Inner Bark</b></em>' literal value.
@@ -317,7 +327,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INNER_BARK_VALUE = 12;
+	public static final int INNER_BARK_VALUE = 13;
 
 	/**
 	 * The '<em><b>Oil</b></em>' literal value.
@@ -328,7 +338,7 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int OIL_VALUE = 13;
+	public static final int OIL_VALUE = 14;
 
 	/**
 	 * The '<em><b>Root</b></em>' literal value.
@@ -339,7 +349,18 @@ public enum ProductionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ROOT_VALUE = 6;
+	public static final int ROOT_VALUE = 15;
+
+	/**
+	 * The '<em><b>Wood</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #WOOD
+	 * @model name="Wood"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int WOOD_VALUE = 16;
 
 	/**
 	 * An array of all the '<em><b>Production Type</b></em>' enumerators.
@@ -347,8 +368,8 @@ public enum ProductionType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ProductionType[] VALUES_ARRAY = new ProductionType[] {FRUIT, LEAVES, FLOWER, OTHER,
-			SHOOTS, MANNA, SAP, APICAL_BUD, SEED, POLLEN, NECTAR, STEM, INNER_BARK, OIL, ROOT, };
+	private static final ProductionType[] VALUES_ARRAY = new ProductionType[] {OTHER, FRUIT, LEAVES, FLOWER,
+			SHOOTS, MANNA, SAP, APICAL_BUD, SEED, POLLEN, NECTAR, STEM, INNER_BARK, OIL, ROOT, WOOD, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Production Type</b></em>' enumerators.
@@ -405,22 +426,26 @@ public enum ProductionType implements Enumerator {
 	 */
 	public static ProductionType get(int value) {
 		switch (value) {
+			case OTHER_VALUE:
+				return OTHER;
 			case FRUIT_VALUE:
 				return FRUIT;
 			case LEAVES_VALUE:
 				return LEAVES;
 			case FLOWER_VALUE:
 				return FLOWER;
-			case OTHER_VALUE:
-				return OTHER;
 			case SHOOTS_VALUE:
 				return SHOOTS;
 			case MANNA_VALUE:
 				return MANNA;
 			case SAP_VALUE:
 				return SAP;
+			case APICAL_BUD_VALUE:
+				return APICAL_BUD;
 			case SEED_VALUE:
 				return SEED;
+			case POLLEN_VALUE:
+				return POLLEN;
 			case NECTAR_VALUE:
 				return NECTAR;
 			case STEM_VALUE:
@@ -431,6 +456,8 @@ public enum ProductionType implements Enumerator {
 				return OIL;
 			case ROOT_VALUE:
 				return ROOT;
+			case WOOD_VALUE:
+				return WOOD;
 		}
 		return null;
 	}

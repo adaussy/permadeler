@@ -443,7 +443,7 @@ public final class ImageProvider {
 
 		@Override
 		public String caseProduction(fr.adaussy.permadeler.model.Permadeler.Production object) {
-			return "icons/custo/commons/understory.png"; //$NON-NLS-1$
+			return "icons/custo/commons/production.png"; //$NON-NLS-1$
 		}
 
 		@Override

@@ -717,10 +717,10 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SowType/OUTDOOR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//ProductionType">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Other"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Fruit"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Leaves"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Flower"/>
-      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Other"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Shoots"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Manna"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Sap"/>
@@ -732,6 +732,7 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/InnerBark"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Oil"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Root"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ProductionType/Wood"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//ActionType">
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Other"/>

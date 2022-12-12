@@ -42,7 +42,7 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRUNING(1, "Pruning", "Pruning"),//$NON-NLS-1$ //$NON-NLS-2$
+	PRUNING(1, "Pruning", "Pruning"), //$NON-NLS-1$ //$NON-NLS-2$
 	/**
 	 * The '<em><b>Sow Indoor</b></em>' literal object.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
