@@ -83,31 +83,6 @@ import fr.adaussy.permadeler.rcp.services.ModelQueryService;
  */
 public class DiagramService {
 
-	private Comparator<Object> TOP_LAYER_FIRST = new Comparator<Object>() {
-
-		@Override
-		public int compare(Object o1, Object o2) {
-			if (o1 instanceof Node && o2 instanceof Node) {
-				Node n1 = (Node)o1;
-				Node n2 = (Node)o2;
-				EObject dn1 = n1.getElement();
-				EObject dn2 = n2.getElement();
-				if (dn2 instanceof DNode && dn2 instanceof DNode) {
-
-					EObject t1 = ((DNode)dn1).getTarget();
-					EObject t2 = ((DNode)dn2).getTarget();
-					if (t1 instanceof Plantation && t2 instanceof Plantation) {
-						Plantation p1 = (Plantation)t1;
-						Plantation p2 = (Plantation)t2;
-						return p1.getCurrentLayer().ordinal() - p2.getCurrentLayer().ordinal();
-					}
-				}
-
-			}
-			return 0;
-		}
-	};
-
 	private static final String UNSERSCORE = "_"; //$NON-NLS-1$
 
 	private static final String BACKGROUND_IMAGE_FOLDER = "background-image"; //$NON-NLS-1$
@@ -237,34 +212,6 @@ public class DiagramService {
 					editPart);
 			dialog.open();
 		}
-	}
-
-	public List<Plantation> getTopLayerPlantation(PlantationPhase plantationPhase) {
-		return plantationPhase.getPlantations().stream().filter(this::belongTopLayer).collect(toList());
-	}
-
-	public List<Plantation> getBottomLayerPlantation(PlantationPhase plantationPhase) {
-		return plantationPhase.getPlantations().stream().filter(this::belongBottomLayer).collect(toList());
-	}
-
-	public List<Plantation> getMiddleLayerPlantation(PlantationPhase plantationPhase) {
-		return plantationPhase.getPlantations().stream().filter(this::belongMiddleLayer).collect(toList());
-	}
-
-	private boolean belongTopLayer(Plantation p) {
-		Layer layer = p.getCurrentLayer();
-		return p.getType() != null && (layer == Layer.CANOPY || layer == Layer.UNDERSTORY);
-	}
-
-	private boolean belongMiddleLayer(Plantation p) {
-		Layer layer = p.getCurrentLayer();
-		return p.getType() != null && (layer == Layer.VINE || layer == Layer.SHRUB);
-	}
-
-	private boolean belongBottomLayer(Plantation p) {
-		Layer layer = p.getCurrentLayer();
-		return p.getType() != null
-				&& (layer == Layer.HERB || layer == Layer.GROUND_COVER || layer == Layer.ROOT);
 	}
 
 	/**
@@ -516,7 +463,7 @@ public class DiagramService {
 		return null;
 	}
 
-	private static String computeTrigram(String name) {
+	public static String computeTrigram(String name) {
 		String trigram = ""; //$NON-NLS-1$
 		for (int i = 0; i < name.length(); i++) {
 			if (trigram.length() == 3) {

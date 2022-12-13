@@ -4,8 +4,10 @@ Bundle-Name: Permadeller Rcp
 Bundle-SymbolicName: fr.adaussy.permadeler.rcp;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: fr.adaussy.permadeler.rcp.RcpPlugin
-Export-Package: fr.adaussy.permadeler.rcp.internal.dialogs,
+Export-Package: fr.adaussy.permadeler.rcp.internal.actions,
+ fr.adaussy.permadeler.rcp.internal.dialogs,
  fr.adaussy.permadeler.rcp.internal.extractors,
+ fr.adaussy.permadeler.rcp.internal.parts,
  fr.adaussy.permadeler.rcp.internal.utils,
  fr.adaussy.permadeler.rcp.services
 Require-Bundle: javax.inject,
