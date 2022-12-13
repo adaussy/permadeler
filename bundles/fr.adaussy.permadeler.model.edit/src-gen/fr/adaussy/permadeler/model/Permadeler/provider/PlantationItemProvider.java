@@ -69,6 +69,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 			addCurrentLayerPropertyDescriptor(object);
 			addRootstockPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
+			addWireframePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -169,6 +170,22 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
+	 * This adds a property descriptor for the Wireframe feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWireframePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plantation_wireframe_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plantation_wireframe_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plantation_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANTATION__WIREFRAME, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -249,6 +266,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 			case PermadelerPackage.PLANTATION__CURRENT_LAYER:
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 			case PermadelerPackage.PLANTATION__ID:
+			case PermadelerPackage.PLANTATION__WIREFRAME:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

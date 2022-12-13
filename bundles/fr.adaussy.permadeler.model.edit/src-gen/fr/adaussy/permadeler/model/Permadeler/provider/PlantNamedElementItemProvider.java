@@ -55,6 +55,9 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 			addCommonNamesPropertyDescriptor(object);
 			addLatinNamePropertyDescriptor(object);
 			addRepresentationKeyPropertyDescriptor(object);
+			addGenusPropertyDescriptor(object);
+			addSpeciesPropertyDescriptor(object);
+			addVarietyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +111,54 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Genus feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGenusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_PlantNamedElement_genus_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_genus_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__GENUS, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Species feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpeciesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_PlantNamedElement_species_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_species_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__SPECIES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Variety feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVarietyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_PlantNamedElement_variety_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_variety_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__VARIETY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns PlantNamedElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +207,9 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

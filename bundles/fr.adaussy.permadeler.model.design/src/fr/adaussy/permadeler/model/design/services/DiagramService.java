@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.text.MessageFormat;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,16 +26,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPartViewer;
+import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.LabelPosition;
 import org.eclipse.sirius.diagram.model.business.internal.query.DDiagramInternalQuery;
@@ -75,9 +83,99 @@ import fr.adaussy.permadeler.rcp.services.ModelQueryService;
  */
 public class DiagramService {
 
+	private Comparator<Object> TOP_LAYER_FIRST = new Comparator<Object>() {
+
+		@Override
+		public int compare(Object o1, Object o2) {
+			if (o1 instanceof Node && o2 instanceof Node) {
+				Node n1 = (Node)o1;
+				Node n2 = (Node)o2;
+				EObject dn1 = n1.getElement();
+				EObject dn2 = n2.getElement();
+				if (dn2 instanceof DNode && dn2 instanceof DNode) {
+
+					EObject t1 = ((DNode)dn1).getTarget();
+					EObject t2 = ((DNode)dn2).getTarget();
+					if (t1 instanceof Plantation && t2 instanceof Plantation) {
+						Plantation p1 = (Plantation)t1;
+						Plantation p2 = (Plantation)t2;
+						return p1.getCurrentLayer().ordinal() - p2.getCurrentLayer().ordinal();
+					}
+				}
+
+			}
+			return 0;
+		}
+	};
+
 	private static final String UNSERSCORE = "_"; //$NON-NLS-1$
 
 	private static final String BACKGROUND_IMAGE_FOLDER = "background-image"; //$NON-NLS-1$
+
+	public void activateTopLayerWireFrameMode(DSemanticDiagram diagram) {
+
+		IEditorPart editor = EclipseUIUtil.getActiveEditor();
+		if (editor instanceof DiagramEditor) {
+			Session session = new EObjectQuery(diagram).getSession();
+			View gmfView = SiriusGMFHelper.getGmfView(diagram, session);
+			getAllDisplayedTree(gmfView).forEach(n -> {
+				viewToPlantation(n).setWireframe(true);
+				ViewUtil.repositionChildAt(gmfView, n, 0);
+			});
+
+		}
+
+	}
+
+	private Stream<Node> getAllDisplayedTree(View gmfView) {
+		return ((List<?>)gmfView.getDiagram().getChildren()).stream()//
+				.filter(e -> e instanceof Node)//
+				.map(n -> (Node)n)//
+				.filter(n -> {
+					Plantation plantation = viewToPlantation(n);
+					Layer layer = plantation.getCurrentLayer();
+					return layer == Layer.CANOPY || layer == Layer.UNDERSTORY;
+				})//
+				.sorted(Comparator.comparingInt(n -> viewToPlantation(n).getCurrentLayer().ordinal()));
+	}
+
+	private Plantation viewToPlantation(Node n) {
+		EObject element = n.getElement();
+		if (element instanceof DNode) {
+			EObject semanticTarget = ((DNode)element).getTarget();
+			if (semanticTarget instanceof Plantation) {
+				return (Plantation)semanticTarget;
+			}
+		}
+
+		return null;
+	}
+
+	public void deActivateTopLayerWireFrameMode(DSemanticDiagram diagram) {
+		IEditorPart editor = EclipseUIUtil.getActiveEditor();
+		if (editor instanceof DiagramEditor) {
+			Session session = new EObjectQuery(diagram).getSession();
+			View gmfView = SiriusGMFHelper.getGmfView(diagram, session);
+			((List<?>)gmfView.getDiagram().getChildren()).stream()//
+					.filter(e -> e instanceof Node)//
+					.map(n -> (Node)n)//
+					.filter(n -> {
+						Plantation plantation = viewToPlantation(n);
+						Layer layer = plantation.getCurrentLayer();
+						return layer != Layer.CANOPY && layer != Layer.UNDERSTORY;
+					})//
+					.sorted(Comparator.comparingInt(n -> -viewToPlantation(n).getCurrentLayer().ordinal()))
+					.forEach(n -> {
+						ViewUtil.repositionChildAt(gmfView, n, 0);
+					});
+
+			getAllDisplayedTree(gmfView).forEach(n -> {
+				viewToPlantation(n).setWireframe(false);
+			});
+
+		}
+
+	}
 
 	public String getSVGPath(final EObject p) {
 		return ImageProvider.INSTANCE.getSVG(p);

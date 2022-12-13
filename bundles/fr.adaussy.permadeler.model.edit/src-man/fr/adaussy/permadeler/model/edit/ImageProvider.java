@@ -245,8 +245,20 @@ public final class ImageProvider {
 
 	private String getPlantSVGWithDefault(Plantation plantation, String shovelSvg) {
 		return switch (plantation.getCurrentLayer()) {
-			case CANOPY -> "/fr.adaussy.permadeler.model.design/img/canope.svg"; //$NON-NLS-1$
-			case UNDERSTORY -> "/fr.adaussy.permadeler.model.design/img/understory.svg"; //$NON-NLS-1$
+			case CANOPY -> {
+				if (plantation.isWireframe()) { // $NON-NLS-1$
+					yield "/fr.adaussy.permadeler.model.design/img/canope-wireframe.svg"; //$NON-NLS-1$
+				} else {
+					yield "/fr.adaussy.permadeler.model.design/img/canope.svg"; //$NON-NLS-1$
+				}
+			}
+			case UNDERSTORY -> {
+				if (plantation.isWireframe()) {
+					yield "/fr.adaussy.permadeler.model.design/img/understory_wireframe.svg"; //$NON-NLS-1$
+				} else {
+					yield "/fr.adaussy.permadeler.model.design/img/understory.svg"; //$NON-NLS-1$
+				}
+			}
 			case SHRUB -> "/fr.adaussy.permadeler.model.design/img/shrub.svg"; //$NON-NLS-1$
 			default -> {
 				String localPath = getPlantSVGPath(plantation.getType());

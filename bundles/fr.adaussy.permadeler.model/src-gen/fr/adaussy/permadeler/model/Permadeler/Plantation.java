@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getCurrentLayer <em>Current Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRootstock <em>Rootstock</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getId <em>Id</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#isWireframe <em>Wireframe</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation()
@@ -186,5 +187,27 @@ public interface Plantation extends EObject {
 	 * @generated
 	 */
 	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Wireframe</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wireframe</em>' attribute.
+	 * @see #setWireframe(boolean)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_Wireframe()
+	 * @model
+	 * @generated
+	 */
+	boolean isWireframe();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#isWireframe <em>Wireframe</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wireframe</em>' attribute.
+	 * @see #isWireframe()
+	 * @generated
+	 */
+	void setWireframe(boolean value);
 
 } // Plantation

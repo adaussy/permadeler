@@ -427,13 +427,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANTATION__ID = 6;
 
 	/**
+	 * The feature id for the '<em><b>Wireframe</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__WIREFRAME = 7;
+
+	/**
 	 * The number of structural features of the '<em>Plantation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANTATION_FEATURE_COUNT = 7;
+	int PLANTATION_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Plantation</em>' class.
@@ -500,13 +509,40 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT_NAMED_ELEMENT__REPRESENTATION_KEY = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Genus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT_NAMED_ELEMENT__GENUS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Species</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT_NAMED_ELEMENT__SPECIES = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Variety</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT_NAMED_ELEMENT__VARIETY = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Plant Named Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Plant Named Element</em>' class.
@@ -1343,6 +1379,33 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANT__REPRESENTATION_KEY = PLANT_NAMED_ELEMENT__REPRESENTATION_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Genus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__GENUS = PLANT_NAMED_ELEMENT__GENUS;
+
+	/**
+	 * The feature id for the '<em><b>Species</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__SPECIES = PLANT_NAMED_ELEMENT__SPECIES;
+
+	/**
+	 * The feature id for the '<em><b>Variety</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__VARIETY = PLANT_NAMED_ELEMENT__VARIETY;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -2260,6 +2323,17 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getPlantation_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#isWireframe <em>Wireframe</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Wireframe</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plantation#isWireframe()
+	 * @see #getPlantation()
+	 * @generated
+	 */
+	EAttribute getPlantation_Wireframe();
+
+	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement <em>Plant Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2301,6 +2375,39 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantNamedElement_RepresentationKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getGenus <em>Genus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Genus</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getGenus()
+	 * @see #getPlantNamedElement()
+	 * @generated
+	 */
+	EAttribute getPlantNamedElement_Genus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies <em>Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Species</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies()
+	 * @see #getPlantNamedElement()
+	 * @generated
+	 */
+	EAttribute getPlantNamedElement_Species();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety <em>Variety</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variety</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety()
+	 * @see #getPlantNamedElement()
+	 * @generated
+	 */
+	EAttribute getPlantNamedElement_Variety();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Reference <em>Reference</em>}'.
@@ -3497,6 +3604,14 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute PLANTATION__ID = eINSTANCE.getPlantation_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Wireframe</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANTATION__WIREFRAME = eINSTANCE.getPlantation_Wireframe();
+
+		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl <em>Plant Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3530,6 +3645,30 @@ public interface PermadelerPackage extends EPackage {
 		 */
 		EAttribute PLANT_NAMED_ELEMENT__REPRESENTATION_KEY = eINSTANCE
 				.getPlantNamedElement_RepresentationKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Genus</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT_NAMED_ELEMENT__GENUS = eINSTANCE.getPlantNamedElement_Genus();
+
+		/**
+		 * The meta object literal for the '<em><b>Species</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT_NAMED_ELEMENT__SPECIES = eINSTANCE.getPlantNamedElement_Species();
+
+		/**
+		 * The meta object literal for the '<em><b>Variety</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT_NAMED_ELEMENT__VARIETY = eINSTANCE.getPlantNamedElement_Variety();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ReferenceImpl <em>Reference</em>}' class.

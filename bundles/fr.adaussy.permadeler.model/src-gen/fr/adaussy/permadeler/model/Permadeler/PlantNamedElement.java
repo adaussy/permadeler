@@ -24,6 +24,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getCommonNames <em>Common Names</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getLatinName <em>Latin Name</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getGenus <em>Genus</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety <em>Variety</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement()
@@ -86,5 +89,38 @@ public interface PlantNamedElement extends NamedElement {
 	 * @generated
 	 */
 	void setRepresentationKey(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Genus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Genus</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_Genus()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getGenus();
+
+	/**
+	 * Returns the value of the '<em><b>Species</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Species</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_Species()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getSpecies();
+
+	/**
+	 * Returns the value of the '<em><b>Variety</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variety</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_Variety()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getVariety();
 
 } // PlantNamedElement

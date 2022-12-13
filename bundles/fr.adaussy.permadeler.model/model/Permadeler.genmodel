@@ -792,11 +792,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/currentLayer"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/rootstock"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/wireframe"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//PlantNamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/commonNames"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/latinName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/representationKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/genus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/species"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/variety"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Reference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Reference/link"/>

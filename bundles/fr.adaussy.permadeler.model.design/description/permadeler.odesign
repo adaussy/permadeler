@@ -17,6 +17,12 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelFormat>bold</labelFormat>
           </style>
+          <conditionnalStyles predicateExpression="aql:self.wireframe">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" labelColor="//@userColorsPalettes[name='DiagramColors']/@entries[name='LabelLightGray']" tooltipExpression="aql:self.type.name" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <labelFormat>bold</labelFormat>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <toolSections name="CreationSection_Plantations" label="Create">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationTool" label="Planter plante Connue" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/bank/icons/019-trowel.png">
@@ -79,13 +85,28 @@
             </menuItemDescription>
           </ownedTools>
         </toolSections>
+        <toolSections name="PMD_View" label="Affichage">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="PMD_TopLayerToBack" label="Arbre en fond (Wireframe)" iconPath="/fr.adaussy.permadeler.model.design/img/canope-wireframe.png">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.activateTopLayerWireFrameMode()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="PMD_TopLayerToFront" label="Afficher dessus" iconPath="/fr.adaussy.permadeler.model.design/img/canope-full.png">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.deActivateTopLayerWireFrameMode()"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="labelSize" value="aql:self.getLabelSize()"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="labelPosition" value="aql:self.getLabelPosition()"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="showIcon" value="aql:self.showIcon()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='NursaryDiag']/@additionalLayers[name='Labels']/@nodeMappings[name='SpeciesItem']/@style"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -160,7 +181,7 @@
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='NursaryDiag']/@defaultLayer/@containerMappings[name='TrayContainer']/@subContainerMappings[name='RowContainer']/@subContainerMappings[name='CellNode4']/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='PlantationsMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -193,11 +214,14 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.ext.emf.edit.EditingDomainServices"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DiagramService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DateService"/>
+    <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.ValidationService"/>
+    <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DebugService"/>
   </ownedViewpoints>
   <userColorsPalettes name="DiagramColors">
     <entries xsi:type="description:UserFixedColor" red="249" green="235" blue="210" name="AreaBackground"/>
     <entries xsi:type="description:ComputedColor" name="EffectiveColor" red="aql:self.getEffectiveColor().getRed()" green="aql:self.getEffectiveColor().getGreen()" blue="aql:self.getEffectiveColor().getBlue()"/>
     <entries xsi:type="description:UserFixedColor" red="115" green="115" blue="150" name="LabelGray"/>
+    <entries xsi:type="description:UserFixedColor" red="167" green="165" blue="165" name="LabelLightGray"/>
   </userColorsPalettes>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
@@ -240,7 +264,7 @@
         </actions>
       </pages>
       <pages name="PlantCaracProperty" labelExpression="Charactéristiques" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.7" indented="true"/>
-      <pages name="Plant_Reference_Page" labelExpression="References" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0" indented="true"/>
+      <pages name="Plant_Reference_Page" labelExpression="References" domainClass="Permadeler::Plant" semanticCandidateExpression="aql:Sequence{self}->union(self.type)" groups="//@extensions.0/@categories.0/@groups.0" indented="true"/>
       <pages name="ZonePage" labelExpression="Zone" domainClass="Permadeler::Zone" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
       <pages name="PlantationPage" labelExpression="Plantation" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
       <pages name="ElementOfTypeSpecies" labelExpression="aql:self.name" domainClass="Permadeler::Species" semanticCandidateExpression="aql:self.type" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.7"/>
@@ -369,6 +393,17 @@
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.selectImage()"/>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:ContainerDescription" name="LatinName_Container">
+          <controls xsi:type="properties:TextDescription" name="PlantNamedElement_Genus" labelExpression="Genre" isEnabledExpression="aql:false" valueExpression="aql:self.genus"/>
+          <controls xsi:type="properties:TextDescription" name="PlantNamedElement_Species" labelExpression="Espece" isEnabledExpression="aql:false" valueExpression="aql:self.species"/>
+          <controls xsi:type="properties:TextDescription" name="PlantNamedElement_Variety" labelExpression="Variété/Cultivar" isEnabledExpression="aql:false" valueExpression="aql:self.variety"/>
+          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="3"/>
+        </controls>
+        <validationSet>
+          <propertyValidationRules name="PlantLatinName" label="Plant Lantin Name" level="ERROR" message="Le nom latin n'est pas valide. Voici le voici le format : ${Genre} ${espece} '${Variete/Cultivar}>" targets="//@extensions.0/@categories.0/@groups.2/@controls.3">
+            <audits auditExpression="aql:self.hasValidLatinName()"/>
+          </propertyValidationRules>
+        </validationSet>
       </groups>
       <groups name="SowPlantGroup" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:ListDescription" name="Permadeler::Plant sowIndoorMonths" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('sowIndoorMonths')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('sowIndoorMonths'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('sowIndoorMonths').changeable" valueExpression="aql:self.getMonths('sowIndoorMonths')" displayExpression="var:value">
@@ -424,6 +459,11 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="currentLayer" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
+        <controls xsi:type="properties:CheckboxDescription" name="Permadeler::Plantation wireframe" labelExpression="Mode fils de fer" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('wireframe'))" isEnabledExpression="aql:self.currentLayer == Permadeler::Layer::CANOPY or self.currentLayer == Permadeler::Layer::UNDERSTORY" valueExpression="aql:self.wireframe">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="wireframe" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
       </groups>
       <groups name="SeedItem" labelExpression="Info" domainClass="Permadeler::SeedItem" semanticCandidateExpression="var:self">
         <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="Permadeler::SeedItem type" referenceNameExpression="aql:'type'"/>
@@ -439,12 +479,12 @@
         </controls>
       </groups>
       <groups name="PlantCaracGroup" labelExpression="Plant" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant foodForestLayer" labelExpression="Strate" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('foodForestLayer'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.getEEnumLiteralByLiteral(self.foodForestLayer.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="2">
+        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant foodForestLayer" labelExpression="Strate" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('foodForestLayer'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.getEEnumLiteralByLiteral(self.foodForestLayer.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('foodForestLayer').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="4">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="foodForestLayer" valueExpression="aql:newValue.instance"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant lifeCycle" labelExpression="Cycle de vie" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('lifeCycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.getEEnumLiteralByLiteral(self.lifeCycle.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="2">
+        <controls xsi:type="properties:RadioDescription" name="Permadeler::Plant lifeCycle" labelExpression="Cycle de vie" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('lifeCycle'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.getEEnumLiteralByLiteral(self.lifeCycle.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('lifeCycle').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="4">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="lifeCycle" valueExpression="aql:newValue.instance"/>
           </initialOperation>
@@ -460,7 +500,7 @@
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="width" valueExpression="var:newValue"/>
             </initialOperation>
           </controls>
-          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+          <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="4" makeColumnsWithEqualWidth="true"/>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="SpecialUsesConditionGroupOwner">
           <controls xsi:type="properties:TextDescription" name="SpecialUsesConditionLabel" isEnabledExpression="aql:false" valueExpression="Roles">
@@ -476,7 +516,7 @@
                 </widget>
               </ifs>
             </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="4" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
         <controls xsi:type="properties:RadioDescription" name="Permadeler::Species growRate" labelExpression="Croissance" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('growRate'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('growRate').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('growRate').eType.getEEnumLiteralByLiteral(self.growRate.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('growRate').eType.eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="3">
@@ -503,7 +543,7 @@
                 </widget>
               </ifs>
             </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="4" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="MoistureGroupOwner">
@@ -520,7 +560,7 @@
                 </widget>
               </ifs>
             </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="4" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="WindOwner">
@@ -537,7 +577,7 @@
                 </widget>
               </ifs>
             </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="4" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
         <controls xsi:type="properties:ContainerDescription" name="SoilTypeGroupOwner" label="Type de sol">
@@ -554,7 +594,7 @@
                 </widget>
               </ifs>
             </controls>
-            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2" makeColumnsWithEqualWidth="true"/>
+            <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="4" makeColumnsWithEqualWidth="true"/>
           </controls>
         </controls>
       </groups>

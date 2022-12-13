@@ -49,6 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getCurrentLayer <em>Current Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getRootstock <em>Rootstock</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getId <em>Id</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#isWireframe <em>Wireframe</em>}</li>
  * </ul>
  *
  * @generated
@@ -173,6 +174,26 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isWireframe() <em>Wireframe</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWireframe()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean WIREFRAME_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isWireframe() <em>Wireframe</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWireframe()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean wireframe = WIREFRAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -361,6 +382,28 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isWireframe() {
+		return wireframe;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWireframe(boolean newWireframe) {
+		boolean oldWireframe = wireframe;
+		wireframe = newWireframe;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANTATION__WIREFRAME,
+					oldWireframe, wireframe));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -394,6 +437,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				return getRootstock();
 			case PermadelerPackage.PLANTATION__ID:
 				return getId();
+			case PermadelerPackage.PLANTATION__WIREFRAME:
+				return isWireframe();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -429,6 +474,9 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 			case PermadelerPackage.PLANTATION__ID:
 				setId((String)newValue);
 				return;
+			case PermadelerPackage.PLANTATION__WIREFRAME:
+				setWireframe((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -462,6 +510,9 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 			case PermadelerPackage.PLANTATION__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case PermadelerPackage.PLANTATION__WIREFRAME:
+				setWireframe(WIREFRAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -490,6 +541,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				return ROOTSTOCK_EDEFAULT == null ? rootstock != null : !ROOTSTOCK_EDEFAULT.equals(rootstock);
 			case PermadelerPackage.PLANTATION__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case PermadelerPackage.PLANTATION__WIREFRAME:
+				return wireframe != WIREFRAME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -515,6 +568,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 		result.append(rootstock);
 		result.append(", id: "); //$NON-NLS-1$
 		result.append(id);
+		result.append(", wireframe: "); //$NON-NLS-1$
+		result.append(wireframe);
 		result.append(')');
 		return result.toString();
 	}

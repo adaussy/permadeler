@@ -435,7 +435,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public Plant createPlant() {
-		PlantImpl plant = new PlantImpl();
+		PlantCustomImpl plant = new PlantCustomImpl();
 		return plant;
 	}
 

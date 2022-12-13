@@ -36,6 +36,9 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getCommonNames <em>Common Names</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getLatinName <em>Latin Name</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getGenus <em>Genus</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getVariety <em>Variety</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +93,36 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * @ordered
 	 */
 	protected String representationKey = REPRESENTATION_KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getGenus() <em>Genus</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGenus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String GENUS_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getSpecies() <em>Species</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecies()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SPECIES_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getVariety() <em>Variety</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariety()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VARIETY_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,6 +206,39 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getGenus() {
+		// TODO: implement this method to return the 'Genus' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSpecies() {
+		// TODO: implement this method to return the 'Species' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getVariety() {
+		// TODO: implement this method to return the 'Variety' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -182,6 +248,12 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return getLatinName();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				return getRepresentationKey();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
+				return getGenus();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
+				return getSpecies();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
+				return getVariety();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,6 +318,14 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				return REPRESENTATION_KEY_EDEFAULT == null ? representationKey != null
 						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
+				return GENUS_EDEFAULT == null ? getGenus() != null : !GENUS_EDEFAULT.equals(getGenus());
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
+				return SPECIES_EDEFAULT == null ? getSpecies() != null
+						: !SPECIES_EDEFAULT.equals(getSpecies());
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
+				return VARIETY_EDEFAULT == null ? getVariety() != null
+						: !VARIETY_EDEFAULT.equals(getVariety());
 		}
 		return super.eIsSet(featureID);
 	}

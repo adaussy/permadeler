@@ -725,6 +725,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPlantation_Wireframe() {
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPlantNamedElement() {
 		return plantNamedElementEClass;
 	}
@@ -754,6 +763,33 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getPlantNamedElement_RepresentationKey() {
 		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantNamedElement_Genus() {
+		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantNamedElement_Species() {
+		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantNamedElement_Variety() {
+		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1626,11 +1662,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(plantationEClass, PLANTATION__CURRENT_LAYER);
 		createEAttribute(plantationEClass, PLANTATION__ROOTSTOCK);
 		createEAttribute(plantationEClass, PLANTATION__ID);
+		createEAttribute(plantationEClass, PLANTATION__WIREFRAME);
 
 		plantNamedElementEClass = createEClass(PLANT_NAMED_ELEMENT);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__COMMON_NAMES);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__LATIN_NAME);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__REPRESENTATION_KEY);
+		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__GENUS);
+		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__SPECIES);
+		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__VARIETY);
 
 		referenceEClass = createEClass(REFERENCE);
 		createEAttribute(referenceEClass, REFERENCE__LINK);
@@ -1872,6 +1912,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantation_Id(), ecorePackage.getEString(), "id", null, 0, 1, Plantation.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getPlantation_Wireframe(), ecorePackage.getEBoolean(), "wireframe", null, 0, 1, //$NON-NLS-1$
+				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1884,6 +1927,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantNamedElement_RepresentationKey(), ecorePackage.getEString(),
 				"representationKey", null, 0, 1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantNamedElement_Genus(), ecorePackage.getEString(), "genus", null, 0, 1, //$NON-NLS-1$
+				PlantNamedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantNamedElement_Species(), ecorePackage.getEString(), "species", null, 0, 1, //$NON-NLS-1$
+				PlantNamedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantNamedElement_Variety(), ecorePackage.getEString(), "variety", null, 0, 1, //$NON-NLS-1$
+				PlantNamedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);

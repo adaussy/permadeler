@@ -31,4 +31,14 @@ public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 		return super.getDiagramEditPartClass(view);
 	}
 
+	// @Override
+	// protected Class getNodeEditPartClass(View view) {
+	// EObject element = view.getElement();
+	// if (element instanceof DNode) {
+	// if ("PMD_Plantation".equals(((DNode)element).getDiagramElementMapping().getName())) {
+	// return PlantationEditPart.class;
+	// }
+	// }
+	// return super.getNodeEditPartClass(view);
+	// }
 }
