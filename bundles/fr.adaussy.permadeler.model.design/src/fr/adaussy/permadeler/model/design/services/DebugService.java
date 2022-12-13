@@ -16,7 +16,8 @@ import org.eclipse.ui.IEditorPart;
 public class DebugService {
 
 	public void printEditPart(DDiagramElement diagramElement) {
-		System.out.println(getEditPart(diagramElement));
+		IGraphicalEditPart editPart = getEditPart(diagramElement);
+		System.out.println(editPart);
 	}
 
 	private static IGraphicalEditPart getEditPart(DDiagramElement diagramElement) {

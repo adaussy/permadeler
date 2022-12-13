@@ -14,6 +14,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.services.editpart.AbstractEditPartProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
+import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 
 public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 
@@ -31,14 +34,17 @@ public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 		return super.getDiagramEditPartClass(view);
 	}
 
-	// @Override
-	// protected Class getNodeEditPartClass(View view) {
-	// EObject element = view.getElement();
-	// if (element instanceof DNode) {
-	// if ("PMD_Plantation".equals(((DNode)element).getDiagramElementMapping().getName())) {
-	// return PlantationEditPart.class;
-	// }
-	// }
-	// return super.getNodeEditPartClass(view);
-	// }
+	@Override
+	protected Class getNodeEditPartClass(View view) {
+		EObject element = view.getElement();
+		if (element instanceof DNode) {
+			int visualID = SiriusVisualIDRegistry.getVisualID(view);
+			if (DNodeEditPart.VISUAL_ID == visualID
+					&& "PMD_Plantation".equals(((DNode)element).getDiagramElementMapping().getName())) { //$NON-NLS-1$
+				// Custom edit part for plantation
+				return PlantationEditPart.class;
+			}
+		}
+		return super.getNodeEditPartClass(view);
+	}
 }
