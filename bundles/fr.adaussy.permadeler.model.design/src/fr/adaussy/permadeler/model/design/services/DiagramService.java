@@ -227,7 +227,7 @@ public class DiagramService {
 			throws IOException {
 
 		FileDialog fileDialog = new FileDialog(getShell());
-		fileDialog.setFilterExtensions(new String[] {"*.svg" }); //$NON-NLS-1$
+		fileDialog.setFilterExtensions(new String[] {"*.svg;*.jpg;*.png" }); //$NON-NLS-1$
 		String targetFileString = fileDialog.open();
 
 		if (targetFileString != null) {
@@ -239,7 +239,8 @@ public class DiagramService {
 				if (!bgImgFolder.toFile().exists()) {
 					bgImgFolder.toFile().mkdirs();
 				}
-				String name = MessageFormat.format("{0}_{1}.svg", planting.getName(), //$NON-NLS-1$
+				String fileExtension = com.google.common.io.Files.getFileExtension(targetFileString);
+				String name = MessageFormat.format("{0}_{1}." + fileExtension, planting.getName(), //$NON-NLS-1$
 						System.currentTimeMillis());
 				Path targetLocation = bgImgFolder.resolve(name);
 				Files.copy(targetFilePath, targetLocation);
