@@ -12,7 +12,6 @@ package fr.adaussy.permadeler.model.design.services;
 import java.time.Instant;
 
 import fr.adaussy.permadeler.common.date.DateUtils;
-import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 
 /**
@@ -21,23 +20,6 @@ import fr.adaussy.permadeler.model.Permadeler.Plantation;
  * @author Arthur Daussy
  */
 public class DateService {
-
-	/**
-	 * Gets a String representation of a date of an {@link Event}
-	 * 
-	 * @param owner
-	 *            the event owner
-	 * @return the date or ""
-	 */
-	public String getDateFeature(final Event owner) {
-		if (owner != null) {
-			final Instant date = owner.getDate();
-			if (date != null) {
-				return DateUtils.instantToDateString(date);
-			}
-		}
-		return ""; //$NON-NLS-1$
-	}
 
 	public String toLocalDate(Instant instant) {
 		if (instant == null) {
