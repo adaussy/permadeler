@@ -23,6 +23,7 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
+import fr.adaussy.permadeler.rcp.internal.utils.SemanticQuerier;
 
 /**
  * Dialog used to select a plantation
@@ -49,7 +50,8 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 			public void selectionChanged(SelectionChangedEvent event) {
 				Object first = getViewer().getStructuredSelection().getFirstElement();
 				if (first instanceof Plant) {
-					layer = ((Plant)first).getFoodForestLayer();
+					Plant plant = (Plant)first;
+					layer = new SemanticQuerier().getMostUsedLayer(plant, Layer.UNDERSTORY);
 					int ordinal = layer.ordinal();
 					for (int i = 0; i < layerWidgets.size(); i++) {
 						layerWidgets.get(i).setSelection(i == ordinal);
@@ -57,9 +59,10 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 				}
 			}
 		});
-		layerWidgets = Dialogs.createEnumEntry(parent, RcpMessages.PlantationDialog_0, Layer.values(), Layer.UNDERSTORY, v -> {
-			this.layer = (Layer)v;
-		});
+		layerWidgets = Dialogs.createEnumEntry(parent, RcpMessages.PlantationDialog_0, Layer.values(),
+				Layer.UNDERSTORY, v -> {
+					this.layer = (Layer)v;
+				});
 	}
 
 	public Layer getLayer() {

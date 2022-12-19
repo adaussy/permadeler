@@ -26,8 +26,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * @generated
  */
 public enum ProductionType implements Enumerator {
-	//$NON-NLS-1$ //$NON-NLS-2$
-
 	/**
 	 * The '<em><b>Other</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -37,10 +35,11 @@ public enum ProductionType implements Enumerator {
 	 * @ordered
 	 */
 	OTHER(0, "Other", "Other"), //$NON-NLS-1$ //$NON-NLS-2$
+
 	/**
 	 * The '<em><b>Fruit</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #FRUIT_VALUE
 	 * @generated
 	 * @ordered
@@ -176,10 +175,11 @@ public enum ProductionType implements Enumerator {
 	 * @ordered
 	 */
 	ROOT(15, "Root", "Root"), //$NON-NLS-1$ //$NON-NLS-2$
+
 	/**
 	 * The '<em><b>Wood</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #WOOD_VALUE
 	 * @generated
 	 * @ordered

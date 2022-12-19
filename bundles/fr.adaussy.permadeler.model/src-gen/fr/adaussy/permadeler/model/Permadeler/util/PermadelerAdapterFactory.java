@@ -110,11 +110,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseReference(Reference object) {
-			return createReferenceAdapter();
-		}
-
-		@Override
 		public Adapter caseImage(Image object) {
 			return createImageAdapter();
 		}
@@ -212,6 +207,11 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter casePlantationPhase(PlantationPhase object) {
 			return createPlantationPhaseAdapter();
+		}
+
+		@Override
+		public Adapter caseReferencingElement(ReferencingElement object) {
+			return createReferencingElementAdapter();
 		}
 
 		@Override
@@ -328,20 +328,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlantNamedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Reference <em>Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Reference
-	 * @generated
-	 */
-	public Adapter createReferenceAdapter() {
 		return null;
 	}
 
@@ -622,6 +608,20 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlantationPhaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.ReferencingElement <em>Referencing Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.ReferencingElement
+	 * @generated
+	 */
+	public Adapter createReferencingElementAdapter() {
 		return null;
 	}
 

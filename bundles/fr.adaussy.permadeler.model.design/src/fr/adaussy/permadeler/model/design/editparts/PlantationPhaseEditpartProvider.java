@@ -20,7 +20,7 @@ import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 
 public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 
-	private static final String PLANTATIONS_MAP_DIAGRAM_ID = "PlantationsMapDiagram"; //$NON-NLS-1$
+	private static final String PLANTATIONS_MAP_DIAGRAM_ID = "FoodForestMapDiagram"; //$NON-NLS-1$
 
 	@Override
 	protected Class getDiagramEditPartClass(View view) {

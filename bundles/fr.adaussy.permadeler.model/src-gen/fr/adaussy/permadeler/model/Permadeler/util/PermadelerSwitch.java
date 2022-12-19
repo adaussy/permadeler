@@ -124,14 +124,7 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseNamedElement(plantNamedElement);
 				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
-			case PermadelerPackage.REFERENCE: {
-				Reference reference = (Reference)theEObject;
-				T result = caseReference(reference);
-				if (result == null)
-					result = caseNamedElement(reference);
+					result = caseReferencingElement(plantNamedElement);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -261,6 +254,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseNamedElement(plant);
 				if (result == null)
+					result = caseReferencingElement(plant);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -300,6 +295,13 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				T result = casePlantationPhase(plantationPhase);
 				if (result == null)
 					result = caseNamedElement(plantationPhase);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.REFERENCING_ELEMENT: {
+				ReferencingElement referencingElement = (ReferencingElement)theEObject;
+				T result = caseReferencingElement(referencingElement);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -411,21 +413,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlantNamedElement(PlantNamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReference(Reference object) {
 		return null;
 	}
 
@@ -726,6 +713,21 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlantationPhase(PlantationPhase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Referencing Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Referencing Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReferencingElement(ReferencingElement object) {
 		return null;
 	}
 

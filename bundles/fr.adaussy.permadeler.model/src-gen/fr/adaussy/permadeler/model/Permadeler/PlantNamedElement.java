@@ -23,17 +23,18 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getCommonNames <em>Common Names</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getLatinName <em>Latin Name</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getIconKey <em>Icon Key</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getGenus <em>Genus</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies <em>Species</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety <em>Variety</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement()
  * @model abstract="true"
  * @generated
  */
-public interface PlantNamedElement extends NamedElement {
+public interface PlantNamedElement extends NamedElement, ReferencingElement {
 	/**
 	 * Returns the value of the '<em><b>Common Names</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.
@@ -69,26 +70,26 @@ public interface PlantNamedElement extends NamedElement {
 	void setLatinName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Representation Key</b></em>' attribute.
+	 * Returns the value of the '<em><b>Icon Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Representation Key</em>' attribute.
-	 * @see #setRepresentationKey(String)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_RepresentationKey()
+	 * @return the value of the '<em>Icon Key</em>' attribute.
+	 * @see #setIconKey(String)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_IconKey()
 	 * @model
 	 * @generated
 	 */
-	String getRepresentationKey();
+	String getIconKey();
 
 	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}' attribute.
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getIconKey <em>Icon Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Representation Key</em>' attribute.
-	 * @see #getRepresentationKey()
+	 * @param value the new value of the '<em>Icon Key</em>' attribute.
+	 * @see #getIconKey()
 	 * @generated
 	 */
-	void setRepresentationKey(String value);
+	void setIconKey(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Genus</b></em>' attribute.
@@ -122,5 +123,28 @@ public interface PlantNamedElement extends NamedElement {
 	 * @generated
 	 */
 	String getVariety();
+
+	/**
+	 * Returns the value of the '<em><b>Representation Key</b></em>' attribute.
+	 * The default value is <code>"/icons/representations/arbre2/green1.png"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Representation Key</em>' attribute.
+	 * @see #setRepresentationKey(String)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_RepresentationKey()
+	 * @model default="/icons/representations/arbre2/green1.png"
+	 * @generated
+	 */
+	String getRepresentationKey();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Representation Key</em>' attribute.
+	 * @see #getRepresentationKey()
+	 * @generated
+	 */
+	void setRepresentationKey(String value);
 
 } // PlantNamedElement

@@ -195,29 +195,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Reference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ReferenceItemProvider referenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createReferenceAdapter() {
-		if (referenceItemProvider == null) {
-			referenceItemProvider = new ReferenceItemProvider(this);
-		}
-
-		return referenceItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Image} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -740,8 +717,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			seedItemItemProvider.dispose();
 		if (plantationItemProvider != null)
 			plantationItemProvider.dispose();
-		if (referenceItemProvider != null)
-			referenceItemProvider.dispose();
 		if (imageItemProvider != null)
 			imageItemProvider.dispose();
 		if (eventItemProvider != null)

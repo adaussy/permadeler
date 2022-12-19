@@ -11,11 +11,14 @@ package fr.adaussy.permadeler.rcp.internal;
 
 import static java.util.stream.Collectors.toList;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.validator.routines.UrlValidator;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
@@ -36,12 +39,12 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
-import fr.adaussy.permadeler.model.Permadeler.Reference;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.rcp.RcpMessages;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ListAllPlantationAction;
@@ -223,9 +226,14 @@ public class ContextualMenuFiller {
 			for (Image img : variety.getImages()) {
 				others.add(new OpenImageAction(img));
 			}
-			for (Reference ref : variety.getReferences()) {
-				if (ref.getLink() != null) {
-					others.add(new OpenReference(ref));
+			UrlValidator urlValidator = new UrlValidator();
+			for (var ref : variety.getReferences()) {
+				if (urlValidator.isValid(ref)) {
+					try {
+						others.add(new OpenReference(new URL(ref)));
+					} catch (MalformedURLException e) {
+						RcpPlugin.logError("Invalid url " + ref, e); //$NON-NLS-1$
+					}
 				}
 			}
 
@@ -245,8 +253,8 @@ public class ContextualMenuFiller {
 	 */
 	public void caseSeedItem(List<SeedItem> selections) {
 		List<Plant> types = selections.stream().map(o -> o.getType()).collect(toList());
-		navigateAction
-				.add(new FocusOnElementAction(RcpMessages.ContextualMenuFiller_3, types, KnowledgeViewerPart.ID));
+		navigateAction.add(
+				new FocusOnElementAction(RcpMessages.ContextualMenuFiller_3, types, KnowledgeViewerPart.ID));
 
 		if (selections.size() == 1) {
 			addPlanificationActions(selections);

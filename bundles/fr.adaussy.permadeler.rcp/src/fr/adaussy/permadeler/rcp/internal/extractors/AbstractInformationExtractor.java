@@ -18,9 +18,6 @@ import org.apache.commons.lang.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
-import fr.adaussy.permadeler.model.Permadeler.Reference;
-
 /**
  * Abstract class used to create an Plant from an URL website
  * 
@@ -118,17 +115,6 @@ public abstract class AbstractInformationExtractor {
 	public abstract List<Integer> getHarvestPeriod();
 
 	public abstract String getDescription();
-
-	/**
-	 * Builds the reference object matching this site URL
-	 * 
-	 * @return a new reference object
-	 */
-	public Reference buildReference() {
-		Reference ref = PermadelerFactory.eINSTANCE.createReference();
-		ref.setLink(getUrl());
-		return ref;
-	}
 
 	protected String getById(final String id) {
 		Element elementById = doc.getElementById(id);

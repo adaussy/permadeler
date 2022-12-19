@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'
+          'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg contentScriptType="text/ecmascript" zoomAndPan="magnify" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" id="Capa_1" style="enable-background:new 0 0 512 512;" version="1.1" width="100pt" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" height="100.0pt" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+>
+<g
+  >
+	<path style="fill:#0D5D52;" d="M307,0L204.5,205L307,410c113.218,0,205-91.782,205-205S420.218,0,307,0z"
+    />
+	<path style="fill:#1C9585;" d="M102,205c0,113.218,91.782,205,205,205V0C193.782,0,102,91.782,102,205z"
+    />
+	<path style="fill:#FFF3AD;" d="M307,55l-75,150l75,150c82.843,0,150-67.157,150-150S389.843,55,307,55z"
+    />
+	<path style="fill:#FFFFFF;" d="M157,205c0,82.843,67.157,150,150,150V55C224.157,55,157,122.157,157,205z"
+    />
+	<path style="fill:#1C9585;" d="M205,102L102.5,307L205,512c113.218,0,205-91.782,205-205S318.218,102,205,102z"
+    />
+	<path style="fill:#39AE96;" d="M0,307c0,113.218,91.782,205,205,205V102C91.782,102,0,193.782,0,307z"
+    />
+	<path style="fill:#FFF3AD;" d="M205,157l-75,150l75,150c82.843,0,150-67.157,150-150S287.843,157,205,157z"
+    />
+	<path style="fill:#FFFFFF;" d="M55,307c0,82.843,67.157,150,150,150V157C122.157,157,55,224.157,55,307z"
+    />
+	<rect x="115" width="30" y="292" height="30" style="fill:#FFF3AD;"
+    />
+	
+		<rect x="152.5" width="30" y="356.952" height="30" style="fill:#FFF3AD;" transform="matrix(-0.866 -0.5 0.5 -0.866 126.5833 777.8218)"
+    />
+	
+		<rect x="227.5" width="30" y="356.952" height="30" style="fill:#FFE65A;" transform="matrix(-0.866 0.5 -0.5 -0.866 638.4872 572.8217)"
+    />
+	<rect x="265" width="30" y="292" height="30" style="fill:#FFE65A;"
+    />
+	
+		<rect x="227.5" width="30" y="227.048" height="30" style="fill:#FFE65A;" transform="matrix(0.866 0.5 -0.5 0.866 153.5129 -88.8217)"
+    />
+	
+		<rect x="152.5" width="30" y="227.048" height="30" style="fill:#FFF3AD;" transform="matrix(0.866 -0.5 0.5 0.866 -98.5833 116.1783)"
+    />
+</g
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</svg
+  >

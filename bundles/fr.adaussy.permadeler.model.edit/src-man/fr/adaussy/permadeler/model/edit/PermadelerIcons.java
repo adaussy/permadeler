@@ -34,12 +34,14 @@ public class PermadelerIcons {
 	/**
 	 * Bank folder name
 	 */
-	public static final String BANK = "bank"; //$NON-NLS-1$
+	public static final String PLANTS = "plants"; //$NON-NLS-1$
 
 	/**
 	 * Bank folder path
 	 */
-	public static final String ICONS_BANK_PREFIX = ICON_FOLDER + PATH_SEP + BANK + PATH_SEP;
+	public static final String ICONS_BANK_PREFIX = ICON_FOLDER + PATH_SEP + PLANTS + PATH_SEP;
+
+	public static final String REPRESENTATION_PREFIX = ICON_FOLDER + PATH_SEP + "representations" + PATH_SEP; //$NON-NLS-1$
 
 	public static final String LEAF_SVG = "leaf.svg"; //$NON-NLS-1$
 
@@ -60,11 +62,11 @@ public class PermadelerIcons {
 	private static final String PLUGIN_PATH = PATH_SEP + PLUGIN_ID; // $NON-NLS-1$
 
 	public static String buildFullPath(String svgFileName) {
-		return PLUGIN_PATH + PATH_SEP + ICON_FOLDER + PATH_SEP + BANK + PATH_SEP + svgFileName;
+		return PLUGIN_PATH + PATH_SEP + ICON_FOLDER + PATH_SEP + PLANTS + PATH_SEP + svgFileName;
 	}
 
 	public static String buildIconsFolderReltivePath(String svgFileName) {
-		return PATH_SEP + ICON_FOLDER + PATH_SEP + BANK + PATH_SEP + svgFileName;
+		return PATH_SEP + ICON_FOLDER + PATH_SEP + PLANTS + PATH_SEP + svgFileName;
 	}
 
 	/**

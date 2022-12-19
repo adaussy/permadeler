@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
@@ -46,6 +47,7 @@ import org.eclipse.ui.PlatformUI;
 
 import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
+import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.dialogs.ImageSelectionDialog;
 
@@ -122,8 +124,25 @@ public final class FillService {
 	 */
 	public static void selectImage(final PlantNamedElement e) {
 		Shell shell = getActiveShell();
-		String representationKey = e.getRepresentationKey();
-		final ImageSelectionDialog dialog = new ImageSelectionDialog(shell, representationKey);
+		String iconKey = e.getIconKey();
+		final ImageSelectionDialog dialog = new ImageSelectionDialog(shell, iconKey,
+				ImageProvider.INSTANCE.getPreviews());
+		if (dialog.open() == Dialog.OK) {
+			e.setIconKey(dialog.getSelection());
+		}
+	}
+
+	/**
+	 * Select an image for the given {@link PlantNamedElement}
+	 * 
+	 * @param e
+	 *            an element
+	 */
+	public static void selectRepresentation(final PlantNamedElement e) {
+		Shell shell = getActiveShell();
+		String iconKey = e.getIconKey();
+		final ImageSelectionDialog dialog = new ImageSelectionDialog(shell, iconKey, ImageProvider.INSTANCE
+				.getRepresentations().stream().collect(Collectors.toMap(v -> v, v -> v)));
 		if (dialog.open() == Dialog.OK) {
 			e.setRepresentationKey(dialog.getSelection());
 		}

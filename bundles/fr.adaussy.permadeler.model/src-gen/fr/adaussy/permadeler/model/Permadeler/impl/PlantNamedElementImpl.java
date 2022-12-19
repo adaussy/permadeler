@@ -12,6 +12,7 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
+import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 
 import java.util.Collection;
 
@@ -33,17 +34,29 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getReferences <em>References</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getCommonNames <em>Common Names</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getLatinName <em>Latin Name</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getIconKey <em>Icon Key</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getGenus <em>Genus</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getSpecies <em>Species</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getVariety <em>Variety</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getRepresentationKey <em>Representation Key</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class PlantNamedElementImpl extends NamedElementImpl implements PlantNamedElement {
+	/**
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> references;
+
 	/**
 	 * The cached value of the '{@link #getCommonNames() <em>Common Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -75,24 +88,24 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	protected String latinName = LATIN_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
+	 * The default value of the '{@link #getIconKey() <em>Icon Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRepresentationKey()
+	 * @see #getIconKey()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REPRESENTATION_KEY_EDEFAULT = null;
+	protected static final String ICON_KEY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
+	 * The cached value of the '{@link #getIconKey() <em>Icon Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRepresentationKey()
+	 * @see #getIconKey()
 	 * @generated
 	 * @ordered
 	 */
-	protected String representationKey = REPRESENTATION_KEY_EDEFAULT;
+	protected String iconKey = ICON_KEY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getGenus() <em>Genus</em>}' attribute.
@@ -125,6 +138,26 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	protected static final String VARIETY_EDEFAULT = null;
 
 	/**
+	 * The default value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentationKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REPRESENTATION_KEY_EDEFAULT = "/icons/representations/arbre2/green1.png"; //$NON-NLS-1$
+
+	/**
+	 * The cached value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentationKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected String representationKey = REPRESENTATION_KEY_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -141,6 +174,19 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return PermadelerPackage.Literals.PLANT_NAMED_ELEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getReferences() {
+		if (references == null) {
+			references = new EDataTypeUniqueEList<String>(String.class, this,
+					PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES);
+		}
+		return references;
 	}
 
 	/**
@@ -183,8 +229,8 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRepresentationKey() {
-		return representationKey;
+	public String getIconKey() {
+		return iconKey;
 	}
 
 	/**
@@ -192,13 +238,12 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRepresentationKey(String newRepresentationKey) {
-		String oldRepresentationKey = representationKey;
-		representationKey = newRepresentationKey;
+	public void setIconKey(String newIconKey) {
+		String oldIconKey = iconKey;
+		iconKey = newIconKey;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY, oldRepresentationKey,
-					representationKey));
+					PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY, oldIconKey, iconKey));
 	}
 
 	/**
@@ -239,21 +284,48 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRepresentationKey() {
+		return representationKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRepresentationKey(String newRepresentationKey) {
+		String oldRepresentationKey = representationKey;
+		representationKey = newRepresentationKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY, oldRepresentationKey,
+					representationKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
+				return getReferences();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				return getCommonNames();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
 				return getLatinName();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
-				return getRepresentationKey();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
+				return getIconKey();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
 				return getGenus();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
 				return getSpecies();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
 				return getVariety();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
+				return getRepresentationKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,12 +339,19 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends String>)newValue);
+				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				getCommonNames().clear();
 				getCommonNames().addAll((Collection<? extends String>)newValue);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
 				setLatinName((String)newValue);
+				return;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
+				setIconKey((String)newValue);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				setRepresentationKey((String)newValue);
@@ -289,11 +368,17 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
+				getReferences().clear();
+				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				getCommonNames().clear();
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
 				setLatinName(LATIN_NAME_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
+				setIconKey(ICON_KEY_EDEFAULT);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				setRepresentationKey(REPRESENTATION_KEY_EDEFAULT);
@@ -310,14 +395,15 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
+				return references != null && !references.isEmpty();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				return commonNames != null && !commonNames.isEmpty();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
 				return LATIN_NAME_EDEFAULT == null ? latinName != null
 						: !LATIN_NAME_EDEFAULT.equals(latinName);
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
-				return REPRESENTATION_KEY_EDEFAULT == null ? representationKey != null
-						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
+				return ICON_KEY_EDEFAULT == null ? iconKey != null : !ICON_KEY_EDEFAULT.equals(iconKey);
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
 				return GENUS_EDEFAULT == null ? getGenus() != null : !GENUS_EDEFAULT.equals(getGenus());
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
@@ -326,8 +412,47 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
 				return VARIETY_EDEFAULT == null ? getVariety() != null
 						: !VARIETY_EDEFAULT.equals(getVariety());
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
+				return REPRESENTATION_KEY_EDEFAULT == null ? representationKey != null
+						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ReferencingElement.class) {
+			switch (derivedFeatureID) {
+				case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
+					return PermadelerPackage.REFERENCING_ELEMENT__REFERENCES;
+				default:
+					return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ReferencingElement.class) {
+			switch (baseFeatureID) {
+				case PermadelerPackage.REFERENCING_ELEMENT__REFERENCES:
+					return PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -341,10 +466,14 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (commonNames: "); //$NON-NLS-1$
+		result.append(" (references: "); //$NON-NLS-1$
+		result.append(references);
+		result.append(", commonNames: "); //$NON-NLS-1$
 		result.append(commonNames);
 		result.append(", latinName: "); //$NON-NLS-1$
 		result.append(latinName);
+		result.append(", iconKey: "); //$NON-NLS-1$
+		result.append(iconKey);
 		result.append(", representationKey: "); //$NON-NLS-1$
 		result.append(representationKey);
 		result.append(')');

@@ -18,7 +18,6 @@ import java.text.MessageFormat;
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.widgets.Event;
 
-import fr.adaussy.permadeler.model.Permadeler.Reference;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
@@ -28,19 +27,18 @@ import fr.adaussy.permadeler.rcp.RcpPlugin;
  */
 public class OpenReference extends Action {
 
-	private final Reference ref;
+	private URL ref;
 
-	public OpenReference(Reference ref) {
-		super(MessageFormat.format("Ouvrir lien {0}", ref.getLink().getHost())); //$NON-NLS-1$
+	public OpenReference(URL ref) {
+		super(MessageFormat.format("Ouvrir lien {0}", ref.getHost())); //$NON-NLS-1$
 		this.ref = ref;
 	}
 
 	@Override
 	public void runWithEvent(Event event) {
-		URL url = ref.getLink();
-		if (url != null) {
+		if (ref != null) {
 			try {
-				Desktop.getDesktop().browse(url.toURI());
+				Desktop.getDesktop().browse(ref.toURI());
 			} catch (URISyntaxException | IOException e) {
 				RcpPlugin.getDefault().logError(e.getMessage(), e);
 			}

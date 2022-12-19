@@ -25,10 +25,12 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 import com.google.common.collect.Sets;
@@ -68,6 +70,13 @@ public final class EMFUtils {
 				.put(PermadelerPackage.eNS_PREFIX.toLowerCase(), resourceFactory);
 
 		return rs;
+	}
+
+	public static <T extends EObject> List<T> getInverse(EObject source, Class<T> expectedType,
+			EReference ref, ECrossReferenceAdapter crossref) {
+		return crossref.getInverseReferences(source, ref, true).stream()
+				.filter(s -> expectedType.isInstance(s.getEObject()))
+				.map(s -> expectedType.cast(s.getEObject())).toList();
 	}
 
 	/**

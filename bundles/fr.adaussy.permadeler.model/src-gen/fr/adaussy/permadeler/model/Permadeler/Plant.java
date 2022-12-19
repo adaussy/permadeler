@@ -28,13 +28,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getHeight <em>Height</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getMinTemperature <em>Min Temperature</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getMoisture <em>Moisture</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getReferences <em>References</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getSpecialUses <em>Special Uses</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getGrowRate <em>Grow Rate</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getWind <em>Wind</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getActions <em>Actions</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoodForestLayer <em>Food Forest Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getLifeCycle <em>Life Cycle</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFamily <em>Family</em>}</li>
  * </ul>
@@ -165,18 +163,6 @@ public interface Plant extends PlantNamedElement {
 	EList<Moisture> getMoisture();
 
 	/**
-	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Reference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>References</em>' containment reference list.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_References()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Reference> getReferences();
-
-	/**
 	 * Returns the value of the '<em><b>Special Uses</b></em>' attribute list.
 	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.SpecialUses}.
 	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.SpecialUses}.
@@ -252,32 +238,6 @@ public interface Plant extends PlantNamedElement {
 	 * @generated
 	 */
 	EList<Action> getActions();
-
-	/**
-	 * Returns the value of the '<em><b>Food Forest Layer</b></em>' attribute.
-	 * The default value is <code>"UNDERSTORY"</code>.
-	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.Layer}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Food Forest Layer</em>' attribute.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Layer
-	 * @see #setFoodForestLayer(Layer)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_FoodForestLayer()
-	 * @model default="UNDERSTORY"
-	 * @generated
-	 */
-	Layer getFoodForestLayer();
-
-	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoodForestLayer <em>Food Forest Layer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Food Forest Layer</em>' attribute.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Layer
-	 * @see #getFoodForestLayer()
-	 * @generated
-	 */
-	void setFoodForestLayer(Layer value);
 
 	/**
 	 * Returns the value of the '<em><b>Life Cycle</b></em>' attribute.

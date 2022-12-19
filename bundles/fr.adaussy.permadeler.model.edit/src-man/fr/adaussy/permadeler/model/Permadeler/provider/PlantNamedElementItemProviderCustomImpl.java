@@ -36,8 +36,7 @@ public class PlantNamedElementItemProviderCustomImpl extends PlantNamedElementIt
 
 	@Override
 	public void notifyChanged(Notification notification) {
-		if (notification.getFeature() == PermadelerPackage.eINSTANCE
-				.getPlantNamedElement_RepresentationKey()) {
+		if (notification.getFeature() == PermadelerPackage.eINSTANCE.getPlantNamedElement_IconKey()) {
 			Object notifier = notification.getNotifier();
 			if (notifier instanceof EObject) {
 				EObject eObject = (EObject)notifier;

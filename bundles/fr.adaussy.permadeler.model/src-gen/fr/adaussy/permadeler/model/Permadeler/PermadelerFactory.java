@@ -75,15 +75,6 @@ public interface PermadelerFactory extends EFactory {
 	Plantation createPlantation();
 
 	/**
-	 * Returns a new object of class '<em>Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reference</em>'.
-	 * @generated
-	 */
-	Reference createReference();
-
-	/**
 	 * Returns a new object of class '<em>Image</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -52,14 +52,32 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addReferencesPropertyDescriptor(object);
 			addCommonNamesPropertyDescriptor(object);
 			addLatinNamePropertyDescriptor(object);
-			addRepresentationKeyPropertyDescriptor(object);
+			addIconKeyPropertyDescriptor(object);
 			addGenusPropertyDescriptor(object);
 			addSpeciesPropertyDescriptor(object);
 			addVarietyPropertyDescriptor(object);
+			addRepresentationKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ReferencingElement_references_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReferencingElement_references_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_ReferencingElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.REFERENCING_ELEMENT__REFERENCES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -95,18 +113,18 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Representation Key feature.
+	 * This adds a property descriptor for the Icon Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRepresentationKeyPropertyDescriptor(Object object) {
+	protected void addIconKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PlantNamedElement_representationKey_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
-						"_UI_PlantNamedElement_representationKey_feature", "_UI_PlantNamedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$
-				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY, true, false, false,
+				getString("_UI_PlantNamedElement_iconKey_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_iconKey_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__ICON_KEY, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -159,6 +177,22 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Representation Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepresentationKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_PlantNamedElement_representationKey_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+						"_UI_PlantNamedElement_representationKey_feature", "_UI_PlantNamedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$
+				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns PlantNamedElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,12 +238,14 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PlantNamedElement.class)) {
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

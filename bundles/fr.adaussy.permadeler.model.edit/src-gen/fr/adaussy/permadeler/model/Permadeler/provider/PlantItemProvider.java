@@ -64,7 +64,6 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 			addSpecialUsesPropertyDescriptor(object);
 			addGrowRatePropertyDescriptor(object);
 			addWindPropertyDescriptor(object);
-			addFoodForestLayerPropertyDescriptor(object);
 			addLifeCyclePropertyDescriptor(object);
 			addFamilyPropertyDescriptor(object);
 		}
@@ -213,22 +212,6 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	}
 
 	/**
-	 * This adds a property descriptor for the Food Forest Layer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFoodForestLayerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_foodForestLayer_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_foodForestLayer_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_Plant_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PLANT__FOOD_FOREST_LAYER, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Life Cycle feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,7 +255,6 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANT__IMAGES);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANT__REFERENCES);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANT__PRODUCTIONS);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANT__ACTIONS);
 		}
@@ -347,14 +329,12 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 			case PermadelerPackage.PLANT__SPECIAL_USES:
 			case PermadelerPackage.PLANT__GROW_RATE:
 			case PermadelerPackage.PLANT__WIND:
-			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 			case PermadelerPackage.PLANT__FAMILY:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PermadelerPackage.PLANT__IMAGES:
-			case PermadelerPackage.PLANT__REFERENCES:
 			case PermadelerPackage.PLANT__PRODUCTIONS:
 			case PermadelerPackage.PLANT__ACTIONS:
 				fireNotifyChanged(
@@ -377,9 +357,6 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__IMAGES,
 				PermadelerFactory.eINSTANCE.createImage()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__REFERENCES,
-				PermadelerFactory.eINSTANCE.createReference()));
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__PRODUCTIONS,
 				PermadelerFactory.eINSTANCE.createProduction()));

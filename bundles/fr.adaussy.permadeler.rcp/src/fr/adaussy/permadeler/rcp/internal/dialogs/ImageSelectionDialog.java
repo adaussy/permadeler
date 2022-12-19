@@ -11,6 +11,7 @@ package fr.adaussy.permadeler.rcp.internal.dialogs;
 
 import java.text.MessageFormat;
 import java.util.Comparator;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Predicate;
 
@@ -25,9 +26,12 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -55,14 +59,40 @@ public class ImageSelectionDialog extends Dialog {
 
 	private GalleryItem allGroup;
 
-	public ImageSelectionDialog(Shell shell, String initialSelection) {
+	private Map<String, String> nameToImagePath;
+
+	public ImageSelectionDialog(Shell shell, String initialSelection, Map<String, String> nameToImagePath) {
 		super(shell);
 		this.selection = initialSelection;
+		this.nameToImagePath = nameToImagePath;
 	}
 
 	@Override
 	protected boolean isResizable() {
 		return true;
+	}
+
+	@Override
+	protected Point getInitialSize() {
+		Rectangle bounds = getDisplayBounds();
+		return new Point((int)(bounds.width * 0.6), (int)(bounds.height * 0.8));
+	}
+
+	protected Rectangle getDisplayBounds() {
+		Display display = Display.getCurrent();
+		if (display == null) {
+			display = Display.getCurrent();
+		}
+		Rectangle bounds = display.getBounds();
+		return bounds;
+	}
+
+	@Override
+	protected Point getInitialLocation(Point initialSize) {
+		Rectangle bounds = getDisplayBounds();
+		int x = (bounds.width - initialSize.x) / 2;
+		int y = (bounds.height - initialSize.y) / 2;
+		return new Point(x, y);
 	}
 
 	@Override
@@ -119,10 +149,9 @@ public class ImageSelectionDialog extends Dialog {
 		allGroup.setText(RcpMessages.ImageSelectionDialog_2);
 		allGroup.setExpanded(true);
 
-		ImageProvider.INSTANCE.getPreviews().entrySet().stream().sorted(Comparator.comparing(Entry::getKey))
-				.forEach(path -> {
-					addItem(allGroup, path);
-				});
+		nameToImagePath.entrySet().stream().sorted(Comparator.comparing(Entry::getKey)).forEach(path -> {
+			addItem(allGroup, path);
+		});
 
 		gallery.addSelectionListener(new SelectionAdapter() {
 			@Override

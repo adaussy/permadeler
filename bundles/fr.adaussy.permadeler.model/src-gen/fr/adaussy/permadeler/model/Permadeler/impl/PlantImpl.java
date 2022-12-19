@@ -14,13 +14,11 @@ import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.Family;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
 import fr.adaussy.permadeler.model.Permadeler.Image;
-import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.Moisture;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Production;
-import fr.adaussy.permadeler.model.Permadeler.Reference;
 import fr.adaussy.permadeler.model.Permadeler.Shade;
 import fr.adaussy.permadeler.model.Permadeler.SoilType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
@@ -59,13 +57,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getMinTemperature <em>Min Temperature</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getMoisture <em>Moisture</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getReferences <em>References</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getSpecialUses <em>Special Uses</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getGrowRate <em>Grow Rate</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getWind <em>Wind</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getActions <em>Actions</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFoodForestLayer <em>Food Forest Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getLifeCycle <em>Life Cycle</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFamily <em>Family</em>}</li>
  * </ul>
@@ -174,16 +170,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	protected EList<Moisture> moisture;
 
 	/**
-	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferences()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Reference> references;
-
-	/**
 	 * The cached value of the '{@link #getSpecialUses() <em>Special Uses</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,26 +228,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	 * @ordered
 	 */
 	protected EList<Action> actions;
-
-	/**
-	 * The default value of the '{@link #getFoodForestLayer() <em>Food Forest Layer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFoodForestLayer()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Layer FOOD_FOREST_LAYER_EDEFAULT = Layer.UNDERSTORY;
-
-	/**
-	 * The cached value of the '{@link #getFoodForestLayer() <em>Food Forest Layer</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFoodForestLayer()
-	 * @generated
-	 * @ordered
-	 */
-	protected Layer foodForestLayer = FOOD_FOREST_LAYER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLifeCycle() <em>Life Cycle</em>}' attribute.
@@ -444,19 +410,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Reference> getReferences() {
-		if (references == null) {
-			references = new EObjectContainmentEList<Reference>(Reference.class, this,
-					PermadelerPackage.PLANT__REFERENCES);
-		}
-		return references;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<SpecialUses> getSpecialUses() {
 		if (specialUses == null) {
 			specialUses = new EDataTypeUniqueEList<SpecialUses>(SpecialUses.class, this,
@@ -530,28 +483,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Layer getFoodForestLayer() {
-		return foodForestLayer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFoodForestLayer(Layer newFoodForestLayer) {
-		Layer oldFoodForestLayer = foodForestLayer;
-		foodForestLayer = newFoodForestLayer == null ? FOOD_FOREST_LAYER_EDEFAULT : newFoodForestLayer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__FOOD_FOREST_LAYER,
-					oldFoodForestLayer, foodForestLayer));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Lifecycle getLifeCycle() {
 		return lifeCycle;
 	}
@@ -612,8 +543,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 		switch (featureID) {
 			case PermadelerPackage.PLANT__IMAGES:
 				return ((InternalEList<?>)getImages()).basicRemove(otherEnd, msgs);
-			case PermadelerPackage.PLANT__REFERENCES:
-				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.PLANT__PRODUCTIONS:
 				return ((InternalEList<?>)getProductions()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.PLANT__ACTIONS:
@@ -644,8 +573,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return getMinTemperature();
 			case PermadelerPackage.PLANT__MOISTURE:
 				return getMoisture();
-			case PermadelerPackage.PLANT__REFERENCES:
-				return getReferences();
 			case PermadelerPackage.PLANT__SPECIAL_USES:
 				return getSpecialUses();
 			case PermadelerPackage.PLANT__GROW_RATE:
@@ -656,8 +583,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return getProductions();
 			case PermadelerPackage.PLANT__ACTIONS:
 				return getActions();
-			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
-				return getFoodForestLayer();
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				return getLifeCycle();
 			case PermadelerPackage.PLANT__FAMILY:
@@ -700,10 +625,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				getMoisture().clear();
 				getMoisture().addAll((Collection<? extends Moisture>)newValue);
 				return;
-			case PermadelerPackage.PLANT__REFERENCES:
-				getReferences().clear();
-				getReferences().addAll((Collection<? extends Reference>)newValue);
-				return;
 			case PermadelerPackage.PLANT__SPECIAL_USES:
 				getSpecialUses().clear();
 				getSpecialUses().addAll((Collection<? extends SpecialUses>)newValue);
@@ -722,9 +643,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 			case PermadelerPackage.PLANT__ACTIONS:
 				getActions().clear();
 				getActions().addAll((Collection<? extends Action>)newValue);
-				return;
-			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
-				setFoodForestLayer((Layer)newValue);
 				return;
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				setLifeCycle((Lifecycle)newValue);
@@ -765,9 +683,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 			case PermadelerPackage.PLANT__MOISTURE:
 				getMoisture().clear();
 				return;
-			case PermadelerPackage.PLANT__REFERENCES:
-				getReferences().clear();
-				return;
 			case PermadelerPackage.PLANT__SPECIAL_USES:
 				getSpecialUses().clear();
 				return;
@@ -782,9 +697,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return;
 			case PermadelerPackage.PLANT__ACTIONS:
 				getActions().clear();
-				return;
-			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
-				setFoodForestLayer(FOOD_FOREST_LAYER_EDEFAULT);
 				return;
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				setLifeCycle(LIFE_CYCLE_EDEFAULT);
@@ -818,8 +730,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return minTemperature != MIN_TEMPERATURE_EDEFAULT;
 			case PermadelerPackage.PLANT__MOISTURE:
 				return moisture != null && !moisture.isEmpty();
-			case PermadelerPackage.PLANT__REFERENCES:
-				return references != null && !references.isEmpty();
 			case PermadelerPackage.PLANT__SPECIAL_USES:
 				return specialUses != null && !specialUses.isEmpty();
 			case PermadelerPackage.PLANT__GROW_RATE:
@@ -830,8 +740,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return productions != null && !productions.isEmpty();
 			case PermadelerPackage.PLANT__ACTIONS:
 				return actions != null && !actions.isEmpty();
-			case PermadelerPackage.PLANT__FOOD_FOREST_LAYER:
-				return foodForestLayer != FOOD_FOREST_LAYER_EDEFAULT;
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				return lifeCycle != LIFE_CYCLE_EDEFAULT;
 			case PermadelerPackage.PLANT__FAMILY:
@@ -883,8 +791,6 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 		result.append(growRate);
 		result.append(", wind: "); //$NON-NLS-1$
 		result.append(wind);
-		result.append(", foodForestLayer: "); //$NON-NLS-1$
-		result.append(foodForestLayer);
 		result.append(", lifeCycle: "); //$NON-NLS-1$
 		result.append(lifeCycle);
 		result.append(", family: "); //$NON-NLS-1$

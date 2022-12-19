@@ -153,7 +153,7 @@ public class DiagramService {
 	}
 
 	public String getSVGPath(final EObject p) {
-		return ImageProvider.INSTANCE.getSVG(p);
+		return ImageProvider.INSTANCE.getRepresentation(p);
 	}
 
 	public int getLabelSize(Plantation p) {
@@ -182,9 +182,8 @@ public class DiagramService {
 
 	public boolean showIcon(Plantation p) {
 		return p.getType() != null //
-				&& isLayerRequieringIcon(p.getCurrentLayer()) //
-				&& p.getType().getRepresentationKey() != null //
-				&& !p.getType().getRepresentationKey().isBlank();
+				&& p.getType().getIconKey() != null //
+				&& !p.getType().getIconKey().isBlank();
 	}
 
 	private boolean isLayerRequieringIcon(Layer layer) {
@@ -466,14 +465,23 @@ public class DiagramService {
 
 	public static String computeTrigram(String name) {
 		String trigram = ""; //$NON-NLS-1$
-		for (int i = 0; i < name.length(); i++) {
-			if (trigram.length() == 3) {
-				break;
+		if (name == null) {
+			return ""; //$NON-NLS-1$
+		}
+		String[] parts = name.split(" "); //$NON-NLS-1$
+		String part0 = parts[0];
+		if (parts.length > 2) {
+			// TAKES the first letter of each world
+			trigram = "" + part0.charAt(0) + parts[1].charAt(1) + parts[2].charAt(2); //$NON-NLS-1$
+		} else if (parts.length > 1) {
+
+			if (part0.length() > 1) {
+				trigram = "" + part0.charAt(0) + parts[0].charAt(1) + parts[1].charAt(0); //$NON-NLS-1$
+			} else {
+				trigram = "" + part0.charAt(0) + parts[1].charAt(0); //$NON-NLS-1$
 			}
-			char l = name.charAt(i);
-			if (Character.isUpperCase(l)) {
-				trigram += l;
-			}
+		} else if (parts.length == 1) {
+			trigram = part0.substring(0, Math.min(3, part0.length() - 1));
 		}
 		return trigram;
 	}
@@ -566,7 +574,7 @@ public class DiagramService {
 	 * 
 	 * @return a {@link Shell}
 	 */
-	private static Shell getShell() {
+	public static Shell getShell() {
 		return PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 	}
 

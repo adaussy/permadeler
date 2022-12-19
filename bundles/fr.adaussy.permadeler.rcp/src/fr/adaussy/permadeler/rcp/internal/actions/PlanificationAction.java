@@ -53,8 +53,8 @@ public final class PlanificationAction extends AbstractModelAction {
 	private PlanificationAction(Builder builder) {
 		super(builder.text,
 				builder.type == SowType.INDOOR
-						? ImageProvider.INSTANCE.getImageDescriptor("icons/bank/icons/greenhouse.png") //$NON-NLS-1$
-						: ImageProvider.INSTANCE.getImageDescriptor("icons/bank/icons/sow.png"), //$NON-NLS-1$
+						? ImageProvider.INSTANCE.getImageDescriptor("icons/other/icons/greenhouse.png") //$NON-NLS-1$
+						: ImageProvider.INSTANCE.getImageDescriptor("icons/other/icons/sow.png"), //$NON-NLS-1$
 				builder.session);
 		this.defaultChoise = builder.defaultChoise;
 		this.seedItem = builder.seedItem;
@@ -63,8 +63,8 @@ public final class PlanificationAction extends AbstractModelAction {
 
 	@Override
 	public void runWithEvent(Event event) {
-		MonthWeekDialog dialog = new MonthWeekDialog(event.display.getActiveShell(), RcpMessages.PlanificationAction_0,
-				defaultChoise);
+		MonthWeekDialog dialog = new MonthWeekDialog(event.display.getActiveShell(),
+				RcpMessages.PlanificationAction_0, defaultChoise);
 		if (dialog.open() == Dialog.OK) {
 			modifyModel(() -> {
 				Root root = EMFUtils.getAncestor(Root.class, seedItem);

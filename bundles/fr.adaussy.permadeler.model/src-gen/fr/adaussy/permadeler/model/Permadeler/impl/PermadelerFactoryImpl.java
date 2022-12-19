@@ -83,8 +83,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createSeedItem();
 			case PermadelerPackage.PLANTATION:
 				return createPlantation();
-			case PermadelerPackage.REFERENCE:
-				return createReference();
 			case PermadelerPackage.IMAGE:
 				return createImage();
 			case PermadelerPackage.EVENT:
@@ -287,16 +285,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Plantation createPlantation() {
 		PlantationImpl plantation = new PlantationImpl();
 		return plantation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reference createReference() {
-		ReferenceImpl reference = new ReferenceImpl();
-		return reference;
 	}
 
 	/**

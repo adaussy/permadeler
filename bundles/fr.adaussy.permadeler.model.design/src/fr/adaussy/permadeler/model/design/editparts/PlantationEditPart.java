@@ -29,13 +29,17 @@ public class PlantationEditPart extends DNodeEditPart {
 
 	//
 	private boolean isWireframePlantation() {
+		Plantation plantation = getPlantation();
+		return plantation != null && plantation.isWireframe();
+	}
+
+	private Plantation getPlantation() {
 		EObject semantic = resolveSemanticElement();
 		if (semantic instanceof DNode) {
 			DNode node = (DNode)semantic;
 			EObject target = node.getTarget();
-			return target instanceof Plantation & ((Plantation)target).isWireframe();
+			return ((Plantation)target);
 		}
-		return false;
+		return null;
 	}
-
 }
