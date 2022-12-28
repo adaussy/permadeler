@@ -4,14 +4,21 @@ import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
+import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
+import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 
 public class PropertyService {
 
@@ -57,7 +64,30 @@ public class PropertyService {
 	}
 
 	public void importFromOtherSpecies(Plant p) {
-		System.out.println("Todo"); //$NON-NLS-1$
+
+		ObjectSelectionDialog<Plant> selection = new ObjectSelectionDialog<Plant>(DiagramService.getShell(),
+				Plant.class, e -> true, EMFUtils.getAncestor(KnowledgeBase.class, p));
+
+		if (selection.open() == IDialogConstants.OK_ID) {
+			List<Plant> plants = selection.getSelection();
+			if (!plants.isEmpty()) {
+				Plant imported = plants.get(0);
+
+				for (var attr : PermadelerPackage.eINSTANCE.getPlant().getEAllAttributes()) {
+					if (!attr.isDerived()) {
+						p.eSet(attr, imported.eGet(attr));
+					}
+				}
+
+				for (var action : imported.getActions()) {
+					p.getActions().add(EcoreUtil.copy(action));
+				}
+				for (var production : imported.getProductions()) {
+					p.getProductions().add(EcoreUtil.copy(production));
+				}
+			}
+		}
+
 	}
 
 }

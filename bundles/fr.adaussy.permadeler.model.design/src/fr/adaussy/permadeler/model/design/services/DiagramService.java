@@ -63,6 +63,7 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
+import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
@@ -157,42 +158,29 @@ public class DiagramService {
 	}
 
 	public int getLabelSize(Plantation p) {
-		return switch (p.getCurrentLayer()) {
-			case CANOPY -> 12;
-			case UNDERSTORY -> 10;
-			case SHRUB -> 6;
-			case VINE -> 6;
-			case HERB -> 6;
-			case GROUND_COVER -> 6;
-			case ROOT -> 6;
-			default -> 6;
-		};
+		if (p.getRepresentationKind() == RepresentationKind.ICON) {
+			return 6;
+		} else {
+			return switch (p.getCurrentLayer()) {
+				case CANOPY -> 12;
+				case UNDERSTORY -> 10;
+				case SHRUB -> 6;
+				case VINE -> 6;
+				case HERB -> 6;
+				case GROUND_COVER -> 6;
+				case ROOT -> 6;
+				default -> 6;
+			};
+		}
 
 	}
 
 	public LabelPosition getLabelPosition(Plantation p) {
-		switch (p.getCurrentLayer()) {
-			case CANOPY:
-			case UNDERSTORY:
-				return LabelPosition.NODE_LITERAL;
-			default:
-				return LabelPosition.BORDER_LITERAL;
+		if (p.getRepresentationKind() == RepresentationKind.TREE_CROWN) {
+			return LabelPosition.NODE_LITERAL;
+		} else {
+			return LabelPosition.BORDER_LITERAL;
 		}
-	}
-
-	public boolean showIcon(Plantation p) {
-		return p.getType() != null //
-				&& p.getType().getIconKey() != null //
-				&& !p.getType().getIconKey().isBlank();
-	}
-
-	private boolean isLayerRequieringIcon(Layer layer) {
-		return switch (layer) {
-			case CANOPY -> true;
-			case UNDERSTORY -> true;
-			case SHRUB -> true;
-			default -> false;
-		};
 	}
 
 	/**
@@ -393,29 +381,7 @@ public class DiagramService {
 	 * @return a new plantation or <code>null</code> if the user has canceled
 	 */
 	public static Plantation createPlantation(final PlantationPhase container) {
-		Shell shell = getShell();
-		PlantationDialog dialog = new PlantationDialog(shell, new Date(),
-				container.eResource().getContents().get(0));
-		if (dialog.open() == Dialog.OK) {
-			final List<Plant> selection = dialog.getSelection();
-			if (selection.size() == 1) {
-				Plantation plantation = PermadelerFactory.eINSTANCE.createPlantation();
-				plantation.setPlantationDate(dialog.getDate().toInstant());
-				plantation.setCurrentLayer(dialog.getLayer());
-				container.getPlantations().add(plantation);
-				Plant value = selection.get(0);
-				plantation.setType(value);
-				plantation.setId(generateId(plantation));
-				return plantation;
-			}
-		}
 		return createPlantation(container, null);
-	}
-
-	public Plant createDefaultPlant(EObject self) {
-		Plant plant = PermadelerFactory.eINSTANCE.createPlant();
-		EMFUtils.getAncestor(Root.class, self).getKnowledgeBase().getPlantTypes().add(plant);
-		return plant;
 	}
 
 	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection) {
@@ -431,6 +397,7 @@ public class DiagramService {
 				Plantation plantation = PermadelerFactory.eINSTANCE.createPlantation();
 				plantation.setPlantationDate(dialog.getDate().toInstant());
 				plantation.setCurrentLayer(dialog.getLayer());
+				plantation.setRepresentationKind(dialog.getRepresentationKind());
 				container.getPlantations().add(plantation);
 				Plant value = selection.get(0);
 				plantation.setType(value);
@@ -439,6 +406,12 @@ public class DiagramService {
 			}
 		}
 		return null;
+	}
+
+	public Plant createDefaultPlant(EObject self) {
+		Plant plant = PermadelerFactory.eINSTANCE.createPlant();
+		EMFUtils.getAncestor(Root.class, self).getKnowledgeBase().getPlantTypes().add(plant);
+		return plant;
 	}
 
 	private static String generateId(Plantation plantation) {

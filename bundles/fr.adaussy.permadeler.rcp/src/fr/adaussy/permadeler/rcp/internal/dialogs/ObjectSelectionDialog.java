@@ -105,6 +105,10 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 		this.multi = multi;
 	}
 
+	protected void selectionChanges(List<T> newSelection) {
+		// Can be overriden by children
+	}
+
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite cc = (Composite)super.createDialogArea(parent);
@@ -142,6 +146,7 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 						selection.add(type.cast(o));
 					}
 				}
+				selectionChanges(selection);
 
 			}
 		});

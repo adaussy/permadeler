@@ -19,6 +19,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.sirius.business.api.session.Session;
@@ -30,6 +31,7 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 
 public class SemanticQuerier {
@@ -43,6 +45,28 @@ public class SemanticQuerier {
 				.orElse(List.of());
 	}
 
+	public Object getMostUsedFeatureValue(Plant p, EAttribute feature, Object defaultValue) {
+		List<Plant> sameSpecies = getSameSpecies(p);
+		return getMostUseFeatureValue(sameSpecies, feature, defaultValue);
+	}
+
+	private Object getMostUseFeatureValue(List<? extends EObject> existingPlantations, EAttribute feature,
+			Object defaultValue) {
+		Map<Object, Long> byCount = existingPlantations.stream().filter(e -> isSet(e, feature))
+				.collect(Collectors.groupingBy(p -> p.eGet(feature), Collectors.counting()));
+		return byCount.entrySet().stream().max(Comparator.comparing(Entry::getValue)).map(Entry::getKey)
+				.orElse(defaultValue);
+	}
+
+	private boolean isSet(EObject e, EAttribute attr) {
+		Object value = e.eGet(attr);
+		if (attr.isMany()) {
+			return !((List<?>)value).isEmpty();
+		} else {
+			return e.eGet(attr) != null;
+		}
+	}
+
 	public Layer getMostUsedLayer(Plant p, Layer defaultValue) {
 		// Look for plantation
 
@@ -52,20 +76,27 @@ public class SemanticQuerier {
 			existingPlantations = getSameSpecies(p).stream().flatMap(pl -> getPlantation(p).stream())
 					.toList();
 		}
-		return getMostUseLayer(existingPlantations, defaultValue);
+		return (Layer)getMostUseFeatureValue(existingPlantations,
+				PermadelerPackage.eINSTANCE.getPlantation_CurrentLayer(), defaultValue);
+
+	}
+
+	public RepresentationKind getMostUsedRepresentationKind(Plant p, RepresentationKind defaultValue) {
+		// Look for plantation
+
+		List<Plantation> existingPlantations = getPlantation(p);
+		if (existingPlantations.isEmpty()) {
+			// Look for other plantation of the same genus
+			existingPlantations = getSameSpecies(p).stream().flatMap(pl -> getPlantation(p).stream())
+					.toList();
+		}
+		return (RepresentationKind)getMostUseFeatureValue(existingPlantations,
+				PermadelerPackage.eINSTANCE.getPlantation_RepresentationKind(), defaultValue);
 
 	}
 
 	protected List<Plantation> getPlantation(Plant p) {
 		return getInverse(p, Plantation.class, PermadelerPackage.eINSTANCE.getPlantation_Type());
-	}
-
-	private Layer getMostUseLayer(List<Plantation> existingPlantations, Layer defaultValue) {
-		Map<Layer, Long> byCount = existingPlantations.stream()
-				.collect(Collectors.groupingBy(Plantation::getCurrentLayer, Collectors.counting()));
-
-		return byCount.entrySet().stream().max(Comparator.comparing(Entry::getValue)).map(Entry::getKey)
-				.orElse(defaultValue);
 	}
 
 	public List<Plant> getSameSpecies(Plant p) {

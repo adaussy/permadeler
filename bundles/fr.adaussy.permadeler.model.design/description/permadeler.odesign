@@ -115,7 +115,6 @@
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="labelSize" value="aql:self.getLabelSize()"/>
             <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="labelPosition" value="aql:self.getLabelPosition()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="showIcon" value="aql:self.showIcon()"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>

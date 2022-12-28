@@ -10,7 +10,6 @@
  */
 package fr.adaussy.permadeler.model.edit;
 
-import static fr.adaussy.permadeler.model.edit.PermadelerIcons.LEAF_SVG;
 import static java.util.stream.Collectors.joining;
 
 import java.net.URL;
@@ -35,11 +34,11 @@ import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
-import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
@@ -268,7 +267,7 @@ public final class ImageProvider {
 	}
 
 	private String getPlantSVGWithDefault(Plantation plantation, String shovelSvg) {
-		if (isHoupierRepresentation(plantation)) {
+		if (plantation.getRepresentationKind() == RepresentationKind.TREE_CROWN) {
 			if (plantation.isWireframe()) {
 				return PermadelerIcons.iconsRelativeToFullPath(
 						getWireframeimage(plantation.getType().getRepresentationKey()));
@@ -280,29 +279,11 @@ public final class ImageProvider {
 			if (localPath != null) {
 				return PermadelerIcons.iconsRelativeToFullPath(localPath);
 			} else {
-				return switch (plantation.getCurrentLayer()) {
-
-					case HERB -> "/fr.adaussy.permadeler.model.edit/icons/custo/herb.svg"; //$NON-NLS-1$
-					case GROUND_COVER -> "/fr.adaussy.permadeler.model.edit/icons/custo/ground_cover.svg"; //$NON-NLS-1$
-					case VINE -> "/fr.adaussy.permadeler.model.edit/icons/custo/vine.svg"; //$NON-NLS-1$
-					case ROOT -> "/fr.adaussy.permadeler.model.edit/icons/custo/root.svg"; //$NON-NLS-1$
-					default -> LEAF_SVG;
-				};
+				return "/fr.adaussy.permadeler.model.edit/icons/custo/commons/plant.svg"; //$NON-NLS-1$
 			}
 		}
 	}
 
-	private boolean isHoupierRepresentation(Plantation p) {
-		Layer layer = p.getCurrentLayer();
-
-		return switch (layer) {
-			case CANOPY -> true;
-			case UNDERSTORY -> true;
-			case SHRUB -> true;
-			default -> false;
-		};
-
-	}
 
 	private String getWireframeimage(String imagePath) {
 		java.nio.file.Path path = java.nio.file.Path.of(imagePath);
