@@ -436,13 +436,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANTATION__WIREFRAME = 7;
 
 	/**
+	 * The feature id for the '<em><b>Representation Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__REPRESENTATION_KIND = 8;
+
+	/**
 	 * The number of structural features of the '<em>Plantation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANTATION_FEATURE_COUNT = 8;
+	int PLANTATION_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Plantation</em>' class.
@@ -1995,13 +2004,23 @@ public interface PermadelerPackage extends EPackage {
 	int LAYER = 43;
 
 	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.RepresentationKind <em>Representation Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.RepresentationKind
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRepresentationKind()
+	 * @generated
+	 */
+	int REPRESENTATION_KIND = 44;
+
+	/**
 	 * The meta object id for the '<em>Month Week</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeek()
 	 * @generated
 	 */
-	int MONTH_WEEK = 44;
+	int MONTH_WEEK = 45;
 
 	/**
 	 * The meta object id for the '<em>URL</em>' data type.
@@ -2011,7 +2030,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getURL()
 	 * @generated
 	 */
-	int URL = 45;
+	int URL = 46;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -2021,7 +2040,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 46;
+	int DATE = 47;
 
 	/**
 	 * The meta object id for the '<em>Month Weeks</em>' data type.
@@ -2031,7 +2050,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeeks()
 	 * @generated
 	 */
-	int MONTH_WEEKS = 47;
+	int MONTH_WEEKS = 48;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -2041,7 +2060,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 48;
+	int COLOR = 49;
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Root <em>Root</em>}'.
@@ -2332,6 +2351,17 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantation_Wireframe();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRepresentationKind <em>Representation Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Representation Kind</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plantation#getRepresentationKind()
+	 * @see #getPlantation()
+	 * @generated
+	 */
+	EAttribute getPlantation_RepresentationKind();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement <em>Plant Named Element</em>}'.
@@ -3295,6 +3325,16 @@ public interface PermadelerPackage extends EPackage {
 	EEnum getLayer();
 
 	/**
+	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.RepresentationKind <em>Representation Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Representation Kind</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.RepresentationKind
+	 * @generated
+	 */
+	EEnum getRepresentationKind();
+
+	/**
 	 * Returns the meta object for data type '<em>Month Week</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3599,6 +3639,14 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLANTATION__WIREFRAME = eINSTANCE.getPlantation_Wireframe();
+
+		/**
+		 * The meta object literal for the '<em><b>Representation Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANTATION__REPRESENTATION_KIND = eINSTANCE.getPlantation_RepresentationKind();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl <em>Plant Named Element</em>}' class.
@@ -4404,6 +4452,16 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum LAYER = eINSTANCE.getLayer();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.RepresentationKind <em>Representation Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.RepresentationKind
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRepresentationKind()
+		 * @generated
+		 */
+		EEnum REPRESENTATION_KIND = eINSTANCE.getRepresentationKind();
 
 		/**
 		 * The meta object literal for the '<em>Month Week</em>' data type.

@@ -57,6 +57,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootstock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wireframe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKind" eType="#//RepresentationKind"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlantNamedElement" abstract="true" eSuperTypes="#//NamedElement #//ReferencingElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
@@ -774,6 +775,7 @@
     <eLiterals name="Hedge" value="5"/>
     <eLiterals name="DynamicAccumulator" value="6"/>
     <eLiterals name="GroundCover" value="7"/>
+    <eLiterals name="BiomassProduction" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EventType">
     <eLiterals name="General"/>
@@ -925,5 +927,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ReferencingElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="references" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RepresentationKind">
+    <eLiterals name="ICON"/>
+    <eLiterals name="TREE_CROWN" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

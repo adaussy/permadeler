@@ -701,6 +701,7 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/Hedge"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/DynamicAccumulator"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/GroundCover"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/BiomassProduction"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EventType">
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EventType/General"/>
@@ -751,6 +752,10 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/VINE"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/OTHER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//RepresentationKind">
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//RepresentationKind/ICON"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//RepresentationKind/TREE_CROWN"/>
+    </genEnums>
     <genDataTypes ecoreDataType="Permadeler.ecore#//MonthWeek"/>
     <genDataTypes ecoreDataType="Permadeler.ecore#//URL"/>
     <genDataTypes ecoreDataType="Permadeler.ecore#//Date"/>
@@ -793,6 +798,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/rootstock"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/wireframe"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Plantation/representationKind"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//PlantNamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/commonNames"/>

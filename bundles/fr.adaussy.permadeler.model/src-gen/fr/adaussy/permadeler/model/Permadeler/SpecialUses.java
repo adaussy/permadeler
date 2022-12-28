@@ -104,7 +104,16 @@ public enum SpecialUses implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GROUND_COVER(7, "GroundCover", "GroundCover"); //$NON-NLS-1$ //$NON-NLS-2$
+	GROUND_COVER(7, "GroundCover", "GroundCover"), //$NON-NLS-1$ //$NON-NLS-2$
+	/**
+	* The '<em><b>Biomass Production</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #BIOMASS_PRODUCTION_VALUE
+	* @generated
+	* @ordered
+	*/
+	BIOMASS_PRODUCTION(8, "BiomassProduction", "BiomassProduction"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Nitrogen Fixer</b></em>' literal value.
@@ -195,13 +204,25 @@ public enum SpecialUses implements Enumerator {
 	public static final int GROUND_COVER_VALUE = 7;
 
 	/**
+	 * The '<em><b>Biomass Production</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BIOMASS_PRODUCTION
+	 * @model name="BiomassProduction"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BIOMASS_PRODUCTION_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Special Uses</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final SpecialUses[] VALUES_ARRAY = new SpecialUses[] {NITROGEN_FIXER, SCENTED_PLANTS,
-			FOOD_FOREST, CARDON_FARMING, ATTRACTS_WILDLIFE, HEDGE, DYNAMIC_ACCUMULATOR, GROUND_COVER, };
+			FOOD_FOREST, CARDON_FARMING, ATTRACTS_WILDLIFE, HEDGE, DYNAMIC_ACCUMULATOR, GROUND_COVER,
+			BIOMASS_PRODUCTION, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Special Uses</b></em>' enumerators.
@@ -273,6 +294,8 @@ public enum SpecialUses implements Enumerator {
 				return DYNAMIC_ACCUMULATOR;
 			case GROUND_COVER_VALUE:
 				return GROUND_COVER;
+			case BIOMASS_PRODUCTION_VALUE:
+				return BIOMASS_PRODUCTION;
 		}
 		return null;
 	}

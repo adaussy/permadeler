@@ -165,6 +165,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createActionTypeFromString(eDataType, initialValue);
 			case PermadelerPackage.LAYER:
 				return createLayerFromString(eDataType, initialValue);
+			case PermadelerPackage.REPRESENTATION_KIND:
+				return createRepresentationKindFromString(eDataType, initialValue);
 			case PermadelerPackage.MONTH_WEEK:
 				return createMonthWeekFromString(eDataType, initialValue);
 			case PermadelerPackage.URL:
@@ -221,6 +223,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return convertActionTypeToString(eDataType, instanceValue);
 			case PermadelerPackage.LAYER:
 				return convertLayerToString(eDataType, instanceValue);
+			case PermadelerPackage.REPRESENTATION_KIND:
+				return convertRepresentationKindToString(eDataType, instanceValue);
 			case PermadelerPackage.MONTH_WEEK:
 				return convertMonthWeekToString(eDataType, instanceValue);
 			case PermadelerPackage.URL:
@@ -816,6 +820,28 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public String convertLayerToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RepresentationKind createRepresentationKindFromString(EDataType eDataType, String initialValue) {
+		RepresentationKind result = RepresentationKind.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRepresentationKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

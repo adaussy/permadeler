@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRootstock <em>Rootstock</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getId <em>Id</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#isWireframe <em>Wireframe</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRepresentationKind <em>Representation Kind</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation()
@@ -209,5 +210,30 @@ public interface Plantation extends EObject {
 	 * @generated
 	 */
 	void setWireframe(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Representation Kind</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.RepresentationKind}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Representation Kind</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.RepresentationKind
+	 * @see #setRepresentationKind(RepresentationKind)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_RepresentationKind()
+	 * @model
+	 * @generated
+	 */
+	RepresentationKind getRepresentationKind();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plantation#getRepresentationKind <em>Representation Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Representation Kind</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.RepresentationKind
+	 * @see #getRepresentationKind()
+	 * @generated
+	 */
+	void setRepresentationKind(RepresentationKind value);
 
 } // Plantation

@@ -39,6 +39,7 @@ import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ProductionType;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
+import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.RowBedType;
@@ -392,6 +393,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum representationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType monthWeekEDataType = null;
 
 	/**
@@ -727,6 +735,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getPlantation_Wireframe() {
 		return (EAttribute)plantationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantation_RepresentationKind() {
+		return (EAttribute)plantationEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1553,6 +1570,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRepresentationKind() {
+		return representationKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMonthWeek() {
 		return monthWeekEDataType;
 	}
@@ -1654,6 +1680,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(plantationEClass, PLANTATION__ROOTSTOCK);
 		createEAttribute(plantationEClass, PLANTATION__ID);
 		createEAttribute(plantationEClass, PLANTATION__WIREFRAME);
+		createEAttribute(plantationEClass, PLANTATION__REPRESENTATION_KIND);
 
 		plantNamedElementEClass = createEClass(PLANT_NAMED_ELEMENT);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__COMMON_NAMES);
@@ -1769,6 +1796,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		productionTypeEEnum = createEEnum(PRODUCTION_TYPE);
 		actionTypeEEnum = createEEnum(ACTION_TYPE);
 		layerEEnum = createEEnum(LAYER);
+		representationKindEEnum = createEEnum(REPRESENTATION_KIND);
 
 		// Create data types
 		monthWeekEDataType = createEDataType(MONTH_WEEK);
@@ -1905,6 +1933,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantation_Wireframe(), ecorePackage.getEBoolean(), "wireframe", null, 0, 1, //$NON-NLS-1$
 				Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantation_RepresentationKind(), this.getRepresentationKind(), "representationKind", //$NON-NLS-1$
+				null, 0, 1, Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT, //$NON-NLS-1$
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2814,6 +2845,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.HEDGE);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.DYNAMIC_ACCUMULATOR);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.GROUND_COVER);
+		addEEnumLiteral(specialUsesEEnum, SpecialUses.BIOMASS_PRODUCTION);
 
 		initEEnum(eventTypeEEnum, EventType.class, "EventType"); //$NON-NLS-1$
 		addEEnumLiteral(eventTypeEEnum, EventType.GENERAL);
@@ -2863,6 +2895,10 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(layerEEnum, Layer.GROUND_COVER);
 		addEEnumLiteral(layerEEnum, Layer.VINE);
 		addEEnumLiteral(layerEEnum, Layer.OTHER);
+
+		initEEnum(representationKindEEnum, RepresentationKind.class, "RepresentationKind"); //$NON-NLS-1$
+		addEEnumLiteral(representationKindEEnum, RepresentationKind.ICON);
+		addEEnumLiteral(representationKindEEnum, RepresentationKind.TREE_CROWN);
 
 		// Initialize data types
 		initEDataType(monthWeekEDataType, int.class, "MonthWeek", IS_SERIALIZABLE, //$NON-NLS-1$

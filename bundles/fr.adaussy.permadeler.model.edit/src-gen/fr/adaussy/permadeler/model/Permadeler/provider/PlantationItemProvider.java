@@ -70,6 +70,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 			addRootstockPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addWireframePropertyDescriptor(object);
+			addRepresentationKindPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -186,6 +187,22 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 	}
 
 	/**
+	 * This adds a property descriptor for the Representation Kind feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepresentationKindPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plantation_representationKind_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plantation_representationKind_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plantation_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANTATION__REPRESENTATION_KIND, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -267,6 +284,7 @@ public class PlantationItemProvider extends ItemProviderAdapter implements IEdit
 			case PermadelerPackage.PLANTATION__ROOTSTOCK:
 			case PermadelerPackage.PLANTATION__ID:
 			case PermadelerPackage.PLANTATION__WIREFRAME:
+			case PermadelerPackage.PLANTATION__REPRESENTATION_KIND:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

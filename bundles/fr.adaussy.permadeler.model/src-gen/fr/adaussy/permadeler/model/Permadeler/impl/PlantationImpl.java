@@ -16,6 +16,7 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 
+import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import java.time.Instant;
 
 import java.util.Collection;
@@ -50,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getRootstock <em>Rootstock</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getId <em>Id</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#isWireframe <em>Wireframe</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationImpl#getRepresentationKind <em>Representation Kind</em>}</li>
  * </ul>
  *
  * @generated
@@ -194,6 +196,26 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * @ordered
 	 */
 	protected boolean wireframe = WIREFRAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRepresentationKind() <em>Representation Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentationKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RepresentationKind REPRESENTATION_KIND_EDEFAULT = RepresentationKind.ICON;
+
+	/**
+	 * The cached value of the '{@link #getRepresentationKind() <em>Representation Kind</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentationKind()
+	 * @generated
+	 * @ordered
+	 */
+	protected RepresentationKind representationKind = REPRESENTATION_KIND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -404,6 +426,30 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RepresentationKind getRepresentationKind() {
+		return representationKind;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRepresentationKind(RepresentationKind newRepresentationKind) {
+		RepresentationKind oldRepresentationKind = representationKind;
+		representationKind = newRepresentationKind == null ? REPRESENTATION_KIND_EDEFAULT
+				: newRepresentationKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANTATION__REPRESENTATION_KIND, oldRepresentationKind,
+					representationKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -439,6 +485,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				return getId();
 			case PermadelerPackage.PLANTATION__WIREFRAME:
 				return isWireframe();
+			case PermadelerPackage.PLANTATION__REPRESENTATION_KIND:
+				return getRepresentationKind();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -477,6 +525,9 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 			case PermadelerPackage.PLANTATION__WIREFRAME:
 				setWireframe((Boolean)newValue);
 				return;
+			case PermadelerPackage.PLANTATION__REPRESENTATION_KIND:
+				setRepresentationKind((RepresentationKind)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -513,6 +564,9 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 			case PermadelerPackage.PLANTATION__WIREFRAME:
 				setWireframe(WIREFRAME_EDEFAULT);
 				return;
+			case PermadelerPackage.PLANTATION__REPRESENTATION_KIND:
+				setRepresentationKind(REPRESENTATION_KIND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -543,6 +597,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case PermadelerPackage.PLANTATION__WIREFRAME:
 				return wireframe != WIREFRAME_EDEFAULT;
+			case PermadelerPackage.PLANTATION__REPRESENTATION_KIND:
+				return representationKind != REPRESENTATION_KIND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -570,6 +626,8 @@ public class PlantationImpl extends MinimalEObjectImpl.Container implements Plan
 		result.append(id);
 		result.append(", wireframe: "); //$NON-NLS-1$
 		result.append(wireframe);
+		result.append(", representationKind: "); //$NON-NLS-1$
+		result.append(representationKind);
 		result.append(')');
 		return result.toString();
 	}
