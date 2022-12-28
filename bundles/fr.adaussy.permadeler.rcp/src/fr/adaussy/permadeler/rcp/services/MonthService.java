@@ -52,7 +52,7 @@ public class MonthService {
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				MessageFormat.format(RcpMessages.MonthService_7, sourceObject.getName()), montWeeks);
 		if (dialog.open() == Dialog.OK) {
-			sourceObject.setPeriod(dialog.getMonths());
+			sourceObject.setPeriod(dialog.getMonths().stream().sorted().distinct().toList());
 		}
 	}
 
@@ -106,7 +106,7 @@ public class MonthService {
 				return FULL_MONTH_LABEL;
 			} else {
 				return weeks.stream().<String> map(it -> {
-					return this.toQuarterNumber((it.intValue() % 4));
+					return this.toQuarterNumber(((it.intValue()) % 4));
 				}).collect(Collectors.joining(",")); //$NON-NLS-1$
 			}
 		}
@@ -128,7 +128,7 @@ public class MonthService {
 				return RcpMessages.MonthService_3;
 			case 3:
 				return RcpMessages.MonthService_4;
-			case 4:
+			case 0:
 				return RcpMessages.MonthService_5;
 			default:
 				return RcpMessages.MonthService_6;
