@@ -445,18 +445,23 @@ public class DiagramService {
 		String part0 = parts[0];
 		if (parts.length > 2) {
 			// TAKES the first letter of each world
-			trigram = "" + part0.charAt(0) + parts[1].charAt(1) + parts[2].charAt(2); //$NON-NLS-1$
+			trigram = "" + getLetter(part0, 0) + getLetter(parts[1], 0) + getLetter(parts[2], 0); //$NON-NLS-1$
 		} else if (parts.length > 1) {
 
 			if (part0.length() > 1) {
-				trigram = "" + part0.charAt(0) + parts[0].charAt(1) + parts[1].charAt(0); //$NON-NLS-1$
+				trigram = "" + getLetter(part0, 0) + getLetter(parts[0], 1) + getLetter(parts[1], 0); //$NON-NLS-1$
 			} else {
-				trigram = "" + part0.charAt(0) + parts[1].charAt(0); //$NON-NLS-1$
+				trigram = "" + getLetter(part0, 0) + getLetter(parts[1], 0); //$NON-NLS-1$
 			}
 		} else if (parts.length == 1) {
 			trigram = part0.substring(0, Math.min(3, part0.length() - 1));
 		}
 		return trigram;
+	}
+
+	private static String getLetter(String word, int from) {
+		return word.chars().skip(from).filter(c -> Character.isAlphabetic(c))
+				.mapToObj(c -> Character.valueOf((char)c).toString()).findFirst().orElse(""); //$NON-NLS-1$
 	}
 
 	/**
