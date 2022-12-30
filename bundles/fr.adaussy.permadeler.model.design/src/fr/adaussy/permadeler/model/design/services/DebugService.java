@@ -40,7 +40,7 @@ public class DebugService {
 		return null;
 	}
 
-	public EObject printVariable(EObject self) {
+	public EObject printVariables(EObject self) {
 		Map<String, ?> variables = Session.of(self).get().getInterpreter().getVariables();
 		variables.keySet().stream().forEach(key -> System.out.println(key + " " + variables.get(key))); //$NON-NLS-1$
 

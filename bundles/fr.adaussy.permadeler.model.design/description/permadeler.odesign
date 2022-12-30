@@ -714,7 +714,7 @@
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.model.design/img/delete.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:value">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1)">
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
@@ -762,7 +762,7 @@
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.model.design/img/delete.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:value">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1)">
                 <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
