@@ -54,6 +54,7 @@ public class ProductionItemProvider extends TemporalItemItemProvider {
 
 			addTypePropertyDescriptor(object);
 			addConservationPropertyDescriptor(object);
+			addEatablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +89,22 @@ public class ProductionItemProvider extends TemporalItemItemProvider {
 						"_UI_Production_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.PRODUCTION__CONSERVATION, true, false, false,
 				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Eatable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEatablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Production_eatable_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Production_eatable_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Production_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PRODUCTION__EATABLE, true, false, false,
+				ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -138,6 +155,7 @@ public class ProductionItemProvider extends TemporalItemItemProvider {
 		switch (notification.getFeatureID(Production.class)) {
 			case PermadelerPackage.PRODUCTION__TYPE:
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
+			case PermadelerPackage.PRODUCTION__EATABLE:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

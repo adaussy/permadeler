@@ -563,13 +563,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT_NAMED_ELEMENT__REPRESENTATION_KEY = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Family</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT_NAMED_ELEMENT__FAMILY = NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Plant Named Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Plant Named Element</em>' class.
@@ -1398,6 +1407,15 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT__REPRESENTATION_KEY = PLANT_NAMED_ELEMENT__REPRESENTATION_KEY;
 
 	/**
+	 * The feature id for the '<em><b>Family</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__FAMILY = PLANT_NAMED_ELEMENT__FAMILY;
+
+	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1515,13 +1533,49 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT__LIFE_CYCLE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Family</b></em>' attribute.
+	 * The feature id for the '<em><b>Foilage Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT__FAMILY = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 13;
+	int PLANT__FOILAGE_TYPE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Foilage Shade</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__FOILAGE_SHADE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Drought Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__DROUGHT_TOLERANCE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Tolerated Lighting Condition</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__TOLERATED_LIGHTING_CONDITION = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Root Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__ROOT_TYPE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Plant</em>' class.
@@ -1530,7 +1584,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 14;
+	int PLANT_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Get All Names</em>' operation.
@@ -1661,13 +1715,22 @@ public interface PermadelerPackage extends EPackage {
 	int PRODUCTION__CONSERVATION = TEMPORAL_ITEM_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Eatable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRODUCTION__EATABLE = TEMPORAL_ITEM_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Production</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRODUCTION_FEATURE_COUNT = TEMPORAL_ITEM_FEATURE_COUNT + 2;
+	int PRODUCTION_FEATURE_COUNT = TEMPORAL_ITEM_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Production</em>' class.
@@ -2014,13 +2077,53 @@ public interface PermadelerPackage extends EPackage {
 	int REPRESENTATION_KIND = 44;
 
 	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.FoliageType <em>Foliage Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoliageType
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFoliageType()
+	 * @generated
+	 */
+	int FOLIAGE_TYPE = 45;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.FoilageShade <em>Foilage Shade</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoilageShade
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFoilageShade()
+	 * @generated
+	 */
+	int FOILAGE_SHADE = 46;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.DroughtTolerance <em>Drought Tolerance</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.DroughtTolerance
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDroughtTolerance()
+	 * @generated
+	 */
+	int DROUGHT_TOLERANCE = 47;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.RootType <em>Root Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.RootType
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRootType()
+	 * @generated
+	 */
+	int ROOT_TYPE = 48;
+
+	/**
 	 * The meta object id for the '<em>Month Week</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeek()
 	 * @generated
 	 */
-	int MONTH_WEEK = 45;
+	int MONTH_WEEK = 49;
 
 	/**
 	 * The meta object id for the '<em>URL</em>' data type.
@@ -2030,7 +2133,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getURL()
 	 * @generated
 	 */
-	int URL = 46;
+	int URL = 50;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -2040,7 +2143,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 47;
+	int DATE = 51;
 
 	/**
 	 * The meta object id for the '<em>Month Weeks</em>' data type.
@@ -2050,7 +2153,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeeks()
 	 * @generated
 	 */
-	int MONTH_WEEKS = 48;
+	int MONTH_WEEKS = 52;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -2060,7 +2163,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 49;
+	int COLOR = 53;
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Root <em>Root</em>}'.
@@ -2449,6 +2552,17 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantNamedElement_RepresentationKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily <em>Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Family</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily()
+	 * @see #getPlantNamedElement()
+	 * @generated
+	 */
+	EAttribute getPlantNamedElement_Family();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Image <em>Image</em>}'.
@@ -3017,15 +3131,59 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getPlant_LifeCycle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFamily <em>Family</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageType <em>Foilage Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Family</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getFamily()
+	 * @return the meta object for the attribute '<em>Foilage Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageType()
 	 * @see #getPlant()
 	 * @generated
 	 */
-	EAttribute getPlant_Family();
+	EAttribute getPlant_FoilageType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageShade <em>Foilage Shade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Foilage Shade</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageShade()
+	 * @see #getPlant()
+	 * @generated
+	 */
+	EAttribute getPlant_FoilageShade();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getDroughtTolerance <em>Drought Tolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Drought Tolerance</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getDroughtTolerance()
+	 * @see #getPlant()
+	 * @generated
+	 */
+	EAttribute getPlant_DroughtTolerance();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getToleratedLightingCondition <em>Tolerated Lighting Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tolerated Lighting Condition</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getToleratedLightingCondition()
+	 * @see #getPlant()
+	 * @generated
+	 */
+	EAttribute getPlant_ToleratedLightingCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getRootType <em>Root Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Root Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getRootType()
+	 * @see #getPlant()
+	 * @generated
+	 */
+	EAttribute getPlant_RootType();
 
 	/**
 	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getAllNames() <em>Get All Names</em>}' operation.
@@ -3068,6 +3226,17 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProduction_Conservation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Production#isEatable <em>Eatable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Eatable</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Production#isEatable()
+	 * @see #getProduction()
+	 * @generated
+	 */
+	EAttribute getProduction_Eatable();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Action <em>Action</em>}'.
@@ -3333,6 +3502,46 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getRepresentationKind();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.FoliageType <em>Foliage Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Foliage Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoliageType
+	 * @generated
+	 */
+	EEnum getFoliageType();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.FoilageShade <em>Foilage Shade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Foilage Shade</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoilageShade
+	 * @generated
+	 */
+	EEnum getFoilageShade();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.DroughtTolerance <em>Drought Tolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Drought Tolerance</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.DroughtTolerance
+	 * @generated
+	 */
+	EEnum getDroughtTolerance();
+
+	/**
+	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.RootType <em>Root Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Root Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.RootType
+	 * @generated
+	 */
+	EEnum getRootType();
 
 	/**
 	 * Returns the meta object for data type '<em>Month Week</em>'.
@@ -3714,6 +3923,14 @@ public interface PermadelerPackage extends EPackage {
 		 */
 		EAttribute PLANT_NAMED_ELEMENT__REPRESENTATION_KEY = eINSTANCE
 				.getPlantNamedElement_RepresentationKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Family</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT_NAMED_ELEMENT__FAMILY = eINSTANCE.getPlantNamedElement_Family();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.
@@ -4172,12 +4389,44 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute PLANT__LIFE_CYCLE = eINSTANCE.getPlant_LifeCycle();
 
 		/**
-		 * The meta object literal for the '<em><b>Family</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Foilage Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLANT__FAMILY = eINSTANCE.getPlant_Family();
+		EAttribute PLANT__FOILAGE_TYPE = eINSTANCE.getPlant_FoilageType();
+
+		/**
+		 * The meta object literal for the '<em><b>Foilage Shade</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT__FOILAGE_SHADE = eINSTANCE.getPlant_FoilageShade();
+
+		/**
+		 * The meta object literal for the '<em><b>Drought Tolerance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT__DROUGHT_TOLERANCE = eINSTANCE.getPlant_DroughtTolerance();
+
+		/**
+		 * The meta object literal for the '<em><b>Tolerated Lighting Condition</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT__TOLERATED_LIGHTING_CONDITION = eINSTANCE.getPlant_ToleratedLightingCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT__ROOT_TYPE = eINSTANCE.getPlant_RootType();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Names</b></em>' operation.
@@ -4212,6 +4461,14 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRODUCTION__CONSERVATION = eINSTANCE.getProduction_Conservation();
+
+		/**
+		 * The meta object literal for the '<em><b>Eatable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRODUCTION__EATABLE = eINSTANCE.getProduction_Eatable();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ActionImpl <em>Action</em>}' class.
@@ -4462,6 +4719,46 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum REPRESENTATION_KIND = eINSTANCE.getRepresentationKind();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.FoliageType <em>Foliage Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.FoliageType
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFoliageType()
+		 * @generated
+		 */
+		EEnum FOLIAGE_TYPE = eINSTANCE.getFoliageType();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.FoilageShade <em>Foilage Shade</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.FoilageShade
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFoilageShade()
+		 * @generated
+		 */
+		EEnum FOILAGE_SHADE = eINSTANCE.getFoilageShade();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.DroughtTolerance <em>Drought Tolerance</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.DroughtTolerance
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDroughtTolerance()
+		 * @generated
+		 */
+		EEnum DROUGHT_TOLERANCE = eINSTANCE.getDroughtTolerance();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.RootType <em>Root Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.RootType
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRootType()
+		 * @generated
+		 */
+		EEnum ROOT_TYPE = eINSTANCE.getRootType();
 
 		/**
 		 * The meta object literal for the '<em>Month Week</em>' data type.

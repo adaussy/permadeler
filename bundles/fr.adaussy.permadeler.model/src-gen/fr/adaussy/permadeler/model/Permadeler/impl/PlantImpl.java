@@ -11,7 +11,9 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
-import fr.adaussy.permadeler.model.Permadeler.Family;
+import fr.adaussy.permadeler.model.Permadeler.DroughtTolerance;
+import fr.adaussy.permadeler.model.Permadeler.FoilageShade;
+import fr.adaussy.permadeler.model.Permadeler.FoliageType;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
 import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
@@ -19,6 +21,7 @@ import fr.adaussy.permadeler.model.Permadeler.Moisture;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.Permadeler.RootType;
 import fr.adaussy.permadeler.model.Permadeler.Shade;
 import fr.adaussy.permadeler.model.Permadeler.SoilType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
@@ -63,7 +66,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getLifeCycle <em>Life Cycle</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFamily <em>Family</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFoilageType <em>Foilage Type</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getFoilageShade <em>Foilage Shade</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getDroughtTolerance <em>Drought Tolerance</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getToleratedLightingCondition <em>Tolerated Lighting Condition</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl#getRootType <em>Root Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -250,24 +257,94 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	protected Lifecycle lifeCycle = LIFE_CYCLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFamily() <em>Family</em>}' attribute.
+	 * The default value of the '{@link #getFoilageType() <em>Foilage Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFamily()
+	 * @see #getFoilageType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Family FAMILY_EDEFAULT = Family.UNKNOWN;
+	protected static final FoliageType FOILAGE_TYPE_EDEFAULT = FoliageType.UNKNOWN;
 
 	/**
-	 * The cached value of the '{@link #getFamily() <em>Family</em>}' attribute.
+	 * The cached value of the '{@link #getFoilageType() <em>Foilage Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFamily()
+	 * @see #getFoilageType()
 	 * @generated
 	 * @ordered
 	 */
-	protected Family family = FAMILY_EDEFAULT;
+	protected FoliageType foilageType = FOILAGE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFoilageShade() <em>Foilage Shade</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFoilageShade()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final FoilageShade FOILAGE_SHADE_EDEFAULT = FoilageShade.UNKOWN;
+
+	/**
+	 * The cached value of the '{@link #getFoilageShade() <em>Foilage Shade</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFoilageShade()
+	 * @generated
+	 * @ordered
+	 */
+	protected FoilageShade foilageShade = FOILAGE_SHADE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDroughtTolerance() <em>Drought Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDroughtTolerance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final DroughtTolerance DROUGHT_TOLERANCE_EDEFAULT = DroughtTolerance.UNKNOWN;
+
+	/**
+	 * The cached value of the '{@link #getDroughtTolerance() <em>Drought Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDroughtTolerance()
+	 * @generated
+	 * @ordered
+	 */
+	protected DroughtTolerance droughtTolerance = DROUGHT_TOLERANCE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getToleratedLightingCondition() <em>Tolerated Lighting Condition</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToleratedLightingCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Shade> toleratedLightingCondition;
+
+	/**
+	 * The default value of the '{@link #getRootType() <em>Root Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RootType ROOT_TYPE_EDEFAULT = RootType.UNKNOWN;
+
+	/**
+	 * The cached value of the '{@link #getRootType() <em>Root Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RootType rootType = ROOT_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,8 +582,8 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Family getFamily() {
-		return family;
+	public FoliageType getFoilageType() {
+		return foilageType;
 	}
 
 	/**
@@ -514,12 +591,91 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFamily(Family newFamily) {
-		Family oldFamily = family;
-		family = newFamily == null ? FAMILY_EDEFAULT : newFamily;
+	public void setFoilageType(FoliageType newFoilageType) {
+		FoliageType oldFoilageType = foilageType;
+		foilageType = newFoilageType == null ? FOILAGE_TYPE_EDEFAULT : newFoilageType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__FAMILY, oldFamily,
-					family));
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__FOILAGE_TYPE,
+					oldFoilageType, foilageType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FoilageShade getFoilageShade() {
+		return foilageShade;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFoilageShade(FoilageShade newFoilageShade) {
+		FoilageShade oldFoilageShade = foilageShade;
+		foilageShade = newFoilageShade == null ? FOILAGE_SHADE_EDEFAULT : newFoilageShade;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__FOILAGE_SHADE,
+					oldFoilageShade, foilageShade));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DroughtTolerance getDroughtTolerance() {
+		return droughtTolerance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDroughtTolerance(DroughtTolerance newDroughtTolerance) {
+		DroughtTolerance oldDroughtTolerance = droughtTolerance;
+		droughtTolerance = newDroughtTolerance == null ? DROUGHT_TOLERANCE_EDEFAULT : newDroughtTolerance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__DROUGHT_TOLERANCE,
+					oldDroughtTolerance, droughtTolerance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Shade> getToleratedLightingCondition() {
+		if (toleratedLightingCondition == null) {
+			toleratedLightingCondition = new EDataTypeUniqueEList<Shade>(Shade.class, this,
+					PermadelerPackage.PLANT__TOLERATED_LIGHTING_CONDITION);
+		}
+		return toleratedLightingCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RootType getRootType() {
+		return rootType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRootType(RootType newRootType) {
+		RootType oldRootType = rootType;
+		rootType = newRootType == null ? ROOT_TYPE_EDEFAULT : newRootType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PLANT__ROOT_TYPE,
+					oldRootType, rootType));
 	}
 
 	/**
@@ -585,8 +741,16 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return getActions();
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				return getLifeCycle();
-			case PermadelerPackage.PLANT__FAMILY:
-				return getFamily();
+			case PermadelerPackage.PLANT__FOILAGE_TYPE:
+				return getFoilageType();
+			case PermadelerPackage.PLANT__FOILAGE_SHADE:
+				return getFoilageShade();
+			case PermadelerPackage.PLANT__DROUGHT_TOLERANCE:
+				return getDroughtTolerance();
+			case PermadelerPackage.PLANT__TOLERATED_LIGHTING_CONDITION:
+				return getToleratedLightingCondition();
+			case PermadelerPackage.PLANT__ROOT_TYPE:
+				return getRootType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -647,8 +811,21 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				setLifeCycle((Lifecycle)newValue);
 				return;
-			case PermadelerPackage.PLANT__FAMILY:
-				setFamily((Family)newValue);
+			case PermadelerPackage.PLANT__FOILAGE_TYPE:
+				setFoilageType((FoliageType)newValue);
+				return;
+			case PermadelerPackage.PLANT__FOILAGE_SHADE:
+				setFoilageShade((FoilageShade)newValue);
+				return;
+			case PermadelerPackage.PLANT__DROUGHT_TOLERANCE:
+				setDroughtTolerance((DroughtTolerance)newValue);
+				return;
+			case PermadelerPackage.PLANT__TOLERATED_LIGHTING_CONDITION:
+				getToleratedLightingCondition().clear();
+				getToleratedLightingCondition().addAll((Collection<? extends Shade>)newValue);
+				return;
+			case PermadelerPackage.PLANT__ROOT_TYPE:
+				setRootType((RootType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -701,8 +878,20 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				setLifeCycle(LIFE_CYCLE_EDEFAULT);
 				return;
-			case PermadelerPackage.PLANT__FAMILY:
-				setFamily(FAMILY_EDEFAULT);
+			case PermadelerPackage.PLANT__FOILAGE_TYPE:
+				setFoilageType(FOILAGE_TYPE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__FOILAGE_SHADE:
+				setFoilageShade(FOILAGE_SHADE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__DROUGHT_TOLERANCE:
+				setDroughtTolerance(DROUGHT_TOLERANCE_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT__TOLERATED_LIGHTING_CONDITION:
+				getToleratedLightingCondition().clear();
+				return;
+			case PermadelerPackage.PLANT__ROOT_TYPE:
+				setRootType(ROOT_TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -742,8 +931,16 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 				return actions != null && !actions.isEmpty();
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
 				return lifeCycle != LIFE_CYCLE_EDEFAULT;
-			case PermadelerPackage.PLANT__FAMILY:
-				return family != FAMILY_EDEFAULT;
+			case PermadelerPackage.PLANT__FOILAGE_TYPE:
+				return foilageType != FOILAGE_TYPE_EDEFAULT;
+			case PermadelerPackage.PLANT__FOILAGE_SHADE:
+				return foilageShade != FOILAGE_SHADE_EDEFAULT;
+			case PermadelerPackage.PLANT__DROUGHT_TOLERANCE:
+				return droughtTolerance != DROUGHT_TOLERANCE_EDEFAULT;
+			case PermadelerPackage.PLANT__TOLERATED_LIGHTING_CONDITION:
+				return toleratedLightingCondition != null && !toleratedLightingCondition.isEmpty();
+			case PermadelerPackage.PLANT__ROOT_TYPE:
+				return rootType != ROOT_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -793,8 +990,16 @@ public class PlantImpl extends PlantNamedElementImpl implements Plant {
 		result.append(wind);
 		result.append(", lifeCycle: "); //$NON-NLS-1$
 		result.append(lifeCycle);
-		result.append(", family: "); //$NON-NLS-1$
-		result.append(family);
+		result.append(", foilageType: "); //$NON-NLS-1$
+		result.append(foilageType);
+		result.append(", foilageShade: "); //$NON-NLS-1$
+		result.append(foilageShade);
+		result.append(", droughtTolerance: "); //$NON-NLS-1$
+		result.append(droughtTolerance);
+		result.append(", toleratedLightingCondition: "); //$NON-NLS-1$
+		result.append(toleratedLightingCondition);
+		result.append(", rootType: "); //$NON-NLS-1$
+		result.append(rootType);
 		result.append(')');
 		return result.toString();
 	}

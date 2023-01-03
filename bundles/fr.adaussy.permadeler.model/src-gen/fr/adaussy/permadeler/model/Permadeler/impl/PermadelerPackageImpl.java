@@ -14,9 +14,12 @@ import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.ActionType;
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
+import fr.adaussy.permadeler.model.Permadeler.DroughtTolerance;
 import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.EventType;
 import fr.adaussy.permadeler.model.Permadeler.Family;
+import fr.adaussy.permadeler.model.Permadeler.FoilageShade;
+import fr.adaussy.permadeler.model.Permadeler.FoliageType;
 import fr.adaussy.permadeler.model.Permadeler.GridBedCell;
 import fr.adaussy.permadeler.model.Permadeler.GridBedRow;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
@@ -41,6 +44,7 @@ import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
+import fr.adaussy.permadeler.model.Permadeler.RootType;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.RowBedType;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
@@ -394,6 +398,34 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EEnum representationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum foliageTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum foilageShadeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum droughtToleranceEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum rootTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -816,6 +848,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getPlantNamedElement_RepresentationKey() {
 		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlantNamedElement_Family() {
+		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1300,8 +1341,44 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlant_Family() {
+	public EAttribute getPlant_FoilageType() {
 		return (EAttribute)plantEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_FoilageShade() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_DroughtTolerance() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_ToleratedLightingCondition() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_RootType() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -1338,6 +1415,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getProduction_Conservation() {
 		return (EAttribute)productionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProduction_Eatable() {
+		return (EAttribute)productionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1579,6 +1665,42 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getFoliageType() {
+		return foliageTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFoilageShade() {
+		return foilageShadeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDroughtTolerance() {
+		return droughtToleranceEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRootType() {
+		return rootTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMonthWeek() {
 		return monthWeekEDataType;
 	}
@@ -1690,6 +1812,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__SPECIES);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__VARIETY);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__REPRESENTATION_KEY);
+		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__FAMILY);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__TITLE);
@@ -1759,12 +1882,17 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEReference(plantEClass, PLANT__PRODUCTIONS);
 		createEReference(plantEClass, PLANT__ACTIONS);
 		createEAttribute(plantEClass, PLANT__LIFE_CYCLE);
-		createEAttribute(plantEClass, PLANT__FAMILY);
+		createEAttribute(plantEClass, PLANT__FOILAGE_TYPE);
+		createEAttribute(plantEClass, PLANT__FOILAGE_SHADE);
+		createEAttribute(plantEClass, PLANT__DROUGHT_TOLERANCE);
+		createEAttribute(plantEClass, PLANT__TOLERATED_LIGHTING_CONDITION);
+		createEAttribute(plantEClass, PLANT__ROOT_TYPE);
 		createEOperation(plantEClass, PLANT___GET_ALL_NAMES);
 
 		productionEClass = createEClass(PRODUCTION);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
 		createEAttribute(productionEClass, PRODUCTION__CONSERVATION);
+		createEAttribute(productionEClass, PRODUCTION__EATABLE);
 
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__TYPE);
@@ -1797,6 +1925,10 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		actionTypeEEnum = createEEnum(ACTION_TYPE);
 		layerEEnum = createEEnum(LAYER);
 		representationKindEEnum = createEEnum(REPRESENTATION_KIND);
+		foliageTypeEEnum = createEEnum(FOLIAGE_TYPE);
+		foilageShadeEEnum = createEEnum(FOILAGE_SHADE);
+		droughtToleranceEEnum = createEEnum(DROUGHT_TOLERANCE);
+		rootTypeEEnum = createEEnum(ROOT_TYPE);
 
 		// Create data types
 		monthWeekEDataType = createEDataType(MONTH_WEEK);
@@ -1961,6 +2093,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				"representationKey", "/icons/representations/arbre2/green1.png", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantNamedElement_Family(), this.getFamily(), "family", null, 0, 1, //$NON-NLS-1$
+				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2112,8 +2247,21 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlant_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getPlant_Family(), this.getFamily(), "family", null, 0, 1, Plant.class, !IS_TRANSIENT, //$NON-NLS-1$
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_FoilageType(), this.getFoliageType(), "foilageType", null, 0, 1, Plant.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getPlant_FoilageShade(), this.getFoilageShade(), "foilageShade", null, 0, 1, //$NON-NLS-1$
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_DroughtTolerance(), this.getDroughtTolerance(), "droughtTolerance", null, 0, //$NON-NLS-1$
+				1, Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_ToleratedLightingCondition(), this.getShade(), "toleratedLightingCondition", //$NON-NLS-1$
+				null, 0, -1, Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_RootType(), this.getRootType(), "rootType", null, 0, 1, Plant.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEOperation(getPlant__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
@@ -2126,10 +2274,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getProduction_Conservation(), ecorePackage.getEInt(), "conservation", null, 0, 1, //$NON-NLS-1$
 				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProduction_Eatable(), ecorePackage.getEBoolean(), "eatable", "true", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
+				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Type(), this.getActionType(), "type", "SowIndoor", 0, 1, Action.class, //$NON-NLS-1$//$NON-NLS-2$
+		initEAttribute(getAction_Type(), this.getActionType(), "type", "Multiplication", 0, 1, Action.class, //$NON-NLS-1$//$NON-NLS-2$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
@@ -2899,6 +3050,32 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEEnum(representationKindEEnum, RepresentationKind.class, "RepresentationKind"); //$NON-NLS-1$
 		addEEnumLiteral(representationKindEEnum, RepresentationKind.ICON);
 		addEEnumLiteral(representationKindEEnum, RepresentationKind.TREE_CROWN);
+
+		initEEnum(foliageTypeEEnum, FoliageType.class, "FoliageType"); //$NON-NLS-1$
+		addEEnumLiteral(foliageTypeEEnum, FoliageType.UNKNOWN);
+		addEEnumLiteral(foliageTypeEEnum, FoliageType.EVERGREEN);
+		addEEnumLiteral(foliageTypeEEnum, FoliageType.DECIDUOUS);
+		addEEnumLiteral(foliageTypeEEnum, FoliageType.SEMI_EVERGREEN);
+
+		initEEnum(foilageShadeEEnum, FoilageShade.class, "FoilageShade"); //$NON-NLS-1$
+		addEEnumLiteral(foilageShadeEEnum, FoilageShade.UNKOWN);
+		addEEnumLiteral(foilageShadeEEnum, FoilageShade.LIGHT);
+		addEEnumLiteral(foilageShadeEEnum, FoilageShade.MEDIUM);
+		addEEnumLiteral(foilageShadeEEnum, FoilageShade.DENSE);
+
+		initEEnum(droughtToleranceEEnum, DroughtTolerance.class, "DroughtTolerance"); //$NON-NLS-1$
+		addEEnumLiteral(droughtToleranceEEnum, DroughtTolerance.UNKNOWN);
+		addEEnumLiteral(droughtToleranceEEnum, DroughtTolerance.VERY_HIGHT);
+		addEEnumLiteral(droughtToleranceEEnum, DroughtTolerance.HIGHT);
+		addEEnumLiteral(droughtToleranceEEnum, DroughtTolerance.MEDIUM);
+		addEEnumLiteral(droughtToleranceEEnum, DroughtTolerance.LOW);
+
+		initEEnum(rootTypeEEnum, RootType.class, "RootType"); //$NON-NLS-1$
+		addEEnumLiteral(rootTypeEEnum, RootType.UNKNOWN);
+		addEEnumLiteral(rootTypeEEnum, RootType.TAP);
+		addEEnumLiteral(rootTypeEEnum, RootType.FLAT);
+		addEEnumLiteral(rootTypeEEnum, RootType.HEART);
+		addEEnumLiteral(rootTypeEEnum, RootType.MIXT);
 
 		// Initialize data types
 		initEDataType(monthWeekEDataType, int.class, "MonthWeek", IS_SERIALIZABLE, //$NON-NLS-1$

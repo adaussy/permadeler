@@ -34,7 +34,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getActions <em>Actions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getLifeCycle <em>Life Cycle</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFamily <em>Family</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageType <em>Foilage Type</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageShade <em>Foilage Shade</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getDroughtTolerance <em>Drought Tolerance</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getToleratedLightingCondition <em>Tolerated Lighting Condition</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Plant#getRootType <em>Root Type</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant()
@@ -265,29 +269,118 @@ public interface Plant extends PlantNamedElement {
 	void setLifeCycle(Lifecycle value);
 
 	/**
-	 * Returns the value of the '<em><b>Family</b></em>' attribute.
-	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.Family}.
+	 * Returns the value of the '<em><b>Foilage Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.FoliageType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Family</em>' attribute.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Family
-	 * @see #setFamily(Family)
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_Family()
+	 * @return the value of the '<em>Foilage Type</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoliageType
+	 * @see #setFoilageType(FoliageType)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_FoilageType()
 	 * @model
 	 * @generated
 	 */
-	Family getFamily();
+	FoliageType getFoilageType();
 
 	/**
-	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFamily <em>Family</em>}' attribute.
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageType <em>Foilage Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Family</em>' attribute.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Family
-	 * @see #getFamily()
+	 * @param value the new value of the '<em>Foilage Type</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoliageType
+	 * @see #getFoilageType()
 	 * @generated
 	 */
-	void setFamily(Family value);
+	void setFoilageType(FoliageType value);
+
+	/**
+	 * Returns the value of the '<em><b>Foilage Shade</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.FoilageShade}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Foilage Shade</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoilageShade
+	 * @see #setFoilageShade(FoilageShade)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_FoilageShade()
+	 * @model
+	 * @generated
+	 */
+	FoilageShade getFoilageShade();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageShade <em>Foilage Shade</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Foilage Shade</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.FoilageShade
+	 * @see #getFoilageShade()
+	 * @generated
+	 */
+	void setFoilageShade(FoilageShade value);
+
+	/**
+	 * Returns the value of the '<em><b>Drought Tolerance</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.DroughtTolerance}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Drought Tolerance</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.DroughtTolerance
+	 * @see #setDroughtTolerance(DroughtTolerance)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_DroughtTolerance()
+	 * @model
+	 * @generated
+	 */
+	DroughtTolerance getDroughtTolerance();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getDroughtTolerance <em>Drought Tolerance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Drought Tolerance</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.DroughtTolerance
+	 * @see #getDroughtTolerance()
+	 * @generated
+	 */
+	void setDroughtTolerance(DroughtTolerance value);
+
+	/**
+	 * Returns the value of the '<em><b>Tolerated Lighting Condition</b></em>' attribute list.
+	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Shade}.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.Shade}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tolerated Lighting Condition</em>' attribute list.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Shade
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_ToleratedLightingCondition()
+	 * @model
+	 * @generated
+	 */
+	EList<Shade> getToleratedLightingCondition();
+
+	/**
+	 * Returns the value of the '<em><b>Root Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.RootType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root Type</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.RootType
+	 * @see #setRootType(RootType)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlant_RootType()
+	 * @model
+	 * @generated
+	 */
+	RootType getRootType();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getRootType <em>Root Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Root Type</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.RootType
+	 * @see #getRootType()
+	 * @generated
+	 */
+	void setRootType(RootType value);
 
 	/**
 	 * <!-- begin-user-doc -->

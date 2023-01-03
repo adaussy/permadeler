@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#getType <em>Type</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#getConservation <em>Conservation</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl#isEatable <em>Eatable</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +75,26 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 	 * @ordered
 	 */
 	protected int conservation = CONSERVATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isEatable() <em>Eatable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEatable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean EATABLE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isEatable() <em>Eatable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEatable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean eatable = EATABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,6 +164,28 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isEatable() {
+		return eatable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEatable(boolean newEatable) {
+		boolean oldEatable = eatable;
+		eatable = newEatable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.PRODUCTION__EATABLE,
+					oldEatable, eatable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -150,6 +193,8 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 				return getType();
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				return getConservation();
+			case PermadelerPackage.PRODUCTION__EATABLE:
+				return isEatable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,6 +212,9 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 				return;
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				setConservation((Integer)newValue);
+				return;
+			case PermadelerPackage.PRODUCTION__EATABLE:
+				setEatable((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,6 +234,9 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				setConservation(CONSERVATION_EDEFAULT);
 				return;
+			case PermadelerPackage.PRODUCTION__EATABLE:
+				setEatable(EATABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +253,8 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 				return type != TYPE_EDEFAULT;
 			case PermadelerPackage.PRODUCTION__CONSERVATION:
 				return conservation != CONSERVATION_EDEFAULT;
+			case PermadelerPackage.PRODUCTION__EATABLE:
+				return eatable != EATABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -221,6 +274,8 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 		result.append(type);
 		result.append(", conservation: "); //$NON-NLS-1$
 		result.append(conservation);
+		result.append(", eatable: "); //$NON-NLS-1$
+		result.append(eatable);
 		result.append(')');
 		return result.toString();
 	}

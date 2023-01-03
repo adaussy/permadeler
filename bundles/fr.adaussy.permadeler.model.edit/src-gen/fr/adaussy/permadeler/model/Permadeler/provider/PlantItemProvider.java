@@ -65,7 +65,11 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 			addGrowRatePropertyDescriptor(object);
 			addWindPropertyDescriptor(object);
 			addLifeCyclePropertyDescriptor(object);
-			addFamilyPropertyDescriptor(object);
+			addFoilageTypePropertyDescriptor(object);
+			addFoilageShadePropertyDescriptor(object);
+			addDroughtTolerancePropertyDescriptor(object);
+			addToleratedLightingConditionPropertyDescriptor(object);
+			addRootTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -228,17 +232,82 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 	}
 
 	/**
-	 * This adds a property descriptor for the Family feature.
+	 * This adds a property descriptor for the Foilage Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFamilyPropertyDescriptor(Object object) {
+	protected void addFoilageTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add(createItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Plant_family_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_Plant_family_feature", "_UI_Plant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				PermadelerPackage.Literals.PLANT__FAMILY, true, false, false,
+				getString("_UI_Plant_foilageType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_foilageType_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__FOILAGE_TYPE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Foilage Shade feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFoilageShadePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_foilageShade_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_foilageShade_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__FOILAGE_SHADE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Drought Tolerance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDroughtTolerancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_droughtTolerance_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_droughtTolerance_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__DROUGHT_TOLERANCE, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tolerated Lighting Condition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addToleratedLightingConditionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_toleratedLightingCondition_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
+						"_UI_Plant_toleratedLightingCondition_feature", "_UI_Plant_type"), //$NON-NLS-1$ //$NON-NLS-2$
+				PermadelerPackage.Literals.PLANT__TOLERATED_LIGHTING_CONDITION, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Root Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRootTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_rootType_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_rootType_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__ROOT_TYPE, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -330,7 +399,11 @@ public class PlantItemProvider extends PlantNamedElementItemProviderCustomImpl {
 			case PermadelerPackage.PLANT__GROW_RATE:
 			case PermadelerPackage.PLANT__WIND:
 			case PermadelerPackage.PLANT__LIFE_CYCLE:
-			case PermadelerPackage.PLANT__FAMILY:
+			case PermadelerPackage.PLANT__FOILAGE_TYPE:
+			case PermadelerPackage.PLANT__FOILAGE_SHADE:
+			case PermadelerPackage.PLANT__DROUGHT_TOLERANCE:
+			case PermadelerPackage.PLANT__TOLERATED_LIGHTING_CONDITION:
+			case PermadelerPackage.PLANT__ROOT_TYPE:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

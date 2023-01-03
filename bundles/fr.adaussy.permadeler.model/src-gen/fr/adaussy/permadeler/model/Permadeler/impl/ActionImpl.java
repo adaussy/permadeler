@@ -42,7 +42,7 @@ public class ActionImpl extends TemporalItemCustomImpl implements Action {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ActionType TYPE_EDEFAULT = ActionType.SOW_INDOOR;
+	protected static final ActionType TYPE_EDEFAULT = ActionType.MULTIPLICATION;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

@@ -10,6 +10,7 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
+import fr.adaussy.permadeler.model.Permadeler.Family;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getSpecies <em>Species</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getVariety <em>Variety</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getFamily <em>Family</em>}</li>
  * </ul>
  *
  * @generated
@@ -156,6 +158,26 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * @ordered
 	 */
 	protected String representationKey = REPRESENTATION_KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFamily() <em>Family</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFamily()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Family FAMILY_EDEFAULT = Family.UNKNOWN;
+
+	/**
+	 * The cached value of the '{@link #getFamily() <em>Family</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFamily()
+	 * @generated
+	 * @ordered
+	 */
+	protected Family family = FAMILY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -307,6 +329,28 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Family getFamily() {
+		return family;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFamily(Family newFamily) {
+		Family oldFamily = family;
+		family = newFamily == null ? FAMILY_EDEFAULT : newFamily;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY, oldFamily, family));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -326,6 +370,8 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return getVariety();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				return getRepresentationKey();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
+				return getFamily();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,6 +402,9 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				setRepresentationKey((String)newValue);
 				return;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
+				setFamily((Family)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -382,6 +431,9 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				setRepresentationKey(REPRESENTATION_KEY_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
+				setFamily(FAMILY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -415,6 +467,8 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				return REPRESENTATION_KEY_EDEFAULT == null ? representationKey != null
 						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
+				return family != FAMILY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -476,6 +530,8 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 		result.append(iconKey);
 		result.append(", representationKey: "); //$NON-NLS-1$
 		result.append(representationKey);
+		result.append(", family: "); //$NON-NLS-1$
+		result.append(family);
 		result.append(')');
 		return result.toString();
 	}

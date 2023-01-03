@@ -106,13 +106,13 @@ public enum SpecialUses implements Enumerator {
 	 */
 	GROUND_COVER(7, "GroundCover", "GroundCover"), //$NON-NLS-1$ //$NON-NLS-2$
 	/**
-	* The '<em><b>Biomass Production</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>Biomass Production</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #BIOMASS_PRODUCTION_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #BIOMASS_PRODUCTION_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	BIOMASS_PRODUCTION(8, "BiomassProduction", "BiomassProduction"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**

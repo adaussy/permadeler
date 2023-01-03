@@ -29,7 +29,7 @@ package fr.adaussy.permadeler.model.Permadeler;
 public interface Action extends TemporalItem {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The default value is <code>"SowIndoor"</code>.
+	 * The default value is <code>"Multiplication"</code>.
 	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.ActionType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,7 +37,7 @@ public interface Action extends TemporalItem {
 	 * @see fr.adaussy.permadeler.model.Permadeler.ActionType
 	 * @see #setType(ActionType)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getAction_Type()
-	 * @model default="SowIndoor"
+	 * @model default="Multiplication"
 	 * @generated
 	 */
 	ActionType getType();

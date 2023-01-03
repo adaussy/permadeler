@@ -21,6 +21,7 @@ package fr.adaussy.permadeler.model.Permadeler;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#getType <em>Type</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#getConservation <em>Conservation</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Production#isEatable <em>Eatable</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getProduction()
@@ -77,5 +78,28 @@ public interface Production extends TemporalItem {
 	 * @generated
 	 */
 	void setConservation(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Eatable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Eatable</em>' attribute.
+	 * @see #setEatable(boolean)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getProduction_Eatable()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isEatable();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Production#isEatable <em>Eatable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Eatable</em>' attribute.
+	 * @see #isEatable()
+	 * @generated
+	 */
+	void setEatable(boolean value);
 
 } // Production

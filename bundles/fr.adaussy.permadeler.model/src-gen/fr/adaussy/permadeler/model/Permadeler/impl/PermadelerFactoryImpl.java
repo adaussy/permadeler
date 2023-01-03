@@ -167,6 +167,14 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createLayerFromString(eDataType, initialValue);
 			case PermadelerPackage.REPRESENTATION_KIND:
 				return createRepresentationKindFromString(eDataType, initialValue);
+			case PermadelerPackage.FOLIAGE_TYPE:
+				return createFoliageTypeFromString(eDataType, initialValue);
+			case PermadelerPackage.FOILAGE_SHADE:
+				return createFoilageShadeFromString(eDataType, initialValue);
+			case PermadelerPackage.DROUGHT_TOLERANCE:
+				return createDroughtToleranceFromString(eDataType, initialValue);
+			case PermadelerPackage.ROOT_TYPE:
+				return createRootTypeFromString(eDataType, initialValue);
 			case PermadelerPackage.MONTH_WEEK:
 				return createMonthWeekFromString(eDataType, initialValue);
 			case PermadelerPackage.URL:
@@ -225,6 +233,14 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return convertLayerToString(eDataType, instanceValue);
 			case PermadelerPackage.REPRESENTATION_KIND:
 				return convertRepresentationKindToString(eDataType, instanceValue);
+			case PermadelerPackage.FOLIAGE_TYPE:
+				return convertFoliageTypeToString(eDataType, instanceValue);
+			case PermadelerPackage.FOILAGE_SHADE:
+				return convertFoilageShadeToString(eDataType, instanceValue);
+			case PermadelerPackage.DROUGHT_TOLERANCE:
+				return convertDroughtToleranceToString(eDataType, instanceValue);
+			case PermadelerPackage.ROOT_TYPE:
+				return convertRootTypeToString(eDataType, instanceValue);
 			case PermadelerPackage.MONTH_WEEK:
 				return convertMonthWeekToString(eDataType, instanceValue);
 			case PermadelerPackage.URL:
@@ -842,6 +858,94 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public String convertRepresentationKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FoliageType createFoliageTypeFromString(EDataType eDataType, String initialValue) {
+		FoliageType result = FoliageType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFoliageTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FoilageShade createFoilageShadeFromString(EDataType eDataType, String initialValue) {
+		FoilageShade result = FoilageShade.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFoilageShadeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DroughtTolerance createDroughtToleranceFromString(EDataType eDataType, String initialValue) {
+		DroughtTolerance result = DroughtTolerance.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDroughtToleranceToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RootType createRootTypeFromString(EDataType eDataType, String initialValue) {
+		RootType result = RootType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException("The value '" + initialValue //$NON-NLS-1$
+					+ "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRootTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

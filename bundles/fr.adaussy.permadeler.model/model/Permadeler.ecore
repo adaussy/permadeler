@@ -73,6 +73,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="/icons/representations/arbre2/green1.png"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Lifecycle">
     <eLiterals name="Unknown"/>
@@ -866,7 +867,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lifeCycle" eType="#//Lifecycle"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foilageType" eType="#//FoliageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foilageShade" eType="#//FoilageShade"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="droughtTolerance" eType="#//DroughtTolerance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toleratedLightingCondition"
+        upperBound="-1" eType="#//Shade"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootType" eType="#//RootType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Production" eSuperTypes="#//TemporalItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProductionType"/>
@@ -875,6 +881,8 @@
         <details key="documentation" value="Production Conservation in weeks"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eatable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProductionType">
     <eLiterals name="Other"/>
@@ -896,7 +904,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//TemporalItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActionType"
-        defaultValueLiteral="SowIndoor"/>
+        defaultValueLiteral="Multiplication"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActionType">
     <eLiterals name="Other"/>
@@ -931,5 +939,31 @@
   <eClassifiers xsi:type="ecore:EEnum" name="RepresentationKind">
     <eLiterals name="ICON"/>
     <eLiterals name="TREE_CROWN" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FoliageType">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Evergreen" value="1"/>
+    <eLiterals name="Deciduous" value="2"/>
+    <eLiterals name="SemiEvergreen" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FoilageShade">
+    <eLiterals name="Unkown"/>
+    <eLiterals name="Light" value="1"/>
+    <eLiterals name="Medium" value="2"/>
+    <eLiterals name="Dense" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DroughtTolerance">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="VeryHight" value="1"/>
+    <eLiterals name="Hight" value="2"/>
+    <eLiterals name="Medium" value="3"/>
+    <eLiterals name="Low" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RootType">
+    <eLiterals name="Unknown"/>
+    <eLiterals name="Tap" value="1"/>
+    <eLiterals name="Flat" value="2"/>
+    <eLiterals name="Heart" value="3"/>
+    <eLiterals name="Mixt" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

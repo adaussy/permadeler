@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies <em>Species</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety <em>Variety</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily <em>Family</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement()
@@ -146,5 +147,30 @@ public interface PlantNamedElement extends NamedElement, ReferencingElement {
 	 * @generated
 	 */
 	void setRepresentationKey(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Family</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.adaussy.permadeler.model.Permadeler.Family}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Family</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Family
+	 * @see #setFamily(Family)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_Family()
+	 * @model
+	 * @generated
+	 */
+	Family getFamily();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily <em>Family</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Family</em>' attribute.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Family
+	 * @see #getFamily()
+	 * @generated
+	 */
+	void setFamily(Family value);
 
 } // PlantNamedElement
