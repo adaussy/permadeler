@@ -330,7 +330,7 @@
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.model.design/img/delete.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.removeReference()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.removeReference(selection)"/>
             </initialOperation>
           </actions>
         </controls>
