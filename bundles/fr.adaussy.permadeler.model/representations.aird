@@ -5,7 +5,7 @@
     <semanticResources>model/Permadeler.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_N9pT0GzhEe2Lrvdw5DphlQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Q4RR4GzhEe2Lrvdw5DphlQ" name="Plante types" repPath="#_Q39I0GzhEe2Lrvdw5DphlQ" changeId="fc7415bb-4abd-4fbb-86be-1e67508cc1bd">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Q4RR4GzhEe2Lrvdw5DphlQ" name="Plante types" repPath="#_Q39I0GzhEe2Lrvdw5DphlQ" changeId="eacdb1cc-6dce-4b57-bdc1-d4d869cbc489">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/Permadeler.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -414,6 +414,10 @@
             <children xmi:type="notation:Node" xmi:id="_7FngwIuTEe2KEoGPHF1GxA" type="3010" element="_thIhAmznEe2nJPvR6E2euA">
               <styles xmi:type="notation:FontStyle" xmi:id="_7FngwYuTEe2KEoGPHF1GxA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_7FngwouTEe2KEoGPHF1GxA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_9n1cgIusEe2KEoGPHF1GxA" type="3010" element="_9nhTcIusEe2KEoGPHF1GxA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_9n1cgYusEe2KEoGPHF1GxA" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_9n1cgousEe2KEoGPHF1GxA"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_8YKzRW9DEe2j87KkMhzghA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_8YKzRm9DEe2j87KkMhzghA"/>
@@ -1440,7 +1444,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_8YEsoG9DEe2j87KkMhzghA" name="PlantNamedElement" tooltipText="" outgoingEdges="_9IEmNm9DEe2j87KkMhzghA _O_SmuH9vEe26kddAwoaTqA" incomingEdges="_8YI-Im9DEe2j87KkMhzghA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="model/Permadeler.ecore#//PlantNamedElement"/>
       <semanticElements xmi:type="ecore:EClass" href="model/Permadeler.ecore#//PlantNamedElement"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_IHUpR39vEe26kddAwoaTqA" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_-9m8q4usEe2KEoGPHF1GxA" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/EClass_abstract.gif" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
         <labelFormat>italic</labelFormat>
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
@@ -1503,6 +1507,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_9nhTcIusEe2KEoGPHF1GxA" name="shortName : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="model/Permadeler.ecore#//PlantNamedElement/shortName"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="model/Permadeler.ecore#//PlantNamedElement/shortName"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_-9oKyYusEe2KEoGPHF1GxA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8YI-Im9DEe2j87KkMhzghA" sourceNode="_v9X58GznEe2nJPvR6E2euA" targetNode="_8YEsoG9DEe2j87KkMhzghA">
       <target xmi:type="ecore:EClass" href="model/Permadeler.ecore#//Plant"/>
@@ -1519,12 +1531,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9IEmNm9DEe2j87KkMhzghA" sourceNode="_8YEsoG9DEe2j87KkMhzghA" targetNode="_7s_IQG9DEe2j87KkMhzghA">
       <target xmi:type="ecore:EClass" href="model/Permadeler.ecore#//PlantNamedElement"/>
       <semanticElements xmi:type="ecore:EClass" href="model/Permadeler.ecore#//PlantNamedElement"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_IHfoa39vEe26kddAwoaTqA" targetArrow="InputClosedArrow" routingStyle="tree">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-9qAAousEe2KEoGPHF1GxA" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_IHfobH9vEe26kddAwoaTqA" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_-9qAA4usEe2KEoGPHF1GxA" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_IHfobX9vEe26kddAwoaTqA" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-9qABIusEe2KEoGPHF1GxA" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
@@ -1639,12 +1651,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_O_SmuH9vEe26kddAwoaTqA" sourceNode="_8YEsoG9DEe2j87KkMhzghA" targetNode="_IeGKgH9vEe26kddAwoaTqA">
       <target xmi:type="ecore:EClass" href="model/Permadeler.ecore#//PlantNamedElement"/>
       <semanticElements xmi:type="ecore:EClass" href="model/Permadeler.ecore#//PlantNamedElement"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_O_TNsH9vEe26kddAwoaTqA" targetArrow="InputClosedArrow" routingStyle="tree">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-9qACIusEe2KEoGPHF1GxA" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_O_TNsX9vEe26kddAwoaTqA" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_-9qACYusEe2KEoGPHF1GxA" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_O_TNsn9vEe26kddAwoaTqA" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_-9qACousEe2KEoGPHF1GxA" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>

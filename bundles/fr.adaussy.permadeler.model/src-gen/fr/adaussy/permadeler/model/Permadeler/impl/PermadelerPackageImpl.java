@@ -864,6 +864,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPlantNamedElement_ShortName() {
+		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImage() {
 		return imageEClass;
 	}
@@ -1813,6 +1822,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__VARIETY);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__REPRESENTATION_KEY);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__FAMILY);
+		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__SHORT_NAME);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__TITLE);
@@ -2094,6 +2104,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_Family(), this.getFamily(), "family", null, 0, 1, //$NON-NLS-1$
+				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlantNamedElement_ShortName(), ecorePackage.getEString(), "shortName", null, 0, 1, //$NON-NLS-1$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

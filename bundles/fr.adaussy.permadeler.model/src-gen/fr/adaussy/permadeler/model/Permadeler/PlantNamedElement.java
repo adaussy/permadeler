@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety <em>Variety</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily <em>Family</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getShortName <em>Short Name</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement()
@@ -172,5 +173,27 @@ public interface PlantNamedElement extends NamedElement, ReferencingElement {
 	 * @generated
 	 */
 	void setFamily(Family value);
+
+	/**
+	 * Returns the value of the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Short Name</em>' attribute.
+	 * @see #setShortName(String)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_ShortName()
+	 * @model
+	 * @generated
+	 */
+	String getShortName();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getShortName <em>Short Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Short Name</em>' attribute.
+	 * @see #getShortName()
+	 * @generated
+	 */
+	void setShortName(String value);
 
 } // PlantNamedElement

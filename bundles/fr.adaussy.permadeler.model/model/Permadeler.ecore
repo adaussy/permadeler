@@ -74,6 +74,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="/icons/representations/arbre2/green1.png"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Lifecycle">
     <eLiterals name="Unknown"/>

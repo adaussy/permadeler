@@ -835,6 +835,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/variety"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/representationKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/family"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//PlantNamedElement/shortName"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Image">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Image/title"/>

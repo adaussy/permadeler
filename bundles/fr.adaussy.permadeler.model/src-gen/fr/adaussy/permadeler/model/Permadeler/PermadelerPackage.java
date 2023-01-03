@@ -572,13 +572,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT_NAMED_ELEMENT__FAMILY = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT_NAMED_ELEMENT__SHORT_NAME = NAMED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Plant Named Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Plant Named Element</em>' class.
@@ -1414,6 +1423,15 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANT__FAMILY = PLANT_NAMED_ELEMENT__FAMILY;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT__SHORT_NAME = PLANT_NAMED_ELEMENT__SHORT_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -2563,6 +2581,17 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantNamedElement_Family();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getShortName <em>Short Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Short Name</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getShortName()
+	 * @see #getPlantNamedElement()
+	 * @generated
+	 */
+	EAttribute getPlantNamedElement_ShortName();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Image <em>Image</em>}'.
@@ -3931,6 +3960,14 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PLANT_NAMED_ELEMENT__FAMILY = eINSTANCE.getPlantNamedElement_Family();
+
+		/**
+		 * The meta object literal for the '<em><b>Short Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLANT_NAMED_ELEMENT__SHORT_NAME = eINSTANCE.getPlantNamedElement_ShortName();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.

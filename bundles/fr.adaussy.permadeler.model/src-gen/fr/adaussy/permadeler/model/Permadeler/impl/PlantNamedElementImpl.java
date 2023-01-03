@@ -44,6 +44,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getVariety <em>Variety</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getRepresentationKey <em>Representation Key</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getFamily <em>Family</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getShortName <em>Short Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -178,6 +179,26 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * @ordered
 	 */
 	protected Family family = FAMILY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getShortName() <em>Short Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHORT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getShortName() <em>Short Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String shortName = SHORT_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -351,6 +372,28 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getShortName() {
+		return shortName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setShortName(String newShortName) {
+		String oldShortName = shortName;
+		shortName = newShortName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME, oldShortName, shortName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -372,6 +415,8 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return getRepresentationKey();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
 				return getFamily();
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
+				return getShortName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -405,6 +450,9 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
 				setFamily((Family)newValue);
 				return;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
+				setShortName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -434,6 +482,9 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
 				setFamily(FAMILY_EDEFAULT);
+				return;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
+				setShortName(SHORT_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -469,6 +520,9 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
 				return family != FAMILY_EDEFAULT;
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
+				return SHORT_NAME_EDEFAULT == null ? shortName != null
+						: !SHORT_NAME_EDEFAULT.equals(shortName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -532,6 +586,8 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 		result.append(representationKey);
 		result.append(", family: "); //$NON-NLS-1$
 		result.append(family);
+		result.append(", shortName: "); //$NON-NLS-1$
+		result.append(shortName);
 		result.append(')');
 		return result.toString();
 	}

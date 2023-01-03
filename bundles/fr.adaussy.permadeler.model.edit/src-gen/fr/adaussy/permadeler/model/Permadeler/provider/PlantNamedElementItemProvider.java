@@ -61,6 +61,7 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 			addVarietyPropertyDescriptor(object);
 			addRepresentationKeyPropertyDescriptor(object);
 			addFamilyPropertyDescriptor(object);
+			addShortNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -210,6 +211,22 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Short Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShortNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_PlantNamedElement_shortName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_shortName_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__SHORT_NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns PlantNamedElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +281,7 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
+			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
