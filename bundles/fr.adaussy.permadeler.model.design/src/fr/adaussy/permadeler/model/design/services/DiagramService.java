@@ -61,6 +61,7 @@ import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
@@ -83,8 +84,6 @@ import fr.adaussy.permadeler.rcp.services.ModelQueryService;
  * @author Arthur Daussy
  */
 public class DiagramService {
-
-	private static final String UNSERSCORE = "_"; //$NON-NLS-1$
 
 	private static final String BACKGROUND_IMAGE_FOLDER = "background-image"; //$NON-NLS-1$
 
@@ -162,14 +161,14 @@ public class DiagramService {
 			return 6;
 		} else {
 			return switch (p.getCurrentLayer()) {
-				case CANOPY -> 12;
-				case UNDERSTORY -> 10;
-				case SHRUB -> 6;
-				case VINE -> 6;
-				case HERB -> 6;
-				case GROUND_COVER -> 6;
-				case ROOT -> 6;
-				default -> 6;
+				case CANOPY -> 10;
+				case UNDERSTORY -> 8;
+				case SHRUB -> 5;
+				case VINE -> 5;
+				case HERB -> 5;
+				case GROUND_COVER -> 5;
+				case ROOT -> 5;
+				default -> 5;
 			};
 		}
 
@@ -417,18 +416,18 @@ public class DiagramService {
 	private static String generateId(Plantation plantation) {
 		Plant type = plantation.getType();
 		if (type != null) {
-			String name = type.getName();
-			String trigram = computeTrigram(name);
+			String shortName = type.getShortName();
+			String trigram = shortName != null ? shortName : ""; //$NON-NLS-1$
 
 			Set<String> candiates = EMFUtils.getAncestor(Root.class, plantation).getZones().stream()//
 					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
 					.filter(p -> p.getId() != null && p.getId().startsWith(trigram))//
 					.map(p -> p.getId()).collect(Collectors.toSet());
 			int i = 1;
-			String id = trigram + UNSERSCORE + i;
+			String id = trigram + i;
 			while (candiates.contains(id)) {
 				i++;
-				id = trigram + UNSERSCORE + i;
+				id = trigram + i;
 			}
 
 			return id;
@@ -436,32 +435,23 @@ public class DiagramService {
 		return null;
 	}
 
-	public static String computeTrigram(String name) {
-		String trigram = ""; //$NON-NLS-1$
+	public static String generateShortName(PlantNamedElement plant) {
+		String name = plant.getName();
 		if (name == null) {
 			return ""; //$NON-NLS-1$
 		}
 		String[] parts = name.split(" "); //$NON-NLS-1$
-		String part0 = parts[0];
-		if (parts.length > 2) {
-			// TAKES the first letter of each world
-			trigram = "" + getLetter(part0, 0) + getLetter(parts[1], 0) + getLetter(parts[2], 0); //$NON-NLS-1$
-		} else if (parts.length > 1) {
+		String nameShort = ""; //$NON-NLS-1$
+		if (parts.length > 0) {
+			String p0 = parts[0];
+			nameShort += p0.substring(0, Math.min(3, p0.length()));
 
-			if (part0.length() > 1) {
-				trigram = "" + getLetter(part0, 0) + getLetter(parts[0], 1) + getLetter(parts[1], 0); //$NON-NLS-1$
-			} else {
-				trigram = "" + getLetter(part0, 0) + getLetter(parts[1], 0); //$NON-NLS-1$
+			if (parts.length > 1) {
+				String p1 = parts[1];
+				nameShort += p1.substring(0, Math.min(2, p1.length()));
 			}
-		} else if (parts.length == 1) {
-			trigram = part0.substring(0, Math.min(3, part0.length() - 1));
 		}
-		return trigram;
-	}
-
-	private static String getLetter(String word, int from) {
-		return word.chars().skip(from).filter(c -> Character.isAlphabetic(c))
-				.mapToObj(c -> Character.valueOf((char)c).toString()).findFirst().orElse(""); //$NON-NLS-1$
+		return nameShort;
 	}
 
 	/**
