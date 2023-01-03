@@ -7,7 +7,7 @@ import fr.adaussy.permadeler.model.Permadeler.Plant;
 public class ValidationService {
 
 	private static Pattern VALID_LATING_NAME_PATTERN = Pattern.compile(
-			"(?<genus>[A-Z][a-z0-9\\p{IsLatin}]*)(\\s(?<species>[a-z0-9\\p{IsLatin}\\s]*))?(\\s'(?<variety>[a-z0-9\\p{IsLatin}\\s]*)')?"); //$NON-NLS-1$
+			"(?<genus>[A-Z][-a-z0-9\\p{IsLatin}]*)(\\s(?<species>[-a-z0-9\\p{IsLatin}\\s]*))?(\\s'(?<variety>['-a-z0-9\\p{IsLatin}\\s]*)')?"); //$NON-NLS-1$
 
 	public static boolean hasValidLatinName(Plant plant) {
 		String latinName = plant.getLatinName();

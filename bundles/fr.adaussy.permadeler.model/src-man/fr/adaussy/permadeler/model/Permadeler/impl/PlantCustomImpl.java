@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class PlantCustomImpl extends PlantImpl {
 
 	private static Pattern LATIN_NAME_NICER_PARTTERN = Pattern.compile(
-			"(?<genus>[a-z0-9\\p{IsLatin}]*)\\s(?<species>[a-zA-Z0-9\\p{IsLatin}\\s]*)?(\\s'(?<variety>[a-z0-9\\p{IsLatin}\\s]*)')?"); //$NON-NLS-1$
+			"(?<genus>[-a-z0-9\\p{IsLatin}]*)\\s(?<species>[-a-zA-Z0-9\\p{IsLatin}\\s]*)?(\\s'(?<variety>[-'a-z0-9\\p{IsLatin}\\s]*)')?"); //$NON-NLS-1$
 
 	private String genus;
 
