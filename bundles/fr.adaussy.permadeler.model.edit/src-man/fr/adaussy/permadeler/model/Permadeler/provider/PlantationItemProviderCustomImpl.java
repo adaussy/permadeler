@@ -10,6 +10,10 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
@@ -20,7 +24,6 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
-import fr.adaussy.permadeler.model.edit.TextHelper;
 
 /**
  * {@link PlantationItemProvider} Custom impl
@@ -42,11 +45,22 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 	public String getText(Object object) {
 		Plantation plantation = (Plantation)object;
 		Plant type = plantation.getType();
-		String label;
+		String label = ""; //$NON-NLS-1$
+
 		if (type != null) {
-			label = TextHelper.getLabel(type);
+			label += type.getName();
 		} else {
-			label = EditMessages.PlantationItemProviderCustomImpl_0;
+			label += EditMessages.PlantationItemProviderCustomImpl_0;
+		}
+
+		String id = plantation.getId();
+		if (id != null) {
+			label += " [" + id + "]"; //$NON-NLS-1$ //$NON-NLS-2$
+		}
+
+		Instant plantationDate = plantation.getPlantationDate();
+		if (plantationDate != null) {
+			label += " - " + LocalDate.ofInstant(plantationDate, ZoneId.systemDefault()).getYear(); //$NON-NLS-1$
 		}
 
 		return label;
