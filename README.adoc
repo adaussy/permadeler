@@ -1,0 +1,97 @@
+# Permadeler
+
+## Objectifs
+
+Le projet a pour vocation de créer un logiciel Open Source permettant d'aider à la création et la gestion d'une Foret Jardin.
+
+Les paragraphes suivants décrivent les objectis de ce projet.
+
+### Création d'une carte de plantation (en cours)
+Les Forêts Jardins sont composées de très nombreuses espèces ayant des caractéristiques et besoins différents.
+Le logiciel devra permettre de créer une carte dynamique permettant de tracer toutes les plantations et leur localisation.
+Pour chaque plantation, on pourra souhaiter garder une trace de l'espèce, la date de plantation, la provenance, le porte-greffe, etc..
+Cette carte permettra précisément de retrouver pour chaque plantation:
+
+* L'emplacement
+* L'espèce
+* La date de plantation
+* La provenance
+* Le porte-greffe
+* Et autre information utile pour les forets jardin
+
+### Créer une base de connaissance à partir d'observation locale (en cours)
+Chaque espèce se comporte différemment en fonction du terrain, zone géographique et des soins que l'on y apporte.
+L'idée du logiciel est de partir de base de données de référence pour chaque espèce/cultivar puis par observation faire évoluer les données à partir d'observation locales telles que:
+
+* La date de floraison
+* La date fructification
+* La tolérance a la sècheresse, humidité
+* Maladies
+* Et autres
+
+En utilisant, une dénomination commune définissant de manière unique une espèce/variété (nom latin $Genre $Espèce '$Variete/Cultivar') nous pourrions ensuite créer une base de connaissance localisée par "terroir" sur une application Web (dans un second temps).
+Ainsi, si je souhaite savoir comment se comporte un Jujubier dans mon département, je pourrais explorer d'autres projets et apprendre de leurs expérience.
+
+### Assistant et planification (prochaine action sur la liste)
+Pour chaque espèce, la base de données permettra d'identifier sur une année des périodes ou des actions peuvent/doivent être réalisées ainsi que les périodes de productions.
+
+Voici des exemples d'actions identifiés:
+
+* Taille
+* Semis
+* Multiplication
+* Récoltes
+* Autres
+
+Afin de l'identification de ces périodes, l'outil devra faciliter la planification d'action.
+
+### Publication et partage de connaissance (des que les autres parties sont terminé et on fonction de la main d'oeuvre)
+Il devra être possible de publier sur une application web sont projet qui comportera:
+
+* Sa base de connaissance et ses observations
+* Son plan de Foret Jardin
+
+Le projet sera alors visible sur une carte pour d'autres personnes puissent venir le consulter afin de:
+
+* Apprendre plus sur d'autres projets de Foret Jardin
+* Trouver des Forêts Jardinistes prés de chez soit
+* Facilité l'échange de bouture ou de greffons
+
+
+## Comment contribuer
+
+### Remontez-nous des bugs
+
+Remontez-nous des bugs via des tickets Github (ça ne passe https://github.com/adaussy/permadeler/issues/new[ici]).
+Pensez à être le plus descriptif possible, à ajouter des captures d'écran et à nous partager votre projet.
+
+### Venez enrichir la base de connaissance
+
+Si vous avez du temps, des connaissances en botanique eu une expérience en Foret Jardin venez nous aider a remplir la base de donnée de "base" servant a facilité la création de future.
+Pour cela, utilisez le logiciel pour remplir les plantes manquantes et envoyez-le-nous.
+
+(Méthodologie à définir)
+
+### Vous êtes développeur
+
+Venez nous aider à:
+
+* Corriger des bugs
+* Créer de nouvelles fonctionnalités
+
+### Vous avez des talents de dessinateurs
+
+Contribuer vous icônes et dessins de houppier.
+Pour cela, créez vos dessins au format PNG ou SVG et faites-les nous parvenir.
+Attention seules vos créations personnelles sont acceptées et il faudra nous donner le droit de les utiliser dans le cadre de ce logiciel.
+
+(Méthodologie à définir)
+
+
+### Aidez-nous à écrire la documentation
+
+Si vous aimez le logiciel et que vous avez des qualités rédactionnelles (ce qui n'est pas mon cas) aidez-nous à écrire la documentation du logiciel
+
+### Aider à faire connaitre le logiciel
+
+Si vous aimez le logiciel, parlez-en a vos proches.
