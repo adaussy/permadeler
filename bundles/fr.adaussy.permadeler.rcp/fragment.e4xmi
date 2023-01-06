@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:basic_1="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
+  <imports xsi:type="commands:BindingContext" xmi:id="_bYfY8I4KEe2reNf8hdyV1g" elementId="org.eclipse.ui.contexts.dialogAndWindow"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_EI7oACerEeWxCPrV0pAZQQ" featurename="descriptors" parentElementId="xpath:/">
     <elements xsi:type="basic:PartDescriptor" xmi:id="_KMklcCerEeWxCPrV0pAZQQ" elementId="fr.adaussy.permadeler.rcp.timeview" label="Vue Temporelle" iconURI="platform:/plugin/fr.adaussy.permadeler.rcp/icons/Sample.png" tooltip="" allowMultiple="true" category="Permadeller" closeable="true" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.timeview.TimeViewPart">
       <tags>View</tags>
@@ -92,5 +93,11 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_f4__MJTgEeqWsP_O9XzfKw" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_hQ8pkJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handler.undo" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.UndoHandler" command="_ba7RYJTgEeqWsP_O9XzfKw"/>
     <elements xsi:type="commands:Handler" xmi:id="_1A-CAJThEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handler.redo" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.RedoHandler" command="_dBOg0JTgEeqWsP_O9XzfKw"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_xaKgYI4KEe2reNf8hdyV1g" featurename="bindingTables" parentElementId="org.eclipse.e4.legacy.ide.application">
+    <elements xsi:type="commands:BindingTable" xmi:id="_8JXOAI4KEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.bindingtable.0" bindingContext="_bYfY8I4KEe2reNf8hdyV1g">
+      <bindings xmi:id="_BQ_2MI4LEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.keybinding.0" keySequence="M1+Z" command="_ba7RYJTgEeqWsP_O9XzfKw"/>
+      <bindings xmi:id="_LOfaEI4LEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.keybinding.1" keySequence="M1+Y" command="_dBOg0JTgEeqWsP_O9XzfKw"/>
+    </elements>
   </fragments>
 </fragment:ModelFragments>
