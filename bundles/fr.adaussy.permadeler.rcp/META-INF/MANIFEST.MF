@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Permadeller Rcp
 Bundle-SymbolicName: fr.adaussy.permadeler.rcp;singleton:=true
 Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
 Bundle-Activator: fr.adaussy.permadeler.rcp.RcpPlugin
 Export-Package: fr.adaussy.permadeler.rcp.internal.actions,
  fr.adaussy.permadeler.rcp.internal.dialogs,
@@ -46,10 +47,13 @@ Require-Bundle: javax.inject,
  org.eclipse.osgi.services,
  org.eclipse.ui.views.properties.tabbed,
  org.eclipse.sirius.common,
- org.apache.commons.commons-validator;bundle-version="1.7.0"
+ org.apache.commons.commons-validator;bundle-version="1.7.0",
+ org.apache.commons.commons-csv;bundle-version="1.9.0",
+ org.apache.poi;bundle-version="4.1.1",
+ org.apache.poi.ooxml;bundle-version="4.1.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Automatic-Module-Name: fr.adaussy.permadeler.rcp
+Bundle-ActivationPolicy: lazy
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0",
  org.apache.commons.lang
-Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: fr.adaussy.permadeler.rcp

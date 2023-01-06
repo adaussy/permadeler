@@ -1,7 +1,12 @@
 package fr.adaussy.permadeler.rcp.internal;
 
+import java.nio.file.Path;
 import java.util.function.Consumer;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.session.Session;
 
@@ -74,6 +79,27 @@ public class PermadelerSession {
 
 	public SeedBank getSeedBank() {
 		return root.getSeedbank();
+	}
+
+	public Root getRoot() {
+		return root;
+	}
+
+	public Path getRootFolder() {
+		URI uri = wrappedSession.getSessionResource().getURI();
+		if (uri.isPlatformResource()) {
+			String path = uri.toPlatformString(true);
+			IPath iPath = new org.eclipse.core.runtime.Path(path).removeLastSegments(1);
+			IFile iFile = ResourcesPlugin.getWorkspace().getRoot().getFile(iPath);
+
+			if (iFile.exists()) {
+				return iFile.getLocation().toFile().toPath();
+			}
+		} else if (uri.isFile()) {
+			return Path.of(uri.toFileString()).getParent();
+		}
+
+		return null;
 	}
 
 }

@@ -28,23 +28,8 @@
       <repository location="https://download.eclipse.org/sirius/updates/releases/7.0.5/2021-06/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.apache.log4j" version="0.0.0"/>
-      <unit id="org.jsoup" version="0.0.0"/>
-      <unit id="org.apache.commons.lang" version="0.0.0"/>
-      <unit id="org.easymock" version="0.0.0"/>
-      <unit id="org.hamcrest.library" version="0.0.0"/>
-      <unit id="org.junit" version="4.13.2.v20211018-1956"/>
-      <unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
-      <unit id="ch.qos.logback.slf4j" version="1.0.7.v201505121915"/>
-      <unit id="ch.qos.logback.classic" version="1.0.7.v20121108-1250"/>
-      <unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
-      <unit id="org.apache.xalan" version="2.7.2.v20201124-1837"/>
-      <unit id="org.antlr.runtime" version="4.7.1.v20181120-0808"/>
-      <unit id="org.apache.batik.ext" version="1.14.0.v20210324-0332"/>
-      <unit id="org.apache.batik.codec" version="1.14.0.v20210324-0332"/>
-      <unit id="org.apache.batik.bridge" version="1.14.0.v20210324-0332"/>
-      <unit id="org.apache.batik.script" version="1.14.0.v20210324-0332"/>
       <repository id="Orbit-202203" location="https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/"/>
+	    <unit id="org.apache.poi" version="4.1.1.v20200604-1524"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.nebula.widgets.gallery.feature.feature.group" version="0.0.0"/>
