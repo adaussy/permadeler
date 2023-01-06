@@ -21,6 +21,54 @@ public class RcpMessages extends NLS {
 
 	public static String DeleteObject_0;
 
+	public static String GenerateProductionSpreadsheetMenu_1;
+
+	public static String GenerateProductionSpreadsheetMenu_10;
+
+	public static String GenerateProductionSpreadsheetMenu_11;
+
+	public static String GenerateProductionSpreadsheetMenu_12;
+
+	public static String GenerateProductionSpreadsheetMenu_13;
+
+	public static String GenerateProductionSpreadsheetMenu_14;
+
+	public static String GenerateProductionSpreadsheetMenu_15;
+
+	public static String GenerateProductionSpreadsheetMenu_16;
+
+	public static String GenerateProductionSpreadsheetMenu_17;
+
+	public static String GenerateProductionSpreadsheetMenu_18;
+
+	public static String GenerateProductionSpreadsheetMenu_19;
+
+	public static String GenerateProductionSpreadsheetMenu_2;
+
+	public static String GenerateProductionSpreadsheetMenu_20;
+
+	public static String GenerateProductionSpreadsheetMenu_21;
+
+	public static String GenerateProductionSpreadsheetMenu_22;
+
+	public static String GenerateProductionSpreadsheetMenu_23;
+
+	public static String GenerateProductionSpreadsheetMenu_24;
+
+	public static String GenerateProductionSpreadsheetMenu_3;
+
+	public static String GenerateProductionSpreadsheetMenu_4;
+
+	public static String GenerateProductionSpreadsheetMenu_5;
+
+	public static String GenerateProductionSpreadsheetMenu_6;
+
+	public static String GenerateProductionSpreadsheetMenu_7;
+
+	public static String GenerateProductionSpreadsheetMenu_8;
+
+	public static String GenerateProductionSpreadsheetMenu_9;
+
 	public static String ImageSelectionDialog_0;
 
 	public static String ImageSelectionDialog_1;
