@@ -10,11 +10,11 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
-import fr.adaussy.permadeler.model.Permadeler.Family;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,13 +37,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getReferences <em>References</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getCommonNames <em>Common Names</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getLatinName <em>Latin Name</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getIconKey <em>Icon Key</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getGenus <em>Genus</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getSpecies <em>Species</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getVariety <em>Variety</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getRepresentationKey <em>Representation Key</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getFamily <em>Family</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantNamedElementImpl#getShortName <em>Short Name</em>}</li>
  * </ul>
  *
@@ -71,26 +66,6 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	protected EList<String> commonNames;
 
 	/**
-	 * The default value of the '{@link #getLatinName() <em>Latin Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLatinName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LATIN_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLatinName() <em>Latin Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLatinName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String latinName = LATIN_NAME_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getIconKey() <em>Icon Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,36 +86,6 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	protected String iconKey = ICON_KEY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getGenus() <em>Genus</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGenus()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String GENUS_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getSpecies() <em>Species</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecies()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SPECIES_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getVariety() <em>Variety</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVariety()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VARIETY_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,26 +104,6 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * @ordered
 	 */
 	protected String representationKey = REPRESENTATION_KEY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getFamily() <em>Family</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFamily()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Family FAMILY_EDEFAULT = Family.UNKNOWN;
-
-	/**
-	 * The cached value of the '{@link #getFamily() <em>Family</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFamily()
-	 * @generated
-	 * @ordered
-	 */
-	protected Family family = FAMILY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getShortName() <em>Short Name</em>}' attribute.
@@ -250,28 +175,6 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLatinName() {
-		return latinName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLatinName(String newLatinName) {
-		String oldLatinName = latinName;
-		latinName = newLatinName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME, oldLatinName, latinName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getIconKey() {
 		return iconKey;
 	}
@@ -287,39 +190,6 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY, oldIconKey, iconKey));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getGenus() {
-		// TODO: implement this method to return the 'Genus' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getSpecies() {
-		// TODO: implement this method to return the 'Species' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getVariety() {
-		// TODO: implement this method to return the 'Variety' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -350,28 +220,6 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Family getFamily() {
-		return family;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFamily(Family newFamily) {
-		Family oldFamily = family;
-		family = newFamily == null ? FAMILY_EDEFAULT : newFamily;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY, oldFamily, family));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getShortName() {
 		return shortName;
 	}
@@ -394,6 +242,17 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getAllNames() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -401,20 +260,10 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return getReferences();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				return getCommonNames();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
-				return getLatinName();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
 				return getIconKey();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
-				return getGenus();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
-				return getSpecies();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
-				return getVariety();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				return getRepresentationKey();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
-				return getFamily();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
 				return getShortName();
 		}
@@ -438,17 +287,11 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				getCommonNames().clear();
 				getCommonNames().addAll((Collection<? extends String>)newValue);
 				return;
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
-				setLatinName((String)newValue);
-				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
 				setIconKey((String)newValue);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				setRepresentationKey((String)newValue);
-				return;
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
-				setFamily((Family)newValue);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
 				setShortName((String)newValue);
@@ -471,17 +314,11 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				getCommonNames().clear();
 				return;
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
-				setLatinName(LATIN_NAME_EDEFAULT);
-				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
 				setIconKey(ICON_KEY_EDEFAULT);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				setRepresentationKey(REPRESENTATION_KEY_EDEFAULT);
-				return;
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
-				setFamily(FAMILY_EDEFAULT);
 				return;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
 				setShortName(SHORT_NAME_EDEFAULT);
@@ -502,24 +339,11 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 				return references != null && !references.isEmpty();
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
 				return commonNames != null && !commonNames.isEmpty();
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
-				return LATIN_NAME_EDEFAULT == null ? latinName != null
-						: !LATIN_NAME_EDEFAULT.equals(latinName);
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
 				return ICON_KEY_EDEFAULT == null ? iconKey != null : !ICON_KEY_EDEFAULT.equals(iconKey);
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
-				return GENUS_EDEFAULT == null ? getGenus() != null : !GENUS_EDEFAULT.equals(getGenus());
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
-				return SPECIES_EDEFAULT == null ? getSpecies() != null
-						: !SPECIES_EDEFAULT.equals(getSpecies());
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
-				return VARIETY_EDEFAULT == null ? getVariety() != null
-						: !VARIETY_EDEFAULT.equals(getVariety());
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
 				return REPRESENTATION_KEY_EDEFAULT == null ? representationKey != null
 						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
-				return family != FAMILY_EDEFAULT;
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
 				return SHORT_NAME_EDEFAULT == null ? shortName != null
 						: !SHORT_NAME_EDEFAULT.equals(shortName);
@@ -569,6 +393,20 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * @generated
 	 */
 	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PermadelerPackage.PLANT_NAMED_ELEMENT___GET_ALL_NAMES:
+				return getAllNames();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy())
 			return super.toString();
@@ -578,14 +416,10 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 		result.append(references);
 		result.append(", commonNames: "); //$NON-NLS-1$
 		result.append(commonNames);
-		result.append(", latinName: "); //$NON-NLS-1$
-		result.append(latinName);
 		result.append(", iconKey: "); //$NON-NLS-1$
 		result.append(iconKey);
 		result.append(", representationKey: "); //$NON-NLS-1$
 		result.append(representationKey);
-		result.append(", family: "); //$NON-NLS-1$
-		result.append(family);
 		result.append(", shortName: "); //$NON-NLS-1$
 		result.append(shortName);
 		result.append(')');

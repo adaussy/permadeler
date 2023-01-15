@@ -45,10 +45,12 @@ import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerDropAdapter;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionStatus;
@@ -64,6 +66,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.DragSourceListener;
+import org.eclipse.swt.dnd.DropTarget;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -114,6 +117,10 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 
 		}
 	};
+
+	public Session getSession() {
+		return displayedSession;
+	}
 
 	@Inject
 	private ESelectionService selectionService;
@@ -169,38 +176,63 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 		});
 		Menu menu = menuMng.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
+		Transfer[] types = new Transfer[] {LocalSelectionTransfer.getTransfer() };
+		viewer.addDragSupport(DND.DROP_LINK | DND.DROP_MOVE | DND.DROP_COPY, types, new DragSourceListener() {
 
-		viewer.addDragSupport(DND.DROP_LINK | DND.DROP_MOVE | DND.DROP_COPY,
-				new Transfer[] {LocalSelectionTransfer.getTransfer() }, new DragSourceListener() {
+			@Override
+			public void dragStart(DragSourceEvent event) {
+				ISelection selection = viewer.getSelection();
+				if (selection != null && !selection.isEmpty()) {
+					LocalSelectionTransfer.getTransfer().setSelection(selection);
+				}
 
-					@Override
-					public void dragStart(DragSourceEvent event) {
-						ISelection selection = viewer.getSelection();
-						if (selection != null && !selection.isEmpty()) {
-							LocalSelectionTransfer.getTransfer().setSelection(selection);
-						}
+			}
 
-					}
+			@Override
+			public void dragSetData(DragSourceEvent event) {
+				final ISelection selection = LocalSelectionTransfer.getTransfer().getSelection();
+				if (LocalSelectionTransfer.getTransfer().isSupportedType(event.dataType)) {
+					event.data = selection;
+				}
 
-					@Override
-					public void dragSetData(DragSourceEvent event) {
-						final ISelection selection = LocalSelectionTransfer.getTransfer().getSelection();
-						if (LocalSelectionTransfer.getTransfer().isSupportedType(event.dataType)) {
-							event.data = selection;
-						}
+			}
 
-					}
+			@Override
+			public void dragFinished(DragSourceEvent event) {
+				LocalSelectionTransfer transfer = LocalSelectionTransfer.getTransfer();
+				ISelection selection = transfer.getSelection();
+				transfer.setSelection(null);
 
-					@Override
-					public void dragFinished(DragSourceEvent event) {
-						LocalSelectionTransfer.getTransfer().setSelection(null);
+			}
+		});
+		DropTarget target = new DropTarget(viewer.getControl(),
+				DND.DROP_MOVE | DND.DROP_COPY | DND.DROP_LINK);
+		target.setTransfer(types);
+		target.addDropListener(new ViewerDropAdapter(viewer) {
 
-					}
-				});
+			@Override
+			public boolean validateDrop(Object arg0, int arg1, org.eclipse.swt.dnd.TransferData arg2) {
+				return true;
+			};
+
+			@Override
+			public boolean performDrop(Object arg0) {
+				if (arg0 instanceof IStructuredSelection) {
+					IStructuredSelection structSelection = (IStructuredSelection)arg0;
+					handleDrop(getCurrentTarget(), structSelection.toArray());
+				}
+				return false;
+
+			};
+		});
 
 		if (session != this.displayedSession) {
 			updateContent(session);
 		}
+	}
+
+	protected void handleDrop(Object target, Object[] dropedElements) {
+
 	}
 
 	@Override

@@ -6,6 +6,7 @@ location "http://download.eclipse.org/releases/2022-03" {
 	org.eclipse.sdk.ide lazy
 	org.eclipse.jdt.feature.group lazy
 	org.eclipse.egit.feature.group lazy
+	org.eclipse.m2e.pde.feature.feature.group lazy
 }
 
 location "https://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest/" {

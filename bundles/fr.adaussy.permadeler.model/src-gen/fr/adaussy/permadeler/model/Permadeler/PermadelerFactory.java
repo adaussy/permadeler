@@ -192,15 +192,6 @@ public interface PermadelerFactory extends EFactory {
 	BackgroundImage createBackgroundImage();
 
 	/**
-	 * Returns a new object of class '<em>Plant</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Plant</em>'.
-	 * @generated
-	 */
-	Plant createPlant();
-
-	/**
 	 * Returns a new object of class '<em>Production</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -235,6 +226,24 @@ public interface PermadelerFactory extends EFactory {
 	 * @generated
 	 */
 	PlantationPhase createPlantationPhase();
+
+	/**
+	 * Returns a new object of class '<em>Species</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Species</em>'.
+	 * @generated
+	 */
+	Species createSpecies();
+
+	/**
+	 * Returns a new object of class '<em>Variety</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variety</em>'.
+	 * @generated
+	 */
+	Variety createVariety();
 
 	/**
 	 * Returns the package supported by this factory.

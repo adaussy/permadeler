@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getPlantTypes <em>Plant Types</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies <em>Species</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase()
@@ -42,5 +43,25 @@ public interface KnowledgeBase extends EObject {
 	 * @generated
 	 */
 	EList<Plant> getPlantTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Species</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Species}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Species</em>' containment reference list.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase_Species()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Species> getSpecies();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Plant> getAllPlants();
 
 } // KnowledgeBase

@@ -24,6 +24,7 @@ import fr.adaussy.permadeler.model.Permadeler.GridBedCell;
 import fr.adaussy.permadeler.model.Permadeler.GridBedRow;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
 import fr.adaussy.permadeler.model.Permadeler.Image;
+import fr.adaussy.permadeler.model.Permadeler.ImageOwner;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
@@ -54,10 +55,12 @@ import fr.adaussy.permadeler.model.Permadeler.SoilType;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.TrayOwner;
 import fr.adaussy.permadeler.model.Permadeler.TrayZone;
+import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.Permadeler.Wind;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 
@@ -279,6 +282,27 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass referencingElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass imageOwnerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass speciesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass varietyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -612,6 +636,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getKnowledgeBase_Species() {
+		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKnowledgeBase__GetAllPlants() {
+		return knowledgeBaseEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSeedBank() {
 		return seedBankEClass;
 	}
@@ -801,7 +843,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlantNamedElement_LatinName() {
+	public EAttribute getPlantNamedElement_IconKey() {
 		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -810,7 +852,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlantNamedElement_IconKey() {
+	public EAttribute getPlantNamedElement_RepresentationKey() {
 		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -819,7 +861,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlantNamedElement_Genus() {
+	public EAttribute getPlantNamedElement_ShortName() {
 		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -828,44 +870,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlantNamedElement_Species() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_Variety() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_RepresentationKey() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_Family() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_ShortName() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(8);
+	public EOperation getPlantNamedElement__GetAllNames() {
+		return plantNamedElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1233,107 +1239,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlant_Width() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_SoilType() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlant_Images() {
-		return (EReference)plantEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_LightingCondition() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_Height() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_MinTemperature() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_Moisture() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_SpecialUses() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_GrowRate() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_Wind() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPlant_Productions() {
-		return (EReference)plantEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getPlant_Actions() {
-		return (EReference)plantEClass.getEStructuralFeatures().get(11);
+		return (EReference)plantEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1341,62 +1248,35 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlant_LifeCycle() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_FoilageType() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_FoilageShade() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_DroughtTolerance() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_ToleratedLightingCondition() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlant_RootType() {
-		return (EAttribute)plantEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPlant__GetAllNames() {
+	public EOperation getPlant__GetProductions() {
 		return plantEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetFullLatinName() {
+		return plantEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetDefaultLayer() {
+		return plantEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetDefaultRepresentationKind() {
+		return plantEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1514,6 +1394,267 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getReferencingElement_References() {
 		return (EAttribute)referencingElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getImageOwner() {
+		return imageOwnerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getImageOwner_Images() {
+		return (EReference)imageOwnerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSpecies() {
+		return speciesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecies_Varieties() {
+		return (EReference)speciesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Species() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Genus() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Family() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_LifeCycle() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_RootType() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_FoilageType() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_DroughtTolerance() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_FoilageShade() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_ToleratedLightingCondition() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_LightingCondition() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Moisture() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_SoilType() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_MinTemperature() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Wind() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Width() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_SpecialUses() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_Height() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_GrowRate() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecies_Productions() {
+		return (EReference)speciesEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_DefaultLayer() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecies_DefaultRepresentationKind() {
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariety() {
+		return varietyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariety_Species() {
+		return (EReference)varietyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVariety_Variety() {
+		return (EAttribute)varietyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariety_CustomProductions() {
+		return (EReference)varietyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1789,6 +1930,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		knowledgeBaseEClass = createEClass(KNOWLEDGE_BASE);
 		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__PLANT_TYPES);
+		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__SPECIES);
+		createEOperation(knowledgeBaseEClass, KNOWLEDGE_BASE___GET_ALL_PLANTS);
 
 		seedBankEClass = createEClass(SEED_BANK);
 		createEReference(seedBankEClass, SEED_BANK__ITEMS);
@@ -1815,14 +1958,10 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		plantNamedElementEClass = createEClass(PLANT_NAMED_ELEMENT);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__COMMON_NAMES);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__LATIN_NAME);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__ICON_KEY);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__GENUS);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__SPECIES);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__VARIETY);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__REPRESENTATION_KEY);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__FAMILY);
 		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__SHORT_NAME);
+		createEOperation(plantNamedElementEClass, PLANT_NAMED_ELEMENT___GET_ALL_NAMES);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__TITLE);
@@ -1879,25 +2018,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(backgroundImageEClass, BACKGROUND_IMAGE__TRANSPARENCY);
 
 		plantEClass = createEClass(PLANT);
-		createEAttribute(plantEClass, PLANT__WIDTH);
-		createEAttribute(plantEClass, PLANT__SOIL_TYPE);
-		createEReference(plantEClass, PLANT__IMAGES);
-		createEAttribute(plantEClass, PLANT__LIGHTING_CONDITION);
-		createEAttribute(plantEClass, PLANT__HEIGHT);
-		createEAttribute(plantEClass, PLANT__MIN_TEMPERATURE);
-		createEAttribute(plantEClass, PLANT__MOISTURE);
-		createEAttribute(plantEClass, PLANT__SPECIAL_USES);
-		createEAttribute(plantEClass, PLANT__GROW_RATE);
-		createEAttribute(plantEClass, PLANT__WIND);
-		createEReference(plantEClass, PLANT__PRODUCTIONS);
 		createEReference(plantEClass, PLANT__ACTIONS);
-		createEAttribute(plantEClass, PLANT__LIFE_CYCLE);
-		createEAttribute(plantEClass, PLANT__FOILAGE_TYPE);
-		createEAttribute(plantEClass, PLANT__FOILAGE_SHADE);
-		createEAttribute(plantEClass, PLANT__DROUGHT_TOLERANCE);
-		createEAttribute(plantEClass, PLANT__TOLERATED_LIGHTING_CONDITION);
-		createEAttribute(plantEClass, PLANT__ROOT_TYPE);
-		createEOperation(plantEClass, PLANT___GET_ALL_NAMES);
+		createEOperation(plantEClass, PLANT___GET_PRODUCTIONS);
+		createEOperation(plantEClass, PLANT___GET_FULL_LATIN_NAME);
+		createEOperation(plantEClass, PLANT___GET_DEFAULT_LAYER);
+		createEOperation(plantEClass, PLANT___GET_DEFAULT_REPRESENTATION_KIND);
 
 		productionEClass = createEClass(PRODUCTION);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
@@ -1916,6 +2041,38 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		referencingElementEClass = createEClass(REFERENCING_ELEMENT);
 		createEAttribute(referencingElementEClass, REFERENCING_ELEMENT__REFERENCES);
+
+		imageOwnerEClass = createEClass(IMAGE_OWNER);
+		createEReference(imageOwnerEClass, IMAGE_OWNER__IMAGES);
+
+		speciesEClass = createEClass(SPECIES);
+		createEReference(speciesEClass, SPECIES__VARIETIES);
+		createEAttribute(speciesEClass, SPECIES__SPECIES);
+		createEAttribute(speciesEClass, SPECIES__GENUS);
+		createEAttribute(speciesEClass, SPECIES__FAMILY);
+		createEAttribute(speciesEClass, SPECIES__LIFE_CYCLE);
+		createEAttribute(speciesEClass, SPECIES__ROOT_TYPE);
+		createEAttribute(speciesEClass, SPECIES__FOILAGE_TYPE);
+		createEAttribute(speciesEClass, SPECIES__DROUGHT_TOLERANCE);
+		createEAttribute(speciesEClass, SPECIES__FOILAGE_SHADE);
+		createEAttribute(speciesEClass, SPECIES__TOLERATED_LIGHTING_CONDITION);
+		createEAttribute(speciesEClass, SPECIES__LIGHTING_CONDITION);
+		createEAttribute(speciesEClass, SPECIES__MOISTURE);
+		createEAttribute(speciesEClass, SPECIES__SOIL_TYPE);
+		createEAttribute(speciesEClass, SPECIES__MIN_TEMPERATURE);
+		createEAttribute(speciesEClass, SPECIES__WIND);
+		createEAttribute(speciesEClass, SPECIES__WIDTH);
+		createEAttribute(speciesEClass, SPECIES__SPECIAL_USES);
+		createEAttribute(speciesEClass, SPECIES__HEIGHT);
+		createEAttribute(speciesEClass, SPECIES__GROW_RATE);
+		createEReference(speciesEClass, SPECIES__PRODUCTIONS);
+		createEAttribute(speciesEClass, SPECIES__DEFAULT_LAYER);
+		createEAttribute(speciesEClass, SPECIES__DEFAULT_REPRESENTATION_KIND);
+
+		varietyEClass = createEClass(VARIETY);
+		createEReference(varietyEClass, VARIETY__SPECIES);
+		createEAttribute(varietyEClass, VARIETY__VARIETY);
+		createEReference(varietyEClass, VARIETY__CUSTOM_PRODUCTIONS);
 
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
@@ -1987,10 +2144,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		trayZoneEClass.getESuperTypes().add(this.getNamedElement());
 		sowPlanficationEClass.getESuperTypes().add(this.getPlanfication());
 		plantEClass.getESuperTypes().add(this.getPlantNamedElement());
+		plantEClass.getESuperTypes().add(this.getImageOwner());
 		productionEClass.getESuperTypes().add(this.getTemporalItem());
 		actionEClass.getESuperTypes().add(this.getTemporalItem());
 		temporalItemEClass.getESuperTypes().add(this.getNamedElement());
 		plantationPhaseEClass.getESuperTypes().add(this.getNamedElement());
+		speciesEClass.getESuperTypes().add(this.getPlant());
+		varietyEClass.getESuperTypes().add(this.getPlant());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2021,6 +2181,12 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEReference(getKnowledgeBase_PlantTypes(), this.getPlant(), null, "plantTypes", null, 0, -1, //$NON-NLS-1$
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKnowledgeBase_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
+				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getKnowledgeBase__GetAllPlants(), this.getPlant(), "getAllPlants", 0, -1, IS_UNIQUE, //$NON-NLS-1$
+				IS_ORDERED);
 
 		initEClass(seedBankEClass, SeedBank.class, "SeedBank", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2051,7 +2217,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(plantationEClass, Plantation.class, "Plantation", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlantation_Type(), this.getPlant(), null, "type", null, 0, 1, Plantation.class, //$NON-NLS-1$
+		initEReference(getPlantation_Type(), this.getPlant(), null, "type", null, 1, 1, Plantation.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlantation_Events(), this.getEvent(), null, "events", null, 0, -1, Plantation.class, //$NON-NLS-1$
@@ -2084,31 +2250,19 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantNamedElement_CommonNames(), ecorePackage.getEString(), "commonNames", null, 1, //$NON-NLS-1$
 				-1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_LatinName(), ecorePackage.getEString(), "latinName", null, 1, 1, //$NON-NLS-1$
-				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_IconKey(), ecorePackage.getEString(), "iconKey", null, 0, 1, //$NON-NLS-1$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_Genus(), ecorePackage.getEString(), "genus", null, 0, 1, //$NON-NLS-1$
-				PlantNamedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_Species(), ecorePackage.getEString(), "species", null, 0, 1, //$NON-NLS-1$
-				PlantNamedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_Variety(), ecorePackage.getEString(), "variety", null, 0, 1, //$NON-NLS-1$
-				PlantNamedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_RepresentationKey(), ecorePackage.getEString(),
 				"representationKey", "/icons/representations/arbre2/green1.png", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
-				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_Family(), this.getFamily(), "family", null, 0, 1, //$NON-NLS-1$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_ShortName(), ecorePackage.getEString(), "shortName", null, 0, 1, //$NON-NLS-1$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPlantNamedElement__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, //$NON-NLS-1$
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2220,64 +2374,22 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				BackgroundImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(plantEClass, Plant.class, "Plant", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlant_Width(), ecorePackage.getEFloat(), "width", null, 0, 1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_SoilType(), this.getSoilType(), "soilType", null, 0, -1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getPlant_Images(), this.getImage(), null, "images", null, 0, -1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_LightingCondition(), this.getShade(), "lightingCondition", null, 0, -1, //$NON-NLS-1$
-				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_Height(), ecorePackage.getEFloat(), "height", null, 0, 1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_MinTemperature(), ecorePackage.getEInt(), "minTemperature", null, 0, 1, //$NON-NLS-1$
-				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_Moisture(), this.getMoisture(), "moisture", null, 0, -1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_SpecialUses(), this.getSpecialUses(), "specialUses", null, 0, -1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_Wind(), this.getWind(), "wind", null, 0, -1, Plant.class, !IS_TRANSIENT, //$NON-NLS-1$
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlant_Productions(), this.getProduction(), null, "productions", null, 0, -1, //$NON-NLS-1$
-				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(plantEClass, Plant.class, "Plant", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getPlant_Actions(), this.getAction(), null, "actions", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_FoilageType(), this.getFoliageType(), "foilageType", null, 0, 1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getPlant_FoilageShade(), this.getFoilageShade(), "foilageShade", null, 0, 1, //$NON-NLS-1$
-				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_DroughtTolerance(), this.getDroughtTolerance(), "droughtTolerance", null, 0, //$NON-NLS-1$
-				1, Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_ToleratedLightingCondition(), this.getShade(), "toleratedLightingCondition", //$NON-NLS-1$
-				null, 0, -1, Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlant_RootType(), this.getRootType(), "rootType", null, 0, 1, Plant.class, //$NON-NLS-1$
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+
+		initEOperation(getPlant__GetProductions(), this.getProduction(), "getProductions", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
 
-		initEOperation(getPlant__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE, //$NON-NLS-1$
+		initEOperation(getPlant__GetFullLatinName(), ecorePackage.getEString(), "getFullLatinName", 0, 1, //$NON-NLS-1$
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPlant__GetDefaultLayer(), this.getLayer(), "getDefaultLayer", 0, 1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
+
+		initEOperation(getPlant__GetDefaultRepresentationKind(), this.getRepresentationKind(),
+				"getDefaultRepresentationKind", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2318,6 +2430,92 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getReferencingElement_References(), ecorePackage.getEString(), "references", null, 0, //$NON-NLS-1$
 				-1, ReferencingElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(imageOwnerEClass, ImageOwner.class, "ImageOwner", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getImageOwner_Images(), this.getImage(), null, "images", null, 0, -1, ImageOwner.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(speciesEClass, Species.class, "Species", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecies_Varieties(), this.getVariety(), this.getVariety_Species(), "varieties", //$NON-NLS-1$
+				null, 0, -1, Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_Species(), ecorePackage.getEString(), "species", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_Genus(), ecorePackage.getEString(), "genus", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_Family(), this.getFamily(), "family", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_LifeCycle(), this.getLifecycle(), "lifeCycle", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_RootType(), this.getRootType(), "rootType", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_FoilageType(), this.getFoliageType(), "foilageType", null, 0, 1, //$NON-NLS-1$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_DroughtTolerance(), this.getDroughtTolerance(), "droughtTolerance", null, 0, //$NON-NLS-1$
+				1, Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_FoilageShade(), this.getFoilageShade(), "foilageShade", null, 0, 1, //$NON-NLS-1$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_ToleratedLightingCondition(), this.getShade(), "toleratedLightingCondition", //$NON-NLS-1$
+				null, 0, -1, Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_LightingCondition(), this.getShade(), "lightingCondition", null, 0, -1, //$NON-NLS-1$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_Moisture(), this.getMoisture(), "moisture", null, 0, -1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_SoilType(), this.getSoilType(), "soilType", null, 0, -1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_MinTemperature(), ecorePackage.getEInt(), "minTemperature", null, 0, 1, //$NON-NLS-1$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_Wind(), this.getWind(), "wind", null, 0, -1, Species.class, !IS_TRANSIENT, //$NON-NLS-1$
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_Width(), ecorePackage.getEFloat(), "width", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_SpecialUses(), this.getSpecialUses(), "specialUses", null, 0, -1, //$NON-NLS-1$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_Height(), ecorePackage.getEFloat(), "height", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getSpecies_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Species.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getSpecies_Productions(), this.getProduction(), null, "productions", null, 0, -1, //$NON-NLS-1$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_DefaultLayer(), this.getLayer(), "defaultLayer", "UNDERSTORY", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
+				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecies_DefaultRepresentationKind(), this.getRepresentationKind(),
+				"defaultRepresentationKind", "TREE_CROWN", 0, 1, Species.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$//$NON-NLS-2$
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(varietyEClass, Variety.class, "Variety", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariety_Species(), this.getSpecies(), this.getSpecies_Varieties(), "species", null, //$NON-NLS-1$
+				1, 1, Variety.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVariety_Variety(), ecorePackage.getEString(), "variety", null, 0, 1, Variety.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getVariety_CustomProductions(), this.getProduction(), null, "customProductions", null, //$NON-NLS-1$
+				0, -1, Variety.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(quantityEEnum, Quantity.class, "Quantity"); //$NON-NLS-1$

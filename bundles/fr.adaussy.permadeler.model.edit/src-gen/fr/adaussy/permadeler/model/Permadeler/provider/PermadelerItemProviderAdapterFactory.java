@@ -494,29 +494,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Plant} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PlantItemProviderCustomImpl plantItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Plant}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPlantAdapter() {
-		if (plantItemProvider == null) {
-			plantItemProvider = new PlantItemProviderCustomImpl(this);
-		}
-
-		return plantItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Production} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,6 +583,52 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 		}
 
 		return plantationPhaseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Species} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpeciesItemProviderCustomImpl speciesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Species}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpeciesAdapter() {
+		if (speciesItemProvider == null) {
+			speciesItemProvider = new SpeciesItemProviderCustomImpl(this);
+		}
+
+		return speciesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.Variety} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VarietyItemProviderCustomImpl varietyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Variety}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVarietyAdapter() {
+		if (varietyItemProvider == null) {
+			varietyItemProvider = new VarietyItemProviderCustomImpl(this);
+		}
+
+		return varietyItemProvider;
 	}
 
 	/**
@@ -743,8 +766,6 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			sowPlanficationItemProvider.dispose();
 		if (backgroundImageItemProvider != null)
 			backgroundImageItemProvider.dispose();
-		if (plantItemProvider != null)
-			plantItemProvider.dispose();
 		if (productionItemProvider != null)
 			productionItemProvider.dispose();
 		if (actionItemProvider != null)
@@ -753,6 +774,10 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			temporalItemItemProvider.dispose();
 		if (plantationPhaseItemProvider != null)
 			plantationPhaseItemProvider.dispose();
+		if (speciesItemProvider != null)
+			speciesItemProvider.dispose();
+		if (varietyItemProvider != null)
+			varietyItemProvider.dispose();
 	}
 
 }

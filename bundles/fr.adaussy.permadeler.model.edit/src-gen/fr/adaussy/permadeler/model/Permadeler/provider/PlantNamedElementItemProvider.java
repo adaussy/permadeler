@@ -54,13 +54,8 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 
 			addReferencesPropertyDescriptor(object);
 			addCommonNamesPropertyDescriptor(object);
-			addLatinNamePropertyDescriptor(object);
 			addIconKeyPropertyDescriptor(object);
-			addGenusPropertyDescriptor(object);
-			addSpeciesPropertyDescriptor(object);
-			addVarietyPropertyDescriptor(object);
 			addRepresentationKeyPropertyDescriptor(object);
-			addFamilyPropertyDescriptor(object);
 			addShortNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -99,22 +94,6 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Latin Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLatinNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PlantNamedElement_latinName_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_latinName_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__LATIN_NAME, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Icon Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,54 +110,6 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Genus feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGenusPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PlantNamedElement_genus_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_genus_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__GENUS, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Species feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSpeciesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PlantNamedElement_species_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_species_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__SPECIES, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Variety feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVarietyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PlantNamedElement_variety_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_variety_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__VARIETY, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Representation Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,22 +122,6 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 				getString("_UI_PropertyDescriptor_description", //$NON-NLS-1$
 						"_UI_PlantNamedElement_representationKey_feature", "_UI_PlantNamedElement_type"), //$NON-NLS-1$ //$NON-NLS-2$
 				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Family feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFamilyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_PlantNamedElement_family_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_PlantNamedElement_family_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_PlantNamedElement_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.PLANT_NAMED_ELEMENT__FAMILY, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -274,13 +189,8 @@ public class PlantNamedElementItemProvider extends NamedElementItemProvider {
 		switch (notification.getFeatureID(PlantNamedElement.class)) {
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REFERENCES:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__COMMON_NAMES:
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__LATIN_NAME:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__ICON_KEY:
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__GENUS:
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__SPECIES:
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__VARIETY:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__REPRESENTATION_KEY:
-			case PermadelerPackage.PLANT_NAMED_ELEMENT__FAMILY:
 			case PermadelerPackage.PLANT_NAMED_ELEMENT__SHORT_NAME:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));

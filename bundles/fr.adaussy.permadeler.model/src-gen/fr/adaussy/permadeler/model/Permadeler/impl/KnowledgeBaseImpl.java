@@ -14,6 +14,8 @@ import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 
+import fr.adaussy.permadeler.model.Permadeler.Species;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getPlantTypes <em>Plant Types</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getSpecies <em>Species</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +54,16 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * @ordered
 	 */
 	protected EList<Plant> plantTypes;
+
+	/**
+	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecies()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Species> species;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,11 +102,37 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Species> getSpecies() {
+		if (species == null) {
+			species = new EObjectContainmentEList<Species>(Species.class, this,
+					PermadelerPackage.KNOWLEDGE_BASE__SPECIES);
+		}
+		return species;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Plant> getAllPlants() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				return ((InternalEList<?>)getPlantTypes()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+				return ((InternalEList<?>)getSpecies()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -108,6 +147,8 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				return getPlantTypes();
+			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+				return getSpecies();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,6 +166,10 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 				getPlantTypes().clear();
 				getPlantTypes().addAll((Collection<? extends Plant>)newValue);
 				return;
+			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+				getSpecies().clear();
+				getSpecies().addAll((Collection<? extends Species>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -140,6 +185,9 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				getPlantTypes().clear();
 				return;
+			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+				getSpecies().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,8 +202,24 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 		switch (featureID) {
 			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
 				return plantTypes != null && !plantTypes.isEmpty();
+			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+				return species != null && !species.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PermadelerPackage.KNOWLEDGE_BASE___GET_ALL_PLANTS:
+				return getAllPlants();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //KnowledgeBaseImpl

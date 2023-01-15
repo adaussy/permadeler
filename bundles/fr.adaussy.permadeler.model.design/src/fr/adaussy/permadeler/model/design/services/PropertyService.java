@@ -7,8 +7,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -41,7 +39,7 @@ public class PropertyService {
 
 		} else if (o instanceof Plant) {
 			return ((Plant)o).getActions();
-		} else if (o instanceof Plantation) {
+		} else if (o instanceof Plantation && ((Plantation)o).getType() != null) {
 			return ((Plantation)o).getType().getActions();
 		} else {
 			return Collections.emptyList();

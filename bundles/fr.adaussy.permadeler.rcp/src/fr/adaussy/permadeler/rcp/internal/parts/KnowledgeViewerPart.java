@@ -9,9 +9,16 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.parts;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import fr.adaussy.permadeler.model.Permadeler.Root;
+import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Variety;
 
 /**
  * Views that display the knowledge base of the project
@@ -33,6 +40,31 @@ public class KnowledgeViewerPart extends AbstractModelViewerPart {
 	@Override
 	protected EObject getViewerRoot(Root root) {
 		return root.getKnowledgeBase();
+	}
+
+	@Override
+	protected void handleDrop(Object target, Object[] dropedElements) {
+		if (target instanceof Species) {
+			Species species = (Species)target;
+			List<Variety> varieties = Stream.of(dropedElements).filter(e -> e instanceof Variety)
+					.map(e -> (Variety)e).toList();
+
+			if (!varieties.isEmpty()) {
+				TransactionalEditingDomain transactionalEditingDomain = getSession()
+						.getTransactionalEditingDomain();
+				transactionalEditingDomain.getCommandStack()
+						.execute(new RecordingCommand(transactionalEditingDomain) {
+
+							@Override
+							protected void doExecute() {
+								species.getVarieties().addAll(varieties);
+
+							}
+						});
+			}
+
+		}
+		super.handleDrop(target, dropedElements);
 	}
 
 }

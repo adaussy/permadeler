@@ -109,8 +109,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createSowPlanfication();
 			case PermadelerPackage.BACKGROUND_IMAGE:
 				return createBackgroundImage();
-			case PermadelerPackage.PLANT:
-				return createPlant();
 			case PermadelerPackage.PRODUCTION:
 				return createProduction();
 			case PermadelerPackage.ACTION:
@@ -119,6 +117,10 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createTemporalItem();
 			case PermadelerPackage.PLANTATION_PHASE:
 				return createPlantationPhase();
+			case PermadelerPackage.SPECIES:
+				return createSpecies();
+			case PermadelerPackage.VARIETY:
+				return createVariety();
 			default:
 				throw new IllegalArgumentException(
 						"The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -273,7 +275,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public KnowledgeBase createKnowledgeBase() {
-		KnowledgeBaseImpl knowledgeBase = new KnowledgeBaseImpl();
+		KnowledgeBaseCustomImpl knowledgeBase = new KnowledgeBaseCustomImpl();
 		return knowledgeBase;
 	}
 
@@ -442,16 +444,6 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Plant createPlant() {
-		PlantCustomImpl plant = new PlantCustomImpl();
-		return plant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Production createProduction() {
 		ProductionImpl production = new ProductionImpl();
 		return production;
@@ -485,6 +477,26 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public PlantationPhase createPlantationPhase() {
 		PlantationPhaseImpl plantationPhase = new PlantationPhaseImpl();
 		return plantationPhase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Species createSpecies() {
+		SpeciesCustomImpl species = new SpeciesCustomImpl();
+		return species;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variety createVariety() {
+		VarietyCustomImpl variety = new VarietyCustomImpl();
+		return variety;
 	}
 
 	/**

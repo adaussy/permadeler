@@ -10,7 +10,7 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.ImageOwner;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 
@@ -24,7 +24,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -35,19 +34,19 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase} object.
+ * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.ImageOwner} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ImageOwnerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KnowledgeBaseItemProvider(AdapterFactory adapterFactory) {
+	public ImageOwnerItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,24 +61,8 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPlantTypesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Plant Types feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPlantTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_KnowledgeBase_plantTypes_feature"), //$NON-NLS-1$
-				getString("_UI_PropertyDescriptor_description", "_UI_KnowledgeBase_plantTypes_feature", //$NON-NLS-1$//$NON-NLS-2$
-						"_UI_KnowledgeBase_type"), //$NON-NLS-1$
-				PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -94,8 +77,7 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES);
-			childrenFeatures.add(PermadelerPackage.Literals.KNOWLEDGE_BASE__SPECIES);
+			childrenFeatures.add(PermadelerPackage.Literals.IMAGE_OWNER__IMAGES);
 		}
 		return childrenFeatures;
 	}
@@ -114,14 +96,14 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	}
 
 	/**
-	 * This returns KnowledgeBase.gif.
+	 * This returns ImageOwner.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/KnowledgeBase")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImageOwner")); //$NON-NLS-1$
 	}
 
 	/**
@@ -142,7 +124,7 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_KnowledgeBase_type"); //$NON-NLS-1$
+		return getString("_UI_ImageOwner_type"); //$NON-NLS-1$
 	}
 
 	/**
@@ -156,9 +138,8 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(KnowledgeBase.class)) {
-			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+		switch (notification.getFeatureID(ImageOwner.class)) {
+			case PermadelerPackage.IMAGE_OWNER__IMAGES:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -177,36 +158,8 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES,
-				PermadelerFactory.eINSTANCE.createSpecies()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES,
-				PermadelerFactory.eINSTANCE.createVariety()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__SPECIES,
-				PermadelerFactory.eINSTANCE.createSpecies()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify = childFeature == PermadelerPackage.Literals.KNOWLEDGE_BASE__PLANT_TYPES
-				|| childFeature == PermadelerPackage.Literals.KNOWLEDGE_BASE__SPECIES;
-
-		if (qualify) {
-			return getString("_UI_CreateChild_text2", //$NON-NLS-1$
-					new Object[] {getTypeText(childObject), getFeatureText(childFeature),
-							getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.IMAGE_OWNER__IMAGES,
+				PermadelerFactory.eINSTANCE.createImage()));
 	}
 
 	/**

@@ -111,7 +111,8 @@ public class GenerateProductionSpreadsheetMenu {
 							try {
 								targetFile.delete();
 							} catch (SecurityException e) {
-								MessageDialog.openError(shell, RcpMessages.GenerateProductionSpreadsheetMenu_4,
+								MessageDialog.openError(shell,
+										RcpMessages.GenerateProductionSpreadsheetMenu_4,
 										RcpMessages.GenerateProductionSpreadsheetMenu_5);
 								return;
 							}
@@ -266,10 +267,12 @@ public class GenerateProductionSpreadsheetMenu {
 	private void fillRow(Plant plant, Production p, Row row, XSSFCellStyle cellStyle) {
 		int cellnum = 0;
 		createCell(cellnum++, row, cellStyle).setCellValue(plant.getName());
-		createCell(cellnum++, row, cellStyle).setCellValue(plant.getGenus() + " " + plant.getSpecies()); //$NON-NLS-1$
+		createCell(cellnum++, row, cellStyle).setCellValue(plant.getFullLatinName());
 		createCell(cellnum++, row, cellStyle).setCellValue(LabelService.getEditLabel(p.getType())); // $NON-NLS-1$
 		createCell(cellnum++, row, cellStyle).setCellValue(p.getName()); // $NON-NLS-1$
-		createCell(cellnum++, row, cellStyle).setCellValue(p.isEatable() ? RcpMessages.GenerateProductionSpreadsheetMenu_23 : RcpMessages.GenerateProductionSpreadsheetMenu_24); // $NON-NLS-1$
+		createCell(cellnum++, row, cellStyle)
+				.setCellValue(p.isEatable() ? RcpMessages.GenerateProductionSpreadsheetMenu_23
+						: RcpMessages.GenerateProductionSpreadsheetMenu_24); // $NON-NLS-1$
 
 		int nbHeaderColumn = cellnum;
 

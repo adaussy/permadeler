@@ -23,7 +23,6 @@ import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
-import fr.adaussy.permadeler.rcp.internal.utils.SemanticQuerier;
 
 /**
  * Dialog used to select a plantation
@@ -70,7 +69,8 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 	}
 
 	private void updatePlant(Plant plant) {
-		layer = new SemanticQuerier().getMostUsedLayer(plant, Layer.UNDERSTORY);
+
+		layer = plant.getDefaultLayer();
 		int ordinal = layer.ordinal();
 		for (int i = 0; i < layerWidgets.size(); i++) {
 			layerWidgets.get(i).setSelection(i == ordinal);
@@ -82,7 +82,7 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 			case SHRUB -> RepresentationKind.TREE_CROWN;
 			default -> RepresentationKind.ICON;
 		};
-		representationKind = new SemanticQuerier().getMostUsedRepresentationKind(plant, defaultRepKind);
+		representationKind = plant.getDefaultRepresentationKind();
 		if (representationKind == null) {
 			representationKind = defaultRepKind;
 		}

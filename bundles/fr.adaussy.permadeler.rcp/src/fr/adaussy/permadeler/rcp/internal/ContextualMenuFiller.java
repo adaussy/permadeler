@@ -35,12 +35,14 @@ import org.eclipse.ui.PlatformUI;
 import fr.adaussy.permadeler.model.Permadeler.ActionType;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.Image;
+import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.rcp.RcpMessages;
@@ -103,6 +105,9 @@ public class ContextualMenuFiller {
 				case PermadelerPackage.PLANT:
 					casePlant((List<Plant>)selections);
 					break;
+				case PermadelerPackage.KNOWLEDGE_BASE:
+					caseKnowledgeBase((List<KnowledgeBase>)selections);
+					break;
 				case PermadelerPackage.SEED_ITEM:
 					caseSeedItem((List<SeedItem>)selections);
 					break;
@@ -126,6 +131,11 @@ public class ContextualMenuFiller {
 			}
 		}
 	}
+
+	private void caseKnowledgeBase(List<KnowledgeBase> selections) {
+
+	}
+
 	// CHECKSTYLE:ON Switch pattern
 
 	/**

@@ -58,7 +58,7 @@ public final class EMFUtils {
 	public static ResourceSet buildStandaloneResourceSet() {
 		ResourceSet rs = new ResourceSetImpl();
 
-		rs.getLoadOptions().put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+		rs.getLoadOptions().put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.FALSE);
 
 		PermadelerPackage einstance = PermadelerPackage.eINSTANCE;
 		einstance.setEFactoryInstance(PermadelerFactory.eINSTANCE);

@@ -48,7 +48,7 @@ public interface Plantation extends EObject {
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(Plant)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_Type()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Plant getType();

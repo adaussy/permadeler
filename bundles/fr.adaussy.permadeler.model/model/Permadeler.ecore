@@ -23,8 +23,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBase">
+    <eOperations name="getAllPlants" upperBound="-1" eType="#//Plant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plantTypes" upperBound="-1"
         eType="#//Plant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
+        eType="#//Species" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SeedBank">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
@@ -47,7 +50,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plantation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Plant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Plant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//Event" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -60,20 +63,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKind" eType="#//RepresentationKind"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlantNamedElement" abstract="true" eSuperTypes="#//NamedElement #//ReferencingElement">
+    <eOperations name="getAllNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="latinName" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="species" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variety" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="/icons/representations/arbre2/green1.png"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Lifecycle">
@@ -846,34 +841,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="transparency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="100"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Plant" eSuperTypes="#//PlantNamedElement">
-    <eOperations name="getAllNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soilType" upperBound="-1"
-        eType="#//SoilType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="images" upperBound="-1"
-        eType="#//Image" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lightingCondition" upperBound="-1"
-        eType="#//Shade"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moisture" upperBound="-1"
-        eType="#//Moisture"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specialUses" upperBound="-1"
-        eType="#//SpecialUses"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="growRate" eType="#//GrowRate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wind" upperBound="-1" eType="#//Wind"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="productions" upperBound="-1"
-        eType="#//Production" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Plant" abstract="true" interface="true"
+      eSuperTypes="#//PlantNamedElement #//ImageOwner">
+    <eOperations name="getProductions" upperBound="-1" eType="#//Production"/>
+    <eOperations name="getFullLatinName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getDefaultLayer" eType="#//Layer"/>
+    <eOperations name="getDefaultRepresentationKind" eType="#//RepresentationKind"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lifeCycle" eType="#//Lifecycle"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foilageType" eType="#//FoliageType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foilageShade" eType="#//FoilageShade"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="droughtTolerance" eType="#//DroughtTolerance"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toleratedLightingCondition"
-        upperBound="-1" eType="#//Shade"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootType" eType="#//RootType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Production" eSuperTypes="#//TemporalItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProductionType"/>
@@ -966,5 +941,49 @@
     <eLiterals name="Flat" value="2"/>
     <eLiterals name="Heart" value="3"/>
     <eLiterals name="Mixt" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImageOwner" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="images" upperBound="-1"
+        eType="#//Image" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Species" eSuperTypes="#//Plant">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="varieties" upperBound="-1"
+        eType="#//Variety" containment="true" eOpposite="#//Variety/species"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="species" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="genus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="family" eType="#//Family"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lifeCycle" eType="#//Lifecycle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootType" eType="#//RootType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foilageType" eType="#//FoliageType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="droughtTolerance" eType="#//DroughtTolerance"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="foilageShade" eType="#//FoilageShade"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toleratedLightingCondition"
+        upperBound="-1" eType="#//Shade"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lightingCondition" upperBound="-1"
+        eType="#//Shade"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="moisture" upperBound="-1"
+        eType="#//Moisture"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soilType" upperBound="-1"
+        eType="#//SoilType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wind" upperBound="-1" eType="#//Wind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specialUses" upperBound="-1"
+        eType="#//SpecialUses"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="growRate" eType="#//GrowRate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productions" upperBound="-1"
+        eType="#//Production" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLayer" eType="#//Layer"
+        defaultValueLiteral="UNDERSTORY"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultRepresentationKind"
+        eType="#//RepresentationKind" defaultValueLiteral="TREE_CROWN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variety" eSuperTypes="#//Plant">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" lowerBound="1"
+        eType="#//Species" eOpposite="#//Species/varieties"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variety" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customProductions" upperBound="-1"
+        eType="#//Production" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

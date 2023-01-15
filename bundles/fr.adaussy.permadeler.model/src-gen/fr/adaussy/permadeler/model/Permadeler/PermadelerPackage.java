@@ -244,13 +244,31 @@ public interface PermadelerPackage extends EPackage {
 	int KNOWLEDGE_BASE__PLANT_TYPES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Species</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE_BASE__SPECIES = 1;
+
+	/**
 	 * The number of structural features of the '<em>Knowledge Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KNOWLEDGE_BASE_FEATURE_COUNT = 1;
+	int KNOWLEDGE_BASE_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Get All Plants</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE_BASE___GET_ALL_PLANTS = 0;
 
 	/**
 	 * The number of operations of the '<em>Knowledge Base</em>' class.
@@ -259,7 +277,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KNOWLEDGE_BASE_OPERATION_COUNT = 0;
+	int KNOWLEDGE_BASE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SeedBankImpl <em>Seed Bank</em>}' class.
@@ -509,49 +527,13 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT_NAMED_ELEMENT__COMMON_NAMES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Latin Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT_NAMED_ELEMENT__LATIN_NAME = NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Icon Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT__ICON_KEY = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Genus</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT_NAMED_ELEMENT__GENUS = NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Species</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT_NAMED_ELEMENT__SPECIES = NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Variety</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT_NAMED_ELEMENT__VARIETY = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PLANT_NAMED_ELEMENT__ICON_KEY = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Representation Key</b></em>' attribute.
@@ -560,16 +542,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT__REPRESENTATION_KEY = NAMED_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Family</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT_NAMED_ELEMENT__FAMILY = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PLANT_NAMED_ELEMENT__REPRESENTATION_KEY = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
@@ -578,7 +551,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT__SHORT_NAME = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PLANT_NAMED_ELEMENT__SHORT_NAME = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Plant Named Element</em>' class.
@@ -587,7 +560,16 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int PLANT_NAMED_ELEMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get All Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT_NAMED_ELEMENT___GET_ALL_NAMES = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Plant Named Element</em>' class.
@@ -596,7 +578,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_NAMED_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PLANT_NAMED_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.
@@ -1316,10 +1298,10 @@ public interface PermadelerPackage extends EPackage {
 	int BACKGROUND_IMAGE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl <em>Plant</em>}' class.
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant <em>Plant</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlant()
 	 * @generated
 	 */
@@ -1362,15 +1344,6 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT__COMMON_NAMES = PLANT_NAMED_ELEMENT__COMMON_NAMES;
 
 	/**
-	 * The feature id for the '<em><b>Latin Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__LATIN_NAME = PLANT_NAMED_ELEMENT__LATIN_NAME;
-
-	/**
 	 * The feature id for the '<em><b>Icon Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1378,33 +1351,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANT__ICON_KEY = PLANT_NAMED_ELEMENT__ICON_KEY;
-
-	/**
-	 * The feature id for the '<em><b>Genus</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__GENUS = PLANT_NAMED_ELEMENT__GENUS;
-
-	/**
-	 * The feature id for the '<em><b>Species</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__SPECIES = PLANT_NAMED_ELEMENT__SPECIES;
-
-	/**
-	 * The feature id for the '<em><b>Variety</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__VARIETY = PLANT_NAMED_ELEMENT__VARIETY;
 
 	/**
 	 * The feature id for the '<em><b>Representation Key</b></em>' attribute.
@@ -1416,15 +1362,6 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT__REPRESENTATION_KEY = PLANT_NAMED_ELEMENT__REPRESENTATION_KEY;
 
 	/**
-	 * The feature id for the '<em><b>Family</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__FAMILY = PLANT_NAMED_ELEMENT__FAMILY;
-
-	/**
 	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1434,103 +1371,13 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT__SHORT_NAME = PLANT_NAMED_ELEMENT__SHORT_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__WIDTH = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Soil Type</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__SOIL_TYPE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT__IMAGES = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Lighting Condition</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__LIGHTING_CONDITION = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Height</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__HEIGHT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Min Temperature</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__MIN_TEMPERATURE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Moisture</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__MOISTURE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Special Uses</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__SPECIAL_USES = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Grow Rate</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__GROW_RATE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Wind</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__WIND = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Productions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__PRODUCTIONS = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int PLANT__IMAGES = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
@@ -1539,61 +1386,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT__ACTIONS = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 11;
-
-	/**
-	 * The feature id for the '<em><b>Life Cycle</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__LIFE_CYCLE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Foilage Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__FOILAGE_TYPE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 13;
-
-	/**
-	 * The feature id for the '<em><b>Foilage Shade</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__FOILAGE_SHADE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 14;
-
-	/**
-	 * The feature id for the '<em><b>Drought Tolerance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__DROUGHT_TOLERANCE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 15;
-
-	/**
-	 * The feature id for the '<em><b>Tolerated Lighting Condition</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__TOLERATED_LIGHTING_CONDITION = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 16;
-
-	/**
-	 * The feature id for the '<em><b>Root Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANT__ROOT_TYPE = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 17;
+	int PLANT__ACTIONS = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Plant</em>' class.
@@ -1602,7 +1395,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 18;
+	int PLANT_FEATURE_COUNT = PLANT_NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Names</em>' operation.
@@ -1611,7 +1404,43 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT___GET_ALL_NAMES = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PLANT___GET_ALL_NAMES = PLANT_NAMED_ELEMENT___GET_ALL_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Productions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_PRODUCTIONS = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Full Latin Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_FULL_LATIN_NAME = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Default Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_DEFAULT_LAYER = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Default Representation Kind</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_DEFAULT_REPRESENTATION_KIND = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Plant</em>' class.
@@ -1620,7 +1449,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 1;
+	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
@@ -1925,6 +1754,576 @@ public interface PermadelerPackage extends EPackage {
 	int REFERENCING_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl <em>Image Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getImageOwner()
+	 * @generated
+	 */
+	int IMAGE_OWNER = 28;
+
+	/**
+	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_OWNER__IMAGES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Image Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_OWNER_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Image Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMAGE_OWNER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl <em>Species</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSpecies()
+	 * @generated
+	 */
+	int SPECIES = 29;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__NAME = PLANT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__DESCRIPTION = PLANT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__REFERENCES = PLANT__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Common Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__COMMON_NAMES = PLANT__COMMON_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Icon Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__ICON_KEY = PLANT__ICON_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Representation Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__REPRESENTATION_KEY = PLANT__REPRESENTATION_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__SHORT_NAME = PLANT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__IMAGES = PLANT__IMAGES;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__ACTIONS = PLANT__ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Varieties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__VARIETIES = PLANT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Species</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__SPECIES = PLANT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Genus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__GENUS = PLANT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Family</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__FAMILY = PLANT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Life Cycle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__LIFE_CYCLE = PLANT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Root Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__ROOT_TYPE = PLANT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Foilage Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__FOILAGE_TYPE = PLANT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Drought Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__DROUGHT_TOLERANCE = PLANT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Foilage Shade</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__FOILAGE_SHADE = PLANT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Tolerated Lighting Condition</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__TOLERATED_LIGHTING_CONDITION = PLANT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Lighting Condition</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__LIGHTING_CONDITION = PLANT_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Moisture</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__MOISTURE = PLANT_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Soil Type</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__SOIL_TYPE = PLANT_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Min Temperature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__MIN_TEMPERATURE = PLANT_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Wind</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__WIND = PLANT_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__WIDTH = PLANT_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Special Uses</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__SPECIAL_USES = PLANT_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__HEIGHT = PLANT_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Grow Rate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__GROW_RATE = PLANT_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Productions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__PRODUCTIONS = PLANT_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Default Layer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__DEFAULT_LAYER = PLANT_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Default Representation Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES__DEFAULT_REPRESENTATION_KIND = PLANT_FEATURE_COUNT + 21;
+
+	/**
+	 * The number of structural features of the '<em>Species</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES_FEATURE_COUNT = PLANT_FEATURE_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Get All Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_ALL_NAMES = PLANT___GET_ALL_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Productions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_PRODUCTIONS = PLANT___GET_PRODUCTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Full Latin Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_FULL_LATIN_NAME = PLANT___GET_FULL_LATIN_NAME;
+
+	/**
+	 * The operation id for the '<em>Get Default Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_DEFAULT_LAYER = PLANT___GET_DEFAULT_LAYER;
+
+	/**
+	 * The operation id for the '<em>Get Default Representation Kind</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_DEFAULT_REPRESENTATION_KIND = PLANT___GET_DEFAULT_REPRESENTATION_KIND;
+
+	/**
+	 * The number of operations of the '<em>Species</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES_OPERATION_COUNT = PLANT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl <em>Variety</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getVariety()
+	 * @generated
+	 */
+	int VARIETY = 30;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__NAME = PLANT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__DESCRIPTION = PLANT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__REFERENCES = PLANT__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Common Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__COMMON_NAMES = PLANT__COMMON_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Icon Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__ICON_KEY = PLANT__ICON_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Representation Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__REPRESENTATION_KEY = PLANT__REPRESENTATION_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__SHORT_NAME = PLANT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__IMAGES = PLANT__IMAGES;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__ACTIONS = PLANT__ACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Species</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__SPECIES = PLANT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Variety</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__VARIETY = PLANT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Custom Productions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY__CUSTOM_PRODUCTIONS = PLANT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Variety</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY_FEATURE_COUNT = PLANT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get All Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_ALL_NAMES = PLANT___GET_ALL_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Productions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_PRODUCTIONS = PLANT___GET_PRODUCTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Full Latin Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_FULL_LATIN_NAME = PLANT___GET_FULL_LATIN_NAME;
+
+	/**
+	 * The operation id for the '<em>Get Default Layer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_DEFAULT_LAYER = PLANT___GET_DEFAULT_LAYER;
+
+	/**
+	 * The operation id for the '<em>Get Default Representation Kind</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_DEFAULT_REPRESENTATION_KIND = PLANT___GET_DEFAULT_REPRESENTATION_KIND;
+
+	/**
+	 * The number of operations of the '<em>Variety</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY_OPERATION_COUNT = PLANT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1932,7 +2331,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getQuantity()
 	 * @generated
 	 */
-	int QUANTITY = 28;
+	int QUANTITY = 31;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Lifecycle <em>Lifecycle</em>}' enum.
@@ -1942,7 +2341,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getLifecycle()
 	 * @generated
 	 */
-	int LIFECYCLE = 29;
+	int LIFECYCLE = 32;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Shade <em>Shade</em>}' enum.
@@ -1952,7 +2351,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getShade()
 	 * @generated
 	 */
-	int SHADE = 30;
+	int SHADE = 33;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.SoilType <em>Soil Type</em>}' enum.
@@ -1962,7 +2361,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSoilType()
 	 * @generated
 	 */
-	int SOIL_TYPE = 31;
+	int SOIL_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.PH <em>PH</em>}' enum.
@@ -1972,7 +2371,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPH()
 	 * @generated
 	 */
-	int PH = 32;
+	int PH = 35;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Moisture <em>Moisture</em>}' enum.
@@ -1982,7 +2381,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMoisture()
 	 * @generated
 	 */
-	int MOISTURE = 33;
+	int MOISTURE = 36;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Family <em>Family</em>}' enum.
@@ -1992,7 +2391,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFamily()
 	 * @generated
 	 */
-	int FAMILY = 34;
+	int FAMILY = 37;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.GrowRate <em>Grow Rate</em>}' enum.
@@ -2002,7 +2401,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getGrowRate()
 	 * @generated
 	 */
-	int GROW_RATE = 35;
+	int GROW_RATE = 38;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Wind <em>Wind</em>}' enum.
@@ -2012,7 +2411,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getWind()
 	 * @generated
 	 */
-	int WIND = 36;
+	int WIND = 39;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.SpecialUses <em>Special Uses</em>}' enum.
@@ -2022,7 +2421,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSpecialUses()
 	 * @generated
 	 */
-	int SPECIAL_USES = 37;
+	int SPECIAL_USES = 40;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.EventType <em>Event Type</em>}' enum.
@@ -2032,7 +2431,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getEventType()
 	 * @generated
 	 */
-	int EVENT_TYPE = 38;
+	int EVENT_TYPE = 41;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.RowBedType <em>Row Bed Type</em>}' enum.
@@ -2042,7 +2441,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRowBedType()
 	 * @generated
 	 */
-	int ROW_BED_TYPE = 39;
+	int ROW_BED_TYPE = 42;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.SowType <em>Sow Type</em>}' enum.
@@ -2052,7 +2451,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSowType()
 	 * @generated
 	 */
-	int SOW_TYPE = 40;
+	int SOW_TYPE = 43;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.ProductionType <em>Production Type</em>}' enum.
@@ -2062,7 +2461,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getProductionType()
 	 * @generated
 	 */
-	int PRODUCTION_TYPE = 41;
+	int PRODUCTION_TYPE = 44;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.ActionType <em>Action Type</em>}' enum.
@@ -2072,7 +2471,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getActionType()
 	 * @generated
 	 */
-	int ACTION_TYPE = 42;
+	int ACTION_TYPE = 45;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Layer <em>Layer</em>}' enum.
@@ -2082,7 +2481,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getLayer()
 	 * @generated
 	 */
-	int LAYER = 43;
+	int LAYER = 46;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.RepresentationKind <em>Representation Kind</em>}' enum.
@@ -2092,7 +2491,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRepresentationKind()
 	 * @generated
 	 */
-	int REPRESENTATION_KIND = 44;
+	int REPRESENTATION_KIND = 47;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.FoliageType <em>Foliage Type</em>}' enum.
@@ -2102,7 +2501,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFoliageType()
 	 * @generated
 	 */
-	int FOLIAGE_TYPE = 45;
+	int FOLIAGE_TYPE = 48;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.FoilageShade <em>Foilage Shade</em>}' enum.
@@ -2112,7 +2511,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getFoilageShade()
 	 * @generated
 	 */
-	int FOILAGE_SHADE = 46;
+	int FOILAGE_SHADE = 49;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.DroughtTolerance <em>Drought Tolerance</em>}' enum.
@@ -2122,7 +2521,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDroughtTolerance()
 	 * @generated
 	 */
-	int DROUGHT_TOLERANCE = 47;
+	int DROUGHT_TOLERANCE = 50;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.RootType <em>Root Type</em>}' enum.
@@ -2132,7 +2531,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRootType()
 	 * @generated
 	 */
-	int ROOT_TYPE = 48;
+	int ROOT_TYPE = 51;
 
 	/**
 	 * The meta object id for the '<em>Month Week</em>' data type.
@@ -2141,7 +2540,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeek()
 	 * @generated
 	 */
-	int MONTH_WEEK = 49;
+	int MONTH_WEEK = 52;
 
 	/**
 	 * The meta object id for the '<em>URL</em>' data type.
@@ -2151,7 +2550,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getURL()
 	 * @generated
 	 */
-	int URL = 50;
+	int URL = 53;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -2161,7 +2560,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 51;
+	int DATE = 54;
 
 	/**
 	 * The meta object id for the '<em>Month Weeks</em>' data type.
@@ -2171,7 +2570,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getMonthWeeks()
 	 * @generated
 	 */
-	int MONTH_WEEKS = 52;
+	int MONTH_WEEKS = 55;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -2181,7 +2580,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 53;
+	int COLOR = 56;
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Root <em>Root</em>}'.
@@ -2278,6 +2677,27 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getKnowledgeBase_PlantTypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies <em>Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Species</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies()
+	 * @see #getKnowledgeBase()
+	 * @generated
+	 */
+	EReference getKnowledgeBase_Species();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getAllPlants() <em>Get All Plants</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Plants</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getAllPlants()
+	 * @generated
+	 */
+	EOperation getKnowledgeBase__GetAllPlants();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.SeedBank <em>Seed Bank</em>}'.
@@ -2506,17 +2926,6 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getPlantNamedElement_CommonNames();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getLatinName <em>Latin Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Latin Name</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getLatinName()
-	 * @see #getPlantNamedElement()
-	 * @generated
-	 */
-	EAttribute getPlantNamedElement_LatinName();
-
-	/**
 	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getIconKey <em>Icon Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2526,39 +2935,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantNamedElement_IconKey();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getGenus <em>Genus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Genus</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getGenus()
-	 * @see #getPlantNamedElement()
-	 * @generated
-	 */
-	EAttribute getPlantNamedElement_Genus();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies <em>Species</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Species</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getSpecies()
-	 * @see #getPlantNamedElement()
-	 * @generated
-	 */
-	EAttribute getPlantNamedElement_Species();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety <em>Variety</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Variety</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getVariety()
-	 * @see #getPlantNamedElement()
-	 * @generated
-	 */
-	EAttribute getPlantNamedElement_Variety();
 
 	/**
 	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getRepresentationKey <em>Representation Key</em>}'.
@@ -2572,17 +2948,6 @@ public interface PermadelerPackage extends EPackage {
 	EAttribute getPlantNamedElement_RepresentationKey();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily <em>Family</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Family</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getFamily()
-	 * @see #getPlantNamedElement()
-	 * @generated
-	 */
-	EAttribute getPlantNamedElement_Family();
-
-	/**
 	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getShortName <em>Short Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2592,6 +2957,16 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPlantNamedElement_ShortName();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getAllNames() <em>Get All Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Names</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement#getAllNames()
+	 * @generated
+	 */
+	EOperation getPlantNamedElement__GetAllNames();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Image <em>Image</em>}'.
@@ -3017,127 +3392,6 @@ public interface PermadelerPackage extends EPackage {
 	EClass getPlant();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getWidth <em>Width</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Width</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getWidth()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_Width();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getSoilType <em>Soil Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Soil Type</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getSoilType()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_SoilType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getImages <em>Images</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Images</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getImages()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EReference getPlant_Images();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getLightingCondition <em>Lighting Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Lighting Condition</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getLightingCondition()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_LightingCondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getHeight <em>Height</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Height</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getHeight()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_Height();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getMinTemperature <em>Min Temperature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Min Temperature</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getMinTemperature()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_MinTemperature();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getMoisture <em>Moisture</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Moisture</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getMoisture()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_Moisture();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getSpecialUses <em>Special Uses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Special Uses</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getSpecialUses()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_SpecialUses();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getGrowRate <em>Grow Rate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Grow Rate</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getGrowRate()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_GrowRate();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getWind <em>Wind</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Wind</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getWind()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_Wind();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getProductions <em>Productions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Productions</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getProductions()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EReference getPlant_Productions();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3149,80 +3403,44 @@ public interface PermadelerPackage extends EPackage {
 	EReference getPlant_Actions();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getLifeCycle <em>Life Cycle</em>}'.
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getProductions() <em>Get Productions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Life Cycle</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getLifeCycle()
-	 * @see #getPlant()
+	 * @return the meta object for the '<em>Get Productions</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getProductions()
 	 * @generated
 	 */
-	EAttribute getPlant_LifeCycle();
+	EOperation getPlant__GetProductions();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageType <em>Foilage Type</em>}'.
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFullLatinName() <em>Get Full Latin Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Foilage Type</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageType()
-	 * @see #getPlant()
+	 * @return the meta object for the '<em>Get Full Latin Name</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getFullLatinName()
 	 * @generated
 	 */
-	EAttribute getPlant_FoilageType();
+	EOperation getPlant__GetFullLatinName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageShade <em>Foilage Shade</em>}'.
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getDefaultLayer() <em>Get Default Layer</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Foilage Shade</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getFoilageShade()
-	 * @see #getPlant()
+	 * @return the meta object for the '<em>Get Default Layer</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getDefaultLayer()
 	 * @generated
 	 */
-	EAttribute getPlant_FoilageShade();
+	EOperation getPlant__GetDefaultLayer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getDroughtTolerance <em>Drought Tolerance</em>}'.
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getDefaultRepresentationKind() <em>Get Default Representation Kind</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Drought Tolerance</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getDroughtTolerance()
-	 * @see #getPlant()
+	 * @return the meta object for the '<em>Get Default Representation Kind</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getDefaultRepresentationKind()
 	 * @generated
 	 */
-	EAttribute getPlant_DroughtTolerance();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getToleratedLightingCondition <em>Tolerated Lighting Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Tolerated Lighting Condition</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getToleratedLightingCondition()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_ToleratedLightingCondition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getRootType <em>Root Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root Type</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getRootType()
-	 * @see #getPlant()
-	 * @generated
-	 */
-	EAttribute getPlant_RootType();
-
-	/**
-	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getAllNames() <em>Get All Names</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Names</em>' operation.
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getAllNames()
-	 * @generated
-	 */
-	EOperation getPlant__GetAllNames();
+	EOperation getPlant__GetDefaultRepresentationKind();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Production <em>Production</em>}'.
@@ -3361,6 +3579,322 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getReferencingElement_References();
+
+	/**
+	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.ImageOwner <em>Image Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Image Owner</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.ImageOwner
+	 * @generated
+	 */
+	EClass getImageOwner();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.ImageOwner#getImages <em>Images</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Images</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.ImageOwner#getImages()
+	 * @see #getImageOwner()
+	 * @generated
+	 */
+	EReference getImageOwner_Images();
+
+	/**
+	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Species <em>Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Species</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species
+	 * @generated
+	 */
+	EClass getSpecies();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getVarieties <em>Varieties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Varieties</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getVarieties()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EReference getSpecies_Varieties();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getSpecies <em>Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Species</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getSpecies()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Species();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getGenus <em>Genus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Genus</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getGenus()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Genus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getFamily <em>Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Family</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getFamily()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Family();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getLifeCycle <em>Life Cycle</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Life Cycle</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getLifeCycle()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_LifeCycle();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getRootType <em>Root Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Root Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getRootType()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_RootType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getFoilageType <em>Foilage Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Foilage Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getFoilageType()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_FoilageType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getDroughtTolerance <em>Drought Tolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Drought Tolerance</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getDroughtTolerance()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_DroughtTolerance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getFoilageShade <em>Foilage Shade</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Foilage Shade</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getFoilageShade()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_FoilageShade();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getToleratedLightingCondition <em>Tolerated Lighting Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tolerated Lighting Condition</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getToleratedLightingCondition()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_ToleratedLightingCondition();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getLightingCondition <em>Lighting Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Lighting Condition</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getLightingCondition()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_LightingCondition();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getMoisture <em>Moisture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Moisture</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getMoisture()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Moisture();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getSoilType <em>Soil Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Soil Type</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getSoilType()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_SoilType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getMinTemperature <em>Min Temperature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Temperature</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getMinTemperature()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_MinTemperature();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getWind <em>Wind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Wind</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getWind()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Wind();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getWidth()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Width();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getSpecialUses <em>Special Uses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Special Uses</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getSpecialUses()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_SpecialUses();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getHeight()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getGrowRate <em>Grow Rate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Grow Rate</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getGrowRate()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_GrowRate();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Species#getProductions <em>Productions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Productions</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getProductions()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EReference getSpecies_Productions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getDefaultLayer <em>Default Layer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Layer</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getDefaultLayer()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_DefaultLayer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Species#getDefaultRepresentationKind <em>Default Representation Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Representation Kind</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species#getDefaultRepresentationKind()
+	 * @see #getSpecies()
+	 * @generated
+	 */
+	EAttribute getSpecies_DefaultRepresentationKind();
+
+	/**
+	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Variety <em>Variety</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variety</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Variety
+	 * @generated
+	 */
+	EClass getVariety();
+
+	/**
+	 * Returns the meta object for the container reference '{@link fr.adaussy.permadeler.model.Permadeler.Variety#getSpecies <em>Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Species</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Variety#getSpecies()
+	 * @see #getVariety()
+	 * @generated
+	 */
+	EReference getVariety_Species();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Variety#getVariety <em>Variety</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variety</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Variety#getVariety()
+	 * @see #getVariety()
+	 * @generated
+	 */
+	EAttribute getVariety_Variety();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Variety#getCustomProductions <em>Custom Productions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Custom Productions</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Variety#getCustomProductions()
+	 * @see #getVariety()
+	 * @generated
+	 */
+	EReference getVariety_CustomProductions();
 
 	/**
 	 * Returns the meta object for enum '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}'.
@@ -3727,6 +4261,22 @@ public interface PermadelerPackage extends EPackage {
 		EReference KNOWLEDGE_BASE__PLANT_TYPES = eINSTANCE.getKnowledgeBase_PlantTypes();
 
 		/**
+		 * The meta object literal for the '<em><b>Species</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KNOWLEDGE_BASE__SPECIES = eINSTANCE.getKnowledgeBase_Species();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Plants</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KNOWLEDGE_BASE___GET_ALL_PLANTS = eINSTANCE.getKnowledgeBase__GetAllPlants();
+
+		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SeedBankImpl <em>Seed Bank</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3905,44 +4455,12 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute PLANT_NAMED_ELEMENT__COMMON_NAMES = eINSTANCE.getPlantNamedElement_CommonNames();
 
 		/**
-		 * The meta object literal for the '<em><b>Latin Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT_NAMED_ELEMENT__LATIN_NAME = eINSTANCE.getPlantNamedElement_LatinName();
-
-		/**
 		 * The meta object literal for the '<em><b>Icon Key</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PLANT_NAMED_ELEMENT__ICON_KEY = eINSTANCE.getPlantNamedElement_IconKey();
-
-		/**
-		 * The meta object literal for the '<em><b>Genus</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT_NAMED_ELEMENT__GENUS = eINSTANCE.getPlantNamedElement_Genus();
-
-		/**
-		 * The meta object literal for the '<em><b>Species</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT_NAMED_ELEMENT__SPECIES = eINSTANCE.getPlantNamedElement_Species();
-
-		/**
-		 * The meta object literal for the '<em><b>Variety</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT_NAMED_ELEMENT__VARIETY = eINSTANCE.getPlantNamedElement_Variety();
 
 		/**
 		 * The meta object literal for the '<em><b>Representation Key</b></em>' attribute feature.
@@ -3954,20 +4472,20 @@ public interface PermadelerPackage extends EPackage {
 				.getPlantNamedElement_RepresentationKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Family</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT_NAMED_ELEMENT__FAMILY = eINSTANCE.getPlantNamedElement_Family();
-
-		/**
 		 * The meta object literal for the '<em><b>Short Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PLANT_NAMED_ELEMENT__SHORT_NAME = eINSTANCE.getPlantNamedElement_ShortName();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT_NAMED_ELEMENT___GET_ALL_NAMES = eINSTANCE.getPlantNamedElement__GetAllNames();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.
@@ -4312,102 +4830,14 @@ public interface PermadelerPackage extends EPackage {
 		EAttribute BACKGROUND_IMAGE__TRANSPARENCY = eINSTANCE.getBackgroundImage_Transparency();
 
 		/**
-		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl <em>Plant</em>}' class.
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant <em>Plant</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantImpl
+		 * @see fr.adaussy.permadeler.model.Permadeler.Plant
 		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlant()
 		 * @generated
 		 */
 		EClass PLANT = eINSTANCE.getPlant();
-
-		/**
-		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__WIDTH = eINSTANCE.getPlant_Width();
-
-		/**
-		 * The meta object literal for the '<em><b>Soil Type</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__SOIL_TYPE = eINSTANCE.getPlant_SoilType();
-
-		/**
-		 * The meta object literal for the '<em><b>Images</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLANT__IMAGES = eINSTANCE.getPlant_Images();
-
-		/**
-		 * The meta object literal for the '<em><b>Lighting Condition</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__LIGHTING_CONDITION = eINSTANCE.getPlant_LightingCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__HEIGHT = eINSTANCE.getPlant_Height();
-
-		/**
-		 * The meta object literal for the '<em><b>Min Temperature</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__MIN_TEMPERATURE = eINSTANCE.getPlant_MinTemperature();
-
-		/**
-		 * The meta object literal for the '<em><b>Moisture</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__MOISTURE = eINSTANCE.getPlant_Moisture();
-
-		/**
-		 * The meta object literal for the '<em><b>Special Uses</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__SPECIAL_USES = eINSTANCE.getPlant_SpecialUses();
-
-		/**
-		 * The meta object literal for the '<em><b>Grow Rate</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__GROW_RATE = eINSTANCE.getPlant_GrowRate();
-
-		/**
-		 * The meta object literal for the '<em><b>Wind</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__WIND = eINSTANCE.getPlant_Wind();
-
-		/**
-		 * The meta object literal for the '<em><b>Productions</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLANT__PRODUCTIONS = eINSTANCE.getPlant_Productions();
 
 		/**
 		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
@@ -4418,60 +4848,37 @@ public interface PermadelerPackage extends EPackage {
 		EReference PLANT__ACTIONS = eINSTANCE.getPlant_Actions();
 
 		/**
-		 * The meta object literal for the '<em><b>Life Cycle</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Get Productions</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLANT__LIFE_CYCLE = eINSTANCE.getPlant_LifeCycle();
+		EOperation PLANT___GET_PRODUCTIONS = eINSTANCE.getPlant__GetProductions();
 
 		/**
-		 * The meta object literal for the '<em><b>Foilage Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Get Full Latin Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLANT__FOILAGE_TYPE = eINSTANCE.getPlant_FoilageType();
+		EOperation PLANT___GET_FULL_LATIN_NAME = eINSTANCE.getPlant__GetFullLatinName();
 
 		/**
-		 * The meta object literal for the '<em><b>Foilage Shade</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Get Default Layer</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLANT__FOILAGE_SHADE = eINSTANCE.getPlant_FoilageShade();
+		EOperation PLANT___GET_DEFAULT_LAYER = eINSTANCE.getPlant__GetDefaultLayer();
 
 		/**
-		 * The meta object literal for the '<em><b>Drought Tolerance</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Get Default Representation Kind</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLANT__DROUGHT_TOLERANCE = eINSTANCE.getPlant_DroughtTolerance();
-
-		/**
-		 * The meta object literal for the '<em><b>Tolerated Lighting Condition</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__TOLERATED_LIGHTING_CONDITION = eINSTANCE.getPlant_ToleratedLightingCondition();
-
-		/**
-		 * The meta object literal for the '<em><b>Root Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PLANT__ROOT_TYPE = eINSTANCE.getPlant_RootType();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Names</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PLANT___GET_ALL_NAMES = eINSTANCE.getPlant__GetAllNames();
+		EOperation PLANT___GET_DEFAULT_REPRESENTATION_KIND = eINSTANCE
+				.getPlant__GetDefaultRepresentationKind();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.
@@ -4586,6 +4993,244 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REFERENCING_ELEMENT__REFERENCES = eINSTANCE.getReferencingElement_References();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl <em>Image Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getImageOwner()
+		 * @generated
+		 */
+		EClass IMAGE_OWNER = eINSTANCE.getImageOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Images</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMAGE_OWNER__IMAGES = eINSTANCE.getImageOwner_Images();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl <em>Species</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSpecies()
+		 * @generated
+		 */
+		EClass SPECIES = eINSTANCE.getSpecies();
+
+		/**
+		 * The meta object literal for the '<em><b>Varieties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPECIES__VARIETIES = eINSTANCE.getSpecies_Varieties();
+
+		/**
+		 * The meta object literal for the '<em><b>Species</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__SPECIES = eINSTANCE.getSpecies_Species();
+
+		/**
+		 * The meta object literal for the '<em><b>Genus</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__GENUS = eINSTANCE.getSpecies_Genus();
+
+		/**
+		 * The meta object literal for the '<em><b>Family</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__FAMILY = eINSTANCE.getSpecies_Family();
+
+		/**
+		 * The meta object literal for the '<em><b>Life Cycle</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__LIFE_CYCLE = eINSTANCE.getSpecies_LifeCycle();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__ROOT_TYPE = eINSTANCE.getSpecies_RootType();
+
+		/**
+		 * The meta object literal for the '<em><b>Foilage Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__FOILAGE_TYPE = eINSTANCE.getSpecies_FoilageType();
+
+		/**
+		 * The meta object literal for the '<em><b>Drought Tolerance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__DROUGHT_TOLERANCE = eINSTANCE.getSpecies_DroughtTolerance();
+
+		/**
+		 * The meta object literal for the '<em><b>Foilage Shade</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__FOILAGE_SHADE = eINSTANCE.getSpecies_FoilageShade();
+
+		/**
+		 * The meta object literal for the '<em><b>Tolerated Lighting Condition</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__TOLERATED_LIGHTING_CONDITION = eINSTANCE.getSpecies_ToleratedLightingCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Lighting Condition</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__LIGHTING_CONDITION = eINSTANCE.getSpecies_LightingCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Moisture</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__MOISTURE = eINSTANCE.getSpecies_Moisture();
+
+		/**
+		 * The meta object literal for the '<em><b>Soil Type</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__SOIL_TYPE = eINSTANCE.getSpecies_SoilType();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Temperature</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__MIN_TEMPERATURE = eINSTANCE.getSpecies_MinTemperature();
+
+		/**
+		 * The meta object literal for the '<em><b>Wind</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__WIND = eINSTANCE.getSpecies_Wind();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__WIDTH = eINSTANCE.getSpecies_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Special Uses</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__SPECIAL_USES = eINSTANCE.getSpecies_SpecialUses();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__HEIGHT = eINSTANCE.getSpecies_Height();
+
+		/**
+		 * The meta object literal for the '<em><b>Grow Rate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__GROW_RATE = eINSTANCE.getSpecies_GrowRate();
+
+		/**
+		 * The meta object literal for the '<em><b>Productions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SPECIES__PRODUCTIONS = eINSTANCE.getSpecies_Productions();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Layer</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__DEFAULT_LAYER = eINSTANCE.getSpecies_DefaultLayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Representation Kind</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIES__DEFAULT_REPRESENTATION_KIND = eINSTANCE.getSpecies_DefaultRepresentationKind();
+
+		/**
+		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl <em>Variety</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl
+		 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getVariety()
+		 * @generated
+		 */
+		EClass VARIETY = eINSTANCE.getVariety();
+
+		/**
+		 * The meta object literal for the '<em><b>Species</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIETY__SPECIES = eINSTANCE.getVariety_Species();
+
+		/**
+		 * The meta object literal for the '<em><b>Variety</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIETY__VARIETY = eINSTANCE.getVariety_Variety();
+
+		/**
+		 * The meta object literal for the '<em><b>Custom Productions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIETY__CUSTOM_PRODUCTIONS = eINSTANCE.getVariety_CustomProductions();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}' enum.

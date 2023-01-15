@@ -252,6 +252,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = casePlantNamedElement(plant);
 				if (result == null)
+					result = caseImageOwner(plant);
+				if (result == null)
 					result = caseNamedElement(plant);
 				if (result == null)
 					result = caseReferencingElement(plant);
@@ -302,6 +304,47 @@ public class PermadelerSwitch<T> extends Switch<T> {
 			case PermadelerPackage.REFERENCING_ELEMENT: {
 				ReferencingElement referencingElement = (ReferencingElement)theEObject;
 				T result = caseReferencingElement(referencingElement);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.IMAGE_OWNER: {
+				ImageOwner imageOwner = (ImageOwner)theEObject;
+				T result = caseImageOwner(imageOwner);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.SPECIES: {
+				Species species = (Species)theEObject;
+				T result = caseSpecies(species);
+				if (result == null)
+					result = casePlant(species);
+				if (result == null)
+					result = casePlantNamedElement(species);
+				if (result == null)
+					result = caseImageOwner(species);
+				if (result == null)
+					result = caseNamedElement(species);
+				if (result == null)
+					result = caseReferencingElement(species);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.VARIETY: {
+				Variety variety = (Variety)theEObject;
+				T result = caseVariety(variety);
+				if (result == null)
+					result = casePlant(variety);
+				if (result == null)
+					result = casePlantNamedElement(variety);
+				if (result == null)
+					result = caseImageOwner(variety);
+				if (result == null)
+					result = caseNamedElement(variety);
+				if (result == null)
+					result = caseReferencingElement(variety);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -728,6 +771,51 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseReferencingElement(ReferencingElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Image Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Image Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImageOwner(ImageOwner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Species</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Species</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecies(Species object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variety</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variety</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariety(Variety object) {
 		return null;
 	}
 

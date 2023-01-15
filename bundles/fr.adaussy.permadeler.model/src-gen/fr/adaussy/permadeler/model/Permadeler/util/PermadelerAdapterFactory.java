@@ -215,6 +215,21 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseImageOwner(ImageOwner object) {
+			return createImageOwnerAdapter();
+		}
+
+		@Override
+		public Adapter caseSpecies(Species object) {
+			return createSpeciesAdapter();
+		}
+
+		@Override
+		public Adapter caseVariety(Variety object) {
+			return createVarietyAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -622,6 +637,48 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReferencingElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.ImageOwner <em>Image Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.ImageOwner
+	 * @generated
+	 */
+	public Adapter createImageOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Species <em>Species</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Species
+	 * @generated
+	 */
+	public Adapter createSpeciesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.Variety <em>Variety</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Variety
+	 * @generated
+	 */
+	public Adapter createVarietyAdapter() {
 		return null;
 	}
 

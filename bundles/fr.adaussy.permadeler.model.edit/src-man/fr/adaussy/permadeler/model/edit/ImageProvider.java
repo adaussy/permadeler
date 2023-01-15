@@ -45,7 +45,9 @@ import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
+import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSwitch;
@@ -267,15 +269,19 @@ public final class ImageProvider {
 	}
 
 	private String getPlantSVGWithDefault(Plantation plantation, String shovelSvg) {
+		Plant type = plantation.getType();
+		if (type == null) {
+			return "/fr.adaussy.permadeler.model.edit/icons/custo/commons/plant.svg"; //$NON-NLS-1$
+		}
 		if (plantation.getRepresentationKind() == RepresentationKind.TREE_CROWN) {
 			if (plantation.isWireframe()) {
-				return PermadelerIcons.iconsRelativeToFullPath(
-						getWireframeimage(plantation.getType().getRepresentationKey()));
+				return PermadelerIcons
+						.iconsRelativeToFullPath(getWireframeimage(type.getRepresentationKey()));
 			} else {
-				return PermadelerIcons.iconsRelativeToFullPath(plantation.getType().getRepresentationKey());
+				return PermadelerIcons.iconsRelativeToFullPath(type.getRepresentationKey());
 			}
 		} else {
-			String localPath = getPlantSVGPath(plantation.getType());
+			String localPath = getPlantSVGPath(type);
 			if (localPath != null) {
 				return PermadelerIcons.iconsRelativeToFullPath(localPath);
 			} else {
@@ -283,7 +289,6 @@ public final class ImageProvider {
 			}
 		}
 	}
-
 
 	private String getWireframeimage(String imagePath) {
 		java.nio.file.Path path = java.nio.file.Path.of(imagePath);
@@ -320,9 +325,16 @@ public final class ImageProvider {
 	 * @return a key (or <code>null</code>)
 	 */
 	private String getRepKey(PlantNamedElement plantNamedElement) {
+		if (plantNamedElement == null) {
+			return null;
+		}
 		String iconKey = plantNamedElement.getIconKey();
 		if (iconKey == null && plantNamedElement.eContainer() instanceof PlantNamedElement) {
 			iconKey = getRepKey((PlantNamedElement)plantNamedElement.eContainer());
+		}
+
+		if (iconKey == null && plantNamedElement instanceof Variety) {
+			return getRepKey(((Variety)plantNamedElement).getSpecies());
 		}
 		return iconKey;
 	}
@@ -471,7 +483,7 @@ public final class ImageProvider {
 		}
 
 		@Override
-		public String casePlant(Plant object) {
+		public String caseSpecies(Species object) {
 			String path = getRepKey(object);
 			String iconPath = null;
 			if (path != null) {
@@ -481,7 +493,19 @@ public final class ImageProvider {
 			}
 			return iconPath;
 
-		};
+		}
+
+		@Override
+		public String caseVariety(Variety object) {
+			String path = getRepKey(object);
+			String iconPath = null;
+			if (path != null) {
+				iconPath = icons.get(path);
+			} else {
+				iconPath = caseSpecies(object.getSpecies()); // $NON-NLS-1$ ;
+			}
+			return iconPath;
+		}
 
 	}
 

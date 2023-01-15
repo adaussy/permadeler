@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import fr.adaussy.permadeler.model.Permadeler.NamedElement;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
 
@@ -31,9 +32,10 @@ public class TextHelper {
 	 *            a name element (not <code>null</code>)
 	 * @return a name
 	 */
-	public static String getLabel(PlantNamedElement o) {
+	public static String getLabel(Plant o) {
 		String name = o.getName() != null ? o.getName() : UNNAMED;
-		String latinName = o.getLatinName() != null ? ("<" + o.getLatinName() + ">") : ""; //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
+		String baseLatinName = o.getFullLatinName();
+		String latinName = baseLatinName != null ? ("<" + baseLatinName + ">") : ""; //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
 		return name + " " + latinName; //$NON-NLS-1$
 
 	}

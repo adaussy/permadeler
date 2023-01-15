@@ -47,6 +47,9 @@ public class PlantationPhaseDiagramEditPart extends DDiagramEditPart {
 			} else {
 				configureBackground(fig);
 			}
+
+			// ((Viewport)((DDiagramRootEditPart)((ScrollingGraphicalViewer)getViewer()).getRootEditPart())
+			// .getFigure()).getClientArea(new Rectangle(0, 0, 1000, 1000));
 		}
 		return fig;
 	}
@@ -120,7 +123,7 @@ public class PlantationPhaseDiagramEditPart extends DDiagramEditPart {
 		String imagePath = DiagramService.getBackgroundSVGPath(getBackgroundImage());
 		this.layerBackground = new BackgroundLayerWithImage(imagePath, bgImage.getTransparency(),
 				bgImage.getScaling());
-		getLayer(LayerConstants.PRINTABLE_LAYERS).add(layerBackground, 0);
+		getLayer(LayerConstants.PRIMARY_LAYER).add(layerBackground, 0);
 		figure.add(layerBackground);
 	}
 

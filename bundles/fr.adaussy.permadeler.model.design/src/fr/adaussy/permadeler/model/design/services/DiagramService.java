@@ -68,6 +68,7 @@ import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
 import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
@@ -407,10 +408,10 @@ public class DiagramService {
 		return null;
 	}
 
-	public Plant createDefaultPlant(EObject self) {
-		Plant plant = PermadelerFactory.eINSTANCE.createPlant();
-		EMFUtils.getAncestor(Root.class, self).getKnowledgeBase().getPlantTypes().add(plant);
-		return plant;
+	public Plant createDefaultSpecies(EObject self) {
+		Species species = PermadelerFactory.eINSTANCE.createSpecies();
+		EMFUtils.getAncestor(Root.class, self).getKnowledgeBase().getSpecies().add(species);
+		return species;
 	}
 
 	private static String generateId(Plantation plantation) {
