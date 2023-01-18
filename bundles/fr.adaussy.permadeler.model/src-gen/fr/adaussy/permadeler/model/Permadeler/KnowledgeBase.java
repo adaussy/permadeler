@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getPlantTypes <em>Plant Types</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies <em>Species</em>}</li>
  * </ul>
  *
@@ -32,18 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface KnowledgeBase extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Plant Types</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Plant}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Plant Types</em>' containment reference list.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase_PlantTypes()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Plant> getPlantTypes();
-
 	/**
 	 * Returns the value of the '<em><b>Species</b></em>' containment reference list.
 	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Species}.

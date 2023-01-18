@@ -38,23 +38,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getPlantTypes <em>Plant Types</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getSpecies <em>Species</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements KnowledgeBase {
-	/**
-	 * The cached value of the '{@link #getPlantTypes() <em>Plant Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPlantTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Plant> plantTypes;
-
 	/**
 	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -89,19 +78,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Plant> getPlantTypes() {
-		if (plantTypes == null) {
-			plantTypes = new EObjectContainmentEList<Plant>(Plant.class, this,
-					PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES);
-		}
-		return plantTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Species> getSpecies() {
 		if (species == null) {
 			species = new EObjectContainmentEList<Species>(Species.class, this,
@@ -129,8 +105,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-				return ((InternalEList<?>)getPlantTypes()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				return ((InternalEList<?>)getSpecies()).basicRemove(otherEnd, msgs);
 		}
@@ -145,8 +119,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-				return getPlantTypes();
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				return getSpecies();
 		}
@@ -162,10 +134,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-				getPlantTypes().clear();
-				getPlantTypes().addAll((Collection<? extends Plant>)newValue);
-				return;
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				getSpecies().clear();
 				getSpecies().addAll((Collection<? extends Species>)newValue);
@@ -182,9 +150,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-				getPlantTypes().clear();
-				return;
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				getSpecies().clear();
 				return;
@@ -200,8 +165,6 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__PLANT_TYPES:
-				return plantTypes != null && !plantTypes.isEmpty();
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				return species != null && !species.isEmpty();
 		}

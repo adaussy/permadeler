@@ -235,22 +235,13 @@ public interface PermadelerPackage extends EPackage {
 	int KNOWLEDGE_BASE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Plant Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KNOWLEDGE_BASE__PLANT_TYPES = 0;
-
-	/**
 	 * The feature id for the '<em><b>Species</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KNOWLEDGE_BASE__SPECIES = 1;
+	int KNOWLEDGE_BASE__SPECIES = 0;
 
 	/**
 	 * The number of structural features of the '<em>Knowledge Base</em>' class.
@@ -259,7 +250,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KNOWLEDGE_BASE_FEATURE_COUNT = 2;
+	int KNOWLEDGE_BASE_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Get All Plants</em>' operation.
@@ -2668,17 +2659,6 @@ public interface PermadelerPackage extends EPackage {
 	EClass getKnowledgeBase();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getPlantTypes <em>Plant Types</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Plant Types</em>'.
-	 * @see fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getPlantTypes()
-	 * @see #getKnowledgeBase()
-	 * @generated
-	 */
-	EReference getKnowledgeBase_PlantTypes();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies <em>Species</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4251,14 +4231,6 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass KNOWLEDGE_BASE = eINSTANCE.getKnowledgeBase();
-
-		/**
-		 * The meta object literal for the '<em><b>Plant Types</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference KNOWLEDGE_BASE__PLANT_TYPES = eINSTANCE.getKnowledgeBase_PlantTypes();
 
 		/**
 		 * The meta object literal for the '<em><b>Species</b></em>' containment reference list feature.

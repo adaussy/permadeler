@@ -627,17 +627,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getKnowledgeBase_PlantTypes() {
-		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getKnowledgeBase_Species() {
-		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(1);
+		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1929,7 +1920,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(rootEClass, ROOT___ADD_SOW_PLANIFICATION__SEEDITEM_LIST_SOWTYPE);
 
 		knowledgeBaseEClass = createEClass(KNOWLEDGE_BASE);
-		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__PLANT_TYPES);
 		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__SPECIES);
 		createEOperation(knowledgeBaseEClass, KNOWLEDGE_BASE___GET_ALL_PLANTS);
 
@@ -2178,9 +2168,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(knowledgeBaseEClass, KnowledgeBase.class, "KnowledgeBase", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getKnowledgeBase_PlantTypes(), this.getPlant(), null, "plantTypes", null, 0, -1, //$NON-NLS-1$
-				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getKnowledgeBase_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

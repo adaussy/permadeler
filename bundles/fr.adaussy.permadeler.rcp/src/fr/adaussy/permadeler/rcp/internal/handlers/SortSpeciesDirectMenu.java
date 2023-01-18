@@ -23,7 +23,6 @@ public class SortSpeciesDirectMenu {
 	@Execute
 	public void execute(PermadelerSession session) {
 		session.modifyKnowledgeBase(RcpMessages.SortSpeciesDirectMenu_0, base -> {
-			ECollections.sort(base.getPlantTypes(), Comparators.<Plant> buildComparator());
 			ECollections.sort(base.getSpecies(), Comparators.<Plant> buildComparator());
 
 			for (Species s : base.getSpecies()) {

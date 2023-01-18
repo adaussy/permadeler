@@ -24,8 +24,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBase">
     <eOperations name="getAllPlants" upperBound="-1" eType="#//Plant"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="plantTypes" upperBound="-1"
-        eType="#//Plant" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
         eType="#//Species" containment="true"/>
   </eClassifiers>

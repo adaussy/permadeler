@@ -801,7 +801,6 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//KnowledgeBase">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/plantTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/species"/>
       <genOperations ecoreOperation="Permadeler.ecore#//KnowledgeBase/getAllPlants"/>
     </genClasses>
