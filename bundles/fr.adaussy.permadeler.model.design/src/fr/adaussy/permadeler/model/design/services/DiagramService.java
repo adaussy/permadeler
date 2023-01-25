@@ -6,6 +6,7 @@
  * which is available at https://www.eclipse.org/legal/epl-2.0/ 
  * Contributors:
  * Arthur Daussy - initial API and implementation.
+ * Obeo - Method refreshRepresentations 
  ******************************************************************************/
 package fr.adaussy.permadeler.model.design.services;
 
@@ -17,6 +18,7 @@ import java.nio.file.Path;
 import java.text.MessageFormat;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,19 +26,31 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.transaction.ExceptionHandler;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.impl.AbstractTransactionalCommandStack;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
@@ -47,6 +61,9 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.LabelPosition;
 import org.eclipse.sirius.diagram.model.business.internal.query.DDiagramInternalQuery;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
+import org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager;
+import org.eclipse.sirius.diagram.ui.business.internal.view.RootLayoutData;
+import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -74,8 +91,10 @@ import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
 import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.dialogs.PlantationDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.TrayDimensionCreationDialog;
+import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
 import fr.adaussy.permadeler.rcp.services.FillService;
 import fr.adaussy.permadeler.rcp.services.ModelQueryService;
 
@@ -101,6 +120,119 @@ public class DiagramService {
 
 		}
 
+	}
+
+	public static Plantation dupplicate(Plantation plantation, DDiagramElement targetView,
+			DSemanticDiagram diagram) {
+		// Dupplication plantation
+
+		Plantation newPlantation = EcoreUtil.copy(plantation);
+
+		((PlantationPhase)plantation.eContainer()).getPlantations().add(newPlantation);
+
+		// Change id
+		newPlantation.setId(generateId(newPlantation));
+
+		// Create view
+
+		Session session = Session.of(plantation).get();
+		TransactionalEditingDomain transactionalEditingDomain = session.getTransactionalEditingDomain();
+		refreshRepresentations(transactionalEditingDomain, Collections.singletonList(diagram));
+		// Move view
+
+		Optional<DNode> matchingNode = EMFUtils.allContainedObjectOfType(diagram, DNode.class)//
+				.filter(d -> d.getTarget() == newPlantation)//
+				.findFirst();
+
+		setGraphicalHintsFromExistingNode(targetView, matchingNode.get());
+
+		return newPlantation;
+	}
+
+	private static void setGraphicalHintsFromExistingNode(DDiagramElement existingNode,
+			DDiagramElement newNode) {
+		// Give hints about location and size
+		IGraphicalEditPart editPart = getEditPart(existingNode);
+		if (editPart instanceof ShapeEditPart) {
+			ShapeEditPart part = (ShapeEditPart)editPart;
+			Point location = part.getLocation();
+			SiriusLayoutDataManager.INSTANCE.addData(new RootLayoutData(newNode.eContainer(),
+					new Point(location.x + 20, location.y + 20), part.getSize()));
+		}
+	}
+
+	private static IGraphicalEditPart getEditPart(DDiagramElement diagramElement) {
+		IEditorPart editor = EclipseUIUtil.getActiveEditor();
+		if (editor instanceof DiagramEditor) {
+			Session session = new EObjectQuery(diagramElement).getSession();
+			View gmfView = SiriusGMFHelper.getGmfView(diagramElement, session);
+
+			IGraphicalEditPart result = null;
+			if (gmfView != null && editor instanceof DiagramEditor) {
+				final Map<?, ?> editPartRegistry = ((DiagramEditor)editor).getDiagramGraphicalViewer()
+						.getEditPartRegistry();
+				final Object editPart = editPartRegistry.get(gmfView);
+				if (editPart instanceof IGraphicalEditPart) {
+					result = (IGraphicalEditPart)editPart;
+					return result;
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Refreshes given {@link DRepresentation} in the given {@link TransactionalEditingDomain}.
+	 * 
+	 * @param transactionalEditingDomain
+	 *            the {@link TransactionalEditingDomain}
+	 * @param representations
+	 *            the {@link List} of {@link DRepresentation} to refresh
+	 */
+	public static void refreshRepresentations(final TransactionalEditingDomain transactionalEditingDomain,
+			final List<DRepresentation> representations) {
+		// TODO prevent the editors from getting dirty
+		if (representations.size() != 0) {
+			final RefreshRepresentationsCommand refresh = new RefreshRepresentationsCommand(
+					transactionalEditingDomain, new NullProgressMonitor(), representations);
+
+			CommandStack commandStack = transactionalEditingDomain.getCommandStack();
+
+			// If the command stack is transactionnal, we add a one-shot exception handler.
+			if (commandStack instanceof AbstractTransactionalCommandStack) {
+				AbstractTransactionalCommandStack transactionnalCommandStack = (AbstractTransactionalCommandStack)commandStack;
+				transactionnalCommandStack.setExceptionHandler(new ExceptionHandler() {
+
+					@Override
+					public void handleException(Exception e) {
+						// TODO Auto-generated method stub
+
+						String repString = representations.stream().map(r -> r.getName())
+								.collect(Collectors.joining(", "));
+
+						PermadelerModelBundle.getDefault().getLog()
+								.log(new Status(IStatus.WARNING, PermadelerModelBundle.PLUGIN_ID,
+										"Failed to refresh Sirius representation(s)[" + repString
+												+ "], we hope to be able to do it later",
+										e));
+
+						// Self-remove from the command stack.
+						transactionnalCommandStack.setExceptionHandler(null);
+
+					}
+				});
+			}
+
+			commandStack.execute(refresh);
+
+		}
+	}
+
+	public void showInKnowledgeBase(Plantation plantation) {
+		Plant type = plantation.getType();
+		if (type != null) {
+			new FocusOnElementAction("", Collections.singletonList(type), KnowledgeViewerPart.ID).run();
+		}
 	}
 
 	private Stream<Node> getAllDisplayedTree(View gmfView) {
@@ -382,6 +514,10 @@ public class DiagramService {
 	 */
 	public static Plantation createPlantation(final PlantationPhase container) {
 		return createPlantation(container, null);
+	}
+
+	public static Plantation createPlantation(final Plantation plantation, Plant initialSelection) {
+		return createPlantation((PlantationPhase)plantation.eContainer(), initialSelection);
 	}
 
 	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection) {

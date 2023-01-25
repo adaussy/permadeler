@@ -23,7 +23,6 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.ui.PlatformUI;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -121,7 +120,7 @@ public class FocusOnElementAction extends Action {
 	}
 
 	@Override
-	public void runWithEvent(Event event) {
+	public void run() {
 		if (viewId == null) {
 			selectInBestView(targets);
 		} else {
