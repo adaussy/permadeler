@@ -74,7 +74,16 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MULTIPLICATION(4, "Multiplication", "Multiplication"); //$NON-NLS-1$ //$NON-NLS-2$
+	MULTIPLICATION(4, "Multiplication", "Multiplication"),
+	/**
+	 * The '<em><b>Harvest</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	 * @see #HARVEST_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	HARVEST(5, "Harvest", "Harvest"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Other</b></em>' literal value.
@@ -132,13 +141,24 @@ public enum ActionType implements Enumerator {
 	public static final int MULTIPLICATION_VALUE = 4;
 
 	/**
+	 * The '<em><b>Harvest</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #HARVEST
+	 * @model name="Harvest"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int HARVEST_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Action Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final ActionType[] VALUES_ARRAY = new ActionType[] {OTHER, PRUNING, SOW_INDOOR,
-			SOW_OUTDOOR, MULTIPLICATION, };
+			SOW_OUTDOOR, MULTIPLICATION, HARVEST, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Action Type</b></em>' enumerators.
@@ -204,6 +224,8 @@ public enum ActionType implements Enumerator {
 				return SOW_OUTDOOR;
 			case MULTIPLICATION_VALUE:
 				return MULTIPLICATION;
+			case HARVEST_VALUE:
+				return HARVEST;
 		}
 		return null;
 	}

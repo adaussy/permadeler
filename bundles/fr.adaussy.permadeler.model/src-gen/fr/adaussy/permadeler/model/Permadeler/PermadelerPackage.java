@@ -1434,13 +1434,31 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT___GET_DEFAULT_REPRESENTATION_KIND = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Representation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_REPRESENTATION = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get All Actions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_ALL_ACTIONS = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Plant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 4;
+	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
@@ -2125,6 +2143,24 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES___GET_DEFAULT_REPRESENTATION_KIND = PLANT___GET_DEFAULT_REPRESENTATION_KIND;
 
 	/**
+	 * The operation id for the '<em>Get Representation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_REPRESENTATION = PLANT___GET_REPRESENTATION;
+
+	/**
+	 * The operation id for the '<em>Get All Actions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_ALL_ACTIONS = PLANT___GET_ALL_ACTIONS;
+
+	/**
 	 * The number of operations of the '<em>Species</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2304,6 +2340,24 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIETY___GET_DEFAULT_REPRESENTATION_KIND = PLANT___GET_DEFAULT_REPRESENTATION_KIND;
+
+	/**
+	 * The operation id for the '<em>Get Representation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_REPRESENTATION = PLANT___GET_REPRESENTATION;
+
+	/**
+	 * The operation id for the '<em>Get All Actions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_ALL_ACTIONS = PLANT___GET_ALL_ACTIONS;
 
 	/**
 	 * The number of operations of the '<em>Variety</em>' class.
@@ -3421,6 +3475,26 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPlant__GetDefaultRepresentationKind();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getRepresentation() <em>Get Representation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Representation</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getRepresentation()
+	 * @generated
+	 */
+	EOperation getPlant__GetRepresentation();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getAllActions() <em>Get All Actions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Actions</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getAllActions()
+	 * @generated
+	 */
+	EOperation getPlant__GetAllActions();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Production <em>Production</em>}'.
@@ -4851,6 +4925,22 @@ public interface PermadelerPackage extends EPackage {
 		 */
 		EOperation PLANT___GET_DEFAULT_REPRESENTATION_KIND = eINSTANCE
 				.getPlant__GetDefaultRepresentationKind();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Representation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT___GET_REPRESENTATION = eINSTANCE.getPlant__GetRepresentation();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Actions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT___GET_ALL_ACTIONS = eINSTANCE.getPlant__GetAllActions();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.

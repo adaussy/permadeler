@@ -267,6 +267,28 @@ public class VarietyImpl extends PlantNamedElementImpl implements Variety {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRepresentation() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Action> getAllActions() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Production> getProductions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -478,6 +500,10 @@ public class VarietyImpl extends PlantNamedElementImpl implements Variety {
 				return getDefaultLayer();
 			case PermadelerPackage.VARIETY___GET_DEFAULT_REPRESENTATION_KIND:
 				return getDefaultRepresentationKind();
+			case PermadelerPackage.VARIETY___GET_REPRESENTATION:
+				return getRepresentation();
+			case PermadelerPackage.VARIETY___GET_ALL_ACTIONS:
+				return getAllActions();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

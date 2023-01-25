@@ -1275,6 +1275,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPlant__GetRepresentation() {
+		return plantEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetAllActions() {
+		return plantEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProduction() {
 		return productionEClass;
 	}
@@ -2013,6 +2031,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(plantEClass, PLANT___GET_FULL_LATIN_NAME);
 		createEOperation(plantEClass, PLANT___GET_DEFAULT_LAYER);
 		createEOperation(plantEClass, PLANT___GET_DEFAULT_REPRESENTATION_KIND);
+		createEOperation(plantEClass, PLANT___GET_REPRESENTATION);
+		createEOperation(plantEClass, PLANT___GET_ALL_ACTIONS);
 
 		productionEClass = createEClass(PRODUCTION);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
@@ -2241,9 +2261,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_RepresentationKey(), ecorePackage.getEString(),
-				"representationKey", "/icons/representations/arbre2/green1.png", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
-				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				"representationKey", null, 0, 1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlantNamedElement_ShortName(), ecorePackage.getEString(), "shortName", null, 0, 1, //$NON-NLS-1$
 				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2377,6 +2396,12 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEOperation(getPlant__GetDefaultRepresentationKind(), this.getRepresentationKind(),
 				"getDefaultRepresentationKind", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getPlant__GetRepresentation(), ecorePackage.getEString(), "getRepresentation", 1, 1, //$NON-NLS-1$
+				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPlant__GetAllActions(), this.getAction(), "getAllActions", 0, -1, IS_UNIQUE, //$NON-NLS-1$
+				IS_ORDERED);
 
 		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -3195,6 +3220,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.DYNAMIC_ACCUMULATOR);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.GROUND_COVER);
 		addEEnumLiteral(specialUsesEEnum, SpecialUses.BIOMASS_PRODUCTION);
+		addEEnumLiteral(specialUsesEEnum, SpecialUses.HONEY_PLANT);
 
 		initEEnum(eventTypeEEnum, EventType.class, "EventType"); //$NON-NLS-1$
 		addEEnumLiteral(eventTypeEEnum, EventType.GENERAL);
@@ -3234,6 +3260,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_INDOOR);
 		addEEnumLiteral(actionTypeEEnum, ActionType.SOW_OUTDOOR);
 		addEEnumLiteral(actionTypeEEnum, ActionType.MULTIPLICATION);
+		addEEnumLiteral(actionTypeEEnum, ActionType.HARVEST);
 
 		initEEnum(layerEEnum, Layer.class, "Layer"); //$NON-NLS-1$
 		addEEnumLiteral(layerEEnum, Layer.CANOPY);

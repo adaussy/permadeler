@@ -38,9 +38,9 @@ public class PropertyService {
 			return Collections.singletonList((Action)o);
 
 		} else if (o instanceof Plant) {
-			return ((Plant)o).getActions();
+			return ((Plant)o).getAllActions();
 		} else if (o instanceof Plantation && ((Plantation)o).getType() != null) {
-			return ((Plantation)o).getType().getActions();
+			return ((Plantation)o).getType().getAllActions();
 		} else {
 			return Collections.emptyList();
 		}

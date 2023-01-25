@@ -275,10 +275,9 @@ public final class ImageProvider {
 		}
 		if (plantation.getRepresentationKind() == RepresentationKind.TREE_CROWN) {
 			if (plantation.isWireframe()) {
-				return PermadelerIcons
-						.iconsRelativeToFullPath(getWireframeimage(type.getRepresentationKey()));
+				return PermadelerIcons.iconsRelativeToFullPath(getWireframeimage(type.getRepresentation()));
 			} else {
-				return PermadelerIcons.iconsRelativeToFullPath(type.getRepresentationKey());
+				return PermadelerIcons.iconsRelativeToFullPath(type.getRepresentation());
 			}
 		} else {
 			String localPath = getPlantSVGPath(type);
@@ -304,11 +303,11 @@ public final class ImageProvider {
 	 *            relative path of the default SVG
 	 * @return a path or the full path of the given default path
 	 */
-	private String getPlantSVGWithDefault(Plant variety, String defaultPath) {
-		if (variety == null) {
+	private String getPlantSVGWithDefault(Plant plant, String defaultPath) {
+		if (plant == null) {
 			return PermadelerIcons.buildFullPath(defaultPath);
 		}
-		String localPath = getPlantSVGPath(variety);
+		String localPath = getPlantSVGPath(plant);
 		if (localPath != null) {
 			return PermadelerIcons.iconsRelativeToFullPath(localPath);
 		} else {
@@ -472,6 +471,7 @@ public final class ImageProvider {
 				case SOW_OUTDOOR -> "icons/custo/commons/calendar-sow.png"; //$NON-NLS-1$
 				case MULTIPLICATION -> "icons/custo/commons/multipication.png"; //$NON-NLS-1$
 				case PRUNING -> "icons/custo/commons/pruning.png"; //$NON-NLS-1$
+				case HARVEST -> "icons/custo/commons/harvest.png"; //$NON-NLS-1$
 				default -> "icons/custo/commons/action.png"; //$NON-NLS-1$
 			};
 

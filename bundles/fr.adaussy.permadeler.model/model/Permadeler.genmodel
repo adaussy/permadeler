@@ -702,6 +702,7 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/DynamicAccumulator"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/GroundCover"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/BiomassProduction"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//SpecialUses/HoneyPlant"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//EventType">
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//EventType/General"/>
@@ -741,6 +742,7 @@
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/SowIndoor"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/SowOutdoor"/>
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Multiplication"/>
+      <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//ActionType/Harvest"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Permadeler.ecore#//Layer">
       <genEnumLiterals ecoreEnumLiteral="Permadeler.ecore#//Layer/CANOPY"/>
@@ -893,6 +895,8 @@
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getFullLatinName"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getDefaultLayer"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getDefaultRepresentationKind"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Plant/getRepresentation"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Plant/getAllActions"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Production">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/type"/>

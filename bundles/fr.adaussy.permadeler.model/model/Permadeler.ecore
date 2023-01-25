@@ -65,8 +65,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="/icons/representations/arbre2/green1.png"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Lifecycle">
@@ -771,6 +770,7 @@
     <eLiterals name="DynamicAccumulator" value="6"/>
     <eLiterals name="GroundCover" value="7"/>
     <eLiterals name="BiomassProduction" value="8"/>
+    <eLiterals name="HoneyPlant" value="9"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EventType">
     <eLiterals name="General"/>
@@ -845,6 +845,8 @@
     <eOperations name="getFullLatinName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getDefaultLayer" eType="#//Layer"/>
     <eOperations name="getDefaultRepresentationKind" eType="#//RepresentationKind"/>
+    <eOperations name="getRepresentation" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getAllActions" upperBound="-1" eType="#//Action"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>
@@ -886,6 +888,7 @@
     <eLiterals name="SowIndoor" value="2"/>
     <eLiterals name="SowOutdoor" value="3"/>
     <eLiterals name="Multiplication" value="4"/>
+    <eLiterals name="Harvest" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Layer">
     <eLiterals name="CANOPY"/>

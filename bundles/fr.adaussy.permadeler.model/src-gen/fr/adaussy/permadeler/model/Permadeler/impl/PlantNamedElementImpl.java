@@ -93,7 +93,7 @@ public abstract class PlantNamedElementImpl extends NamedElementImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REPRESENTATION_KEY_EDEFAULT = "/icons/representations/arbre2/green1.png"; //$NON-NLS-1$
+	protected static final String REPRESENTATION_KEY_EDEFAULT = null; //$NON-NLS-1$
 
 	/**
 	 * The cached value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.

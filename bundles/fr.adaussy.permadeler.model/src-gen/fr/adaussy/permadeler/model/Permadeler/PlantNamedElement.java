@@ -68,13 +68,12 @@ public interface PlantNamedElement extends NamedElement, ReferencingElement {
 
 	/**
 	 * Returns the value of the '<em><b>Representation Key</b></em>' attribute.
-	 * The default value is <code>"/icons/representations/arbre2/green1.png"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Representation Key</em>' attribute.
 	 * @see #setRepresentationKey(String)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantNamedElement_RepresentationKey()
-	 * @model default="/icons/representations/arbre2/green1.png"
+	 * @model
 	 * @generated
 	 */
 	String getRepresentationKey();

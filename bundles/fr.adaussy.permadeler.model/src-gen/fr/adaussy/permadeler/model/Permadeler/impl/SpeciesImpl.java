@@ -941,6 +941,28 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRepresentation() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Action> getAllActions() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1317,6 +1339,10 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 		switch (operationID) {
 			case PermadelerPackage.SPECIES___GET_FULL_LATIN_NAME:
 				return getFullLatinName();
+			case PermadelerPackage.SPECIES___GET_REPRESENTATION:
+				return getRepresentation();
+			case PermadelerPackage.SPECIES___GET_ALL_ACTIONS:
+				return getAllActions();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
