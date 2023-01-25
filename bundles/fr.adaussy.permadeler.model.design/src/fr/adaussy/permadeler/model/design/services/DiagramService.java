@@ -241,8 +241,7 @@ public class DiagramService {
 				.map(n -> (Node)n)//
 				.filter(n -> {
 					Plantation plantation = viewToPlantation(n);
-					Layer layer = plantation.getCurrentLayer();
-					return layer == Layer.CANOPY || layer == Layer.UNDERSTORY;
+					return plantation.getRepresentationKind() == RepresentationKind.TREE_CROWN;
 				})//
 				.sorted(Comparator.comparingInt(n -> viewToPlantation(n).getCurrentLayer().ordinal()));
 	}
