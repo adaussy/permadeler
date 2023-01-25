@@ -259,7 +259,7 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 					} else {
 						String regex = ("\\Q" + currentFilter.toLowerCase() + "\\E").replace("*", "\\E.*\\Q") //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 								+ ".*"; //$NON-NLS-1$
-						result = label.toLowerCase().matches(regex);
+						result = label.toLowerCase().contains(currentFilter.toLowerCase());
 					}
 				}
 				return result;
