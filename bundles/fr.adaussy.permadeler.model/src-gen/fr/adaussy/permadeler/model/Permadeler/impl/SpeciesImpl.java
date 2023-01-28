@@ -963,6 +963,17 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SpecialUses> getAllSpecialUses() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1343,6 +1354,8 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 				return getRepresentation();
 			case PermadelerPackage.SPECIES___GET_ALL_ACTIONS:
 				return getAllActions();
+			case PermadelerPackage.SPECIES___GET_ALL_SPECIAL_USES:
+				return getAllSpecialUses();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

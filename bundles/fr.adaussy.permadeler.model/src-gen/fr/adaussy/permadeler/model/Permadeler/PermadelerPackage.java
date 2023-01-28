@@ -1452,13 +1452,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT___GET_ALL_ACTIONS = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get All Special Uses</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_ALL_SPECIAL_USES = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Plant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 6;
+	int PLANT_OPERATION_COUNT = PLANT_NAMED_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
@@ -2161,6 +2170,15 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES___GET_ALL_ACTIONS = PLANT___GET_ALL_ACTIONS;
 
 	/**
+	 * The operation id for the '<em>Get All Special Uses</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_ALL_SPECIAL_USES = PLANT___GET_ALL_SPECIAL_USES;
+
+	/**
 	 * The number of operations of the '<em>Species</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2358,6 +2376,15 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIETY___GET_ALL_ACTIONS = PLANT___GET_ALL_ACTIONS;
+
+	/**
+	 * The operation id for the '<em>Get All Special Uses</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_ALL_SPECIAL_USES = PLANT___GET_ALL_SPECIAL_USES;
 
 	/**
 	 * The number of operations of the '<em>Variety</em>' class.
@@ -3495,6 +3522,16 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPlant__GetAllActions();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getAllSpecialUses() <em>Get All Special Uses</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Special Uses</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getAllSpecialUses()
+	 * @generated
+	 */
+	EOperation getPlant__GetAllSpecialUses();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Production <em>Production</em>}'.
@@ -4941,6 +4978,14 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PLANT___GET_ALL_ACTIONS = eINSTANCE.getPlant__GetAllActions();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Special Uses</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT___GET_ALL_SPECIAL_USES = eINSTANCE.getPlant__GetAllSpecialUses();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.

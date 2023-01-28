@@ -847,6 +847,7 @@
     <eOperations name="getDefaultRepresentationKind" eType="#//RepresentationKind"/>
     <eOperations name="getRepresentation" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getAllActions" upperBound="-1" eType="#//Action"/>
+    <eOperations name="getAllSpecialUses" upperBound="-1" eType="#//SpecialUses"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>

@@ -78,6 +78,14 @@ public interface Plant extends PlantNamedElement, ImageOwner {
 	EList<Action> getAllActions();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<SpecialUses> getAllSpecialUses();
+
+	/**
 	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
 	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Action}.
 	 * <!-- begin-user-doc -->

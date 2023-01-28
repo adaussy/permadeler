@@ -1293,6 +1293,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPlant__GetAllSpecialUses() {
+		return plantEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProduction() {
 		return productionEClass;
 	}
@@ -2033,6 +2042,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(plantEClass, PLANT___GET_DEFAULT_REPRESENTATION_KIND);
 		createEOperation(plantEClass, PLANT___GET_REPRESENTATION);
 		createEOperation(plantEClass, PLANT___GET_ALL_ACTIONS);
+		createEOperation(plantEClass, PLANT___GET_ALL_SPECIAL_USES);
 
 		productionEClass = createEClass(PRODUCTION);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
@@ -2402,6 +2412,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEOperation(getPlant__GetAllActions(), this.getAction(), "getAllActions", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
+
+		initEOperation(getPlant__GetAllSpecialUses(), this.getSpecialUses(), "getAllSpecialUses", 0, -1, //$NON-NLS-1$
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);

@@ -3,6 +3,7 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 import org.eclipse.emf.common.util.EList;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
+import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 
 public class SpeciesCustomImpl extends SpeciesImpl {
 	@Override
@@ -22,5 +23,10 @@ public class SpeciesCustomImpl extends SpeciesImpl {
 	@Override
 	public EList<Action> getAllActions() {
 		return getActions();
+	}
+
+	@Override
+	public EList<SpecialUses> getAllSpecialUses() {
+		return getSpecialUses();
 	}
 }

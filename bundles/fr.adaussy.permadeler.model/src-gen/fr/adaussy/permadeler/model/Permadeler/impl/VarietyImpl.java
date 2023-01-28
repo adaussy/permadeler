@@ -17,6 +17,7 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
+import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
 
@@ -289,6 +290,17 @@ public class VarietyImpl extends PlantNamedElementImpl implements Variety {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SpecialUses> getAllSpecialUses() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Production> getProductions() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -504,6 +516,8 @@ public class VarietyImpl extends PlantNamedElementImpl implements Variety {
 				return getRepresentation();
 			case PermadelerPackage.VARIETY___GET_ALL_ACTIONS:
 				return getAllActions();
+			case PermadelerPackage.VARIETY___GET_ALL_SPECIAL_USES:
+				return getAllSpecialUses();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

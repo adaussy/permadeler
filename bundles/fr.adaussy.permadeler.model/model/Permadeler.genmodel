@@ -897,6 +897,7 @@
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getDefaultRepresentationKind"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getRepresentation"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getAllActions"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Plant/getAllSpecialUses"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Production">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/type"/>

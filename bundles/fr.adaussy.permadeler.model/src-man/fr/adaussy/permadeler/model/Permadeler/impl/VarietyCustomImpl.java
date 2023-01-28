@@ -7,6 +7,7 @@ import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
+import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 
 public class VarietyCustomImpl extends VarietyImpl {
 
@@ -56,5 +57,10 @@ public class VarietyCustomImpl extends VarietyImpl {
 
 	private boolean containSameCustomAction(Action action) {
 		return getActions().stream().anyMatch(p -> p.getType() == action.getType());
+	}
+
+	@Override
+	public EList<SpecialUses> getAllSpecialUses() {
+		return getSpecies().getSpecialUses();
 	}
 }
