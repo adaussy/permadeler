@@ -1,7 +1,4 @@
-target "Build target plateform"
-environment JavaSE-17
-with  requirements source
-
+target "Build target plateform" environment JavaSE-17 with requirements source
 
 maven Compile scope=compile,test dependencyDepth=direct missingManifest=generate includeSources {
 	dependency {
@@ -49,24 +46,27 @@ location "https://download.eclipse.org/sirius/updates/releases/7.0.5/2021-06/" {
 
 
 location Orbit-202203 "https://download.eclipse.org/tools/orbit/downloads/drops/R20220302172233/repository/" {
-    org.apache.log4j lazy
-    org.jsoup lazy
-    org.apache.commons.lang lazy
-    org.easymock lazy
-    org.hamcrest.library lazy
-    org.junit [4.11.0,5.0.0)
-    org.slf4j.api [1.7.2,1.7.3)
-    ch.qos.logback.slf4j [1.0.7,1.0.8)
-    ch.qos.logback.classic [1.0.7,1.0.8)
-    ch.qos.logback.core [1.0.7,1.0.8)
-    org.apache.xalan 2.7.1
-    org.antlr.runtime [4.7.1,4.7.2)
-    org.apache.batik.ext [1.14.0,1.14.1)
-    org.apache.batik.codec [1.14.0,1.14.1)
-    org.apache.batik.bridge [1.14.0,1.14.1)
-    org.apache.batik.script [1.14.0,1.14.1)
-    org.apache.poi lazy
-    org.apache.poi.ooxml lazy
+	org.apache.log4j lazy
+	org.jsoup lazy
+	org.apache.commons.lang lazy
+	org.easymock lazy
+	org.hamcrest.library lazy
+	org.junit [4.11.0,5.0.0)
+	org.slf4j.api [1.7.2,1.7.3)
+	ch.qos.logback.slf4j [1.0.7,1.0.8)
+	ch.qos.logback.classic [1.0.7,1.0.8)
+	ch.qos.logback.core [1.0.7,1.0.8)
+	org.apache.xalan 2.7.1
+	org.antlr.runtime [4.7.1,4.7.2)
+	org.apache.batik.ext [1.14.0,1.14.1)
+	org.apache.batik.codec [1.14.0,1.14.1)
+	org.apache.batik.bridge [1.14.0,1.14.1)
+	org.apache.batik.script [1.14.0,1.14.1)
+	org.apache.poi.ooxml lazy
+	org.apache.poi.ooxml.schemas lazy
+	org.apache.poi lazy
+	org.apache.xmlbeans lazy
+	
 }
 
 location "http://download.eclipse.org/nebula/snapshot" {
