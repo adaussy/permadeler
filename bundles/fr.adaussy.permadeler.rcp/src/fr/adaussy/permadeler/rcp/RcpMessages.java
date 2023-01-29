@@ -69,6 +69,8 @@ public class RcpMessages extends NLS {
 
 	public static String GenerateProductionSpreadsheetMenu_9;
 
+	public static String SpreadsheetExtractFactorys_30;
+
 	public static String ImageSelectionDialog_0;
 
 	public static String ImageSelectionDialog_1;

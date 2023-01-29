@@ -26,6 +26,8 @@ import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.Permadeler.ProductionType;
+import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
@@ -33,7 +35,7 @@ import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 import fr.adaussy.permadeler.rcp.internal.spreadsheet.SpreadsheetExtractFactorys;
 import fr.adaussy.permadeler.rcp.internal.spreadsheet.SpreadsheetWriter;
 
-public class GenerateProductionSpreadsheetMenu {
+public class GenerateHoneyPlantProductionSpreadsheetMenu {
 
 	private static final String REPORTS = "reports"; //$NON-NLS-1$
 
@@ -45,8 +47,10 @@ public class GenerateProductionSpreadsheetMenu {
 			return zones.stream()//
 					.flatMap(z -> getPhases(z, shell))//
 					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
-					.filter(p -> p.getType() != null)//
+					.filter(p -> p.getType() != null
+							&& p.getType().getAllSpecialUses().contains(SpecialUses.HONEY_PLANT))//
 					.flatMap(p -> p.getType().getProductions().stream()
+							.filter(pr -> pr.getType() == ProductionType.FLOWER)
 							.map(prod -> Tuples.pair(p.getType(), prod)))//
 					.distinct()//
 					.sorted(Comparator.comparing(pair -> pair.getOne().getName()))//
@@ -63,9 +67,9 @@ public class GenerateProductionSpreadsheetMenu {
 				.<Pair<Plant, Production>> builder()//
 				.withCandidatesProdvider(() -> provideCandidates(session, shell))//
 				.withTargetFolder(session.getRootFolder().resolve(REPORTS))//
-				.withNameProvider(() -> "Plantation-productions")// //$NON-NLS-1$
+				.withNameProvider(() -> "HoneyPlant-flower-productions")// //$NON-NLS-1$
 				.withShellSupplier(() -> shell)//
-				.withExtractors(SpreadsheetExtractFactorys.buildAllProductionExtractor())//
+				.withExtractors(SpreadsheetExtractFactorys.buildHoneyPlantProductionExtractor())//
 				.build();
 
 		sWriter.writte(true);
