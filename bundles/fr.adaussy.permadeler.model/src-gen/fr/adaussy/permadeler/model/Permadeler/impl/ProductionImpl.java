@@ -84,7 +84,7 @@ public class ProductionImpl extends TemporalItemCustomImpl implements Production
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean EATABLE_EDEFAULT = true;
+	protected static final boolean EATABLE_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #isEatable() <em>Eatable</em>}' attribute.

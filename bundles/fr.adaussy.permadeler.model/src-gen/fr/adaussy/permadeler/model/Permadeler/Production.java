@@ -81,13 +81,13 @@ public interface Production extends TemporalItem {
 
 	/**
 	 * Returns the value of the '<em><b>Eatable</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Eatable</em>' attribute.
 	 * @see #setEatable(boolean)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getProduction_Eatable()
-	 * @model default="true"
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isEatable();

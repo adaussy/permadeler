@@ -2424,7 +2424,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getProduction_Conservation(), ecorePackage.getEInt(), "conservation", null, 0, 1, //$NON-NLS-1$
 				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProduction_Eatable(), ecorePackage.getEBoolean(), "eatable", "true", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
+		initEAttribute(getProduction_Eatable(), ecorePackage.getEBoolean(), "eatable", "false", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
 				Production.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

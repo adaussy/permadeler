@@ -5,7 +5,7 @@
     <semanticResources>model/Permadeler.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_N9pT0GzhEe2Lrvdw5DphlQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Q4RR4GzhEe2Lrvdw5DphlQ" name="Plante types" repPath="#_Q39I0GzhEe2Lrvdw5DphlQ" changeId="1d7a8c62-534a-4cb0-8ace-224cba017eaf">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Q4RR4GzhEe2Lrvdw5DphlQ" name="Plante types" repPath="#_Q39I0GzhEe2Lrvdw5DphlQ" changeId="46f0a199-a2cc-4a2f-9846-3127a20a202c">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/Permadeler.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1092,7 +1092,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_5IqTkIuNEe2KEoGPHF1GxA" name="eatable : EBoolean = true" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_5IqTkIuNEe2KEoGPHF1GxA" name="eatable : EBoolean = false" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model/Permadeler.ecore#//Production/eatable"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model/Permadeler.ecore#//Production/eatable"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_6SqolouNEe2KEoGPHF1GxA" labelAlignment="LEFT">
