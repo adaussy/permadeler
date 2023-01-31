@@ -11,6 +11,7 @@ package fr.adaussy.permadeler.rcp.internal.dialogs;
 
 import static java.util.stream.Collectors.toList;
 
+import java.text.DateFormatSymbols;
 import java.text.MessageFormat;
 import java.time.Month;
 import java.util.ArrayList;
@@ -67,11 +68,13 @@ public class MonthWeekDialog extends MessageDialog {
 		monthWeekHeaderLabel.setText(RcpMessages.MonthWeekDialog_4);
 		monthWeekHeaderLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 		Month[] values = Month.values();
+		String[] months = new DateFormatSymbols().getShortMonths();
+
 		for (final Month m : values) {
 			final int monthNb = m.ordinal() + 1;
 			final Button monthLabel = new Button(this.cc, SWT.TOGGLE);
 			monthLabel.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-			monthLabel.setText(m.toString());
+			monthLabel.setText(months[m.ordinal()]);
 
 			List<Integer> matchingWeek = MonthService.getMonthWeeks(monthNb).boxed().collect(toList());
 			monthLabel.addSelectionListener(new SelectionAdapter() {

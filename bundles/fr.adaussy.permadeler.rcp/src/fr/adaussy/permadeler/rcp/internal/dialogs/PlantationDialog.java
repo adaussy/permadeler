@@ -23,6 +23,7 @@ import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.internal.utils.Dialogs;
+import fr.adaussy.permadeler.rcp.services.LabelService;
 
 /**
  * Dialog used to select a plantation
@@ -51,12 +52,12 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 				v -> {
 					this.layer = (Layer)v;
 					updateButtons();
-				});
+				}, e -> LabelService.getEditLabel(e));
 		preKingWidget = Dialogs.createEnumEntry(parent, "Representation graphique", //$NON-NLS-1$
 				RepresentationKind.values(), representationKind, v -> {
 					this.representationKind = (RepresentationKind)v;
 					updateButtons();
-				});
+				}, e -> LabelService.getEditLabel(e));
 
 	}
 
