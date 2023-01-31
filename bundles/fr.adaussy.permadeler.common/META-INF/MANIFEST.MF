@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Permadeler Common
 Bundle-SymbolicName: fr.adaussy.permadeler.common
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Automatic-Module-Name: fr.adaussy.permadeler.common
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: fr.adaussy.permadeler.common,

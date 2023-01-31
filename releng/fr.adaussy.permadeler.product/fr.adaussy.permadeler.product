@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Permadeler product" uid="fr.adaussy.permadeler.product" id="fr.adaussy.permadeler.branding.product" application="fr.adaussy.permadeler.branding.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
+<product name="Permadeler product" uid="fr.adaussy.permadeler.product" id="fr.adaussy.permadeler.branding.product" application="fr.adaussy.permadeler.branding.application" version="0.2.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
 
    <configIni use="default">
    </configIni>
