@@ -1,0 +1,159 @@
+= Modèle de donnée
+:imgdir-pages: ./imgs
+:edit-icon-path: ./../../../../bundles/fr.adaussy.permadeler.model.edit/icons
+:imagesdir: {imgdir-pages}
+:data-uri:
+
+Cette documentation à pour but de founir des information sur les utilisés dans _Permadeler_.
+
+Les diférents concepts sont classé dans 
+
+* _Knowledgebase_ : La base de connassaince contient toutes les connaissances utilisé dans un projet
+* _Zone_ : Une zone contient les information sur une zone géographique de plantation. Elle contient aussi tout les <<Plantation>> de cette <<Zone>>.
+
+== Metamodel
+
+image::Plant Organisation.jpg[Plantation Metamodel]
+
+[#KnowledgeBase]
+=== image:{edit-icon-path}/custo/bookmarks_view.png[] La base de connaissance
+
+
+Dans cette section nous allons traités de tous les éléménts contenue dans une la base de connaissance.
+
+[#Plant]
+==== Plant
+
+Une plante est un élement qui peut être planté dans une <<Zone>> est plus spécifiquement lors d'une <<PlantationPhase, phase de plantation>>.
+
+Est à:
+
+* Un nom commun principale
+* Un ou plusieurs autre nom commun
+* Un nom latin
+* Une icone (utilisé pour la representation dans l'abre ou dans un schéma de plantation)
+* Une representation : Image utilisé  pour la representation en houpier
+* Un nom court. Celui-ci sera utilisé pour générer les identifiant des plantations future.
+
+[#Species]
+==== image:{edit-icon-path}/custo/commons/species.png[] Espece
+
+Une espece, est une <<Plante,plante>> qui contient:
+
+* Des caractéristiques (voir ci-dessous)
+* Des <<Production>>s
+* Des <<Action>>s
+* Des <<Variety,Varieté>>s
+
+Les caractéristiques d'une espère sont:
+
+* Espece : Nom latin de l'espece
+* Genre : Nom latin du genre de l'espece
+* Famille : Famille de l'espece
+* Un cycle de vie (Annuel, Vivace, Bi-Annuel)
+* Un type racinaire (pivot, traçant , mixte, faciculé)
+* Un type de feuillage (caduc, persistance etc...)
+* Une tolerance à la sécheresse
+* L'ombrage du feuillage
+* Des conditions d'ensoleillement optimum
+* Des conditionsd'ensoleillement tolérées
+* Les bénéfices de l'espèces (mélifère, fixatrice d'azote etc..)
+* La taille (Hauteur et Largeur)
+* Le rapidité de croissance
+* La strate naturelle (par defaut) de cette espece dans la foret jardin
+* Le type de representation a utilisé par défaut (Icone vs Houpier)
+
+
+
+
+[#Variety]
+=== image:{edit-icon-path}/custo/commons/plant.png[] Varieté
+
+Une variété est aussi un <<Plant,plante>> mais qui est une spécialisation d'une espece.
+Elle herite de la majorité des caractéristiques d'une <<Species, Espece>> mais peut avoir ses propres:
+
+* <<Production>>
+* <<Action>>
+* Icone et representation
+
+Le but d'une varité est de pouvoir tracer les les variété de chaque plantation mais surtout de pouvoir affiné les périodes de <<Production>> et d'<<Action>>.
+Pour cela il suffit de créer une nouvelle <<Production>> ou <<Action>> du même _type_ que celle définit dans l'espece parente.
+Cette nouvelle <<Production>> ou <<Action>> prend alors la place de la production parente.
+
+[#Production]
+=== image:{edit-icon-path}/custo/commons/production.png[] Production
+
+
+Une production represents quelquechose que la <<Plant,plante>> produit (fleur, fruit, graine, bois etc...).
+La production à:
+
+* Un nom (optionel)
+* Un description (optionel)
+* Une période de production
+* Un type de production :
+** Fleur
+** Fruit
+** Bois
+** Feuille
+** Jeunes Pousses
+** Sève
+** Bourgeons Apical
+** Graine
+** Pollen
+** Nectar
+** Tige Ecore Interne
+** Huile
+** Racine
+** Bois
+
+
+L'unité pour décrire une période est le quart de moi (ou la globalement la semaine).
+Ainsi tous les mois sont decomposé en quatre semaines.
+Chaque semaine pouvant être utilisé pour la production.
+
+Par exemple, il possible de dire qu'un pommier va produire des pommes seulement les 3e et 4e semaine de Julliet
+
+[#Action]
+=== image:{edit-icon-path}/custo/commons/action.png[] Action
+
+Un action represent une action qui peut ou doit être réalisé sur la <<Plant,plante>>.
+Les types d'actions possible sont:
+
+* image:{edit-icon-path}/custo/commons/calendar-sow.png[] Semi intérieur
+* image:{edit-icon-path}/custo/commons/calendar-sow.png[] Semi extérieur
+* image:{edit-icon-path}/custo/commons/multipication.png[] Multiplication
+* image:{edit-icon-path}/custo/commons/pruning.png[]  Taille
+* image:{edit-icon-path}/custo/commons/harvest.png[]  Recolte
+* image:{edit-icon-path}/custo/commons/action.png[]  Autre
+
+Comme pour les <<Production,productions>>, les Action sont lié une période. 
+
+[#Zone]
+== Zone
+
+Une zone représente un zone géographique.
+Elle est défini par des caractériques et contient les <<Plantation,plantations>> dans différentes <<PlantationPhase,Phase de Plantation>>
+
+[#PlantationPhase]
+=== Phase de plantation
+
+Une phase de plantation represent l'état des <<Plantation,plantations>> d'une zone à un moment donnée.
+Elle peut être utilisé pour représenté l'état d'une zone au moment présent ou l'état d'une zone aprés plusieurs années.
+
+WARN: Pour le moment ce concept est assez peu utilisé pour representé des variations de plantation.
+Nous recommendons de ne garder qu'une phase de plantation par zone pour le moment.
+Celle-ci representant l'état courrant d'une zone.
+Dans de futures version nous souhaitons utilisé se concept pour prévoir l'évolution d'une plantation.
+
+[#Plantation]
+=== Plantation
+
+Une plantation représente un plantation dans le monde réel.
+Elle peut représenter une plantation d'une <<Species,espece>> ou d'une <<Variety,variété>>.
+
+Elle est définit par:
+
+* Une date de plantation
+* Un id (unique)
+* Une description
+* Un porte greffe (optionel)

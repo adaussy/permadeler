@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2023 Arthur Daussy.
+  This program and the accompanying materials are made 
+  available under the terms of the Eclipse Public License 2.0 
+  which is available at https://www.eclipse.org/legal/epl-2.0/ 
+  Contributors:
+  Arthur Daussy - initial API and implementation.
+-->
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>fr.adaussy.permadeler</groupId>
+	<artifactId>fr.adaussy.permadeler.doc</artifactId>
+	<version>0.2.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<output.documentation.target>${product-local-path}/documentation/</output.documentation.target>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>output-html</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<relativeBaseDir>true</relativeBaseDir>
+					<resources>
+					<resource>
+						<directory>.</directory>
+						<includes>
+						<include>**/*.bmp</include>
+						<include>**/*.jpg</include>
+						<include>**/*.jpeg</include>
+						<include>**/*.gif</include>
+						<include>**/*.png</include>
+						</includes>
+					</resource>
+					</resources>
+					<preserveDirectories>true</preserveDirectories>
+					<backend>html</backend>
+					<sourceDirectory>${basedir}</sourceDirectory>
+					<attributes>
+						<imgdir-pages>${basedir}/pages/imgs</imgdir-pages>
+						<edit-icon-path>${basedir}/../../bundles/fr.adaussy.permadeler.model.edit/icons</edit-icon-path>
+					</attributes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

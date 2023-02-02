@@ -51,6 +51,7 @@
 	<modules>
 		<module>releng/fr.adaussy.permadeler.parent</module>
 
+		<module>doc/user</module>
 		<!-- Plugins -->
 		<module>bundles/fr.adaussy.permadeler.branding</module>
 		<module>bundles/fr.adaussy.permadeler.common</module>
@@ -62,6 +63,7 @@
 		<module>bundles/fr.adaussy.permadeler.rcp</module>
 		<module>bundles/fr.adaussy.permadeler.rcp.tests</module>
 		<module>bundles/fr.adaussy.permadeler.test.common</module>
+		
 
 	</modules>
 

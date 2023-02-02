@@ -1,0 +1,5 @@
+# Documentation utilisateur
+
+Ce document vise a donner des éléments sur l'utilisation du produit _Permadeler_.
+
+* <<pages/ModelDonnee.adoc#,Les éléments d'un projet Permadeler>>
