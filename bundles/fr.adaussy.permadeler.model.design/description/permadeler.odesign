@@ -241,7 +241,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <metamodels href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
     <categories name="Default Category">
-      <pages name="PlantNamedElement" labelExpression="Plant" domainClass="Permadeler::PlantNamedElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1">
+      <pages name="PlantPage" labelExpression="Plant" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1">
         <actions imageExpression="/fr.adaussy.permadeler.model.design/img/image.gif">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -298,12 +298,7 @@
         <actions tooltipExpression="Créer une nouvelle production" imageExpression="/fr.adaussy.permadeler.model.design/img/add_obj.png">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(Permadeler::Species)">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Production" referenceName="productions"/>
-              </subModelOperations>
-              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(Permadeler::Variety)">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Production" referenceName="customProductions"/>
-              </subModelOperations>
+              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Production" referenceName="productions"/>
             </firstModelOperations>
           </initialOperation>
         </actions>
@@ -347,7 +342,7 @@
           </initialOperation>
         </actions>
       </groups>
-      <groups name="Species_Latin_Group" labelExpression="Name" domainClass="Permadeler::Species" semanticCandidateExpression="var:self">
+      <groups name="Species_Latin_Group" labelExpression="Nom Latin" domainClass="Permadeler::Species" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
           <initialOperation/>
         </controls>
@@ -364,13 +359,8 @@
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
-        <controls xsi:type="properties:SelectDescription" name="Familly" labelExpression="Famille" valueExpression="aql:self.eClass().getEStructuralFeature('family').eType.getEEnumLiteralByLiteral(self.family.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('family').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="family" valueExpression="aql:newValue.instance"/>
-          </initialOperation>
-        </controls>
       </groups>
-      <groups name="Variety_Latin_Group" labelExpression="Name" domainClass="Permadeler::Variety" semanticCandidateExpression="var:self">
+      <groups name="Variety_Latin_Group" labelExpression="Nom Latin" domainClass="Permadeler::Variety" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
           <initialOperation/>
         </controls>
@@ -380,8 +370,8 @@
           </initialOperation>
         </controls>
       </groups>
-      <groups name="PlanteNamedElement_Group" labelExpression="Name" domainClass="Permadeler::PlantNamedElement" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="PlantNamedElement_Name" labelExpression="Nom" helpExpression="Nom de la plante (Utilisé des Majuscule comme première lettre de chaque mot)" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+      <groups name="Plante_Group" labelExpression="Nom de plante" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="Plant_Name" labelExpression="Nom" helpExpression="Nom de la plante (Utilisé des Majuscule comme première lettre de chaque mot)" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
               <subModelOperations xsi:type="tool_1:Let" variableName="updateShortName" valueExpression="aql:self.shortName = null or self.generateShortName() = self.shortName"/>
@@ -397,7 +387,7 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:TextDescription" name="Permadeler::PlantNamedElement shortName" labelExpression="Nom court" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('shortName'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('shortName').changeable" valueExpression="aql:self.shortName">
+        <controls xsi:type="properties:TextDescription" name="Permadeler::Plant shortName" labelExpression="Nom court" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('shortName'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('shortName').changeable" valueExpression="aql:self.shortName">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="shortName" valueExpression="var:newValue"/>
           </initialOperation>
@@ -419,12 +409,12 @@
             </style>
           </conditionalStyles>
         </controls>
-        <controls xsi:type="properties:ButtonDescription" name="PlantNamedElement_IconKey" labelExpression="Icon :" buttonLabelExpression="aql:self.iconKey">
+        <controls xsi:type="properties:ButtonDescription" name="Plant_IconKey" labelExpression="Icon :" buttonLabelExpression="aql:self.iconKey">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.selectImage()"/>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ButtonDescription" name="PlantNamedElement_RepresentationKey" labelExpression="Representation image" buttonLabelExpression="aql:self.representationKey">
+        <controls xsi:type="properties:ButtonDescription" name="Plant_RepresentationKey" labelExpression="Representation image" buttonLabelExpression="aql:self.representationKey">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.selectRepresentation()"/>
           </initialOperation>
@@ -512,7 +502,12 @@
           </controls>
         </controls>
       </groups>
-      <groups name="SpeciesShapeGroup" labelExpression="Charactéristiques de la plante" domainClass="Permadeler::Species" semanticCandidateExpression="var:self">
+      <groups name="SpeciesCaractGroup" labelExpression="Charactéristiques de la plante" domainClass="Permadeler::Species" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:SelectDescription" name="Familly" labelExpression="Famille" valueExpression="aql:self.eClass().getEStructuralFeature('family').eType.getEEnumLiteralByLiteral(self.family.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('family').eType.eLiterals" candidateDisplayExpression="aql:candidate.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="family" valueExpression="aql:newValue.instance"/>
+          </initialOperation>
+        </controls>
         <controls xsi:type="properties:RadioDescription" name="Permadeler::Species defaultLayer" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('defaultLayer')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('defaultLayer'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('defaultLayer').changeable" valueExpression="aql:self.eClass().getEStructuralFeature('defaultLayer').eType.getEEnumLiteralByLiteral(self.defaultLayer.toString())" candidatesExpression="aql:self.eClass().getEStructuralFeature('defaultLayer').eType.eLiterals" candidateDisplayExpression="aql:candidate.getEditLabel()" numberOfColumns="5">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="defaultLayer" valueExpression="aql:newValue.instance"/>
@@ -700,7 +695,7 @@
           </initialOperation>
         </actions>
       </groups>
-      <groups name="ProductionGroup" labelExpression="aql:self.getLabelProviderText()" domainClass="Permadeler::Production" semanticCandidateExpression="aql:self.getProductions()">
+      <groups name="ProductionGroup" labelExpression="aql:self.getLabelProviderText()" domainClass="Permadeler::Production" semanticCandidateExpression="aql:self.getProductionsToDisplay()">
         <controls xsi:type="properties:TextDescription" name="Permadeler::Action name" labelExpression="aql:input.emfEditServices(self).getText(self.eClass().getEStructuralFeature('name')) + ':'" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
@@ -794,7 +789,7 @@
         </controls>
       </groups>
       <groups name="ProductionsGroup" labelExpression="Productions" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:ListDescription" name="PlantProductionsWidget" labelExpression="Productions" valueExpression="aql:self.getProductions()" displayExpression="aql:value.getLabelProviderText()">
+        <controls xsi:type="properties:ListDescription" name="PlantProductionsWidget" labelExpression="Productions" valueExpression="aql:self.getProductionsToDisplay()" displayExpression="aql:value.getLabelProviderText()">
           <onClickOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>

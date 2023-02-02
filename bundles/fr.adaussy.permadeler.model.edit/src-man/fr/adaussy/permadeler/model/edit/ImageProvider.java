@@ -36,7 +36,6 @@ import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
@@ -319,21 +318,21 @@ public final class ImageProvider {
 	 * Gets the representation key the given species (defined either by {@link Species#getIconKey()} or by one
 	 * of its ancestor genus)
 	 * 
-	 * @param plantNamedElement
+	 * @param plant
 	 *            a {@link Species}
 	 * @return a key (or <code>null</code>)
 	 */
-	private String getRepKey(PlantNamedElement plantNamedElement) {
-		if (plantNamedElement == null) {
+	private String getRepKey(Plant plant) {
+		if (plant == null) {
 			return null;
 		}
-		String iconKey = plantNamedElement.getIconKey();
-		if (iconKey == null && plantNamedElement.eContainer() instanceof PlantNamedElement) {
-			iconKey = getRepKey((PlantNamedElement)plantNamedElement.eContainer());
+		String iconKey = plant.getIconKey();
+		if (iconKey == null && plant.eContainer() instanceof Plant) {
+			iconKey = getRepKey((Plant)plant.eContainer());
 		}
 
-		if (iconKey == null && plantNamedElement instanceof Variety) {
-			return getRepKey(((Variety)plantNamedElement).getSpecies());
+		if (iconKey == null && plant instanceof Variety) {
+			return getRepKey(((Variety)plant).getSpecies());
 		}
 		return iconKey;
 	}

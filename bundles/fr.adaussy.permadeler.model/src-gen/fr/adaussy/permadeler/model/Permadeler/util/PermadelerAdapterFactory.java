@@ -105,11 +105,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePlantNamedElement(PlantNamedElement object) {
-			return createPlantNamedElementAdapter();
-		}
-
-		@Override
 		public Adapter caseImage(Image object) {
 			return createImageAdapter();
 		}
@@ -329,20 +324,6 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPlantationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.PlantNamedElement <em>Plant Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PlantNamedElement
-	 * @generated
-	 */
-	public Adapter createPlantNamedElementAdapter() {
 		return null;
 	}
 

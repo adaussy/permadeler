@@ -15,8 +15,8 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
+
 import java.time.Instant;
 
 import java.util.Collection;

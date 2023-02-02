@@ -13,7 +13,6 @@ package fr.adaussy.permadeler.model.utils;
 import java.util.Comparator;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 
 /**
@@ -36,8 +35,8 @@ public class Comparators {
 				}
 			}));
 
-	public static <T extends PlantNamedElement> Comparator<T> buildComparator() {
-		return Comparator.nullsLast(Comparator.<PlantNamedElement, String> comparing(s -> {
+	public static <T extends Plant> Comparator<T> buildComparator() {
+		return Comparator.nullsLast(Comparator.<Plant, String> comparing(s -> {
 			if (s == null || s.getName() == null) {
 				return ""; //$NON-NLS-1$
 			} else {

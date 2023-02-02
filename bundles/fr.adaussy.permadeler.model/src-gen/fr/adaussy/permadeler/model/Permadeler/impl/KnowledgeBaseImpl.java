@@ -13,9 +13,10 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-
 import fr.adaussy.permadeler.model.Permadeler.Species;
+
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;

@@ -55,10 +55,11 @@ public enum FoliageType implements Enumerator {
 	 * @ordered
 	 */
 	DECIDUOUS(2, "Deciduous", "Deciduous"), //$NON-NLS-1$ //$NON-NLS-2$
+
 	/**
 	 * The '<em><b>Semi Evergreen</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #SEMI_EVERGREEN_VALUE
 	 * @generated
 	 * @ordered

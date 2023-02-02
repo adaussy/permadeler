@@ -17,15 +17,15 @@ public class VarietyCustomImpl extends VarietyImpl {
 	}
 
 	@Override
-	public EList<Production> getProductions() {
-		EList<Production> customProduction = ECollections.newBasicEList(getCustomProductions());
+	public EList<Production> getAllProductions() {
+		EList<Production> customProduction = ECollections.newBasicEList(getProductions());
 		getSpecies().getProductions().stream().filter(p -> !containSameCustomProd(p))
 				.forEach(customProduction::add);
 		return customProduction;
 	}
 
 	private boolean containSameCustomProd(Production prod) {
-		return getCustomProductions().stream().anyMatch(p -> p.getType() == prod.getType());
+		return getProductions().stream().anyMatch(p -> p.getType() == prod.getType());
 	}
 
 	@Override

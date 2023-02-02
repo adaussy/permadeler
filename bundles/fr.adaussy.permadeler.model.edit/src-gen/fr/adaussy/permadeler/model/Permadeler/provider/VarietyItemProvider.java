@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VarietyItemProvider extends PlantNamedElementItemProviderCustomImpl {
+public class VarietyItemProvider extends ImageOwnerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -54,10 +54,129 @@ public class VarietyItemProvider extends PlantNamedElementItemProviderCustomImpl
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addReferencesPropertyDescriptor(object);
+			addIconKeyPropertyDescriptor(object);
+			addCommonNamesPropertyDescriptor(object);
+			addRepresentationKeyPropertyDescriptor(object);
+			addShortNamePropertyDescriptor(object);
 			addSpeciesPropertyDescriptor(object);
 			addVarietyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_NamedElement_name_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_NamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_NamedElement_description_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_description_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_NamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.NAMED_ELEMENT__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ReferencingElement_references_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReferencingElement_references_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_ReferencingElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.REFERENCING_ELEMENT__REFERENCES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Icon Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIconKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_iconKey_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_iconKey_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__ICON_KEY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Common Names feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommonNamesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_commonNames_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_commonNames_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__COMMON_NAMES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Representation Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepresentationKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_representationKey_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_representationKey_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__REPRESENTATION_KEY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Short Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShortNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_shortName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_shortName_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__SHORT_NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -103,9 +222,8 @@ public class VarietyItemProvider extends PlantNamedElementItemProviderCustomImpl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.IMAGE_OWNER__IMAGES);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANT__ACTIONS);
-			childrenFeatures.add(PermadelerPackage.Literals.VARIETY__CUSTOM_PRODUCTIONS);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT__PRODUCTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -169,13 +287,19 @@ public class VarietyItemProvider extends PlantNamedElementItemProviderCustomImpl
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Variety.class)) {
+			case PermadelerPackage.VARIETY__NAME:
+			case PermadelerPackage.VARIETY__DESCRIPTION:
+			case PermadelerPackage.VARIETY__REFERENCES:
+			case PermadelerPackage.VARIETY__ICON_KEY:
+			case PermadelerPackage.VARIETY__COMMON_NAMES:
+			case PermadelerPackage.VARIETY__REPRESENTATION_KEY:
+			case PermadelerPackage.VARIETY__SHORT_NAME:
 			case PermadelerPackage.VARIETY__VARIETY:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PermadelerPackage.VARIETY__IMAGES:
 			case PermadelerPackage.VARIETY__ACTIONS:
-			case PermadelerPackage.VARIETY__CUSTOM_PRODUCTIONS:
+			case PermadelerPackage.VARIETY__PRODUCTIONS:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -194,13 +318,10 @@ public class VarietyItemProvider extends PlantNamedElementItemProviderCustomImpl
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.IMAGE_OWNER__IMAGES,
-				PermadelerFactory.eINSTANCE.createImage()));
-
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__ACTIONS,
 				PermadelerFactory.eINSTANCE.createAction()));
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.VARIETY__CUSTOM_PRODUCTIONS,
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__PRODUCTIONS,
 				PermadelerFactory.eINSTANCE.createProduction()));
 	}
 

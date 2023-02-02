@@ -118,17 +118,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = defaultCase(theEObject);
 				return result;
 			}
-			case PermadelerPackage.PLANT_NAMED_ELEMENT: {
-				PlantNamedElement plantNamedElement = (PlantNamedElement)theEObject;
-				T result = casePlantNamedElement(plantNamedElement);
-				if (result == null)
-					result = caseNamedElement(plantNamedElement);
-				if (result == null)
-					result = caseReferencingElement(plantNamedElement);
-				if (result == null)
-					result = defaultCase(theEObject);
-				return result;
-			}
 			case PermadelerPackage.IMAGE: {
 				Image image = (Image)theEObject;
 				T result = caseImage(image);
@@ -250,8 +239,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				Plant plant = (Plant)theEObject;
 				T result = casePlant(plant);
 				if (result == null)
-					result = casePlantNamedElement(plant);
-				if (result == null)
 					result = caseImageOwner(plant);
 				if (result == null)
 					result = caseNamedElement(plant);
@@ -321,8 +308,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = casePlant(species);
 				if (result == null)
-					result = casePlantNamedElement(species);
-				if (result == null)
 					result = caseImageOwner(species);
 				if (result == null)
 					result = caseNamedElement(species);
@@ -337,8 +322,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				T result = caseVariety(variety);
 				if (result == null)
 					result = casePlant(variety);
-				if (result == null)
-					result = casePlantNamedElement(variety);
 				if (result == null)
 					result = caseImageOwner(variety);
 				if (result == null)
@@ -441,21 +424,6 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePlantation(Plantation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Plant Named Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Plant Named Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePlantNamedElement(PlantNamedElement object) {
 		return null;
 	}
 

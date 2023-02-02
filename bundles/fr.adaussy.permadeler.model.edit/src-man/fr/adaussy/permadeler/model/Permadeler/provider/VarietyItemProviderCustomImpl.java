@@ -13,7 +13,7 @@ package fr.adaussy.permadeler.model.Permadeler.provider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.edit.TextHelper;
 
@@ -30,7 +30,7 @@ public class VarietyItemProviderCustomImpl extends VarietyItemProvider {
 
 	@Override
 	public String getText(Object object) {
-		return TextHelper.getLabel((PlantNamedElement)object);
+		return TextHelper.getLabel((Plant)object);
 	}
 
 }

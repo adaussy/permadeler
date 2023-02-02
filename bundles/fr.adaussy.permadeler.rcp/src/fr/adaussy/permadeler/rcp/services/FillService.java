@@ -46,7 +46,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import fr.adaussy.permadeler.model.Permadeler.Image;
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.dialogs.ImageSelectionDialog;
@@ -117,12 +117,12 @@ public final class FillService {
 	}
 
 	/**
-	 * Select an image for the given {@link PlantNamedElement}
+	 * Select an image for the given {@link Plant}
 	 * 
 	 * @param e
 	 *            an element
 	 */
-	public static void selectImage(final PlantNamedElement e) {
+	public static void selectImage(final Plant e) {
 		Shell shell = getActiveShell();
 		String iconKey = e.getIconKey();
 		final ImageSelectionDialog dialog = new ImageSelectionDialog(shell, iconKey,
@@ -133,12 +133,12 @@ public final class FillService {
 	}
 
 	/**
-	 * Select an image for the given {@link PlantNamedElement}
+	 * Select an image for the given {@link Plant}
 	 * 
 	 * @param e
 	 *            an element
 	 */
-	public static void selectRepresentation(final PlantNamedElement e) {
+	public static void selectRepresentation(final Plant e) {
 		Shell shell = getActiveShell();
 		String iconKey = e.getIconKey();
 		final ImageSelectionDialog dialog = new ImageSelectionDialog(shell, iconKey, ImageProvider.INSTANCE

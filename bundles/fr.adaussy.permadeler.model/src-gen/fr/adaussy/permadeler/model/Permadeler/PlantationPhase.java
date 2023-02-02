@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Plantation Phase</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A given phase of the plantation
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -46,6 +50,9 @@ public interface PlantationPhase extends NamedElement {
 	 * Returns the value of the '<em><b>Background Image</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Image to be used in the backgroung of all plantation map
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Background Image</em>' containment reference.
 	 * @see #setBackgroundImage(BackgroundImage)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantationPhase_BackgroundImage()

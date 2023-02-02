@@ -74,11 +74,12 @@ public enum ActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MULTIPLICATION(4, "Multiplication", "Multiplication"),
+	MULTIPLICATION(4, "Multiplication", "Multiplication"), //$NON-NLS-1$ //$NON-NLS-2$
+
 	/**
 	 * The '<em><b>Harvest</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #HARVEST_VALUE
 	 * @generated
 	 * @ordered

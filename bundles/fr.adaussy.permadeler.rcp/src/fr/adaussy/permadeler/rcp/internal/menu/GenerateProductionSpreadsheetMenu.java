@@ -46,7 +46,7 @@ public class GenerateProductionSpreadsheetMenu {
 					.flatMap(z -> getPhases(z, shell))//
 					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
 					.filter(p -> p.getType() != null)//
-					.flatMap(p -> p.getType().getProductions().stream()
+					.flatMap(p -> p.getType().getAllProductions().stream()
 							.map(prod -> Tuples.pair(p.getType(), prod)))//
 					.distinct()//
 					.sorted(Comparator.comparing(pair -> pair.getOne().getName()))//

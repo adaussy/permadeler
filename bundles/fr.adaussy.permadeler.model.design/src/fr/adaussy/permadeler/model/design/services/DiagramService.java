@@ -78,7 +78,6 @@ import fr.adaussy.permadeler.model.Permadeler.Event;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
@@ -571,7 +570,7 @@ public class DiagramService {
 		return null;
 	}
 
-	public static String generateShortName(PlantNamedElement plant) {
+	public static String generateShortName(Plant plant) {
 		String name = plant.getName();
 		if (name == null) {
 			return ""; //$NON-NLS-1$

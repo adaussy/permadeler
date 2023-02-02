@@ -21,6 +21,10 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Plantation</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -193,6 +197,9 @@ public interface Plantation extends EObject {
 	 * Returns the value of the '<em><b>Wireframe</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Impact the representation of this plantation in all representations.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Wireframe</em>' attribute.
 	 * @see #setWireframe(boolean)
 	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getPlantation_Wireframe()

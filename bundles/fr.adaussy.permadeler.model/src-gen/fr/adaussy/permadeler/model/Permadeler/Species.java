@@ -40,7 +40,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getSpecialUses <em>Special Uses</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getHeight <em>Height</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getGrowRate <em>Grow Rate</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getDefaultLayer <em>Default Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Species#getDefaultRepresentationKind <em>Default Representation Kind</em>}</li>
  * </ul>
@@ -432,18 +431,6 @@ public interface Species extends Plant {
 	 * @generated
 	 */
 	void setGrowRate(GrowRate value);
-
-	/**
-	 * Returns the value of the '<em><b>Productions</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Production}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Productions</em>' containment reference list.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getSpecies_Productions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Production> getProductions();
 
 	/**
 	 * Returns the value of the '<em><b>Default Layer</b></em>' attribute.

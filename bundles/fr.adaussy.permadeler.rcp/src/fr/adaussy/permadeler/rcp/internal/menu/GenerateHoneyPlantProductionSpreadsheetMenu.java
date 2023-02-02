@@ -49,7 +49,7 @@ public class GenerateHoneyPlantProductionSpreadsheetMenu {
 					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
 					.filter(p -> p.getType() != null
 							&& p.getType().getAllSpecialUses().contains(SpecialUses.HONEY_PLANT))//
-					.flatMap(p -> p.getType().getProductions().stream()
+					.flatMap(p -> p.getType().getAllProductions().stream()
 							.filter(pr -> pr.getType() == ProductionType.FLOWER)
 							.map(prod -> Tuples.pair(p.getType(), prod)))//
 					.distinct()//

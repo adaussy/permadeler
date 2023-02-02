@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Zone</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Geographic zone that will hold Plantation Phase
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

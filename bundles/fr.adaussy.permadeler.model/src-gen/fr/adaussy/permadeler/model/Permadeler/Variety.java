@@ -10,8 +10,6 @@
  */
 package fr.adaussy.permadeler.model.Permadeler;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Variety</b></em>'.
@@ -23,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Variety#getSpecies <em>Species</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Variety#getVariety <em>Variety</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Variety#getCustomProductions <em>Custom Productions</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getVariety()
@@ -76,17 +73,5 @@ public interface Variety extends Plant {
 	 * @generated
 	 */
 	void setVariety(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Custom Productions</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Production}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Custom Productions</em>' containment reference list.
-	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getVariety_CustomProductions()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Production> getCustomProductions();
 
 } // Variety

@@ -33,7 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl {
+public class SpeciesItemProvider extends ImageOwnerItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -55,6 +55,13 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
+			addReferencesPropertyDescriptor(object);
+			addIconKeyPropertyDescriptor(object);
+			addCommonNamesPropertyDescriptor(object);
+			addRepresentationKeyPropertyDescriptor(object);
+			addShortNamePropertyDescriptor(object);
 			addSpeciesPropertyDescriptor(object);
 			addGenusPropertyDescriptor(object);
 			addFamilyPropertyDescriptor(object);
@@ -77,6 +84,118 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 			addDefaultRepresentationKindPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_NamedElement_name_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_NamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.NAMED_ELEMENT__NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_NamedElement_description_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_description_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_NamedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.NAMED_ELEMENT__DESCRIPTION, true, true, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_ReferencingElement_references_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_ReferencingElement_references_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_ReferencingElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.REFERENCING_ELEMENT__REFERENCES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Icon Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIconKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_iconKey_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_iconKey_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__ICON_KEY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Common Names feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommonNamesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_commonNames_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_commonNames_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__COMMON_NAMES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Representation Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepresentationKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_representationKey_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_representationKey_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__REPRESENTATION_KEY, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Short Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShortNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_Plant_shortName_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_Plant_shortName_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_Plant_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT__SHORT_NAME, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -411,10 +530,9 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.IMAGE_OWNER__IMAGES);
 			childrenFeatures.add(PermadelerPackage.Literals.PLANT__ACTIONS);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT__PRODUCTIONS);
 			childrenFeatures.add(PermadelerPackage.Literals.SPECIES__VARIETIES);
-			childrenFeatures.add(PermadelerPackage.Literals.SPECIES__PRODUCTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -478,6 +596,13 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Species.class)) {
+			case PermadelerPackage.SPECIES__NAME:
+			case PermadelerPackage.SPECIES__DESCRIPTION:
+			case PermadelerPackage.SPECIES__REFERENCES:
+			case PermadelerPackage.SPECIES__ICON_KEY:
+			case PermadelerPackage.SPECIES__COMMON_NAMES:
+			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
+			case PermadelerPackage.SPECIES__SHORT_NAME:
 			case PermadelerPackage.SPECIES__SPECIES:
 			case PermadelerPackage.SPECIES__GENUS:
 			case PermadelerPackage.SPECIES__FAMILY:
@@ -501,10 +626,9 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PermadelerPackage.SPECIES__IMAGES:
 			case PermadelerPackage.SPECIES__ACTIONS:
-			case PermadelerPackage.SPECIES__VARIETIES:
 			case PermadelerPackage.SPECIES__PRODUCTIONS:
+			case PermadelerPackage.SPECIES__VARIETIES:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -523,17 +647,14 @@ public class SpeciesItemProvider extends PlantNamedElementItemProviderCustomImpl
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.IMAGE_OWNER__IMAGES,
-				PermadelerFactory.eINSTANCE.createImage()));
-
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__ACTIONS,
 				PermadelerFactory.eINSTANCE.createAction()));
 
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__PRODUCTIONS,
+				PermadelerFactory.eINSTANCE.createProduction()));
+
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.SPECIES__VARIETIES,
 				PermadelerFactory.eINSTANCE.createVariety()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.SPECIES__PRODUCTIONS,
-				PermadelerFactory.eINSTANCE.createProduction()));
 	}
 
 }

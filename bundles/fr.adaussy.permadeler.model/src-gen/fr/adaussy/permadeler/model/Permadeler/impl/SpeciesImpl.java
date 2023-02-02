@@ -16,13 +16,13 @@ import fr.adaussy.permadeler.model.Permadeler.Family;
 import fr.adaussy.permadeler.model.Permadeler.FoilageShade;
 import fr.adaussy.permadeler.model.Permadeler.FoliageType;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
-import fr.adaussy.permadeler.model.Permadeler.Image;
-import fr.adaussy.permadeler.model.Permadeler.ImageOwner;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.Moisture;
+import fr.adaussy.permadeler.model.Permadeler.NamedElement;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.RootType;
 import fr.adaussy.permadeler.model.Permadeler.Shade;
@@ -30,8 +30,8 @@ import fr.adaussy.permadeler.model.Permadeler.SoilType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
-
 import fr.adaussy.permadeler.model.Permadeler.Wind;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -45,6 +45,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -58,8 +59,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getImages <em>Images</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getReferences <em>References</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getIconKey <em>Icon Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getCommonNames <em>Common Names</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getRepresentationKey <em>Representation Key</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getShortName <em>Short Name</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getVarieties <em>Varieties</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getSpecies <em>Species</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getGenus <em>Genus</em>}</li>
@@ -79,23 +87,62 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getSpecialUses <em>Special Uses</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getGrowRate <em>Grow Rate</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getProductions <em>Productions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getDefaultLayer <em>Default Layer</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getDefaultRepresentationKind <em>Default Representation Kind</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SpeciesImpl extends PlantNamedElementImpl implements Species {
+public class SpeciesImpl extends ImageOwnerImpl implements Species {
 	/**
-	 * The cached value of the '{@link #getImages() <em>Images</em>}' containment reference list.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getImages()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Image> images;
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> references;
 
 	/**
 	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -106,6 +153,86 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * @ordered
 	 */
 	protected EList<Action> actions;
+
+	/**
+	 * The default value of the '{@link #getIconKey() <em>Icon Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ICON_KEY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIconKey() <em>Icon Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIconKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected String iconKey = ICON_KEY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCommonNames() <em>Common Names</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommonNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> commonNames;
+
+	/**
+	 * The default value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentationKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REPRESENTATION_KEY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRepresentationKey() <em>Representation Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentationKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected String representationKey = REPRESENTATION_KEY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getShortName() <em>Short Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SHORT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getShortName() <em>Short Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String shortName = SHORT_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProductions() <em>Productions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Production> productions;
 
 	/**
 	 * The cached value of the '{@link #getVarieties() <em>Varieties</em>}' containment reference list.
@@ -418,16 +545,6 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	protected GrowRate growRate = GROW_RATE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProductions() <em>Productions</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProductions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Production> productions;
-
-	/**
 	 * The default value of the '{@link #getDefaultLayer() <em>Default Layer</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -491,6 +608,63 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.SPECIES__NAME, oldName,
+					name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.SPECIES__DESCRIPTION,
+					oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getReferences() {
+		if (references == null) {
+			references = new EDataTypeUniqueEList<String>(String.class, this,
+					PermadelerPackage.SPECIES__REFERENCES);
+		}
+		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Action> getActions() {
 		if (actions == null) {
 			actions = new EObjectContainmentEList<Action>(Action.class, this,
@@ -504,11 +678,91 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Image> getImages() {
-		if (images == null) {
-			images = new EObjectContainmentEList<Image>(Image.class, this, PermadelerPackage.SPECIES__IMAGES);
+	public String getIconKey() {
+		return iconKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIconKey(String newIconKey) {
+		String oldIconKey = iconKey;
+		iconKey = newIconKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.SPECIES__ICON_KEY,
+					oldIconKey, iconKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getCommonNames() {
+		if (commonNames == null) {
+			commonNames = new EDataTypeUniqueEList<String>(String.class, this,
+					PermadelerPackage.SPECIES__COMMON_NAMES);
 		}
-		return images;
+		return commonNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRepresentationKey() {
+		return representationKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRepresentationKey(String newRepresentationKey) {
+		String oldRepresentationKey = representationKey;
+		representationKey = newRepresentationKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					PermadelerPackage.SPECIES__REPRESENTATION_KEY, oldRepresentationKey, representationKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getShortName() {
+		return shortName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setShortName(String newShortName) {
+		String oldShortName = shortName;
+		shortName = newShortName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.SPECIES__SHORT_NAME,
+					oldShortName, shortName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Production> getProductions() {
+		if (productions == null) {
+			productions = new EObjectContainmentEList<Production>(Production.class, this,
+					PermadelerPackage.SPECIES__PRODUCTIONS);
+		}
+		return productions;
 	}
 
 	/**
@@ -870,19 +1124,6 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Production> getProductions() {
-		if (productions == null) {
-			productions = new EObjectContainmentEList<Production>(Production.class, this,
-					PermadelerPackage.SPECIES__PRODUCTIONS);
-		}
-		return productions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Layer getDefaultLayer() {
 		return defaultLayer;
 	}
@@ -923,6 +1164,17 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 			eNotify(new ENotificationImpl(this, Notification.SET,
 					PermadelerPackage.SPECIES__DEFAULT_REPRESENTATION_KIND, oldDefaultRepresentationKind,
 					defaultRepresentationKind));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Production> getAllProductions() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -974,6 +1226,17 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getAllNames() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -993,14 +1256,12 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PermadelerPackage.SPECIES__IMAGES:
-				return ((InternalEList<?>)getImages()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.SPECIES__ACTIONS:
 				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
-			case PermadelerPackage.SPECIES__VARIETIES:
-				return ((InternalEList<?>)getVarieties()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.SPECIES__PRODUCTIONS:
 				return ((InternalEList<?>)getProductions()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.SPECIES__VARIETIES:
+				return ((InternalEList<?>)getVarieties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1013,10 +1274,24 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.SPECIES__IMAGES:
-				return getImages();
+			case PermadelerPackage.SPECIES__NAME:
+				return getName();
+			case PermadelerPackage.SPECIES__DESCRIPTION:
+				return getDescription();
+			case PermadelerPackage.SPECIES__REFERENCES:
+				return getReferences();
 			case PermadelerPackage.SPECIES__ACTIONS:
 				return getActions();
+			case PermadelerPackage.SPECIES__ICON_KEY:
+				return getIconKey();
+			case PermadelerPackage.SPECIES__COMMON_NAMES:
+				return getCommonNames();
+			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
+				return getRepresentationKey();
+			case PermadelerPackage.SPECIES__SHORT_NAME:
+				return getShortName();
+			case PermadelerPackage.SPECIES__PRODUCTIONS:
+				return getProductions();
 			case PermadelerPackage.SPECIES__VARIETIES:
 				return getVarieties();
 			case PermadelerPackage.SPECIES__SPECIES:
@@ -1055,8 +1330,6 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 				return getHeight();
 			case PermadelerPackage.SPECIES__GROW_RATE:
 				return getGrowRate();
-			case PermadelerPackage.SPECIES__PRODUCTIONS:
-				return getProductions();
 			case PermadelerPackage.SPECIES__DEFAULT_LAYER:
 				return getDefaultLayer();
 			case PermadelerPackage.SPECIES__DEFAULT_REPRESENTATION_KIND:
@@ -1074,13 +1347,36 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.SPECIES__IMAGES:
-				getImages().clear();
-				getImages().addAll((Collection<? extends Image>)newValue);
+			case PermadelerPackage.SPECIES__NAME:
+				setName((String)newValue);
+				return;
+			case PermadelerPackage.SPECIES__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case PermadelerPackage.SPECIES__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends String>)newValue);
 				return;
 			case PermadelerPackage.SPECIES__ACTIONS:
 				getActions().clear();
 				getActions().addAll((Collection<? extends Action>)newValue);
+				return;
+			case PermadelerPackage.SPECIES__ICON_KEY:
+				setIconKey((String)newValue);
+				return;
+			case PermadelerPackage.SPECIES__COMMON_NAMES:
+				getCommonNames().clear();
+				getCommonNames().addAll((Collection<? extends String>)newValue);
+				return;
+			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
+				setRepresentationKey((String)newValue);
+				return;
+			case PermadelerPackage.SPECIES__SHORT_NAME:
+				setShortName((String)newValue);
+				return;
+			case PermadelerPackage.SPECIES__PRODUCTIONS:
+				getProductions().clear();
+				getProductions().addAll((Collection<? extends Production>)newValue);
 				return;
 			case PermadelerPackage.SPECIES__VARIETIES:
 				getVarieties().clear();
@@ -1146,10 +1442,6 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 			case PermadelerPackage.SPECIES__GROW_RATE:
 				setGrowRate((GrowRate)newValue);
 				return;
-			case PermadelerPackage.SPECIES__PRODUCTIONS:
-				getProductions().clear();
-				getProductions().addAll((Collection<? extends Production>)newValue);
-				return;
 			case PermadelerPackage.SPECIES__DEFAULT_LAYER:
 				setDefaultLayer((Layer)newValue);
 				return;
@@ -1168,11 +1460,32 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.SPECIES__IMAGES:
-				getImages().clear();
+			case PermadelerPackage.SPECIES__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case PermadelerPackage.SPECIES__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case PermadelerPackage.SPECIES__REFERENCES:
+				getReferences().clear();
 				return;
 			case PermadelerPackage.SPECIES__ACTIONS:
 				getActions().clear();
+				return;
+			case PermadelerPackage.SPECIES__ICON_KEY:
+				setIconKey(ICON_KEY_EDEFAULT);
+				return;
+			case PermadelerPackage.SPECIES__COMMON_NAMES:
+				getCommonNames().clear();
+				return;
+			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
+				setRepresentationKey(REPRESENTATION_KEY_EDEFAULT);
+				return;
+			case PermadelerPackage.SPECIES__SHORT_NAME:
+				setShortName(SHORT_NAME_EDEFAULT);
+				return;
+			case PermadelerPackage.SPECIES__PRODUCTIONS:
+				getProductions().clear();
 				return;
 			case PermadelerPackage.SPECIES__VARIETIES:
 				getVarieties().clear();
@@ -1231,9 +1544,6 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 			case PermadelerPackage.SPECIES__GROW_RATE:
 				setGrowRate(GROW_RATE_EDEFAULT);
 				return;
-			case PermadelerPackage.SPECIES__PRODUCTIONS:
-				getProductions().clear();
-				return;
 			case PermadelerPackage.SPECIES__DEFAULT_LAYER:
 				setDefaultLayer(DEFAULT_LAYER_EDEFAULT);
 				return;
@@ -1252,10 +1562,27 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.SPECIES__IMAGES:
-				return images != null && !images.isEmpty();
+			case PermadelerPackage.SPECIES__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case PermadelerPackage.SPECIES__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null
+						: !DESCRIPTION_EDEFAULT.equals(description);
+			case PermadelerPackage.SPECIES__REFERENCES:
+				return references != null && !references.isEmpty();
 			case PermadelerPackage.SPECIES__ACTIONS:
 				return actions != null && !actions.isEmpty();
+			case PermadelerPackage.SPECIES__ICON_KEY:
+				return ICON_KEY_EDEFAULT == null ? iconKey != null : !ICON_KEY_EDEFAULT.equals(iconKey);
+			case PermadelerPackage.SPECIES__COMMON_NAMES:
+				return commonNames != null && !commonNames.isEmpty();
+			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
+				return REPRESENTATION_KEY_EDEFAULT == null ? representationKey != null
+						: !REPRESENTATION_KEY_EDEFAULT.equals(representationKey);
+			case PermadelerPackage.SPECIES__SHORT_NAME:
+				return SHORT_NAME_EDEFAULT == null ? shortName != null
+						: !SHORT_NAME_EDEFAULT.equals(shortName);
+			case PermadelerPackage.SPECIES__PRODUCTIONS:
+				return productions != null && !productions.isEmpty();
 			case PermadelerPackage.SPECIES__VARIETIES:
 				return varieties != null && !varieties.isEmpty();
 			case PermadelerPackage.SPECIES__SPECIES:
@@ -1294,8 +1621,6 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 				return height != HEIGHT_EDEFAULT;
 			case PermadelerPackage.SPECIES__GROW_RATE:
 				return growRate != GROW_RATE_EDEFAULT;
-			case PermadelerPackage.SPECIES__PRODUCTIONS:
-				return productions != null && !productions.isEmpty();
 			case PermadelerPackage.SPECIES__DEFAULT_LAYER:
 				return defaultLayer != DEFAULT_LAYER_EDEFAULT;
 			case PermadelerPackage.SPECIES__DEFAULT_REPRESENTATION_KIND:
@@ -1311,10 +1636,20 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ImageOwner.class) {
+		if (baseClass == NamedElement.class) {
 			switch (derivedFeatureID) {
-				case PermadelerPackage.SPECIES__IMAGES:
-					return PermadelerPackage.IMAGE_OWNER__IMAGES;
+				case PermadelerPackage.SPECIES__NAME:
+					return PermadelerPackage.NAMED_ELEMENT__NAME;
+				case PermadelerPackage.SPECIES__DESCRIPTION:
+					return PermadelerPackage.NAMED_ELEMENT__DESCRIPTION;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == ReferencingElement.class) {
+			switch (derivedFeatureID) {
+				case PermadelerPackage.SPECIES__REFERENCES:
+					return PermadelerPackage.REFERENCING_ELEMENT__REFERENCES;
 				default:
 					return -1;
 			}
@@ -1329,10 +1664,20 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ImageOwner.class) {
+		if (baseClass == NamedElement.class) {
 			switch (baseFeatureID) {
-				case PermadelerPackage.IMAGE_OWNER__IMAGES:
-					return PermadelerPackage.SPECIES__IMAGES;
+				case PermadelerPackage.NAMED_ELEMENT__NAME:
+					return PermadelerPackage.SPECIES__NAME;
+				case PermadelerPackage.NAMED_ELEMENT__DESCRIPTION:
+					return PermadelerPackage.SPECIES__DESCRIPTION;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == ReferencingElement.class) {
+			switch (baseFeatureID) {
+				case PermadelerPackage.REFERENCING_ELEMENT__REFERENCES:
+					return PermadelerPackage.SPECIES__REFERENCES;
 				default:
 					return -1;
 			}
@@ -1348,6 +1693,8 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case PermadelerPackage.SPECIES___GET_ALL_PRODUCTIONS:
+				return getAllProductions();
 			case PermadelerPackage.SPECIES___GET_FULL_LATIN_NAME:
 				return getFullLatinName();
 			case PermadelerPackage.SPECIES___GET_REPRESENTATION:
@@ -1356,6 +1703,8 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 				return getAllActions();
 			case PermadelerPackage.SPECIES___GET_ALL_SPECIAL_USES:
 				return getAllSpecialUses();
+			case PermadelerPackage.SPECIES___GET_ALL_NAMES:
+				return getAllNames();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1371,7 +1720,21 @@ public class SpeciesImpl extends PlantNamedElementImpl implements Species {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (species: "); //$NON-NLS-1$
+		result.append(" (name: "); //$NON-NLS-1$
+		result.append(name);
+		result.append(", description: "); //$NON-NLS-1$
+		result.append(description);
+		result.append(", references: "); //$NON-NLS-1$
+		result.append(references);
+		result.append(", iconKey: "); //$NON-NLS-1$
+		result.append(iconKey);
+		result.append(", commonNames: "); //$NON-NLS-1$
+		result.append(commonNames);
+		result.append(", representationKey: "); //$NON-NLS-1$
+		result.append(representationKey);
+		result.append(", shortName: "); //$NON-NLS-1$
+		result.append(shortName);
+		result.append(", species: "); //$NON-NLS-1$
 		result.append(species);
 		result.append(", genus: "); //$NON-NLS-1$
 		result.append(genus);

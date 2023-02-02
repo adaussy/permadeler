@@ -20,14 +20,14 @@ import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 
 public class PropertyService {
 
-	public List<Production> getProductions(EObject o) {
+	public List<Production> getProductionsToDisplay(EObject o) {
 		if (o instanceof Production) {
 			return Collections.singletonList((Production)o);
 
 		} else if (o instanceof Plant) {
-			return ((Plant)o).getProductions();
+			return ((Plant)o).getAllProductions();
 		} else if (o instanceof Plantation) {
-			return ((Plantation)o).getType().getProductions();
+			return getProductionsToDisplay(((Plantation)o).getType());
 		} else {
 			return Collections.emptyList();
 		}

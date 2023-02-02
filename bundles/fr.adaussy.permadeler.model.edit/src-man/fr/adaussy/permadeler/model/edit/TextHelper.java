@@ -18,7 +18,6 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import fr.adaussy.permadeler.model.Permadeler.NamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
 
 public class TextHelper {
@@ -26,7 +25,7 @@ public class TextHelper {
 	private static final String UNNAMED = "Unnamed"; //$NON-NLS-1$
 
 	/**
-	 * Builds a label of a {@link PlantNamedElement}
+	 * Builds a label of a {@link Plant}
 	 * 
 	 * @param o
 	 *            a name element (not <code>null</code>)

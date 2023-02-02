@@ -36,7 +36,6 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Planfication;
 import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.PlantNamedElement;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Production;
@@ -128,13 +127,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass plantationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass plantNamedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -816,60 +808,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPlantNamedElement() {
-		return plantNamedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_CommonNames() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_IconKey() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_RepresentationKey() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPlantNamedElement_ShortName() {
-		return (EAttribute)plantNamedElementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPlantNamedElement__GetAllNames() {
-		return plantNamedElementEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getImage() {
 		return imageEClass;
 	}
@@ -1239,7 +1177,52 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPlant__GetProductions() {
+	public EAttribute getPlant_IconKey() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_CommonNames() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_RepresentationKey() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPlant_ShortName() {
+		return (EAttribute)plantEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlant_Productions() {
+		return (EReference)plantEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetAllProductions() {
 		return plantEClass.getEOperations().get(0);
 	}
 
@@ -1295,6 +1278,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EOperation getPlant__GetAllSpecialUses() {
 		return plantEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPlant__GetAllNames() {
+		return plantEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1617,17 +1609,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecies_Productions() {
-		return (EReference)speciesEClass.getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSpecies_DefaultLayer() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -1636,7 +1619,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	public EAttribute getSpecies_DefaultRepresentationKind() {
-		return (EAttribute)speciesEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)speciesEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -1664,15 +1647,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EAttribute getVariety_Variety() {
 		return (EAttribute)varietyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariety_CustomProductions() {
-		return (EReference)varietyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1973,13 +1947,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(plantationEClass, PLANTATION__WIREFRAME);
 		createEAttribute(plantationEClass, PLANTATION__REPRESENTATION_KIND);
 
-		plantNamedElementEClass = createEClass(PLANT_NAMED_ELEMENT);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__COMMON_NAMES);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__ICON_KEY);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__REPRESENTATION_KEY);
-		createEAttribute(plantNamedElementEClass, PLANT_NAMED_ELEMENT__SHORT_NAME);
-		createEOperation(plantNamedElementEClass, PLANT_NAMED_ELEMENT___GET_ALL_NAMES);
-
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__TITLE);
 		createEAttribute(imageEClass, IMAGE__SOURCE);
@@ -2036,13 +2003,19 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		plantEClass = createEClass(PLANT);
 		createEReference(plantEClass, PLANT__ACTIONS);
-		createEOperation(plantEClass, PLANT___GET_PRODUCTIONS);
+		createEAttribute(plantEClass, PLANT__ICON_KEY);
+		createEAttribute(plantEClass, PLANT__COMMON_NAMES);
+		createEAttribute(plantEClass, PLANT__REPRESENTATION_KEY);
+		createEAttribute(plantEClass, PLANT__SHORT_NAME);
+		createEReference(plantEClass, PLANT__PRODUCTIONS);
+		createEOperation(plantEClass, PLANT___GET_ALL_PRODUCTIONS);
 		createEOperation(plantEClass, PLANT___GET_FULL_LATIN_NAME);
 		createEOperation(plantEClass, PLANT___GET_DEFAULT_LAYER);
 		createEOperation(plantEClass, PLANT___GET_DEFAULT_REPRESENTATION_KIND);
 		createEOperation(plantEClass, PLANT___GET_REPRESENTATION);
 		createEOperation(plantEClass, PLANT___GET_ALL_ACTIONS);
 		createEOperation(plantEClass, PLANT___GET_ALL_SPECIAL_USES);
+		createEOperation(plantEClass, PLANT___GET_ALL_NAMES);
 
 		productionEClass = createEClass(PRODUCTION);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
@@ -2085,14 +2058,12 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(speciesEClass, SPECIES__SPECIAL_USES);
 		createEAttribute(speciesEClass, SPECIES__HEIGHT);
 		createEAttribute(speciesEClass, SPECIES__GROW_RATE);
-		createEReference(speciesEClass, SPECIES__PRODUCTIONS);
 		createEAttribute(speciesEClass, SPECIES__DEFAULT_LAYER);
 		createEAttribute(speciesEClass, SPECIES__DEFAULT_REPRESENTATION_KIND);
 
 		varietyEClass = createEClass(VARIETY);
 		createEReference(varietyEClass, VARIETY__SPECIES);
 		createEAttribute(varietyEClass, VARIETY__VARIETY);
-		createEReference(varietyEClass, VARIETY__CUSTOM_PRODUCTIONS);
 
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
@@ -2155,16 +2126,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		// Add supertypes to classes
 		rootEClass.getESuperTypes().add(this.getNamedElement());
-		plantNamedElementEClass.getESuperTypes().add(this.getNamedElement());
-		plantNamedElementEClass.getESuperTypes().add(this.getReferencingElement());
 		zoneEClass.getESuperTypes().add(this.getNamedElement());
 		nursaryEClass.getESuperTypes().add(this.getTrayOwner());
 		trayEClass.getESuperTypes().add(this.getNamedElement());
 		trayZoneEClass.getESuperTypes().add(this.getTrayOwner());
 		trayZoneEClass.getESuperTypes().add(this.getNamedElement());
 		sowPlanficationEClass.getESuperTypes().add(this.getPlanfication());
-		plantEClass.getESuperTypes().add(this.getPlantNamedElement());
 		plantEClass.getESuperTypes().add(this.getImageOwner());
+		plantEClass.getESuperTypes().add(this.getNamedElement());
+		plantEClass.getESuperTypes().add(this.getReferencingElement());
 		productionEClass.getESuperTypes().add(this.getTemporalItem());
 		actionEClass.getESuperTypes().add(this.getTemporalItem());
 		temporalItemEClass.getESuperTypes().add(this.getNamedElement());
@@ -2261,24 +2231,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getPlantation_RepresentationKind(), this.getRepresentationKind(), "representationKind", //$NON-NLS-1$
 				null, 0, 1, Plantation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(plantNamedElementEClass, PlantNamedElement.class, "PlantNamedElement", IS_ABSTRACT, //$NON-NLS-1$
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPlantNamedElement_CommonNames(), ecorePackage.getEString(), "commonNames", null, 1, //$NON-NLS-1$
-				-1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_IconKey(), ecorePackage.getEString(), "iconKey", null, 0, 1, //$NON-NLS-1$
-				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_RepresentationKey(), ecorePackage.getEString(),
-				"representationKey", null, 0, 1, PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, //$NON-NLS-1$
-				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlantNamedElement_ShortName(), ecorePackage.getEString(), "shortName", null, 0, 1, //$NON-NLS-1$
-				PlantNamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getPlantNamedElement__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, //$NON-NLS-1$
-				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2394,9 +2346,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEReference(getPlant_Actions(), this.getAction(), null, "actions", null, 0, -1, Plant.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getPlant__GetProductions(), this.getProduction(), "getProductions", 0, -1, IS_UNIQUE, //$NON-NLS-1$
+		initEAttribute(getPlant_IconKey(), ecorePackage.getEString(), "iconKey", null, 0, 1, Plant.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getPlant_CommonNames(), ecorePackage.getEString(), "commonNames", null, 1, -1, //$NON-NLS-1$
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_RepresentationKey(), ecorePackage.getEString(), "representationKey", null, 0, //$NON-NLS-1$
+				1, Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPlant_ShortName(), ecorePackage.getEString(), "shortName", null, 0, 1, Plant.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getPlant_Productions(), this.getProduction(), null, "productions", null, 0, -1, //$NON-NLS-1$
+				Plant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPlant__GetAllProductions(), this.getProduction(), "getAllProductions", 0, -1, //$NON-NLS-1$
+				IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPlant__GetFullLatinName(), ecorePackage.getEString(), "getFullLatinName", 0, 1, //$NON-NLS-1$
 				IS_UNIQUE, IS_ORDERED);
@@ -2415,6 +2382,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEOperation(getPlant__GetAllSpecialUses(), this.getSpecialUses(), "getAllSpecialUses", 0, -1, //$NON-NLS-1$
 				IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPlant__GetAllNames(), ecorePackage.getEString(), "getAllNames", 0, -1, IS_UNIQUE, //$NON-NLS-1$
+				IS_ORDERED);
 
 		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2520,9 +2490,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getSpecies_GrowRate(), this.getGrowRate(), "growRate", null, 0, 1, Species.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getSpecies_Productions(), this.getProduction(), null, "productions", null, 0, -1, //$NON-NLS-1$
-				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpecies_DefaultLayer(), this.getLayer(), "defaultLayer", "UNDERSTORY", 0, 1, //$NON-NLS-1$//$NON-NLS-2$
 				Species.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
@@ -2538,9 +2505,6 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEAttribute(getVariety_Variety(), ecorePackage.getEString(), "variety", null, 0, 1, Variety.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getVariety_CustomProductions(), this.getProduction(), null, "customProductions", null, //$NON-NLS-1$
-				0, -1, Variety.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(quantityEEnum, Quantity.class, "Quantity"); //$NON-NLS-1$

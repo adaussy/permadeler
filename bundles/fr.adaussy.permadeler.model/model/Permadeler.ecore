@@ -48,6 +48,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plantation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value=""/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Plant"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1"
         eType="#//Event" containment="true"/>
@@ -57,16 +60,12 @@
         defaultValueLiteral="UNDERSTORY"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootstock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wireframe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wireframe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Impact the representation of this plantation in all representations."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKind" eType="#//RepresentationKind"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PlantNamedElement" abstract="true" eSuperTypes="#//NamedElement #//ReferencingElement">
-    <eOperations name="getAllNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Lifecycle">
     <eLiterals name="Unknown"/>
@@ -756,6 +755,9 @@
     <eLiterals name="NotWindTolerant" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zone" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Geographic zone that will hold Plantation Phase"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="phases" upperBound="-1"
         eType="#//PlantationPhase" containment="true"/>
   </eClassifiers>
@@ -840,16 +842,56 @@
         defaultValueLiteral="100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plant" abstract="true" interface="true"
-      eSuperTypes="#//PlantNamedElement #//ImageOwner">
-    <eOperations name="getProductions" upperBound="-1" eType="#//Production"/>
-    <eOperations name="getFullLatinName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eOperations name="getDefaultLayer" eType="#//Layer"/>
-    <eOperations name="getDefaultRepresentationKind" eType="#//RepresentationKind"/>
-    <eOperations name="getRepresentation" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eOperations name="getAllActions" upperBound="-1" eType="#//Action"/>
-    <eOperations name="getAllSpecialUses" upperBound="-1" eType="#//SpecialUses"/>
+      eSuperTypes="#//ImageOwner #//NamedElement #//ReferencingElement">
+    <eOperations name="getAllProductions" upperBound="-1" eType="#//Production">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get all productions of a given plant (in case of variety it removes all overrided productions)"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getFullLatinName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get the complete latin name of this plant"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getDefaultLayer" eType="#//Layer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get the default layer to be used for this plant"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getDefaultRepresentationKind" eType="#//RepresentationKind">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get the default representation king for this plant"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getRepresentation" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get the representation key"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getAllActions" upperBound="-1" eType="#//Action">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get all actions for this plant (In case of variety removed overrided actions)"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getAllSpecialUses" upperBound="-1" eType="#//SpecialUses">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get alls special uses for this plant."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getAllNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commonNames" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="representationKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Base element used to compute unic id for a plantation using this element as type"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="productions" upperBound="-1"
+        eType="#//Production" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Production" eSuperTypes="#//TemporalItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ProductionType"/>
@@ -905,10 +947,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//MonthWeeks"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlantationPhase" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A given phase of the plantation"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plantations" upperBound="-1"
         eType="#//Plantation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundImage" eType="#//BackgroundImage"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Image to be used in the backgroung of all plantation map"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReferencingElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="references" upperBound="-1"
@@ -974,8 +1023,6 @@
         eType="#//SpecialUses"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="growRate" eType="#//GrowRate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="productions" upperBound="-1"
-        eType="#//Production" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultLayer" eType="#//Layer"
         defaultValueLiteral="UNDERSTORY"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultRepresentationKind"
@@ -985,7 +1032,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="species" lowerBound="1"
         eType="#//Species" eOpposite="#//Species/varieties"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variety" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="customProductions" upperBound="-1"
-        eType="#//Production" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
