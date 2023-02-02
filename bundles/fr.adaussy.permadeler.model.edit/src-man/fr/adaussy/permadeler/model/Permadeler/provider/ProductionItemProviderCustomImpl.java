@@ -1,10 +1,8 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 
 import fr.adaussy.permadeler.model.Permadeler.Production;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 public class ProductionItemProviderCustomImpl extends ProductionItemProvider {
 
@@ -14,7 +12,7 @@ public class ProductionItemProviderCustomImpl extends ProductionItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/production.png")); //$NON-NLS-1$
 	}
 
 	@Override

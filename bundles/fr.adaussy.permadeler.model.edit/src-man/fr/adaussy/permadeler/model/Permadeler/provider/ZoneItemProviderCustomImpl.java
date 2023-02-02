@@ -11,11 +11,8 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 
-import fr.adaussy.permadeler.model.Permadeler.NamedElement;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
-import fr.adaussy.permadeler.model.edit.TextHelper;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 
 /**
  * {@link ZoneItemProvider} custom impl
@@ -30,11 +27,12 @@ public class ZoneItemProviderCustomImpl extends ZoneItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/zone.png")); //$NON-NLS-1$
 	}
 
 	@Override
 	public String getText(Object object) {
-		return TextHelper.getLabel((NamedElement)object);
+		Zone zone = (Zone)object;
+		return zone == null ? "" : zone.getName(); //$NON-NLS-1$
 	}
 }

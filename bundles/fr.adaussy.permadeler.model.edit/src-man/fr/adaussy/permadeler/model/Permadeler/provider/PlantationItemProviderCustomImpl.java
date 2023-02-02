@@ -16,14 +16,13 @@ import java.time.ZoneId;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import fr.adaussy.permadeler.model.Permadeler.EditMessages;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link PlantationItemProvider} Custom impl
@@ -38,7 +37,14 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		Plantation plantation = (Plantation)object;
+		Plant plant = plantation.getType();
+		if (plant != null) {
+			IItemLabelProvider iItemLabelProvider = (IItemLabelProvider)getRootAdapterFactory().adapt(plant,
+					IItemLabelProvider.class);
+			return iItemLabelProvider.getImage(plant);
+		}
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/plant.png")); //$NON-NLS-1$ ;
 	}
 
 	@Override

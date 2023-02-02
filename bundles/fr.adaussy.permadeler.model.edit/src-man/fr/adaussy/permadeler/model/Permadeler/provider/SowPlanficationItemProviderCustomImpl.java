@@ -11,13 +11,12 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 
 import fr.adaussy.permadeler.common.date.DateUtils;
 import fr.adaussy.permadeler.model.Permadeler.EditMessages;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
+import fr.adaussy.permadeler.model.Permadeler.SowType;
 
 /**
  * {@link SowPlanficationItemProvider} custom impl
@@ -32,7 +31,14 @@ public class SowPlanficationItemProviderCustomImpl extends SowPlanficationItemPr
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		String iconPath = ""; //$NON-NLS-1$
+		SowPlanfication sowPlan = (SowPlanfication)object;
+		if (sowPlan.getType() == SowType.INDOOR) {
+			iconPath = "other/icons/greenhouse.png"; //$NON-NLS-1$
+		} else if (sowPlan.getType() == SowType.OUTDOOR) {
+			iconPath = "other/icons/sow.png"; //$NON-NLS-1$
+		}
+		return overlayImage(object, getResourceLocator().getImage(iconPath));
 	}
 
 	@Override

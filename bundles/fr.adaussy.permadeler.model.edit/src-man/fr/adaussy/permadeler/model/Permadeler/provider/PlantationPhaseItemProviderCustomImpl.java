@@ -3,12 +3,10 @@ package fr.adaussy.permadeler.model.Permadeler.provider;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 public class PlantationPhaseItemProviderCustomImpl extends PlantationPhaseItemProvider {
 
@@ -18,7 +16,7 @@ public class PlantationPhaseItemProviderCustomImpl extends PlantationPhaseItemPr
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/growth.png")); //$NON-NLS-1$
 	}
 
 	@Override

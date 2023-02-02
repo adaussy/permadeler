@@ -11,9 +11,6 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
-
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link SeedBankItemProvider} custom impl
@@ -33,6 +30,6 @@ public class SeedBankItemProviderCustomImpl extends SeedBankItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("other/icons/083-seed-1.png")); //$NON-NLS-1$
 	}
 }

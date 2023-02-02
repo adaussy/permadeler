@@ -11,9 +11,6 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
-
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link KnowledgeBaseItemProvider} custom impl
@@ -28,7 +25,7 @@ public class KnowledgeBaseItemProviderCustomImpl extends KnowledgeBaseItemProvid
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/knowledge.png")); //$NON-NLS-1$
 	}
 
 }

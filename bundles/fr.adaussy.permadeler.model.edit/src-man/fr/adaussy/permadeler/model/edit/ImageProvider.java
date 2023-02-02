@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2020 Arthur Daussy.
+ *  Copyright (c) 2023 Arthur Daussy.
  * 
  *  This program and the accompanying materials are made 
  *  available under the terms of the Eclipse Public License 2.0 
@@ -13,7 +13,6 @@ package fr.adaussy.permadeler.model.edit;
 import static java.util.stream.Collectors.joining;
 
 import java.net.URL;
-import java.text.MessageFormat;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,31 +24,17 @@ import java.util.stream.Stream;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.osgi.framework.Bundle;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
-import fr.adaussy.permadeler.model.Permadeler.Event;
-import fr.adaussy.permadeler.model.Permadeler.Image;
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
-import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
-import fr.adaussy.permadeler.model.Permadeler.Root;
-import fr.adaussy.permadeler.model.Permadeler.Row;
-import fr.adaussy.permadeler.model.Permadeler.SeedBank;
-import fr.adaussy.permadeler.model.Permadeler.SeedItem;
-import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
-import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.Species;
-import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
-import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
-import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSwitch;
 
 /**
  * Instance in charge of providing all images for this app
@@ -69,13 +54,9 @@ public final class ImageProvider {
 
 	private static final String PATH_SEP = "/"; //$NON-NLS-1$
 
-	private static final String SVG_EXT_FILE = "." + SVG; //$NON-NLS-1$
-
 	private static final String PNG_EXT_FILE = ".png"; //$NON-NLS-1$
 
 	private ImageRegistry imageRegistry = new ImageRegistry();
-
-	private ImageProviderSwitch imageSwitch = new ImageProviderSwitch();
 
 	/**
 	 * Set of svgs
@@ -111,6 +92,10 @@ public final class ImageProvider {
 			initRepresentation(
 					bundle.findEntries(PermadelerIcons.REPRESENTATION_PREFIX, "*", true).asIterator()); //$NON-NLS-1$
 		}
+	}
+
+	public Map<String, String> getIcons() {
+		return icons;
 	}
 
 	/**
@@ -221,32 +206,6 @@ public final class ImageProvider {
 	}
 
 	/**
-	 * Gets the image to be used for the given object
-	 * 
-	 * @param o
-	 *            an {@link EObject}
-	 * @return an Image
-	 */
-	public Object getIconEMFIcon(EObject o) {
-		String path = imageSwitch.doSwitch(o);
-		if (path != null) {
-			if (path.endsWith(SVG_EXT_FILE)) {
-				path = icons.get(path);
-			}
-
-			if (path != null && path.startsWith(PATH_SEP)) {
-				path = path.substring(1);
-			}
-
-			return PermadelerEditPlugin.INSTANCE.getImage(PermadelerIcons.removeIconPart(path));
-		} else {
-			PermadelerEditPlugin.INSTANCE
-					.log(MessageFormat.format("Missing icon for {0}", o.eClass().getName())); //$NON-NLS-1$
-			return null;
-		}
-	}
-
-	/**
 	 * Gets the path to an SVG to be used for a representation for the given {@link EObject}
 	 * 
 	 * @param o
@@ -279,7 +238,7 @@ public final class ImageProvider {
 				return PermadelerIcons.iconsRelativeToFullPath(type.getRepresentation());
 			}
 		} else {
-			String localPath = getPlantSVGPath(type);
+			String localPath = getPlantIconSVGPath(type);
 			if (localPath != null) {
 				return PermadelerIcons.iconsRelativeToFullPath(localPath);
 			} else {
@@ -306,35 +265,12 @@ public final class ImageProvider {
 		if (plant == null) {
 			return PermadelerIcons.buildFullPath(defaultPath);
 		}
-		String localPath = getPlantSVGPath(plant);
+		String localPath = getPlantIconSVGPath(plant);
 		if (localPath != null) {
 			return PermadelerIcons.iconsRelativeToFullPath(localPath);
 		} else {
 			return PermadelerIcons.buildFullPath(defaultPath);
 		}
-	}
-
-	/**
-	 * Gets the representation key the given species (defined either by {@link Species#getIconKey()} or by one
-	 * of its ancestor genus)
-	 * 
-	 * @param plant
-	 *            a {@link Species}
-	 * @return a key (or <code>null</code>)
-	 */
-	private String getRepKey(Plant plant) {
-		if (plant == null) {
-			return null;
-		}
-		String iconKey = plant.getIconKey();
-		if (iconKey == null && plant.eContainer() instanceof Plant) {
-			iconKey = getRepKey((Plant)plant.eContainer());
-		}
-
-		if (iconKey == null && plant instanceof Variety) {
-			return getRepKey(((Variety)plant).getSpecies());
-		}
-		return iconKey;
 	}
 
 	/**
@@ -346,166 +282,15 @@ public final class ImageProvider {
 		return previews;
 	}
 
-	private String getPlantSVGPath(Plant type) {
+	private String getPlantIconSVGPath(Plant type) {
 		if (type != null) {
-			String repKey = getRepKey(type);
-
+			String repKey = type.getEffectiveIconKey();
 			if (svgs.contains(repKey)) {
 				return repKey;
 			}
 		}
 
 		return null;
-	}
-
-	/**
-	 * Switch used to provides icons path from an EObject
-	 * 
-	 * @author Arthur Daussy
-	 */
-	private class ImageProviderSwitch extends PermadelerSwitch<String> {
-		private static final String SOW_EVENT = "sow"; //$NON-NLS-1$
-
-		private static final String REMOVAL_FEATURE = "removal"; //$NON-NLS-1$
-
-		private static final String PLANTATION_FEATURE = "plantation"; //$NON-NLS-1$
-
-		@Override
-		public String caseRoot(Root object) {
-			return "icons/custo/commons/plant2.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseKnowledgeBase(KnowledgeBase object) {
-			return "icons/custo/commons/knowledge.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseImage(Image object) {
-			return "icons/custo/commons/image.gif"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseSeedItem(SeedItem object) {
-			return "icons/other/icons/072-seed.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String casePlantationPhase(fr.adaussy.permadeler.model.Permadeler.PlantationPhase object) {
-			return "icons/custo/commons/growth.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseSeedBank(SeedBank object) {
-			return "icons/other/icons/083-seed-1.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseEvent(Event object) {
-			EStructuralFeature containerFeature = object.eContainingFeature();
-			if (containerFeature != null) {
-				if (containerFeature.getName().contains(PLANTATION_FEATURE)) {
-					return "icons/custo/commons/planting.png"; //$NON-NLS-1$
-				} else if (containerFeature.getName().contains(REMOVAL_FEATURE)) {
-					return "icons/custo/commons/knife.png"; //$NON-NLS-1$
-				} else if (containerFeature.getName().contains(SOW_EVENT)) {
-					return "icons/other/icons/072-seed.png"; //$NON-NLS-1$
-				}
-			}
-			return "icons/custo/commons/post-it.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String casePlanifier(Planifier object) {
-			return "icons/other/icons/calendar-sow.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseSowPlanfication(SowPlanfication object) {
-			if (object.getType() == SowType.INDOOR) {
-				return "icons/other/icons/greenhouse.png"; //$NON-NLS-1$
-			} else if (object.getType() == SowType.OUTDOOR) {
-				return "icons/other/icons/sow.png"; //$NON-NLS-1$
-			}
-			return super.caseSowPlanfication(object);
-		}
-
-		@Override
-		public String caseZone(Zone object) {
-			return "icons/custo/commons/zone.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String casePlantation(Plantation object) {
-			Plant type = object.getType();
-			if (type != null) {
-				return doSwitch(type);
-			}
-			return "icons/custo/commons/plant.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseCell(Cell cell) {
-			if (cell.getPlant() != null) {
-				return casePlant(cell.getPlant());
-			} else {
-				return "icons/other/icons/area.png"; //$NON-NLS-1$
-			}
-		}
-
-		@Override
-		public String caseTray(Tray object) {
-			return "icons/other/icons/tray.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseRow(Row object) {
-			return "icons/other/icons/row.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseAction(fr.adaussy.permadeler.model.Permadeler.Action object) {
-			return switch (object.getType()) {
-				case SOW_INDOOR -> "icons/custo/commons/calendar-sow.png"; //$NON-NLS-1$
-				case SOW_OUTDOOR -> "icons/custo/commons/calendar-sow.png"; //$NON-NLS-1$
-				case MULTIPLICATION -> "icons/custo/commons/multipication.png"; //$NON-NLS-1$
-				case PRUNING -> "icons/custo/commons/pruning.png"; //$NON-NLS-1$
-				case HARVEST -> "icons/custo/commons/harvest.png"; //$NON-NLS-1$
-				default -> "icons/custo/commons/action.png"; //$NON-NLS-1$
-			};
-
-		};
-
-		@Override
-		public String caseProduction(fr.adaussy.permadeler.model.Permadeler.Production object) {
-			return "icons/custo/commons/production.png"; //$NON-NLS-1$
-		}
-
-		@Override
-		public String caseSpecies(Species object) {
-			String path = getRepKey(object);
-			String iconPath = null;
-			if (path != null) {
-				iconPath = icons.get(path);
-			} else {
-				iconPath = "icons/custo/commons/plant.png"; //$NON-NLS-1$ ;
-			}
-			return iconPath;
-
-		}
-
-		@Override
-		public String caseVariety(Variety object) {
-			String path = getRepKey(object);
-			String iconPath = null;
-			if (path != null) {
-				iconPath = icons.get(path);
-			} else {
-				iconPath = caseSpecies(object.getSpecies()); // $NON-NLS-1$ ;
-			}
-			return iconPath;
-		}
-
 	}
 
 }

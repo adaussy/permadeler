@@ -11,11 +11,9 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 
 /**
@@ -49,6 +47,6 @@ public class TrayItemProviderCustomImpl extends TrayItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("other/icons/tray.png")); //$NON-NLS-1$
 	}
 }

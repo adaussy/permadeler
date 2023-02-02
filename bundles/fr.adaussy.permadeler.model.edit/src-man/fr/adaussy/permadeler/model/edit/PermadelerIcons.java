@@ -17,7 +17,6 @@ package fr.adaussy.permadeler.model.edit;
 public class PermadelerIcons {
 
 	// CHECKSTYLE:OFF Needs private first since used in public key
-	private static final String EMPTY = ""; //$NON-NLS-1$
 
 	private static final String PATH_SEP = "/"; //$NON-NLS-1$
 
@@ -78,21 +77,6 @@ public class PermadelerIcons {
 	 */
 	public static String iconsRelativeToFullPath(String iconRelativePath) {
 		return PermadelerIcons.PLUGIN_PATH + iconRelativePath;
-	}
-
-	/**
-	 * If the path start starts with {@value #ICON_FOLDER_PATH} then removes it
-	 * 
-	 * @param path
-	 *            a path
-	 * @return a new path or itself
-	 */
-	public static String removeIconPart(String path) {
-		if (path != null && path.startsWith(PermadelerIcons.ICON_FOLDER_PATH)) {
-			return path.replaceFirst(PermadelerIcons.ICON_FOLDER_PATH, EMPTY);
-		} else {
-			return path;
-		}
 	}
 
 }

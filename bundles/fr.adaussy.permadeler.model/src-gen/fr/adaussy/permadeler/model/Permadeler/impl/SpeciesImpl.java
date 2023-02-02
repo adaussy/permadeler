@@ -1237,6 +1237,28 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEffectiveIconKey() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEffectiveRepresentationKey() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1705,6 +1727,10 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 				return getAllSpecialUses();
 			case PermadelerPackage.SPECIES___GET_ALL_NAMES:
 				return getAllNames();
+			case PermadelerPackage.SPECIES___GET_EFFECTIVE_ICON_KEY:
+				return getEffectiveIconKey();
+			case PermadelerPackage.SPECIES___GET_EFFECTIVE_REPRESENTATION_KEY:
+				return getEffectiveRepresentationKey();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

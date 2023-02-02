@@ -23,8 +23,8 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
-import fr.adaussy.permadeler.model.edit.TextHelper;
 
 public class SpeciesItemProviderCustomImpl extends SpeciesItemProvider {
 
@@ -34,12 +34,27 @@ public class SpeciesItemProviderCustomImpl extends SpeciesItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		Species species = (Species)object;
+		String path = species.getIconKey();
+		String iconPath = null;
+		if (path != null) {
+			iconPath = ImageProvider.INSTANCE.getIcons().get(path);
+			if (iconPath.startsWith("/icons/")) { //$NON-NLS-1$
+				iconPath = iconPath.substring(7);
+			}
+		} else {
+			iconPath = "custo/commons/species.png"; //$NON-NLS-1$
+		}
+		return overlayImage(object, getResourceLocator().getImage(iconPath));
 	}
 
 	@Override
 	public String getText(Object object) {
-		return TextHelper.getLabel((Plant)object);
+		Plant plant = (Plant)object;
+		String name = plant.getName() != null ? plant.getName() : ""; //$NON-NLS-1$
+		String baseLatinName = plant.getFullLatinName();
+		String latinName = baseLatinName != null ? ("<" + baseLatinName + ">") : ""; //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
+		return name + " " + latinName; //$NON-NLS-1$
 	}
 
 	@Override

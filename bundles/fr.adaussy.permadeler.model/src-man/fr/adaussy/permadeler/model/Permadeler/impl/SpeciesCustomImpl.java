@@ -22,6 +22,16 @@ public class SpeciesCustomImpl extends SpeciesImpl {
 	}
 
 	@Override
+	public String getEffectiveIconKey() {
+		return getIconKey();
+	}
+
+	@Override
+	public String getEffectiveRepresentationKey() {
+		return getRepresentationKey();
+	}
+
+	@Override
 	public EList<Action> getAllActions() {
 		return getActions();
 	}

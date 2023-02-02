@@ -224,4 +224,20 @@ public interface Plant extends ImageOwner, NamedElement, ReferencingElement {
 	 */
 	EList<String> getAllNames();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getEffectiveIconKey();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getEffectiveRepresentationKey();
+
 } // Plant

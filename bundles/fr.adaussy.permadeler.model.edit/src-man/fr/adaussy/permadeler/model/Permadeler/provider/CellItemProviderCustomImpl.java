@@ -19,7 +19,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link CellItemProvider} custom impl
@@ -47,7 +46,14 @@ public class CellItemProviderCustomImpl extends CellItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((Cell)object);
+		Cell cell = (Cell)object;
+		Plant plant = cell.getPlant();
+		if (plant != null) {
+			return ((IItemLabelProvider)getRootAdapterFactory().adapt(plant, IItemLabelProvider.class))
+					.getImage((plant));
+		} else {
+			return overlayImage(object, getResourceLocator().getImage("other/icons/area.png")); //$NON-NLS-1$
+		}
 	}
 
 	@Override

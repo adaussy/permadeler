@@ -63,4 +63,22 @@ public class VarietyCustomImpl extends VarietyImpl {
 	public EList<SpecialUses> getAllSpecialUses() {
 		return getSpecies().getSpecialUses();
 	}
+
+	@Override
+	public String getEffectiveIconKey() {
+		String key = getIconKey();
+		if (key != null) {
+			return key;
+		}
+		return getSpecies().getEffectiveRepresentationKey();
+	}
+
+	@Override
+	public String getEffectiveRepresentationKey() {
+		String key = getRepresentationKey();
+		if (key != null) {
+			return key;
+		}
+		return getSpecies().getEffectiveRepresentationKey();
+	}
 }

@@ -1407,13 +1407,31 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT___GET_ALL_NAMES = IMAGE_OWNER_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Get Effective Icon Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_EFFECTIVE_ICON_KEY = IMAGE_OWNER_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Get Effective Representation Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_EFFECTIVE_REPRESENTATION_KEY = IMAGE_OWNER_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Plant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_OPERATION_COUNT = IMAGE_OWNER_OPERATION_COUNT + 8;
+	int PLANT_OPERATION_COUNT = IMAGE_OWNER_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
@@ -2088,6 +2106,24 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES___GET_ALL_NAMES = PLANT___GET_ALL_NAMES;
 
 	/**
+	 * The operation id for the '<em>Get Effective Icon Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_EFFECTIVE_ICON_KEY = PLANT___GET_EFFECTIVE_ICON_KEY;
+
+	/**
+	 * The operation id for the '<em>Get Effective Representation Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_EFFECTIVE_REPRESENTATION_KEY = PLANT___GET_EFFECTIVE_REPRESENTATION_KEY;
+
+	/**
 	 * The number of operations of the '<em>Species</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2294,6 +2330,24 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIETY___GET_ALL_NAMES = PLANT___GET_ALL_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Effective Icon Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_EFFECTIVE_ICON_KEY = PLANT___GET_EFFECTIVE_ICON_KEY;
+
+	/**
+	 * The operation id for the '<em>Get Effective Representation Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_EFFECTIVE_REPRESENTATION_KEY = PLANT___GET_EFFECTIVE_REPRESENTATION_KEY;
 
 	/**
 	 * The number of operations of the '<em>Variety</em>' class.
@@ -3442,6 +3496,26 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPlant__GetAllNames();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getEffectiveIconKey() <em>Get Effective Icon Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Effective Icon Key</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getEffectiveIconKey()
+	 * @generated
+	 */
+	EOperation getPlant__GetEffectiveIconKey();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getEffectiveRepresentationKey() <em>Get Effective Representation Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Effective Representation Key</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getEffectiveRepresentationKey()
+	 * @generated
+	 */
+	EOperation getPlant__GetEffectiveRepresentationKey();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Production <em>Production</em>}'.
@@ -4871,6 +4945,23 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PLANT___GET_ALL_NAMES = eINSTANCE.getPlant__GetAllNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Effective Icon Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT___GET_EFFECTIVE_ICON_KEY = eINSTANCE.getPlant__GetEffectiveIconKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Effective Representation Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT___GET_EFFECTIVE_REPRESENTATION_KEY = eINSTANCE
+				.getPlant__GetEffectiveRepresentationKey();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.

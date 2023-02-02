@@ -430,7 +430,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PlanifierItemProvider planifierItemProvider;
+	protected PlanifierItemProviderCustomImpl planifierItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.Planifier}.
@@ -441,7 +441,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	@Override
 	public Adapter createPlanifierAdapter() {
 		if (planifierItemProvider == null) {
-			planifierItemProvider = new PlanifierItemProvider(this);
+			planifierItemProvider = new PlanifierItemProviderCustomImpl(this);
 		}
 
 		return planifierItemProvider;

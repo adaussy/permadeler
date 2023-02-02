@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link SeedItemItemProvider} custom impl
@@ -40,11 +39,7 @@ public class SeedItemItemProviderCustomImpl extends SeedItemItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		SeedItem item = (SeedItem)object;
-		if (item.getType() != null) {
-			return ImageProvider.INSTANCE.getIconEMFIcon(item.getType());
-		}
-		return ImageProvider.INSTANCE.getIconEMFIcon(item);
+		return overlayImage(object, getResourceLocator().getImage("other/icons/072-seed.png")); //$NON-NLS-1$
 	}
 
 }

@@ -16,28 +16,9 @@ import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
-import fr.adaussy.permadeler.model.Permadeler.NamedElement;
-import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.provider.PermadelerEditPlugin;
 
 public class TextHelper {
-
-	private static final String UNNAMED = "Unnamed"; //$NON-NLS-1$
-
-	/**
-	 * Builds a label of a {@link Plant}
-	 * 
-	 * @param o
-	 *            a name element (not <code>null</code>)
-	 * @return a name
-	 */
-	public static String getLabel(Plant o) {
-		String name = o.getName() != null ? o.getName() : UNNAMED;
-		String baseLatinName = o.getFullLatinName();
-		String latinName = baseLatinName != null ? ("<" + baseLatinName + ">") : ""; //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
-		return name + " " + latinName; //$NON-NLS-1$
-
-	}
 
 	/**
 	 * Gets the label of an EObject by delegating to the EMF Factory
@@ -71,19 +52,6 @@ public class TextHelper {
 		// TODO EClass, EStructure feature etc..
 
 		return ""; //$NON-NLS-1$
-	}
-
-	/**
-	 * Builds a label of a {@link NamedElement}
-	 * 
-	 * @param o
-	 *            a name element (not <code>null</code>)
-	 * @return a name
-	 */
-	public static String getLabel(NamedElement o) {
-		String name = o.getName() != null ? o.getName() : UNNAMED;
-		return name;
-
 	}
 
 }

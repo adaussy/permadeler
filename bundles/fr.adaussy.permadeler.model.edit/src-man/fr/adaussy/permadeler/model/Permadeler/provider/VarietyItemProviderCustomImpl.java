@@ -11,11 +11,12 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
-import fr.adaussy.permadeler.model.edit.TextHelper;
 
 public class VarietyItemProviderCustomImpl extends VarietyItemProvider {
 
@@ -25,12 +26,30 @@ public class VarietyItemProviderCustomImpl extends VarietyItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		Variety variety = (Variety)object;
+		String path = variety.getIconKey();
+		String iconPath = "custo/commons/plant.png";//$NON-NLS-1$
+		if (path != null) {
+			iconPath = ImageProvider.INSTANCE.getIcons().get(path);
+			if (iconPath.startsWith("/icons/")) { //$NON-NLS-1$
+				iconPath = iconPath.substring(7);
+			}
+		} else if (variety.getSpecies() != null) {
+			Species species = variety.getSpecies();
+			IItemLabelProvider adapt = (IItemLabelProvider)getRootAdapterFactory().adapt(species,
+					IItemLabelProvider.class);
+			return adapt.getImage(species);
+		}
+		return overlayImage(object, getResourceLocator().getImage(iconPath));
 	}
 
 	@Override
 	public String getText(Object object) {
-		return TextHelper.getLabel((Plant)object);
+		Plant plant = (Plant)object;
+		String name = plant.getName() != null ? plant.getName() : ""; //$NON-NLS-1$
+		String baseLatinName = plant.getFullLatinName();
+		String latinName = baseLatinName != null ? ("<" + baseLatinName + ">") : ""; //$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
+		return name + " " + latinName; //$NON-NLS-1$
 	}
 
 }

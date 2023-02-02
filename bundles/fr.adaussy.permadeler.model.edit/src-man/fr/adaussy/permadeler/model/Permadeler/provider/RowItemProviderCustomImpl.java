@@ -11,10 +11,8 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 
 import fr.adaussy.permadeler.model.Permadeler.Row;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link RowItemProvider} custom impl
@@ -36,7 +34,7 @@ public class RowItemProviderCustomImpl extends RowItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("other/icons/row.png")); //$NON-NLS-1$
 	}
 
 }

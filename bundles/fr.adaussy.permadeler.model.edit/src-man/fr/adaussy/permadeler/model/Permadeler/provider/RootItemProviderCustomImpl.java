@@ -11,10 +11,8 @@
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.EObject;
 
 import fr.adaussy.permadeler.model.Permadeler.Root;
-import fr.adaussy.permadeler.model.edit.ImageProvider;
 
 /**
  * {@link RootItemProvider} custom impl
@@ -29,7 +27,7 @@ public class RootItemProviderCustomImpl extends RootItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return ImageProvider.INSTANCE.getIconEMFIcon((EObject)object);
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/plant2.png")); //$NON-NLS-1$
 	}
 
 	@Override
