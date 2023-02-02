@@ -925,7 +925,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="#//TemporalItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActionType"
-        defaultValueLiteral="Multiplication"/>
+        defaultValueLiteral="Other"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ActionType">
     <eLiterals name="Other"/>

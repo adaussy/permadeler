@@ -2426,7 +2426,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Type(), this.getActionType(), "type", "Multiplication", 0, 1, Action.class, //$NON-NLS-1$//$NON-NLS-2$
+		initEAttribute(getAction_Type(), this.getActionType(), "type", "Other", 0, 1, Action.class, //$NON-NLS-1$//$NON-NLS-2$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 

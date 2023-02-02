@@ -25,7 +25,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/Permadeler.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vP4SgKI0Ee2K7_GDtPGzjA" name="Plant Organisation" repPath="#_vP3rcKI0Ee2K7_GDtPGzjA" changeId="8af67f15-e92e-48ad-aae3-32eb9bec5a41">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vP4SgKI0Ee2K7_GDtPGzjA" name="Plant Organisation" repPath="#_vP3rcKI0Ee2K7_GDtPGzjA" changeId="29c4a4d9-7257-4308-af86-96d90584c6c3">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/Permadeler.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -15783,7 +15783,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2ozn5aI0Ee2K7_GDtPGzjA" name="type : ActionType = Multiplication" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_2ozn5aI0Ee2K7_GDtPGzjA" name="type : ActionType = Other" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model/Permadeler.ecore#//Action/type"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model/Permadeler.ecore#//Action/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_2ozn5qI0Ee2K7_GDtPGzjA" labelAlignment="LEFT">
