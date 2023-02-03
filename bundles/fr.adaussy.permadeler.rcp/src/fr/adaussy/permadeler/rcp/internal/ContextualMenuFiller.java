@@ -40,6 +40,7 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
+import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.Species;
@@ -193,7 +194,9 @@ public class ContextualMenuFiller {
 	 *            some {@link EObject}s
 	 */
 	private void caseEObject(List<EObject> selections) {
-		others.add(new DeleteObject(selections, session));
+		if (canDelete(selections)) {
+			others.add(new DeleteObject(selections, session));
+		}
 		if (selections.size() == 1) {
 			TransactionalEditingDomain editingDomain = session.getTransactionalEditingDomain();
 			EObject target = selections.get(0);
@@ -205,6 +208,10 @@ public class ContextualMenuFiller {
 			}
 		}
 
+	}
+
+	private boolean canDelete(List<EObject> selection) {
+		return selection.stream().noneMatch(e -> e instanceof Root || e instanceof KnowledgeBase);
 	}
 
 	private void casePlant(List<Plant> varieties) {
