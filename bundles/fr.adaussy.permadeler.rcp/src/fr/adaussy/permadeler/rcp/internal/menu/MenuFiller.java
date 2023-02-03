@@ -98,7 +98,6 @@ public class MenuFiller implements IMenuListener {
 				navigateAction.add(new FocusOnElementAction(RcpMessages.MenuFiller_1, permSelection, null));
 
 				addSubMenu(navigateAction, RcpMessages.MenuFiller_2, manager);
-				addSubMenu(filler.getTimeViewActions(), RcpMessages.MenuFiller_3, manager);
 
 				for (IAction a : filler.getOthers()) {
 					manager.add(a);

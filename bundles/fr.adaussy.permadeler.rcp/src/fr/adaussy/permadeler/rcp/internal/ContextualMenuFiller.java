@@ -55,9 +55,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
 import fr.adaussy.permadeler.rcp.internal.actions.SowCellAction;
 import fr.adaussy.permadeler.rcp.internal.actions.SowSpeciesAction;
-import fr.adaussy.permadeler.rcp.internal.actions.TimeViewAction;
 import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
-import fr.adaussy.permadeler.rcp.internal.timeview.InputFactory;
 
 /**
  * Object that fill the contextual menu dependingon a selection
@@ -69,8 +67,6 @@ public class ContextualMenuFiller {
 	private List<IAction> newElementActions = new ArrayList<IAction>();
 
 	private List<IAction> navigateAction = new ArrayList<IAction>();
-
-	private List<IAction> timeViewActions = new ArrayList<IAction>();
 
 	private List<IAction> others = new ArrayList<IAction>();
 
@@ -211,24 +207,6 @@ public class ContextualMenuFiller {
 
 	}
 
-	/**
-	 * Builds an action to display Sow time on the selection
-	 * 
-	 * @param object
-	 *            an {@link EObject}
-	 * @return a {@link TimeViewAction}
-	 */
-	protected TimeViewAction buidSowTimeViewAction(EObject object) {
-		return TimeViewAction.builder()//
-				.withApplication(getApplication())//
-				.withModelService(getModelService())//
-				.withPartService(getPartService())//
-				.withQuery(InputFactory.SOW_PERIOD)//
-				.withTarget(object)//
-				.withLabel(RcpMessages.ContextualMenuFiller_2)//
-				.build();
-	}
-
 	private void casePlant(List<Plant> varieties) {
 
 		if (varieties.size() == 1) {
@@ -346,10 +324,6 @@ public class ContextualMenuFiller {
 
 	public List<IAction> getNavigateAction() {
 		return navigateAction;
-	}
-
-	public List<IAction> getTimeViewActions() {
-		return timeViewActions;
 	}
 
 	public List<IAction> getOthers() {
