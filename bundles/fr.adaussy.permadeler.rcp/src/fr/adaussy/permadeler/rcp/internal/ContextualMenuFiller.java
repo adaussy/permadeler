@@ -27,9 +27,21 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.sirius.business.api.dialect.DialectManager;
 import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
+import org.eclipse.sirius.ui.tools.internal.actions.copy.CopyRepresentationAction;
+import org.eclipse.sirius.ui.tools.internal.actions.creation.CreateRepresentationAction;
+import org.eclipse.sirius.ui.tools.internal.actions.session.OpenRepresentationsAction;
+import org.eclipse.sirius.ui.tools.internal.views.common.SessionLabelProvider;
+import org.eclipse.sirius.ui.tools.internal.views.common.action.DeleteRepresentationAction;
+import org.eclipse.sirius.ui.tools.internal.views.common.action.RenameRepresentationAction;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
+import org.eclipse.sirius.viewpoint.description.RepresentationDescription;
+import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.PlatformUI;
 
 import fr.adaussy.permadeler.model.Permadeler.ActionType;
@@ -65,7 +77,11 @@ import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
  */
 public class ContextualMenuFiller {
 
+	private static final String NEW_REPRESENTATION_MENU_ID = "menu.viewpoint.new.representation"; //$NON-NLS-1$
+
 	private List<IAction> newElementActions = new ArrayList<IAction>();
+
+	private List<IAction> newRepresentationActions = new ArrayList<IAction>();
 
 	private List<IAction> navigateAction = new ArrayList<IAction>();
 
@@ -77,6 +93,24 @@ public class ContextualMenuFiller {
 
 	public ContextualMenuFiller(Session session) {
 		this.session = session;
+	}
+
+	public void fillRepresentationAction(List<DRepresentationDescriptor> reprensetations) {
+		if (!reprensetations.isEmpty()) {
+			if (reprensetations.size() == 1) {
+				DRepresentationDescriptor rep = reprensetations.get(0);
+				defaultAction = new OpenRepresentationsAction(rep);
+				others.add(defaultAction);
+				Action renameAction = new RenameRepresentationAction(Collections.singleton(rep));
+				renameAction.setActionDefinitionId(IWorkbenchCommandConstants.FILE_RENAME);
+				others.add(renameAction);
+			}
+			others.add(new CopyRepresentationAction(session, reprensetations));
+			Action deleteAction = new DeleteRepresentationAction(reprensetations);
+			deleteAction.setActionDefinitionId(IWorkbenchCommandConstants.EDIT_DELETE);
+			others.add(deleteAction);
+		}
+
 	}
 
 	/**
@@ -127,6 +161,10 @@ public class ContextualMenuFiller {
 					break;
 			}
 		}
+	}
+
+	public List<IAction> getNewRepresentationActions() {
+		return newRepresentationActions;
 	}
 
 	private void caseKnowledgeBase(List<KnowledgeBase> selections) {
@@ -206,8 +244,25 @@ public class ContextualMenuFiller {
 				newElementActions.add(
 						new CreateChildAction(editingDomain, new StructuredSelection(target), descriptor));
 			}
+
+			final Collection<RepresentationDescription> descriptions = DialectManager.INSTANCE
+					.getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), target);
+			if (descriptions.size() > 0) {
+				for (final RepresentationDescription representationDescription : descriptions) {
+					if (DialectManager.INSTANCE.canCreate(target, representationDescription)) {
+						newRepresentationActions.add(
+								buildCreateRepresentationAction(target, representationDescription, session));
+					}
+				}
+			}
 		}
 
+	}
+
+	private Action buildCreateRepresentationAction(final EObject selection,
+			final RepresentationDescription representationDescription, final Session session) {
+		return new CreateRepresentationAction(session, selection, representationDescription,
+				new SessionLabelProvider(ViewHelper.INSTANCE.createAdapterFactory()));
 	}
 
 	private boolean canDelete(List<EObject> selection) {

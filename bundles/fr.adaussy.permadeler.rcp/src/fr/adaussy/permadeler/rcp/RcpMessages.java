@@ -95,6 +95,8 @@ public class RcpMessages extends NLS {
 
 	public static String MenuFiller_3;
 
+	public static String MenuFiller_4;
+
 	public static String MonthService_0;
 
 	public static String MonthService_2;

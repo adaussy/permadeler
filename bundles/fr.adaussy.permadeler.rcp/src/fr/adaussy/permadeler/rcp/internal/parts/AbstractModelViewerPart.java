@@ -36,8 +36,6 @@ import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RollbackException;
-import org.eclipse.jface.action.IMenuListener;
-import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
@@ -57,7 +55,6 @@ import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.featureExtensions.FeatureExtensionsUIManager;
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerView;
-import org.eclipse.sirius.ui.tools.internal.views.common.ContextMenuFiller;
 import org.eclipse.sirius.ui.tools.internal.views.common.navigator.SiriusCommonLabelProvider;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -163,17 +160,9 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 		});
 		viewer.addDoubleClickListener(new DoubleClickHandler(() -> displayedSession, viewer));
 		MenuManager menuMng = new MenuManager();
-		menuMng.addMenuListener(new MenuFiller(() -> viewer.getSelection()));
+		menuMng.addMenuListener(new MenuFiller(() -> displayedSession, () -> viewer.getSelection()));
 		menuMng.setRemoveAllWhenShown(true);
 
-		ContextMenuFiller siriusMenuFiller = new ContextMenuFiller(viewer, labelProvider);
-		menuMng.addMenuListener(new IMenuListener() {
-
-			@Override
-			public void menuAboutToShow(IMenuManager manager) {
-				siriusMenuFiller.fillContextMenu(menuMng, getSelection());
-			}
-		});
 		Menu menu = menuMng.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		Transfer[] types = new Transfer[] {LocalSelectionTransfer.getTransfer() };

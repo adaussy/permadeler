@@ -10,9 +10,11 @@
 package fr.adaussy.permadeler.rcp.internal.menu;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -24,8 +26,9 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.diagram.ui.edit.api.part.IDiagramElementEditPart;
+import org.eclipse.sirius.ui.tools.internal.views.common.item.RepresentationItemImpl;
+import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
@@ -42,7 +45,10 @@ public class MenuFiller implements IMenuListener {
 
 	private Supplier<ISelection> selectionProvider;
 
-	public MenuFiller(Supplier<ISelection> selectionProvider) {
+	private Supplier<Session> sessionSupplier;
+
+	public MenuFiller(Supplier<Session> sessionSupplier, Supplier<ISelection> selectionProvider) {
+		this.sessionSupplier = sessionSupplier;
 		this.selectionProvider = selectionProvider;
 	}
 
@@ -80,32 +86,51 @@ public class MenuFiller implements IMenuListener {
 
 	@Override
 	public void menuAboutToShow(IMenuManager manager) {
+		Session session = sessionSupplier.get();
+		if (session == null) {
+			return;
+		}
 		ISelection selection = selectionProvider.get();
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection structureSelection = (IStructuredSelection)selection;
 
 			List<EObject> permSelection = getPermadellerSelection(structureSelection);
+			ContextualMenuFiller filler = new ContextualMenuFiller(session);
+			filler.fillRepresentationAction(getRepresentationDescriptors(structureSelection.toList()));
 			if (!permSelection.isEmpty()) {
-				EObject first = permSelection.get(0);
-				Session session = SessionManager.INSTANCE.getSession(first);
-				ContextualMenuFiller filler = new ContextualMenuFiller(session);
 				for (EClass eClass : EMFUtils.getCommonEClasses(permSelection)) {
 					filler.fill(eClass, permSelection);
 				}
 
-				addSubMenu(filler.getNewElementActions(), RcpMessages.MenuFiller_0, manager);
-				List<IAction> navigateAction = filler.getNavigateAction();
-				navigateAction.add(new FocusOnElementAction(RcpMessages.MenuFiller_1, permSelection, null));
-
-				addSubMenu(navigateAction, RcpMessages.MenuFiller_2, manager);
-
-				for (IAction a : filler.getOthers()) {
-					manager.add(a);
-				}
-
 			}
+			addSubMenu(filler.getNewElementActions(), RcpMessages.MenuFiller_0, manager);
+			List<IAction> navigateActions = filler.getNavigateAction();
+			if (Stream.of(structureSelection.toArray()).anyMatch(e -> e instanceof IDiagramElementEditPart)) {
+				navigateActions.add(new FocusOnElementAction(RcpMessages.MenuFiller_1, permSelection, null));
+			}
+
+			addSubMenu(navigateActions, RcpMessages.MenuFiller_2, manager);
+			addSubMenu(filler.getNewRepresentationActions(), RcpMessages.MenuFiller_4, manager);
+
+			for (IAction a : filler.getOthers()) {
+				manager.add(a);
+			}
+
 		}
 
+	}
+
+	private List<DRepresentationDescriptor> getRepresentationDescriptors(Collection<?> selection) {
+		List<DRepresentationDescriptor> selectedRepDescriptors = new ArrayList<DRepresentationDescriptor>();
+		if (selection != null) {
+			selection.stream().filter(e -> e instanceof DRepresentationDescriptor)
+					.map(e -> (DRepresentationDescriptor)e).forEach(selectedRepDescriptors::add);
+			selection.stream().filter(e -> e instanceof RepresentationItemImpl)
+					.map(e -> (RepresentationItemImpl)e)
+					.map(RepresentationItemImpl.REPRESENTATION_ITEM_TO_REPRESENTATION)
+					.forEach(selectedRepDescriptors::add);
+		}
+		return selectedRepDescriptors;
 	}
 
 	/**
