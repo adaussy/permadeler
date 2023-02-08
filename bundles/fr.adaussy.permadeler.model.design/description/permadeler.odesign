@@ -24,6 +24,12 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
+        <nodeMappings name="CI_DiagSizeMarker" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="1" showIcon="false" labelExpression="" tooltipExpression="Marqueur de fin de plan" hideLabelByDefault="true" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/EndDiagMarker.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
         <toolSections name="CreationSection_Plantations" label="Create">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationTool" label="Planter plante Connue" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/other/icons/019-trowel.png">
             <variable name="container"/>
