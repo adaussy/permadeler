@@ -10,6 +10,9 @@
 package fr.adaussy.permadeler.rcp.internal.spreadsheet;
 
 import java.text.DateFormatSymbols;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +24,46 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
+import fr.adaussy.permadeler.model.edit.TextHelper;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.services.LabelService;
 import fr.adaussy.permadeler.rcp.services.MonthService;
 
 public class SpreadsheetExtractFactorys {
+
+	public static List<ColumnExtractor<Plantation>> buildPlantationLegendExtractor() {
+		List<ColumnExtractor<Plantation>> columns = new ArrayList<ColumnExtractor<Plantation>>();
+
+		columns.add(ColumnExtractor.build("Id", p -> p.getId()));
+		columns.add(ColumnExtractor.build(RcpMessages.GenerateProductionSpreadsheetMenu_6,
+				p -> p.getType() != null ? p.getType().getName() : "")); //$NON-NLS-1$
+		columns.add(ColumnExtractor.build(RcpMessages.GenerateProductionSpreadsheetMenu_7,
+				p -> p.getType() != null ? p.getType().getFullLatinName() : "")); //$NON-NLS-1$
+		columns.add(ColumnExtractor.build("Cycle de vie", p -> getLifeCycle(p)));
+
+		columns.add(ColumnExtractor.build("Année", p -> extractYear(p)));
+		columns.add(ColumnExtractor.build("Description", p -> p.getDescription()));
+
+		return columns;
+	}
+
+	private static String getLifeCycle(Plantation p) {
+		Plant type = p.getType();
+		if (type != null) {
+			return TextHelper.getEditLabel(type.getLifeCycle());
+		} else {
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	private static String extractYear(Plantation p) {
+		Instant plantationDate = p.getPlantationDate();
+		if (plantationDate != null) {
+			return String.valueOf(LocalDate.ofInstant(plantationDate, ZoneId.systemDefault()).getYear());
+		}
+		return ""; //$NON-NLS-1$
+	}
 
 	public static List<ColumnExtractor<Pair<Plant, Production>>> buildAllProductionExtractor() {
 		List<ColumnExtractor<Pair<Plant, Production>>> columns = new ArrayList<ColumnExtractor<Pair<Plant, Production>>>();

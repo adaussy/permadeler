@@ -899,6 +899,7 @@
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getAllNames"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getEffectiveIconKey"/>
       <genOperations ecoreOperation="Permadeler.ecore#//Plant/getEffectiveRepresentationKey"/>
+      <genOperations ecoreOperation="Permadeler.ecore#//Plant/getLifeCycle"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Production">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Production/type"/>

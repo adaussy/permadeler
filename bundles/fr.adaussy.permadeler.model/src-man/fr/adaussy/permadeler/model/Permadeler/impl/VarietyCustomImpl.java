@@ -5,6 +5,7 @@ import org.eclipse.emf.common.util.EList;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
+import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
@@ -45,6 +46,11 @@ public class VarietyCustomImpl extends VarietyImpl {
 			return getSpecies().getRepresentation();
 		}
 		return key;
+	}
+
+	@Override
+	public Lifecycle getLifeCycle() {
+		return getSpecies().getLifeCycle();
 	}
 
 	@Override

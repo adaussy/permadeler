@@ -240,4 +240,12 @@ public interface Plant extends ImageOwner, NamedElement, ReferencingElement {
 	 */
 	String getEffectiveRepresentationKey();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Lifecycle getLifeCycle();
+
 } // Plant

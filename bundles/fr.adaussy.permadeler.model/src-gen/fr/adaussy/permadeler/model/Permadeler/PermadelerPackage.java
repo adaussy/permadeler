@@ -1425,13 +1425,22 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT___GET_EFFECTIVE_REPRESENTATION_KEY = IMAGE_OWNER_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Get Life Cycle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANT___GET_LIFE_CYCLE = IMAGE_OWNER_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Plant</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLANT_OPERATION_COUNT = IMAGE_OWNER_OPERATION_COUNT + 10;
+	int PLANT_OPERATION_COUNT = IMAGE_OWNER_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
@@ -2124,6 +2133,15 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES___GET_EFFECTIVE_REPRESENTATION_KEY = PLANT___GET_EFFECTIVE_REPRESENTATION_KEY;
 
 	/**
+	 * The operation id for the '<em>Get Life Cycle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIES___GET_LIFE_CYCLE = PLANT___GET_LIFE_CYCLE;
+
+	/**
 	 * The number of operations of the '<em>Species</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2348,6 +2366,15 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIETY___GET_EFFECTIVE_REPRESENTATION_KEY = PLANT___GET_EFFECTIVE_REPRESENTATION_KEY;
+
+	/**
+	 * The operation id for the '<em>Get Life Cycle</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIETY___GET_LIFE_CYCLE = PLANT___GET_LIFE_CYCLE;
 
 	/**
 	 * The number of operations of the '<em>Variety</em>' class.
@@ -3516,6 +3543,16 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPlant__GetEffectiveRepresentationKey();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant#getLifeCycle() <em>Get Life Cycle</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Life Cycle</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant#getLifeCycle()
+	 * @generated
+	 */
+	EOperation getPlant__GetLifeCycle();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Production <em>Production</em>}'.
@@ -4962,6 +4999,14 @@ public interface PermadelerPackage extends EPackage {
 		 */
 		EOperation PLANT___GET_EFFECTIVE_REPRESENTATION_KEY = eINSTANCE
 				.getPlant__GetEffectiveRepresentationKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Life Cycle</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLANT___GET_LIFE_CYCLE = eINSTANCE.getPlant__GetLifeCycle();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.

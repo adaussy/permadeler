@@ -1312,6 +1312,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPlant__GetLifeCycle() {
+		return plantEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProduction() {
 		return productionEClass;
 	}
@@ -2036,6 +2045,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(plantEClass, PLANT___GET_ALL_NAMES);
 		createEOperation(plantEClass, PLANT___GET_EFFECTIVE_ICON_KEY);
 		createEOperation(plantEClass, PLANT___GET_EFFECTIVE_REPRESENTATION_KEY);
+		createEOperation(plantEClass, PLANT___GET_LIFE_CYCLE);
 
 		productionEClass = createEClass(PRODUCTION);
 		createEAttribute(productionEClass, PRODUCTION__TYPE);
@@ -2411,6 +2421,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEOperation(getPlant__GetEffectiveRepresentationKey(), ecorePackage.getEString(),
 				"getEffectiveRepresentationKey", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getPlant__GetLifeCycle(), this.getLifecycle(), "getLifeCycle", 0, 1, IS_UNIQUE, //$NON-NLS-1$
+				IS_ORDERED);
 
 		initEClass(productionEClass, Production.class, "Production", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);

@@ -12,6 +12,7 @@ package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
+import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.NamedElement;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Production;
@@ -587,6 +588,17 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Lifecycle getLifeCycle() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -881,6 +893,8 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 				return getEffectiveIconKey();
 			case PermadelerPackage.VARIETY___GET_EFFECTIVE_REPRESENTATION_KEY:
 				return getEffectiveRepresentationKey();
+			case PermadelerPackage.VARIETY___GET_LIFE_CYCLE:
+				return getLifeCycle();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
