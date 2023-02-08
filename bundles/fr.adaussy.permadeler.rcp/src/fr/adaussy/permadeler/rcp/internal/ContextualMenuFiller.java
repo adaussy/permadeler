@@ -62,7 +62,6 @@ import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
-import fr.adaussy.permadeler.rcp.internal.actions.ListAllPlantationAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
@@ -221,7 +220,6 @@ public class ContextualMenuFiller {
 	private void caseZone(List<Zone> zones) {
 		if (zones.size() == 1) {
 			Zone zone = zones.get(0);
-			others.add(new ListAllPlantationAction(session, zone));
 		}
 	}
 
