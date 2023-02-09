@@ -63,7 +63,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationToolNewVariety" label="Planter nouvelle varieté" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/plant.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_PlantationCreationToolNewVariety" label="Planter nouvelle variété" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/plant.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
