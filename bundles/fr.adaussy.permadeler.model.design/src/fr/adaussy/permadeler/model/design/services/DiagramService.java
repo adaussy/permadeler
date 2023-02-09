@@ -244,9 +244,18 @@ public class DiagramService {
 				.map(n -> (Node)n)//
 				.filter(n -> {
 					Plantation plantation = viewToPlantation(n);
-					return plantation.getRepresentationKind() == RepresentationKind.TREE_CROWN;
+					return plantation != null
+							&& plantation.getRepresentationKind() == RepresentationKind.TREE_CROWN;
 				})//
-				.sorted(Comparator.comparingInt(n -> viewToPlantation(n).getCurrentLayer().ordinal()));
+				.sorted(Comparator.comparingInt(n -> getZOrder(n)));
+	}
+
+	private int getZOrder(Node n) {
+		Plantation viewToPlantation = viewToPlantation(n);
+		if (viewToPlantation == null) {
+			return 0;
+		}
+		return viewToPlantation.getCurrentLayer().ordinal();
 	}
 
 	private Plantation viewToPlantation(Node n) {
@@ -271,11 +280,13 @@ public class DiagramService {
 					.map(n -> (Node)n)//
 					.filter(n -> {
 						Plantation plantation = viewToPlantation(n);
+						if (plantation == null) {
+							return false;
+						}
 						Layer layer = plantation.getCurrentLayer();
 						return layer != Layer.CANOPY && layer != Layer.UNDERSTORY;
 					})//
-					.sorted(Comparator.comparingInt(n -> -viewToPlantation(n).getCurrentLayer().ordinal()))
-					.forEach(n -> {
+					.sorted(Comparator.comparingInt(n -> -getZOrder(n))).forEach(n -> {
 						ViewUtil.repositionChildAt(gmfView, n, 0);
 					});
 
