@@ -50,6 +50,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.sirius.business.api.dialect.command.RefreshRepresentationsCommand;
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
@@ -75,6 +76,7 @@ import com.google.common.collect.Iterators;
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
 import fr.adaussy.permadeler.model.Permadeler.Cell;
 import fr.adaussy.permadeler.model.Permadeler.Event;
+import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
@@ -86,11 +88,13 @@ import fr.adaussy.permadeler.model.Permadeler.Row;
 import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
+import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
 import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
+import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.PlantationDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.TrayDimensionCreationDialog;
 import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
@@ -123,7 +127,7 @@ public class DiagramService {
 
 	public static Plantation dupplicate(Plantation plantation, DDiagramElement targetView,
 			DSemanticDiagram diagram) {
-		// Dupplication plantation
+		// Duplication plantation
 
 		Plantation newPlantation = EcoreUtil.copy(plantation);
 
@@ -537,6 +541,21 @@ public class DiagramService {
 				plantation.setType(value);
 				plantation.setId(generateId(plantation));
 				return plantation;
+			}
+		}
+		return null;
+	}
+
+	public Variety createDefaultVariety(PlantationPhase phase) {
+		KnowledgeBase knowledgeBase = EMFUtils.getAncestor(Root.class, phase).getKnowledgeBase();
+		ObjectSelectionDialog<Species> dialog = new ObjectSelectionDialog<>(getShell(), Species.class,
+				s -> true, knowledgeBase);
+		if (dialog.open() == IDialogConstants.OK_ID) {
+			List<Species> species = dialog.getSelection();
+			if (species.size() == 1) {
+				Variety variety = PermadelerFactory.eINSTANCE.createVariety();
+				species.get(0).getVarieties().add(variety);
+				return variety;
 			}
 		}
 		return null;
