@@ -76,7 +76,7 @@ public class VarietyCustomImpl extends VarietyImpl {
 		if (key != null) {
 			return key;
 		}
-		return getSpecies().getEffectiveRepresentationKey();
+		return getSpecies().getEffectiveIconKey();
 	}
 
 	@Override
