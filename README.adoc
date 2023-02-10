@@ -1,5 +1,9 @@
 # Permadeler
 
+## Documentation
+
+<<./doc/user/README.adoc#,Documentation utilisateur>>
+
 ## Objectifs
 
 Ce projet a pour vocation de créer un logiciel Open Source permettant d'aider à la création et la gestion d'une Forêt Jardin.
