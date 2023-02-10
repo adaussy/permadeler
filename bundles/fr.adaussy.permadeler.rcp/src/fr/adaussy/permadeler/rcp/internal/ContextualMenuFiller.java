@@ -76,8 +76,6 @@ import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
  */
 public class ContextualMenuFiller {
 
-	private static final String NEW_REPRESENTATION_MENU_ID = "menu.viewpoint.new.representation"; //$NON-NLS-1$
-
 	private List<IAction> newElementActions = new ArrayList<IAction>();
 
 	private List<IAction> newRepresentationActions = new ArrayList<IAction>();
