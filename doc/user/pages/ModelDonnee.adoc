@@ -5,9 +5,9 @@
 :data-uri:
 :toc:
 
-Cette documentation à pour but de founir des informations sur les concepts utilisés dans _Permadeler_.
+Cette documentation a pour but de fournir des informations sur les concepts utilisés dans _Permadeler_.
 
-Les différents concepts sont classés dans 
+Les différents concepts sont classés dans :
 
 * _Knowledgebase_ : La base de connaissance contient toutes les informations sur les plantes utilisées dans le projet.
 * _Zone_ : Une zone contient les informations sur une zone géographique de plantation. Elle contient aussi toutes les <<Plantation,plantations>> de cette <<Zone>>.
@@ -15,13 +15,13 @@ Les différents concepts sont classés dans
 == Les concepts
 
 Sur chaque concept il est possible de lancer certaines opérations disponibles via un clic droit.
-Certaines actions sont spécifiques à un concepts (voir leur description dans les chapitres suivants), d'autres sont génériques:
+Certaines actions sont spécifiques à un concept (voir leur description dans les chapitres suivants), d'autres sont génériques:
 
 * _Nouveau_ : Vous trouverez dans ce sous-menu toutes les créations de concepts _fils_ d'un élément.
 Par exemple, sur une <<KnowledgeBase,base de connaissance>> il est possible de créer une nouvelle <<species,espèce>>.
-* _Nouvelles representations_ : Permet la création de représentations graphiques sur un concept.
-Par exemple, c'est avec ce menu que vous pourrez créer une <<carte d'implantation,./EspaceTravail.adoc#CarteImplantation>> en selectionnant le concept <<PlantationPhase,phase de plantation>>.
-* _Supprimer_ : Supprime le concept (ou la représentation de votre modèle) et tout sont contenu.
+* _Nouvelles representations_ : Permets la création de représentations graphiques sur un concept.
+Par exemple, c'est avec ce menu que vous pourrez créer une <<carte d'implantation,./EspaceTravail.adoc#CarteImplantation>> en sélectionnant le concept <<PlantationPhase,phase de plantation>>.
+* _Supprimer_ : Supprime le concept (ou la représentation de votre modèle) et tout son contenu.
 
 [#Root]
 === image:{edit-icon-path}/custo/commons/plant2.png[] Projet
@@ -42,26 +42,26 @@ Les caractéristiques d'un projet sont:
 === image:{edit-icon-path}/custo/bookmarks_view.png[] La base de connaissance
 
 
-Dans cette section nous allons traiter de tous les éléménts contenus dans une la base de connaissance.
+Dans cette section nous allons traiter de tous les éléments contenus dans une la base de connaissance.
 
 [#Plant]
 ==== Plant
 
-Une _plante_ est un élement qui fait partie d'une <<Zone>> est plus spécifiquement d'une <<PlantationPhase, phase de plantation>>.
+Une _plante_ est un élément qui fait partie d'une <<Zone>> est plus spécifiquement d'une <<PlantationPhase, phase de plantation>>.
 
 Une plante est définie par:
 
-* Un nom principale
+* Un nom principal
 * Un ou plusieurs autres noms communs
-* Une icone utilisée pour sa representation dans la vue arborescente.
-Elle peut aussi être utilisée dans un schéma d'implemtation si le mode _icone_ est sélectionné.
-* Une representation : Image utilisée pour la representation en mode _houppier_ dans un schéma d'implementation.
+* Une icône utilisée pour sa représentation dans la vue arborescente.
+Elle peut aussi être utilisée dans un schéma d'implantation si le mode _icone_ est sélectionné.
+* Une représentation : Image utilisée pour la représentation en mode _houppier_ dans un schéma d'implantation.
 * Un nom court. Celui-ci sera utilisé pour générer les identifiants des plantations futures.
 
 [#Species]
-==== image:{edit-icon-path}/custo/commons/species.png[] Espece
+==== image:{edit-icon-path}/custo/commons/species.png[] Espèce
 
-Une espece, est une <<Plante,plante>> qui contient:
+Une espèce, est une <<Plante,plante>> qui contient:
 
 * Des <<Productions>>
 * Des <<Actions>>
@@ -69,9 +69,9 @@ Une espece, est une <<Plante,plante>> qui contient:
 
 Une espèce est définie par:
 
-* Espece : Nom latin de l'espèce
+* Espèce : Nom latin de l'espèce
 * Genre : Nom latin du genre de l'espèce
-* Famille : Famille de l'espece
+* Famille : Famille de l'espèce
 * Un cycle de vie:
 ** Annuel
 ** Vivace
@@ -80,58 +80,58 @@ Une espèce est définie par:
 ** Pivot
 ** Traçant
 ** Mixte
-** Faciculé
+** Fasciculé
 * Un type de feuillage:
 ** Caduc
 ** Persistance
 ** Semi-Persistant
-* Une tolerance à la sécheresse
+* Une tolérance à la sécheresse
 * L'ombrage du feuillage
 * Des conditions d'ensoleillement optimum
-* Des conditionsd'ensoleillement tolérées
-* Les bénéfices de l'espèces:
-** Mélifère: Les fleurs de la plante fournissent du polen ou du nectar
+* Des conditions d'ensoleillement tolérées
+* Les bénéfices de l'espèce:
+** Mélifère: Les fleurs de la plante fournissent du pollen ou du nectar
 ** Fixateur d'azote
 ** Accumulateur dynamique: La plante permet de remonter en surface des nutriments souvent peu disponible en surface
-** Bordure: Peut être utilisée dans une haie brise vent
+** Bordure: Peut être utilisée dans une haie brise-vent
 ** Attire la faune est valable pour une plante qui permet de:
 *** D'attirer des insectes auxiliaires
 *** Fournir un habitat à la faune sauvage
 *** Fournir de la nourriture à la faune sauvage
 * La taille (Hauteur et Largeur)
-* Le rapidité de croissance
-* La strate naturelle de cette espece dans la foret jardin. Cette strate correspond à la strate naturelle de l'espece sans intervention humaine.
-Une <<plantation>> de cette espece pourra être affectée à une autre strate lors de la l'implémentation dans le schéma d'implementation.
-* Le type de representation a utiliser par défaut:
-** Icone: Par default une <<plantation>> de cette espece sera representée par une icone dans un schéma d'implentation
-** Houpier: Par default une <<plantation>> de cette espece sera represéntée par une vue de dessus dans un schéma d'implementation.
+* La rapidité de croissance
+* La strate naturelle de cette espèce dans la foret jardin. Cette strate correspond à la strate naturelle de l'espèce sans intervention humaine.
+Une <<plantation>> de cette espèce pourra être affectée à une autre strate lors de la l'implémentation dans le schéma d'implantation.
+* Le type de représentation a utilisé par défaut:
+** Icone: Par défaut une <<plantation>> de cette espèce sera représentée par une icône dans un schéma d'implantation
+** Houpier: Par défaut une <<plantation>> de cette espèce sera représentée par une vue de dessus dans un schéma d'implantation.
 
-NOTE: _Espece_ et le _Genre_ sont utilisés pour créer le nom latin complet de la plante. Celui-ci doit être unique au sein de votre base de de connaissance.
+NOTE: _Espece_ et le _Genre_ sont utilisés pour créer le nom latin complet de la plante. Celui-ci doit être unique au sein de votre base de connaissance.
 
 
 [#Variety]
 === image:{edit-icon-path}/custo/commons/plant.png[] Varieté
 
-Une variété est aussi une <<Plant,plante>> mais qui est une spécialisation d'une <<Species,espece>>.
-Elle herite de la majorité des caractéristiques d'une <<Species, Espece>> mais peut avoir ses propres:
+Une variété est aussi une <<Plant,plante>>, mais qui est une spécialisation d'une <<Species,espèce>>.
+Elle hérite de la majorité des caractéristiques d'une <<Species, Espèce>>, mais peut avoir ses propres:
 
 * <<Production>>
 * <<Action>>
-* Icone et representation
+* Icone et représentation
 
-Le but d'une varité est de pouvoir tracer les variété de chaque plantation mais surtout de pouvoir affiné les périodes de <<Production>> et d'<<Action>>.
-Pour cela il suffit de créer une nouvelle <<Production>> ou <<Action>> du même _type_ que celle définie dans l'espece parente.
+Le but d'une variété est de pouvoir tracer les variétés de chaque plantation, mais surtout de pouvoir affiné les périodes de <<Production>> et d'<<Action>>.
+Pour cela il suffit de créer une nouvelle <<Production>> ou <<Action>> du même _type_ que celle définie dans l'espèce parente.
 Cette nouvelle <<Production>> ou <<Action>> prend alors la place de la production parente.
 
 [#Production]
 === image:{edit-icon-path}/custo/commons/production.png[] Production
 
 
-Une production represente quelquechose que la <<Plant,plante>> produit.
-Elle est déinit par:
+Une production représente quelque chose que la <<Plant,plante>> produit.
+Elle est définie par:
 
-* Un nom (optionel)
-* Une description (optionel)
+* Un nom (optionnel)
+* Une description (optionnel)
 * Une période de production
 * Un type de production :
 ** Fleur
@@ -140,7 +140,7 @@ Elle est déinit par:
 ** Feuille
 ** Jeunes Pousses
 ** Sève
-** Bourgeons Apical
+** Bourgeons apicaux
 ** Graine
 ** Pollen
 ** Nectar
@@ -151,22 +151,22 @@ Elle est déinit par:
 
 
 L'unité pour décrire une période est le quart de mois (ou une semaine).
-Ainsi tous les mois sont decomposés en quatre semaines.
+Ainsi tous les mois sont décomposés en quatre semaines.
 
 Par exemple, il possible de dire qu'un pommier va produire des pommes seulement les 3e et 4e semaines de Julliet.
 
 [#Action]
 === image:{edit-icon-path}/custo/commons/action.png[] Action
 
-Une action represente une action qui peut ou doit être réalisée sur la <<Plant,plante>>.
+Une action représente une action qui peut ou doit être réalisée sur la <<Plant,plante>>.
 Les types d'actions possibles sont:
 
 * image:{edit-icon-path}/custo/commons/calendar-sow.png[] Semi intérieur
 * image:{edit-icon-path}/custo/commons/calendar-sow.png[] Semi extérieur
 * image:{edit-icon-path}/custo/commons/multipication.png[] Multiplication
 * image:{edit-icon-path}/custo/commons/pruning.png[]  Taille
-* image:{edit-icon-path}/custo/commons/harvest.png[]  Recolte
-* image:{edit-icon-path}/custo/commons/action.png[]  Autre
+* image:{edit-icon-path}/custo/commons/harvest.png[]  récolte
+* image:{edit-icon-path}/custo/commons/action.png[]  autre
 
 Comme pour les <<Production,productions>>, les <<Action,action>> sont liées à une période. 
 
@@ -175,45 +175,48 @@ Comme pour les <<Production,productions>>, les <<Action,action>> sont liées à 
 
 Une zone représente une zone géographique.
 
-Elle est définit par:
+Elle est définie par:
 
 * Un nom
 * Une description
 
 Elle contient des <<Plantation,plantations>> dans différentes <<PlantationPhase,Phase de Plantation>>.
-Votre projet peut contenir plusieur zones.
+Votre projet peut contenir plusieurs zones.
 
 [#PlantationPhase]
 === Phase de plantation
 
-Une phase de plantation represent l'état des <<Plantation,plantations>> d'une zone à un moment donnée.
-Elle peut être utilisé pour représenté l'état d'une zone au moment présent ou l'état d'une zone à un moment précis dans le temps.
+Une phase de plantation représente l'état des <<Plantation,plantations>> d'une zone à un moment donné.
+Elle peut être utilisée pour représenter l'état d'une zone au moment présent ou l'état d'une zone à un moment précis dans le temps.
 
-Elle est définit par:
+Elle est définie par:
 
 * Un nom
 * Une description
 
-WARN: Pour le moment ce concept est assez peu utilisé pour representer des variations de plantation.
-Nous recommendons de ne garder qu'une _phase de plantation_ par zone pour le moment.
-Celle-ci representant l'état courrant d'une zone.
-Dans de futures version nous souhaitons utiliser ce concept pour prévoir l'évolution d'une plantation.
+[WARN]
+====
+Pour le moment ce concept est assez peu utilisé pour représenter des variations de plantation.
+Nous recommandons de ne garder qu'une _phase de plantation_ par zone pour le moment.
+Celle-ci représentant l'état courant d'une zone.
+Dans de futures versions, nous souhaitons utiliser ce concept pour prévoir l'évolution d'une plantation.*
+====
 
 [#Plantation]
 === Plantation
 
 Une plantation représente une plantation dans le monde réel.
-Elle peut représenter une plantation d'une <<Species,espece>> ou d'une <<Variety,variété>>.
+Elle peut représenter une plantation d'une <<Species,espèce>> ou d'une <<Variety,variété>>.
 
-Elle est définit par:
+Elle est définie par:
 
 * Une date de plantation
 * Un id (unique)
 * Une description
-* Un porte greffe
+* Un porte-greffe
 
 .Actions
-* _Aller vers/Base de connaissance_ : Permet de selectionner le type de plantation dans la vue _Base de connaissance_. 
+* _Aller vers/Base de connaissance_ : Permet de sélectionner le type de plantation dans la vue _Base de connaissance_. 
 
 == Métamodèle
 

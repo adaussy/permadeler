@@ -82,7 +82,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="DuplicatePlantation" label="Duppliquer" iconPath="/fr.adaussy.permadeler.model.design/img/copy_edit.png">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="DuplicatePlantation" label="Dupliquer" iconPath="/fr.adaussy.permadeler.model.design/img/copy_edit.png">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
