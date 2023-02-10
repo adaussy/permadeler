@@ -1,0 +1,6 @@
+= Condition d'utilisation
+
+Ce logiciel a été créé à l'origine à titre personnel pour m'aider à gérer ma Foret Jardin.
+Je le maintiens sur mon temps libre et avec des resources limitées.
+Il ne fait donc l'objet d'*aucune garanties* d'utilisation.
+Cependant, les contributions sont les bienvenues si vous souhaitez l'améliorer ou corriger des bugs.

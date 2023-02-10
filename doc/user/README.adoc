@@ -2,4 +2,13 @@
 
 Ce document vise a donner des éléments sur l'utilisation du produit _Permadeler_.
 
-* <<pages/ModelDonnee.adoc#,Les éléments d'un projet Permadeler>>
+* <<pages/ConditionUtilisation.adoc#,Condition d'utilisation>>
+* <<pages/EspaceTravail.adoc#,L'espace de travail>>
+* <<pages/ModelDonnee.adoc#,Les concepts d'un projet Permadeler>>
+
+
+[WARN]
+====
+Attention ce logiciel est encore jeune, nous vous recommandons de faire le plus souvent possible des sauvegardes de votre projet.
+Pour cela, il faut faire sauvegarder *tout* le dossier contenant les fichiers _*.permarep_ et _*.permadeler_.
+====
