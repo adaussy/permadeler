@@ -23,6 +23,7 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -113,8 +114,16 @@ public class FocusOnElementAction extends Action {
 			modelService.bringToTop(mPart);
 			if (mPart.getObject() instanceof IViewerProvider) {
 				IViewerProvider viewProvider = (IViewerProvider)mPart.getObject();
-				viewProvider.getViewer().setSelection(new StructuredSelection(targets));
+				StructuredSelection structuredSelection = new StructuredSelection(targets);
+				viewProvider.getViewer().setSelection(structuredSelection);
 
+				// the first time the view may not be initialized yet. We need a second try
+				if (viewProvider.getViewer().getSelection() != structuredSelection) {
+					Display.getDefault().asyncExec(() -> {
+						viewProvider.getViewer().setSelection(structuredSelection);
+
+					});
+				}
 			}
 		}
 	}
