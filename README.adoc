@@ -2,7 +2,7 @@
 
 ## Documentation
 
-<<doc/user/README.adoc,Documentation utilisateur>>
+<<./doc/user/README.adoc#,Documentation utilisateur>>
 
 ## Objectifs
 
