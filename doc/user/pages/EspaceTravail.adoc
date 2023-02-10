@@ -1,0 +1,224 @@
+= L'espace de travail
+:imgdir-pages: ./imgs
+:edit-icon-path: ./../../../../bundles/fr.adaussy.permadeler.model.edit/icons
+:rcp-icon-path: ./../../../../bundles/fr.adaussy.permadeler.rcp/icons
+:imagesdir: {imgdir-pages}
+:data-uri:
+:toc:
+
+L'espace de travail est composé de plusieurs *vues*.
+Chaque vue peut être déplacée en fonction des préférences de chaque utilisateur.
+Ce document vise à décrire comment utiliser ces différentes vues.
+
+[#TreeView]
+== Les vues arborescentes
+
+Par défaut, la partie de gauche contient les vues arborescentes.
+Une vue arborescente présente une vue complète ou partielle de votre projet.
+Votre projet contient des concepts représentant une Foret Jardin (décrit <<./ModelDonnee.adoc#,ici>>), mais aussi des image:DDiagram.gif[] _représentations graphiques_ de ces concepts.
+Double cliquez sur une image:DDiagram.gif[] <<Representations,représentation>> pour ouvrir une représentation dans l'éditeur central.
+
+
+=== La vue "Plantation"
+
+Cette vue présente les concepts liés à vos plantations.
+Le premier élément de l'arbre représente la racine de votre <<./ModelDonnee.adoc#Project,projet>>.
+Celui-ci peut contenir une ou plusieurs <<./ModelDonnee.adoc#Zone,zones>>.
+Chaque zone peut contenir une ou plusieurs <<./ModelDonnee.adoc#PlantationPhase,Phase de plantation>>.
+Chaque phase de plantation contient:
+
+* Des <<./ModelDonnee.adoc#Plantation,plantations>>
+* Des <<#CarteImplantation,carte d'implantation>>
+
+WARN: le concept de _Phases de Plantation_ est assez peu utilisé. Nous vous recommandons de ne garder qu'une seule Phase de Plantation par zone pour le moment.
+
+=== La vue "Connaissances"
+
+Cette vue présente une vue arborescente des connaissances utilisées dans votre projet.
+On y retrouve les concepts:
+
+* <<./ModelDonnee.adoc#Species,Espèce>>
+* <<./ModelDonnee.adoc#Variety,Variété>>
+* <<./ModelDonnee.adoc#Action,Action>>
+* <<./ModelDonnee.adoc#Production,Production>>
+
+Certaines actions sont disponibles en utilisant un clic droit.
+Pour voir la description des actions, veuillez lire la page détaillant les <<./ModelDonnee.adoc#,concepts>>.
+
+Dans le haut de cette vue, un champ texte permet de filtrer rapidement les éléments affichés.
+
+La barre d'action de cette vue propose les actions suivantes:
+
+* image:{rcp-icon-path}/alphab_sort_co.gif[] : Trie toutes la base de connaissance par ordre alphabétique (en utilisant le nom commun principal de la plante)
+* image:{rcp-icon-path}/refresh.png[] : Permet de rafraichir la vue pour prendre en compte certains changements dans le projet.
+La plupart des changements sont pris en compte directement. Cependant, certains changements complexes nécessitent de rafraichir la vue manuellement.
+
+[#Representations]
+== image:DDiagram.gif[] Les représentations
+
+Il existe différents types de _représentations_ dans Permadeler.
+
+À ce jour seules des représentations de type diagramme existent.
+Une représentation de type diagramme est composée de plusieurs éléments.
+
+image::DiagramRep.png[]
+
+.La zone de diagramme
+C'est dans cette zone que tous les éléments seront affichés.
+Les éléments d'une représentation peuvent être:
+
+* Affichés
+* Cachés
+* Supprimer (sémantiquement ou graphiquement)
+* Déplacer
+* Retailler
+* Etc.
+
+.La palette
+C'est ici que se trouvent les outils permettant d'interagir avec la zone diagramme.
+Pour utiliser un outil sélectionner le dans la palette, puis utiliser le sur le diagramme ou  sur un élément du diagramme.
+
+.La barre d'outils
+Cette barre d'outils dépend de la sélection.
+Si le "fond" du diagramme est sélectionné alors ce sont les outils du diagramme qui sont affichés.
+
+Voici quelques exemples d'outils:
+
+* image:export-to-image.png[] Vous permet d'exporter votre diagramme sous forme d'image
+* image:calc-filters.png[] Sont des outils vous permettant d'activer des calques ou d'appliquer des filtres sur vos éléments dans un diagramme.
+
+[WARN]
+====
+Nous vous recommandons de vous limiter seulement à ces outils pour le moment. Les autres outils n'ont pas encore été complètement intégrés dans Permadeler.
+
+N'utilisez surtout *pas* les outils image:autout-layout-tools.png[] _Auto Layout_. Ceci pourrait bouger toutes les plantations de votre diagramme.
+====
+
+.La palette contextuelle
+Cette palette apparait après un certain temps d'activité.
+Elle reprend tous les outils de la _palette_ s'appliquant sur l'élément sur lequel se trouve la souris.
+
+Une description détaillée du fonctionnement d'un _diagramme_ est  disponible https://www.eclipse.org/sirius/doc/user/diagrams/Diagrams.html[ici (en anglais)].
+
+
+[#CarteImplantation]
+=== La Carte d'implémentation
+
+La carte d'implantation permet de créer une carte pour tracer toutes les <<./ModelDonnee.adoc#Plantation,plantations>> d'une zone.
+Cette représentation se trouve sous une <<./ModelDonnee.adoc#PlantationPhase,phase de plantation>>.
+
+==== Importation d'un fond de diagramme
+
+Afin de pouvoir afficher une image dans le fond d'un diagramme, il vous suffit d'effectuer un clic droit sur le diagramme est de sélectionner _Image de fond/Définir une image de fond_.
+Il faut ensuite sélectionner une image sur votre disque.
+Celle-ci est alors copiée à l'intérieur de votre projet puis affichée dans le fond du diagramme.
+
+Il vous faut ensuite positionner graphiquement le marqueur de fin de plan.
+Celui-ci vous permet de définir la zone de travail.
+
+image::marquer-fin-de-plan.png[]
+
+[WARN]
+====
+La taille d'un diagramme n'est pas définie par la taille de l'image, mais par l'élément graphique située le plus en bas à droite.
+Il faut donc positionner le marqueur pour voir l'image importée au complet.
+====
+
+Il est possible de modifier l'échelle et la transparence de l'image en utilisant le menu _Image de fond/Calibrer l'image de fond_.
+
+==== Planter (enfin !!)
+
+Afin d'implanter une plante dans votre jardin, il existe plusieurs méthodes.
+La première question que vous devez vous poser, est de savoir si l'<<./ModelDonnee.adoc#Species,espèce>> ou la <<./ModelDonnee.adoc#Variety,variété>> que vous souhaitez planter, est déjà disponible dans votre base de connaissance.
+
+Si c'est le cas alors vous pouvez soit:
+
+* Utiliser l'outil image:tool-known-plant.png[]
+* Faire un glisser-déposer de la plante désirée depuis la vue <<KnowledgeBase,base de connaissance>> dans le fond du diagramme.
+
+Une fenêtre apparait alors pour:
+
+* Choisir l'espèce ou la variété à planter (déjà présélectionnée si _glisser-déposée_ depuis la vue base de connaissance)
+* Choisir une date de plantation
+* Choisir la strate d'implantation. Le sens que vous donnez à cette caractéristique dépend de votre utilisation. Elle peut par exemple représenter la strate courante ou la strate de plante à son climax.
+* Choisir le type de représentation de la plantation dans le diagramme.
+
+Après validation, la plantation apparait dans le diagramme.
+Vous pouvez alors la déplacer à l'endroit désiré et la retailler.
+
+Si vous souhaitez planter une nouvelle <<./ModelDonnee.adoc#Species,espèce>> alors vous pouvez utiliser l'outil image:tool-new-speceis-tool.png[] _Planter une nouvelle espece_
+Une fenêtre s'affiche alors pour ajouter les caractéristiques de l'<<./ModelDonnee.adoc#Species,espèce>>.
+Une fois les informations ajoutées, le même processus décrit précédemment est enclenché.
+
+Si vous souhaitez planter une nouvelle <<./ModelDonnee.adoc#Variety,variété>> alors vous pouvez utiliser l'outil image:tool-new-speceis-tool.png[] _Planter une nouvelle variété_
+Une fenêtre vous permet de choisir l'espèce puis d'entrer les caractéristiques de la variété.
+
+Vous pouvez aussi choisir de dupliquer une plantation existente en utilisant l'outil image:copy.png[] _Dupliquer_.
+Une nouvelle plantation du même type avec la même date de plantation et un nouvel identifiant sera créé.
+
+Afin de gérer son plant dans sa verticalité, deux outils sont à votre disposition.
+Premièrement il est possible d'organisation l'ordre d'affichage des éléments (qui est dessus et qui est dessous) en utilisant les actions se trouvant dans le  menu _Format/Order_ (ou les raccourcis clavier _Shift+B_ _Send Backward_ et _Shift+F_ _Send to Front_).
+Il est aussi possible d'afficher les plantations affichées sous forme de houppier en mode fil de fer.
+Cela permet de voir les plantations qui se trouvent en dessous.
+Pour cela vous pouvez soit changer cette caractéristique en utilisant la vue <<Properties,propriétés>> sur chacune des plantations.
+Ou utilisez les outils de la palette.
+
+* image:fildefer.png[] _Mode fil de fer_ : Toutes les plantations représentées en mode _houppier_ sont affichées dans le fond du diagramme en mode fil de fer.
+* image:modeplein.png[] _Mode plein_: Toutes les plantations représentées en mode _houppier_ sont affichées en premier plan du diagramme en mode plein.
+
+[NOTE]
+====
+Si vous souhaitez chercher rapidement une plantation dans une représentation, vous pouvez utiliser le raccourci _Ctrl+O_. Cette action vous permet de rechercher des éléments dans diagramme.
+====
+
+[#Properties]
+== La vue propriété : _Properties_
+
+Cette vue réagit à la sélection courante provenant d'une sélection dans une <<Representations,représentation>> ou dans une <<TreeView,vue arborescente>>.
+Elle permet d'afficher/modifier toutes les propriétés de la sélection.
+
+== Menus
+
+=== Fichier
+
+.Nouveau Projet
+Cette action vous permet de créer un nouveau projet.
+Sélectionnez l'emplacement sur votre disque où le projet sera situé.
+Cette action va créer un dossier contenant deux fichiers:
+
+* Un fichier _*.permadeler_ qui contient les informations sémantiques de votre projet
+* Un fichier _*.permarep_ qui contient les représentations graphiques de votre projet
+
+.Charger un projet
+Permet de charger un projet existant en sélectionnant un fichier _*.permarep_.
+
+=== Édition
+
+Ce menu donne accès aux actions _Annuler_ et _Refaire_ aussi disponibles via _Ctrl+Z_ et _Ctrl+Y_
+
+== Rapports
+
+Les rapports génèrent des documents qui se trouveront dans le dossier _reports_ du dossier de votre projet.
+
+[WARN]
+====
+Attention à bien fermer les rapports déjà ouverts avant une génération d'un nouveau rapport.
+====
+
+=== Production de plantation
+
+Cette action va générer un tableau permettant de visualiser les différentes productions d'une zone au cours d'une année.
+
+image::production-report.png[]
+
+=== Floraison Méllifère
+
+Cette action va générer un tableau permettant de visualiser les différentes périodes de production de fleurs mellifères.
+
+image::honey-plant-report.png[]
+
+===  Légende de plantation
+
+Cette action va générer un tableau permettant de construire une légende de votre plantation.
+
+image::legendeplantation.png[]
