@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -11,7 +9,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="splash.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
    version="1.1"
    id="svg3790"
    height="297mm"
@@ -23,21 +21,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="471.85095"
-     inkscape:cy="-13.083501"
+     inkscape:zoom="1.4"
+     inkscape:cx="446.73038"
+     inkscape:cy="942.11759"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="2391"
-     inkscape:window-y="192"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
-     showborder="false">
+     showborder="false"
+     inkscape:document-rotation="0">
     <sodipodi:guide
        orientation="1,0"
        position="306.00887,281.22647"
@@ -3994,7 +3993,7 @@
          id="tspan2934"
          x="550.40375"
          y="661.85229"
-         style="font-size:39.98194504px;line-height:1.25"> </tspan></text>
+         style="font-size:39.9819px;line-height:1.25"> </tspan></text>
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
@@ -4010,13 +4009,13 @@
        id="text4590"
        y="978.17902"
        x="436.66196"
-       style="font-style:normal;font-weight:normal;font-size:21.25872993px;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.77156115"
+       style="font-style:normal;font-weight:normal;font-size:21.2587px;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.77156"
        xml:space="preserve"><tspan
          y="978.17902"
          x="436.66196"
          id="tspan4592"
          sodipodi:role="line"
-         style="font-size:70.83045959px;line-height:1.25;stroke-width:1.77156115"> </tspan></text>
+         style="font-size:70.8305px;line-height:1.25;stroke-width:1.77156"> </tspan></text>
     <path
        inkscape:connector-curvature="0"
        style="fill:#73bf2d;stroke:none;stroke-width:0.73174763;stroke-opacity:1"
@@ -4095,7 +4094,7 @@
        transform="matrix(0.7317476,0,0,0.7317476,579.54541,877.83211)" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;letter-spacing:0px;word-spacing:0px;fill:#795a39;fill-opacity:1;stroke:none;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;letter-spacing:0px;word-spacing:0px;fill:#795a39;fill-opacity:1;stroke:none"
        x="419.28574"
        y="864.66254"
        id="text1705"><tspan
@@ -4103,10 +4102,10 @@
          id="tspan1703"
          x="419.28574"
          y="864.66254"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#795a39;fill-opacity:1;">Permadeller v0.1</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#795a39;fill-opacity:1">Permadeler v0.3.2</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:Bahnschrift;letter-spacing:0px;word-spacing:0px;fill:#795a39;fill-opacity:1;stroke:none;-inkscape-font-specification:Bahnschrift;font-stretch:normal;font-variant:normal;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;letter-spacing:0px;word-spacing:0px;fill:#795a39;fill-opacity:1;stroke:none"
        x="397.14285"
        y="1129.6625"
        id="text1709"><tspan
@@ -4114,6 +4113,6 @@
          id="tspan1707"
          x="397.14285"
          y="1129.6625"
-         style="font-size:16px;-inkscape-font-specification:Bahnschrift;font-family:Bahnschrift;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;fill:#795a39;fill-opacity:1;">(c) 2020 Arthur Daussy - All rights reserved</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;fill:#795a39;fill-opacity:1">(c) 2023 Arthur Daussy - All rights reserved</tspan></text>
   </g>
 </svg>
