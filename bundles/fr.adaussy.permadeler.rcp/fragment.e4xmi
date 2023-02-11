@@ -17,6 +17,9 @@
         <children xsi:type="menu:DirectMenuItem" xmi:id="_Tvlt0J10Ee2zydmOdr26IA" elementId="fr.adaussy.permadeler.rcp.directmenuitem.productionhoneyplant" label="Floraison M&#xe9;lif&#xe8;re" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/other/icons/007-bee.png" tooltip="G&#xe9;n&#xe8;re un rapport sur toutes p&#xe9;riode de floraison m&#xe9;lif&#xe8;re" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.GenerateHoneyPlantProductionSpreadsheetMenu"/>
         <children xsi:type="menu:DirectMenuItem" xmi:id="_ttDwQKeXEe2teI8R835Yhw" elementId="fr.adaussy.permadeler.rcp.directmenuitem.plantationLegend" label="Legende de plantation" iconURI="platform:/plugin/fr.adaussy.permadeler.model.edit/icons/custo/commons/growth.png" tooltip="G&#xe9;n&#xe8;re un rapport sur les plantation d'une zone" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.GeneratePlanationLegendSpreadsheetMenu"/>
       </children>
+      <children xsi:type="menu:Menu" xmi:id="_hunkUKo0Ee2TaeHvoUzMvg" elementId="fr.adaussy.permadeler.rcp.menu.help" label="Aide">
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_jl52EKo0Ee2TaeHvoUzMvg" elementId="fr.adaussy.permadeler.rcp.directmenuitem.openuserdoc" label="Ouvrir documentation" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.OpenDocumentation"/>
+      </children>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ayzpYIuIEeq17LNsNIJ33Q" featurename="children" parentElementId="org.eclipse.ui.ide.perspectivestack"/>
