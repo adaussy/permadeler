@@ -256,6 +256,7 @@
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DateService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.DebugService"/>
     <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.PropertyService"/>
+    <ownedJavaExtensions qualifiedClassName="fr.adaussy.permadeler.model.design.services.ValidationService"/>
   </ownedViewpoints>
   <userColorsPalettes name="DiagramColors">
     <entries xsi:type="description:UserFixedColor" red="249" green="235" blue="210" name="AreaBackground"/>
@@ -386,6 +387,11 @@
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
+        <validationSet>
+          <semanticValidationRules name="DupplicatedSpecies_Warning" level="WARNING" message="Cette espece existe déjà dans votre base de connaissance" targetClass="Permadeler::Species">
+            <audits auditExpression="aql:self.validateUniqueLatinName()"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="Variety_Latin_Group" labelExpression="Nom Latin" domainClass="Permadeler::Variety" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
@@ -396,6 +402,11 @@
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="variety" valueExpression="var:newValue"/>
           </initialOperation>
         </controls>
+        <validationSet>
+          <semanticValidationRules name="DupplicatedSpecies_Warning" level="WARNING" message="Cette espece existe déjà dans votre base de connaissance" targetClass="Permadeler::Species">
+            <audits auditExpression="aql:self.validateUniqueLatinName()"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="Plante_Group" labelExpression="Nom de plante" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Plant_Name" labelExpression="Nom" helpExpression="Nom de la plante (Utilisé des Majuscule comme première lettre de chaque mot)" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
