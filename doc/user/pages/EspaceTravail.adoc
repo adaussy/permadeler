@@ -28,9 +28,9 @@ Chaque zone peut contenir une ou plusieurs <<./ModelDonnee.adoc#PlantationPhase,
 Chaque phase de plantation contient:
 
 * Des <<./ModelDonnee.adoc#Plantation,plantations>>
-* Des <<#CarteImplantation,carte d'implantation>>
+* Des <<#CarteImplantation,cartes d'implantation>>
 
-WARN: le concept de _Phases de Plantation_ est assez peu utilisé. Nous vous recommandons de ne garder qu'une seule Phase de Plantation par zone pour le moment.
+WARNING: le concept de _Phases de Plantation_ est assez peu utilisé. Nous vous recommandons de ne garder qu'une seule Phase de Plantation par zone pour le moment.
 
 === La vue "Connaissances"
 
@@ -49,7 +49,7 @@ Dans le haut de cette vue, un champ texte permet de filtrer rapidement les élé
 
 La barre d'action de cette vue propose les actions suivantes:
 
-* image:{rcp-icon-path}/alphab_sort_co.gif[] : Trie toutes la base de connaissance par ordre alphabétique (en utilisant le nom commun principal de la plante)
+* image:{rcp-icon-path}/alphab_sort_co.gif[] : Trie toute la base de connaissance par ordre alphabétique (en utilisant le nom commun principal de la plante)
 * image:{rcp-icon-path}/refresh.png[] : Permet de rafraichir la vue pour prendre en compte certains changements dans le projet.
 La plupart des changements sont pris en compte directement. Cependant, certains changements complexes nécessitent de rafraichir la vue manuellement.
 
@@ -69,9 +69,9 @@ Les éléments d'une représentation peuvent être:
 
 * Affichés
 * Cachés
-* Supprimer (sémantiquement ou graphiquement)
-* Déplacer
-* Retailler
+* Supprimés (sémantiquement ou graphiquement)
+* Déplacés
+* Retaillés
 * Etc.
 
 .La palette
@@ -87,7 +87,7 @@ Voici quelques exemples d'outils:
 * image:export-to-image.png[] Vous permet d'exporter votre diagramme sous forme d'image
 * image:calc-filters.png[] Sont des outils vous permettant d'activer des calques ou d'appliquer des filtres sur vos éléments dans un diagramme.
 
-[WARN]
+[WARNING]
 ====
 Nous vous recommandons de vous limiter seulement à ces outils pour le moment. Les autres outils n'ont pas encore été complètement intégrés dans Permadeler.
 
@@ -118,7 +118,7 @@ Celui-ci vous permet de définir la zone de travail.
 
 image::marquer-fin-de-plan.png[]
 
-[WARN]
+[WARNING]
 ====
 La taille d'un diagramme n'est pas définie par la taille de l'image, mais par l'élément graphique située le plus en bas à droite.
 Il faut donc positionner le marqueur pour voir l'image importée au complet.
@@ -200,7 +200,7 @@ Ce menu donne accès aux actions _Annuler_ et _Refaire_ aussi disponibles via _C
 
 Les rapports génèrent des documents qui se trouveront dans le dossier _reports_ du dossier de votre projet.
 
-[WARN]
+[WARNING]
 ====
 Attention à bien fermer les rapports déjà ouverts avant une génération d'un nouveau rapport.
 ====

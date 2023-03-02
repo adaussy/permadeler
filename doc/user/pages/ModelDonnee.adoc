@@ -19,7 +19,7 @@ Certaines actions sont spécifiques à un concept (voir leur description dans le
 
 * _Nouveau_ : Vous trouverez dans ce sous-menu toutes les créations de concepts _fils_ d'un élément.
 Par exemple, sur une <<KnowledgeBase,base de connaissance>> il est possible de créer une nouvelle <<species,espèce>>.
-* _Nouvelles representations_ : Permets la création de représentations graphiques sur un concept.
+* _Nouvelles representations_ : Permet la création de représentations graphiques sur un concept.
 Par exemple, c'est avec ce menu que vous pourrez créer une <<carte d'implantation,./EspaceTravail.adoc#CarteImplantation>> en sélectionnant le concept <<PlantationPhase,phase de plantation>>.
 * _Supprimer_ : Supprime le concept (ou la représentation de votre modèle) et tout son contenu.
 
@@ -92,7 +92,7 @@ Une espèce est définie par:
 * Les bénéfices de l'espèce:
 ** Mélifère: Les fleurs de la plante fournissent du pollen ou du nectar
 ** Fixateur d'azote
-** Accumulateur dynamique: La plante permet de remonter en surface des nutriments souvent peu disponible en surface
+** Accumulateur dynamique: La plante permet de remonter en surface des nutriments souvent peu disponibles en surface
 ** Bordure: Peut être utilisée dans une haie brise-vent
 ** Attire la faune est valable pour une plante qui permet de:
 *** D'attirer des insectes auxiliaires
@@ -101,10 +101,10 @@ Une espèce est définie par:
 * La taille (Hauteur et Largeur)
 * La rapidité de croissance
 * La strate naturelle de cette espèce dans la foret jardin. Cette strate correspond à la strate naturelle de l'espèce sans intervention humaine.
-Une <<plantation>> de cette espèce pourra être affectée à une autre strate lors de la l'implémentation dans le schéma d'implantation.
+Une <<plantation>> de cette espèce pourra être affectée à une autre strate lors de l'implémentation dans le schéma d'implantation.
 * Le type de représentation a utilisé par défaut:
 ** Icone: Par défaut une <<plantation>> de cette espèce sera représentée par une icône dans un schéma d'implantation
-** Houpier: Par défaut une <<plantation>> de cette espèce sera représentée par une vue de dessus dans un schéma d'implantation.
+** Houppier: Par défaut une <<plantation>> de cette espèce sera représentée par une vue de dessus dans un schéma d'implantation.
 
 NOTE: _Espece_ et le _Genre_ sont utilisés pour créer le nom latin complet de la plante. Celui-ci doit être unique au sein de votre base de connaissance.
 
@@ -168,7 +168,7 @@ Les types d'actions possibles sont:
 * image:{edit-icon-path}/custo/commons/harvest.png[]  récolte
 * image:{edit-icon-path}/custo/commons/action.png[]  autre
 
-Comme pour les <<Production,productions>>, les <<Action,action>> sont liées à une période. 
+Comme pour les <<Production,productions>>, les <<Action,actions>> sont liées à une période. 
 
 [#Zone]
 === Zone
@@ -194,7 +194,7 @@ Elle est définie par:
 * Un nom
 * Une description
 
-[WARN]
+[WARNING]
 ====
 Pour le moment ce concept est assez peu utilisé pour représenter des variations de plantation.
 Nous recommandons de ne garder qu'une _phase de plantation_ par zone pour le moment.
@@ -220,5 +220,5 @@ Elle est définie par:
 
 == Métamodèle
 
-.Language liée aux plantes et à la plantation
+.Language lié aux plantes et à la plantation
 image::Plant Organisation.jpg[Plantation Metamodel]
