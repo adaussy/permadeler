@@ -11,6 +11,8 @@ package fr.adaussy.permadeler.rcp;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.eef.ide.ui.internal.preferences.EEFPreferences;
+import org.eclipse.eef.ide.ui.internal.widgets.EEFTextLifecycleManager.ConflictResolutionMode;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -33,6 +35,7 @@ public class RcpPlugin extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		EEFPreferences.setTextConflictResolutionMode(ConflictResolutionMode.USE_MODEL_VERSION);
 	}
 
 	@Override
