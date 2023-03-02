@@ -14,7 +14,9 @@ public class VarietyCustomImpl extends VarietyImpl {
 
 	@Override
 	public String getFullLatinName() {
-		return getSpecies().getGenus() + " " + getSpecies().getSpecies() + " '" + getVariety() + "'"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		boolean hasVariety = getVariety() != null;
+		String vari = hasVariety ? getVariety() : "";
+		return getSpecies().getFullLatinName() + (hasVariety ? " '" + vari + "'" : ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 
 	@Override
