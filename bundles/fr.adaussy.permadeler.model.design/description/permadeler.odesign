@@ -313,7 +313,7 @@
         </actions>
       </pages>
       <pages name="ActionPage" labelExpression="Action" domainClass="Permadeler::Action" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.11"/>
-      <pages name="ProductionsPage" labelExpression="Productions" domainClass="Permadeler::Plant" semanticCandidateExpression="aql:self" groups="//@extensions.0/@categories.0/@groups.12" indented="true">
+      <pages name="ProductionsPage" labelExpression="Productions" domainClass="Permadeler::Plant" semanticCandidateExpression="aql:self" groups="//@extensions.0/@categories.0/@groups.14" indented="true">
         <actions tooltipExpression="Créer une nouvelle production" imageExpression="/fr.adaussy.permadeler.model.design/img/add_obj.png">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -323,7 +323,7 @@
         </actions>
       </pages>
       <pages name="ProductionPage" labelExpression="Production" domainClass="Permadeler::Production" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
-      <pages name="PlantationProduction" labelExpression="Plant Production" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12" indented="true">
+      <pages name="PlantationProduction" labelExpression="Plant Production" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.18" indented="true">
         <actions tooltipExpression="Créer une nouvelle production" imageExpression="/fr.adaussy.permadeler.model.design/img/add_obj.png">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type">
@@ -332,7 +332,7 @@
           </initialOperation>
         </actions>
       </pages>
-      <pages name="PlantationActions" labelExpression="Plant Actions" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.11" indented="true">
+      <pages name="PlantationActions" labelExpression="Plant Actions" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.17" indented="true">
         <actions tooltipExpression="Créer une nouvelle action" imageExpression="/fr.adaussy.permadeler.model.design/img/add_obj.png">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type">
@@ -778,7 +778,7 @@
         </actions>
       </groups>
       <groups name="ActionsGroup" labelExpression="Actions" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:ListDescription" name="PlantActionWidget" labelExpression="Actions" valueExpression="aql:self.getActions()" displayExpression="aql:value.getLabelProviderText()">
+        <controls xsi:type="properties:ListDescription" name="PlantActionWidget" labelExpression="Actions" valueExpression="aql:self.getActions()" displayExpression="aql:value.getLabelProviderText()+' : '+value.getTemporalLabel()">
           <onClickOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
@@ -801,7 +801,7 @@
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.rcp/icons/edit.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1)">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1).getActionToEdit(self)">
                 <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Action">
                   <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                     <initialOperation/>
@@ -816,15 +816,13 @@
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.model.design/img/delete.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1)">
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1).safeDeleteInheritedTemporal(self)"/>
             </initialOperation>
           </actions>
         </controls>
       </groups>
       <groups name="ProductionsGroup" labelExpression="Productions" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:ListDescription" name="PlantProductionsWidget" labelExpression="Productions" valueExpression="aql:self.getProductionsToDisplay()" displayExpression="aql:value.getLabelProviderText()">
+        <controls xsi:type="properties:ListDescription" name="PlantProductionsWidget" labelExpression="Productions" valueExpression="aql:self.getProductionsToDisplay()" displayExpression="aql:value.getLabelProviderText()+' : '+value.getTemporalLabel()">
           <onClickOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
           </onClickOperation>
@@ -847,26 +845,22 @@
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.rcp/icons/edit.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1)">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Production" referenceName="productions">
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Production">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation/>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation/>
-                    </buttons>
-                    <page name="Default Page" labelExpression="Page" domainClass="Permadeler::Production" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
-                  </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1).getProductionToEdit(self)">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Production">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Page" domainClass="Permadeler::Production" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </actions>
           <actions imageExpression="/fr.adaussy.permadeler.model.design/img/delete.png">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1)">
-                <subModelOperations xsi:type="tool_1:RemoveElement"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->asSequence()->at(1).safeDeleteInheritedTemporal(self)"/>
             </initialOperation>
           </actions>
         </controls>
@@ -895,6 +889,8 @@
           </initialOperation>
         </controls>
       </groups>
+      <groups name="PlantationActions" labelExpression="Action" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.13"/>
+      <groups name="PlantationProductions" labelExpression="Production" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.14"/>
     </categories>
   </extensions>
 </description:Group>

@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.swt.widgets.Display;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -44,6 +47,43 @@ public class PropertyService {
 		} else {
 			return Collections.emptyList();
 		}
+	}
+
+	public Action getActionToEdit(Action action, Plant p) {
+		if (action.eContainer() == p) {
+			// Edit
+			return action;
+		} else {
+			// Copy and create
+			Action copy = EcoreUtil.copy(action);
+			p.getActions().add(copy);
+			return copy;
+
+		}
+	}
+
+	public Production getProductionToEdit(Production production, Plant p) {
+		if (production.eContainer() == p) {
+			// Edit
+			return production;
+		} else {
+			// Copy and create
+			Production copy = EcoreUtil.copy(production);
+			p.getProductions().add(copy);
+			return copy;
+
+		}
+	}
+
+	public void safeDeleteInheritedTemporal(EObject toDelete, EObject context) {
+		if (toDelete.eContainer() != context) {
+			if (!MessageDialog.openConfirm(Display.getDefault().getActiveShell(), "Suppression",
+					"Voulez vous vraiment supprimer cet élément pour l'espece et toute ses variétés?")) {
+				return;
+			}
+		}
+		Session session = Session.of(toDelete).get();
+		session.getModelAccessor().eDelete(toDelete, session.getSemanticCrossReferencer());
 	}
 
 	public EObject addReference(ReferencingElement element) {

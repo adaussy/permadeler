@@ -11,6 +11,7 @@ package fr.adaussy.permadeler.rcp.services;
 
 import static java.util.stream.Collectors.toSet;
 
+import java.text.DateFormatSymbols;
 import java.text.MessageFormat;
 import java.time.Month;
 import java.time.format.TextStyle;
@@ -71,6 +72,31 @@ public class MonthService {
 			}
 		}
 		return result;
+	}
+
+	/**
+	 * Gets a one line string representation of a {@link TemporalItem}.
+	 * 
+	 * @param item
+	 *            an item
+	 * @return a String
+	 */
+	public String getTemporalLabel(TemporalItem item) {
+		StringBuilder builder = new StringBuilder();
+		String[] months = new DateFormatSymbols().getMonths();
+		for (Month m : Month.values()) {
+			String monthLabel = getMonthLabel(m.getValue(), item.getPeriod());
+			String value = switch (monthLabel) {
+				case "" -> "";
+				case FULL_MONTH_LABEL -> months[m.ordinal()];
+				default -> monthLabel + " semaine(s) " + months[m.ordinal()];
+			};
+			if (!builder.isEmpty() && !value.isBlank()) {
+				builder.append(" + ");
+			}
+			builder.append(value);
+		}
+		return builder.toString();
 	}
 
 	/**
