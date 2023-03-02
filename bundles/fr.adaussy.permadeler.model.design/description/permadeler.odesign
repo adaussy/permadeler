@@ -364,9 +364,6 @@
         </actions>
       </groups>
       <groups name="Species_Latin_Group" labelExpression="Nom Latin" domainClass="Permadeler::Species" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
-          <initialOperation/>
-        </controls>
         <controls xsi:type="properties:ContainerDescription" name="LatinName_Container">
           <controls xsi:type="properties:TextDescription" name="Species_Genus_Widget" labelExpression="Genre" isEnabledExpression="aql:true" valueExpression="aql:self.genus">
             <initialOperation>
@@ -380,6 +377,9 @@
           </controls>
           <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
         </controls>
+        <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
+          <initialOperation/>
+        </controls>
         <validationSet>
           <semanticValidationRules name="DupplicatedSpecies_Warning" level="WARNING" message="Cette espece existe déjà dans votre base de connaissance" targetClass="Permadeler::Species">
             <audits auditExpression="aql:self.validateUniqueLatinName()"/>
@@ -387,13 +387,13 @@
         </validationSet>
       </groups>
       <groups name="Variety_Latin_Group" labelExpression="Nom Latin" domainClass="Permadeler::Variety" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
-          <initialOperation/>
-        </controls>
         <controls xsi:type="properties:TextDescription" name="Variety_Variety_Widget" labelExpression="Variété" isEnabledExpression="aql:true" valueExpression="aql:self.variety">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="variety" valueExpression="var:newValue"/>
           </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextDescription" name="Permadeler::Genus latinName" labelExpression="Nom Latin" isEnabledExpression="aql:false" valueExpression="aql:self.getFullLatinName()">
+          <initialOperation/>
         </controls>
         <validationSet>
           <semanticValidationRules name="DupplicatedSpecies_Warning" level="WARNING" message="Cette espece existe déjà dans votre base de connaissance" targetClass="Permadeler::Species">
