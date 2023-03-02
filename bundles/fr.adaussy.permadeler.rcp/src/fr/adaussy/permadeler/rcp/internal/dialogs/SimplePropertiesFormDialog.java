@@ -82,7 +82,8 @@ public class SimplePropertiesFormDialog extends FormDialog {
 		EEFViewDescription effViewDescription = new ViewDescriptionConverter(pageDescriptions).convert(input);
 
 		EEFView effView = new EEFViewFactory().createEEFView(effViewDescription, variableManager, interpreter,
-				new TransactionalEditingDomainContextAdapter(session.getTransactionalEditingDomain()),
+				new EditingContextAdapterWrapper(new TransactionalEditingDomainContextAdapter(
+						session.getTransactionalEditingDomain())),
 				domainTester, input);
 
 		this.eefPage = effView.getPages().stream()
