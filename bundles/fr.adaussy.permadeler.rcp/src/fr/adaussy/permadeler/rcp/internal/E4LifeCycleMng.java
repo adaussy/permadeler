@@ -19,7 +19,10 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
+import org.eclipse.e4.ui.workbench.IWorkbench;
 import org.eclipse.e4.ui.workbench.UIEvents;
+import org.eclipse.eef.ide.ui.internal.preferences.EEFPreferences;
+import org.eclipse.eef.ide.ui.internal.widgets.EEFTextLifecycleManager.ConflictResolutionMode;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
@@ -29,11 +32,14 @@ import org.eclipse.sirius.common.tools.api.resource.FileProvider;
 import org.eclipse.sirius.common.tools.api.resource.IFileGetter;
 import org.osgi.service.event.Event;
 
+import com.modumind.updatemanager.service.UpdateManager;
+
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Nursary;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceCustomImpl;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.menu.CreateNewProjectMenu;
 
 /**
@@ -62,6 +68,8 @@ public class E4LifeCycleMng {
 		eclipseContext.declareModifiable(KnowledgeBase.class);
 		eclipseContext.declareModifiable(Nursary.class);
 		SessionManager.INSTANCE.addSessionsListener(new SessionInjector(eclipseContext));
+
+		EEFPreferences.setTextConflictResolutionMode(ConflictResolutionMode.USE_MODEL_VERSION);
 
 		loadFileFromArg();
 	}
