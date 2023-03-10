@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Permadeler Branding
 Bundle-SymbolicName: fr.adaussy.permadeler.branding;singleton:=true
+Bundle-Vendor: Arthur Daussy
 Bundle-Version: 0.3.2.qualifier
 Automatic-Module-Name: fr.adaussy.permadeler.branding
 Bundle-RequiredExecutionEnvironment: JavaSE-17
