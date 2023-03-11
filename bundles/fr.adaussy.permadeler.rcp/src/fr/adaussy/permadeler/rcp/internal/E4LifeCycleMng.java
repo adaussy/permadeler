@@ -10,6 +10,7 @@
 package fr.adaussy.permadeler.rcp.internal;
 
 import java.io.File;
+import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
@@ -24,15 +25,15 @@ import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.eef.ide.ui.internal.preferences.EEFPreferences;
 import org.eclipse.eef.ide.ui.internal.widgets.EEFTextLifecycleManager.ConflictResolutionMode;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.common.tools.api.resource.FileProvider;
 import org.eclipse.sirius.common.tools.api.resource.IFileGetter;
+import org.eclipse.swt.widgets.Display;
 import org.osgi.service.event.Event;
-
-import com.modumind.updatemanager.service.UpdateManager;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Nursary;
@@ -60,7 +61,7 @@ public class E4LifeCycleMng {
 	@Inject
 	@Optional
 	public void applicationStarted(@EventTopic(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE) Event event,
-			IEclipseContext eclipseContext) {
+			IEclipseContext eclipseContext, Display display) {
 
 		eclipseContext.declareModifiable(Session.class);
 		eclipseContext.declareModifiable(Root.class);
@@ -69,9 +70,35 @@ public class E4LifeCycleMng {
 		eclipseContext.declareModifiable(Nursary.class);
 		SessionManager.INSTANCE.addSessionsListener(new SessionInjector(eclipseContext));
 
+		checkForUpdate(eclipseContext, display);
+
 		EEFPreferences.setTextConflictResolutionMode(ConflictResolutionMode.USE_MODEL_VERSION);
 
 		loadFileFromArg();
+	}
+
+	protected void checkForUpdate(IEclipseContext eclipseContext, Display display) {
+		CompletableFuture.supplyAsync(() -> {
+			if (RcpPlugin.getDefault().getUpdateManager().needUpdate()) {
+				display.asyncExec(() -> {
+					performUpdate(display, eclipseContext);
+				});
+			}
+			return null;
+		});
+	}
+
+	private void performUpdate(Display display, IEclipseContext eclipseContext) {
+		if (MessageDialog.openConfirm(display.getActiveShell(), "Mise à jours",
+				"Des mises a jours sont disponibles, voulez vous les installer?")) {
+			if (RcpPlugin.getDefault().getUpdateManager().performAutoUpdate()) {
+				if (MessageDialog.openConfirm(display.getActiveShell(), "Redemerrage",
+						"Souhaitez vous redemarrer l'application pour finir l'installation?")) {
+					eclipseContext.get(IWorkbench.class).restart();
+				}
+
+			}
+		}
 	}
 
 	/**

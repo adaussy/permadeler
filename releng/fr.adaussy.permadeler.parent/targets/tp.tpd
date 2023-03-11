@@ -12,6 +12,10 @@ maven Compile scope=compile,test dependencyDepth=direct missingManifest=generate
 		version="1.9.0"
 	}
 }
+location "https://adaussy.github.io/updatemanager/latest" {
+	com.modumind.updatemanager.feature.feature.group lazy
+}
+
 location "http://download.eclipse.org/releases/2022-03" {
 	org.eclipse.platform.sdk lazy
 	org.eclipse.emf lazy

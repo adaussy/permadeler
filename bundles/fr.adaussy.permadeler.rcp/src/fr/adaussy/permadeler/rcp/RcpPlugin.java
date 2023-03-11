@@ -11,10 +11,11 @@ package fr.adaussy.permadeler.rcp;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.eef.ide.ui.internal.preferences.EEFPreferences;
-import org.eclipse.eef.ide.ui.internal.widgets.EEFTextLifecycleManager.ConflictResolutionMode;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+import org.osgi.util.tracker.ServiceTracker;
+
+import com.modumind.updatemanager.service.UpdateManager;
 
 /**
  * Activator of this plugin
@@ -31,15 +32,21 @@ public class RcpPlugin extends AbstractUIPlugin {
 	// The shared instance
 	private static RcpPlugin plugin;
 
+	private ServiceTracker<UpdateManager, UpdateManager> updateManagerServiceTracker;
+
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		EEFPreferences.setTextConflictResolutionMode(ConflictResolutionMode.USE_MODEL_VERSION);
+
+		updateManagerServiceTracker = new ServiceTracker<UpdateManager, UpdateManager>(context,
+				UpdateManager.class.getName(), null);
+		updateManagerServiceTracker.open();
 	}
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
+		updateManagerServiceTracker.close();
 		plugin = null;
 		super.stop(context);
 	}
@@ -51,6 +58,10 @@ public class RcpPlugin extends AbstractUIPlugin {
 	 */
 	public static RcpPlugin getDefault() {
 		return plugin;
+	}
+
+	public UpdateManager getUpdateManager() {
+		return updateManagerServiceTracker.getService();
 	}
 
 	private void doLogInfo(String message) {

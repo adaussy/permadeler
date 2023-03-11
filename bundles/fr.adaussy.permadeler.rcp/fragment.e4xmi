@@ -19,6 +19,7 @@
       </children>
       <children xsi:type="menu:Menu" xmi:id="_hunkUKo0Ee2TaeHvoUzMvg" elementId="fr.adaussy.permadeler.rcp.menu.help" label="Aide">
         <children xsi:type="menu:DirectMenuItem" xmi:id="_jl52EKo0Ee2TaeHvoUzMvg" elementId="fr.adaussy.permadeler.rcp.directmenuitem.openuserdoc" label="Ouvrir documentation" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.OpenDocumentation"/>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_x0Kr0L-OEe2-uYELxpwPOA" elementId="fr.adaussy.permadeler.rcp.directmenuitem.checkforupdate" label="Verifier les mise &#xe0; jours" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.CheckForUpdateMenu"/>
       </children>
     </elements>
   </fragments>

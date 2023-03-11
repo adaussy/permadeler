@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Permadeller Rcp
 Bundle-SymbolicName: fr.adaussy.permadeler.rcp;singleton:=true
-Bundle-Vendor: Arthur Daussy
 Bundle-Version: 0.3.2.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: fr.adaussy.permadeler.rcp.RcpPlugin
+Bundle-Vendor: Arthur Daussy
 Export-Package: fr.adaussy.permadeler.rcp.internal.actions,
  fr.adaussy.permadeler.rcp.internal.dialogs,
  fr.adaussy.permadeler.rcp.internal.extractors,
@@ -62,10 +62,11 @@ Require-Bundle: javax.inject,
  org.eclipse.eef.common.ui,
  org.eclipse.sirius.interpreter,
  org.eclipse.sirius.properties.core,
- org.eclipse.eef
-Bundle-RequiredExecutionEnvironment: JavaSE-17
-Bundle-ActivationPolicy: lazy
+ org.eclipse.eef,
+ com.modumind.updatemanager.service;bundle-version="1.0.0"
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0",
  org.apache.commons.lang
 Automatic-Module-Name: fr.adaussy.permadeler.rcp
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-17
