@@ -8,6 +8,7 @@
 
    <launcherArgs>
       <programArgs>-clearPersistedState
+-Drepository=https://permadeler.org/permadeler/repository/latest/
       </programArgs>
       <vmArgs>-Xms2024m
       </vmArgs>
