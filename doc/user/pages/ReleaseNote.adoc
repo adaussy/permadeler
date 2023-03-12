@@ -1,0 +1,12 @@
+= Release Note
+
+
+== 0.3.4
+
+* Mise en place d'un system de mise à jours automatique
+* Mise en place d'un site pour stocker les artifact de builds
+* Amélioration des performance en diminuant la taille de chaque image
+* Amélioration de l'ergonimie pour la création d'un nouvelle especes (nouveau boutton dans la vue _Base de connaissance_)
+* Corrige le calcul des nom latin
+* Corrige un problème dans la vue Property lors de la résolution de valeur en conflis
+* Ajout d'un menus "A propos"

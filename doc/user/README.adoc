@@ -5,6 +5,7 @@ Ce document vise a donner des éléments sur l'utilisation du produit _Permadele
 * <<pages/ConditionUtilisation.adoc#,Condition d'utilisation>>
 * <<pages/EspaceTravail.adoc#,L'espace de travail>>
 * <<pages/ModelDonnee.adoc#,Les concepts d'un projet Permadeler>>
+* <<pages/ReleaseNote.adoc#,Release Note>>
 
 
 [WARN]
