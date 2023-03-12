@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Tests Common
 Bundle-SymbolicName: fr.adaussy.permadeler.test.common
 Bundle-Vendor: Arthur Daussy
-Bundle-Version: 0.3.3.qualifier
+Bundle-Version: 0.3.4.qualifier
 Automatic-Module-Name: fr.adaussy.permadeler.test.common
 Bundle-RequiredExecutionEnvironment: JavaSE-17
