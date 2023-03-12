@@ -1,5 +1,22 @@
 # Permadeler
 
+## Installation
+
+Télécharger l'archive correspondante a votre système https://permadeler.org/permadeler/product/latest/[ici]:
+
+* Linux: -linux.gtk.x86_64.zip
+* MacOS: -macosx.cocoa.x86_64.zip
+* Windows: -win32.win32.x86_64.zip
+
+Il faut ensuite dézipper cette archive (de préférence près de la racine de votre disque en utilisant 7Zip).
+
+[WARNING]
+====
+[MacOS] Comme ce logiciel n'est pas enregistré sur l'_AppStore_ d'Apple, lors du premier téléchargement de l'application il vous faudra exécuter la commande suivante `chmod +x  Permadeler.app/Contents/MacOS/permadeler`.
+====
+
+Un système de mise à jour automatique a été mis en place afin de mettre à jour votre logiciel lors de la publication de nouvelles versions.
+
 ## Documentation
 
 <<./doc/user/README.adoc#,Documentation utilisateur>>
