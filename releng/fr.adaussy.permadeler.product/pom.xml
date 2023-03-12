@@ -59,7 +59,7 @@
 								<macosx>${product.name}.app</macosx>
 								<win32>${product.name}</win32>
 							</rootFolders>
-							<archiveFileName>Permadeler_${qualifiedVersion}</archiveFileName>
+							<archiveFileName>Permadeler</archiveFileName>
 						</product>
 					</products>
 				</configuration>
