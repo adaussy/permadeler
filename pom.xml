@@ -46,6 +46,11 @@
 		<tycho.version>2.0.0</tycho.version>
 	</properties>
 
+	<!-- Reminder:
+	
+	+ to quickly create a product : mvn install -Dmaven.test.skip=true -Dgit.dirty=ignore
+	
+	-->
 
 
 	<modules>
