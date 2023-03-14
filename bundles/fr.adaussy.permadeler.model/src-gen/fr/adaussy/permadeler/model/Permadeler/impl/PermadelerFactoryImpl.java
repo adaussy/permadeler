@@ -121,6 +121,8 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 				return createSpecies();
 			case PermadelerPackage.VARIETY:
 				return createVariety();
+			case PermadelerPackage.PLANT_GROUP:
+				return createPlantGroup();
 			default:
 				throw new IllegalArgumentException(
 						"The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -475,7 +477,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public PlantationPhase createPlantationPhase() {
-		PlantationPhaseImpl plantationPhase = new PlantationPhaseImpl();
+		PlantationPhaseCustomImpl plantationPhase = new PlantationPhaseCustomImpl();
 		return plantationPhase;
 	}
 
@@ -497,6 +499,16 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	public Variety createVariety() {
 		VarietyCustomImpl variety = new VarietyCustomImpl();
 		return variety;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlantGroup createPlantGroup() {
+		PlantGroupCustomImpl plantGroup = new PlantGroupCustomImpl();
+		return plantGroup;
 	}
 
 	/**

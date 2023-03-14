@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
+import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
@@ -58,6 +59,26 @@ public class KnowledgeViewerPart extends AbstractModelViewerPart {
 							@Override
 							protected void doExecute() {
 								species.getVarieties().addAll(varieties);
+
+							}
+						});
+			}
+
+		} else if (target instanceof PlantGroup) {
+			PlantGroup targetGroup = (PlantGroup)target;
+			List<Species> droppedSpecies = Stream.of(dropedElements)//
+					.filter(e -> e instanceof Species).map(e -> ((Species)e))//
+					.toList();
+
+			if (!droppedSpecies.isEmpty()) {
+				TransactionalEditingDomain transactionalEditingDomain = getSession()
+						.getTransactionalEditingDomain();
+				transactionalEditingDomain.getCommandStack()
+						.execute(new RecordingCommand(transactionalEditingDomain) {
+
+							@Override
+							protected void doExecute() {
+								targetGroup.getSpecies().addAll(droppedSpecies);
 
 							}
 						});

@@ -22,8 +22,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="planifier" eType="#//Planifier"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBase">
-    <eOperations name="getAllPlants" upperBound="-1" eType="#//Plant"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KnowledgeBase" eSuperTypes="#//IPlantGroup">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+        eType="#//PlantGroup" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
         eType="#//Species" containment="true"/>
   </eClassifiers>
@@ -949,7 +950,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TemporalItem" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//MonthWeeks"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PlantationPhase" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="PlantationPhase" eSuperTypes="#//NamedElement #//IPlantGroup">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A given phase of the plantation"/>
     </eAnnotations>
@@ -1035,5 +1036,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="species" lowerBound="1"
         eType="#//Species" eOpposite="#//Species/varieties"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variety" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlantGroup" eSuperTypes="#//NamedElement #//IPlantGroup">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
+        eType="#//Species"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subGroups" upperBound="-1"
+        eType="#//PlantGroup" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IPlantGroup" abstract="true" interface="true">
+    <eOperations name="getAllPlants" upperBound="-1" eType="#//Plant"/>
   </eClassifiers>
 </ecore:EPackage>

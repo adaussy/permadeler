@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface PlantationPhase extends NamedElement {
+public interface PlantationPhase extends NamedElement, IPlantGroup {
 	/**
 	 * Returns the value of the '<em><b>Plantations</b></em>' containment reference list.
 	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Plantation}.

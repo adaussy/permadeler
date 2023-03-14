@@ -10,40 +10,33 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-
+import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase} object.
+ * This is the item provider adapter for a {@link fr.adaussy.permadeler.model.Permadeler.PlantGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PlantGroupItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KnowledgeBaseItemProvider(AdapterFactory adapterFactory) {
+	public PlantGroupItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -58,8 +51,24 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSpeciesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Species feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSpeciesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_PlantGroup_species_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_PlantGroup_species_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_PlantGroup_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.PLANT_GROUP__SPECIES, true, false, true, null, null, null));
 	}
 
 	/**
@@ -74,8 +83,8 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.KNOWLEDGE_BASE__GROUPS);
-			childrenFeatures.add(PermadelerPackage.Literals.KNOWLEDGE_BASE__SPECIES);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT_GROUP__SUB_GROUPS);
+			childrenFeatures.add(PermadelerPackage.Literals.PLANT_GROUP__SPECIES);
 		}
 		return childrenFeatures;
 	}
@@ -94,14 +103,14 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	}
 
 	/**
-	 * This returns KnowledgeBase.gif.
+	 * This returns PlantGroup.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/KnowledgeBase")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PlantGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -122,7 +131,9 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_KnowledgeBase_type"); //$NON-NLS-1$
+		String label = ((PlantGroup)object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_PlantGroup_type") : //$NON-NLS-1$
+				getString("_UI_PlantGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -136,9 +147,9 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(KnowledgeBase.class)) {
-			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+		switch (notification.getFeatureID(PlantGroup.class)) {
+			case PermadelerPackage.PLANT_GROUP__SUB_GROUPS:
+			case PermadelerPackage.PLANT_GROUP__SPECIES:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -157,22 +168,8 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__GROUPS,
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT_GROUP__SUB_GROUPS,
 				PermadelerFactory.eINSTANCE.createPlantGroup()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.KNOWLEDGE_BASE__SPECIES,
-				PermadelerFactory.eINSTANCE.createSpecies()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return PermadelerEditPlugin.INSTANCE;
 	}
 
 }

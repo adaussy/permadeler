@@ -803,8 +803,8 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//KnowledgeBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/groups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//KnowledgeBase/species"/>
-      <genOperations ecoreOperation="Permadeler.ecore#//KnowledgeBase/getAllPlants"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//SeedBank">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//SeedBank/items"/>
@@ -948,6 +948,14 @@
     <genClasses ecoreClass="Permadeler.ecore#//Variety">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Variety/species"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//Variety/variety"/>
+    </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//PlantGroup">
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference Permadeler.ecore#//PlantGroup/species"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//PlantGroup/subGroups"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Permadeler.ecore#//IPlantGroup">
+      <genOperations ecoreOperation="Permadeler.ecore#//IPlantGroup/getAllPlants"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

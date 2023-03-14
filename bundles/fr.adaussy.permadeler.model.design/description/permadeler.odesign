@@ -344,6 +344,7 @@
       <pages name="Plantation_TypeReferences" labelExpression="Plant references" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0" indented="true"/>
       <pages name="RootPage" labelExpression="Projet" domainClass="Permadeler::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.15"/>
       <pages name="PlantationPhaseGroup" labelExpression="Plantation Phase" domainClass="Permadeler::PlantationPhase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.16"/>
+      <pages name="PlantGroup_Page" labelExpression="Groupe" domainClass="Permadeler::PlantGroup" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.19"/>
       <groups name="ReferenceGroup" labelExpression="References" domainClass="Permadeler::ReferencingElement" semanticCandidateExpression="aql:Sequence{self,self.type}">
         <controls xsi:type="properties:ListDescription" name="Permadeler::ReferencingElement references" labelExpression="References" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('references'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('references').changeable" valueExpression="aql:self.references" displayExpression="var:value">
           <actions imageExpression="/fr.adaussy.permadeler.rcp/icons/add.gif">
@@ -891,6 +892,19 @@
       </groups>
       <groups name="PlantationActions" labelExpression="Action" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.13"/>
       <groups name="PlantationProductions" labelExpression="Production" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.14"/>
+      <groups name="PlantGroup_Group" labelExpression="Plant Group" domainClass="Permadeler::PlantGroup" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="Permadeler::NamedElement name" labelExpression="Nom" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:TextAreaDescription" name="PlantNamed_DescriptionWidget" labelExpression="Description" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('description'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('description').changeable" valueExpression="aql:self.description">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="Permadeler::PlantGroup species" referenceNameExpression="aql:'species'"/>
+      </groups>
     </categories>
   </extensions>
 </description:Group>

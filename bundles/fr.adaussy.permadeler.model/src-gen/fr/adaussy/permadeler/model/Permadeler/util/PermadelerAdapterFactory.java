@@ -225,6 +225,16 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter casePlantGroup(PlantGroup object) {
+			return createPlantGroupAdapter();
+		}
+
+		@Override
+		public Adapter caseIPlantGroup(IPlantGroup object) {
+			return createIPlantGroupAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -660,6 +670,34 @@ public class PermadelerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVarietyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.PlantGroup <em>Plant Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PlantGroup
+	 * @generated
+	 */
+	public Adapter createPlantGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link fr.adaussy.permadeler.model.Permadeler.IPlantGroup <em>IPlant Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see fr.adaussy.permadeler.model.Permadeler.IPlantGroup
+	 * @generated
+	 */
+	public Adapter createIPlantGroupAdapter() {
 		return null;
 	}
 

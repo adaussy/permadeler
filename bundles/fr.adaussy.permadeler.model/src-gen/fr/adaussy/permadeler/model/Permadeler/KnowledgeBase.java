@@ -12,8 +12,6 @@ package fr.adaussy.permadeler.model.Permadeler;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Knowledge Base</b></em>'.
@@ -23,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getGroups <em>Groups</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies <em>Species</em>}</li>
  * </ul>
  *
@@ -30,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface KnowledgeBase extends EObject {
+public interface KnowledgeBase extends IPlantGroup {
 	/**
 	 * Returns the value of the '<em><b>Species</b></em>' containment reference list.
 	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Species}.
@@ -44,11 +43,15 @@ public interface KnowledgeBase extends EObject {
 	EList<Species> getSpecies();
 
 	/**
+	 * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.PlantGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Groups</em>' containment reference list.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase_Groups()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Plant> getAllPlants();
+	EList<PlantGroup> getGroups();
 
 } // KnowledgeBase

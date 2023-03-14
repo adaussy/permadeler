@@ -11,10 +11,13 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
+import fr.adaussy.permadeler.model.Permadeler.IPlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -157,6 +160,17 @@ public class PlantationPhaseImpl extends NamedElementImpl implements PlantationP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Plant> getAllPlants() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -236,6 +250,38 @@ public class PlantationPhaseImpl extends NamedElementImpl implements PlantationP
 				return backgroundImage != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == IPlantGroup.class) {
+			switch (baseOperationID) {
+				case PermadelerPackage.IPLANT_GROUP___GET_ALL_PLANTS:
+					return PermadelerPackage.PLANTATION_PHASE___GET_ALL_PLANTS;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PermadelerPackage.PLANTATION_PHASE___GET_ALL_PLANTS:
+				return getAllPlants();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //PlantationPhaseImpl

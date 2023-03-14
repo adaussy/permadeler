@@ -23,6 +23,7 @@ import fr.adaussy.permadeler.model.Permadeler.FoliageType;
 import fr.adaussy.permadeler.model.Permadeler.GridBedCell;
 import fr.adaussy.permadeler.model.Permadeler.GridBedRow;
 import fr.adaussy.permadeler.model.Permadeler.GrowRate;
+import fr.adaussy.permadeler.model.Permadeler.IPlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.ImageOwner;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -36,6 +37,7 @@ import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Planfication;
 import fr.adaussy.permadeler.model.Permadeler.Planifier;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Production;
@@ -295,6 +297,20 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass varietyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plantGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iPlantGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -620,7 +636,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	public EReference getKnowledgeBase_Species() {
-		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(0);
+		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -628,8 +644,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getKnowledgeBase__GetAllPlants() {
-		return knowledgeBaseEClass.getEOperations().get(0);
+	public EReference getKnowledgeBase_Groups() {
+		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1681,6 +1697,51 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlantGroup() {
+		return plantGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlantGroup_Species() {
+		return (EReference)plantGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlantGroup_SubGroups() {
+		return (EReference)plantGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIPlantGroup() {
+		return iPlantGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIPlantGroup__GetAllPlants() {
+		return iPlantGroupEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getQuantity() {
 		return quantityEEnum;
 	}
@@ -1948,8 +2009,8 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEOperation(rootEClass, ROOT___ADD_SOW_PLANIFICATION__SEEDITEM_LIST_SOWTYPE);
 
 		knowledgeBaseEClass = createEClass(KNOWLEDGE_BASE);
+		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__GROUPS);
 		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__SPECIES);
-		createEOperation(knowledgeBaseEClass, KNOWLEDGE_BASE___GET_ALL_PLANTS);
 
 		seedBankEClass = createEClass(SEED_BANK);
 		createEReference(seedBankEClass, SEED_BANK__ITEMS);
@@ -2095,6 +2156,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEReference(varietyEClass, VARIETY__SPECIES);
 		createEAttribute(varietyEClass, VARIETY__VARIETY);
 
+		plantGroupEClass = createEClass(PLANT_GROUP);
+		createEReference(plantGroupEClass, PLANT_GROUP__SPECIES);
+		createEReference(plantGroupEClass, PLANT_GROUP__SUB_GROUPS);
+
+		iPlantGroupEClass = createEClass(IPLANT_GROUP);
+		createEOperation(iPlantGroupEClass, IPLANT_GROUP___GET_ALL_PLANTS);
+
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
 		lifecycleEEnum = createEEnum(LIFECYCLE);
@@ -2156,6 +2224,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		// Add supertypes to classes
 		rootEClass.getESuperTypes().add(this.getNamedElement());
+		knowledgeBaseEClass.getESuperTypes().add(this.getIPlantGroup());
 		zoneEClass.getESuperTypes().add(this.getNamedElement());
 		nursaryEClass.getESuperTypes().add(this.getTrayOwner());
 		trayEClass.getESuperTypes().add(this.getNamedElement());
@@ -2169,8 +2238,11 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		actionEClass.getESuperTypes().add(this.getTemporalItem());
 		temporalItemEClass.getESuperTypes().add(this.getNamedElement());
 		plantationPhaseEClass.getESuperTypes().add(this.getNamedElement());
+		plantationPhaseEClass.getESuperTypes().add(this.getIPlantGroup());
 		speciesEClass.getESuperTypes().add(this.getPlant());
 		varietyEClass.getESuperTypes().add(this.getPlant());
+		plantGroupEClass.getESuperTypes().add(this.getNamedElement());
+		plantGroupEClass.getESuperTypes().add(this.getIPlantGroup());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2198,12 +2270,12 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(knowledgeBaseEClass, KnowledgeBase.class, "KnowledgeBase", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getKnowledgeBase_Groups(), this.getPlantGroup(), null, "groups", null, 0, -1, //$NON-NLS-1$
+				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getKnowledgeBase_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getKnowledgeBase__GetAllPlants(), this.getPlant(), "getAllPlants", 0, -1, IS_UNIQUE, //$NON-NLS-1$
-				IS_ORDERED);
 
 		initEClass(seedBankEClass, SeedBank.class, "SeedBank", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
@@ -2543,6 +2615,21 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariety_Variety(), ecorePackage.getEString(), "variety", null, 0, 1, Variety.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(plantGroupEClass, PlantGroup.class, "PlantGroup", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPlantGroup_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
+				PlantGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlantGroup_SubGroups(), this.getPlantGroup(), null, "subGroups", null, 0, -1, //$NON-NLS-1$
+				PlantGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iPlantGroupEClass, IPlantGroup.class, "IPlantGroup", IS_ABSTRACT, IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getIPlantGroup__GetAllPlants(), this.getPlant(), "getAllPlants", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
 
 		// Initialize enums and add enum literals

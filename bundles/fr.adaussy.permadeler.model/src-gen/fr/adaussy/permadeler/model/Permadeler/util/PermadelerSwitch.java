@@ -87,6 +87,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				KnowledgeBase knowledgeBase = (KnowledgeBase)theEObject;
 				T result = caseKnowledgeBase(knowledgeBase);
 				if (result == null)
+					result = caseIPlantGroup(knowledgeBase);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -285,6 +287,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseNamedElement(plantationPhase);
 				if (result == null)
+					result = caseIPlantGroup(plantationPhase);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -328,6 +332,24 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = caseNamedElement(variety);
 				if (result == null)
 					result = caseReferencingElement(variety);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.PLANT_GROUP: {
+				PlantGroup plantGroup = (PlantGroup)theEObject;
+				T result = casePlantGroup(plantGroup);
+				if (result == null)
+					result = caseNamedElement(plantGroup);
+				if (result == null)
+					result = caseIPlantGroup(plantGroup);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.IPLANT_GROUP: {
+				IPlantGroup iPlantGroup = (IPlantGroup)theEObject;
+				T result = caseIPlantGroup(iPlantGroup);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -784,6 +806,36 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVariety(Variety object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plant Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plant Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePlantGroup(PlantGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>IPlant Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>IPlant Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIPlantGroup(IPlantGroup object) {
 		return null;
 	}
 

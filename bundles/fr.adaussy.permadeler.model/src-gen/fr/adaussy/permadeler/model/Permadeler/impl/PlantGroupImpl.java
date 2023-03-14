@@ -10,55 +10,49 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.IPlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Knowledge Base</b></em>'.
+ * An implementation of the model object '<em><b>Plant Group</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getGroups <em>Groups</em>}</li>
- *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantGroupImpl#getSubGroups <em>Sub Groups</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantGroupImpl#getSpecies <em>Species</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements KnowledgeBase {
+public class PlantGroupImpl extends NamedElementImpl implements PlantGroup {
 	/**
-	 * The cached value of the '{@link #getGroups() <em>Groups</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubGroups() <em>Sub Groups</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGroups()
+	 * @see #getSubGroups()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PlantGroup> groups;
+	protected EList<PlantGroup> subGroups;
 
 	/**
-	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' containment reference list.
+	 * The cached value of the '{@link #getSpecies() <em>Species</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSpecies()
@@ -72,7 +66,7 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KnowledgeBaseImpl() {
+	protected PlantGroupImpl() {
 		super();
 	}
 
@@ -83,7 +77,7 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PermadelerPackage.Literals.KNOWLEDGE_BASE;
+		return PermadelerPackage.Literals.PLANT_GROUP;
 	}
 
 	/**
@@ -93,8 +87,8 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 */
 	public EList<Species> getSpecies() {
 		if (species == null) {
-			species = new EObjectContainmentEList<Species>(Species.class, this,
-					PermadelerPackage.KNOWLEDGE_BASE__SPECIES);
+			species = new EObjectResolvingEList<Species>(Species.class, this,
+					PermadelerPackage.PLANT_GROUP__SPECIES);
 		}
 		return species;
 	}
@@ -104,12 +98,12 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PlantGroup> getGroups() {
-		if (groups == null) {
-			groups = new EObjectContainmentEList<PlantGroup>(PlantGroup.class, this,
-					PermadelerPackage.KNOWLEDGE_BASE__GROUPS);
+	public EList<PlantGroup> getSubGroups() {
+		if (subGroups == null) {
+			subGroups = new EObjectContainmentEList<PlantGroup>(PlantGroup.class, this,
+					PermadelerPackage.PLANT_GROUP__SUB_GROUPS);
 		}
-		return groups;
+		return subGroups;
 	}
 
 	/**
@@ -131,10 +125,8 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
-				return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
-				return ((InternalEList<?>)getSpecies()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.PLANT_GROUP__SUB_GROUPS:
+				return ((InternalEList<?>)getSubGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -147,9 +139,9 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
-				return getGroups();
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+			case PermadelerPackage.PLANT_GROUP__SUB_GROUPS:
+				return getSubGroups();
+			case PermadelerPackage.PLANT_GROUP__SPECIES:
 				return getSpecies();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -164,11 +156,11 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
-				getGroups().clear();
-				getGroups().addAll((Collection<? extends PlantGroup>)newValue);
+			case PermadelerPackage.PLANT_GROUP__SUB_GROUPS:
+				getSubGroups().clear();
+				getSubGroups().addAll((Collection<? extends PlantGroup>)newValue);
 				return;
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+			case PermadelerPackage.PLANT_GROUP__SPECIES:
 				getSpecies().clear();
 				getSpecies().addAll((Collection<? extends Species>)newValue);
 				return;
@@ -184,10 +176,10 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
-				getGroups().clear();
+			case PermadelerPackage.PLANT_GROUP__SUB_GROUPS:
+				getSubGroups().clear();
 				return;
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+			case PermadelerPackage.PLANT_GROUP__SPECIES:
 				getSpecies().clear();
 				return;
 		}
@@ -202,9 +194,9 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
-				return groups != null && !groups.isEmpty();
-			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
+			case PermadelerPackage.PLANT_GROUP__SUB_GROUPS:
+				return subGroups != null && !subGroups.isEmpty();
+			case PermadelerPackage.PLANT_GROUP__SPECIES:
 				return species != null && !species.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -216,12 +208,30 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == IPlantGroup.class) {
+			switch (baseOperationID) {
+				case PermadelerPackage.IPLANT_GROUP___GET_ALL_PLANTS:
+					return PermadelerPackage.PLANT_GROUP___GET_ALL_PLANTS;
+				default:
+					return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PermadelerPackage.KNOWLEDGE_BASE___GET_ALL_PLANTS:
+			case PermadelerPackage.PLANT_GROUP___GET_ALL_PLANTS:
 				return getAllPlants();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
-} //KnowledgeBaseImpl
+} //PlantGroupImpl

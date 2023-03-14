@@ -37,6 +37,7 @@ WARNING: le concept de _Phases de Plantation_ est assez peu utilisé. Nous vous 
 Cette vue présente une vue arborescente des connaissances utilisées dans votre projet.
 On y retrouve les concepts:
 
+* <<./ModelDonnee.adoc#PlantGroup,Groupe d'espèce>>
 * <<./ModelDonnee.adoc#Species,Espèce>>
 * <<./ModelDonnee.adoc#Variety,Variété>>
 * <<./ModelDonnee.adoc#Action,Action>>
@@ -52,6 +53,11 @@ La barre d'action de cette vue propose les actions suivantes:
 * image:{rcp-icon-path}/alphab_sort_co.gif[] : Trie toute la base de connaissance par ordre alphabétique (en utilisant le nom commun principal de la plante)
 * image:{rcp-icon-path}/refresh.png[] : Permet de rafraichir la vue pour prendre en compte certains changements dans le projet.
 La plupart des changements sont pris en compte directement. Cependant, certains changements complexes nécessitent de rafraichir la vue manuellement.
+
+Dans cette vues des actions de _glisser déposer_ permettent de:
+
+* Changer une varité d'espece
+* D'ajouter des especes dans un groupe
 
 [#Representations]
 == image:DDiagram.gif[] Les représentations

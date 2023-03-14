@@ -632,6 +632,29 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link fr.adaussy.permadeler.model.Permadeler.PlantGroup} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlantGroupItemProviderCustomImpl plantGroupItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.PlantGroup}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlantGroupAdapter() {
+		if (plantGroupItemProvider == null) {
+			plantGroupItemProvider = new PlantGroupItemProviderCustomImpl(this);
+		}
+
+		return plantGroupItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -778,6 +801,8 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 			speciesItemProvider.dispose();
 		if (varietyItemProvider != null)
 			varietyItemProvider.dispose();
+		if (plantGroupItemProvider != null)
+			plantGroupItemProvider.dispose();
 	}
 
 }

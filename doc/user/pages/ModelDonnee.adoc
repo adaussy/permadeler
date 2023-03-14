@@ -58,6 +58,20 @@ Elle peut aussi être utilisée dans un schéma d'implantation si le mode _icone
 * Une représentation : Image utilisée pour la représentation en mode _houppier_ dans un schéma d'implantation.
 * Un nom court. Celui-ci sera utilisé pour générer les identifiants des plantations futures.
 
+[#PlantGroup]
+==== Groupe de d'especes
+
+Un _groupe de d'especes_ permet de regrouper ensemble un groupe de différentes <<Species,especes>>.
+Un groupe peut contenir des sous groupes.
+Une espece peut apparaitre dans un ou plusieur groupes.
+
+Un groupe est définie par:
+
+* Un nom
+* Un description
+* Une liste d'especes
+
+
 [#Species]
 ==== image:{edit-icon-path}/custo/commons/species.png[] Espèce
 

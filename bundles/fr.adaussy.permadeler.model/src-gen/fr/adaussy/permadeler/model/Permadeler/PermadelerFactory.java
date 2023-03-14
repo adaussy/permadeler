@@ -246,6 +246,15 @@ public interface PermadelerFactory extends EFactory {
 	Variety createVariety();
 
 	/**
+	 * Returns a new object of class '<em>Plant Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plant Group</em>'.
+	 * @generated
+	 */
+	PlantGroup createPlantGroup();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
