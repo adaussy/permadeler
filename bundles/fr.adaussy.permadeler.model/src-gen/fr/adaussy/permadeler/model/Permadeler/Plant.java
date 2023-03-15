@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Plant extends ImageOwner, NamedElement, ReferencingElement {
+public interface Plant extends ImageOwner, NamedElement, ReferencingElement, TaggedElement {
 	/**
 	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
 	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Action}.

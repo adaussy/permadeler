@@ -2,7 +2,9 @@ package fr.adaussy.permadeler.model.design.services;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -18,6 +20,8 @@ import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
+import fr.adaussy.permadeler.model.design.utils.TagDialog;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 
@@ -47,6 +51,31 @@ public class PropertyService {
 		} else {
 			return Collections.emptyList();
 		}
+	}
+
+	private List<String> getAllExistingTags(EObject o) {
+		return EMFUtils.allContainedObjectOfType(o.eResource(), TaggedElement.class)//
+				.flatMap(t -> t.getTags().stream())//
+				.distinct()//
+				.toList();
+	}
+
+	public void addTags(TaggedElement element) {
+		TagDialog inputDialog = new TagDialog(DiagramService.getShell(), getAllExistingTags(element));
+		if (inputDialog.open() == IDialogConstants.OK_ID) {
+			String value = inputDialog.getValue();
+			if (value != null && !value.isBlank()) {
+				Stream.of(value.split(";")).map(v -> v.trim()).filter(v -> !element.getTags().contains(v))
+						.forEach(v -> {
+							element.getTags().add(v);
+						});
+				ECollections.sort(element.getTags());
+			}
+		}
+	}
+
+	public void removeTags(TaggedElement element, List<String> selected) {
+		element.getTags().removeAll(selected);
 	}
 
 	public Action getActionToEdit(Action action, Plant p) {

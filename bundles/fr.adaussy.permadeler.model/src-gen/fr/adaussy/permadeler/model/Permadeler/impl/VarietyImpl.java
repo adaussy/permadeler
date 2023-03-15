@@ -20,6 +20,7 @@ import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
 
 import java.lang.reflect.InvocationTargetException;
@@ -52,6 +53,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getIconKey <em>Icon Key</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl#getCommonNames <em>Common Names</em>}</li>
@@ -114,6 +116,16 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 	 * @ordered
 	 */
 	protected EList<String> references;
+
+	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tags;
 
 	/**
 	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -299,6 +311,18 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 					PermadelerPackage.VARIETY__REFERENCES);
 		}
 		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getTags() {
+		if (tags == null) {
+			tags = new EDataTypeUniqueEList<String>(String.class, this, PermadelerPackage.VARIETY__TAGS);
+		}
+		return tags;
 	}
 
 	/**
@@ -657,6 +681,8 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 				return getDescription();
 			case PermadelerPackage.VARIETY__REFERENCES:
 				return getReferences();
+			case PermadelerPackage.VARIETY__TAGS:
+				return getTags();
 			case PermadelerPackage.VARIETY__ACTIONS:
 				return getActions();
 			case PermadelerPackage.VARIETY__ICON_KEY:
@@ -695,6 +721,10 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 			case PermadelerPackage.VARIETY__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends String>)newValue);
+				return;
+			case PermadelerPackage.VARIETY__TAGS:
+				getTags().clear();
+				getTags().addAll((Collection<? extends String>)newValue);
 				return;
 			case PermadelerPackage.VARIETY__ACTIONS:
 				getActions().clear();
@@ -744,6 +774,9 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 			case PermadelerPackage.VARIETY__REFERENCES:
 				getReferences().clear();
 				return;
+			case PermadelerPackage.VARIETY__TAGS:
+				getTags().clear();
+				return;
 			case PermadelerPackage.VARIETY__ACTIONS:
 				getActions().clear();
 				return;
@@ -787,6 +820,8 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 						: !DESCRIPTION_EDEFAULT.equals(description);
 			case PermadelerPackage.VARIETY__REFERENCES:
 				return references != null && !references.isEmpty();
+			case PermadelerPackage.VARIETY__TAGS:
+				return tags != null && !tags.isEmpty();
 			case PermadelerPackage.VARIETY__ACTIONS:
 				return actions != null && !actions.isEmpty();
 			case PermadelerPackage.VARIETY__ICON_KEY:
@@ -834,6 +869,14 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 					return -1;
 			}
 		}
+		if (baseClass == TaggedElement.class) {
+			switch (derivedFeatureID) {
+				case PermadelerPackage.VARIETY__TAGS:
+					return PermadelerPackage.TAGGED_ELEMENT__TAGS;
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -858,6 +901,14 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 			switch (baseFeatureID) {
 				case PermadelerPackage.REFERENCING_ELEMENT__REFERENCES:
 					return PermadelerPackage.VARIETY__REFERENCES;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == TaggedElement.class) {
+			switch (baseFeatureID) {
+				case PermadelerPackage.TAGGED_ELEMENT__TAGS:
+					return PermadelerPackage.VARIETY__TAGS;
 				default:
 					return -1;
 			}
@@ -916,6 +967,8 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 		result.append(description);
 		result.append(", references: "); //$NON-NLS-1$
 		result.append(references);
+		result.append(", tags: "); //$NON-NLS-1$
+		result.append(tags);
 		result.append(", iconKey: "); //$NON-NLS-1$
 		result.append(iconKey);
 		result.append(", commonNames: "); //$NON-NLS-1$

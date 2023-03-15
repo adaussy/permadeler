@@ -957,5 +957,8 @@
     <genClasses image="false" ecoreClass="Permadeler.ecore#//IPlantGroup">
       <genOperations ecoreOperation="Permadeler.ecore#//IPlantGroup/getAllPlants"/>
     </genClasses>
+    <genClasses ecoreClass="Permadeler.ecore#//TaggedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Permadeler.ecore#//TaggedElement/tags"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -57,6 +57,7 @@ Une plante est définie par:
 Elle peut aussi être utilisée dans un schéma d'implantation si le mode _icone_ est sélectionné.
 * Une représentation : Image utilisée pour la représentation en mode _houppier_ dans un schéma d'implantation.
 * Un nom court. Celui-ci sera utilisé pour générer les identifiants des plantations futures.
+* Des tags. Un tag permet d'ajouter des mots clés sur une espece ou une variétés
 
 [#PlantGroup]
 ==== Groupe de d'especes

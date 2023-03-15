@@ -29,6 +29,7 @@ import fr.adaussy.permadeler.model.Permadeler.Shade;
 import fr.adaussy.permadeler.model.Permadeler.SoilType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.Permadeler.Wind;
 
@@ -62,6 +63,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getIconKey <em>Icon Key</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl#getCommonNames <em>Common Names</em>}</li>
@@ -143,6 +145,16 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 	 * @ordered
 	 */
 	protected EList<String> references;
+
+	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tags;
 
 	/**
 	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -658,6 +670,18 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 					PermadelerPackage.SPECIES__REFERENCES);
 		}
 		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getTags() {
+		if (tags == null) {
+			tags = new EDataTypeUniqueEList<String>(String.class, this, PermadelerPackage.SPECIES__TAGS);
+		}
+		return tags;
 	}
 
 	/**
@@ -1302,6 +1326,8 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 				return getDescription();
 			case PermadelerPackage.SPECIES__REFERENCES:
 				return getReferences();
+			case PermadelerPackage.SPECIES__TAGS:
+				return getTags();
 			case PermadelerPackage.SPECIES__ACTIONS:
 				return getActions();
 			case PermadelerPackage.SPECIES__ICON_KEY:
@@ -1378,6 +1404,10 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 			case PermadelerPackage.SPECIES__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends String>)newValue);
+				return;
+			case PermadelerPackage.SPECIES__TAGS:
+				getTags().clear();
+				getTags().addAll((Collection<? extends String>)newValue);
 				return;
 			case PermadelerPackage.SPECIES__ACTIONS:
 				getActions().clear();
@@ -1491,6 +1521,9 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 			case PermadelerPackage.SPECIES__REFERENCES:
 				getReferences().clear();
 				return;
+			case PermadelerPackage.SPECIES__TAGS:
+				getTags().clear();
+				return;
 			case PermadelerPackage.SPECIES__ACTIONS:
 				getActions().clear();
 				return;
@@ -1591,6 +1624,8 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 						: !DESCRIPTION_EDEFAULT.equals(description);
 			case PermadelerPackage.SPECIES__REFERENCES:
 				return references != null && !references.isEmpty();
+			case PermadelerPackage.SPECIES__TAGS:
+				return tags != null && !tags.isEmpty();
 			case PermadelerPackage.SPECIES__ACTIONS:
 				return actions != null && !actions.isEmpty();
 			case PermadelerPackage.SPECIES__ICON_KEY:
@@ -1676,6 +1711,14 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 					return -1;
 			}
 		}
+		if (baseClass == TaggedElement.class) {
+			switch (derivedFeatureID) {
+				case PermadelerPackage.SPECIES__TAGS:
+					return PermadelerPackage.TAGGED_ELEMENT__TAGS;
+				default:
+					return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -1700,6 +1743,14 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 			switch (baseFeatureID) {
 				case PermadelerPackage.REFERENCING_ELEMENT__REFERENCES:
 					return PermadelerPackage.SPECIES__REFERENCES;
+				default:
+					return -1;
+			}
+		}
+		if (baseClass == TaggedElement.class) {
+			switch (baseFeatureID) {
+				case PermadelerPackage.TAGGED_ELEMENT__TAGS:
+					return PermadelerPackage.SPECIES__TAGS;
 				default:
 					return -1;
 			}
@@ -1752,6 +1803,8 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 		result.append(description);
 		result.append(", references: "); //$NON-NLS-1$
 		result.append(references);
+		result.append(", tags: "); //$NON-NLS-1$
+		result.append(tags);
 		result.append(", iconKey: "); //$NON-NLS-1$
 		result.append(iconKey);
 		result.append(", commonNames: "); //$NON-NLS-1$

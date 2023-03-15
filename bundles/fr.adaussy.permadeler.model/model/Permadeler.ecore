@@ -843,7 +843,7 @@
         defaultValueLiteral="100"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plant" abstract="true" interface="true"
-      eSuperTypes="#//ImageOwner #//NamedElement #//ReferencingElement">
+      eSuperTypes="#//ImageOwner #//NamedElement #//ReferencingElement #//TaggedElement">
     <eOperations name="getAllProductions" upperBound="-1" eType="#//Production">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Get all productions of a given plant (in case of variety it removes all overrided productions)"/>
@@ -1038,12 +1038,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variety" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlantGroup" eSuperTypes="#//NamedElement #//IPlantGroup">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
-        eType="#//Species"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subGroups" upperBound="-1"
         eType="#//PlantGroup" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
+        eType="#//Species"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IPlantGroup" abstract="true" interface="true">
     <eOperations name="getAllPlants" upperBound="-1" eType="#//Plant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaggedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tags" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

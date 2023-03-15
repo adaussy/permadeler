@@ -247,6 +247,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseReferencingElement(plant);
 				if (result == null)
+					result = caseTaggedElement(plant);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -318,6 +320,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				if (result == null)
 					result = caseReferencingElement(species);
 				if (result == null)
+					result = caseTaggedElement(species);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,6 +336,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 					result = caseNamedElement(variety);
 				if (result == null)
 					result = caseReferencingElement(variety);
+				if (result == null)
+					result = caseTaggedElement(variety);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -350,6 +356,13 @@ public class PermadelerSwitch<T> extends Switch<T> {
 			case PermadelerPackage.IPLANT_GROUP: {
 				IPlantGroup iPlantGroup = (IPlantGroup)theEObject;
 				T result = caseIPlantGroup(iPlantGroup);
+				if (result == null)
+					result = defaultCase(theEObject);
+				return result;
+			}
+			case PermadelerPackage.TAGGED_ELEMENT: {
+				TaggedElement taggedElement = (TaggedElement)theEObject;
+				T result = caseTaggedElement(taggedElement);
 				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
@@ -836,6 +849,21 @@ public class PermadelerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIPlantGroup(IPlantGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tagged Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tagged Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaggedElement(TaggedElement object) {
 		return null;
 	}
 

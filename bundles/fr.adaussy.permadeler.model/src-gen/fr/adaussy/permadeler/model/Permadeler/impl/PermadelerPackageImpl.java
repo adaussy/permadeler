@@ -57,6 +57,7 @@ import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.Permadeler.TemporalItem;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.TrayOwner;
@@ -311,6 +312,13 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	private EClass iPlantGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taggedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1707,7 +1715,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	public EReference getPlantGroup_Species() {
-		return (EReference)plantGroupEClass.getEStructuralFeatures().get(0);
+		return (EReference)plantGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1716,7 +1724,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * @generated
 	 */
 	public EReference getPlantGroup_SubGroups() {
-		return (EReference)plantGroupEClass.getEStructuralFeatures().get(1);
+		return (EReference)plantGroupEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1735,6 +1743,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EOperation getIPlantGroup__GetAllPlants() {
 		return iPlantGroupEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaggedElement() {
+		return taggedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaggedElement_Tags() {
+		return (EAttribute)taggedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2157,11 +2183,14 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEAttribute(varietyEClass, VARIETY__VARIETY);
 
 		plantGroupEClass = createEClass(PLANT_GROUP);
-		createEReference(plantGroupEClass, PLANT_GROUP__SPECIES);
 		createEReference(plantGroupEClass, PLANT_GROUP__SUB_GROUPS);
+		createEReference(plantGroupEClass, PLANT_GROUP__SPECIES);
 
 		iPlantGroupEClass = createEClass(IPLANT_GROUP);
 		createEOperation(iPlantGroupEClass, IPLANT_GROUP___GET_ALL_PLANTS);
+
+		taggedElementEClass = createEClass(TAGGED_ELEMENT);
+		createEAttribute(taggedElementEClass, TAGGED_ELEMENT__TAGS);
 
 		// Create enums
 		quantityEEnum = createEEnum(QUANTITY);
@@ -2234,6 +2263,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		plantEClass.getESuperTypes().add(this.getImageOwner());
 		plantEClass.getESuperTypes().add(this.getNamedElement());
 		plantEClass.getESuperTypes().add(this.getReferencingElement());
+		plantEClass.getESuperTypes().add(this.getTaggedElement());
 		productionEClass.getESuperTypes().add(this.getTemporalItem());
 		actionEClass.getESuperTypes().add(this.getTemporalItem());
 		temporalItemEClass.getESuperTypes().add(this.getNamedElement());
@@ -2619,18 +2649,24 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(plantGroupEClass, PlantGroup.class, "PlantGroup", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlantGroup_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
-				PlantGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlantGroup_SubGroups(), this.getPlantGroup(), null, "subGroups", null, 0, -1, //$NON-NLS-1$
 				PlantGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlantGroup_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
+				PlantGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iPlantGroupEClass, IPlantGroup.class, "IPlantGroup", IS_ABSTRACT, IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getIPlantGroup__GetAllPlants(), this.getPlant(), "getAllPlants", 0, -1, IS_UNIQUE, //$NON-NLS-1$
 				IS_ORDERED);
+
+		initEClass(taggedElementEClass, TaggedElement.class, "TaggedElement", IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaggedElement_Tags(), ecorePackage.getEString(), "tags", null, 0, -1, //$NON-NLS-1$
+				TaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(quantityEEnum, Quantity.class, "Quantity"); //$NON-NLS-1$

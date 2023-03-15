@@ -58,6 +58,7 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
+			addTagsPropertyDescriptor(object);
 			addIconKeyPropertyDescriptor(object);
 			addCommonNamesPropertyDescriptor(object);
 			addRepresentationKeyPropertyDescriptor(object);
@@ -131,6 +132,22 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 				getString("_UI_PropertyDescriptor_description", "_UI_ReferencingElement_references_feature", //$NON-NLS-1$//$NON-NLS-2$
 						"_UI_ReferencingElement_type"), //$NON-NLS-1$
 				PermadelerPackage.Literals.REFERENCING_ELEMENT__REFERENCES, true, false, false,
+				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tags feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTagsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+				getString("_UI_TaggedElement_tags_feature"), //$NON-NLS-1$
+				getString("_UI_PropertyDescriptor_description", "_UI_TaggedElement_tags_feature", //$NON-NLS-1$//$NON-NLS-2$
+						"_UI_TaggedElement_type"), //$NON-NLS-1$
+				PermadelerPackage.Literals.TAGGED_ELEMENT__TAGS, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -599,6 +616,7 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 			case PermadelerPackage.SPECIES__NAME:
 			case PermadelerPackage.SPECIES__DESCRIPTION:
 			case PermadelerPackage.SPECIES__REFERENCES:
+			case PermadelerPackage.SPECIES__TAGS:
 			case PermadelerPackage.SPECIES__ICON_KEY:
 			case PermadelerPackage.SPECIES__COMMON_NAMES:
 			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
