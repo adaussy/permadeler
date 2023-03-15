@@ -9,7 +9,9 @@ import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
 public class SpeciesCustomImpl extends SpeciesImpl {
 	@Override
 	public String getFullLatinName() {
-		return getGenus() != null ? getGenus() : "" + " " + getSpecies() != null ? getSpecies() : ""; //$NON-NLS-1$
+		String genusName = getGenus() != null ? getGenus() : ""; //$NON-NLS-1$
+		String speciesName = getSpecies() != null ? getSpecies() : ""; //$NON-NLS-1$
+		return genusName + " " + speciesName; //$NON-NLS-1$
 	}
 
 	@Override
