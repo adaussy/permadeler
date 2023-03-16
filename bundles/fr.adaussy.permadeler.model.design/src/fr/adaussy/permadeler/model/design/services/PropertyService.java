@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Display;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
@@ -78,6 +79,44 @@ public class PropertyService {
 		element.getTags().removeAll(selected);
 	}
 
+	public Action createAction(EObject owner) {
+		Action action = PermadelerFactory.eINSTANCE.createAction();
+		if (owner instanceof Plant) {
+			((Plant)owner).getActions().add(action);
+			return action;
+		} else if (owner instanceof Plantation) {
+			Plant type = ((Plantation)owner).getType();
+			if (type != null) {
+				type.getActions().add(action);
+				return action;
+			}
+		}
+		return null;
+	}
+
+	public Production createProduction(EObject owner) {
+		Production production = PermadelerFactory.eINSTANCE.createProduction();
+		if (owner instanceof Plant) {
+			((Plant)owner).getProductions().add(production);
+			return production;
+		} else if (owner instanceof Plantation) {
+			Plant type = ((Plantation)owner).getType();
+			if (type != null) {
+				type.getProductions().add(production);
+				return production;
+			}
+		}
+		return null;
+	}
+
+	public Action getActionToEdit(Action action, Plantation p) {
+		Plant type = p.getType();
+		if (type != null) {
+			return getActionToEdit(action, type);
+		}
+		return null;
+	}
+
 	public Action getActionToEdit(Action action, Plant p) {
 		if (action.eContainer() == p) {
 			// Edit
@@ -89,6 +128,14 @@ public class PropertyService {
 			return copy;
 
 		}
+	}
+
+	public Production getProductionToEdit(Production production, Plantation p) {
+		Plant type = p.getType();
+		if (type != null) {
+			return getProductionToEdit(production, type);
+		}
+		return null;
 	}
 
 	public Production getProductionToEdit(Production production, Plant p) {

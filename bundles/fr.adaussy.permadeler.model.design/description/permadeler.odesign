@@ -786,17 +786,15 @@
           </onClickOperation>
           <actions imageExpression="/fr.adaussy.permadeler.rcp/icons/add.gif">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Action" referenceName="actions">
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Action">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation/>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation/>
-                    </buttons>
-                    <page name="Default Page" labelExpression="Page" domainClass="Permadeler::Action" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.11"/>
-                  </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.createAction()">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Action">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Page" domainClass="Permadeler::Action" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.11"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -830,17 +828,16 @@
           </onClickOperation>
           <actions imageExpression="/fr.adaussy.permadeler.rcp/icons/add.gif">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Production" referenceName="productions">
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Production">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation/>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation/>
-                    </buttons>
-                    <page name="Default Page" labelExpression="Page" domainClass="Permadeler::Production" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
-                  </subModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.createProduction()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Production" referenceName="productions"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Production">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Page" domainClass="Permadeler::Production" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
