@@ -13,8 +13,10 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.sirius.business.api.session.Session;
 
 import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Root;
@@ -41,6 +43,12 @@ public class KnowledgeViewerPart extends AbstractModelViewerPart {
 	@Override
 	protected EObject getViewerRoot(Root root) {
 		return root.getKnowledgeBase();
+	}
+
+	@Override
+	protected ModelContentProvider createContentProvider(Session session) {
+		return new KnwoledgePartContentProvider(session,
+				new AdapterFactoryContentProvider(createAdapterFactory()));
 	}
 
 	@Override

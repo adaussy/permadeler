@@ -55,7 +55,6 @@ import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.ui.business.api.dialect.DialectUIManager;
 import org.eclipse.sirius.ui.business.api.featureExtensions.FeatureExtensionsUIManager;
 import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerView;
-import org.eclipse.sirius.ui.tools.internal.views.common.navigator.SiriusCommonLabelProvider;
 import org.eclipse.sirius.viewpoint.DAnalysis;
 import org.eclipse.sirius.viewpoint.DRepresentation;
 import org.eclipse.sirius.viewpoint.provider.SiriusEditPlugin;
@@ -81,6 +80,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceImpl;
 import fr.adaussy.permadeler.rcp.internal.menu.MenuFiller;
+import fr.adaussy.permadeler.rcp.internal.provider.ModelLabelProvider;
 
 /**
  * Abstract implementation of the tree views
@@ -146,7 +146,7 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 		FilteredTree filteredTree = new FilteredTree(cc, SWT.MULTI, new PatternFilter(), false, false);
 		filteredTree.setLayoutData(new GridData(GridData.FILL_BOTH));
 		viewer = filteredTree.getViewer();
-		SiriusCommonLabelProvider labelProvider = new SiriusCommonLabelProvider();
+		ModelLabelProvider labelProvider = new ModelLabelProvider();
 		viewer.setLabelProvider(labelProvider);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 

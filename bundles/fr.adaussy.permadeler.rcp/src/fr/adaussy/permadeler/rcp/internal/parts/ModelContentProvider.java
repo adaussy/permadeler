@@ -38,6 +38,8 @@ public class ModelContentProvider implements ITreeContentProvider {
 
 	private ITreeContentProvider semanticContentProvider;
 
+	private Viewer viewer;
+
 	public ModelContentProvider(Session session, ITreeContentProvider semanticContentProvider) {
 		super();
 		this.session = session;
@@ -59,9 +61,14 @@ public class ModelContentProvider implements ITreeContentProvider {
 
 	@Override
 	public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
+		this.viewer = viewer;
 		if (semanticContentProvider != null) {
 			semanticContentProvider.inputChanged(viewer, oldInput, newInput);
 		}
+	}
+
+	protected Viewer getViewer() {
+		return viewer;
 	}
 
 	@Override
