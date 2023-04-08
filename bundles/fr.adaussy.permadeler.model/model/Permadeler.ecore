@@ -27,6 +27,8 @@
         eType="#//PlantGroup" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="species" upperBound="-1"
         eType="#//Species" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templates" upperBound="-1"
+        eType="#//Species" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SeedBank">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"

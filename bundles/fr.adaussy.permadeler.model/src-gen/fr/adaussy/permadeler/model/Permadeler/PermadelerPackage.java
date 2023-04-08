@@ -290,13 +290,22 @@ public interface PermadelerPackage extends EPackage {
 	int KNOWLEDGE_BASE__SPECIES = IPLANT_GROUP_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Templates</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE_BASE__TEMPLATES = IPLANT_GROUP_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Knowledge Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KNOWLEDGE_BASE_FEATURE_COUNT = IPLANT_GROUP_FEATURE_COUNT + 2;
+	int KNOWLEDGE_BASE_FEATURE_COUNT = IPLANT_GROUP_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get All Plants</em>' operation.
@@ -2933,6 +2942,17 @@ public interface PermadelerPackage extends EPackage {
 	EReference getKnowledgeBase_Species();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getTemplates <em>Templates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Templates</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getTemplates()
+	 * @see #getKnowledgeBase()
+	 * @generated
+	 */
+	EReference getKnowledgeBase_Templates();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getGroups <em>Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4615,6 +4635,14 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference KNOWLEDGE_BASE__SPECIES = eINSTANCE.getKnowledgeBase_Species();
+
+		/**
+		 * The meta object literal for the '<em><b>Templates</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KNOWLEDGE_BASE__TEMPLATES = eINSTANCE.getKnowledgeBase_Templates();
 
 		/**
 		 * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.

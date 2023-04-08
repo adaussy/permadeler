@@ -19,6 +19,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import fr.adaussy.permadeler.model.Permadeler.Layer;
+import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.rcp.RcpMessages;
@@ -41,7 +42,9 @@ public class PlantationDialog extends ObjectSelectionDialogWithDate<Plant> {
 	private List<Button> preKingWidget;
 
 	public PlantationDialog(Shell shell, Date initialDate, EObject root) {
-		super(shell, Plant.class, null, root, initialDate);
+		super(shell, Plant.class,
+				e -> e.eContainingFeature() != PermadelerPackage.eINSTANCE.getKnowledgeBase_Templates(), root,
+				initialDate);
 	}
 
 	@Override

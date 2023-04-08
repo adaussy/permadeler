@@ -652,6 +652,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getKnowledgeBase_Templates() {
+		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getKnowledgeBase_Groups() {
 		return (EReference)knowledgeBaseEClass.getEStructuralFeatures().get(0);
 	}
@@ -2037,6 +2046,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		knowledgeBaseEClass = createEClass(KNOWLEDGE_BASE);
 		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__GROUPS);
 		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__SPECIES);
+		createEReference(knowledgeBaseEClass, KNOWLEDGE_BASE__TEMPLATES);
 
 		seedBankEClass = createEClass(SEED_BANK);
 		createEReference(seedBankEClass, SEED_BANK__ITEMS);
@@ -2304,6 +2314,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getKnowledgeBase_Species(), this.getSpecies(), null, "species", null, 0, -1, //$NON-NLS-1$
+				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKnowledgeBase_Templates(), this.getSpecies(), null, "templates", null, 0, -1, //$NON-NLS-1$
 				KnowledgeBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -10,6 +10,7 @@ public class KnowledgeBaseCustomImpl extends KnowledgeBaseImpl {
 
 	@Override
 	public EList<Plant> getAllPlants() {
-		return ECollections.asEList(EMFUtils.allContainedObjectOfType(this, Plant.class).toList());
+		return ECollections.asEList(getSpecies().stream()
+				.flatMap(s -> EMFUtils.allContainedObjectOfType(s, Plant.class)).toList());
 	}
 }

@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getGroups <em>Groups</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.KnowledgeBaseImpl#getTemplates <em>Templates</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,16 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * @ordered
 	 */
 	protected EList<Species> species;
+
+	/**
+	 * The cached value of the '{@link #getTemplates() <em>Templates</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemplates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Species> templates;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +115,19 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Species> getTemplates() {
+		if (templates == null) {
+			templates = new EObjectContainmentEList<Species>(Species.class, this,
+					PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES);
+		}
+		return templates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<PlantGroup> getGroups() {
 		if (groups == null) {
 			groups = new EObjectContainmentEList<PlantGroup>(PlantGroup.class, this,
@@ -135,6 +159,8 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 				return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				return ((InternalEList<?>)getSpecies()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES:
+				return ((InternalEList<?>)getTemplates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -151,6 +177,8 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 				return getGroups();
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				return getSpecies();
+			case PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES:
+				return getTemplates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +200,10 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 				getSpecies().clear();
 				getSpecies().addAll((Collection<? extends Species>)newValue);
 				return;
+			case PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES:
+				getTemplates().clear();
+				getTemplates().addAll((Collection<? extends Species>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -190,6 +222,9 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				getSpecies().clear();
 				return;
+			case PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES:
+				getTemplates().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +241,8 @@ public class KnowledgeBaseImpl extends MinimalEObjectImpl.Container implements K
 				return groups != null && !groups.isEmpty();
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				return species != null && !species.isEmpty();
+			case PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES:
+				return templates != null && !templates.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

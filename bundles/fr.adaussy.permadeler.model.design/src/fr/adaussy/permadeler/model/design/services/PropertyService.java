@@ -14,9 +14,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.widgets.Display;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
-import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
@@ -24,7 +22,6 @@ import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.design.utils.TagDialog;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
-import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 
 public class PropertyService {
 
@@ -175,33 +172,6 @@ public class PropertyService {
 	public EObject removeReference(ReferencingElement element, List<String> toRemove) {
 		element.getReferences().removeAll(toRemove);
 		return element;
-	}
-
-	public void importFromOtherSpecies(Plant p) {
-
-		ObjectSelectionDialog<Plant> selection = new ObjectSelectionDialog<Plant>(DiagramService.getShell(),
-				Plant.class, e -> true, EMFUtils.getAncestor(KnowledgeBase.class, p));
-
-		if (selection.open() == IDialogConstants.OK_ID) {
-			List<Plant> plants = selection.getSelection();
-			if (!plants.isEmpty()) {
-				Plant imported = plants.get(0);
-
-				for (var attr : PermadelerPackage.eINSTANCE.getPlant().getEAllAttributes()) {
-					if (!attr.isDerived()) {
-						p.eSet(attr, imported.eGet(attr));
-					}
-				}
-
-				for (var action : imported.getActions()) {
-					p.getActions().add(EcoreUtil.copy(action));
-				}
-				for (var production : imported.getProductions()) {
-					p.getProductions().add(EcoreUtil.copy(production));
-				}
-			}
-		}
-
 	}
 
 }

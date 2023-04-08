@@ -23,7 +23,7 @@ public class ValidationService {
 
 	private List<Plant> getDupplicated(Plant plant, String latinName) {
 		KnowledgeBase knowledgeBase = EMFUtils.getAncestor(KnowledgeBase.class, plant);
-		List<Plant> dupplicates = EMFUtils.allContainedObjectOfType(knowledgeBase, Plant.class)//
+		List<Plant> dupplicates = knowledgeBase.getAllPlants().stream()//
 				.filter(p -> plant != p && latinName.equalsIgnoreCase(p.getFullLatinName()))//
 				.toList();
 		return dupplicates;

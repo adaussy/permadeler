@@ -50,7 +50,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="NewSpeciesDialog_Page" labelExpression="Plante" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.0"/>
+                  <page name="NewSpeciesDialog_Page" labelExpression="Plante" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.20 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.0"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createPlantation(self)"/>
               </firstModelOperations>

@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getGroups <em>Groups</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getSpecies <em>Species</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.KnowledgeBase#getTemplates <em>Templates</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase()
@@ -41,6 +42,18 @@ public interface KnowledgeBase extends IPlantGroup {
 	 * @generated
 	 */
 	EList<Species> getSpecies();
+
+	/**
+	 * Returns the value of the '<em><b>Templates</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Species}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Templates</em>' containment reference list.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getKnowledgeBase_Templates()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Species> getTemplates();
 
 	/**
 	 * Returns the value of the '<em><b>Groups</b></em>' containment reference list.

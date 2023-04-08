@@ -23,10 +23,12 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 	public Object[] getChildren(Object parentElement) {
 		List<Object> previousChildren = new ArrayList<Object>();
 		if (parentElement instanceof KnowledgeBase) {
+			KnowledgeBase knowledgeBase = (KnowledgeBase)parentElement;
 			if (tagsPlantGroup == null) {
-				tagsPlantGroup = new TagsPlantGroup((KnowledgeBase)parentElement, getViewer());
+				tagsPlantGroup = new TagsPlantGroup(knowledgeBase, getViewer());
 			}
 			previousChildren.add(tagsPlantGroup);
+
 		} else if (parentElement instanceof ISelfDescribingItem) {
 			previousChildren.addAll(((ISelfDescribingItem)parentElement).getChildren());
 		}
@@ -34,6 +36,14 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		Object[] superChildren = super.getChildren(parentElement);
 
 		return Stream.concat(previousChildren.stream(), Stream.of(superChildren)).toArray();
+	}
+
+	@Override
+	public Object getParent(Object element) {
+		if (element instanceof ISelfDescribingItem) {
+			return ((ISelfDescribingItem)element).getParent();
+		}
+		return super.getParent(element);
 	}
 
 	@Override

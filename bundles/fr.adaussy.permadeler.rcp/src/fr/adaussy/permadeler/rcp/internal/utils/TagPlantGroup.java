@@ -13,9 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
-import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
-import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
 public class TagPlantGroup implements ISelfDescribingItem {
@@ -24,16 +22,22 @@ public class TagPlantGroup implements ISelfDescribingItem {
 
 	private final KnowledgeBase base;
 
-	public TagPlantGroup(String tag, KnowledgeBase base) {
+	private TagsPlantGroup tagsPlantGroup;
+
+	public TagPlantGroup(String tag, KnowledgeBase base, TagsPlantGroup tagsPlantGroup) {
 		super();
 		this.tag = tag;
 		this.base = base;
+		this.tagsPlantGroup = tagsPlantGroup;
+	}
+
+	public TagsPlantGroup getTagsPlantGroup() {
+		return tagsPlantGroup;
 	}
 
 	@Override
 	public List<? extends Object> getChildren() {
-		return EMFUtils.allContainedObjectOfType(base, Plant.class).filter(p -> p.getTags().contains(tag))
-				.toList();
+		return base.getAllPlants().stream().filter(p -> p.getTags().contains(tag)).toList();
 	}
 
 	@Override
@@ -61,6 +65,11 @@ public class TagPlantGroup implements ISelfDescribingItem {
 	@Override
 	public org.eclipse.swt.graphics.Image getImage() {
 		return ImageProvider.INSTANCE.getImage("icons/custo/commons/folder-blue.png"); //$NON-NLS-1$
+	}
+
+	@Override
+	public Object getParent() {
+		return tagsPlantGroup;
 	}
 
 }

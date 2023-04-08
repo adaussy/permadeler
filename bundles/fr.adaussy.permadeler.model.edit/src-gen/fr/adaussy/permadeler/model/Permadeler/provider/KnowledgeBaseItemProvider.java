@@ -137,6 +137,10 @@ public class KnowledgeBaseItemProvider extends ItemProviderAdapter implements IE
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(KnowledgeBase.class)) {
+			case PermadelerPackage.KNOWLEDGE_BASE__TEMPLATES:
+				fireNotifyChanged(
+						new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case PermadelerPackage.KNOWLEDGE_BASE__GROUPS:
 			case PermadelerPackage.KNOWLEDGE_BASE__SPECIES:
 				fireNotifyChanged(
