@@ -1,4 +1,4 @@
-package fr.adaussy.permadeler.model.design.utils;
+package fr.adaussy.permadeler.rcp.internal.dialogs;
 
 import java.util.List;
 

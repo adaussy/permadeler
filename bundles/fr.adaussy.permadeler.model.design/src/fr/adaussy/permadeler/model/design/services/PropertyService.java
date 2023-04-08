@@ -20,8 +20,8 @@ import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
-import fr.adaussy.permadeler.model.design.utils.TagDialog;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.internal.dialogs.TagDialog;
 
 public class PropertyService {
 

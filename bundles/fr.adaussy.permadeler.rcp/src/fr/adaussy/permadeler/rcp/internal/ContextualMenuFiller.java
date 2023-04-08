@@ -55,10 +55,12 @@ import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.SeedItem;
 import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
+import fr.adaussy.permadeler.rcp.internal.actions.AddMassTagAction;
 import fr.adaussy.permadeler.rcp.internal.actions.CreateChildAction;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
@@ -145,6 +147,9 @@ public class ContextualMenuFiller {
 				case PermadelerPackage.CELL:
 					caseCell((List<Cell>)selections);
 					break;
+				case PermadelerPackage.TAGGED_ELEMENT:
+					caseTaggedElement((List<TaggedElement>)selections);
+					break;
 				case PermadelerPackage.TRAY:
 					caseTray((List<Tray>)selections);
 					break;
@@ -158,6 +163,11 @@ public class ContextualMenuFiller {
 					break;
 			}
 		}
+	}
+
+	private void caseTaggedElement(List<TaggedElement> selections) {
+		others.add(new AddMassTagAction(session, selections));
+
 	}
 
 	public List<IAction> getNewRepresentationActions() {
