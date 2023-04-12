@@ -9,55 +9,61 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.utils;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.ResourceSetChangeEvent;
+import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.sirius.business.api.session.Session;
 
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
 public class TagsPlantGroup implements ISelfDescribingItem {
 
-	private final KnowledgeBase knowledge;
+	private final EObject parent;
 
-	private EContentAdapter contentAdapter;
+	private List<? extends TaggedElement> allElements;
 
-	public TagsPlantGroup(KnowledgeBase knowledge, Viewer viewer) {
+	private TaggedListener listener;
+
+	public TagsPlantGroup(EObject parent, List<? extends TaggedElement> allElements, Viewer viewer) {
 		super();
-		this.knowledge = knowledge;
-		this.contentAdapter = new EContentAdapter() {
-			@Override
-			public void notifyChanged(Notification notification) {
-				super.notifyChanged(notification);
-				if (notification.getFeature() == PermadelerPackage.eINSTANCE.getTaggedElement_Tags()) {
-					viewer.refresh();
-				}
-			}
-		};
-		knowledge.eAdapters().add(contentAdapter);
-	}
+		this.parent = parent;
+		this.allElements = allElements;
 
-	public KnowledgeBase getKnowledge() {
-		return knowledge;
+		listener = new TaggedListener(viewer);
+		Session.of(parent).get().getTransactionalEditingDomain().addResourceSetListener(listener);
+
 	}
 
 	public void dispose() {
-		knowledge.eAdapters().remove(contentAdapter);
+		Session.of(parent).get().getTransactionalEditingDomain().removeResourceSetListener(listener);
 	}
 
 	@Override
 	public List<? extends Object> getChildren() {
-		return knowledge.getAllPlants().stream()//
-				.flatMap(p -> p.getTags().stream())//
-				.distinct()//
-				.sorted()//
-				.map(t -> new TagPlantGroup(t, knowledge, this))//
+		Map<String, List<TaggedElement>> groupByTag = new LinkedHashMap<String, List<TaggedElement>>();
+		for (TaggedElement tagElement : allElements) {
+
+			for (String s : tagElement.getTags()) {
+				groupByTag.computeIfAbsent(s, k -> new ArrayList<TaggedElement>()).add(tagElement);
+			}
+		}
+
+		return groupByTag.entrySet().stream().sorted(Comparator.comparing(Entry::getKey))//
+				.map(entry -> new TagOwnerGroup(entry.getKey(), entry.getValue(), this))//
 				.toList();
+
 	}
 
 	@Override
@@ -67,7 +73,7 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(contentAdapter, knowledge);
+		return Objects.hash(allElements, listener, parent);
 	}
 
 	@Override
@@ -79,8 +85,8 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 		if (getClass() != obj.getClass())
 			return false;
 		TagsPlantGroup other = (TagsPlantGroup)obj;
-		return Objects.equals(contentAdapter, other.contentAdapter)
-				&& Objects.equals(knowledge, other.knowledge);
+		return Objects.equals(allElements, other.allElements) && Objects.equals(listener, other.listener)
+				&& Objects.equals(parent, other.parent);
 	}
 
 	@Override
@@ -90,7 +96,30 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public Object getParent() {
-		return knowledge;
+		return parent;
+	}
+
+	private static class TaggedListener extends ResourceSetListenerImpl {
+
+		private final Viewer viewer;
+
+		public TaggedListener(Viewer viewer) {
+			super();
+			this.viewer = viewer;
+		}
+
+		@Override
+		public boolean isPostcommitOnly() {
+			return true;
+		}
+
+		@Override
+		public void resourceSetChanged(ResourceSetChangeEvent event) {
+			if (event.getNotifications().stream()
+					.anyMatch(n -> n.getFeature() == PermadelerPackage.eINSTANCE.getTaggedElement_Tags())) {
+				viewer.refresh();
+			}
+		}
 	}
 
 }

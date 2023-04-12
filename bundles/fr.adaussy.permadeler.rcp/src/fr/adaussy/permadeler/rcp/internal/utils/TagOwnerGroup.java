@@ -12,32 +12,28 @@ package fr.adaussy.permadeler.rcp.internal.utils;
 import java.util.List;
 import java.util.Objects;
 
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
-public class TagPlantGroup implements ISelfDescribingItem {
+public class TagOwnerGroup implements ISelfDescribingItem {
 
 	private final String tag;
 
-	private final KnowledgeBase base;
-
 	private TagsPlantGroup tagsPlantGroup;
 
-	public TagPlantGroup(String tag, KnowledgeBase base, TagsPlantGroup tagsPlantGroup) {
+	private List<TaggedElement> children;
+
+	public TagOwnerGroup(String tag, List<TaggedElement> children, TagsPlantGroup tagsPlantGroup) {
 		super();
 		this.tag = tag;
-		this.base = base;
+		this.children = children;
 		this.tagsPlantGroup = tagsPlantGroup;
-	}
-
-	public TagsPlantGroup getTagsPlantGroup() {
-		return tagsPlantGroup;
 	}
 
 	@Override
 	public List<? extends Object> getChildren() {
-		return base.getAllPlants().stream().filter(p -> p.getTags().contains(tag)).toList();
+		return children;
 	}
 
 	@Override
@@ -45,9 +41,13 @@ public class TagPlantGroup implements ISelfDescribingItem {
 		return tag;
 	}
 
+	public String getTag() {
+		return tag;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(base, tag);
+		return Objects.hash(tag, tagsPlantGroup);
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class TagPlantGroup implements ISelfDescribingItem {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TagPlantGroup other = (TagPlantGroup)obj;
-		return Objects.equals(base, other.base) && Objects.equals(tag, other.tag);
+		TagOwnerGroup other = (TagOwnerGroup)obj;
+		return Objects.equals(tag, other.tag) && Objects.equals(tagsPlantGroup, other.tagsPlantGroup);
 	}
 
 	@Override

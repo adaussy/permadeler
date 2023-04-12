@@ -428,105 +428,6 @@ public interface PermadelerPackage extends EPackage {
 	int PLANTATION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__EVENTS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__DESCRIPTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Plantation Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__PLANTATION_DATE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Current Layer</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__CURRENT_LAYER = 4;
-
-	/**
-	 * The feature id for the '<em><b>Rootstock</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__ROOTSTOCK = 5;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__ID = 6;
-
-	/**
-	 * The feature id for the '<em><b>Wireframe</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__WIREFRAME = 7;
-
-	/**
-	 * The feature id for the '<em><b>Representation Kind</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION__REPRESENTATION_KIND = 8;
-
-	/**
-	 * The number of structural features of the '<em>Plantation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION_FEATURE_COUNT = 9;
-
-	/**
-	 * The number of operations of the '<em>Plantation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLANTATION_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageImpl <em>Image</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,6 +436,391 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	int IMAGE = 6;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.EventImpl <em>Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.EventImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getEvent()
+	 * @generated
+	 */
+	int EVENT = 7;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ZoneImpl <em>Zone</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ZoneImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getZone()
+	 * @generated
+	 */
+	int ZONE = 8;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TrayOwnerImpl <em>Tray Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TrayOwnerImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTrayOwner()
+	 * @generated
+	 */
+	int TRAY_OWNER = 14;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.NursaryImpl <em>Nursary</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.NursaryImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getNursary()
+	 * @generated
+	 */
+	int NURSARY = 9;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TrayImpl <em>Tray</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TrayImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTray()
+	 * @generated
+	 */
+	int TRAY = 10;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.RowImpl <em>Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.RowImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRow()
+	 * @generated
+	 */
+	int ROW = 11;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.CellImpl <em>Cell</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.CellImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getCell()
+	 * @generated
+	 */
+	int CELL = 12;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TrayZoneImpl <em>Tray Zone</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TrayZoneImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTrayZone()
+	 * @generated
+	 */
+	int TRAY_ZONE = 13;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.GridBedRowImpl <em>Grid Bed Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.GridBedRowImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getGridBedRow()
+	 * @generated
+	 */
+	int GRID_BED_ROW = 15;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.GridBedCellImpl <em>Grid Bed Cell</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.GridBedCellImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getGridBedCell()
+	 * @generated
+	 */
+	int GRID_BED_CELL = 16;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlanficationImpl <em>Planfication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlanficationImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlanfication()
+	 * @generated
+	 */
+	int PLANFICATION = 17;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlanifierImpl <em>Planifier</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlanifierImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlanifier()
+	 * @generated
+	 */
+	int PLANIFIER = 18;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SowPlanficationImpl <em>Sow Planfication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.SowPlanficationImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSowPlanfication()
+	 * @generated
+	 */
+	int SOW_PLANFICATION = 19;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl <em>Background Image</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getBackgroundImage()
+	 * @generated
+	 */
+	int BACKGROUND_IMAGE = 20;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl <em>Image Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getImageOwner()
+	 * @generated
+	 */
+	int IMAGE_OWNER = 27;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant <em>Plant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.Plant
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlant()
+	 * @generated
+	 */
+	int PLANT = 21;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTemporalItem()
+	 * @generated
+	 */
+	int TEMPORAL_ITEM = 24;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getProduction()
+	 * @generated
+	 */
+	int PRODUCTION = 22;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ActionImpl <em>Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ActionImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getAction()
+	 * @generated
+	 */
+	int ACTION = 23;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl <em>Plantation Phase</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlantationPhase()
+	 * @generated
+	 */
+	int PLANTATION_PHASE = 25;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ReferencingElementImpl <em>Referencing Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ReferencingElementImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getReferencingElement()
+	 * @generated
+	 */
+	int REFERENCING_ELEMENT = 26;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl <em>Species</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSpecies()
+	 * @generated
+	 */
+	int SPECIES = 28;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl <em>Variety</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getVariety()
+	 * @generated
+	 */
+	int VARIETY = 29;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantGroupImpl <em>Plant Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantGroupImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlantGroup()
+	 * @generated
+	 */
+	int PLANT_GROUP = 30;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TaggedElementImpl <em>Tagged Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TaggedElementImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTaggedElement()
+	 * @generated
+	 */
+	int TAGGED_ELEMENT = 32;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGGED_ELEMENT__TAGS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Tagged Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGGED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Tagged Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAGGED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__TAGS = TAGGED_ELEMENT__TAGS;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__TYPE = TAGGED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Events</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__EVENTS = TAGGED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__DESCRIPTION = TAGGED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Plantation Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__PLANTATION_DATE = TAGGED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Current Layer</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__CURRENT_LAYER = TAGGED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Rootstock</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__ROOTSTOCK = TAGGED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__ID = TAGGED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Wireframe</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__WIREFRAME = TAGGED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Representation Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION__REPRESENTATION_KIND = TAGGED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>Plantation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION_FEATURE_COUNT = TAGGED_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The number of operations of the '<em>Plantation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLANTATION_OPERATION_COUNT = TAGGED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -580,16 +866,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.EventImpl <em>Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.EventImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getEvent()
-	 * @generated
-	 */
-	int EVENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Date</b></em>' attribute.
@@ -646,16 +922,6 @@ public interface PermadelerPackage extends EPackage {
 	int EVENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ZoneImpl <em>Zone</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ZoneImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getZone()
-	 * @generated
-	 */
-	int ZONE = 8;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,16 +967,6 @@ public interface PermadelerPackage extends EPackage {
 	int ZONE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TrayOwnerImpl <em>Tray Owner</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TrayOwnerImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTrayOwner()
-	 * @generated
-	 */
-	int TRAY_OWNER = 14;
-
-	/**
 	 * The feature id for the '<em><b>Trays</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,16 +992,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRAY_OWNER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.NursaryImpl <em>Nursary</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.NursaryImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getNursary()
-	 * @generated
-	 */
-	int NURSARY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Trays</b></em>' containment reference list.
@@ -782,16 +1028,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int NURSARY_OPERATION_COUNT = TRAY_OWNER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TrayImpl <em>Tray</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TrayImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTray()
-	 * @generated
-	 */
-	int TRAY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -848,16 +1084,6 @@ public interface PermadelerPackage extends EPackage {
 	int TRAY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.RowImpl <em>Row</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.RowImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getRow()
-	 * @generated
-	 */
-	int ROW = 11;
-
-	/**
 	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,16 +1109,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROW_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.CellImpl <em>Cell</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.CellImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getCell()
-	 * @generated
-	 */
-	int CELL = 12;
 
 	/**
 	 * The feature id for the '<em><b>Plant</b></em>' reference.
@@ -929,16 +1145,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int CELL_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TrayZoneImpl <em>Tray Zone</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TrayZoneImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTrayZone()
-	 * @generated
-	 */
-	int TRAY_ZONE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Trays</b></em>' containment reference list.
@@ -986,16 +1192,6 @@ public interface PermadelerPackage extends EPackage {
 	int TRAY_ZONE_OPERATION_COUNT = TRAY_OWNER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.GridBedRowImpl <em>Grid Bed Row</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.GridBedRowImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getGridBedRow()
-	 * @generated
-	 */
-	int GRID_BED_ROW = 15;
-
-	/**
 	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1021,16 +1217,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRID_BED_ROW_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.GridBedCellImpl <em>Grid Bed Cell</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.GridBedCellImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getGridBedCell()
-	 * @generated
-	 */
-	int GRID_BED_CELL = 16;
 
 	/**
 	 * The feature id for the '<em><b>Plantation</b></em>' reference.
@@ -1060,16 +1246,6 @@ public interface PermadelerPackage extends EPackage {
 	int GRID_BED_CELL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlanficationImpl <em>Planfication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlanficationImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlanfication()
-	 * @generated
-	 */
-	int PLANFICATION = 17;
-
-	/**
 	 * The feature id for the '<em><b>Weeks</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1097,16 +1273,6 @@ public interface PermadelerPackage extends EPackage {
 	int PLANFICATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlanifierImpl <em>Planifier</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlanifierImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlanifier()
-	 * @generated
-	 */
-	int PLANIFIER = 18;
-
-	/**
 	 * The feature id for the '<em><b>Planfications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1132,16 +1298,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANIFIER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SowPlanficationImpl <em>Sow Planfication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.SowPlanficationImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSowPlanfication()
-	 * @generated
-	 */
-	int SOW_PLANFICATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Weeks</b></em>' attribute list.
@@ -1189,16 +1345,6 @@ public interface PermadelerPackage extends EPackage {
 	int SOW_PLANFICATION_OPERATION_COUNT = PLANFICATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl <em>Background Image</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.BackgroundImageImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getBackgroundImage()
-	 * @generated
-	 */
-	int BACKGROUND_IMAGE = 20;
-
-	/**
 	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1244,16 +1390,6 @@ public interface PermadelerPackage extends EPackage {
 	int BACKGROUND_IMAGE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl <em>Image Owner</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ImageOwnerImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getImageOwner()
-	 * @generated
-	 */
-	int IMAGE_OWNER = 27;
-
-	/**
 	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1279,16 +1415,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMAGE_OWNER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Plant <em>Plant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.Plant
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlant()
-	 * @generated
-	 */
-	int PLANT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
@@ -1507,16 +1633,6 @@ public interface PermadelerPackage extends EPackage {
 	int PLANT_OPERATION_COUNT = IMAGE_OWNER_OPERATION_COUNT + 11;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl <em>Temporal Item</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TemporalItemImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTemporalItem()
-	 * @generated
-	 */
-	int TEMPORAL_ITEM = 24;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1560,16 +1676,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEMPORAL_ITEM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl <em>Production</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ProductionImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getProduction()
-	 * @generated
-	 */
-	int PRODUCTION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1644,16 +1750,6 @@ public interface PermadelerPackage extends EPackage {
 	int PRODUCTION_OPERATION_COUNT = TEMPORAL_ITEM_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ActionImpl <em>Action</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ActionImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getAction()
-	 * @generated
-	 */
-	int ACTION = 23;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1706,16 +1802,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_OPERATION_COUNT = TEMPORAL_ITEM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl <em>Plantation Phase</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlantationPhase()
-	 * @generated
-	 */
-	int PLANTATION_PHASE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1781,16 +1867,6 @@ public interface PermadelerPackage extends EPackage {
 	int PLANTATION_PHASE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ReferencingElementImpl <em>Referencing Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.ReferencingElementImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getReferencingElement()
-	 * @generated
-	 */
-	int REFERENCING_ELEMENT = 26;
-
-	/**
 	 * The feature id for the '<em><b>References</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1816,16 +1892,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCING_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl <em>Species</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.SpeciesImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getSpecies()
-	 * @generated
-	 */
-	int SPECIES = 28;
 
 	/**
 	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
@@ -2233,16 +2299,6 @@ public interface PermadelerPackage extends EPackage {
 	int SPECIES_OPERATION_COUNT = PLANT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl <em>Variety</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.VarietyImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getVariety()
-	 * @generated
-	 */
-	int VARIETY = 29;
-
-	/**
 	 * The feature id for the '<em><b>Images</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2477,16 +2533,6 @@ public interface PermadelerPackage extends EPackage {
 	int VARIETY_OPERATION_COUNT = PLANT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantGroupImpl <em>Plant Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantGroupImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlantGroup()
-	 * @generated
-	 */
-	int PLANT_GROUP = 30;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2548,43 +2594,6 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLANT_GROUP_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.TaggedElementImpl <em>Tagged Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.TaggedElementImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getTaggedElement()
-	 * @generated
-	 */
-	int TAGGED_ELEMENT = 32;
-
-	/**
-	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAGGED_ELEMENT__TAGS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Tagged Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAGGED_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Tagged Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAGGED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.Quantity <em>Quantity</em>}' enum.

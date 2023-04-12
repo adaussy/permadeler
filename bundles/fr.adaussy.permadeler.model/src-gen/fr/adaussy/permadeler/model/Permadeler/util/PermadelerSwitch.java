@@ -117,6 +117,8 @@ public class PermadelerSwitch<T> extends Switch<T> {
 				Plantation plantation = (Plantation)theEObject;
 				T result = casePlantation(plantation);
 				if (result == null)
+					result = caseTaggedElement(plantation);
+				if (result == null)
 					result = defaultCase(theEObject);
 				return result;
 			}

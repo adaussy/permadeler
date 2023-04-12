@@ -30,8 +30,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -56,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class PlantationImpl extends MinimalEObjectImpl.Container implements Plantation {
+public class PlantationImpl extends TaggedElementImpl implements Plantation {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->

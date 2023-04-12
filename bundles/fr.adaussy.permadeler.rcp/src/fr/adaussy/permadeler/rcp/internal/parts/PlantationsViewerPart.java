@@ -39,18 +39,8 @@ public class PlantationsViewerPart extends AbstractModelViewerPart {
 
 	@Override
 	protected ModelContentProvider createContentProvider(Session session) {
-		ModelContentProvider contentProvider = new ModelContentProvider(session,
-				new AdapterFactoryContentProvider(createAdapterFactory())) {
-
-			@Override
-			protected Object[] getSemanticChildren(Object parentElement) {
-				if (parentElement instanceof Root) {
-					return ((Root)parentElement).getZones().toArray();
-				}
-				return super.getSemanticChildren(parentElement);
-			}
-		};
-		return contentProvider;
+		return new PlantationContentProvider(session,
+				new ModelContentProvider(session, new AdapterFactoryContentProvider(createAdapterFactory())));
 	}
 
 }

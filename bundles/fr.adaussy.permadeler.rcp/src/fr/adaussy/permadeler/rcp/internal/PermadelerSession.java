@@ -1,3 +1,12 @@
+/*******************************************************************************
+ * Copyright (c) 2023 Arthur Daussy.
+ *
+ * This program and the accompanying materials are made 
+ * available under the terms of the Eclipse Public License 2.0 
+ * which is available at https://www.eclipse.org/legal/epl-2.0/ 
+ * Contributors:
+ * Arthur Daussy - initial API and implementation.
+ ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal;
 
 import java.nio.file.Path;
@@ -15,7 +24,7 @@ import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 
 /**
- * A wrapper of {@link Session} that help accesing and modify the model
+ * A wrapper of {@link Session} that help accessing and modify the model
  * 
  * @author Arthur Daussy
  */
@@ -29,6 +38,13 @@ public class PermadelerSession {
 		super();
 		this.wrappedSession = wrappedSession;
 		this.root = root;
+	}
+
+	public static PermadelerSession of(Session session) {
+		Root root = session.getSemanticResources().stream()
+				.filter(r -> !r.getContents().isEmpty() && r.getContents().get(0) instanceof Root)
+				.map(r -> (Root)r.getContents().get(0)).findFirst().get();
+		return new PermadelerSession(session, root);
 	}
 
 	/**

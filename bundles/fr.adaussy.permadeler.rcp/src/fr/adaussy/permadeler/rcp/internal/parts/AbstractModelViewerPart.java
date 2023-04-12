@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -78,9 +79,12 @@ import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributo
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import fr.adaussy.permadeler.model.Permadeler.Root;
+import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceImpl;
+import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.menu.MenuFiller;
 import fr.adaussy.permadeler.rcp.internal.provider.ModelLabelProvider;
+import fr.adaussy.permadeler.rcp.internal.utils.TagOwnerGroup;
 
 /**
  * Abstract implementation of the tree views
@@ -221,6 +225,18 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 	}
 
 	protected void handleDrop(Object target, Object[] dropedElements) {
+
+		if (target instanceof TagOwnerGroup tagOwner) {
+			List<TaggedElement> taggedElements = Stream.of(dropedElements)
+					.filter(e -> e instanceof TaggedElement).map(e -> ((TaggedElement)e)).toList();
+			String tag = tagOwner.getTag();
+
+			if (!taggedElements.isEmpty()) {
+				PermadelerSession.of(displayedSession).modifyKnowledgeBase("Ajout d'un tag", b -> {
+					taggedElements.forEach(t -> t.getTags().add(tag));
+				});
+			}
+		}
 
 	}
 

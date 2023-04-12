@@ -2264,6 +2264,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		// Add supertypes to classes
 		rootEClass.getESuperTypes().add(this.getNamedElement());
 		knowledgeBaseEClass.getESuperTypes().add(this.getIPlantGroup());
+		plantationEClass.getESuperTypes().add(this.getTaggedElement());
 		zoneEClass.getESuperTypes().add(this.getNamedElement());
 		nursaryEClass.getESuperTypes().add(this.getTrayOwner());
 		trayEClass.getESuperTypes().add(this.getNamedElement());

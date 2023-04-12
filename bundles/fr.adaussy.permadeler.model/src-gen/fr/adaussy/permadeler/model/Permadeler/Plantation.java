@@ -14,8 +14,6 @@ import java.time.Instant;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Plantation</b></em>'.
@@ -44,7 +42,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Plantation extends EObject {
+public interface Plantation extends TaggedElement {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->

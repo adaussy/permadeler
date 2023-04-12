@@ -25,7 +25,7 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		if (parentElement instanceof KnowledgeBase) {
 			KnowledgeBase knowledgeBase = (KnowledgeBase)parentElement;
 			if (tagsPlantGroup == null) {
-				tagsPlantGroup = new TagsPlantGroup(knowledgeBase, getViewer());
+				tagsPlantGroup = new TagsPlantGroup(knowledgeBase, knowledgeBase.getAllPlants(), getViewer());
 			}
 			previousChildren.add(tagsPlantGroup);
 
