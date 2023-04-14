@@ -40,7 +40,7 @@ public class PlantationsViewerPart extends AbstractModelViewerPart {
 	@Override
 	protected ModelContentProvider createContentProvider(Session session) {
 		return new PlantationContentProvider(session,
-				new ModelContentProvider(session, new AdapterFactoryContentProvider(createAdapterFactory())));
+				new AdapterFactoryContentProvider(createAdapterFactory()));
 	}
 
 }
