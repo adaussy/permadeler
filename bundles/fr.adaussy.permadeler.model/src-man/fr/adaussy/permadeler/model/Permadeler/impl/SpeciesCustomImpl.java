@@ -1,10 +1,13 @@
 package fr.adaussy.permadeler.model.Permadeler.impl;
 
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import fr.adaussy.permadeler.model.Permadeler.Action;
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
+import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSemanticUtils;
 
 public class SpeciesCustomImpl extends SpeciesImpl {
 	@Override
@@ -46,5 +49,10 @@ public class SpeciesCustomImpl extends SpeciesImpl {
 	@Override
 	public EList<Production> getAllProductions() {
 		return getProductions();
+	}
+
+	@Override
+	public EList<Plantation> getPlantations() {
+		return ECollections.asEList(PermadelerSemanticUtils.getPlantations(this));
 	}
 }

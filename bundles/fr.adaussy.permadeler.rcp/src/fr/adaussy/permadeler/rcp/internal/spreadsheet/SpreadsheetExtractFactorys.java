@@ -17,15 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.collections.api.tuple.Pair;
-import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
-import org.eclipse.sirius.business.api.session.SessionManager;
 
-import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.edit.TextHelper;
-import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.services.LabelService;
 import fr.adaussy.permadeler.rcp.services.MonthService;
@@ -77,7 +73,7 @@ public class SpreadsheetExtractFactorys {
 		columns.add(ColumnExtractor.build(RcpMessages.GenerateProductionSpreadsheetMenu_9,
 				p -> p.getTwo().getName()));
 		columns.add(ColumnExtractor.build(RcpMessages.SpreadsheetExtractFactorys_30,
-				p -> String.valueOf(getPlantationOfType(p.getOne()).size())));
+				p -> String.valueOf(p.getOne().getPlantations().size())));
 
 		columns.add(ColumnExtractor.build(RcpMessages.GenerateProductionSpreadsheetMenu_10,
 				p -> p.getTwo().isEatable() ? RcpMessages.GenerateProductionSpreadsheetMenu_23
@@ -103,7 +99,7 @@ public class SpreadsheetExtractFactorys {
 		columns.add(ColumnExtractor.build(RcpMessages.GenerateProductionSpreadsheetMenu_7,
 				p -> p.getOne().getFullLatinName()));
 		columns.add(ColumnExtractor.build(RcpMessages.SpreadsheetExtractFactorys_30, // $NON-NLS-1$
-				p -> String.valueOf(getPlantationOfType(p.getOne()).size())));
+				p -> String.valueOf(p.getOne().getPlantations().size())));
 
 		MonthService mService = new MonthService();
 		String[] months = new DateFormatSymbols().getShortMonths();
@@ -117,10 +113,4 @@ public class SpreadsheetExtractFactorys {
 		return columns;
 	}
 
-	private static List<Plantation> getPlantationOfType(Plant p) {
-		ECrossReferenceAdapter semanticCrossReferencer = SessionManager.INSTANCE.getSession(p)
-				.getSemanticCrossReferencer();
-		return EMFUtils.getInverse(p, Plantation.class, PermadelerPackage.eINSTANCE.getPlantation_Type(),
-				semanticCrossReferencer);
-	}
 }

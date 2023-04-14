@@ -15,6 +15,7 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.NamedElement;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
@@ -623,6 +624,17 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Plantation> getPlantations() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -946,6 +958,8 @@ public class VarietyImpl extends ImageOwnerImpl implements Variety {
 				return getEffectiveRepresentationKey();
 			case PermadelerPackage.VARIETY___GET_LIFE_CYCLE:
 				return getLifeCycle();
+			case PermadelerPackage.VARIETY___GET_PLANTATIONS:
+				return getPlantations();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

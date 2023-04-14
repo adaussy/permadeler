@@ -89,6 +89,7 @@ import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
+import fr.adaussy.permadeler.model.Permadeler.util.IDUtils;
 import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
 import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
@@ -134,7 +135,7 @@ public class DiagramService {
 		((PlantationPhase)plantation.eContainer()).getPlantations().add(newPlantation);
 
 		// Change id
-		newPlantation.setId(generateId(newPlantation));
+		newPlantation.setId(IDUtils.generateId(newPlantation));
 
 		// Create view
 
@@ -550,7 +551,7 @@ public class DiagramService {
 				container.getPlantations().add(plantation);
 				Plant value = selection.get(0);
 				plantation.setType(value);
-				plantation.setId(generateId(plantation));
+				plantation.setId(IDUtils.generateId(plantation));
 				return plantation;
 			}
 		}
@@ -576,47 +577,6 @@ public class DiagramService {
 		Species species = PermadelerFactory.eINSTANCE.createSpecies();
 		EMFUtils.getAncestor(Root.class, self).getKnowledgeBase().getSpecies().add(species);
 		return species;
-	}
-
-	private static String generateId(Plantation plantation) {
-		Plant type = plantation.getType();
-		if (type != null) {
-			String shortName = type.getShortName();
-			String trigram = shortName != null ? shortName : ""; //$NON-NLS-1$
-
-			Set<String> candiates = EMFUtils.getAncestor(Root.class, plantation).getZones().stream()//
-					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
-					.filter(p -> p.getId() != null && p.getId().startsWith(trigram))//
-					.map(p -> p.getId()).collect(Collectors.toSet());
-			int i = 1;
-			String id = trigram + i;
-			while (candiates.contains(id)) {
-				i++;
-				id = trigram + i;
-			}
-
-			return id;
-		}
-		return null;
-	}
-
-	public static String generateShortName(Plant plant) {
-		String name = plant.getName();
-		if (name == null) {
-			return ""; //$NON-NLS-1$
-		}
-		String[] parts = name.split(" "); //$NON-NLS-1$
-		String nameShort = ""; //$NON-NLS-1$
-		if (parts.length > 0) {
-			String p0 = parts[0];
-			nameShort += p0.substring(0, Math.min(3, p0.length()));
-
-			if (parts.length > 1) {
-				String p1 = parts[1];
-				nameShort += p1.substring(0, Math.min(2, p1.length()));
-			}
-		}
-		return nameShort;
 	}
 
 	/**

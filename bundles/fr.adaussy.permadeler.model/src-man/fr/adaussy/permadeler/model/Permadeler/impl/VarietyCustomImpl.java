@@ -6,9 +6,11 @@ import org.eclipse.emf.common.util.EList;
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.SpecialUses;
+import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSemanticUtils;
 
 public class VarietyCustomImpl extends VarietyImpl {
 
@@ -88,5 +90,10 @@ public class VarietyCustomImpl extends VarietyImpl {
 			return key;
 		}
 		return getSpecies().getEffectiveRepresentationKey();
+	}
+
+	@Override
+	public EList<Plantation> getPlantations() {
+		return ECollections.asEList(PermadelerSemanticUtils.getPlantations(this));
 	}
 }

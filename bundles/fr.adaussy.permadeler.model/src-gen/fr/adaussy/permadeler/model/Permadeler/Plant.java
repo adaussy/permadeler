@@ -248,4 +248,12 @@ public interface Plant extends ImageOwner, NamedElement, ReferencingElement, Tag
 	 */
 	Lifecycle getLifeCycle();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Plantation> getPlantations();
+
 } // Plant

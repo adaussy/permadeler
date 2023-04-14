@@ -44,7 +44,7 @@ public abstract class AbstractModelAction extends Action {
 	}
 
 	/**
-	 * Modifies the model bu running the given {@link Runnable} into a recording command
+	 * Modifies the model by running the given {@link Runnable} into a recording command
 	 * 
 	 * @param r
 	 *            a runnable to run

@@ -13,13 +13,17 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.widgets.Display;
 
+import com.google.common.base.Objects;
+
 import fr.adaussy.permadeler.model.Permadeler.Action;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
+import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
+import fr.adaussy.permadeler.model.Permadeler.util.IDUtils;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.dialogs.TagDialog;
 
@@ -127,6 +131,20 @@ public class PropertyService {
 		}
 	}
 
+	public void updateShortNameAndId(Plant p) {
+		String newShortName = IDUtils.generateShortName(p);
+		if (!Objects.equal(newShortName, p.getShortName())) {
+			p.setShortName(newShortName);
+		}
+		List<Plantation> plantations = Session.of(p).get().getSemanticCrossReferencer()
+				.getInverseReferences(p, PermadelerPackage.eINSTANCE.getPlantation_Type(), true).stream()
+				.map(e -> (Plantation)e.getEObject()).toList();
+		if (!plantations.isEmpty() && MessageDialog.openConfirm(DiagramService.getShell(), "Mise à jours",
+				"Voulez vous mêttre à jours les identifiant de toutes les plantation de cette plant?")) {
+			plantations.forEach(IDUtils::generateId);
+		}
+	}
+
 	public Production getProductionToEdit(Production production, Plantation p) {
 		Plant type = p.getType();
 		if (type != null) {
@@ -157,6 +175,15 @@ public class PropertyService {
 		}
 		Session session = Session.of(toDelete).get();
 		session.getModelAccessor().eDelete(toDelete, session.getSemanticCrossReferencer());
+	}
+
+	public boolean shouldUpdateShortName(Plant plant) {
+		String shortName = plant.getShortName();
+		return shortName == null || shortName.isBlank() || shortName.equals(IDUtils.generateShortName(plant));
+	}
+
+	public static String generateShortName(Plant plant) {
+		return IDUtils.generateShortName(plant);
 	}
 
 	public EObject addReference(ReferencingElement element) {

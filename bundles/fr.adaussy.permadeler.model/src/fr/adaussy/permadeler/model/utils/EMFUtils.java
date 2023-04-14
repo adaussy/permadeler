@@ -79,6 +79,24 @@ public final class EMFUtils {
 				.map(s -> expectedType.cast(s.getEObject())).toList();
 	}
 
+	public static ECrossReferenceAdapter getCrossReference(EObject source) {
+		ECrossReferenceAdapter crossRef = getCrossRef(source);
+		if (crossRef == null) {
+			Resource eResource = source.eResource();
+			crossRef = getCrossRef(eResource);
+			if (crossRef == null) {
+				crossRef = getCrossRef(eResource.getResourceSet());
+			}
+		}
+		return crossRef;
+
+	}
+
+	private static ECrossReferenceAdapter getCrossRef(Notifier source) {
+		return source.eAdapters().stream().filter(e -> e instanceof ECrossReferenceAdapter)
+				.map(e -> (ECrossReferenceAdapter)e).findFirst().orElse(null);
+	}
+
 	/**
 	 * Gets a stream composed from the object itself and all its content.
 	 *

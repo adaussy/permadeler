@@ -21,6 +21,7 @@ import fr.adaussy.permadeler.model.Permadeler.Lifecycle;
 import fr.adaussy.permadeler.model.Permadeler.Moisture;
 import fr.adaussy.permadeler.model.Permadeler.NamedElement;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ReferencingElement;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
@@ -1283,6 +1284,17 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Plantation> getPlantations() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1782,6 +1794,8 @@ public class SpeciesImpl extends ImageOwnerImpl implements Species {
 				return getEffectiveIconKey();
 			case PermadelerPackage.SPECIES___GET_EFFECTIVE_REPRESENTATION_KEY:
 				return getEffectiveRepresentationKey();
+			case PermadelerPackage.SPECIES___GET_PLANTATIONS:
+				return getPlantations();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

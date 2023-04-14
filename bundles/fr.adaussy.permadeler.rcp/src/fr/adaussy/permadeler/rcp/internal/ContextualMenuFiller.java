@@ -49,6 +49,7 @@ import fr.adaussy.permadeler.model.Permadeler.Image;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Quantity;
 import fr.adaussy.permadeler.model.Permadeler.Root;
@@ -67,6 +68,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
+import fr.adaussy.permadeler.rcp.internal.actions.RegenerateAllIdsAction;
 import fr.adaussy.permadeler.rcp.internal.actions.SowCellAction;
 import fr.adaussy.permadeler.rcp.internal.actions.SowSpeciesAction;
 import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
@@ -159,10 +161,21 @@ public class ContextualMenuFiller {
 				case PermadelerPackage.PLANTATION:
 					casePlantation((List<Plantation>)selections);
 					break;
+				case PermadelerPackage.PLANT_GROUP:
+					casePlantGroup((List<PlantGroup>)selections);
+					break;
 				default:
 					break;
 			}
 		}
+	}
+
+	private void casePlantGroup(List<PlantGroup> selections) {
+		if (selections.size() == 1) {
+			PlantGroup plantGroup = selections.get(0);
+			others.add(new RegenerateAllIdsAction(session, plantGroup.getAllPlants()));
+		}
+
 	}
 
 	private void caseTaggedElement(List<TaggedElement> selections) {
@@ -175,6 +188,10 @@ public class ContextualMenuFiller {
 	}
 
 	private void caseKnowledgeBase(List<KnowledgeBase> selections) {
+		if (selections.size() == 1) {
+			KnowledgeBase knowledge = selections.get(0);
+			others.add(new RegenerateAllIdsAction(session, knowledge.getAllPlants()));
+		}
 
 	}
 
