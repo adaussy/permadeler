@@ -139,9 +139,13 @@ public class PropertyService {
 		List<Plantation> plantations = Session.of(p).get().getSemanticCrossReferencer()
 				.getInverseReferences(p, PermadelerPackage.eINSTANCE.getPlantation_Type(), true).stream()
 				.map(e -> (Plantation)e.getEObject()).toList();
-		if (!plantations.isEmpty() && MessageDialog.openConfirm(DiagramService.getShell(), "Mise à jours",
-				"Voulez vous mêttre à jours les identifiant de toutes les plantation de cette plant?")) {
-			plantations.forEach(IDUtils::generateId);
+		String msg = "Voulez vous mêttre à jours les identifiants de toutes les plantations de cette plante?\n";
+		for (Plantation plantation : plantations) {
+			msg += "\t" + plantation.getId() + "\n";
+		}
+		if (!plantations.isEmpty()
+				&& MessageDialog.openConfirm(DiagramService.getShell(), "Mise à jours", msg)) {
+			plantations.forEach(pl -> pl.setId(IDUtils.generateId(pl)));
 		}
 	}
 
