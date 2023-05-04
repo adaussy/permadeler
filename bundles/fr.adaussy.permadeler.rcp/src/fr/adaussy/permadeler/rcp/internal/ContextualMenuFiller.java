@@ -69,6 +69,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
 import fr.adaussy.permadeler.rcp.internal.actions.RegenerateAllIdsAction;
+import fr.adaussy.permadeler.rcp.internal.actions.SelectInOpenRepresentation;
 import fr.adaussy.permadeler.rcp.internal.actions.SowCellAction;
 import fr.adaussy.permadeler.rcp.internal.actions.SowSpeciesAction;
 import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
@@ -213,6 +214,8 @@ public class ContextualMenuFiller {
 						Collections.singletonList(type), KnowledgeViewerPart.ID));
 			}
 		}
+
+		navigateAction.add(new SelectInOpenRepresentation(selections, session));
 
 	}
 
