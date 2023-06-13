@@ -1,5 +1,11 @@
 = Release Note
 
+== 0.3.5
+
+* Add tag for plantations
+* Add a way to regenerate ids for plant and plantations
+* Fix dupplicated item in trees
+* Add select action
 
 == 0.3.4
 
