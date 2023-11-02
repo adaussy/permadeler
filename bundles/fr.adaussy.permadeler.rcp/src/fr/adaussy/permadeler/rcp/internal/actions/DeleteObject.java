@@ -7,6 +7,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.swt.widgets.Event;
 
 import fr.adaussy.permadeler.rcp.RcpMessages;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 /**
  * Deletes an object
@@ -18,7 +19,9 @@ public class DeleteObject extends AbstractModelAction {
 	private final List<EObject> objects;
 
 	public DeleteObject(List<EObject> objects, Session session) {
-		super(RcpMessages.DeleteObject_0, session);
+		super(RcpMessages.DeleteObject_0,
+				RcpPlugin.imageDescriptorFromPlugin("org.eclipse.ui", "/icons/full/etool16/delete.png"),
+				session);
 		this.objects = objects;
 	}
 

@@ -19,13 +19,15 @@ import org.eclipse.swt.widgets.Event;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.util.IDUtils;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 
 public class RegenerateAllIdsAction extends AbstractModelAction {
 
 	private List<Plant> plants;
 
 	public RegenerateAllIdsAction(Session session, List<Plant> plants) {
-		super("Regénerer les noms court", session);
+		super("Regénerer les noms court", RcpPlugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui",
+				"/icons/full/obj16/classf_generate.png"), session);
 		this.plants = plants;
 	}
 

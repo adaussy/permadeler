@@ -21,6 +21,7 @@ import org.eclipse.ui.PlatformUI;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.dialogs.TagDialog;
 
@@ -29,7 +30,8 @@ public class AddMassTagAction extends AbstractModelAction {
 	private List<TaggedElement> taggedElement;
 
 	public AddMassTagAction(Session session, List<TaggedElement> taggedElement) {
-		super("Ajout des tags", session);
+		super("Ajout des tags", RcpPlugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui",
+				"/icons/full/obj16/html_tag_obj.png"), session);
 		this.taggedElement = taggedElement;
 	}
 

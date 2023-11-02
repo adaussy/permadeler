@@ -30,7 +30,9 @@ public class OpenReference extends Action {
 	private URL ref;
 
 	public OpenReference(URL ref) {
-		super(MessageFormat.format("Ouvrir lien {0}", ref.getHost())); //$NON-NLS-1$
+		super(MessageFormat.format("Ouvrir lien {0}", //$NON-NLS-1$
+				ref.getHost()),
+				RcpPlugin.imageDescriptorFromPlugin("org.eclipse.help.ui", "/icons/obj16/sweb_obj.png"));
 		this.ref = ref;
 	}
 
