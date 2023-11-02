@@ -68,6 +68,7 @@ public class E4LifeCycleMng {
 		eclipseContext.declareModifiable(SeedBank.class);
 		eclipseContext.declareModifiable(KnowledgeBase.class);
 		eclipseContext.declareModifiable(Nursary.class);
+		eclipseContext.declareModifiable(PermadelerSession.class);
 		SessionManager.INSTANCE.addSessionsListener(new SessionInjector(eclipseContext));
 
 		checkForUpdate(eclipseContext, display);
