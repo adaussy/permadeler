@@ -23,6 +23,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.sirius.business.api.session.Session;
@@ -33,6 +34,7 @@ import org.eclipse.sirius.viewpoint.DRepresentationDescriptor;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.RcpMessages;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.ContextualMenuFiller;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 
@@ -103,14 +105,23 @@ public class MenuFiller implements IMenuListener {
 				}
 
 			}
-			addSubMenu(filler.getNewElementActions(), RcpMessages.MenuFiller_0, manager);
+			addSubMenu(filler.getNewElementActions(), RcpMessages.MenuFiller_0,
+					RcpPlugin.imageDescriptorFromPlugin(RcpPlugin.PLUGIN_ID, "/icons/add.gif"), manager);
 			List<IAction> navigateActions = filler.getNavigateAction();
 			if (Stream.of(structureSelection.toArray()).anyMatch(e -> e instanceof IDiagramElementEditPart)) {
 				navigateActions.add(new FocusOnElementAction(RcpMessages.MenuFiller_1, permSelection, null));
 			}
 
-			addSubMenu(navigateActions, RcpMessages.MenuFiller_2, manager);
-			addSubMenu(filler.getNewRepresentationActions(), RcpMessages.MenuFiller_4, manager);
+			addSubMenu(navigateActions, RcpMessages.MenuFiller_2,
+					RcpPlugin.imageDescriptorFromPlugin("org.eclipse.sirius.tree.ui",
+							"/icons/full/obj16/TreeNavigationDescription.gif"),
+					manager);
+			addSubMenu(filler.getNewRepresentationActions(), RcpMessages.MenuFiller_4,
+					RcpPlugin.imageDescriptorFromPlugin("org.eclipse.sirius.diagram.ui",
+							"/icons/full/obj16/DiagramCreationDescription.gif"),
+					manager);
+			addSubMenu(filler.getImports(), "Importer", RcpPlugin.imageDescriptorFromPlugin(
+					"fr.adaussy.permadeler.model.design", "/img/import.png"), manager);
 
 			for (IAction a : filler.getOthers()) {
 				manager.add(a);
@@ -143,9 +154,10 @@ public class MenuFiller implements IMenuListener {
 	 * @param menuManager
 	 *            the parent menu manager
 	 */
-	private void addSubMenu(List<IAction> actions, String name, IMenuManager menuManager) {
+	private void addSubMenu(List<IAction> actions, String name, ImageDescriptor imageDescriptor,
+			IMenuManager menuManager) {
 		if (!actions.isEmpty()) {
-			menuManager.add(buildSubMenu(name, new IMenuListener() {
+			menuManager.add(buildSubMenu(name, imageDescriptor, new IMenuListener() {
 
 				@Override
 				public void menuAboutToShow(IMenuManager manager) {
@@ -167,8 +179,8 @@ public class MenuFiller implements IMenuListener {
 	 *            the menu to fill
 	 * @return a {@link IMenuManager}
 	 */
-	private IMenuManager buildSubMenu(String name, IMenuListener filler) {
-		IMenuManager newChildMenuManager = new MenuManager(name);
+	private IMenuManager buildSubMenu(String name, ImageDescriptor descriptor, IMenuListener filler) {
+		IMenuManager newChildMenuManager = new MenuManager(name, descriptor, "permadellerId:" + name);
 		newChildMenuManager.add(new Action("never shown entry") { //$NON-NLS-1$
 		}); // needed if it's a submenu
 		newChildMenuManager.setRemoveAllWhenShown(true);

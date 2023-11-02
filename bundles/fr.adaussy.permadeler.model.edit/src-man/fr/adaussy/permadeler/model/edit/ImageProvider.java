@@ -110,9 +110,9 @@ public final class ImageProvider {
 			String fullPath = url.getFile();
 			String[] segments = fullPath.split(PATH_SEP); // $NON-NLS-1$
 			String fileName = segments[segments.length - 1];
-			String[] parts = fileName.split("\\."); //$NON-NLS-1$
-			if (parts.length >= 2) {
-				String extension = parts[1];
+			int lastIndex = fileName.lastIndexOf('.');
+			if (lastIndex != -1 && fileName.length() > lastIndex) {
+				String extension = fileName.substring(lastIndex + 1);
 				if (SVG.equalsIgnoreCase(extension)) {
 					String svgPath = Stream.of(segments).collect(joining(PATH_SEP)); // $NON-NLS-1$
 					String iconPath = getPath(segments, PermadelerIcons.ICON_FOLDER);
@@ -249,7 +249,16 @@ public final class ImageProvider {
 
 	private String getWireframeimage(String imagePath) {
 		java.nio.file.Path path = java.nio.file.Path.of(imagePath);
-		return path.getParent().resolve("wireframe.png").toString(); //$NON-NLS-1$
+		java.nio.file.Path fileName = path.getFileName();
+		return path.getParent().resolve("wireframe." + getFileExtension(fileName.toString())).toString(); //$NON-NLS-1$
+	}
+
+	private String getFileExtension(String fileName) {
+		int lastIndex = fileName.lastIndexOf('.');
+		if (lastIndex != -1 && fileName.length() > lastIndex) {
+			return fileName.substring(lastIndex + 1);
+		}
+		return "";
 	}
 
 	/**

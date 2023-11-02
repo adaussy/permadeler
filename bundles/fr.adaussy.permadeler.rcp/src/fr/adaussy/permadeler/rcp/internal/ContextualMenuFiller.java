@@ -64,7 +64,9 @@ import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.actions.AddMassTagAction;
 import fr.adaussy.permadeler.rcp.internal.actions.CreateChildAction;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
+import fr.adaussy.permadeler.rcp.internal.actions.LesAlveoleDataBaseImportAction;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
+import fr.adaussy.permadeler.rcp.internal.actions.ImportSpeciesFromCSVAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
@@ -88,6 +90,8 @@ public class ContextualMenuFiller {
 	private List<IAction> navigateAction = new ArrayList<IAction>();
 
 	private List<IAction> others = new ArrayList<IAction>();
+
+	private List<IAction> imports = new ArrayList<IAction>();
 
 	private IAction defaultAction;
 
@@ -192,6 +196,7 @@ public class ContextualMenuFiller {
 		if (selections.size() == 1) {
 			KnowledgeBase knowledge = selections.get(0);
 			others.add(new RegenerateAllIdsAction(session, knowledge.getAllPlants()));
+			imports.add(new LesAlveoleDataBaseImportAction(session, knowledge));
 		}
 
 	}
@@ -412,6 +417,10 @@ public class ContextualMenuFiller {
 
 	public List<IAction> getNavigateAction() {
 		return navigateAction;
+	}
+
+	public List<IAction> getImports() {
+		return imports;
 	}
 
 	public List<IAction> getOthers() {
