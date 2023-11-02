@@ -196,14 +196,14 @@ public class ImageInstallerApp {
 		if (heightAttribute == null || heightAttribute.isBlank()) {
 			height = 1;
 		} else {
-			height = Float.valueOf(heightAttribute.replaceFirst(PT, "")); //$NON-NLS-1$
+			height = Float.valueOf(heightAttribute.replaceFirst(PT, "").replaceFirst("mm", "")); //$NON-NLS-1$
 		}
 
 		final float width;
 		if (widthAttribute == null || widthAttribute.isBlank()) {
 			width = 1;
 		} else {
-			width = Float.valueOf(widthAttribute.replaceFirst(PT, "")); //$NON-NLS-1$
+			width = Float.valueOf(widthAttribute.replaceFirst(PT, "").replaceFirst("mm", "")); //$NON-NLS-1$
 		}
 		if (height > width) {
 			float newWidth = width * maxSize / height;
