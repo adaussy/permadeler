@@ -16,55 +16,48 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
-import java.util.function.Supplier;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.session.Session;
 
+import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
+import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
-public class TagsPlantGroup implements ISelfDescribingItem {
+public class LayerPlantGroup implements ISelfDescribingItem {
 
-	private final EObject parent;
+	private StrateListener listener;
 
-	private TaggedListener listener;
+	private KnowledgeBase base;
 
-	private Supplier<List<? extends TaggedElement>> allElementsProvider;
-
-	public TagsPlantGroup(EObject parent, Supplier<List<? extends TaggedElement>> allElementsProvider,
-			Viewer viewer) {
+	public LayerPlantGroup(KnowledgeBase base, Viewer viewer) {
 		super();
-		this.parent = parent;
-		this.allElementsProvider = allElementsProvider;
+		this.base = base;
 
-		listener = new TaggedListener(viewer);
-		Session.of(parent).get().getTransactionalEditingDomain().addResourceSetListener(listener);
+		listener = new StrateListener(viewer);
+		Session.of(base).get().getTransactionalEditingDomain().addResourceSetListener(listener);
 
 	}
 
 	public void dispose() {
-		Session.of(parent).get().getTransactionalEditingDomain().removeResourceSetListener(listener);
+		Session.of(base).get().getTransactionalEditingDomain().removeResourceSetListener(listener);
 	}
 
 	@Override
 	public List<? extends Object> getChildren() {
-		Map<String, List<TaggedElement>> groupByTag = new LinkedHashMap<String, List<TaggedElement>>();
-		for (TaggedElement tagElement : allElementsProvider.get()) {
-
-			for (String s : tagElement.getTags()) {
-				groupByTag.computeIfAbsent(s, k -> new ArrayList<TaggedElement>()).add(tagElement);
-			}
+		Map<Layer, List<Species>> groupByTag = new LinkedHashMap<Layer, List<Species>>();
+		for (Species species : base.getSpecies()) {
+			groupByTag.computeIfAbsent(species.getDefaultLayer(), k -> new ArrayList<Species>()).add(species);
 		}
 
-		List<TagOwnerGroup> tagged = groupByTag.entrySet().stream()
+		List<LayerOwnerGroup> tagged = groupByTag.entrySet().stream()
 				.sorted(Comparator.comparing(Entry::getKey))//
-				.map(entry -> new TagOwnerGroup(entry.getKey(), entry.getValue(), this))//
+				.map(entry -> new LayerOwnerGroup(entry.getKey(), entry.getValue(), this))//
 				.toList();
 		return tagged;
 
@@ -72,12 +65,12 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public String getLabel() {
-		return "Par tags";
+		return "Par strate";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(allElementsProvider, listener, parent);
+		return Objects.hash(base, listener);
 	}
 
 	@Override
@@ -88,9 +81,8 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TagsPlantGroup other = (TagsPlantGroup)obj;
-		return Objects.equals(allElementsProvider, other.allElementsProvider)
-				&& Objects.equals(listener, other.listener) && Objects.equals(parent, other.parent);
+		LayerPlantGroup other = (LayerPlantGroup)obj;
+		return Objects.equals(base, other.base) && Objects.equals(listener, other.listener);
 	}
 
 	@Override
@@ -100,14 +92,14 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public Object getParent() {
-		return parent;
+		return base;
 	}
 
-	private static class TaggedListener extends ResourceSetListenerImpl {
+	private static class StrateListener extends ResourceSetListenerImpl {
 
 		private final Viewer viewer;
 
-		public TaggedListener(Viewer viewer) {
+		public StrateListener(Viewer viewer) {
 			super();
 			this.viewer = viewer;
 		}
@@ -120,7 +112,7 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 		@Override
 		public void resourceSetChanged(ResourceSetChangeEvent event) {
 			if (event.getNotifications().stream()
-					.anyMatch(n -> n.getFeature() == PermadelerPackage.eINSTANCE.getTaggedElement_Tags())) {
+					.anyMatch(n -> n.getFeature() == PermadelerPackage.eINSTANCE.getSpecies_DefaultLayer())) {
 				viewer.refresh();
 			}
 		}

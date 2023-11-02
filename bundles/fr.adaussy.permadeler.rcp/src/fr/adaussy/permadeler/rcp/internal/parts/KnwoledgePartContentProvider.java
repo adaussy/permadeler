@@ -9,11 +9,14 @@ import org.eclipse.sirius.business.api.session.Session;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
+import fr.adaussy.permadeler.rcp.internal.utils.LayerPlantGroup;
 import fr.adaussy.permadeler.rcp.internal.utils.TagsPlantGroup;
 
 public class KnwoledgePartContentProvider extends ModelContentProvider {
 
 	private TagsPlantGroup tagsPlantGroup;
+
+	private LayerPlantGroup layerPlantGroup;
 
 	public KnwoledgePartContentProvider(Session session, ITreeContentProvider semanticContentProvider) {
 		super(session, semanticContentProvider);
@@ -25,9 +28,14 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		if (parentElement instanceof KnowledgeBase) {
 			KnowledgeBase knowledgeBase = (KnowledgeBase)parentElement;
 			if (tagsPlantGroup == null) {
-				tagsPlantGroup = new TagsPlantGroup(knowledgeBase, knowledgeBase.getAllPlants(), getViewer());
+				tagsPlantGroup = new TagsPlantGroup(knowledgeBase, () -> knowledgeBase.getAllPlants(),
+						getViewer());
 			}
 			previousChildren.add(tagsPlantGroup);
+			if (layerPlantGroup == null) {
+				layerPlantGroup = new LayerPlantGroup(knowledgeBase, getViewer());
+			}
+			previousChildren.add(layerPlantGroup);
 
 		} else if (parentElement instanceof ISelfDescribingItem) {
 			previousChildren.addAll(((ISelfDescribingItem)parentElement).getChildren());

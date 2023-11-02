@@ -43,7 +43,7 @@ public class PlantationContentProvider extends ModelContentProvider {
 		if (parentElement instanceof PlantationPhase) {
 			PlantationPhase plantationPhase = (PlantationPhase)parentElement;
 			if (tagsPlantGroup == null) {
-				tagsPlantGroup = new TagsPlantGroup(plantationPhase, plantationPhase.getPlantations(),
+				tagsPlantGroup = new TagsPlantGroup(plantationPhase, () -> plantationPhase.getPlantations(),
 						getViewer());
 			}
 			previousChildren.add(tagsPlantGroup);
