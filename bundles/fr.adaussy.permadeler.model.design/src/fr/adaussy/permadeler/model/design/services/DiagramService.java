@@ -310,12 +310,12 @@ public class DiagramService {
 			return switch (p.getCurrentLayer()) {
 				case CANOPY -> 10;
 				case UNDERSTORY -> 8;
-				case SHRUB -> 5;
-				case VINE -> 5;
-				case HERB -> 5;
-				case GROUND_COVER -> 5;
-				case ROOT -> 5;
-				default -> 5;
+				case SHRUB -> 6;
+				case VINE -> 4;
+				case HERB -> 4;
+				case GROUND_COVER -> 4;
+				case ROOT -> 4;
+				default -> 4;
 			};
 		}
 
@@ -435,15 +435,14 @@ public class DiagramService {
 	 */
 	public static int getSVGSize(final Plantation plantation) {
 		return switch (plantation.getCurrentLayer()) {
-			case CANOPY -> 10;
-			case UNDERSTORY -> 8;
-			case SHRUB -> 3;
-			case HERB -> 2;
-			case VINE -> 2;
-			case GROUND_COVER -> 2;
-			case ROOT -> 2;
-			case OTHER -> 2;
-			default -> 2;
+			case CANOPY -> 9;
+			case UNDERSTORY -> 7;
+			case SHRUB -> 5;
+			case VINE -> 3;
+			case HERB -> 3;
+			case GROUND_COVER -> 3;
+			case ROOT -> 3;
+			default -> 3;
 		};
 	}
 
