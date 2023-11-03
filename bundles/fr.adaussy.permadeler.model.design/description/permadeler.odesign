@@ -91,7 +91,7 @@
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.printVariables()">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:newSemanticContainer.createPlantation(element)"/>
               </firstModelOperations>
             </initialOperation>
