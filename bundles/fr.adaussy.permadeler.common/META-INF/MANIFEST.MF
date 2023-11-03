@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Permadeler Common
 Bundle-SymbolicName: fr.adaussy.permadeler.common
 Bundle-Vendor: Arthur Daussy
-Bundle-Version: 0.3.5.qualifier
+Bundle-Version: 0.4.0.qualifier
 Automatic-Module-Name: fr.adaussy.permadeler.common
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: fr.adaussy.permadeler.common,

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: fr.adaussy.permadeler.model.editor;singleton:=true
 Automatic-Module-Name: fr.adaussy.permadeler.model.editor
-Bundle-Version: 0.3.5.qualifier
+Bundle-Version: 0.4.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: fr.adaussy.permadeler.model.Permadeler.presentation.PermadelerEditorPlugin$Implementation
 Bundle-Vendor: %providerName

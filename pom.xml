@@ -33,7 +33,7 @@
 	<groupId>fr.adaussy.permadeler</groupId>
 	<artifactId>container</artifactId>
 	<packaging>pom</packaging>
-	<version>0.3.5-SNAPSHOT</version>
+	<version>0.4.0-SNAPSHOT</version>
 
 	<name>Permadeler container</name>
 <pluginRepositories>
