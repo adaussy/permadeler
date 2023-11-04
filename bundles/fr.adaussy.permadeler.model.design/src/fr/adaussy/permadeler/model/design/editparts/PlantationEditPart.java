@@ -7,6 +7,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.sirius.diagram.DNode;
+import org.eclipse.sirius.diagram.description.tool.NodeCreationDescription;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
@@ -19,8 +20,9 @@ public class PlantationEditPart extends DNodeEditPart {
 
 	@Override
 	public EditPart getTargetEditPart(Request request) {
-		if (request instanceof CreateRequest && ((CreateRequest)request).getNewObject() != null) {
-			// When the plantation is in wireframe mode then the creation request sould be sent to the parent
+		if (request instanceof CreateRequest createRequest
+				&& createRequest.getNewObject() instanceof NodeCreationDescription nodeCreationTool) {
+			// When the plantation is in wireframe mode then the creation request shoud be sent to the parent
 			return getParent().getTargetEditPart(request);
 		}
 		// Dropping on plantation should be the same of dropping he diagram itself
