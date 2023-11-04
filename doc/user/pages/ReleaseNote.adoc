@@ -1,5 +1,12 @@
 = Release Note
 
+== 0.4.0
+
+* Première version de l'importation des plantes depuis la base de donnée des Alvéoles (https://plantes.universite-alveoles.fr/plant/index). Travail encore en cours
+* Correction de la position d'une plantation en utilisant un glisser déposer sur un autre plante
+* Ajout d'icones sur plusieurs action
+* Amélioration des dossier calculé "Par Strate" et "Par Tag"
+
 == 0.3.5
 
 * Add tag for plantations

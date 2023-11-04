@@ -108,7 +108,7 @@ Une description détaillée du fonctionnement d'un _diagramme_ est  disponible h
 
 
 [#CarteImplantation]
-=== La Carte d'implémentation
+=== La Carte d'implantation
 
 La carte d'implantation permet de créer une carte pour tracer toutes les <<./ModelDonnee.adoc#Plantation,plantations>> d'une zone.
 Cette représentation se trouve sous une <<./ModelDonnee.adoc#PlantationPhase,phase de plantation>>.

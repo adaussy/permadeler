@@ -44,6 +44,41 @@ Les caractéristiques d'un projet sont:
 
 Dans cette section nous allons traiter de tous les éléments contenus dans une la base de connaissance.
 
+==== Actions
+
+._Importer > Les Alvéoles BDD"
+
+Cette action va importer toutes les <<Species,especes>> disponibles sur le site _https://plantes.universite-alveoles.fr/plant/index_. 
+Pour le moment, elle n'import que:
+
+* Le nom commun
+* Le nom Latin
+* Définit le type de représentation
+* Une référence vers pade du site décrivant la plante
+
+Ce travail fera l'objet d'amélioration dés qu'une API sera disponible pour importer aussi les caractéristiques de chaque espèce.
+
+[#ComputedFolder]
+=== Dossiers
+
+==== image:{edit-icon-path}custo/commons/tag-folder.png[] Par Tags
+
+Est un dossier *automatiquement calculé* qui va regrouper les plantes par _tag_.
+Sur chaque plante il possible d'ajouter des _tags_.
+Par exemple, "Fruitier" ou "Plante Locale".
+
+Cette même notion de _tag_ est aussi disponible sur les <<Plantation,plantations>>.
+
+==== image:{edit-icon-path}custo/commons/strate-folder.png[] Par Strates
+
+Est un dossier *automatiquement calculé" qui va regrouper les plantes par strate afin d'organiser rapidement les plantepar strate.
+
+=== image:{edit-icon-path}custo/commons/group-folder.png[] Dossier utilisateur
+
+Les dossiers utilisateur permettent d'organiser des plantes en dossiers et sous dossiers d'une manière qui semble intéressante à chaque utilisateur.
+Par exemple, pour regrouper tous les fruits rouges ou toutes les plantes que je trouve à l'état sauvage.
+Pour ajouter une plante d'un _Group_ il suffit de la déposer dans ce groupe via une action de glisser déposer.
+
 [#Plant]
 ==== Plant
 
@@ -225,7 +260,7 @@ Elle peut représenter une plantation d'une <<Species,espèce>> ou d'une <<Varie
 
 Elle est définie par:
 
-* Une date de plantation
+* Une date de plantation. Cette date doit être exprimée au format "04/11/2023" ou "04/11/23")
 * Un id (unique)
 * Une description
 * Un porte-greffe
