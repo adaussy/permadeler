@@ -87,7 +87,7 @@ public class LayerPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public org.eclipse.swt.graphics.Image getImage() {
-		return ImageProvider.INSTANCE.getImage("icons/custo/commons/folder-blue.png"); //$NON-NLS-1$
+		return ImageProvider.INSTANCE.getImage("icons/custo/commons/strate-folder.png"); //$NON-NLS-1$
 	}
 
 	@Override

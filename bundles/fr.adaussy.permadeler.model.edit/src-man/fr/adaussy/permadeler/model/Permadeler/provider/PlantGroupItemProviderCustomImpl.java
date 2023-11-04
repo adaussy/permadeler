@@ -12,7 +12,7 @@ public class PlantGroupItemProviderCustomImpl extends PlantGroupItemProvider {
 
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("custo/commons/folder.png")); //$NON-NLS-1$
+		return overlayImage(object, getResourceLocator().getImage("custo/commons/group-folder.png")); //$NON-NLS-1$
 	}
 
 	@Override
