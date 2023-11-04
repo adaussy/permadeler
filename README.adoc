@@ -2,11 +2,11 @@
 
 ## Installation
 
-Télécharger l'archive correspondante a votre système https://permadeler.org/permadeler/product/latest/[ici]:
+Télécharger l'archive correspondante a votre système:
 
-* Linux: -linux.gtk.x86_64.zip
-* MacOS: -macosx.cocoa.x86_64.zip
-* Windows: -win32.win32.x86_64.zip
+* https://permadeler.org/permadeler/product/latest/Permadeler-linux.gtk.x86_64.zip[Linux]
+* https://permadeler.org/permadeler/product/latest/Permadeler-macosx.cocoa.x86_64.zip[MacOS]
+* https://permadeler.org/permadeler/product/latest/Permadeler-win32.win32.x86_64.zip[Windows]
 
 Il faut ensuite dézipper cette archive (de préférence près de la racine de votre disque en utilisant 7Zip).
 
