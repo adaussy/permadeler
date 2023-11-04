@@ -526,33 +526,47 @@ public class DiagramService {
 	 * @return a new plantation or <code>null</code> if the user has canceled
 	 */
 	public static Plantation createPlantation(final PlantationPhase container) {
-		return createPlantation(container, null);
+		return createPlantation(container, null, true);
 	}
 
 	public static Plantation createPlantation(final Plantation plantation, Plant initialSelection) {
-		return createPlantation((PlantationPhase)plantation.eContainer(), initialSelection);
+		return createPlantation((PlantationPhase)plantation.eContainer(), initialSelection, false);
 	}
 
-	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection) {
-		Shell shell = getShell();
-		PlantationDialog dialog = new PlantationDialog(shell, new Date(),
-				container.eResource().getContents().get(0));
-		if (initialSelection != null) {
-			dialog.setInitialSelection(List.of(initialSelection));
-		}
-		if (dialog.open() == Dialog.OK) {
-			final List<Plant> selection = dialog.getSelection();
-			if (selection.size() == 1) {
-				Plantation plantation = PermadelerFactory.eINSTANCE.createPlantation();
-				plantation.setPlantationDate(dialog.getDate().toInstant());
-				plantation.setCurrentLayer(dialog.getLayer());
-				plantation.setRepresentationKind(dialog.getRepresentationKind());
-				container.getPlantations().add(plantation);
-				Plant value = selection.get(0);
-				plantation.setType(value);
-				plantation.setId(IDUtils.generateId(plantation));
-				return plantation;
+	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection,
+			boolean useDialog) {
+		if (useDialog || initialSelection == null) {
+			Shell shell = getShell();
+			PlantationDialog dialog = new PlantationDialog(shell, null,
+					container.eResource().getContents().get(0));
+			if (initialSelection != null) {
+				dialog.setInitialSelection(List.of(initialSelection));
 			}
+			if (dialog.open() == Dialog.OK) {
+				final List<Plant> selection = dialog.getSelection();
+				if (selection.size() == 1) {
+					Plantation plantation = PermadelerFactory.eINSTANCE.createPlantation();
+					Date date = dialog.getDate();
+					if (date != null) {
+						plantation.setPlantationDate(date.toInstant());
+					}
+					plantation.setCurrentLayer(dialog.getLayer());
+					plantation.setRepresentationKind(dialog.getRepresentationKind());
+					container.getPlantations().add(plantation);
+					Plant value = selection.get(0);
+					plantation.setType(value);
+					plantation.setId(IDUtils.generateId(plantation));
+					return plantation;
+				}
+			}
+		} else {
+			Plantation plantation = PermadelerFactory.eINSTANCE.createPlantation();
+			plantation.setCurrentLayer(initialSelection.getDefaultLayer());
+			plantation.setRepresentationKind(initialSelection.getDefaultRepresentationKind());
+			container.getPlantations().add(plantation);
+			plantation.setType(initialSelection);
+			plantation.setId(IDUtils.generateId(plantation));
+			return plantation;
 		}
 		return null;
 	}
