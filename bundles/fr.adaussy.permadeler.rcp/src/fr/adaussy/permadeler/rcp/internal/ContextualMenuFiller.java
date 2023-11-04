@@ -62,6 +62,7 @@ import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.actions.AddMassTagAction;
+import fr.adaussy.permadeler.rcp.internal.actions.AddToGroupAction;
 import fr.adaussy.permadeler.rcp.internal.actions.CreateChildAction;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
@@ -178,6 +179,7 @@ public class ContextualMenuFiller {
 		if (selections.size() == 1) {
 			PlantGroup plantGroup = selections.get(0);
 			others.add(new RegenerateAllIdsAction(session, plantGroup.getAllPlants()));
+			newElementActions.add(new AddToGroupAction(session, plantGroup));
 		}
 
 	}
