@@ -14,6 +14,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Calendar;
 
 /**
@@ -38,12 +39,16 @@ public final class DateUtils {
 	 */
 	private static final String DATE_FORMAT_PATTERN = "dd/MM/yyyy"; //$NON-NLS-1$
 
+	private static final String DATE_FORMAT_PATTERN2 = "dd/MM/yy"; //$NON-NLS-1$
+
 	private static final Calendar CALENDAR = Calendar.getInstance();
 
 	/**
 	 * Common data format
 	 */
 	public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN);
+
+	public static final DateTimeFormatter DATE_FORMAT2 = DateTimeFormatter.ofPattern(DATE_FORMAT_PATTERN2);
 
 	private DateUtils() {
 	}
@@ -57,8 +62,18 @@ public final class DateUtils {
 	}
 
 	public static Instant dateStringToInstant(String dateString) {
-		LocalDate date = LocalDate.parse(dateString, DATE_FORMAT);
-		return date.atStartOfDay(ZoneId.systemDefault()).toInstant();
+		LocalDate date = null;
+		try {
+
+			date = LocalDate.parse(dateString, DATE_FORMAT);
+		} catch (DateTimeParseException e) {
+			date = LocalDate.parse(dateString, DATE_FORMAT2);
+		}
+		if (date != null) {
+			return date.atStartOfDay(ZoneId.systemDefault()).toInstant();
+		} else {
+			return null;
+		}
 	}
 
 }
