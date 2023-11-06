@@ -12,7 +12,14 @@ Il faut ensuite dézipper cette archive (de préférence près de la racine de v
 
 [WARNING]
 ====
-[MacOS] Comme ce logiciel n'est pas enregistré sur l'_AppStore_ d'Apple, lors du premier téléchargement de l'application il vous faudra exécuter la commande suivante `chmod +x  Permadeler.app/Contents/MacOS/permadeler`.
+[MacOS] Comme ce logiciel n'est pas enregistré sur l'_AppStore_ d'Apple, lors du premier téléchargement de l'application il vous faudra:
+
+* Dézipper l'application depuis le zip
+* Déplacer le ficher _Permadeler.app_ dans dossier des application (/Applications/)
+* Puis ouvir un terminal et éxécuter les commandes suivantes:
+** `cd /Applications/`
+** `chmod +x  Permadeler.app/Contents/MacOS/permadeler`
+** `xattr -d com.apple.quarantine Permadeler.app`
 ====
 
 Un système de mise à jour automatique a été mis en place afin de mettre à jour votre logiciel lors de la publication de nouvelles versions.
