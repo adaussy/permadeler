@@ -80,6 +80,8 @@ public class SizeAndBoundFixerChangeTrigger implements ModelChangeTrigger {
 			protected void doExecute() {
 				bounds.setHeight(calibrationBounds.getHeight());
 				bounds.setWidth(calibrationBounds.getWidth());
+				bounds.setX(bounds.getX() - calibrationBounds.getWidth() / 2);
+				bounds.setY(bounds.getY() - calibrationBounds.getHeight() / 2);
 
 			}
 		};
