@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ZoneImpl#getPhases <em>Phases</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.ZoneImpl#getSubZones <em>Sub Zones</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +50,16 @@ public class ZoneImpl extends NamedElementImpl implements Zone {
 	 * @ordered
 	 */
 	protected EList<PlantationPhase> phases;
+
+	/**
+	 * The cached value of the '{@link #getSubZones() <em>Sub Zones</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubZones()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Zone> subZones;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -87,11 +98,25 @@ public class ZoneImpl extends NamedElementImpl implements Zone {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Zone> getSubZones() {
+		if (subZones == null) {
+			subZones = new EObjectContainmentEList<Zone>(Zone.class, this, PermadelerPackage.ZONE__SUB_ZONES);
+		}
+		return subZones;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PermadelerPackage.ZONE__PHASES:
 				return ((InternalEList<?>)getPhases()).basicRemove(otherEnd, msgs);
+			case PermadelerPackage.ZONE__SUB_ZONES:
+				return ((InternalEList<?>)getSubZones()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -106,6 +131,8 @@ public class ZoneImpl extends NamedElementImpl implements Zone {
 		switch (featureID) {
 			case PermadelerPackage.ZONE__PHASES:
 				return getPhases();
+			case PermadelerPackage.ZONE__SUB_ZONES:
+				return getSubZones();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +150,10 @@ public class ZoneImpl extends NamedElementImpl implements Zone {
 				getPhases().clear();
 				getPhases().addAll((Collection<? extends PlantationPhase>)newValue);
 				return;
+			case PermadelerPackage.ZONE__SUB_ZONES:
+				getSubZones().clear();
+				getSubZones().addAll((Collection<? extends Zone>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -138,6 +169,9 @@ public class ZoneImpl extends NamedElementImpl implements Zone {
 			case PermadelerPackage.ZONE__PHASES:
 				getPhases().clear();
 				return;
+			case PermadelerPackage.ZONE__SUB_ZONES:
+				getSubZones().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -152,6 +186,8 @@ public class ZoneImpl extends NamedElementImpl implements Zone {
 		switch (featureID) {
 			case PermadelerPackage.ZONE__PHASES:
 				return phases != null && !phases.isEmpty();
+			case PermadelerPackage.ZONE__SUB_ZONES:
+				return subZones != null && !subZones.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -763,6 +763,8 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="phases" upperBound="-1"
         eType="#//PlantationPhase" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subZones" upperBound="-1"
+        eType="#//Zone" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.time.Instant"/>
   <eClassifiers xsi:type="ecore:EEnum" name="SpecialUses">
