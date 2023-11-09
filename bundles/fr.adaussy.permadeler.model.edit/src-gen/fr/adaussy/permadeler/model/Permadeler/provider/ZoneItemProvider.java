@@ -70,6 +70,7 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PermadelerPackage.Literals.ZONE__PHASES);
+			childrenFeatures.add(PermadelerPackage.Literals.ZONE__SUB_ZONES);
 		}
 		return childrenFeatures;
 	}
@@ -134,6 +135,7 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Zone.class)) {
 			case PermadelerPackage.ZONE__PHASES:
+			case PermadelerPackage.ZONE__SUB_ZONES:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -154,6 +156,9 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__PHASES,
 				PermadelerFactory.eINSTANCE.createPlantationPhase()));
+
+		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__SUB_ZONES,
+				PermadelerFactory.eINSTANCE.createZone()));
 	}
 
 }

@@ -949,13 +949,22 @@ public interface PermadelerPackage extends EPackage {
 	int ZONE__PHASES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Sub Zones</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZONE__SUB_ZONES = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Zone</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZONE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ZONE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Zone</em>' class.
@@ -3323,6 +3332,17 @@ public interface PermadelerPackage extends EPackage {
 	EReference getZone_Phases();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Zone#getSubZones <em>Sub Zones</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Zones</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Zone#getSubZones()
+	 * @see #getZone()
+	 * @generated
+	 */
+	EReference getZone_SubZones();
+
+	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Nursary <em>Nursary</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4951,6 +4971,14 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ZONE__PHASES = eINSTANCE.getZone_Phases();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Zones</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ZONE__SUB_ZONES = eINSTANCE.getZone_SubZones();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.NursaryImpl <em>Nursary</em>}' class.

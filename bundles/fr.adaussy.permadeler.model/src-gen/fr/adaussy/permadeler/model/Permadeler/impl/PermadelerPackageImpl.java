@@ -940,6 +940,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getZone_SubZones() {
+		return (EReference)zoneEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNursary() {
 		return nursaryEClass;
 	}
@@ -2093,6 +2102,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		zoneEClass = createEClass(ZONE);
 		createEReference(zoneEClass, ZONE__PHASES);
+		createEReference(zoneEClass, ZONE__SUB_ZONES);
 
 		nursaryEClass = createEClass(NURSARY);
 		createEReference(nursaryEClass, NURSARY__ZONES);
@@ -2415,6 +2425,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 
 		initEClass(zoneEClass, Zone.class, "Zone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getZone_Phases(), this.getPlantationPhase(), null, "phases", null, 0, -1, Zone.class, //$NON-NLS-1$
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZone_SubZones(), this.getZone(), null, "subZones", null, 0, -1, Zone.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

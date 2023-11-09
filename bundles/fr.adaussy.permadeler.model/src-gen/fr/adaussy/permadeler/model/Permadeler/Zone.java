@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Zone#getPhases <em>Phases</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Zone#getSubZones <em>Sub Zones</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getZone()
@@ -44,5 +45,17 @@ public interface Zone extends NamedElement {
 	 * @generated
 	 */
 	EList<PlantationPhase> getPhases();
+
+	/**
+	 * Returns the value of the '<em><b>Sub Zones</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.adaussy.permadeler.model.Permadeler.Zone}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sub Zones</em>' containment reference list.
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getZone_SubZones()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Zone> getSubZones();
 
 } // Zone

@@ -843,6 +843,7 @@
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Zone">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Zone/phases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Zone/subZones"/>
     </genClasses>
     <genClasses ecoreClass="Permadeler.ecore#//Nursary">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Permadeler.ecore#//Nursary/zones"/>

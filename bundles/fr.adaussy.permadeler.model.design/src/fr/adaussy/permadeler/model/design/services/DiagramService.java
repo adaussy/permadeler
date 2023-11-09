@@ -126,6 +126,12 @@ public class DiagramService {
 
 	}
 
+	public String getDefaultPlanName(PlantationPhase phase) {
+		return "Carte Implantation "
+				+ ((fr.adaussy.permadeler.model.Permadeler.Zone)phase.eContainer()).getName() + " - "
+				+ phase.getName();
+	}
+
 	public static Plantation dupplicate(Plantation plantation, DDiagramElement targetView,
 			DSemanticDiagram diagram) {
 		// Duplication plantation
