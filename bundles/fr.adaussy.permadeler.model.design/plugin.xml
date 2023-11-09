@@ -16,4 +16,10 @@
         </Priority>
      </editpartProvider>
   </extension>
+  <extension
+        point="org.eclipse.sirius.sessionManagerListener">
+     <listener
+           class="fr.adaussy.permadeler.model.design.session.DesignSessionManagerListener">
+     </listener>
+  </extension>
 </plugin>

@@ -427,14 +427,14 @@ public class DiagramService {
 	}
 
 	/**
-	 * Gets SVG size of a plantation. The size depends of the nature of the plantation
+	 * Gets the default SVG size of an image representing a given layer
 	 * 
-	 * @param plantation
+	 * @param phase
 	 *            a plantation
 	 * @return a size
 	 */
-	public static int getSVGSize(final Plantation plantation) {
-		return switch (plantation.getCurrentLayer()) {
+	public static int getSVGSize(Layer currentLayer) {
+		return switch (currentLayer) {
 			case CANOPY -> 9;
 			case UNDERSTORY -> 7;
 			case SHRUB -> 5;
