@@ -18,6 +18,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
@@ -29,7 +30,7 @@ import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
-public class TagsPlantGroup implements ISelfDescribingItem {
+public class TagsPlantGroup extends AdapterImpl implements ISelfDescribingItem {
 
 	private final EObject parent;
 
@@ -37,8 +38,8 @@ public class TagsPlantGroup implements ISelfDescribingItem {
 
 	private Supplier<List<? extends TaggedElement>> allElementsProvider;
 
-	public TagsPlantGroup(EObject parent, Supplier<List<? extends TaggedElement>> allElementsProvider,
-			Viewer viewer) {
+	public TagsPlantGroup(EObject parent, Viewer viewer,
+			Supplier<List<? extends TaggedElement>> allElementsProvider) {
 		super();
 		this.parent = parent;
 		this.allElementsProvider = allElementsProvider;
