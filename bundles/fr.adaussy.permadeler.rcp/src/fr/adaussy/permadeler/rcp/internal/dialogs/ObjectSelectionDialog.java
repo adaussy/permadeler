@@ -189,9 +189,14 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 		if (elementFilter != null) {
 			allElement = allElement.filter(elementFilter);
 		}
-		List<T> input = allElement.sorted(Comparator.comparing(e -> labelProvider.getText(e)))
+		List<T> input = allElement.sorted(Comparator.nullsLast(Comparator.comparing(e -> getName(e))))
 				.collect(toList());
 		viewer.setInput(input);
+	}
+
+	private String getName(T e) {
+		String text = labelProvider.getText(e);
+		return text != null ? text : ""; //$NON-NLS-1$
 	}
 
 	protected boolean hasCustomContent() {

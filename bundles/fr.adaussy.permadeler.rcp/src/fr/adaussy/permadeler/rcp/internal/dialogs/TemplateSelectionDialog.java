@@ -48,6 +48,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import com.google.common.base.Strings;
+
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Species;
@@ -214,9 +216,13 @@ public class TemplateSelectionDialog extends Dialog {
 		emptySpecies.setName("Nouvelle espece");
 		candidates.add(emptySpecies);
 
-		List<Species> input = candidates.stream().sorted(Comparator.comparing(e -> labelProvider.getText(e)))
+		List<Species> input = candidates.stream().sorted(Comparator.comparing(e -> getLabel(e)))
 				.collect(toList());
 		viewer.setInput(input);
+	}
+
+	private String getLabel(Species e) {
+		return Strings.nullToEmpty(labelProvider.getText(e));
 	}
 
 	public Species getSelection() {

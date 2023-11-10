@@ -22,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.widgets.Shell;
 
+import com.google.common.base.Strings;
+
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
@@ -49,7 +51,7 @@ public class GenerateProductionSpreadsheetMenu {
 					.flatMap(p -> p.getType().getAllProductions().stream()
 							.map(prod -> Tuples.pair(p.getType(), prod)))//
 					.distinct()//
-					.sorted(Comparator.comparing(pair -> pair.getOne().getName()))//
+					.sorted(Comparator.comparing(pair -> Strings.nullToEmpty(pair.getOne().getName())))//
 					.toList();//
 		}
 		return List.of();
