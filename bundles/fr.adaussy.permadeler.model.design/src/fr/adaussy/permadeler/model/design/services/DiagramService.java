@@ -427,6 +427,18 @@ public class DiagramService {
 	}
 
 	/**
+	 * For compatibility reasons we need to keep this method to compute the default size for a plantation
+	 * depending on their layer
+	 * 
+	 * @param plantation
+	 *            a plantation
+	 * @return a size
+	 */
+	public static int getSVGSize(Plantation plantation) {
+		return getSVGSize(plantation.getCurrentLayer());
+	}
+
+	/**
 	 * Gets the default SVG size of an image representing a given layer
 	 * 
 	 * @param phase
