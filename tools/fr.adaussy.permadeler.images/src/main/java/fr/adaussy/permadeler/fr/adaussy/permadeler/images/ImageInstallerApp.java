@@ -20,7 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
 
-import org.apache.batik.dom.svg.SAXSVGDocumentFactory;
+import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.apache.batik.transcoder.AbstractTranscoder;
 import org.apache.batik.transcoder.TranscoderException;
