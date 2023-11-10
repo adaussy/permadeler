@@ -12,21 +12,22 @@ package fr.adaussy.permadeler.rcp.internal.utils;
 import java.util.List;
 import java.util.Objects;
 
+import org.eclipse.emf.ecore.EObject;
+
 import fr.adaussy.permadeler.model.Permadeler.Layer;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.model.edit.TextHelper;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
 public class LayerOwnerGroup implements ISelfDescribingItem {
 
-	private LayerPlantGroup stratePlantGroup;
+	private LayerPlantGroup<?> stratePlantGroup;
 
-	private List<Species> children;
+	private List<?> children;
 
 	private Layer layer;
 
-	public LayerOwnerGroup(Layer layer, List<Species> children, LayerPlantGroup tagsPlantGroup) {
+	public LayerOwnerGroup(Layer layer, List<EObject> children, LayerPlantGroup<?> tagsPlantGroup) {
 		super();
 		this.layer = layer;
 		this.children = children;

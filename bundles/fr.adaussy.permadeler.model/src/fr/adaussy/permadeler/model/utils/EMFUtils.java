@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.Spliterators;
@@ -23,6 +24,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -351,6 +353,10 @@ public final class EMFUtils {
 				return Stream.concat(Stream.of(self), ancestors.stream());
 			}
 		}
+	}
+
+	public static <T extends Adapter> Optional<T> getAdapter(Notifier notifier, Class<T> type) {
+		return notifier.eAdapters().stream().filter(type::isInstance).map(type::cast).findFirst();
 	}
 
 }

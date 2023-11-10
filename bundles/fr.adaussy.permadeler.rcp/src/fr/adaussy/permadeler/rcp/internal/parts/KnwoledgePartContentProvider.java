@@ -1,13 +1,25 @@
 package fr.adaussy.permadeler.rcp.internal.parts;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Stream;
 
+import org.eclipse.collections.api.tuple.Pair;
+import org.eclipse.collections.impl.tuple.Tuples;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.sirius.business.api.session.Session;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
+import fr.adaussy.permadeler.model.Permadeler.Layer;
+import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
+import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 import fr.adaussy.permadeler.rcp.internal.utils.LayerPlantGroup;
 import fr.adaussy.permadeler.rcp.internal.utils.TagsPlantGroup;
@@ -16,7 +28,7 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 
 	private TagsPlantGroup tagsPlantGroup;
 
-	private LayerPlantGroup layerPlantGroup;
+	private LayerPlantGroup<KnowledgeBase> layerPlantGroup;
 
 	public KnwoledgePartContentProvider(Session session, ITreeContentProvider semanticContentProvider) {
 		super(session, semanticContentProvider);
@@ -27,14 +39,18 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		List<Object> previousChildren = new ArrayList<Object>();
 		if (parentElement instanceof KnowledgeBase) {
 			KnowledgeBase knowledgeBase = (KnowledgeBase)parentElement;
-			if (tagsPlantGroup == null) {
-				tagsPlantGroup = new TagsPlantGroup(knowledgeBase, () -> knowledgeBase.getAllPlants(),
-						getViewer());
-			}
+			previousChildren.add(layerPlantGroup);
+
+			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(knowledgeBase, TagsPlantGroup.class)
+					.orElseGet(() -> createTagAdapter(knowledgeBase));
+
 			previousChildren.add(tagsPlantGroup);
-			if (layerPlantGroup == null) {
-				layerPlantGroup = new LayerPlantGroup(knowledgeBase, getViewer());
-			}
+
+			@SuppressWarnings("unchecked")
+			LayerPlantGroup<PlantationPhase> layerPlantGroup = EMFUtils
+					.getAdapter(knowledgeBase, LayerPlantGroup.class)
+					.orElseGet(() -> createLayerAdapter(knowledgeBase));
+
 			previousChildren.add(layerPlantGroup);
 
 		} else if (parentElement instanceof ISelfDescribingItem) {
@@ -44,6 +60,31 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		Object[] superChildren = super.getChildren(parentElement);
 
 		return Stream.concat(previousChildren.stream(), Stream.of(superChildren)).toArray();
+	}
+
+	private LayerPlantGroup<KnowledgeBase> createLayerAdapter(KnowledgeBase knowledgeBase) {
+		LayerPlantGroup<KnowledgeBase> adapter = new LayerPlantGroup<KnowledgeBase>(knowledgeBase,
+				getViewer(), PermadelerPackage.eINSTANCE.getSpecies_DefaultLayer(),
+				base -> computeLayerGroup(base));
+		knowledgeBase.eAdapters().add(adapter);
+		return adapter;
+	}
+
+	private TagsPlantGroup createTagAdapter(KnowledgeBase knowledgeBase) {
+		TagsPlantGroup adapter = new TagsPlantGroup(knowledgeBase, getViewer(),
+				() -> knowledgeBase.getAllPlants());
+		knowledgeBase.eAdapters().add(adapter);
+		return adapter;
+	}
+
+	private List<Pair<Layer, List<EObject>>> computeLayerGroup(KnowledgeBase base) {
+		Map<Layer, List<EObject>> groupByTag = new LinkedHashMap<Layer, List<EObject>>();
+		for (Species species : base.getSpecies()) {
+			groupByTag.computeIfAbsent(species.getDefaultLayer(), k -> new ArrayList<EObject>()).add(species);
+		}
+		return groupByTag.entrySet().stream().sorted(Comparator.comparing(Entry::getKey))//
+				.map(entry -> Tuples.pair(entry.getKey(), entry.getValue()))//
+				.toList();
 	}
 
 	@Override

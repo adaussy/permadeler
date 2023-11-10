@@ -9,57 +9,50 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.utils;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.function.Function;
 
+import org.eclipse.collections.api.tuple.Pair;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.session.Session;
 
-import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
-import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.edit.ImageProvider;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 
-public class LayerPlantGroup implements ISelfDescribingItem {
+public class LayerPlantGroup<T extends EObject> extends AdapterImpl implements ISelfDescribingItem {
 
 	private StrateListener listener;
 
-	private KnowledgeBase base;
+	private T root;
 
-	public LayerPlantGroup(KnowledgeBase base, Viewer viewer) {
+	private Function<T, List<Pair<Layer, List<EObject>>>> computer;
+
+	public LayerPlantGroup(T root, Viewer viewer, EStructuralFeature listeningReference,
+			Function<T, List<Pair<Layer, List<EObject>>>> computer) {
 		super();
-		this.base = base;
+		this.root = root;
+		this.computer = computer;
 
-		listener = new StrateListener(viewer);
-		Session.of(base).get().getTransactionalEditingDomain().addResourceSetListener(listener);
+		listener = new StrateListener(viewer, listeningReference);
+		Session.of(root).get().getTransactionalEditingDomain().addResourceSetListener(listener);
 
 	}
 
 	public void dispose() {
-		Session.of(base).get().getTransactionalEditingDomain().removeResourceSetListener(listener);
+		Session.of(root).get().getTransactionalEditingDomain().removeResourceSetListener(listener);
 	}
 
 	@Override
 	public List<? extends Object> getChildren() {
-		Map<Layer, List<Species>> groupByTag = new LinkedHashMap<Layer, List<Species>>();
-		for (Species species : base.getSpecies()) {
-			groupByTag.computeIfAbsent(species.getDefaultLayer(), k -> new ArrayList<Species>()).add(species);
-		}
-
-		List<LayerOwnerGroup> tagged = groupByTag.entrySet().stream()
-				.sorted(Comparator.comparing(Entry::getKey))//
-				.map(entry -> new LayerOwnerGroup(entry.getKey(), entry.getValue(), this))//
-				.toList();
-		return tagged;
+		return computer.apply(root).stream()
+				.map(pair -> new LayerOwnerGroup(pair.getOne(), pair.getTwo(), this)).toList();
 
 	}
 
@@ -70,7 +63,7 @@ public class LayerPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(base, listener);
+		return Objects.hash(computer, listener, root);
 	}
 
 	@Override
@@ -82,7 +75,8 @@ public class LayerPlantGroup implements ISelfDescribingItem {
 		if (getClass() != obj.getClass())
 			return false;
 		LayerPlantGroup other = (LayerPlantGroup)obj;
-		return Objects.equals(base, other.base) && Objects.equals(listener, other.listener);
+		return Objects.equals(computer, other.computer) && Objects.equals(listener, other.listener)
+				&& Objects.equals(root, other.root);
 	}
 
 	@Override
@@ -92,16 +86,19 @@ public class LayerPlantGroup implements ISelfDescribingItem {
 
 	@Override
 	public Object getParent() {
-		return base;
+		return root;
 	}
 
 	private static class StrateListener extends ResourceSetListenerImpl {
 
 		private final Viewer viewer;
 
-		public StrateListener(Viewer viewer) {
+		private final EStructuralFeature feature;
+
+		public StrateListener(Viewer viewer, EStructuralFeature feature) {
 			super();
 			this.viewer = viewer;
+			this.feature = feature;
 		}
 
 		@Override
@@ -111,8 +108,7 @@ public class LayerPlantGroup implements ISelfDescribingItem {
 
 		@Override
 		public void resourceSetChanged(ResourceSetChangeEvent event) {
-			if (event.getNotifications().stream()
-					.anyMatch(n -> n.getFeature() == PermadelerPackage.eINSTANCE.getSpecies_DefaultLayer())) {
+			if (event.getNotifications().stream().anyMatch(n -> n.getFeature() == feature)) {
 				viewer.refresh();
 			}
 		}
