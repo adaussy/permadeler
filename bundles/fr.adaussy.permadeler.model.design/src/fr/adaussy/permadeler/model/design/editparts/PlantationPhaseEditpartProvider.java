@@ -40,11 +40,20 @@ public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 		if (element instanceof DNode) {
 			int visualID = SiriusVisualIDRegistry.getVisualID(view);
 			if (DNodeEditPart.VISUAL_ID == visualID
-					&& "PMD_Plantation".equals(((DNode)element).getDiagramElementMapping().getName())) { //$NON-NLS-1$
+					&& (isPlantationEditPart(element) || isCalibration(element))) { // $NON-NLS-1$
 				// Custom edit part for plantation
-				return PlantationEditPart.class;
+				return TraversableEditPart.class;
 			}
 		}
 		return super.getNodeEditPartClass(view);
+	}
+
+	private boolean isCalibration(EObject element) {
+		String mappingName = ((DNode)element).getDiagramElementMapping().getName();
+		return mappingName != null && mappingName.startsWith("PMD_") && mappingName.endsWith("_Calibration");
+	}
+
+	private boolean isPlantationEditPart(EObject element) {
+		return "PMD_Plantation".equals(((DNode)element).getDiagramElementMapping().getName());
 	}
 }
