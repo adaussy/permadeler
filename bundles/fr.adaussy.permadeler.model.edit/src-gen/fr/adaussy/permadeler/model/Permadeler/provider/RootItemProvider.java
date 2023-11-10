@@ -160,20 +160,8 @@ public class RootItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__KNOWLEDGE_BASE,
-				PermadelerFactory.eINSTANCE.createKnowledgeBase()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__SEEDBANK,
-				PermadelerFactory.eINSTANCE.createSeedBank()));
-
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__ZONES,
 				PermadelerFactory.eINSTANCE.createZone()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__NURSARY,
-				PermadelerFactory.eINSTANCE.createNursary()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ROOT__PLANIFIER,
-				PermadelerFactory.eINSTANCE.createPlanifier()));
 	}
 
 }

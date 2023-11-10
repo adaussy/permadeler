@@ -10,7 +10,6 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
-import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
 
@@ -19,8 +18,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -228,37 +225,6 @@ public class VarietyItemProvider extends ImageOwnerItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANT__ACTIONS);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANT__PRODUCTIONS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns Variety.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,18 +274,15 @@ public class VarietyItemProvider extends ImageOwnerItemProvider {
 			case PermadelerPackage.VARIETY__DESCRIPTION:
 			case PermadelerPackage.VARIETY__REFERENCES:
 			case PermadelerPackage.VARIETY__TAGS:
+			case PermadelerPackage.VARIETY__ACTIONS:
 			case PermadelerPackage.VARIETY__ICON_KEY:
 			case PermadelerPackage.VARIETY__COMMON_NAMES:
 			case PermadelerPackage.VARIETY__REPRESENTATION_KEY:
 			case PermadelerPackage.VARIETY__SHORT_NAME:
+			case PermadelerPackage.VARIETY__PRODUCTIONS:
 			case PermadelerPackage.VARIETY__VARIETY:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case PermadelerPackage.VARIETY__ACTIONS:
-			case PermadelerPackage.VARIETY__PRODUCTIONS:
-				fireNotifyChanged(
-						new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -335,12 +298,6 @@ public class VarietyItemProvider extends ImageOwnerItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__ACTIONS,
-				PermadelerFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__PRODUCTIONS,
-				PermadelerFactory.eINSTANCE.createProduction()));
 	}
 
 }

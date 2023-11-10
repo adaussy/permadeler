@@ -154,9 +154,6 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__PHASES,
-				PermadelerFactory.eINSTANCE.createPlantationPhase()));
-
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.ZONE__SUB_ZONES,
 				PermadelerFactory.eINSTANCE.createZone()));
 	}
