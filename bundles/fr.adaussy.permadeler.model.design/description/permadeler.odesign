@@ -13,14 +13,14 @@
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::GROUND_COVER and self.currentLayer != Permadeler::Layer::ROOT and self.currentLayer != Permadeler::Layer::HERB"/>
       </filters>
       <defaultLayer name="Default">
-        <nodeMappings name="PMD_Plantation" label="Plantation" semanticCandidatesExpression="aql:self.plantations" createElements="false" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='PlantationDoubleClicTool']" domainClass="Permadeler::Plantation" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType']">
+        <nodeMappings name="PMD_Plantation" label="Plantation" semanticCandidatesExpression="aql:self.getReachablePlantations()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='PlantationDoubleClicTool']" domainClass="Permadeler::Plantation" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType']">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" tooltipExpression="aql:self.getLabelProviderText()" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
           </style>
           <conditionnalStyles predicateExpression="aql:self.wireframe">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" labelColor="//@userColorsPalettes[name='DiagramColors']/@entries[name='LabelLightGray']" tooltipExpression="aql:self.type.name" sizeComputationExpression="aql:self.getSVGSize()"  labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" labelColor="//@userColorsPalettes[name='DiagramColors']/@entries[name='LabelLightGray']" tooltipExpression="aql:self.type.name" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <labelFormat>bold</labelFormat>
             </style>
@@ -74,6 +74,15 @@
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createPlantation(self,true)">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:containerView"/>
                 </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_DisplayExistingPlantation" label="Afficher une plantation existante" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/org.eclipse.ui/icons/full/etool16/search.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.selectPlantation(containerView)">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:containerView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -241,7 +250,7 @@
       </additionalLayers>
       <additionalLayers name="SubZoneLayer" activeByDefault="true">
         <nodeMappings name="PMD_SubZone" detailDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneRepNavigation']" semanticCandidatesExpression="aql:self.eContainer().subZones" createElements="false" domainClass="Permadeler::Zone">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.name" sizeComputationExpression="aql:8" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.svg">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:''" sizeComputationExpression="aql:8" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>

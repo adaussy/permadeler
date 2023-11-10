@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 Arthur Daussy.
+ * Copyright (c) 2023 Arthur Daussy.
  *
  * This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License 2.0 
@@ -12,12 +12,14 @@ package fr.adaussy.permadeler.model.utils;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.Spliterators;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -159,8 +161,8 @@ public final class EMFUtils {
 	}
 
 	/**
-	 * Gets the ancestor of given type starting from a specific element
-	 * 
+	 * Gets the ancestor of given type starting from a specific element.
+	 *
 	 * @param object
 	 *            an {@link EObject}
 	 * @param type
@@ -174,11 +176,55 @@ public final class EMFUtils {
 		if (object == null) {
 			return null;
 		}
+		final T result;
 		if (type.isInstance(object)) {
-			return (T)object;
+			result = (T)object;
 		} else {
-			return getAncestor(type, object.eContainer());
+			result = getAncestor(type, object.eContainer());
 		}
+		return result;
+	}
+
+	/**
+	 * Gets the first ancestor from the given object which match the predicated and has the expected type.
+	 * 
+	 * @param <T>
+	 *            the expected type
+	 * @param type
+	 *            the expected type
+	 * @param object
+	 *            the source object
+	 * @param ancestorPredicate
+	 *            an optional {@link Predicate}
+	 * @return an ancestor or <code>null</code>
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T extends EObject> List<T> getAncestors(Class<T> type, EObject object,
+			Predicate<EObject> ancestorPredicate) {
+		var current = object;
+		List<T> results = new ArrayList<>();
+		while (current != null) {
+			if (type.isInstance(current) && (ancestorPredicate == null || ancestorPredicate.test(current))) {
+				results.add((T)current);
+			}
+			current = current.eContainer();
+		}
+		return results;
+	}
+
+	/**
+	 * Gets the first ancestor from the given object which match the predicated and has the expected type.
+	 * 
+	 * @param <T>
+	 *            the expected type
+	 * @param type
+	 *            the expected type
+	 * @param object
+	 *            the source object
+	 * @return an ancestor or <code>null</code>
+	 */
+	public static <T extends EObject> List<T> getAncestors(Class<T> type, EObject object) {
+		return getAncestors(type, object, null);
 	}
 
 	/**
