@@ -65,6 +65,7 @@ import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusLayoutDataManager;
 import org.eclipse.sirius.diagram.ui.business.internal.view.RootLayoutData;
 import org.eclipse.sirius.viewpoint.DRepresentation;
+import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -89,6 +90,7 @@ import fr.adaussy.permadeler.model.Permadeler.SowPlanfication;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
 import fr.adaussy.permadeler.model.Permadeler.Variety;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.util.IDUtils;
 import fr.adaussy.permadeler.model.design.PermadelerModelBundle;
 import fr.adaussy.permadeler.model.design.utils.BackConfigurationDialog;
@@ -124,6 +126,87 @@ public class DiagramService {
 
 		}
 
+	}
+
+	/**
+	 * Selects a {@link Plantation} from available candidates and removing already displayed ones
+	 * 
+	 * @param phase
+	 *            the current phase
+	 * @param view
+	 *            a view element
+	 * @return a {@link Plantation}
+	 */
+	public Plantation selectPlantation(PlantationPhase phase, DSemanticDecorator view) {
+
+		List<Zone> zones = EMFUtils.getAncestors(Zone.class, phase);
+		Zone rootZone = zones.get(zones.size() - 1);
+
+		Set<EObject> alreadyDisplayed = EMFUtils
+				.allContainedObjectOfType(EMFUtils.getAncestor(DDiagram.class, view),
+						DSemanticDecorator.class)//
+				.map(DSemanticDecorator::getTarget).filter(e -> e instanceof Plantation)
+				.collect(Collectors.toSet());
+
+		List<Plantation> reachablePlants = getReachablePlantations(phase);
+
+		ObjectSelectionDialog<Plantation> plantationDialog = new ObjectSelectionDialog<>(getShell(),
+				Plantation.class, p -> reachablePlants.contains(p) && !alreadyDisplayed.contains(p),
+				rootZone);
+
+		if (plantationDialog.open() == IDialogConstants.OK_ID) {
+			List<Plantation> selection = plantationDialog.getSelection();
+			if (!selection.isEmpty()) {
+				return selection.get(0);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Gets all plantations available from this zone
+	 * 
+	 * @param zone
+	 *            a zone
+	 * @return a list of plantation
+	 */
+	private List<Plantation> getReachablePlantations(Zone zone) {
+
+		List<Plantation> plantations = zone.getPhases().stream()
+				.flatMap(phase -> phase.getPlantations().stream()).collect(toList());
+
+		EObject parent = zone.eContainer();
+		if (parent instanceof Zone parentZone) {
+			plantations.addAll(getReachablePlantations(parentZone));
+		}
+
+		return plantations;
+
+	}
+
+	/**
+	 * Get all reachable plantations from a {@link PlantationPhase}
+	 * 
+	 * @param plantationPhase
+	 *            a plantation phase
+	 * @return a list of plantation
+	 */
+	public List<Plantation> getReachablePlantations(PlantationPhase plantationPhase) {
+
+		Zone zone = (Zone)plantationPhase.eContainer();
+
+		// plantation on all super zones are available
+		List<Plantation> plantations = getReachablePlantations(zone);
+
+		// plantation from previous phase are available
+		int index = zone.getPhases().indexOf(plantationPhase);
+		if (index != -1) {
+			for (int i = 0; i <= index; i++) {
+				plantations.addAll(zone.getPhases().get(i).getPlantations());
+			}
+		}
+
+		return plantations;
 	}
 
 	public String getDefaultPlanName(PlantationPhase phase) {
