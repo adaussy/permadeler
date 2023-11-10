@@ -1,20 +1,25 @@
+/*******************************************************************************
+ * Copyright (c) 2023 Arthur Daussy.
+ *
+ * This program and the accompanying materials are made 
+ * available under the terms of the Eclipse Public License 2.0 
+ * which is available at https://www.eclipse.org/legal/epl-2.0/ 
+ * Contributors:
+ * Arthur Daussy - initial API and implementation.
+ ******************************************************************************/
 package fr.adaussy.permadeler.model.design.editparts;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.description.tool.NodeCreationDescription;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 
-import fr.adaussy.permadeler.model.Permadeler.Plantation;
+public class TraversableEditPart extends DNodeEditPart {
 
-public class PlantationEditPart extends DNodeEditPart {
-
-	public PlantationEditPart(View view) {
+	public TraversableEditPart(View view) {
 		super(view);
 	}
 
@@ -32,13 +37,4 @@ public class PlantationEditPart extends DNodeEditPart {
 		return super.getTargetEditPart(request);
 	}
 
-	private Plantation getPlantation() {
-		EObject semantic = resolveSemanticElement();
-		if (semantic instanceof DNode) {
-			DNode node = (DNode)semantic;
-			EObject target = node.getTarget();
-			return ((Plantation)target);
-		}
-		return null;
-	}
 }
