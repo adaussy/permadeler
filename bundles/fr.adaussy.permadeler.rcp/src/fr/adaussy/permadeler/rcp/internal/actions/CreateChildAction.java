@@ -8,8 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.viewers.ISelection;
 
-import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
-
 public class CreateChildAction extends org.eclipse.emf.edit.ui.action.CreateChildAction {
 
 	public CreateChildAction(EditingDomain editingDomain, ISelection selection, Object descriptor) {
@@ -22,7 +20,7 @@ public class CreateChildAction extends org.eclipse.emf.edit.ui.action.CreateChil
 
 		List<EObject> newElements = command.getResult().stream().filter(e -> e instanceof EObject)
 				.map(e -> ((EObject)e)).collect(toList());
-		FocusOnElementAction.selectInViewExplorer(newElements, KnowledgeViewerPart.ID);
+		FocusOnElementAction.selectInBestView(newElements);
 	}
 
 }
