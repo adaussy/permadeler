@@ -18,6 +18,8 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.widgets.Shell;
 
+import com.google.common.base.Strings;
+
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
@@ -39,7 +41,7 @@ public class GeneratePlanationLegendSpreadsheetMenu {
 					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
 					.filter(p -> p.getType() != null)//
 					.distinct()//
-					.sorted(Comparator.comparing(p -> p.getId()))//
+					.sorted(Comparator.comparing(p -> Strings.nullToEmpty(p.getId())))//
 					.toList();//
 		}
 		return List.of();
