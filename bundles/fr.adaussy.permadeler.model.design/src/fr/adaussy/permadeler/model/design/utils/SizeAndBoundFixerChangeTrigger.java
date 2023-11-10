@@ -21,6 +21,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.ShapeStyle;
 import org.eclipse.sirius.business.api.session.ModelChangeTrigger;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.ext.base.Option;
@@ -63,16 +65,16 @@ public class SizeAndBoundFixerChangeTrigger implements ModelChangeTrigger {
 				&& node.getLayoutConstraint() instanceof Bounds bounds//
 				&& dNode.getTarget() instanceof Plantation plantation) {
 
+			ShapeStyle shapeStyle = (ShapeStyle)node.getStyle(NotationPackage.eINSTANCE.getShapeStyle());
 			Layer layer = plantation.getCurrentLayer();
-
-			return getCalibrationBounds(diagram, layer)
-					.map(calibrationBounds -> createChangeBoundCommand(calibrationBounds, bounds));
+			return getCalibrationBounds(diagram, layer).map(
+					calibrationBounds -> createCalibrateCommand(calibrationBounds, bounds, shapeStyle));
 
 		}
 		return Optional.empty();
 	}
 
-	private Command createChangeBoundCommand(Bounds calibrationBounds, Bounds bounds) {
+	private Command createCalibrateCommand(Bounds calibrationBounds, Bounds bounds, ShapeStyle shapeStyle) {
 
 		RecordingCommand cmd = new RecordingCommand(transactionalEditingDomain) {
 
@@ -82,6 +84,16 @@ public class SizeAndBoundFixerChangeTrigger implements ModelChangeTrigger {
 				bounds.setWidth(calibrationBounds.getWidth());
 				bounds.setX(bounds.getX() - calibrationBounds.getWidth() / 2);
 				bounds.setY(bounds.getY() - calibrationBounds.getHeight() / 2);
+
+				// Compute Font height
+
+				int fontHeight = Math.min(calibrationBounds.getHeight() / 6, 24);
+				if (fontHeight < 5) {
+					fontHeight = 5;
+				}
+				if (shapeStyle != null) {
+					shapeStyle.setFontHeight(fontHeight);
+				}
 
 			}
 		};
