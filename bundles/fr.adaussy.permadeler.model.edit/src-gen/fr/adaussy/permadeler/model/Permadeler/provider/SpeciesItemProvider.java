@@ -547,8 +547,6 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANT__ACTIONS);
-			childrenFeatures.add(PermadelerPackage.Literals.PLANT__PRODUCTIONS);
 			childrenFeatures.add(PermadelerPackage.Literals.SPECIES__VARIETIES);
 		}
 		return childrenFeatures;
@@ -617,10 +615,12 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 			case PermadelerPackage.SPECIES__DESCRIPTION:
 			case PermadelerPackage.SPECIES__REFERENCES:
 			case PermadelerPackage.SPECIES__TAGS:
+			case PermadelerPackage.SPECIES__ACTIONS:
 			case PermadelerPackage.SPECIES__ICON_KEY:
 			case PermadelerPackage.SPECIES__COMMON_NAMES:
 			case PermadelerPackage.SPECIES__REPRESENTATION_KEY:
 			case PermadelerPackage.SPECIES__SHORT_NAME:
+			case PermadelerPackage.SPECIES__PRODUCTIONS:
 			case PermadelerPackage.SPECIES__SPECIES:
 			case PermadelerPackage.SPECIES__GENUS:
 			case PermadelerPackage.SPECIES__FAMILY:
@@ -644,8 +644,6 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PermadelerPackage.SPECIES__ACTIONS:
-			case PermadelerPackage.SPECIES__PRODUCTIONS:
 			case PermadelerPackage.SPECIES__VARIETIES:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -664,12 +662,6 @@ public class SpeciesItemProvider extends ImageOwnerItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__ACTIONS,
-				PermadelerFactory.eINSTANCE.createAction()));
-
-		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.PLANT__PRODUCTIONS,
-				PermadelerFactory.eINSTANCE.createProduction()));
 
 		newChildDescriptors.add(createChildParameter(PermadelerPackage.Literals.SPECIES__VARIETIES,
 				PermadelerFactory.eINSTANCE.createVariety()));

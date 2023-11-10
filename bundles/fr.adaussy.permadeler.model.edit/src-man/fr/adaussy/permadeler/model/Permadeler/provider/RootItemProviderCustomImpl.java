@@ -10,9 +10,19 @@
  */
 package fr.adaussy.permadeler.model.Permadeler.provider;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
+import java.util.Collection;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.domain.EditingDomain;
+
+import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
+import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
+import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Root;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 
 /**
  * {@link RootItemProvider} custom impl
@@ -38,4 +48,17 @@ public class RootItemProviderCustomImpl extends RootItemProvider {
 		}
 		return super.getText(object);
 	}
+
+	@Override
+	protected Command createCreateChildCommand(EditingDomain domain, EObject owner,
+			EStructuralFeature feature, Object value, int index, Collection<?> collection) {
+		if (feature == PermadelerPackage.eINSTANCE.getRoot_Zones() && value instanceof Zone zone) {
+			PlantationPhase phase = PermadelerFactory.eINSTANCE.createPlantationPhase();
+			zone.setName("Nouvelle Zone");
+			zone.getPhases().add(phase);
+			phase.setName("Phase 1");
+		}
+		return super.createCreateChildCommand(domain, owner, feature, value, index, collection);
+	}
+
 }
