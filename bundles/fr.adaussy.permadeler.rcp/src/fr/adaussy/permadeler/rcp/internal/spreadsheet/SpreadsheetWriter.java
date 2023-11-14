@@ -40,43 +40,39 @@ public class SpreadsheetWriter<U> {
 	public Optional<Path> writte(boolean openGeneratedFile) throws FileNotFoundException, IOException {
 
 		List<U> candidates = candidatesProdvider.get();
-		if (!candidates.isEmpty()) {
-			String fileName = sanitizeFilename(nameProvider.get()) + ".xlsx"; //$NON-NLS-1$
+		String fileName = sanitizeFilename(nameProvider.get()) + ".xlsx"; //$NON-NLS-1$
 
-			if (!targetFolder.toFile().exists()) {
-				targetFolder.toFile().mkdirs();
-			}
-
-			Path targetFilePath = targetFolder.resolve(fileName);
-			File targetFile = targetFilePath.toFile();
-			if (targetFile.exists()) {
-				if (!MessageDialog.openConfirm(shellSupplier.get(),
-						RcpMessages.GenerateProductionSpreadsheetMenu_2,
-						RcpMessages.GenerateProductionSpreadsheetMenu_3)) {
-					return Optional.empty();
-				} else {
-					try {
-						targetFile.delete();
-					} catch (SecurityException e) {
-						MessageDialog.openError(shellSupplier.get(),
-								RcpMessages.GenerateProductionSpreadsheetMenu_4,
-								RcpMessages.GenerateProductionSpreadsheetMenu_5);
-						return Optional.empty();
-					}
-				}
-			}
-
-			new SpreadsheetBuilder<>(extractors)//
-					.generate(targetFile.toPath(), candidates);
-
-			if (openGeneratedFile) {
-				Desktop.getDesktop().open(targetFile);
-			}
-
-			return Optional.of(targetFilePath);
+		if (!targetFolder.toFile().exists()) {
+			targetFolder.toFile().mkdirs();
 		}
 
-		return Optional.empty();
+		Path targetFilePath = targetFolder.resolve(fileName);
+		File targetFile = targetFilePath.toFile();
+		if (targetFile.exists()) {
+			if (!MessageDialog.openConfirm(shellSupplier.get(),
+					RcpMessages.GenerateProductionSpreadsheetMenu_2,
+					RcpMessages.GenerateProductionSpreadsheetMenu_3)) {
+				return Optional.empty();
+			} else {
+				try {
+					targetFile.delete();
+				} catch (SecurityException e) {
+					MessageDialog.openError(shellSupplier.get(),
+							RcpMessages.GenerateProductionSpreadsheetMenu_4,
+							RcpMessages.GenerateProductionSpreadsheetMenu_5);
+					return Optional.empty();
+				}
+			}
+		}
+
+		new SpreadsheetBuilder<>(extractors)//
+				.generate(targetFile.toPath(), candidates);
+
+		if (openGeneratedFile) {
+			Desktop.getDesktop().open(targetFile);
+		}
+
+		return Optional.of(targetFilePath);
 
 	}
 
