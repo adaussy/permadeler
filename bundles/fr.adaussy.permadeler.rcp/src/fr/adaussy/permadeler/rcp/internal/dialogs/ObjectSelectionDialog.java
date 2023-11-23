@@ -56,8 +56,6 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 
 	private Predicate<T> elementFilter;
 
-	private EObject root;
-
 	private TableViewer viewer;
 
 	private List<T> selection = Collections.emptyList();
@@ -67,6 +65,27 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 	private NameFilter nameFilter;
 
 	private AdapterFactoryLabelProvider labelProvider;
+
+	private List<EObject> roots;
+
+	/**
+	 * Simple constructor
+	 * 
+	 * @param parentShell
+	 *            a shell
+	 * @param type
+	 *            the type of element ot select
+	 * @param filter
+	 *            a filter
+	 * @param roots
+	 *            the roots of the tree
+	 */
+	public ObjectSelectionDialog(Shell parentShell, Class<T> type, Predicate<T> filter, List<EObject> roots) {
+		super(parentShell);
+		this.type = type;
+		this.elementFilter = filter;
+		this.roots = roots;
+	}
 
 	/**
 	 * Simple constructor
@@ -84,7 +103,7 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 		super(parentShell);
 		this.type = type;
 		this.elementFilter = filter;
-		this.root = root;
+		this.roots = List.of(root);
 	}
 
 	public void setInitialSelection(List<T> initialSelection) {
@@ -112,9 +131,10 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		Composite cc = (Composite)super.createDialogArea(parent);
-
-		this.labelProvider = new AdapterFactoryLabelProvider(
-				new EditingDomainServices().getAdapterFactory(root));
+		if (roots.size() > 0) {
+			this.labelProvider = new AdapterFactoryLabelProvider(
+					new EditingDomainServices().getAdapterFactory(roots.get(0)));
+		}
 		nameFilter = new NameFilter(labelProvider);
 
 		Text filter = new Text(cc, SWT.BORDER);
@@ -185,7 +205,7 @@ public class ObjectSelectionDialog<T extends EObject> extends Dialog {
 	 * Resets inputs and apply the filters
 	 */
 	protected void resetInputs() {
-		Stream<T> allElement = EMFUtils.getChildren(root, type);
+		Stream<T> allElement = roots.stream().flatMap(root -> EMFUtils.getChildren(root, type));
 		if (elementFilter != null) {
 			allElement = allElement.filter(elementFilter);
 		}

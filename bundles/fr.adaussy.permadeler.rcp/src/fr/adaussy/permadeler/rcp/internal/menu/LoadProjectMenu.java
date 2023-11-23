@@ -1,32 +1,12 @@
 
 package fr.adaussy.permadeler.rcp.internal.menu;
 
-/*******************************************************************************
- * Copyright (c) 2020 Arthur Daussy.
- *
- * This program and the accompanying materials are made 
- * available under the terms of the Eclipse Public License 2.0 
- * which is available at https://www.eclipse.org/legal/epl-2.0/ 
- * Contributors:
- * Arthur Daussy - initial API and implementation.
- ******************************************************************************/
-import java.lang.reflect.InvocationTargetException;
-
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import fr.adaussy.permadeler.rcp.RcpMessages;
-import fr.adaussy.permadeler.rcp.RcpPlugin;
+import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 
 /**
  * Handler used to load a project
@@ -41,20 +21,7 @@ public class LoadProjectMenu {
 		fileDialog.setFilterExtensions(new String[] {"*" + CreateNewProjectMenu.REPRESENTATION_FILE_EXT }); //$NON-NLS-1$
 		String path = fileDialog.open();
 		if (path != null) {
-			URI createFileURI = URI.createFileURI(path);
-			IRunnableWithProgress op = progress -> {
-				progress.beginTask(RcpMessages.LoadProjectMenu_0, IProgressMonitor.UNKNOWN);
-				Session session = SessionManager.INSTANCE.openSession(createFileURI,
-						new NullProgressMonitor(), new NoUICallback());
-				context.declareModifiable(Session.class);
-				context.modify(Session.class, session);
-				progress.done();
-			};
-			try {
-				new ProgressMonitorDialog(shell).run(false, false, op);
-			} catch (InvocationTargetException | InterruptedException e) {
-				RcpPlugin.logError("Problem during session loading " + e.getMessage(), e); //$NON-NLS-1$
-			}
+			PermadelerSession.loadSession(path, context, shell);
 		}
 	}
 

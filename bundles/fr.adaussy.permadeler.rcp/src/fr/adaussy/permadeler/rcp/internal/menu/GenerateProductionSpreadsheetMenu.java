@@ -12,49 +12,35 @@ package fr.adaussy.permadeler.rcp.internal.menu;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.eclipse.collections.api.tuple.Pair;
 import org.eclipse.collections.impl.tuple.Tuples;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.widgets.Shell;
 
 import com.google.common.base.Strings;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
-import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Production;
-import fr.adaussy.permadeler.model.Permadeler.Zone;
-import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
-import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 import fr.adaussy.permadeler.rcp.internal.spreadsheet.SpreadsheetExtractFactorys;
 import fr.adaussy.permadeler.rcp.internal.spreadsheet.SpreadsheetWriter;
+import fr.adaussy.permadeler.rcp.internal.utils.DiagramSelectionHelper;
 
 public class GenerateProductionSpreadsheetMenu {
 
 	private static final String REPORTS = "reports"; //$NON-NLS-1$
 
 	private List<Pair<Plant, Production>> provideCandidates(PermadelerSession session, Shell shell) {
-		ObjectSelectionDialog<Zone> selectionDialog = new ObjectSelectionDialog<Zone>(shell, Zone.class,
-				e -> true, session.getRoot());
-		if (selectionDialog.open() == IDialogConstants.OK_ID) {
-			List<Zone> zones = selectionDialog.getSelection();
-			return zones.stream()//
-					.flatMap(z -> getPhases(z, shell))//
-					.flatMap(z -> EMFUtils.allContainedObjectOfType(z, Plantation.class))//
-					.filter(p -> p.getType() != null)//
-					.flatMap(p -> p.getType().getAllProductions().stream()
-							.map(prod -> Tuples.pair(p.getType(), prod)))//
-					.distinct()//
-					.sorted(Comparator.comparing(pair -> Strings.nullToEmpty(pair.getOne().getName())))//
-					.toList();//
-		}
-		return List.of();
+
+		return DiagramSelectionHelper.getPlantationMapDiagramPlantations(session, shell).stream()//
+				.filter(p -> p.getType() != null)//
+				.flatMap(p -> p.getType().getAllProductions().stream()
+						.map(prod -> Tuples.pair(p.getType(), prod)))//
+				.distinct()//
+				.sorted(Comparator.comparing(pair -> Strings.nullToEmpty(pair.getOne().getName())))//
+				.toList();
 
 	}
 
@@ -72,24 +58,6 @@ public class GenerateProductionSpreadsheetMenu {
 
 		sWriter.writte(true);
 
-	}
-
-	private Stream<PlantationPhase> getPhases(Zone z, Shell shell) {
-		EList<PlantationPhase> phases = z.getPhases();
-		if (phases.isEmpty()) {
-			return Stream.empty();
-		} else if (phases.size() == 1) {
-			return Stream.of(phases.get(0));
-		} else {
-			ObjectSelectionDialog<PlantationPhase> dialog = new ObjectSelectionDialog<PlantationPhase>(shell,
-					PlantationPhase.class, e -> true, z);
-			dialog.setInitialSelection(List.of(phases.get(0)));
-			if (dialog.open() == IDialogConstants.OK_ID) {
-				return dialog.getSelection().stream();
-			} else {
-				return Stream.empty();
-			}
-		}
 	}
 
 	@CanExecute

@@ -51,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getZones <em>Zones</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getNursary <em>Nursary</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getPlanifier <em>Planifier</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.impl.RootImpl#getProductVersion <em>Product Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +106,26 @@ public class RootImpl extends NamedElementImpl implements Root {
 	 * @ordered
 	 */
 	protected Planifier planifier;
+
+	/**
+	 * The default value of the '{@link #getProductVersion() <em>Product Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PRODUCT_VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getProductVersion() <em>Product Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProductVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String productVersion = PRODUCT_VERSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -342,6 +363,28 @@ public class RootImpl extends NamedElementImpl implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getProductVersion() {
+		return productVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProductVersion(String newProductVersion) {
+		String oldProductVersion = productVersion;
+		productVersion = newProductVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PermadelerPackage.ROOT__PRODUCT_VERSION,
+					oldProductVersion, productVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void addSowPlanification(SeedItem seedItem, List<Integer> weeks, SowType type) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -388,6 +431,8 @@ public class RootImpl extends NamedElementImpl implements Root {
 				return getNursary();
 			case PermadelerPackage.ROOT__PLANIFIER:
 				return getPlanifier();
+			case PermadelerPackage.ROOT__PRODUCT_VERSION:
+				return getProductVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -417,6 +462,9 @@ public class RootImpl extends NamedElementImpl implements Root {
 			case PermadelerPackage.ROOT__PLANIFIER:
 				setPlanifier((Planifier)newValue);
 				return;
+			case PermadelerPackage.ROOT__PRODUCT_VERSION:
+				setProductVersion((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -444,6 +492,9 @@ public class RootImpl extends NamedElementImpl implements Root {
 			case PermadelerPackage.ROOT__PLANIFIER:
 				setPlanifier((Planifier)null);
 				return;
+			case PermadelerPackage.ROOT__PRODUCT_VERSION:
+				setProductVersion(PRODUCT_VERSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -466,6 +517,9 @@ public class RootImpl extends NamedElementImpl implements Root {
 				return nursary != null;
 			case PermadelerPackage.ROOT__PLANIFIER:
 				return planifier != null;
+			case PermadelerPackage.ROOT__PRODUCT_VERSION:
+				return PRODUCT_VERSION_EDEFAULT == null ? productVersion != null
+						: !PRODUCT_VERSION_EDEFAULT.equals(productVersion);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -485,6 +539,23 @@ public class RootImpl extends NamedElementImpl implements Root {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (productVersion: "); //$NON-NLS-1$
+		result.append(productVersion);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RootImpl

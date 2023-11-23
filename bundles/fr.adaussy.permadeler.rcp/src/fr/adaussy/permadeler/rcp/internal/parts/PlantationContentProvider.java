@@ -10,33 +10,54 @@
 package fr.adaussy.permadeler.rcp.internal.parts;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.eclipse.collections.api.tuple.Pair;
 import org.eclipse.collections.impl.tuple.Tuples;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.session.Session;
 
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Root;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
+import fr.adaussy.permadeler.rcp.internal.utils.LayerOwnerGroup;
 import fr.adaussy.permadeler.rcp.internal.utils.LayerPlantGroup;
 import fr.adaussy.permadeler.rcp.internal.utils.TagsPlantGroup;
 
 public class PlantationContentProvider extends ModelContentProvider {
 
+	private List<EObject> roots;
+
 	public PlantationContentProvider(Session session, ITreeContentProvider semanticContentProvider) {
 		super(session, semanticContentProvider);
+	}
+
+	@Override
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		if (newInput instanceof Collection collection) {
+			roots = collection.stream().filter(e -> e instanceof EObject).map(e -> ((EObject)e)).toList();
+
+		}
+		super.inputChanged(viewer, oldInput, newInput);
+	}
+
+	@Override
+	public void dispose() {
+		roots = null;
+		super.dispose();
 	}
 
 	@Override
@@ -50,27 +71,24 @@ public class PlantationContentProvider extends ModelContentProvider {
 	@Override
 	public Object[] getChildren(Object parentElement) {
 		List<Object> previousChildren = new ArrayList<Object>();
-		if (parentElement instanceof PlantationPhase) {
-			PlantationPhase plantationPhase = (PlantationPhase)parentElement;
+		if (parentElement instanceof Zone) {
+			Zone zone = (Zone)parentElement;
 
-			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(plantationPhase, TagsPlantGroup.class)
-					.orElseGet(() -> {
-						TagsPlantGroup adapter = new TagsPlantGroup(plantationPhase, getViewer(),
-								() -> plantationPhase.getPlantations());
-						plantationPhase.eAdapters().add(adapter);
-						return adapter;
-					});
+			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(zone, TagsPlantGroup.class).orElseGet(() -> {
+				TagsPlantGroup adapter = new TagsPlantGroup(zone, getViewer(), () -> zone.getPlantations());
+				zone.eAdapters().add(adapter);
+				return adapter;
+			});
 
 			previousChildren.add(tagsPlantGroup);
 
 			@SuppressWarnings("unchecked")
-			LayerPlantGroup<PlantationPhase> layerPlantGroup = EMFUtils
-					.getAdapter(plantationPhase, LayerPlantGroup.class).orElseGet(() -> {
-						LayerPlantGroup<PlantationPhase> adapter = new LayerPlantGroup<PlantationPhase>(
-								plantationPhase, getViewer(),
+			LayerPlantGroup<Zone> layerPlantGroup = EMFUtils.getAdapter(zone, LayerPlantGroup.class)
+					.orElseGet(() -> {
+						LayerPlantGroup<Zone> adapter = new LayerPlantGroup<Zone>(zone, getViewer(),
 								PermadelerPackage.eINSTANCE.getPlantation_CurrentLayer(),
 								base -> computeLayerGroups(base));
-						plantationPhase.eAdapters().add(adapter);
+						zone.eAdapters().add(adapter);
 						return adapter;
 					});
 
@@ -85,9 +103,30 @@ public class PlantationContentProvider extends ModelContentProvider {
 		return Stream.concat(previousChildren.stream(), Stream.of(superChildren)).toArray();
 	}
 
-	private List<Pair<Layer, List<EObject>>> computeLayerGroups(PlantationPhase base) {
+	@Override
+	public Object getParent(Object element) {
+		if (element instanceof ISelfDescribingItem) {
+			return ((ISelfDescribingItem)element).getParent();
+		} else if (element instanceof Plantation plantation) {
+			for (Zone z : roots.stream().flatMap(r -> EMFUtils.getChildren(r, Zone.class)).toList()) {
+				Optional<LayerPlantGroup> adapter = EMFUtils.getAdapter(z, LayerPlantGroup.class);
+				if (adapter.isPresent()) {
+					for (Object o : adapter.get().getChildren()) {
+						if (o instanceof LayerOwnerGroup layerOwnerGroup) {
+							if (layerOwnerGroup.getChildren().contains(element)) {
+								return layerOwnerGroup;
+							}
+						}
+					}
+				}
+			}
+		}
+		return super.getParent(element);
+	}
+
+	private List<Pair<Layer, List<EObject>>> computeLayerGroups(Zone base) {
 		Map<Layer, List<EObject>> groupByTag = new LinkedHashMap<Layer, List<EObject>>();
-		for (Plantation plantation : base.getPlantations()) {
+		for (Plantation plantation : base.getAllPlantations()) {
 			groupByTag.computeIfAbsent(plantation.getCurrentLayer(), k -> new ArrayList<EObject>())
 					.add(plantation);
 		}

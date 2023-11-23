@@ -568,7 +568,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PlantationPhaseItemProviderCustomImpl plantationPhaseItemProvider;
+	protected PlantationPhaseItemProvider plantationPhaseItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link fr.adaussy.permadeler.model.Permadeler.PlantationPhase}.
@@ -579,7 +579,7 @@ public class PermadelerItemProviderAdapterFactory extends PermadelerAdapterFacto
 	@Override
 	public Adapter createPlantationPhaseAdapter() {
 		if (plantationPhaseItemProvider == null) {
-			plantationPhaseItemProvider = new PlantationPhaseItemProviderCustomImpl(this);
+			plantationPhaseItemProvider = new PlantationPhaseItemProvider(this);
 		}
 
 		return plantationPhaseItemProvider;

@@ -11,7 +11,6 @@ package fr.adaussy.permadeler.rcp.internal;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.rcp.RcpMessages;
@@ -41,9 +40,6 @@ public class SemanticFactory {
 		root.setSeedbank(factory.createSeedBank());
 		Zone createZone = factory.createZone();
 		createZone.setName(RcpMessages.SemanticFactory_0);
-		PlantationPhase phase = factory.createPlantationPhase();
-		phase.setName(RcpMessages.SemanticFactory_1);
-		createZone.getPhases().add(phase);
 		root.getZones().add(createZone);
 		KnowledgeBase createKnowledgeBase = factory.createKnowledgeBase();
 		root.setKnowledgeBase(createKnowledgeBase);

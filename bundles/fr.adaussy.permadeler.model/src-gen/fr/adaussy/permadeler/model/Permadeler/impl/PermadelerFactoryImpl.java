@@ -337,7 +337,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public Zone createZone() {
-		ZoneImpl zone = new ZoneImpl();
+		ZoneCustomImpl zone = new ZoneCustomImpl();
 		return zone;
 	}
 
@@ -477,7 +477,7 @@ public class PermadelerFactoryImpl extends EFactoryImpl implements PermadelerFac
 	 * @generated
 	 */
 	public PlantationPhase createPlantationPhase() {
-		PlantationPhaseCustomImpl plantationPhase = new PlantationPhaseCustomImpl();
+		PlantationPhaseImpl plantationPhase = new PlantationPhaseImpl();
 		return plantationPhase;
 	}
 

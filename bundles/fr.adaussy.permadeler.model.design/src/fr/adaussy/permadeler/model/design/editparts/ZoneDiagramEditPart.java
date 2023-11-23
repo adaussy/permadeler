@@ -22,15 +22,15 @@ import org.eclipse.sirius.diagram.model.business.internal.spec.DSemanticDiagramS
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DDiagramEditPart;
 
 import fr.adaussy.permadeler.model.Permadeler.BackgroundImage;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.design.services.DiagramService;
 
 @SuppressWarnings("restriction")
-public class PlantationPhaseDiagramEditPart extends DDiagramEditPart {
+public class ZoneDiagramEditPart extends DDiagramEditPart {
 
 	private BackgroundLayerWithImage layerBackground;
 
-	public PlantationPhaseDiagramEditPart(View view) {
+	public ZoneDiagramEditPart(View view) {
 		super(view);
 	}
 
@@ -43,13 +43,10 @@ public class PlantationPhaseDiagramEditPart extends DDiagramEditPart {
 			BackgroundImage bgImg = getBackgroundImage();
 			if (bgImg != null) {
 				setBackgroundLayer(fig, bgImg);
-
 			} else {
 				configureBackground(fig);
 			}
 
-			// ((Viewport)((DDiagramRootEditPart)((ScrollingGraphicalViewer)getViewer()).getRootEditPart())
-			// .getFigure()).getClientArea(new Rectangle(0, 0, 1000, 1000));
 		}
 		return fig;
 	}
@@ -65,8 +62,8 @@ public class PlantationPhaseDiagramEditPart extends DDiagramEditPart {
 			DSemanticDiagramSpec diagram = (DSemanticDiagramSpec)resolveSemanticElement;
 
 			EObject seamnticElement = diagram.getTarget();
-			if (seamnticElement instanceof PlantationPhase) {
-				return ((PlantationPhase)seamnticElement).getBackgroundImage();
+			if (seamnticElement instanceof Zone) {
+				return ((Zone)seamnticElement).getBackgroundImage();
 			}
 		}
 		return null;

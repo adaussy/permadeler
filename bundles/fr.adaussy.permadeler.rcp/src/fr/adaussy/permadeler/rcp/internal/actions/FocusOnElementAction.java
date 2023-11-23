@@ -120,8 +120,7 @@ public class FocusOnElementAction extends Action {
 				// the first time the view may not be initialized yet. We need a second try
 				if (viewProvider.getViewer().getSelection() != structuredSelection) {
 					Display.getDefault().asyncExec(() -> {
-						viewProvider.getViewer().setSelection(structuredSelection);
-
+						viewProvider.getViewer().setSelection(structuredSelection, true);
 					});
 				}
 			}

@@ -9,7 +9,10 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.model.Permadeler.util;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
  * Custom PermadelerResourceImpl
@@ -31,6 +34,15 @@ public class PermadelerResourceCustomImpl extends PermadelerResourceImpl {
 	@Override
 	protected boolean useUUIDs() {
 		return true;
+	}
+
+	@Override
+	public Map<Object, Object> getDefaultLoadOptions() {
+		Map<Object, Object> map = super.getDefaultLoadOptions();
+		if (map.containsValue(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE)) {
+			map.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+		}
+		return map;
 	}
 
 }

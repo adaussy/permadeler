@@ -26,7 +26,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,6 +33,7 @@ import java.util.stream.Stream;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.ecore.EObject;
@@ -82,7 +82,6 @@ import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.RepresentationKind;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Row;
@@ -100,7 +99,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.dialogs.ObjectSelectionDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.PlantationDialog;
 import fr.adaussy.permadeler.rcp.internal.dialogs.TrayDimensionCreationDialog;
-import fr.adaussy.permadeler.rcp.internal.parts.KnowledgeViewerPart;
+import fr.adaussy.permadeler.rcp.internal.parts.PlantationsViewerPart;
 import fr.adaussy.permadeler.rcp.services.FillService;
 import fr.adaussy.permadeler.rcp.services.ModelQueryService;
 
@@ -137,9 +136,9 @@ public class DiagramService {
 	 *            a view element
 	 * @return a {@link Plantation}
 	 */
-	public Plantation selectPlantation(PlantationPhase phase, DSemanticDecorator view) {
+	public Plantation selectPlantation(Zone currentZone, DSemanticDecorator view) {
 
-		List<Zone> zones = EMFUtils.getAncestors(Zone.class, phase);
+		List<Zone> zones = EMFUtils.getAncestors(Zone.class, currentZone);
 		Zone rootZone = zones.get(zones.size() - 1);
 
 		Set<EObject> alreadyDisplayed = EMFUtils
@@ -148,7 +147,7 @@ public class DiagramService {
 				.map(DSemanticDecorator::getTarget).filter(e -> e instanceof Plantation)
 				.collect(Collectors.toSet());
 
-		List<Plantation> reachablePlants = getReachablePlantations(phase);
+		List<Plantation> reachablePlants = getReachablePlantations(currentZone);
 
 		ObjectSelectionDialog<Plantation> plantationDialog = new ObjectSelectionDialog<>(getShell(),
 				Plantation.class, p -> reachablePlants.contains(p) && !alreadyDisplayed.contains(p),
@@ -170,10 +169,9 @@ public class DiagramService {
 	 *            a zone
 	 * @return a list of plantation
 	 */
-	private List<Plantation> getReachablePlantations(Zone zone) {
+	public List<Plantation> getReachablePlantations(Zone zone) {
 
-		List<Plantation> plantations = zone.getPhases().stream()
-				.flatMap(phase -> phase.getPlantations().stream()).collect(toList());
+		List<Plantation> plantations = zone.getPlantations().stream().collect(toList());
 
 		EObject parent = zone.eContainer();
 		if (parent instanceof Zone parentZone) {
@@ -184,35 +182,8 @@ public class DiagramService {
 
 	}
 
-	/**
-	 * Get all reachable plantations from a {@link PlantationPhase}
-	 * 
-	 * @param plantationPhase
-	 *            a plantation phase
-	 * @return a list of plantation
-	 */
-	public List<Plantation> getReachablePlantations(PlantationPhase plantationPhase) {
-
-		Zone zone = (Zone)plantationPhase.eContainer();
-
-		// plantation on all super zones are available
-		List<Plantation> plantations = getReachablePlantations(zone);
-
-		// plantation from previous phase are available
-		int index = zone.getPhases().indexOf(plantationPhase);
-		if (index != -1) {
-			for (int i = 0; i <= index; i++) {
-				plantations.addAll(zone.getPhases().get(i).getPlantations());
-			}
-		}
-
-		return plantations;
-	}
-
-	public String getDefaultPlanName(PlantationPhase phase) {
-		return "Carte Implantation "
-				+ ((fr.adaussy.permadeler.model.Permadeler.Zone)phase.eContainer()).getName() + " - "
-				+ phase.getName();
+	public String getDefaultPlanName(Zone zone) {
+		return "Carte Implantation " + zone.getName();
 	}
 
 	public static Plantation dupplicate(Plantation plantation, DDiagramElement targetView,
@@ -221,25 +192,23 @@ public class DiagramService {
 
 		Plantation newPlantation = EcoreUtil.copy(plantation);
 
-		((PlantationPhase)plantation.eContainer()).getPlantations().add(newPlantation);
+		((Zone)plantation.eContainer()).getPlantations().add(newPlantation);
 
 		// Change id
 		newPlantation.setId(IDUtils.generateId(newPlantation));
 
-		// Create view
-
-		Session session = Session.of(plantation).get();
-		TransactionalEditingDomain transactionalEditingDomain = session.getTransactionalEditingDomain();
-		refreshRepresentations(transactionalEditingDomain, Collections.singletonList(diagram));
-		// Move view
-
-		Optional<DNode> matchingNode = EMFUtils.allContainedObjectOfType(diagram, DNode.class)//
-				.filter(d -> d.getTarget() == newPlantation)//
-				.findFirst();
-
-		setGraphicalHintsFromExistingNode(targetView, matchingNode.get());
-
 		return newPlantation;
+	}
+
+	/**
+	 * Move graphical a newly created no so it does not appear on he given existing node
+	 * @param existing
+	 * @param node
+	 * @return
+	 */
+	public DNode moveNode(DNode existing, DNode node) {
+		setGraphicalHintsFromExistingNode(existing, node);
+		return node;
 	}
 
 	private static void setGraphicalHintsFromExistingNode(DDiagramElement existingNode,
@@ -249,8 +218,9 @@ public class DiagramService {
 		if (editPart instanceof ShapeEditPart) {
 			ShapeEditPart part = (ShapeEditPart)editPart;
 			Point location = part.getLocation();
+			Dimension size = part.getSize();
 			SiriusLayoutDataManager.INSTANCE.addData(new RootLayoutData(newNode.eContainer(),
-					new Point(location.x + 20, location.y + 20), part.getSize()));
+					new Point(location.x + size.width, location.y + size.height), part.getSize()));
 		}
 	}
 
@@ -321,11 +291,14 @@ public class DiagramService {
 		}
 	}
 
-	public void showInKnowledgeBase(Plantation plantation) {
-		Plant type = plantation.getType();
-		if (type != null) {
-			new FocusOnElementAction("", Collections.singletonList(type), KnowledgeViewerPart.ID).run();
-		}
+	/**
+	 * Select a plantation in the plantation view
+	 * 
+	 * @param plantation
+	 *            a plantation
+	 */
+	public void showInPlantationView(Plantation plantation) {
+		new FocusOnElementAction("", Collections.singletonList(plantation), PlantationsViewerPart.ID).run();
 	}
 
 	private Stream<Node> getAllDisplayedTree(View gmfView) {
@@ -426,9 +399,9 @@ public class DiagramService {
 	 * @param diagram
 	 *            a Diagram
 	 */
-	public static void calibrateBackgroundImage(final PlantationPhase planting, DDiagram diagram) {
+	public static void calibrateBackgroundImage(final Zone zone, DDiagram diagram) {
 		IGraphicalEditPart editPart = getEditPath(diagram);
-		BackgroundImage backgroundImage = planting.getBackgroundImage();
+		BackgroundImage backgroundImage = zone.getBackgroundImage();
 		if (editPart != null && backgroundImage != null) {
 			BackConfigurationDialog dialog = new BackConfigurationDialog(getShell(), backgroundImage,
 					editPart);
@@ -445,8 +418,7 @@ public class DiagramService {
 	 *            a Diagram
 	 * @throws IOException
 	 */
-	public static void defineBackGroundImage(final PlantationPhase planting, DDiagram diagram)
-			throws IOException {
+	public static void defineBackGroundImage(final Zone planting, DDiagram diagram) throws IOException {
 
 		FileDialog fileDialog = new FileDialog(getShell());
 		fileDialog.setFilterExtensions(new String[] {"*.svg;*.jpg;*.png" }); //$NON-NLS-1$
@@ -626,15 +598,15 @@ public class DiagramService {
 	 *            the container area
 	 * @return a new plantation or <code>null</code> if the user has canceled
 	 */
-	public static Plantation createPlantation(final PlantationPhase container) {
+	public static Plantation createPlantation(final Zone container) {
 		return createPlantation(container, null, true);
 	}
 
 	public static Plantation createPlantation(final Plantation plantation, Plant initialSelection) {
-		return createPlantation((PlantationPhase)plantation.eContainer(), initialSelection, false);
+		return createPlantation((Zone)plantation.eContainer(), initialSelection, false);
 	}
 
-	public static Plantation createPlantation(final PlantationPhase container, Plant initialSelection,
+	public static Plantation createPlantation(final Zone container, Plant initialSelection,
 			boolean useDialog) {
 		if (useDialog || initialSelection == null) {
 			Shell shell = getShell();
@@ -672,7 +644,7 @@ public class DiagramService {
 		return null;
 	}
 
-	public Variety createDefaultVariety(PlantationPhase phase) {
+	public Variety createDefaultVariety(Zone phase) {
 		KnowledgeBase knowledgeBase = EMFUtils.getAncestor(Root.class, phase).getKnowledgeBase();
 		ObjectSelectionDialog<Species> dialog = new ObjectSelectionDialog<>(getShell(), Species.class,
 				s -> true, knowledgeBase);
@@ -702,7 +674,7 @@ public class DiagramService {
 	 *            the input cell
 	 * @return a new plantation
 	 */
-	public static Plantation createPlantationFromSow(final PlantationPhase container, final Cell cell) {
+	public static Plantation createPlantationFromSow(final Zone container, final Cell cell) {
 		if (cell.getPlant() == null) {
 			PermadelerModelBundle.getDefault().logInfo("Can't create a new plantation from empty cell"); //$NON-NLS-1$
 			return null;
@@ -730,7 +702,7 @@ public class DiagramService {
 	 *            the planification
 	 * @return a new Plantation
 	 */
-	public static Plantation createPlantationFromPlanification(final PlantationPhase container,
+	public static Plantation createPlantationFromPlanification(final Zone container,
 			final SowPlanfication planification) {
 		Event event = PermadelerFactory.eINSTANCE.createEvent();
 		event.setDate(new Date().toInstant());

@@ -17,18 +17,14 @@ import org.eclipse.sirius.business.api.session.Session;
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
 import fr.adaussy.permadeler.model.Permadeler.Layer;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Species;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.utils.EMFUtils;
 import fr.adaussy.permadeler.rcp.internal.provider.ISelfDescribingItem;
 import fr.adaussy.permadeler.rcp.internal.utils.LayerPlantGroup;
 import fr.adaussy.permadeler.rcp.internal.utils.TagsPlantGroup;
 
 public class KnwoledgePartContentProvider extends ModelContentProvider {
-
-	private TagsPlantGroup tagsPlantGroup;
-
-	private LayerPlantGroup<KnowledgeBase> layerPlantGroup;
 
 	public KnwoledgePartContentProvider(Session session, ITreeContentProvider semanticContentProvider) {
 		super(session, semanticContentProvider);
@@ -39,16 +35,13 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		List<Object> previousChildren = new ArrayList<Object>();
 		if (parentElement instanceof KnowledgeBase) {
 			KnowledgeBase knowledgeBase = (KnowledgeBase)parentElement;
-			previousChildren.add(layerPlantGroup);
 
 			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(knowledgeBase, TagsPlantGroup.class)
 					.orElseGet(() -> createTagAdapter(knowledgeBase));
-
 			previousChildren.add(tagsPlantGroup);
 
 			@SuppressWarnings("unchecked")
-			LayerPlantGroup<PlantationPhase> layerPlantGroup = EMFUtils
-					.getAdapter(knowledgeBase, LayerPlantGroup.class)
+			LayerPlantGroup<Zone> layerPlantGroup = EMFUtils.getAdapter(knowledgeBase, LayerPlantGroup.class)
 					.orElseGet(() -> createLayerAdapter(knowledgeBase));
 
 			previousChildren.add(layerPlantGroup);
@@ -101,14 +94,6 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 			return ((ISelfDescribingItem)element).hasChildren();
 		}
 		return super.hasChildren(element);
-	}
-
-	@Override
-	public void dispose() {
-		super.dispose();
-		if (tagsPlantGroup != null) {
-			tagsPlantGroup.dispose();
-		}
 	}
 
 }

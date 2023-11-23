@@ -625,6 +625,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRoot_ProductVersion() {
+		return (EAttribute)rootEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getRoot__AddSowPlanification__SeedItem_List_SowType() {
 		return rootEClass.getEOperations().get(0);
 	}
@@ -942,6 +951,33 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 	 */
 	public EReference getZone_SubZones() {
 		return (EReference)zoneEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getZone_BackgroundImage() {
+		return (EReference)zoneEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getZone_Plantations() {
+		return (EReference)zoneEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getZone__GetAllPlantations() {
+		return zoneEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2059,6 +2095,7 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		createEReference(rootEClass, ROOT__ZONES);
 		createEReference(rootEClass, ROOT__NURSARY);
 		createEReference(rootEClass, ROOT__PLANIFIER);
+		createEAttribute(rootEClass, ROOT__PRODUCT_VERSION);
 		createEOperation(rootEClass, ROOT___ADD_SOW_PLANIFICATION__SEEDITEM_LIST_SOWTYPE);
 
 		knowledgeBaseEClass = createEClass(KNOWLEDGE_BASE);
@@ -2103,6 +2140,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		zoneEClass = createEClass(ZONE);
 		createEReference(zoneEClass, ZONE__PHASES);
 		createEReference(zoneEClass, ZONE__SUB_ZONES);
+		createEReference(zoneEClass, ZONE__BACKGROUND_IMAGE);
+		createEReference(zoneEClass, ZONE__PLANTATIONS);
+		createEOperation(zoneEClass, ZONE___GET_ALL_PLANTATIONS);
 
 		nursaryEClass = createEClass(NURSARY);
 		createEReference(nursaryEClass, NURSARY__ZONES);
@@ -2322,6 +2362,9 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEReference(getRoot_Planifier(), this.getPlanifier(), null, "planifier", null, 0, 1, Root.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoot_ProductVersion(), ecorePackage.getEString(), "productVersion", null, 0, 1, //$NON-NLS-1$
+				Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getRoot__AddSowPlanification__SeedItem_List_SowType(), null,
 				"addSowPlanification", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -2430,6 +2473,15 @@ public class PermadelerPackageImpl extends EPackageImpl implements PermadelerPac
 		initEReference(getZone_SubZones(), this.getZone(), null, "subZones", null, 0, -1, Zone.class, //$NON-NLS-1$
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZone_BackgroundImage(), this.getBackgroundImage(), null, "backgroundImage", null, 0, //$NON-NLS-1$
+				1, Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getZone_Plantations(), this.getPlantation(), null, "plantations", null, 0, -1, //$NON-NLS-1$
+				Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getZone__GetAllPlantations(), this.getPlantation(), "getAllPlantations", 0, -1, //$NON-NLS-1$
+				IS_UNIQUE, IS_ORDERED);
 
 		initEClass(nursaryEClass, Nursary.class, "Nursary", !IS_ABSTRACT, !IS_INTERFACE, //$NON-NLS-1$
 				IS_GENERATED_INSTANCE_CLASS);

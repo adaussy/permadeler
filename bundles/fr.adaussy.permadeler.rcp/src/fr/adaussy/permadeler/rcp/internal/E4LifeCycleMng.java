@@ -25,6 +25,8 @@ import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.eef.ide.ui.internal.preferences.EEFPreferences;
 import org.eclipse.eef.ide.ui.internal.widgets.EEFTextLifecycleManager.ConflictResolutionMode;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
@@ -33,6 +35,7 @@ import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.common.tools.api.resource.FileProvider;
 import org.eclipse.sirius.common.tools.api.resource.IFileGetter;
 import org.eclipse.swt.widgets.Display;
+import org.osgi.framework.Version;
 import org.osgi.service.event.Event;
 
 import fr.adaussy.permadeler.model.Permadeler.KnowledgeBase;
@@ -42,6 +45,7 @@ import fr.adaussy.permadeler.model.Permadeler.SeedBank;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceCustomImpl;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.menu.CreateNewProjectMenu;
+import fr.adaussy.permadeler.rcp.internal.migratations.Migrator;
 
 /**
  * Add on to handle the application lifecycle
@@ -146,6 +150,9 @@ public class E4LifeCycleMng {
 		@Override
 		public void notifyAddSession(Session newSession) {
 
+			newSession.getTransactionalEditingDomain().getResourceSet().getLoadOptions()
+					.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+
 			FileProvider.getDefault().registerFileGetter(new IFileGetter() {
 
 				@Override
@@ -188,7 +195,21 @@ public class E4LifeCycleMng {
 					eclipseContext.modify(SeedBank.class, seedBank);
 					eclipseContext.modify(KnowledgeBase.class, root.getKnowledgeBase());
 					eclipseContext.modify(Nursary.class, root.getNursary());
-					eclipseContext.modify(PermadelerSession.class, new PermadelerSession(session, root));
+					PermadelerSession permSession = new PermadelerSession(session, root);
+					eclipseContext.modify(PermadelerSession.class, permSession);
+					
+					// Run update migration
+					new Migrator().migrate(permSession);
+
+					// Update the vesion of the model to the current version of software
+					String version = root.getProductVersion();
+					Version currentVersion = Platform.getProduct().getDefiningBundle().getVersion();
+					if (version == null || Version.parseVersion(version).compareTo(currentVersion) < 0) {
+						permSession.modify("Update model version", () -> {
+							root.setProductVersion(currentVersion.toString());
+						});
+					}
+
 					eclipseContext.modify(Session.class, session);
 				}
 
