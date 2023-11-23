@@ -18,9 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-import fr.adaussy.permadeler.model.Permadeler.PermadelerFactory;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
-import fr.adaussy.permadeler.model.Permadeler.PlantationPhase;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 
@@ -53,10 +51,7 @@ public class RootItemProviderCustomImpl extends RootItemProvider {
 	protected Command createCreateChildCommand(EditingDomain domain, EObject owner,
 			EStructuralFeature feature, Object value, int index, Collection<?> collection) {
 		if (feature == PermadelerPackage.eINSTANCE.getRoot_Zones() && value instanceof Zone zone) {
-			PlantationPhase phase = PermadelerFactory.eINSTANCE.createPlantationPhase();
 			zone.setName("Nouvelle Zone");
-			zone.getPhases().add(phase);
-			phase.setName("Phase 1");
 		}
 		return super.createCreateChildCommand(domain, owner, feature, value, index, collection);
 	}

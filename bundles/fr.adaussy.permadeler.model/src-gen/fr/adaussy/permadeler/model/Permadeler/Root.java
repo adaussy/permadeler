@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getZones <em>Zones</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getNursary <em>Nursary</em>}</li>
  *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getPlanifier <em>Planifier</em>}</li>
+ *   <li>{@link fr.adaussy.permadeler.model.Permadeler.Root#getProductVersion <em>Product Version</em>}</li>
  * </ul>
  *
  * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getRoot()
@@ -134,6 +135,28 @@ public interface Root extends NamedElement {
 	 * @generated
 	 */
 	void setPlanifier(Planifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Product Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Product Version</em>' attribute.
+	 * @see #setProductVersion(String)
+	 * @see fr.adaussy.permadeler.model.Permadeler.PermadelerPackage#getRoot_ProductVersion()
+	 * @model
+	 * @generated
+	 */
+	String getProductVersion();
+
+	/**
+	 * Sets the value of the '{@link fr.adaussy.permadeler.model.Permadeler.Root#getProductVersion <em>Product Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Product Version</em>' attribute.
+	 * @see #getProductVersion()
+	 * @generated
+	 */
+	void setProductVersion(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

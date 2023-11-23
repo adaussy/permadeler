@@ -1,5 +1,5 @@
 /**
- *  Copyright (c) 2022 Arthur Daussy.
+ *  Copyright (c) 2023 Arthur Daussy.
  * 
  *  This program and the accompanying materials are made 
  *  available under the terms of the Eclipse Public License 2.0 
@@ -18,7 +18,7 @@ import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.sirius.diagram.ui.part.SiriusVisualIDRegistry;
 
-public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
+public class FoodForestMapDiagramEditpartProvider extends AbstractEditPartProvider {
 
 	private static final String PLANTATIONS_MAP_DIAGRAM_ID = "FoodForestMapDiagram"; //$NON-NLS-1$
 
@@ -28,7 +28,7 @@ public class PlantationPhaseEditpartProvider extends AbstractEditPartProvider {
 		if (element instanceof DDiagram) {
 			// Custom edit part for plantation diagrams
 			if (PLANTATIONS_MAP_DIAGRAM_ID.equals(((DDiagram)element).getDescription().getName())) {
-				return PlantationPhaseDiagramEditPart.class;
+				return ZoneDiagramEditPart.class;
 			}
 		}
 		return super.getDiagramEditPartClass(view);

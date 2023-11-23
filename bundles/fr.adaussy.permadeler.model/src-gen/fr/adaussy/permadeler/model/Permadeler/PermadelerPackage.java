@@ -198,13 +198,22 @@ public interface PermadelerPackage extends EPackage {
 	int ROOT__PLANIFIER = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Product Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__PRODUCT_VERSION = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int ROOT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Sow Planification</em>' operation.
@@ -628,16 +637,6 @@ public interface PermadelerPackage extends EPackage {
 	int ACTION = 23;
 
 	/**
-	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl <em>Plantation Phase</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl
-	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlantationPhase()
-	 * @generated
-	 */
-	int PLANTATION_PHASE = 25;
-
-	/**
 	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.ReferencingElementImpl <em>Referencing Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,13 +957,40 @@ public interface PermadelerPackage extends EPackage {
 	int ZONE__SUB_ZONES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Background Image</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZONE__BACKGROUND_IMAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Plantations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZONE__PLANTATIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Zone</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ZONE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ZONE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get All Plantations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ZONE___GET_ALL_PLANTATIONS = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Zone</em>' class.
@@ -973,7 +999,7 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ZONE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ZONE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Trays</b></em>' containment reference list.
@@ -1820,6 +1846,16 @@ public interface PermadelerPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTION_OPERATION_COUNT = TEMPORAL_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl <em>Plantation Phase</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PlantationPhaseImpl
+	 * @see fr.adaussy.permadeler.model.Permadeler.impl.PermadelerPackageImpl#getPlantationPhase()
+	 * @generated
+	 */
+	int PLANTATION_PHASE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2956,6 +2992,17 @@ public interface PermadelerPackage extends EPackage {
 	EReference getRoot_Planifier();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.adaussy.permadeler.model.Permadeler.Root#getProductVersion <em>Product Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Product Version</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Root#getProductVersion()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EAttribute getRoot_ProductVersion();
+
+	/**
 	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Root#addSowPlanification(fr.adaussy.permadeler.model.Permadeler.SeedItem, java.util.List, fr.adaussy.permadeler.model.Permadeler.SowType) <em>Add Sow Planification</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3341,6 +3388,38 @@ public interface PermadelerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getZone_SubZones();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.adaussy.permadeler.model.Permadeler.Zone#getBackgroundImage <em>Background Image</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Background Image</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Zone#getBackgroundImage()
+	 * @see #getZone()
+	 * @generated
+	 */
+	EReference getZone_BackgroundImage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link fr.adaussy.permadeler.model.Permadeler.Zone#getPlantations <em>Plantations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Plantations</em>'.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Zone#getPlantations()
+	 * @see #getZone()
+	 * @generated
+	 */
+	EReference getZone_Plantations();
+
+	/**
+	 * Returns the meta object for the '{@link fr.adaussy.permadeler.model.Permadeler.Zone#getAllPlantations() <em>Get All Plantations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Plantations</em>' operation.
+	 * @see fr.adaussy.permadeler.model.Permadeler.Zone#getAllPlantations()
+	 * @generated
+	 */
+	EOperation getZone__GetAllPlantations();
 
 	/**
 	 * Returns the meta object for class '{@link fr.adaussy.permadeler.model.Permadeler.Nursary <em>Nursary</em>}'.
@@ -4676,6 +4755,14 @@ public interface PermadelerPackage extends EPackage {
 		EReference ROOT__PLANIFIER = eINSTANCE.getRoot_Planifier();
 
 		/**
+		 * The meta object literal for the '<em><b>Product Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOT__PRODUCT_VERSION = eINSTANCE.getRoot_ProductVersion();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Sow Planification</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4979,6 +5066,30 @@ public interface PermadelerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ZONE__SUB_ZONES = eINSTANCE.getZone_SubZones();
+
+		/**
+		 * The meta object literal for the '<em><b>Background Image</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ZONE__BACKGROUND_IMAGE = eINSTANCE.getZone_BackgroundImage();
+
+		/**
+		 * The meta object literal for the '<em><b>Plantations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ZONE__PLANTATIONS = eINSTANCE.getZone_Plantations();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Plantations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ZONE___GET_ALL_PLANTATIONS = eINSTANCE.getZone__GetAllPlantations();
 
 		/**
 		 * The meta object literal for the '{@link fr.adaussy.permadeler.model.Permadeler.impl.NursaryImpl <em>Nursary</em>}' class.

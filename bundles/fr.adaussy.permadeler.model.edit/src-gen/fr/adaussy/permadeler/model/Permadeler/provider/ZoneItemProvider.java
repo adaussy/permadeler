@@ -69,7 +69,6 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PermadelerPackage.Literals.ZONE__PHASES);
 			childrenFeatures.add(PermadelerPackage.Literals.ZONE__SUB_ZONES);
 		}
 		return childrenFeatures;
@@ -135,6 +134,11 @@ public class ZoneItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Zone.class)) {
 			case PermadelerPackage.ZONE__PHASES:
+			case PermadelerPackage.ZONE__BACKGROUND_IMAGE:
+			case PermadelerPackage.ZONE__PLANTATIONS:
+				fireNotifyChanged(
+						new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case PermadelerPackage.ZONE__SUB_ZONES:
 				fireNotifyChanged(
 						new ViewerNotification(notification, notification.getNotifier(), true, false));

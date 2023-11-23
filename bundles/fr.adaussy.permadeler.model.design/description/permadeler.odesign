@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="model" version="12.0.0.2017041100">
   <ownedViewpoints name="FoodForestViewPoint" modelFileExtension="*.Permadeler">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType'] //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_DropPlantation']" name="FoodForestMapDiagram" label="Carte Implantation Foret Jardin" titleExpression="aql:self.getDefaultPlanName()" initialisation="true" showOnStartup="true" domainClass="Permadeler::PlantationPhase" enablePopupBars="true" imagePath="/fr.adaussy.permadeler.model.design/img/plan.png">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType'] //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_DropPlantation']" name="FoodForestMapDiagram" label="Carte Implantation Foret Jardin" titleExpression="aql:self.getDefaultPlanName()" initialisation="true" showOnStartup="true" domainClass="Permadeler::Zone" enablePopupBars="true" imagePath="/fr.adaussy.permadeler.model.design/img/plan.png">
       <metamodel href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="PMD_TopLayer" label="Cacher les strates hausse (Canopée, Sous Canopée)">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::CANOPY and self.currentLayer != Permadeler::Layer::UNDERSTORY"/>
@@ -26,7 +26,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="CI_DiagSizeMarker" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="CI_DiagSizeMarker" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="1" showIcon="false" labelExpression="" tooltipExpression="Marqueur de fin de plan" hideLabelByDefault="true" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/EndDiagMarker.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -54,7 +54,7 @@
                   <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                     <initialOperation/>
                   </buttons>
-                  <page name="NewSpeciesDialog_Page" labelExpression="Plante" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.20 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.0"/>
+                  <page name="NewSpeciesDialog_Page" labelExpression="Plante" domainClass="Permadeler::Plant" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.1 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.8 //@extensions.0/@categories.0/@groups.14 //@extensions.0/@categories.0/@groups.13 //@extensions.0/@categories.0/@groups.7 //@extensions.0/@categories.0/@groups.19 //@extensions.0/@categories.0/@groups.9 //@extensions.0/@categories.0/@groups.10 //@extensions.0/@categories.0/@groups.0"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.createPlantation(self,true)">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:containerView"/>
@@ -96,7 +96,11 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.dupplicate(elementView,diagram)"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.dupplicate(elementView,diagram)">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="aql:diagram">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.moveNode(createdView)"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -161,7 +165,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.showInKnowledgeBase()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.showInPlantationView()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -175,7 +179,7 @@
         </customization>
       </defaultLayer>
       <additionalLayers name="CalibrationLayer" activeByDefault="true">
-        <nodeMappings name="PMD_CANOPY_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_CANOPY_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Canope'" sizeComputationExpression="aql:Permadeler::Layer::CANOPY.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -183,7 +187,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_UNDERSTORY_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_UNDERSTORY_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Sous Canopee'" sizeComputationExpression="aql:Permadeler::Layer::UNDERSTORY.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -191,7 +195,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_SHRUB_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_SHRUB_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Arbuste'" sizeComputationExpression="aql:Permadeler::Layer::SHRUB.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -199,7 +203,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_HERB_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_HERB_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Herbacé'" sizeComputationExpression="aql:Permadeler::Layer::HERB.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -207,7 +211,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_ROOT_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_ROOT_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Racines'" sizeComputationExpression="aql:Permadeler::Layer::ROOT.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -215,7 +219,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_GROUND_COVER_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_GROUND_COVER_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Couvert Vegetal'" sizeComputationExpression="aql:Permadeler::Layer::GROUND_COVER.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -223,7 +227,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_VINE_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_VINE_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Liane'" sizeComputationExpression="aql:Permadeler::Layer::VINE.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -231,7 +235,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="PMD_OTHER_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::PlantationPhase">
+        <nodeMappings name="PMD_OTHER_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Autre'" sizeComputationExpression="aql:Permadeler::Layer::OTHER.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -260,11 +264,10 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.eContainer()">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::Zone" referenceName="subZones">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Nouvelle zone'"/>
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Permadeler::PlantationPhase" referenceName="phases">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Phase 1'"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:instance">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'Nouvelle zone'"/>
                     <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@nodeMappings[name='PMD_SubZone']" containerViewExpression="var:containerView"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Nouvelle zone">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -279,18 +282,11 @@
                           <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']"/>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneCreationTool']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.1/@subModelOperations.2/@groups.0"/>
+                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneCreationTool']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                       <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
-                        <controls xsi:type="properties:TextDescription" name="PND_NewZone" labelExpression="aql:'Nom de la zone'" valueExpression="aql:self.eContainer().name">
+                        <controls xsi:type="properties:TextDescription" name="PND_NewZone" labelExpression="aql:'Nom de la zone'" valueExpression="aql:self.name">
                           <initialOperation>
-                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
-                              <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:newValue"/>
-                            </firstModelOperations>
-                          </initialOperation>
-                        </controls>
-                        <controls xsi:type="properties:TextDescription" name="PMD_NewZoneNewPahse" labelExpression="aql:'Nom de la phase'" valueExpression="aql:self.name">
-                          <initialOperation>
-                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self">
                               <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:newValue"/>
                             </firstModelOperations>
                           </initialOperation>
@@ -494,7 +490,7 @@
         </actions>
       </pages>
       <pages name="ProductionPage" labelExpression="Production" domainClass="Permadeler::Production" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.12"/>
-      <pages name="PlantationProduction" labelExpression="Plant Production" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.18" indented="true">
+      <pages name="PlantationProduction" labelExpression="Plant Production" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.17" indented="true">
         <actions tooltipExpression="Créer une nouvelle production" imageExpression="/fr.adaussy.permadeler.model.design/img/add_obj.png">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type">
@@ -503,7 +499,7 @@
           </initialOperation>
         </actions>
       </pages>
-      <pages name="PlantationActions" labelExpression="Plant Actions" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.17" indented="true">
+      <pages name="PlantationActions" labelExpression="Plant Actions" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.16" indented="true">
         <actions tooltipExpression="Créer une nouvelle action" imageExpression="/fr.adaussy.permadeler.model.design/img/add_obj.png">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.type">
@@ -514,9 +510,8 @@
       </pages>
       <pages name="Plantation_TypeReferences" labelExpression="Plant references" domainClass="Permadeler::Plantation" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0" indented="true"/>
       <pages name="RootPage" labelExpression="Projet" domainClass="Permadeler::Root" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.15"/>
-      <pages name="PlantationPhaseGroup" labelExpression="Plantation Phase" domainClass="Permadeler::PlantationPhase" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.16"/>
-      <pages name="PlantGroup_Page" labelExpression="Groupe" domainClass="Permadeler::PlantGroup" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.19"/>
-      <pages name="TagguedElement_Page" labelExpression="Tags" domainClass="Permadeler::TaggedElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.20"/>
+      <pages name="PlantGroup_Page" labelExpression="Groupe" domainClass="Permadeler::PlantGroup" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.18"/>
+      <pages name="TagguedElement_Page" labelExpression="Tags" domainClass="Permadeler::TaggedElement" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.19"/>
       <groups name="ReferenceGroup" labelExpression="References" domainClass="Permadeler::ReferencingElement" semanticCandidateExpression="aql:Sequence{self,self.type}">
         <controls xsi:type="properties:ListDescription" name="Permadeler::ReferencingElement references" labelExpression="References" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('references'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('references').changeable" valueExpression="aql:self.references" displayExpression="var:value">
           <actions imageExpression="/fr.adaussy.permadeler.rcp/icons/add.gif">
@@ -1058,18 +1053,6 @@
         </controls>
       </groups>
       <groups name="RootGroup" labelExpression="Projet" domainClass="Permadeler::Root" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="Permadeler::Root name" labelExpression="Nom" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:TextAreaDescription" name="Permadeler::Root description" labelExpression="Description" lineCount="10" valueExpression="aql:self.description">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="var:newValue"/>
-          </initialOperation>
-        </controls>
-      </groups>
-      <groups name="PlantationPhaseGroup" labelExpression="Plantation Phase" domainClass="Permadeler::PlantationPhase" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Permadeler::Root name" labelExpression="Nom" helpExpression="aql:input.emfEditServices(self).getDescription(self.eClass().getEStructuralFeature('name'))" isEnabledExpression="aql:self.eClass().getEStructuralFeature('name').changeable" valueExpression="aql:self.name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
