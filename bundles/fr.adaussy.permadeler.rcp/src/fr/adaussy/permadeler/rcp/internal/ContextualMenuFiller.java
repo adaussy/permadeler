@@ -66,6 +66,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.AddToGroupAction;
 import fr.adaussy.permadeler.rcp.internal.actions.CreateChildAction;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
+import fr.adaussy.permadeler.rcp.internal.actions.ImportKnowledgeFromOtherProjectAction;
 import fr.adaussy.permadeler.rcp.internal.actions.LesAlveoleDataBaseImportAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
@@ -198,6 +199,7 @@ public class ContextualMenuFiller {
 			KnowledgeBase knowledge = selections.get(0);
 			others.add(new RegenerateAllIdsAction(session, knowledge.getAllPlants()));
 			imports.add(new LesAlveoleDataBaseImportAction(session, knowledge));
+			imports.add(new ImportKnowledgeFromOtherProjectAction(session, knowledge));
 		}
 
 	}
