@@ -20,7 +20,6 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.factory.SessionFactory;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
 import org.eclipse.sirius.ui.business.internal.commands.ChangeViewpointSelectionCommand;
@@ -117,7 +116,6 @@ public class CreateNewProjectMenu {
 		// Needed to detect the addition of a new semantic resource
 		session.getSessionResource().setModified(true);
 		session.save(new NullProgressMonitor());
-		session = SessionManager.INSTANCE.getSession(siriusURI, new NullProgressMonitor());
 		session.open(new NullProgressMonitor());
 
 		return siriusURI;

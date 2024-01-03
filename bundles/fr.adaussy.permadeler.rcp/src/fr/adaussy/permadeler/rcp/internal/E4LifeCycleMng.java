@@ -26,7 +26,6 @@ import org.eclipse.eef.ide.ui.internal.preferences.EEFPreferences;
 import org.eclipse.eef.ide.ui.internal.widgets.EEFTextLifecycleManager.ConflictResolutionMode;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionListener;
@@ -197,7 +196,7 @@ public class E4LifeCycleMng {
 					eclipseContext.modify(Nursary.class, root.getNursary());
 					PermadelerSession permSession = new PermadelerSession(session, root);
 					eclipseContext.modify(PermadelerSession.class, permSession);
-					
+
 					// Run update migration
 					new Migrator().migrate(permSession);
 
