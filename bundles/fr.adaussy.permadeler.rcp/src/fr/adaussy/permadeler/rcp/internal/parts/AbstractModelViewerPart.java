@@ -286,6 +286,12 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 				if (oldContentProvider instanceof ModelContentProvider) {
 					((ModelContentProvider)oldContentProvider).dispose();
 				}
+
+				if (session.getStatus() == SessionStatus.DIRTY) {
+					if (mPart != null) {
+						mPart.setDirty(true);
+					}
+				}
 			});
 		}
 	}
