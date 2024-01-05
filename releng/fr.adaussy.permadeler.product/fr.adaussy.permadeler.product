@@ -3,14 +3,15 @@
 
 <product name="Permadeler product" uid="fr.adaussy.permadeler.product" id="fr.adaussy.permadeler.branding.product" application="fr.adaussy.permadeler.branding.application" version="0.4.0.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
 
+
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
       <programArgs>-clearPersistedState
--Drepository=https://permadeler.org/permadeler/repository/latest/
       </programArgs>
       <vmArgs>-Xms2024m
+-Drepository=https://permadeler.org/permadeler/repository/latest/
       </vmArgs>
       <vmArgsLin>-Xmx8192m
       </vmArgsLin>
@@ -30,8 +31,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
