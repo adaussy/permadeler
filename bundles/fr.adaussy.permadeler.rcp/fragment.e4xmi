@@ -7,6 +7,9 @@
       <children xsi:type="menu:Menu" xmi:id="_UpCFkIvGEeqeaba_67ym5g" elementId="fr.adaussy.permadeler.rcp.menu.file" label="Fichier">
         <children xsi:type="menu:DirectMenuItem" xmi:id="_FDTaMNvQEeqSGvZLYPjN5g" elementId="fr.adaussy.permadeler.rcp.directmenuitem.createnewproject" label="Nouveau Projet" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.CreateNewProjectMenu"/>
         <children xsi:type="menu:DirectMenuItem" xmi:id="_gXiSsIuHEeq17LNsNIJ33Q" elementId="fr.adaussy.permadeler.rcp.directmenuitem.load" label="Charger un Projet" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.LoadProjectMenu"/>
+        <children xsi:type="menu:Menu" xmi:id="_HSipoKv3Ee6dn5KlaOJG9g" elementId="fr.adaussy.permadeler.rcp.menu.recentProject" label="Projets recents">
+          <children xsi:type="menu:DynamicMenuContribution" xmi:id="_fqOboKv2Ee6dn5KlaOJG9g" elementId="fr.adaussy.permadeler.rcp.dynamicmenucontribution.recentProjectdynCont" label="Projets recents" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.menu.RecentProjectMenu"/>
+        </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_WbQ5cJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.menu.edit" label="Edition">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_2XrywJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handledmenuitem.undo" label="Annuler" iconURI="platform:/plugin/org.eclipse.sirius.diagram.ui/icons/undo_edit.gif" command="_ba7RYJTgEeqWsP_O9XzfKw"/>
@@ -92,6 +95,9 @@
     <elements xsi:type="commands:Command" xmi:id="_Nq4nMI4PEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.command.sendNodeToFront" commandName="Bring node to front"/>
     <elements xsi:type="commands:Command" xmi:id="_3C0jQI4QEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.command.sendNodeToBackward" commandName="Send node backward"/>
     <elements xsi:type="commands:Command" xmi:id="_3C2_gI4QEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.command.bringNodeForward" commandName="Brind node forward"/>
+    <elements xsi:type="commands:Command" xmi:id="_ngk3YKv3Ee6dn5KlaOJG9g" elementId="fr.adaussy.permadeler.rcp.command.open.recent.project" commandName="Open recent project command">
+      <parameters xmi:id="_9jriMKv3Ee6dn5KlaOJG9g" elementId="fr.adaussy.permadeler.rcp.commandparameter.session.uri" name="Session URI"/>
+    </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_f4__MJTgEeqWsP_O9XzfKw" featurename="handlers" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_hQ8pkJTgEeqWsP_O9XzfKw" elementId="fr.adaussy.permadeler.rcp.handler.undo" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.UndoHandler" command="_ba7RYJTgEeqWsP_O9XzfKw"/>
@@ -100,6 +106,7 @@
     <elements xsi:type="commands:Handler" xmi:id="_O9FO4I4PEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.handler.toFront" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.actions.BringToFrontAction" command="_Nq4nMI4PEe2reNf8hdyV1g"/>
     <elements xsi:type="commands:Handler" xmi:id="_84Iw0I4QEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.handler.nodeBackward" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.actions.SendBackwardAction" command="_3C0jQI4QEe2reNf8hdyV1g"/>
     <elements xsi:type="commands:Handler" xmi:id="_84LNEI4QEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.handler.bringForward" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.actions.BringFowardAction" command="_3C2_gI4QEe2reNf8hdyV1g"/>
+    <elements xsi:type="commands:Handler" xmi:id="_qsZ6MKv3Ee6dn5KlaOJG9g" elementId="fr.adaussy.permadeler.rcp.handler.openRecentProject" contributionURI="bundleclass://fr.adaussy.permadeler.rcp/fr.adaussy.permadeler.rcp.internal.handlers.OpenRecentProjectHandler" command="_ngk3YKv3Ee6dn5KlaOJG9g"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_xaKgYI4KEe2reNf8hdyV1g" featurename="bindingTables" parentElementId="org.eclipse.e4.legacy.ide.application">
     <elements xsi:type="commands:BindingTable" xmi:id="_8JXOAI4KEe2reNf8hdyV1g" elementId="fr.adaussy.permadeler.rcp.bindingtable.0" bindingContext="_bYfY8I4KEe2reNf8hdyV1g">

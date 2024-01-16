@@ -63,6 +63,8 @@ location Orbit-202203 "https://download.eclipse.org/tools/orbit/downloads/drops/
 	org.apache.poi.ooxml.schemas lazy
 	org.apache.poi lazy
 	org.apache.xmlbeans lazy
+	com.google.gson lazy
+	
 }
 
 location "http://download.eclipse.org/nebula/snapshot" {

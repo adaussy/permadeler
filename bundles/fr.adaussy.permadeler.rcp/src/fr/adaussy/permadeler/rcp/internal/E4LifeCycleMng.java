@@ -10,6 +10,7 @@
 package fr.adaussy.permadeler.rcp.internal;
 
 import java.io.File;
+import java.text.MessageFormat;
 import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
@@ -45,6 +46,7 @@ import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceCustomImpl;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.menu.CreateNewProjectMenu;
 import fr.adaussy.permadeler.rcp.internal.migratations.Migrator;
+import fr.adaussy.permadeler.rcp.internal.projects.Projects;
 
 /**
  * Add on to handle the application lifecycle
@@ -72,6 +74,7 @@ public class E4LifeCycleMng {
 		eclipseContext.declareModifiable(KnowledgeBase.class);
 		eclipseContext.declareModifiable(Nursary.class);
 		eclipseContext.declareModifiable(PermadelerSession.class);
+		eclipseContext.declareModifiable(Session.class);
 		SessionManager.INSTANCE.addSessionsListener(new SessionInjector(eclipseContext));
 
 		checkForUpdate(eclipseContext, display);
@@ -118,16 +121,13 @@ public class E4LifeCycleMng {
 
 	}
 
-	/**
-	 * Object in charge of injecting the current session into the Eclipse context
-	 * 
-	 * @author Arthur Daussy
-	 */
 	private final class SessionInjector extends SessionManagerListener.Stub implements SessionListener {
 
 		private IEclipseContext eclipseContext;
 
 		private Session session;
+
+		private PermadelerSession permSession;
 
 		/**
 		 * Simple constructor
@@ -172,9 +172,6 @@ public class E4LifeCycleMng {
 			});
 			if (newSession.getSelectedViewpoints(false).stream()
 					.anyMatch(v -> CreateNewProjectMenu.DEFAULT_VIEWPOINT.equals(v.getName()))) {
-				if (session != null) {
-					session.removeListener(this);
-				}
 				session = newSession;
 				session.addListener(this);
 			}
@@ -184,6 +181,7 @@ public class E4LifeCycleMng {
 		@Override
 		public void notify(int changeKind) {
 			if (SessionListener.OPENED == changeKind) {
+				
 				Root root = session.getSemanticResources().stream()
 						.filter(s -> s instanceof PermadelerResourceCustomImpl)//
 						.filter(s -> !s.getContents().isEmpty()).map(s -> (Root)s.getContents().get(0))
@@ -194,24 +192,35 @@ public class E4LifeCycleMng {
 					eclipseContext.modify(SeedBank.class, seedBank);
 					eclipseContext.modify(KnowledgeBase.class, root.getKnowledgeBase());
 					eclipseContext.modify(Nursary.class, root.getNursary());
-					PermadelerSession permSession = new PermadelerSession(session, root);
+					permSession = new PermadelerSession(session, root);
+					eclipseContext.modify(Session.class, session);
 					eclipseContext.modify(PermadelerSession.class, permSession);
+
+					String sessionURI = session.getSessionResource().getURI().toFileString();
+					RcpPlugin.logInfo(MessageFormat.format("Session opened : {0}", sessionURI));
+					Projects.addProject(sessionURI, root.getName());
 
 					// Run update migration
 					new Migrator().migrate(permSession);
 
-					// Update the vesion of the model to the current version of software
+					// Update the version of the model to the current version of software
 					String version = root.getProductVersion();
 					Version currentVersion = Platform.getProduct().getDefiningBundle().getVersion();
 					if (version == null || Version.parseVersion(version).compareTo(currentVersion) < 0) {
-						permSession.modify("Update model version", () -> {
+						permSession.modify("Update model version", () -> { //$NON-NLS-1$
 							root.setProductVersion(currentVersion.toString());
 						});
 					}
 
-					eclipseContext.modify(Session.class, session);
+					System.out.println("Openend " + root.getName());
 				}
 
+			} else if (SessionListener.CLOSING == changeKind) {
+				RcpPlugin.logInfo(MessageFormat.format("Closing session: {0}", session.getSessionResource().getURI().toFileString()));
+				session = null;
+				permSession = null;
+				eclipseContext.modify(Session.class, null);
+				eclipseContext.modify(PermadelerSession.class, null);
 			}
 
 		}

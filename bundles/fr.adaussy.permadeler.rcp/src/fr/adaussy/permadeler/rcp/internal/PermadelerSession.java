@@ -21,10 +21,12 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.tools.api.command.ui.NoUICallback;
 import org.eclipse.swt.widgets.Shell;
 
@@ -51,14 +53,24 @@ public class PermadelerSession {
 		this.root = root;
 	}
 
-	public static void loadSession(String path, IEclipseContext context, Shell shell) {
+	public static void loadSession(String path, IEclipseContext context, Shell shell,
+			PermadelerSession oldPermSession) {
+
+		if (oldPermSession != null) {
+			Session oldSession = oldPermSession.getSession();
+			if (oldSession.getStatus() == SessionStatus.DIRTY) {
+				if (MessageDialog.openQuestion(shell, "Sauvegarder les changements",
+						"Voulez vous sauvegarder les changements?")) {
+					oldSession.save(new NullProgressMonitor());
+				}
+			}
+			oldSession.close(new NullProgressMonitor());
+		}
+
 		URI createFileURI = URI.createFileURI(path);
 		IRunnableWithProgress op = progress -> {
 			progress.beginTask(RcpMessages.LoadProjectMenu_0, IProgressMonitor.UNKNOWN);
-			Session session = SessionManager.INSTANCE.openSession(createFileURI, new NullProgressMonitor(),
-					new NoUICallback());
-			context.declareModifiable(Session.class);
-			context.modify(Session.class, session);
+			SessionManager.INSTANCE.openSession(createFileURI, new NullProgressMonitor(), new NoUICallback());
 			progress.done();
 		};
 		try {

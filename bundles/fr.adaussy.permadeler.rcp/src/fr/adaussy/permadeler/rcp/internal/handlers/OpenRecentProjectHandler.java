@@ -7,31 +7,23 @@
  * Contributors:
  * Arthur Daussy - initial API and implementation.
  ******************************************************************************/
-package fr.adaussy.permadeler.rcp.internal.menu;
+package fr.adaussy.permadeler.rcp.internal.handlers;
+
+import javax.inject.Named;
 
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 
-/**
- * Handler used to load a project
- * 
- * @author Arthur Daussy
- */
-public class LoadProjectMenu {
-
+public class OpenRecentProjectHandler {
 	@Execute
-	public void execute(Shell shell, IEclipseContext context, @Optional PermadelerSession oldSession) {
-		FileDialog fileDialog = new FileDialog(shell);
-		fileDialog.setFilterExtensions(new String[] {"*" + CreateNewProjectMenu.REPRESENTATION_FILE_EXT }); //$NON-NLS-1$
-		String path = fileDialog.open();
-		if (path != null) {
-			PermadelerSession.loadSession(path, context, shell, oldSession);
-		}
+	public void execute(@Named("fr.adaussy.permadeler.rcp.commandparameter.session.uri") String resourcePath,
+			Shell shell, IEclipseContext context, @Optional PermadelerSession oldSession) {
+
+		PermadelerSession.loadSession(resourcePath, context, shell, oldSession);
 	}
 
 }

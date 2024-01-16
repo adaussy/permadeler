@@ -113,6 +113,13 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 					mPart.setDirty(true);
 				} else if (SessionListener.SYNC == changeKind) {
 					mPart.setDirty(false);
+				} else if (SessionListener.CLOSING == changeKind) {
+					if (displayedSession != null) {
+						displayedSession.getTransactionalEditingDomain()
+								.removeResourceSetListener(represenationUpdater);
+						displayedSession.removeListener(dirtyListener);
+					}
+
 				}
 			}
 
@@ -251,16 +258,11 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 	@Optional
 	public void newSession(Session session) {
 
-		if (displayedSession != null) {
-			displayedSession.getTransactionalEditingDomain().removeResourceSetListener(represenationUpdater);
-			displayedSession.removeListener(dirtyListener);
-		}
-
 		if (session != null) {
 			session.addListener(dirtyListener);
 			session.getTransactionalEditingDomain().addResourceSetListener(represenationUpdater);
-			updateContent(session);
 		}
+		updateContent(session);
 	}
 
 	protected abstract EObject getViewerRoot(Root root);
@@ -276,21 +278,27 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 		if (display != null) {
 			display.asyncExec(() -> {
 				this.displayedSession = session;
-				Collection<Resource> allSessionResources = session.getSemanticResources();
-				EObject root = allSessionResources.stream().filter(r -> r instanceof PermadelerResourceImpl)
-						.findFirst().map(r -> r.getContents().get(0)).orElse(null);
+				if (session != null) {
 
-				IContentProvider oldContentProvider = viewer.getContentProvider();
-				viewer.setContentProvider(createContentProvider(session));
-				viewer.setInput(Collections.singleton(getViewerRoot((Root)root)));
-				if (oldContentProvider instanceof ModelContentProvider) {
-					((ModelContentProvider)oldContentProvider).dispose();
-				}
+					Collection<Resource> allSessionResources = session.getSemanticResources();
+					EObject root = allSessionResources.stream()
+							.filter(r -> r instanceof PermadelerResourceImpl).findFirst()
+							.map(r -> r.getContents().get(0)).orElse(null);
 
-				if (session.getStatus() == SessionStatus.DIRTY) {
-					if (mPart != null) {
-						mPart.setDirty(true);
+					IContentProvider oldContentProvider = viewer.getContentProvider();
+					viewer.setContentProvider(createContentProvider(session));
+					viewer.setInput(Collections.singleton(getViewerRoot((Root)root)));
+					if (oldContentProvider instanceof ModelContentProvider) {
+						((ModelContentProvider)oldContentProvider).dispose();
 					}
+
+					if (session.getStatus() == SessionStatus.DIRTY) {
+						if (mPart != null) {
+							mPart.setDirty(true);
+						}
+					}
+				} else {
+					viewer.setInput(null);
 				}
 			});
 		}
