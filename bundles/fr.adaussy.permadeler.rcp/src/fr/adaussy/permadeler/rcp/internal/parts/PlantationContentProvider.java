@@ -74,18 +74,11 @@ public class PlantationContentProvider extends ModelContentProvider {
 		if (parentElement instanceof Zone) {
 			Zone zone = (Zone)parentElement;
 
-			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(zone, TagsPlantGroup.class).orElseGet(() -> {
-				TagsPlantGroup adapter = new TagsPlantGroup(zone, getViewer(), () -> zone.getPlantations());
-				zone.eAdapters().add(adapter);
-				return adapter;
-			});
-
-			previousChildren.add(tagsPlantGroup);
-
 			@SuppressWarnings("unchecked")
 			LayerPlantGroup<Zone> layerPlantGroup = EMFUtils.getAdapter(zone, LayerPlantGroup.class)
 					.orElseGet(() -> {
-						LayerPlantGroup<Zone> adapter = new LayerPlantGroup<Zone>(zone, getViewer(),
+						LayerPlantGroup<Zone> adapter = new LayerPlantGroup<Zone>(zone,
+								PermadelerPackage.eINSTANCE.getPlantation(), getViewer(),
 								PermadelerPackage.eINSTANCE.getPlantation_CurrentLayer(),
 								base -> computeLayerGroups(base));
 						zone.eAdapters().add(adapter);
@@ -93,6 +86,14 @@ public class PlantationContentProvider extends ModelContentProvider {
 					});
 
 			previousChildren.add(layerPlantGroup);
+
+			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(zone, TagsPlantGroup.class).orElseGet(() -> {
+				TagsPlantGroup adapter = new TagsPlantGroup(zone, getViewer(), () -> zone.getPlantations());
+				zone.eAdapters().add(adapter);
+				return adapter;
+			});
+
+			previousChildren.add(tagsPlantGroup);
 
 		} else if (parentElement instanceof ISelfDescribingItem) {
 			previousChildren.addAll(((ISelfDescribingItem)parentElement).getChildren());

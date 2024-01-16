@@ -14,11 +14,15 @@ import java.util.Objects;
 import java.util.function.Function;
 
 import org.eclipse.collections.api.tuple.Pair;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.session.Session;
 
@@ -34,11 +38,14 @@ public class LayerPlantGroup<T extends EObject> extends AdapterImpl implements I
 
 	private Function<T, List<Pair<Layer, List<EObject>>>> computer;
 
-	public LayerPlantGroup(T root, Viewer viewer, EStructuralFeature listeningReference,
+	private EClass containedType;
+
+	public LayerPlantGroup(T root, EClass containedType, Viewer viewer, EStructuralFeature listeningReference,
 			Function<T, List<Pair<Layer, List<EObject>>>> computer) {
 		super();
 		this.root = root;
 		this.computer = computer;
+		this.containedType = containedType;
 
 		listener = new StrateListener(viewer, listeningReference);
 		Session.of(root).get().getTransactionalEditingDomain().addResourceSetListener(listener);
@@ -89,7 +96,7 @@ public class LayerPlantGroup<T extends EObject> extends AdapterImpl implements I
 		return root;
 	}
 
-	private static class StrateListener extends ResourceSetListenerImpl {
+	private class StrateListener extends ResourceSetListenerImpl {
 
 		private final Viewer viewer;
 
@@ -108,9 +115,21 @@ public class LayerPlantGroup<T extends EObject> extends AdapterImpl implements I
 
 		@Override
 		public void resourceSetChanged(ResourceSetChangeEvent event) {
-			if (event.getNotifications().stream().anyMatch(n -> n.getFeature() == feature)) {
-				viewer.refresh();
+			if (event.getNotifications().stream().anyMatch(n -> needRefresh(n))) {
+				if (viewer instanceof TreeViewer treeViewer) {
+					treeViewer.refresh(LayerPlantGroup.this);
+				} else {
+					viewer.refresh();
+
+				}
 			}
+		}
+
+		private boolean needRefresh(Notification n) {
+			return n.getFeature() == feature //
+					// Refresh on creation of deletion
+					|| (n.getFeature() instanceof EReference ref && ref.isContainment()
+							&& ref.getEReferenceType().isSuperTypeOf(containedType));
 		}
 	}
 
