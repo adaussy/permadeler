@@ -18,10 +18,13 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.sirius.business.api.session.Session;
 
@@ -104,7 +107,7 @@ public class TagsPlantGroup extends AdapterImpl implements ISelfDescribingItem {
 		return parent;
 	}
 
-	private static class TaggedListener extends ResourceSetListenerImpl {
+	private class TaggedListener extends ResourceSetListenerImpl {
 
 		private final Viewer viewer;
 
@@ -120,10 +123,21 @@ public class TagsPlantGroup extends AdapterImpl implements ISelfDescribingItem {
 
 		@Override
 		public void resourceSetChanged(ResourceSetChangeEvent event) {
-			if (event.getNotifications().stream()
-					.anyMatch(n -> n.getFeature() == PermadelerPackage.eINSTANCE.getTaggedElement_Tags())) {
-				viewer.refresh();
+			if (event.getNotifications().stream().anyMatch(n -> needRefresh(n))) {
+				if (viewer instanceof TreeViewer treeViewer) {
+					treeViewer.refresh(TagsPlantGroup.this);
+				} else {
+					viewer.refresh();
+
+				}
 			}
+		}
+
+		private boolean needRefresh(Notification n) {
+			return n.getFeature() == PermadelerPackage.eINSTANCE.getTaggedElement_Tags()
+					|| (n.getFeature() instanceof EReference ref && ref.isContainment()
+							&& PermadelerPackage.eINSTANCE.getTaggedElement()
+									.isSuperTypeOf(ref.getEReferenceType()));
 		}
 	}
 

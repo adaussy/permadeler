@@ -36,15 +36,16 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 		if (parentElement instanceof KnowledgeBase) {
 			KnowledgeBase knowledgeBase = (KnowledgeBase)parentElement;
 
-			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(knowledgeBase, TagsPlantGroup.class)
-					.orElseGet(() -> createTagAdapter(knowledgeBase));
-			previousChildren.add(tagsPlantGroup);
-
 			@SuppressWarnings("unchecked")
 			LayerPlantGroup<Zone> layerPlantGroup = EMFUtils.getAdapter(knowledgeBase, LayerPlantGroup.class)
 					.orElseGet(() -> createLayerAdapter(knowledgeBase));
 
 			previousChildren.add(layerPlantGroup);
+			
+			TagsPlantGroup tagsPlantGroup = EMFUtils.getAdapter(knowledgeBase, TagsPlantGroup.class)
+					.orElseGet(() -> createTagAdapter(knowledgeBase));
+
+			previousChildren.add(tagsPlantGroup);
 
 		} else if (parentElement instanceof ISelfDescribingItem) {
 			previousChildren.addAll(((ISelfDescribingItem)parentElement).getChildren());
@@ -57,8 +58,8 @@ public class KnwoledgePartContentProvider extends ModelContentProvider {
 
 	private LayerPlantGroup<KnowledgeBase> createLayerAdapter(KnowledgeBase knowledgeBase) {
 		LayerPlantGroup<KnowledgeBase> adapter = new LayerPlantGroup<KnowledgeBase>(knowledgeBase,
-				getViewer(), PermadelerPackage.eINSTANCE.getSpecies_DefaultLayer(),
-				base -> computeLayerGroup(base));
+				PermadelerPackage.eINSTANCE.getPlant(), getViewer(),
+				PermadelerPackage.eINSTANCE.getSpecies_DefaultLayer(), base -> computeLayerGroup(base));
 		knowledgeBase.eAdapters().add(adapter);
 		return adapter;
 	}
