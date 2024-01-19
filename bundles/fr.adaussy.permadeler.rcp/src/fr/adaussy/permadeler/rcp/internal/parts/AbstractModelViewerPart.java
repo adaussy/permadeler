@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 Arthur Daussy.
+ * Copyright (c) 2024 Arthur Daussy.
  *
  * This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License 2.0 
@@ -78,8 +78,10 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Root;
 import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
+import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceImpl;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.menu.MenuFiller;
@@ -241,6 +243,15 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 			if (!taggedElements.isEmpty()) {
 				PermadelerSession.of(displayedSession).modifyKnowledgeBase("Ajout d'un tag", b -> {
 					taggedElements.forEach(t -> t.getTags().add(tag));
+				});
+			}
+		} else if (target instanceof Zone targetZone) {
+			List<Plantation> dropPlantations = Stream.of(dropedElements)//
+					.filter(e -> e instanceof Plantation)//
+					.map(e -> (Plantation)e).toList();
+			if (!dropPlantations.isEmpty()) {
+				PermadelerSession.of(displayedSession).modifyKnowledgeBase("Changement de zone", b -> {
+					targetZone.getPlantations().addAll(dropPlantations);
 				});
 			}
 		}
