@@ -68,6 +68,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ImportKnowledgeFromOtherProjectAction;
 import fr.adaussy.permadeler.rcp.internal.actions.LesAlveoleDataBaseImportAction;
+import fr.adaussy.permadeler.rcp.internal.actions.MovePlantationsToZone;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
@@ -222,6 +223,8 @@ public class ContextualMenuFiller {
 						Collections.singletonList(type), KnowledgeViewerPart.ID));
 			}
 		}
+
+		others.add(new MovePlantationsToZone(session, selections));
 
 		navigateAction.add(new SelectInOpenRepresentation(selections, session));
 
