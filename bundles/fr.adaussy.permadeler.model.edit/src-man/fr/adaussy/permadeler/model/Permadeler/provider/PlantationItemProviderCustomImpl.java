@@ -23,6 +23,7 @@ import fr.adaussy.permadeler.model.Permadeler.EditMessages;
 import fr.adaussy.permadeler.model.Permadeler.PermadelerPackage;
 import fr.adaussy.permadeler.model.Permadeler.Plant;
 import fr.adaussy.permadeler.model.Permadeler.Plantation;
+import fr.adaussy.permadeler.model.edit.TextHelper;
 
 /**
  * {@link PlantationItemProvider} Custom impl
@@ -54,7 +55,8 @@ public class PlantationItemProviderCustomImpl extends PlantationItemProvider {
 		String label = ""; //$NON-NLS-1$
 
 		if (type != null) {
-			label += type.getName();
+
+			label += TextHelper.getEditLabel(getRootAdapterFactory(), type);
 		} else {
 			label += EditMessages.PlantationItemProviderCustomImpl_0;
 		}
