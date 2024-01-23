@@ -13,6 +13,7 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -30,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -74,6 +76,20 @@ public final class EMFUtils {
 				.put(PermadelerPackage.eNS_PREFIX.toLowerCase(), resourceFactory);
 
 		return rs;
+	}
+
+	public static void eSet(EObject eObject, EStructuralFeature feature, Object value) {
+		if (feature.isMany()) {
+			if (value instanceof Collection<?> collec) {
+
+				((List<Object>)eObject.eGet(feature)).addAll(collec);
+			} else {
+
+				((List<Object>)eObject.eGet(feature)).add(value);
+			}
+		} else {
+			eObject.eSet(feature, value);
+		}
 	}
 
 	public static <T extends EObject> List<T> getInverse(EObject source, Class<T> expectedType,

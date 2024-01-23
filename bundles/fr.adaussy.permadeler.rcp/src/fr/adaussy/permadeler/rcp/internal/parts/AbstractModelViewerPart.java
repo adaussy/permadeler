@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -78,15 +77,12 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Root;
-import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
-import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerResourceImpl;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
+import fr.adaussy.permadeler.rcp.internal.dnd.DnDHandler;
 import fr.adaussy.permadeler.rcp.internal.menu.MenuFiller;
 import fr.adaussy.permadeler.rcp.internal.provider.ModelLabelProvider;
-import fr.adaussy.permadeler.rcp.internal.utils.TagOwnerGroup;
 
 /**
  * Abstract implementation of the tree views
@@ -234,28 +230,8 @@ public abstract class AbstractModelViewerPart implements ITabbedPropertySheetPag
 	}
 
 	protected void handleDrop(Object target, Object[] dropedElements) {
-
-		if (target instanceof TagOwnerGroup tagOwner) {
-			List<TaggedElement> taggedElements = Stream.of(dropedElements)
-					.filter(e -> e instanceof TaggedElement).map(e -> ((TaggedElement)e)).toList();
-			String tag = tagOwner.getTag();
-
-			if (!taggedElements.isEmpty()) {
-				PermadelerSession.of(displayedSession).modifyKnowledgeBase("Ajout d'un tag", b -> {
-					taggedElements.forEach(t -> t.getTags().add(tag));
-				});
-			}
-		} else if (target instanceof Zone targetZone) {
-			List<Plantation> dropPlantations = Stream.of(dropedElements)//
-					.filter(e -> e instanceof Plantation)//
-					.map(e -> (Plantation)e).toList();
-			if (!dropPlantations.isEmpty()) {
-				PermadelerSession.of(displayedSession).modifyKnowledgeBase("Changement de zone", b -> {
-					targetZone.getPlantations().addAll(dropPlantations);
-				});
-			}
-		}
-
+		new DnDHandler(PermadelerSession.of(getSession()), () -> getViewer().getControl().getShell(),
+				dropedElements).doDrop(target);
 	}
 
 	@Override

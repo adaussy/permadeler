@@ -9,19 +9,11 @@
  ******************************************************************************/
 package fr.adaussy.permadeler.rcp.internal.parts;
 
-import java.util.List;
-import java.util.stream.Stream;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.transaction.RecordingCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.business.api.session.Session;
 
-import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
 import fr.adaussy.permadeler.model.Permadeler.Root;
-import fr.adaussy.permadeler.model.Permadeler.Species;
-import fr.adaussy.permadeler.model.Permadeler.Variety;
 
 /**
  * Views that display the knowledge base of the project
@@ -49,51 +41,6 @@ public class KnowledgeViewerPart extends AbstractModelViewerPart {
 	protected ModelContentProvider createContentProvider(Session session) {
 		return new KnwoledgePartContentProvider(session,
 				new AdapterFactoryContentProvider(createAdapterFactory()));
-	}
-
-	@Override
-	protected void handleDrop(Object target, Object[] dropedElements) {
-		if (target instanceof Species) {
-			Species species = (Species)target;
-			List<Variety> varieties = Stream.of(dropedElements).filter(e -> e instanceof Variety)
-					.map(e -> (Variety)e).toList();
-
-			if (!varieties.isEmpty()) {
-				TransactionalEditingDomain transactionalEditingDomain = getSession()
-						.getTransactionalEditingDomain();
-				transactionalEditingDomain.getCommandStack()
-						.execute(new RecordingCommand(transactionalEditingDomain) {
-
-							@Override
-							protected void doExecute() {
-								species.getVarieties().addAll(varieties);
-
-							}
-						});
-			}
-
-		} else if (target instanceof PlantGroup) {
-			PlantGroup targetGroup = (PlantGroup)target;
-			List<Species> droppedSpecies = Stream.of(dropedElements)//
-					.filter(e -> e instanceof Species).map(e -> ((Species)e))//
-					.toList();
-
-			if (!droppedSpecies.isEmpty()) {
-				TransactionalEditingDomain transactionalEditingDomain = getSession()
-						.getTransactionalEditingDomain();
-				transactionalEditingDomain.getCommandStack()
-						.execute(new RecordingCommand(transactionalEditingDomain) {
-
-							@Override
-							protected void doExecute() {
-								targetGroup.getSpecies().addAll(droppedSpecies);
-
-							}
-						});
-			}
-
-		}
-		super.handleDrop(target, dropedElements);
 	}
 
 }
