@@ -26,7 +26,7 @@ import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSwitch;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
-import fr.adaussy.permadeler.rcp.internal.utils.SpeciesMerger;
+import fr.adaussy.permadeler.rcp.internal.utils.PlantMerger;
 import fr.adaussy.permadeler.rcp.internal.utils.TagOwnerGroup;
 
 public class DnDHandler {
@@ -124,39 +124,12 @@ public class DnDHandler {
 				return DnDResult.OK;
 			}
 
-			String targetLatinName = species.getFullLatinName();
-			if (targetLatinName != null) {
-				List<Species> speciesToMerge = Stream.of(dropedElements)
-						.filter(e -> e instanceof Species dSpecies
-								&& targetLatinName.equalsIgnoreCase(dSpecies.getFullLatinName()))
-						.map(e -> (Species)e).toList();
-
-				if (!speciesToMerge.isEmpty()) {
-					return mergeSpecies(species, speciesToMerge);
-
-				}
-			}
-
 			return null;
 		}
 
 		@Override
 		public DnDResult defaultCase(EObject object) {
 			return DnDResult.NOTHING;
-		}
-
-		private DnDResult mergeSpecies(Species species, List<Species> speciesToMerge) {
-			if (MessageDialog.openConfirm(shellProvider.get(), "Fusion?",
-					"Voulez vous fusionner ces especes?")) {
-				session.modify("Fusion d'espece", () -> {
-					SpeciesMerger merger = new SpeciesMerger(session, species);
-					for (Species toMerge : speciesToMerge) {
-						merger.merge(toMerge);
-					}
-				});
-				return DnDResult.OK;
-			}
-			return null;
 		}
 
 		private void moveVarieties(Species species, List<Variety> varieties) {

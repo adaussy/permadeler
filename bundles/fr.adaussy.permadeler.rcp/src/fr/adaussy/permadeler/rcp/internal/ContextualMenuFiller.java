@@ -58,6 +58,7 @@ import fr.adaussy.permadeler.model.Permadeler.SowType;
 import fr.adaussy.permadeler.model.Permadeler.Species;
 import fr.adaussy.permadeler.model.Permadeler.TaggedElement;
 import fr.adaussy.permadeler.model.Permadeler.Tray;
+import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.rcp.RcpMessages;
 import fr.adaussy.permadeler.rcp.RcpPlugin;
@@ -68,6 +69,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ImportKnowledgeFromOtherProjectAction;
 import fr.adaussy.permadeler.rcp.internal.actions.LesAlveoleDataBaseImportAction;
+import fr.adaussy.permadeler.rcp.internal.actions.MergePlantAction;
 import fr.adaussy.permadeler.rcp.internal.actions.MovePlantationsToZone;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
@@ -328,6 +330,19 @@ public class ContextualMenuFiller {
 			if (!seedItems.isEmpty()) {
 				others.add(new SowSpeciesAction(session, variety));
 			}
+		}
+
+		List<Species> selectedSpeceis = varieties.stream().filter(s -> s instanceof Species)
+				.map(s -> ((Species)s)).toList();
+
+		if (selectedSpeceis.size() > 1) {
+			others.add(new MergePlantAction<Species>(session, selectedSpeceis));
+		}
+		List<Variety> selectedVarieties = varieties.stream().filter(s -> s instanceof Variety)
+				.map(s -> ((Variety)s)).toList();
+
+		if (selectedVarieties.size() > 1) {
+			others.add(new MergePlantAction<Variety>(session, selectedVarieties));
 		}
 
 	}
