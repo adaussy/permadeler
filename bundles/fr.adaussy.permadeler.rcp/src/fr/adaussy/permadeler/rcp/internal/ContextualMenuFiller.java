@@ -70,7 +70,7 @@ import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ImportKnowledgeFromOtherProjectAction;
 import fr.adaussy.permadeler.rcp.internal.actions.LesAlveoleDataBaseImportAction;
 import fr.adaussy.permadeler.rcp.internal.actions.MergePlantAction;
-import fr.adaussy.permadeler.rcp.internal.actions.MovePlantationsToZone;
+import fr.adaussy.permadeler.rcp.internal.actions.MoveAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenImageAction;
 import fr.adaussy.permadeler.rcp.internal.actions.OpenReference;
 import fr.adaussy.permadeler.rcp.internal.actions.PlanificationAction;
@@ -226,9 +226,19 @@ public class ContextualMenuFiller {
 			}
 		}
 
-		others.add(new MovePlantationsToZone(session, selections));
-
 		navigateAction.add(new SelectInOpenRepresentation(selections, session));
+
+		MoveAction<Zone> moveToZoneAction = MoveAction.builder(Zone.class)//
+				.withRef(PermadelerPackage.eINSTANCE.getZone_Plantations())//
+				.withRoot(PermadelerSession.of(session).getRoot())//
+				.withSession(session)//
+				.withText("Deplacer vers une autre zone")//
+				.withToMove(selections)//
+				.withImage(RcpPlugin.imageDescriptorFromPlugin("fr.adaussy.permadeler.rcp",
+						"/icons/move-to-zone.png"))// //$NON-NLS-1$
+				.build();
+
+		others.add(moveToZoneAction);
 
 	}
 
