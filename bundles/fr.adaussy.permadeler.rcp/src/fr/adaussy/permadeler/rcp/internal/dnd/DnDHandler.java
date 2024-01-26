@@ -15,7 +15,6 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Shell;
 
 import fr.adaussy.permadeler.model.Permadeler.PlantGroup;
@@ -26,7 +25,6 @@ import fr.adaussy.permadeler.model.Permadeler.Variety;
 import fr.adaussy.permadeler.model.Permadeler.Zone;
 import fr.adaussy.permadeler.model.Permadeler.util.PermadelerSwitch;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
-import fr.adaussy.permadeler.rcp.internal.utils.PlantMerger;
 import fr.adaussy.permadeler.rcp.internal.utils.TagOwnerGroup;
 
 public class DnDHandler {
@@ -108,6 +106,16 @@ public class DnDHandler {
 					targetZone.getPlantations().addAll(dropPlantations);
 				});
 				return DnDResult.OK;
+			}
+
+			List<Zone> dropZones = Stream.of(dropedElements)//
+					.filter(e -> e instanceof Zone)//
+					.map(e -> (Zone)e).toList();
+
+			if (!dropZones.isEmpty()) {
+				session.modifyKnowledgeBase("Changement de zone parent", b -> {
+					targetZone.getSubZones().addAll(dropZones);
+				});
 			}
 
 			return null;
