@@ -22,4 +22,22 @@
            class="fr.adaussy.permadeler.model.design.session.DesignSessionManagerListener">
      </listener>
   </extension>
+  <extension
+        id="custom.Zone.svg"
+        name="Zone"
+        point="org.eclipse.sirius.diagram.customBundledImageShape">
+     <image
+           imagePath="/fr.adaussy.permadeler.model.design/img/zone2.svg"
+           label="custom.Zone.svg">
+        <colorIdentifier
+              colorIdentifier="XMLID_45_">
+        </colorIdentifier>
+         <colorAttribute
+              colorAttribute="style">
+           <subAttributeIdentifier
+                 subAttributeIdentifier="fill">
+           </subAttributeIdentifier>
+        </colorAttribute>
+     </image>
+  </extension>
 </plugin>
