@@ -127,7 +127,7 @@ public class PlantationContentProvider extends ModelContentProvider {
 
 	private List<Pair<Layer, List<EObject>>> computeLayerGroups(Zone base) {
 		Map<Layer, List<EObject>> groupByTag = new LinkedHashMap<Layer, List<EObject>>();
-		for (Plantation plantation : base.getAllPlantations()) {
+		for (Plantation plantation : base.getPlantations()) {
 			groupByTag.computeIfAbsent(plantation.getCurrentLayer(), k -> new ArrayList<EObject>())
 					.add(plantation);
 		}
