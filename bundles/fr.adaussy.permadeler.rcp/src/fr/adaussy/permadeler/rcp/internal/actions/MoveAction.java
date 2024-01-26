@@ -37,7 +37,7 @@ public final class MoveAction<T extends EObject> extends AbstractModelAction {
 
 	private final EObject root;
 
-	private final EObject toMove;
+	private final List<? extends EObject> toMove;
 
 	private final Class<T> type;
 
@@ -66,12 +66,12 @@ public final class MoveAction<T extends EObject> extends AbstractModelAction {
 		dialog.setMulti(false);
 		if (dialog.open() == Dialog.OK) {
 			List<T> target = dialog.getSelection();
-			if (!target.isEmpty()) {
+			if (!target.isEmpty() && !toMove.isEmpty()) {
 				modifyModel(() -> {
 					if (ref.isMany()) {
-						((EList<EObject>)target.get(0).eGet(ref)).add(toMove);
+						((EList<EObject>)target.get(0).eGet(ref)).addAll(toMove);
 					} else {
-						target.get(0).eSet(ref, toMove);
+						target.get(0).eSet(ref, toMove.get(0));
 					}
 				});
 			}
@@ -110,7 +110,7 @@ public final class MoveAction<T extends EObject> extends AbstractModelAction {
 
 		private EObject root;
 
-		private EObject toMove;
+		private List<? extends EObject> toMove;
 
 		private Class<T> type;
 
@@ -145,7 +145,7 @@ public final class MoveAction<T extends EObject> extends AbstractModelAction {
 			return this;
 		}
 
-		public Builder<T> withToMove(EObject toMove) {
+		public Builder<T> withToMove(List<? extends EObject> toMove) {
 			this.toMove = toMove;
 			return this;
 		}
