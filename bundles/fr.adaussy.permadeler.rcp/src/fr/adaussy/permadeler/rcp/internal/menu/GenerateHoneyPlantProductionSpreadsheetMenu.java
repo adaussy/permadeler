@@ -22,12 +22,13 @@ import org.eclipse.swt.widgets.Shell;
 import com.google.common.base.Strings;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.model.Permadeler.Plantation;
 import fr.adaussy.permadeler.model.Permadeler.Production;
 import fr.adaussy.permadeler.model.Permadeler.ProductionType;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.spreadsheet.SpreadsheetExtractFactorys;
 import fr.adaussy.permadeler.rcp.internal.spreadsheet.SpreadsheetWriter;
-import fr.adaussy.permadeler.rcp.internal.utils.DiagramSelectionHelper;
+import fr.adaussy.permadeler.rcp.internal.utils.SemanticSelectionHelper;
 
 public class GenerateHoneyPlantProductionSpreadsheetMenu {
 
@@ -35,7 +36,9 @@ public class GenerateHoneyPlantProductionSpreadsheetMenu {
 
 	private List<Pair<Plant, Production>> provideCandidates(PermadelerSession session, Shell shell) {
 
-		return DiagramSelectionHelper.getPlantationMapDiagramPlantations(session, shell).stream()//
+		return SemanticSelectionHelper.selectZone(shell, session)
+				.<List<Plantation>> map(z -> z.getAllPlantations())//
+				.orElse(List.of()).stream()//
 				.flatMap(p -> p.getType().getAllProductions().stream()
 						.filter(pr -> pr.getType() == ProductionType.FLOWER)
 						.map(prod -> Tuples.pair(p.getType(), prod)))//
