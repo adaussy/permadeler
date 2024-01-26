@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import fr.adaussy.permadeler.model.Permadeler.Plant;
+import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.PermadelerSession;
 import fr.adaussy.permadeler.rcp.internal.provider.ModelLabelProvider;
 import fr.adaussy.permadeler.rcp.internal.utils.PlantMerger;
@@ -38,7 +39,9 @@ public class MergePlantAction<T extends Plant> extends AbstractModelAction {
 	private ModelLabelProvider labelProvider = new ModelLabelProvider();
 
 	public MergePlantAction(Session session, List<T> toMerge) {
-		super("Fusionner les " + toMerge.size() + " plantes selectionnées", session);
+		super("Fusionner les " + toMerge.size() + " plantes selectionnées",
+				RcpPlugin.imageDescriptorFromPlugin("fr.adaussy.permadeler.rcp", "/icons/merge-plant.png"), //$NON-NLS-1$ //$NON-NLS-2$
+				session);
 		this.toMerge = toMerge;
 	}
 
