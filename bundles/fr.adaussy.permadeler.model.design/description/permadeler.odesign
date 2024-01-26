@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="model" version="12.0.0.2017041100">
   <ownedViewpoints name="FoodForestViewPoint" modelFileExtension="*.Permadeler">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType'] //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_DropPlantation']" name="FoodForestMapDiagram" label="Carte Implantation Foret Jardin" titleExpression="aql:self.getDefaultPlanName()" initialisation="true" showOnStartup="true" domainClass="Permadeler::Zone" enablePopupBars="true" imagePath="/fr.adaussy.permadeler.model.design/img/plan.png">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType'] //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@toolSections.0/@ownedTools[name='PMD_DropPlantation']" name="FoodForestMapDiagram" label="Carte Implantation Foret Jardin" titleExpression="aql:self.getDefaultPlanName()" initialisation="true" showOnStartup="true" domainClass="Permadeler::Zone" enablePopupBars="true" imagePath="/fr.adaussy.permadeler.model.design/img/plan.png">
       <metamodel href="http://www.example.org/fr.adaussy.permadeler.model#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="PMD_TopLayer" label="Cacher les strates hausse (Canopée, Sous Canopée)">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::CANOPY and self.currentLayer != Permadeler::Layer::UNDERSTORY"/>
@@ -13,7 +13,7 @@
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" semanticConditionExpression="aql:self.currentLayer != Permadeler::Layer::GROUND_COVER and self.currentLayer != Permadeler::Layer::ROOT and self.currentLayer != Permadeler::Layer::HERB"/>
       </filters>
       <defaultLayer name="Default">
-        <nodeMappings name="PMD_Plantation" label="Plantation" semanticCandidatesExpression="aql:self.getReachablePlantations()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='PlantationDoubleClicTool']" domainClass="Permadeler::Plantation" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType']">
+        <nodeMappings name="PMD_Plantation" label="Plantation" semanticCandidatesExpression="aql:self.plantations" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='PlantationDoubleClicTool']" synchronizationLock="true" domainClass="Permadeler::Plantation" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType']">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" tooltipExpression="aql:self.getLabelProviderText()" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelFormat>bold</labelFormat>
@@ -83,15 +83,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_DisplayExistingPlantation" label="Afficher une plantation existante" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/org.eclipse.ui/icons/full/etool16/search.png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.selectPlantation(containerView)">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:containerView"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:ToolDescription" name="DuplicatePlantation" label="Dupliquer" iconPath="/fr.adaussy.permadeler.model.design/img/copy_edit.png">
             <element name="element"/>
             <elementView name="elementView"/>
@@ -115,17 +106,6 @@
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:newSemanticContainer.createPlantation(element,false)">
                   <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:newContainerView"/>
                 </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="PMD_DropPlantation" precondition="aql:element.oclIsKindOf(Permadeler::Plantation)" dragSource="PROJECT_EXPLORER">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
-                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:newContainerView"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -161,7 +141,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.deActivateTopLayerWireFrameMode()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="PlantationDoubleClicTool" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="PlantationDoubleClicTool" mappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation'] //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -172,9 +152,9 @@
         <toolSections name="PMD_Navigation"/>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style" attributeName="labelSize" value="aql:self.getLabelSize()"/>
-            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style" attributeName="labelPosition" value="aql:self.getLabelPosition()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']/@conditionnalStyles.0/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']/@style" attributeName="workspacePath" value="service:getSVGPath()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']/@conditionnalStyles.0/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']/@style" attributeName="labelSize" value="aql:self.getLabelSize()"/>
+            <featureCustomizations xsi:type="description:EAttributeCustomization" appliedOn="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']/@conditionnalStyles.0/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']/@style //@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']/@conditionnalStyles.0/@style" attributeName="labelPosition" value="aql:self.getLabelPosition()"/>
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
@@ -253,7 +233,7 @@
         </toolSections>
       </additionalLayers>
       <additionalLayers name="SubZoneLayer" activeByDefault="true">
-        <nodeMappings name="PMD_SubZone" detailDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneRepNavigation']" semanticCandidatesExpression="aql:self.subZones" createElements="false" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDoubleClick']" domainClass="Permadeler::Zone">
+        <nodeMappings name="PMD_SubZone" detailDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneRepNavigation']" semanticCandidatesExpression="aql:self.subZones" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDoubleClick']" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="aql:8" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>italic</labelFormat>
@@ -314,6 +294,44 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+      <additionalLayers name="Plantation Externes" activeByDefault="true">
+        <nodeMappings name="PMD_ExternalPlantation" label="Plantation Externe" semanticCandidatesExpression="aql:self.getExternalReachablePlantations()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='PlantationDoubleClicTool']" domainClass="Permadeler::Plantation" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType']">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" tooltipExpression="aql:self.getLabelProviderText()" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <labelFormat>bold</labelFormat>
+            <labelFormat>italic</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.wireframe">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" labelColor="//@userColorsPalettes[name='DiagramColors']/@entries[name='LabelLightGray']" tooltipExpression="aql:self.type.name" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <labelFormat>bold</labelFormat>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <toolSections name="PMD_ExternalPlantationTools">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="PMD_DropPlantation" precondition="aql:element.oclIsKindOf(Permadeler::Plantation)" dragSource="PROJECT_EXPLORER">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='Plantation%20Externes']/@nodeMappings[name='PMD_ExternalPlantation']" containerViewExpression="var:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="PMD_DisplayExistingPlantation" label="Afficher une plantation externe" nodeMappings="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" iconPath="/org.eclipse.ui/icons/full/etool16/search.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.selectPlantation(containerView)">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@nodeMappings[name='PMD_Plantation']" containerViewExpression="var:containerView"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>

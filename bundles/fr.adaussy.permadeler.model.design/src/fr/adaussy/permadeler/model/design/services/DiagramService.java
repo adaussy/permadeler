@@ -147,7 +147,7 @@ public class DiagramService {
 				.map(DSemanticDecorator::getTarget).filter(e -> e instanceof Plantation)
 				.collect(Collectors.toSet());
 
-		List<Plantation> reachablePlants = getReachablePlantations(currentZone);
+		List<Plantation> reachablePlants = getExternalReachablePlantations(currentZone);
 
 		ObjectSelectionDialog<Plantation> plantationDialog = new ObjectSelectionDialog<>(getShell(),
 				Plantation.class, p -> reachablePlants.contains(p) && !alreadyDisplayed.contains(p),
@@ -163,24 +163,24 @@ public class DiagramService {
 	}
 
 	/**
-	 * Gets all plantations available from this zone
+	 * Gets all plantations for parent of children zones
 	 * 
 	 * @param zone
 	 *            a zone
 	 * @return a list of plantation
 	 */
-	public List<Plantation> getReachablePlantations(Zone zone) {
+	public List<Plantation> getExternalReachablePlantations(Zone zone) {
 
-		List<Plantation> plantations = zone.getPlantations().stream().collect(toList());
+		List<Plantation> externalPlantations = EMFUtils.getAncestors(Zone.class, zone.eContainer()).stream()
+				.flatMap(z -> z.getPlantations().stream()).collect(toList());
 
-		EObject parent = zone.eContainer();
-		if (parent instanceof Zone parentZone) {
-			plantations.addAll(getReachablePlantations(parentZone));
-		}
+		zone.getSubZones().stream().flatMap(z -> z.getAllPlantations().stream())
+				.forEach(externalPlantations::add);
 
-		return plantations;
+		return externalPlantations;
 
 	}
+
 
 	public String getDefaultPlanName(Zone zone) {
 		return "Carte Implantation " + zone.getName();
@@ -202,6 +202,7 @@ public class DiagramService {
 
 	/**
 	 * Move graphical a newly created no so it does not appear on he given existing node
+	 * 
 	 * @param existing
 	 * @param node
 	 * @return
