@@ -234,10 +234,10 @@
       </additionalLayers>
       <additionalLayers name="SubZoneLayer" activeByDefault="true">
         <nodeMappings name="PMD_SubZone" detailDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneRepNavigation']" semanticCandidatesExpression="aql:self.subZones" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDoubleClick']" synchronizationLock="true" domainClass="Permadeler::Zone">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="aql:8" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.edit/icons/custo/commons/zone.svg">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="12" resizeKind="NSEW" shape="providedShape" providedShapeID="fr.adaussy.permadeler.model.design.custom.Zone.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelFormat>italic</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
           </style>
         </nodeMappings>
         <toolSections name="PMD_SubZoneTools">
