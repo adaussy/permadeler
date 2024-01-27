@@ -158,7 +158,7 @@
           </vsmElementCustomizations>
         </customization>
       </defaultLayer>
-      <additionalLayers name="CalibrationLayer" activeByDefault="true">
+      <additionalLayers endUserDocumentation="Ce calque permet de calibrer les tailles des plantations pour chaque strate.&#xD;&#xA;Pour cela, pour chaque strate, sélectionner et dimensioner le marqueur correspondant.&#xD;&#xA;Toutes les nouvelles plantations appartement à cette strate aura la même dimension." name="CalibrationLayer" label="Calque de calibration" icon="/fr.adaussy.permadeler.model.design/img/calibrate-icon.gif" activeByDefault="true">
         <nodeMappings name="PMD_CANOPY_Calibration" deletionDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='CalibrationLayer']/@toolSections.0/@ownedTools[name='NotAllowedDelete']" semanticCandidatesExpression="aql:self" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="aql:'Canope'" sizeComputationExpression="aql:Permadeler::Layer::CANOPY.getSVGSize()" resizeKind="NSEW" strokeSizeComputationExpression="1">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -232,7 +232,7 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
-      <additionalLayers name="SubZoneLayer" activeByDefault="true">
+      <additionalLayers endUserDocumentation="Ce calque permet d'afficher les sous-zones de cette zones dans la carte d'implantation." name="SubZoneLayer" label="Calque des sous zones" icon="/fr.adaussy.permadeler.model.edit/icons/other/icons/zone.png" activeByDefault="true">
         <nodeMappings name="PMD_SubZone" detailDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDiagramCreation']" navigationDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneRepNavigation']" semanticCandidatesExpression="aql:self.subZones" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@additionalLayers[name='SubZoneLayer']/@toolSections.0/@ownedTools[name='PMD_SubZoneDoubleClick']" synchronizationLock="true" domainClass="Permadeler::Zone">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="12" resizeKind="NSEW" shape="providedShape" providedShapeID="fr.adaussy.permadeler.model.design.custom.Zone.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -298,7 +298,7 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
-      <additionalLayers name="Plantation Externes" activeByDefault="true">
+      <additionalLayers endUserDocumentation="Ce calque permet d'afficher les plantations externes affichés dans cette carte d'implantation.&#xD;&#xA;Une planation externe est un plantation appartement à une zone parent ou à une zone fils.&#xD;&#xA;Pour ajouter une plantation vous pouvez &quot;glisser deposer&quot; des plantations dans la carte d'implantation ou utiliser l'outil &quot;Afficher une plantation externe&quot;." name="Plantation Externes" label="Calque des plantation externes" icon="/fr.adaussy.permadeler.model.edit/icons/custo/commons/plant.png" activeByDefault="true">
         <nodeMappings name="PMD_ExternalPlantation" label="Plantation Externe" semanticCandidatesExpression="aql:self.getExternalReachablePlantations()" createElements="false" doubleClickDescription="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.3/@ownedTools[name='PlantationDoubleClicTool']" domainClass="Permadeler::Plantation" dropDescriptions="//@ownedViewpoints[name='FoodForestViewPoint']/@ownedRepresentations[name='FoodForestMapDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='PMD_CreatePlantationFromType']">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:self.getPlantationLabel()" tooltipExpression="aql:self.getLabelProviderText()" sizeComputationExpression="aql:self.getSVGSize()" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.adaussy.permadeler.model.design/img/understory.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
