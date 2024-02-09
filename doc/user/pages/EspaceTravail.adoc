@@ -132,6 +132,25 @@ Il faut donc positionner le marqueur pour voir l'image importée au complet.
 
 Il est possible de modifier l'échelle et la transparence de l'image en utilisant le menu _Image de fond/Calibrer l'image de fond_.
 
+==== Calibrer les plantations
+
+Afin de définir la taille par défaut des plantations dans votre carte d'implantation vous pouvez utiliser le calque image:imgs/calques.png[] _Calque de calibration_. De manère générale un calque permet d'afficher ou de masquer une partie des éléments d'une carte.
+Le _Calque de Calibration_ permet d'afficher des calibres pour chaque strate de la foret jardin.
+Il vous suffit ensuite de redimensioner ces éléments pour définir la taille par défault de chaque nouvelle plantation dans votre carte.
+
+NOTE: Ces marqueurs sont particulierement utiles une fois que vous avez importé un fond de plan et que vous avez définit sa taille. Vous pouvez vous servir de la végétation existante pour dimensioner vos plantes.
+
+==== Définir des sous zones
+
+Quand votre carte vous semble trop complexe, il est peut être temps de diviser celle-ci en sous zone.
+Pour cela utiliser l'outil "Nouvelle Zone".
+Cette outil va créer une nouvelle zone.
+Donnez lui un nom le plus parlant possible.
+Une fois la zone présente dans votre carte, vous pouvez naviguer vers cette carte en double cliquant sur la zone.
+
+Vous pouvez changer la courleur de la figure de votre zone en utilisant l'onglet apparence.
+
+
 ==== Planter (enfin !!)
 
 Afin d'implanter une plante dans votre jardin, il existe plusieurs méthodes.
@@ -172,6 +191,13 @@ Ou utilisez les outils de la palette.
 * image:fildefer.png[] _Mode fil de fer_ : Toutes les plantations représentées en mode _houppier_ sont affichées dans le fond du diagramme en mode fil de fer.
 * image:modeplein.png[] _Mode plein_: Toutes les plantations représentées en mode _houppier_ sont affichées en premier plan du diagramme en mode plein.
 
+Il important de noter qu'un plantation peut etre affiché dans plusieurs cartes simultanément.
+Elle peut etre affiché dans des cartes d'implantation representant la même zone, mais aussi dans les cartes d'implantation des zone parentes ou filles.
+
+La régles d'affichage des plantation est la suivante.
+Le logiciel assure que toutes les plantations directement contenue dans la zone représentés par la carte sont automatiquement ajouté/supprimé dans la carte.
+Si vous souhaitez afficher des plantation provenant d'autre zone (parente ou fille) vous pouvez utiliser un glisser déposer depuis l'arbre de plantation dans votre carte ou utiliser l'outil "Afficher une plantation externe". Pour cela pensez à activer le calque "Calque des plantation externes".
+
 [NOTE]
 ====
 Si vous souhaitez chercher rapidement une plantation dans une représentation, vous pouvez utiliser le raccourci _Ctrl+O_. Cette action vous permet de rechercher des éléments dans diagramme.
@@ -198,6 +224,9 @@ Cette action va créer un dossier contenant deux fichiers:
 .Charger un projet
 Permet de charger un projet existant en sélectionnant un fichier _*.permarep_.
 
+.Projets récents
+Ce menu permet de d'ouvrir rapidement un projet précédement ouvert.
+
 === Édition
 
 Ce menu donne accès aux actions _Annuler_ et _Refaire_ aussi disponibles via _Ctrl+Z_ et _Ctrl+Y_
@@ -213,18 +242,18 @@ Attention à bien fermer les rapports déjà ouverts avant une génération d'un
 
 === Production de plantation
 
-Cette action va générer un tableau permettant de visualiser les différentes productions d'une zone au cours d'une année.
+Cette action va générer un tableau permettant de visualiser les différentes productions d'une zone (et de ses sous zones) au cours d'une année.
 
 image::production-report.png[]
 
 === Floraison Méllifère
 
-Cette action va générer un tableau permettant de visualiser les différentes périodes de production de fleurs mellifères.
+Cette action va générer un tableau permettant de visualiser les différentes périodes de production de fleurs mellifères d'une zone est de ses sous zones.
 
 image::honey-plant-report.png[]
 
 ===  Légende de plantation
 
-Cette action va générer un tableau permettant de construire une légende de votre plantation.
+Cette action va générer un tableau permettant de construire une légende de votre carte plantation.
 
 image::legendeplantation.png[]
