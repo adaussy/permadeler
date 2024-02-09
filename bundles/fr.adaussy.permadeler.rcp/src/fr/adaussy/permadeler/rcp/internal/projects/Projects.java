@@ -15,6 +15,7 @@ import static java.util.stream.Collectors.toList;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class Projects {
 		Path projectsPath = getFilePaths();
 		if (Files.exists(projectsPath)) {
 			Gson gson = new Gson();
-			try (var reader = new FileReader(projectsPath.toFile())) {
+			try (var reader = new FileReader(projectsPath.toFile(), Charset.forName("UTF-8"))) {
 				Projects projectsBean = gson.fromJson(reader, Projects.class);
 				return projectsBean.getProjects();
 			} catch (JsonSyntaxException | JsonIOException | IOException e) {
@@ -81,7 +82,7 @@ public class Projects {
 			}
 
 			Gson gson = new Gson();
-			try (var writter = new FileWriter(path.toFile())) {
+			try (var writter = new FileWriter(path.toFile(), Charset.forName("UTF-8"))) {
 				gson.toJson(new Projects(listOfProject), writter);
 			} catch (JsonIOException | IOException e) {
 				RcpPlugin.logError("Unable to save projects file"); //$NON-NLS-1$
