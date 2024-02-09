@@ -2,7 +2,7 @@
 <feature
       id="fr.adaussy.permadeler.feature"
       label="Permadeler Feature"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="Arthur Daussy"
       plugin="fr.adaussy.permadeler.branding">
 
