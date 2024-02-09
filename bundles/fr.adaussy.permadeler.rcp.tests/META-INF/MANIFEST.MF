@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Design Tests
 Bundle-SymbolicName: fr.adaussy.permadeler.rcp.tests
 Bundle-Vendor: Arthur Daussy
-Bundle-Version: 0.4.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Fragment-Host: fr.adaussy.permadeler.rcp;bundle-version="0.1.0"
 Automatic-Module-Name: fr.adaussy.permadeler.model.design.tests
 Bundle-RequiredExecutionEnvironment: JavaSE-17

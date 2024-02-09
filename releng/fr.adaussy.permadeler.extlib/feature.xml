@@ -2,7 +2,7 @@
 <feature
       id="fr.adaussy.permadeler.extlib"
       label="Permadeler Extlib"
-      version="0.4.0.qualifier">
+      version="0.5.0.qualifier">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
