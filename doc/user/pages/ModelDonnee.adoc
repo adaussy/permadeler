@@ -58,6 +58,13 @@ Pour le moment, elle n'import que:
 
 Ce travail fera l'objet d'amélioration dés qu'une API sera disponible pour importer aussi les caractéristiques de chaque espèce.
 
+._Importer > Importer une base de connaissance depuis un autre projet
+
+Cette action permet d'importer une base de connaissance depuis un autre projet Permadeler.
+
+Seules les espèces et variétés non connues sont importées.
+
+
 [#ComputedFolder]
 === Dossiers
 
@@ -75,7 +82,7 @@ Est un dossier *automatiquement calculé" qui va regrouper les plantes par strat
 
 === image:{edit-icon-path}custo/commons/group-folder.png[] Dossier utilisateur
 
-Les dossiers utilisateur permettent d'organiser des plantes en dossiers et sous dossiers d'une manière qui semble intéressante à chaque utilisateur.
+Les dossiers utilisateur permettent d'organiser des plantes en dossiers et sous-dossiers d'une manière qui semble intéressante à chaque utilisateur.
 Par exemple, pour regrouper tous les fruits rouges ou toutes les plantes que je trouve à l'état sauvage.
 Pour ajouter une plante d'un _Group_ il suffit de la déposer dans ce groupe via une action de glisser déposer.
 
@@ -92,14 +99,14 @@ Une plante est définie par:
 Elle peut aussi être utilisée dans un schéma d'implantation si le mode _icone_ est sélectionné.
 * Une représentation : Image utilisée pour la représentation en mode _houppier_ dans un schéma d'implantation.
 * Un nom court. Celui-ci sera utilisé pour générer les identifiants des plantations futures.
-* Des tags. Un tag permet d'ajouter des mots clés sur une espece ou une variétés
+* Des tags. Un tag permet d'ajouter des mots clés sur une espèce ou une variété.
 
 [#PlantGroup]
 ==== Groupe de d'especes
 
 Un _groupe de d'especes_ permet de regrouper ensemble un groupe de différentes <<Species,especes>>.
 Un groupe peut contenir des sous groupes.
-Une espece peut apparaitre dans un ou plusieur groupes.
+Une espèce peut apparaitre dans un ou plusieur groupes.
 
 Un groupe est définie par:
 
@@ -158,6 +165,14 @@ Une <<plantation>> de cette espèce pourra être affectée à une autre strate l
 
 NOTE: _Espece_ et le _Genre_ sont utilisés pour créer le nom latin complet de la plante. Celui-ci doit être unique au sein de votre base de connaissance.
 
+==== Actions
+
+.Fusionner les X plantes sélectionnées
+Cette action permet du supprimer les doublons dans une base de connaissance.
+Premierement il vous faut selectionner la plante qui sera la cible de la fusion.
+Cette action va automatiquement mettre à jours les plantations pour utilisé la plante cibles.
+Les doublons seront ensuite supprimés.
+Si certain propertiés ne sont pas définit dans la plante cible mais quelles sont définit dans les doublons celle-ci sont automatiquement ajoutés(ex: variété, strate etc...)
 
 [#Variety]
 === image:{edit-icon-path}/custo/commons/plant.png[] Varieté
@@ -230,27 +245,13 @@ Elle est définie par:
 * Un nom
 * Une description
 
-Elle contient des <<Plantation,plantations>> dans différentes <<PlantationPhase,Phase de Plantation>>.
-Votre projet peut contenir plusieurs zones.
+Elle contient des <<Plantation,plantations>> et sous <<Zone,Zone>>.
+Chaque zone contient un certain nombre de plantation mais on considère que les plantation d'une zone est la somme de toutes les plantation qu'elle contient ainsi que les plantations contenues dans ses sous zones.
 
-[#PlantationPhase]
-=== Phase de plantation
+Votre projet peut contenir plusieurs zones racines qui sont considère comme complétement indépdantes.
 
-Une phase de plantation représente l'état des <<Plantation,plantations>> d'une zone à un moment donné.
-Elle peut être utilisée pour représenter l'état d'une zone au moment présent ou l'état d'une zone à un moment précis dans le temps.
+Les plantations de chaque zone peuvent est deplacé via un simple glisser déposer ou via l'action _Déplacer vers une autre zone_.
 
-Elle est définie par:
-
-* Un nom
-* Une description
-
-[WARNING]
-====
-Pour le moment ce concept est assez peu utilisé pour représenter des variations de plantation.
-Nous recommandons de ne garder qu'une _phase de plantation_ par zone pour le moment.
-Celle-ci représentant l'état courant d'une zone.
-Dans de futures versions, nous souhaitons utiliser ce concept pour prévoir l'évolution d'une plantation.*
-====
 
 [#Plantation]
 === Plantation
