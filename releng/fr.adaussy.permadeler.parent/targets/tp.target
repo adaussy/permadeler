@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="Build target plateform" sequenceNumber="1704474643">
+<target name="Build target plateform" sequenceNumber="1722065660">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.modumind.updatemanager.feature.feature.group" version="0.0.0"/>
@@ -60,7 +60,7 @@
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.nebula.widgets.gallery.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.nebula.widgets.ganttchart.feature.feature.group" version="0.0.0"/>
-      <repository location="http://download.eclipse.org/nebula/snapshot"/>
+      <repository location="https://download.eclipse.org/nebula/releases/latest/"/>
     </location>
     <location includeDependencyDepth="direct" includeDependencyScopes="compile,test" includeSource="true" missingManifest="generate" type="Maven" label="Compile">
     <dependencies>

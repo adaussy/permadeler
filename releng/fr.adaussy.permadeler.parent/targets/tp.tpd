@@ -67,7 +67,7 @@ location Orbit-202203 "https://download.eclipse.org/tools/orbit/downloads/drops/
 	
 }
 
-location "http://download.eclipse.org/nebula/snapshot" {
+location "https://download.eclipse.org/nebula/releases/latest/" {
 	org.eclipse.nebula.widgets.gallery.feature.feature.group lazy
 	org.eclipse.nebula.widgets.ganttchart.feature.feature.group lazy
 }
