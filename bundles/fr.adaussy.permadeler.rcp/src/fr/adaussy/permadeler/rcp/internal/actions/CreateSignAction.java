@@ -93,7 +93,8 @@ public class CreateSignAction extends AbstractModelAction {
 
 		for (Plantation plantation : plantations) {
 
-			try (InputStream baseSignFile = getClass().getResourceAsStream("./BaseSign.svg")) {
+			try (InputStream baseSignFile = getClass().getClassLoader()
+					.getResourceAsStream("/ressource/BaseSign.svg")) {
 				String parser = XMLResourceDescriptor.getXMLParserClassName();
 				SAXSVGDocumentFactory f = new SAXSVGDocumentFactory(parser);
 				Document doc = f.createDocument("", baseSignFile);
