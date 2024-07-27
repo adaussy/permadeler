@@ -65,6 +65,7 @@ import fr.adaussy.permadeler.rcp.RcpPlugin;
 import fr.adaussy.permadeler.rcp.internal.actions.AddMassTagAction;
 import fr.adaussy.permadeler.rcp.internal.actions.AddToGroupAction;
 import fr.adaussy.permadeler.rcp.internal.actions.CreateChildAction;
+import fr.adaussy.permadeler.rcp.internal.actions.CreateSignAction;
 import fr.adaussy.permadeler.rcp.internal.actions.DeleteObject;
 import fr.adaussy.permadeler.rcp.internal.actions.FocusOnElementAction;
 import fr.adaussy.permadeler.rcp.internal.actions.ImportKnowledgeFromOtherProjectAction;
@@ -225,6 +226,8 @@ public class ContextualMenuFiller {
 						Collections.singletonList(type), KnowledgeViewerPart.ID));
 			}
 		}
+
+		others.add(new CreateSignAction(session, selections));
 
 		navigateAction.add(new SelectInOpenRepresentation(selections, session));
 

@@ -283,6 +283,10 @@ public class MonthService {
 			return false;
 		}
 		final List<Integer> monthsWeeks = this.getMonthsWeek(eObject, featureName);
+		return hasMonth(monthNb, monthsWeeks);
+	}
+
+	public boolean hasMonth(final int monthNb, final List<Integer> monthsWeeks) {
 		final int start = this.monthFirstWeek(monthNb);
 		final int end = this.monthLastQuater(monthNb);
 		for (final Integer i : monthsWeeks) {
